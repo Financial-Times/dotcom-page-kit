@@ -5,11 +5,7 @@ const topLevelDeps = require(path.join(process.cwd(), 'bower.json')).dependencie
 const nUtilDeps = require('./bower.json').dependencies;
 
 const dupedDeps = Object.keys(nUtilDeps)
-	.map(dep => {
-		if (topLevelDeps[dep]) {
-			return dep;
-		}
-	})
+	.map(dep => topLevelDeps[dep] && dep)
 	.filter(dep => !!dep);
 
 if (dupedDeps.length) {
@@ -20,6 +16,6 @@ There's no need to declare a direct dependency on the following:
 
 	${dupedDeps,join(', ')}
 
-You can jst require/import them as if you'd declared them as a dependency in your bower.json
+It's still safe to require/import them in your sass/js
 `)
 }
