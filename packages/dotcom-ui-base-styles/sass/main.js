@@ -39,26 +39,15 @@ module.exports = {
 	},
 	uuid: function uuid (a){return a?(a^Math.random()*16>>a/4).toString(16):([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,uuid)},
 	ascii: require('./js/to-ascii'),
-	loadScript: (src) => {
-		return new Promise((res, rej) => {
-			const script = window.ftNextLoadScript(src);
-			script.addEventListener('load', res);
-			script.addEventListener('error', rej);
-		});
-	},
-	waitForCondition: (conditionName, action) => {
-		window[`ftNext${conditionName}Loaded`] ? action() : document.addEventListener(`ftNext${conditionName}Loaded`, action)
-	},
 	broadcast: function (name, data, bubbles = true) {
 		const rootEl = Element.prototype.isPrototypeOf(this) ? this : document.body;
-		const event = (function () {
-			try {
-				return new CustomEvent(name, {bubbles: bubbles, cancelable: true, detail: data});
-			} catch (e) {
-				return CustomEvent.initCustomEvent(name, true, true, data);
-			}
-		}());
+		let event;
 
+		try {
+			event = new CustomEvent(name, {bubbles: bubbles, cancelable: true, detail: data});
+		} catch (e) {
+			event = CustomEvent.initCustomEvent(name, true, true, data);
+		}
 		rootEl.dispatchEvent(event);
 	},
 	perfMark: name => {
@@ -74,9 +63,5 @@ module.exports = {
 		const seedAsNumber = seed.split('').reduce((num, str, i) => num + Math.pow(2, i) * str.charCodeAt(0), 0);
 		return (getSpoorNumber() + seedAsNumber) % 100 < pct
 	},
-	cookieStore,
-
-	// legacy method - keeping for backwards compatibility
-	getCookieValue: cookieStore.get
-
+	cookieStore
 };
