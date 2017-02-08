@@ -1,6 +1,6 @@
 @import 'mixins';
 
-@mixin nUtilsUtil {
+@mixin nUtilClasses {
 
 	//
 	// Layout
@@ -51,19 +51,19 @@
 	//
 	// Text
 	//
-	.n-utils-text-center {
+	.n-util-text-center {
 		text-align: center;
 	}
 
-	.n-utils-text-left {
+	.n-util-text-left {
 		text-align: left;
 	}
 
-	.n-utils-text-right {
+	.n-util-text-right {
 		text-align: right;
 	}
 
-	.n-utils-truncate {
+	.n-util-truncate {
 		max-width: 100%;
 		overflow: hidden;
 		text-overflow: ellipsis;

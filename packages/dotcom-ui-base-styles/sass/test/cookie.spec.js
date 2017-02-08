@@ -2,7 +2,7 @@
 
 const cookieStore = require('../js/cookies');
 
-describe('Cookie Utils', () => {
+describe('Cookie Util', () => {
 
 	const testCookieName = 'testCookie';
 	const testCookieValue = 'test';

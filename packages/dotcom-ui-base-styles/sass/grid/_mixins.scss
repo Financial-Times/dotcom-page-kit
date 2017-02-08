@@ -1,4 +1,4 @@
-@mixin _nUtilsGridOffsetRules($layout, $mode, $columns) {
+@mixin _nUtilGridOffsetRules($layout, $mode, $columns) {
 	@if $mode == offset {
 		@include oGridOffset($columns);
 	} @else if $mode == pull {
@@ -12,7 +12,7 @@
 /// @param {Null|String} $layout-name - S to XL or null
 /// @param {Number} $columns - 1 to 12
 /// @param {String} $mode - offset, push or pull
-@mixin nUtilsGridOffset($layout-name: null, $columns: 1, $mode: offset) {
+@mixin nUtilGridOffset($layout-name: null, $columns: 1, $mode: offset) {
 	$selector: $mode + $columns;
 
 	@if $layout-name {

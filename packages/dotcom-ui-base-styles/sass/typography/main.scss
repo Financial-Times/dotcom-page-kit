@@ -15,7 +15,7 @@ $o-typography-progressive-fonts: sans, sansBold, sansData, sansDataBold, serifDi
 	@include oTypographyLinkTopic;
 }
 
-@mixin nUtilsTypography {
+@mixin nUtilTypography {
 	@include oFontsInclude(FinancierDisplayWeb);
 	@include oFontsInclude(FinancierDisplayWeb, $weight: bold);
 	@include oFontsInclude(MetricWeb);

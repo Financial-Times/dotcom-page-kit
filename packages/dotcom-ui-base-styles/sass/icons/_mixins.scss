@@ -1,4 +1,6 @@
 @mixin nGetImage($image-type, $image-name, $color: null, $container-width: 128, $container-height: null, $apply-base-styles: true, $apply-width-height: true) {
+	//TODO throw if someone's using it for icons
+
 	$url: 'https://www.ft.com/__origami/service/image/v2/images/raw/ft#{$image-type}:#{$image-name}';
 	$query: '?source=next';
 

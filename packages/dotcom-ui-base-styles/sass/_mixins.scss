@@ -1,20 +1,20 @@
 /// Stylesheet block
 /// @output Wraps the block with stylesheet start and end comments
-@mixin nUtilsStylesheet($name) {
-	@include nUtilsStylesheetStart($name);
+@mixin nUtilStylesheet($name) {
+	@include nUtilStylesheetStart($name);
 	@content;
-	@include nUtilsStylesheetEnd($name);
+	@include nUtilStylesheetEnd($name);
 }
 
 
 /// Stylesheet block start
 /// @output A stylesheet block start comment
-@mixin nUtilsStylesheetStart($name) {
+@mixin nUtilStylesheetStart($name) {
 	/*! start:#{$name}.css*/
 }
 
 /// Stylesheet block end
 /// @output A stylesheet block start comment
-@mixin nUtilsStylesheetEnd($name) {
+@mixin nUtilStylesheetEnd($name) {
 	/*! end:#{$name}.css*/
 }

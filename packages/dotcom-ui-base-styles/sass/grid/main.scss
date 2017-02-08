@@ -14,7 +14,7 @@ $o-grid-shuffle-selectors: false;
 @import 'o-grid/main';
 @import 'mixins';
 
-@mixin nUtilsGrid {
+@mixin nUtilGrid {
 
 	// scss-lint:disable NameFormat, PlaceholderInExtend
 	@include oGridSurfaceCurrentLayout;

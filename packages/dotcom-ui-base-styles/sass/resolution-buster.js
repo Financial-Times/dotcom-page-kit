@@ -2,9 +2,9 @@ const fs = require('fs');
 const path = require('path');
 
 const topLevelDeps = require(path.join(process.cwd(), 'bower.json')).dependencies;
-const nUtilsDeps = require('./bower.json').dependencies;
+const nUtilDeps = require('./bower.json').dependencies;
 
-const dupedDeps = Object.keys(nUtilsDeps)
+const dupedDeps = Object.keys(nUtilDeps)
 	.map(dep => {
 		if (topLevelDeps[dep]) {
 			return dep;
@@ -14,7 +14,7 @@ const dupedDeps = Object.keys(nUtilsDeps)
 
 if (dupedDeps.length) {
 	console.warn(`\
-You have declared dependencies that n-utils takes care of for you.
+You have declared dependencies that n-util takes care of for you.
 Declaring a direct dependency will make it harder to resolve dependencies in future
 There's no need to declare a direct dependency on the following:
 

@@ -1,4 +1,4 @@
-# Utils
+# Util
 
 CSS and JS utilities for next
 
@@ -37,16 +37,16 @@ Hide an element but ensure it is still accessible by assistive devices.
 
 #### Text
 
-##### `.n-utils-text-center`
+##### `.n-util-text-center`
 Center align text.
 
-##### `.n-utils-text-left`
+##### `.n-util-text-left`
 Left align text.
 
-##### `.n-utils-text-right`
+##### `.n-util-text-right`
 Right align text.
 
-##### `.n-utils-truncate`
+##### `.n-util-truncate`
 Truncate text to a single line.
 
 ### JS
@@ -54,7 +54,7 @@ Truncate text to a single line.
 This module is bundled not bundled by default.
 
 ```js
-const utils = require('n-ui/utils');
+const util = require('n-ui/util');
 ```
 
 #### `$(sel, [context])`
@@ -73,7 +73,7 @@ Creates a debounced copy of a function
 
 Contain useful methods for working with cookies.
 
-    const cookieStore = require('n-ui/utils/').cookieStore;
+    const cookieStore = require('n-util').cookieStore;
     
 #### `get(name)`
 Get the value of the given cookie
