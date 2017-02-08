@@ -1,0 +1,43 @@
+////
+/// @group n-ui utility mixins
+////
+
+/// Basis of n-ui z-indexes
+/// @type Number
+$n-ui-z-index-basis: 100;
+
+/// Ordered list of z-indexes use cases
+/// @type List
+$n-ui-z-index-order: (
+	'welcome',
+	'meganav',
+	'sticky-header',
+	'drawer',
+	'typeahead',
+	'overlay',
+	'notification'
+);
+
+@mixin nUtilZIndexFor($use-case) {
+	$index: index($n-ui-z-index-order, $use-case);
+
+	@if $index {
+		z-index: $n-ui-z-index-basis + $index !important;
+	} @else {
+		@warn 'z-index for use case "#{$use-case}" not found.';
+	}
+}
+
+@mixin clearfix() {
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+
+	&:after {
+		clear: both;
+	}
+
+	*zoom: 1;
+}

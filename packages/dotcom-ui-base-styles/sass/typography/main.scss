@@ -1,0 +1,40 @@
+$o-fonts-path: 'https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.0/';
+// TODO - once o-typography lets us control font loading in non-silent mode we should unsilence it
+$o-typography-progressive-fonts: sans, sansBold, sansData, sansDataBold, serifDisplay, serifDisplayBold;
+
+@import 'o-fonts/main';
+@import 'o-typography/main';
+
+@mixin nLinksBody() {
+	@warn "nLinksBody is no more. Use oTypographyLink. If you need the 'inverse' variant ask origami nicely or roll your own (or both)"
+	@include oTypographyLink;
+}
+
+@mixin nLinksTopic() {
+	@warn "nLinksTopic is no more. Use oTypographyLinkTopic"
+	@include oTypographyLinkTopic;
+}
+
+@mixin nUtilsTypography () {
+	@include oFontsInclude(FinancierDisplayWeb);
+	@include oFontsInclude(FinancierDisplayWeb, $weight: bold);
+	@include oFontsInclude(MetricWeb);
+	@include oFontsInclude(MetricWeb, $weight: semibold);
+
+	html {
+		//TODO - move elsewhere??
+		@include oColorsFor(page);
+		font-family: sans-serif;
+		font-size: 0.8125em;
+
+		// scss-lint:disable SelectorFormat
+		&.o-typography--loaded-sansData {
+			font-family: $o-typography-sans;
+			font-size: initial;
+		}
+	}
+
+	a {
+		@include oTypographyLink;
+	}
+}

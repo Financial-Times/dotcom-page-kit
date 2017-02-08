@@ -1,0 +1,33 @@
+/*
+
+This includes all the basic origami styles and mixins you can
+expect to be available when a page uses n-ui
+
+*/
+
+// Base unit to standardize spacing
+// Decide where it's gonna live later
+$spacing-unit: 16px;
+
+$o-assets-global-path: 'https://www.ft.com/__origami/service/build/v2/files/';
+
+@import '_sass-utils/main';
+
+// primitives
+@import 'colors/main';
+@import 'grid/main';
+@import 'icons/main';
+@import 'normalize/main';
+@import 'typography/main';
+@import 'utils/main';
+
+//components
+@import 'buttons/main';
+
+
+$n-utils-is-silent: true !default;
+
+
+@if $n-utils-is-silent == false {
+	@include nUtilsTypography()
+}

@@ -1,0 +1,78 @@
+@include nUiCriticalStart('core');
+
+@import 'mixins';
+
+@if nUiApply('utils') {
+
+	//
+	// Layout
+	//
+	.n-util-clearfix {
+		@include clearfix();
+	}
+
+	//
+	// Display
+	//
+	.n-util-hide {
+		display: none;
+	}
+
+	@media screen {
+		// scss-lint:disable SelectorFormat
+		.n-util-hide\@screen {
+			display: none;
+		}
+	}
+
+	@media print {
+		// scss-lint:disable SelectorFormat
+		.n-util-hide\@print {
+			display: none;
+		}
+	}
+
+	.n-util-visually-hidden {
+		position: absolute;
+		margin: -1px;
+		border: 0;
+		overflow: hidden;
+		padding: 0;
+		width: 0;
+		height: 0;
+		white-space: nowrap;
+	}
+
+	.no-js .n-util-hide-no-js,
+	.js .n-util-hide-js,
+	.core .n-util-hide-core,
+	.enhanced .n-util-hide-enhanced {
+		display: none;
+	}
+
+	//
+	// Text
+	//
+	.n-utils-text-center {
+		text-align: center;
+	}
+
+	.n-utils-text-left {
+		text-align: left;
+	}
+
+	.n-utils-text-right {
+		text-align: right;
+	}
+
+	.n-utils-truncate {
+		max-width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		word-wrap: normal;
+	}
+
+}
+
+@include nUiCriticalEnd('core');

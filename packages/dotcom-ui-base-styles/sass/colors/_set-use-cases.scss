@@ -1,0 +1,72 @@
+@include oColorsSetColor('claret-inverse', #ff7f8a);
+@include oColorsSetColor('fastft-brand', #cf191d);
+@include oColorsSetColor('fastft-highlight', #f5dfd9);
+
+// TODO: remove this once we've stopped using link-1 everywhere
+@include oColorsSetColor('link-1', getColor('teal-1'));
+@include oColorsSetColor('link-2', getColor('teal-2'));
+
+// Article theme colors
+@include oColorsSetUseCase(article-standard, border, 'cold-2');
+@include oColorsSetUseCase(article-standard, text, 'cold-2');
+@include oColorsSetUseCase(article-standard, background, 'cold-2');
+@include oColorsSetUseCase(article-analysis, border, 'cold-2');
+@include oColorsSetUseCase(article-analysis, text, 'cold-2');
+@include oColorsSetUseCase(article-analysis, background, 'cold-2');
+@include oColorsSetUseCase(article-comment, border, 'blue-1');
+@include oColorsSetUseCase(article-comment, text, 'blue-1');
+@include oColorsSetUseCase(article-comment, background, 'blue-1');
+@include oColorsSetUseCase(article-lifestyle, border, 'purple-1');
+@include oColorsSetUseCase(article-lifestyle, text, 'purple-1');
+@include oColorsSetUseCase(article-lifestyle, background, 'purple-1');
+
+// Lists
+@include oColorsSetUseCase(n-lists, background, 'transparent');
+@include oColorsSetUseCase(n-lists, border, 'black');
+@include oColorsSetUseCase(n-lists-hover, border, 'black');
+@include oColorsSetUseCase(n-lists-hover, background, 'warm-3');
+@include oColorsSetUseCase(n-lists-inversed, background, 'cold-2');
+@include oColorsSetUseCase(n-lists-inversed, border, 'white');
+@include oColorsSetUseCase(n-lists-inversed-hover, border, 'white');
+@include oColorsSetUseCase(n-lists-inversed-hover, background, 'white');
+@include oColorsSetUseCase(n-lists-top-level, background, 'cold-2');
+@include oColorsSetUseCase(n-lists-top-level, text, 'white');
+@include oColorsSetUseCase(n-lists-top-level, border, 'white');
+@include oColorsSetUseCase(n-lists-top-level-hover, border, 'white');
+@include oColorsSetUseCase(n-lists-top-level-hover, background, 'white');
+
+@include oColorsSetUseCase(n-lists-links, background, 'transparent');
+@include oColorsSetUseCase(n-lists-links, border, 'black');
+@include oColorsSetUseCase(n-lists-links-hover, border, 'black');
+@include oColorsSetUseCase(n-lists-links-hover, background, 'warm-3');
+@include oColorsSetUseCase(n-lists-links-inversed, background, 'cold-2');
+@include oColorsSetUseCase(n-lists-links-inversed, border, 'white');
+@include oColorsSetUseCase(n-lists-links-inversed-hover, border, 'white');
+@include oColorsSetUseCase(n-lists-links-inversed-hover, background, 'white');
+
+// Topics
+@include oColorsSetUseCase(topic, text, 'claret');
+@include oColorsSetUseCase(topic-inversed, text, 'claret-inverse');
+@include oColorsSetUseCase(topic-block, background, 'claret');
+@include oColorsSetUseCase(topic-block, text, 'white');
+@include oColorsSetUseCase(myft, all, 'claret');
+
+@include oColorsSetUseCase(link, text, 'teal-1');
+@include oColorsSetUseCase(link-hover, text, 'cold-1');
+
+@include oColorsSetUseCase(link-inversed, text, 'teal-2');
+@include oColorsSetUseCase(link-inversed-hover, text, 'warm-2');
+
+// Page
+@include oColorsSetUseCase(page, background, 'pink');
+@include oColorsSetUseCase(page, text, 'cold-2');
+
+// Card
+@include oColorsSetUseCase(card, background, 'pink');
+@include oColorsSetUseCase(card, border, 'warm-3');
+
+@include oColorsSetUseCase(timestamp, text, 'warm-6');
+
+@include oColorsSetUseCase(fast-ft, text, 'fastft-brand');
+@include oColorsSetUseCase(fast-ft, border, 'fastft-brand');
+@include oColorsSetUseCase(fast-ft, background, 'fastft-highlight');

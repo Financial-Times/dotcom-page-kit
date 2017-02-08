@@ -1,0 +1,7 @@
+@function getColor($args...) {
+	@return oColorsGetPaletteColor($args...);
+}
+
+@function getColorFor($args...) {
+	@return oColorsGetColorFor($args...);
+}
