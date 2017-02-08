@@ -1,8 +1,6 @@
-@include nUiCriticalStart('core');
-
 @import 'mixins';
 
-@if nUiApply('utils') {
+@mixin nUtilsUtil {
 
 	//
 	// Layout
@@ -74,5 +72,3 @@
 	}
 
 }
-
-@include nUiCriticalEnd('core');

@@ -1,6 +1,4 @@
-@include nUiCriticalStart('core');
-
-@if nUiApply('normalize') {
+@mixin nUtilsNormalize {
 
 	/**
 	* Prevent adjustments of font size after orientation changes in IE and iOS.
@@ -238,5 +236,3 @@
 	}
 
 }
-
-@include nUiCriticalEnd('core');

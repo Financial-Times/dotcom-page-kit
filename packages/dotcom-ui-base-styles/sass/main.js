@@ -1,61 +1,82 @@
-// to avoid race conditions relating to Symbol polyfills
-import 'babel-polyfill-silencer';
-export {bootstrap, configure} from './js-setup';
+const cookieStore = require('./js/cookies');
 
-// Expose entry points to shared bundle
-import ads from './ads';
-export const _ads = ads;
-import tracking from './tracking';
-export const _tracking = tracking;
-import date from './date';
-export const _date = date;
-import header from './header';
-export const _header = header;
-import cookieMessage from './cookie-message';
-export const _cookieMessage = cookieMessage;
-import welcomeMessage from './welcome-message';
-export const _welcomeMessage = welcomeMessage;
-import footer from './footer';
-export const _footer = footer;
-import myft from './myft';
-export const _myft = myft;
-import myftDigestPromo from './myft-digest-promo';
-export const _myftDigestPromo = myftDigestPromo;
-import myftHint from './myft-hint';
-export const _myftHint = myftHint;
-import typeahead from './typeahead';
-export const _typeahead = typeahead;
-import utils from './utils';
-export const _utils = utils;
-import notification from './notification';
-export const _notification = notification;
-import expander from './expander';
-export const _expander = expander;
-import grid from 'o-grid';
-export const _grid = grid;
-import overlay from './overlay';
-export const _overlay = overlay;
-import viewport from './viewport';
-export const _viewport = viewport;
-import video from 'o-video';
-export const _video = video;
-import * as image from 'n-image';
-export const _image = image;
-import * as subscriptionOfferPrompt from './subscription-offer-prompt';
-export const _subscriptionOfferPrompt = subscriptionOfferPrompt;
-import * as tooltip from './tooltip';
-export const _tooltip = tooltip;
-import * as syndication from './syndication';
-export const _syndication = syndication;
+const getSpoorNumber = () => {
+	let spoorId = cookieStore.get('spoor-id').replace(/-/g, '');
+	spoorId = spoorId.substring(spoorId.length - 12, spoorId.length); // Don't overflow the int
+	return parseInt(spoorId, 16);
+}
 
-// Export some third party components we're unlikely to remove in a hurry
-import ftdomdelegate from 'ftdomdelegate';
-export const _ftdomdelegate = ftdomdelegate;
-import superstore from 'superstore';
-export const _superstore = superstore;
-import superstoreSync from 'superstore-sync';
-export const _superstoreSync = superstoreSync;
-import React from 'react';
-export const _React = React;
-import ReactDom from 'react-dom';
-export const _ReactDom = ReactDom;
+module.exports = {
+	$: function (sel, ctx) { return (ctx || document).querySelector(sel) },
+	$$: function (sel, ctx) { return [].slice.call((ctx || document).querySelectorAll(sel))},
+	debounce: function (func, wait) {
+		let timeout;
+		return function () {
+			const args = arguments;
+			const later = () => {
+				timeout = null;
+				func.apply(this, args);
+			};
+			clearTimeout(timeout);
+			timeout = setTimeout(later, wait);
+		};
+	},
+
+	throttle: function (func, wait) {
+		let timeout;
+		return function () {
+			if (timeout) {
+				return;
+			}
+			const args = arguments;
+			const later = () => {
+				timeout = null;
+				func.apply(this, args);
+			};
+
+			timeout = setTimeout(later, wait);
+		};
+	},
+	uuid: function uuid (a){return a?(a^Math.random()*16>>a/4).toString(16):([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,uuid)},
+	ascii: require('./js/to-ascii'),
+	loadScript: (src) => {
+		return new Promise((res, rej) => {
+			const script = window.ftNextLoadScript(src);
+			script.addEventListener('load', res);
+			script.addEventListener('error', rej);
+		});
+	},
+	waitForCondition: (conditionName, action) => {
+		window[`ftNext${conditionName}Loaded`] ? action() : document.addEventListener(`ftNext${conditionName}Loaded`, action)
+	},
+	broadcast: function (name, data, bubbles = true) {
+		const rootEl = Element.prototype.isPrototypeOf(this) ? this : document.body;
+		const event = (function () {
+			try {
+				return new CustomEvent(name, {bubbles: bubbles, cancelable: true, detail: data});
+			} catch (e) {
+				return CustomEvent.initCustomEvent(name, true, true, data);
+			}
+		}());
+
+		rootEl.dispatchEvent(event);
+	},
+	perfMark: name => {
+		const performance = window.LUX || window.performance || window.msPerformance || window.webkitPerformance || window.mozPerformance;
+		if (performance && performance.mark) {
+			performance.mark(name);
+		}
+	},
+	sampleUsers: (pct, seed) => {
+		if (!seed) {
+			throw new Error('sampleUsers needs a seed string to be passed in as the second parameter')
+		}
+		const seedAsNumber = seed.split('').reduce((num, str, i) => num + Math.pow(2, i) * str.charCodeAt(0), 0);
+		return (getSpoorNumber() + seedAsNumber) % 100 < pct
+	},
+	cookieStore,
+
+	// legacy method - keeping for backwards compatibility
+	getCookieValue: cookieStore.get
+
+};

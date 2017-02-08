@@ -11,23 +11,25 @@ $spacing-unit: 16px;
 
 $o-assets-global-path: 'https://www.ft.com/__origami/service/build/v2/files/';
 
-@import '_sass-utils/main';
+@import 'mixins';
 
 // primitives
 @import 'colors/main';
+@import 'normalize/main';
 @import 'grid/main';
 @import 'icons/main';
-@import 'normalize/main';
 @import 'typography/main';
 @import 'utils/main';
 
-//components
-@import 'buttons/main';
-
-
 $n-utils-is-silent: true !default;
-
+$n-utils-applied: false !default;
 
 @if $n-utils-is-silent == false {
-	@include nUtilsTypography()
+	@if $n-utils-applied == false {
+		$n-utils-applied: true;
+		@include nUtilsNormalize
+		@include nUtilsGrid
+		@include nUtilsTypography
+		@include nUtilsUtil
+	}
 }

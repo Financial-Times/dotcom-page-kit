@@ -1,11 +1,9 @@
-// scss-lint:disable PlaceholderInExtend, NameFormat
-@include nUiCriticalStart('core');
-
 // Set gutters to be slightly smaller than the default on larger screens
 $o-grid-gutters: (
 	default: 10px,
 	M:       16px
 );
+
 $o-grid-ie8-rules: none !default;
 $o-grid-mode: snappy !default;
 
@@ -16,11 +14,11 @@ $o-grid-shuffle-selectors: false;
 @import 'o-grid/main';
 @import 'mixins';
 
-@if nUiApply('grid') {
+@mixin nUtilsGrid {
 
 	// scss-lint:disable NameFormat, PlaceholderInExtend
-	@include oGridSurfaceCurrentLayout();
-	@include oGridGenerate();
+	@include oGridSurfaceCurrentLayout;
+	@include oGridGenerate;
 
 	// As they're quite widely used output the 'hide' selectors
 	// TODO: (for now, eventually should remove in v2 and go through the site changing them all to 0)
@@ -38,7 +36,4 @@ $o-grid-shuffle-selectors: false;
 	[data-o-grid-colspan~="center"] {
 		@include oGridCenter;
 	}
-
 }
-
-@include nUiCriticalEnd('core');

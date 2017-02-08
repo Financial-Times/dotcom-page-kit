@@ -1,32 +1,3 @@
-@mixin nextIcon($icon-name, $color: null, $size: 20, $icon-only: false) {
-	@warn '`nextIcon` is deprecated, use `oIconsGetIcon` or `nGetImage` instead';
-	@if ($icon-only == false) {
-		display: inline-block;
-		width: $size + 0px;
-		height: $size + 0px;
-	}
-
-	$service-url: 'https://www.ft.com/__origami/service/image/v2/images/raw/';
-	$icon-url: 'http%3A%2F%2Fwww.ft.com%2F__assets%2Fcreatives%2Ficons%2F#{$icon-name}.svg';
-	$query: '?source=next';
-
-	@if $color != null {
-		$color: toHex($color);
-		$query: $query + '&tint=%23#{$color},%23#{$color}';
-	}
-
-	background-image: url($service-url + $icon-url + $query + '&format=svg');
-	// ie7/8 fallback
-	background-image: url($service-url + $icon-url + $query + '&format=png&width=#{$size}')\9;
-
-	@if ($icon-only == false) {
-		background-repeat: no-repeat;
-		background-size: contain;
-		background-position: 50%;
-		background-color: transparent;
-	}
-}
-
 @mixin nGetImage($image-type, $image-name, $color: null, $container-width: 128, $container-height: null, $apply-base-styles: true, $apply-width-height: true) {
 	$url: 'https://www.ft.com/__origami/service/image/v2/images/raw/ft#{$image-type}:#{$image-name}';
 	$query: '?source=next';

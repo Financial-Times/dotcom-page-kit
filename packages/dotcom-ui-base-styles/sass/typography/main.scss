@@ -5,22 +5,21 @@ $o-typography-progressive-fonts: sans, sansBold, sansData, sansDataBold, serifDi
 @import 'o-fonts/main';
 @import 'o-typography/main';
 
-@mixin nLinksBody() {
+@mixin nLinksBody {
 	@warn "nLinksBody is no more. Use oTypographyLink. If you need the 'inverse' variant ask origami nicely or roll your own (or both)"
 	@include oTypographyLink;
 }
 
-@mixin nLinksTopic() {
+@mixin nLinksTopic {
 	@warn "nLinksTopic is no more. Use oTypographyLinkTopic"
 	@include oTypographyLinkTopic;
 }
 
-@mixin nUtilsTypography () {
+@mixin nUtilsTypography {
 	@include oFontsInclude(FinancierDisplayWeb);
 	@include oFontsInclude(FinancierDisplayWeb, $weight: bold);
 	@include oFontsInclude(MetricWeb);
 	@include oFontsInclude(MetricWeb, $weight: semibold);
-
 	html {
 		//TODO - move elsewhere??
 		@include oColorsFor(page);
