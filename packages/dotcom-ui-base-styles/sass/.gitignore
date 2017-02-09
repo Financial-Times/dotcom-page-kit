@@ -1,1 +1,4 @@
 bower_components
+.eslintrc.js
+.editorconfig
+.scss-lint.yml

@@ -6,7 +6,7 @@ $o-typography-progressive-fonts: sans, sansBold, sansData, sansDataBold, serifDi
 @import 'o-typography/main';
 
 @mixin nLinksBody {
-	@warn "nLinksBody is no more. Use oTypographyLink. If you need the 'inverse' variant ask origami nicely or roll your own (or both)"
+	@warn "nLinksBody is no more. Use oTypographyLink. If you need the 'inverse' variant ask origami nicely or roll your own (or both)";
 	@include oTypographyLink;
 }
 
