@@ -1,6 +1,6 @@
 # Util
 
-CSS and JS utilities for next
+CSS and JS ui-foundationsities for next
 
 ## Usage
 
@@ -54,7 +54,7 @@ Truncate text to a single line.
 This module is bundled not bundled by default.
 
 ```js
-const util = require('n-ui/util');
+const ui-foundations = require('n-ui/ui-foundations');
 ```
 
 #### `$(sel, [context])`
@@ -73,8 +73,8 @@ Creates a debounced copy of a function
 
 Contain useful methods for working with cookies.
 
-    const cookieStore = require('n-util').cookieStore;
-    
+    const cookieStore = require('n-ui-foundations').cookieStore;
+
 #### `get(name)`
 Get the value of the given cookie
 

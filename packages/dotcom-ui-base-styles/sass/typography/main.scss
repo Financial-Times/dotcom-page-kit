@@ -11,11 +11,30 @@ $o-typography-progressive-fonts: sans, sansBold, sansData, sansDataBold, serifDi
 }
 
 @mixin nLinksTopic {
-	@warn "nLinksTopic is no more. Use oTypographyLinkTopic"
-	@include oTypographyLinkTopic;
+	@if ($inversed) {
+		@include oColorsFor(topic-inversed, text);
+	} @else {
+		@include oColorsFor(topic, text);
+	}
+	@include oTypographySansBold('s', $load-progressively: true);
+	border-bottom-color: transparent;
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		@if ($inversed) {
+			border-bottom-color: lighten(getColorFor(topic-inversed, text), 5%);
+			color: lighten(getColorFor(topic-inversed, text), 5%);
+		} @else {
+			border-bottom-color: darken(getColorFor(topic, text), 20%);
+			color: darken(getColorFor(topic, text), 20%);
+		}
+		border-bottom-style: dotted;
+		border-bottom-width: 1px;
+	}
 }
 
-@mixin nUtilTypography {
+@mixin nUiTypography {
 	@include oFontsInclude(FinancierDisplayWeb);
 	@include oFontsInclude(FinancierDisplayWeb, $weight: bold);
 	@include oFontsInclude(MetricWeb);

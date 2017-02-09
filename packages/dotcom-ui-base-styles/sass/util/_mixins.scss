@@ -1,5 +1,5 @@
 ////
-/// @group n-ui utility mixins
+/// @group n-ui ui-foundationsity mixins
 ////
 
 /// Basis of n-ui z-indexes
@@ -18,7 +18,7 @@ $n-ui-z-index-order: (
 	'notification'
 );
 
-@mixin nUtilZIndexFor($use-case) {
+@mixin nUiZIndexFor($use-case) {
 	$index: index($n-ui-z-index-order, $use-case);
 
 	@if $index {
