@@ -19,17 +19,17 @@ $o-assets-global-path: 'https://www.ft.com/__origami/service/build/v2/files/';
 @import 'grid/main';
 @import 'icons/main';
 @import 'typography/main';
-@import 'util/main';
+@import 'ui-foundations/main';
 
-$n-util-is-silent: true !default;
-$n-util-applied: false !default;
+$n-ui-foundations-is-silent: true !default;
+$n-ui-foundations-applied: false !default;
 
-@if $n-util-is-silent == false {
-	@if $n-util-applied == false {
-		$n-util-applied: true;
-		@include nUtilNormalize
-		@include nUtilGrid
-		@include nUtilTypography
-		@include nUtilClasses
+@if $n-ui-foundations-is-silent == false {
+	@if $n-ui-foundations-applied == false {
+		$n-ui-foundations-applied: true;
+		@include nUiNormalize
+		@include nUiGrid
+		@include nUiTypography
+		@include nUiUtil
 	}
 }

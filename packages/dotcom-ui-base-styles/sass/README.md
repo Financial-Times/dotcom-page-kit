@@ -1,2 +1,2 @@
-# n-util
-Sass and js utilities for the next front-end
+# n-ui-foundations
+Sass and js foundations and utilties for the next front-end
