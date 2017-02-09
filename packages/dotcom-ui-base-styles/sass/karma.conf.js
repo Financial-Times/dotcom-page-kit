@@ -48,8 +48,11 @@ module.exports = function (karma) {
 						],
 						query: {
 							cacheDirectory: true,
-							presets: ['es2015', 'react'],
-							plugins: [['add-module-exports', {loose: true}], ['transform-es2015-classes', { loose: true }]]
+							presets: ['es2015'],
+							plugins: [
+								['add-module-exports', {loose: true}],
+								['transform-es2015-classes', { loose: true }]
+							]
 						}
 					},
 					// set 'this' scope to window
@@ -63,11 +66,6 @@ module.exports = function (karma) {
 				new BowerWebpackPlugin({ includes: /\.js$/ }),
 			],
 			resolve: {
-				alias: {
-					'react': 'preact-compat',
-					'react-dom': 'preact-compat',
-					'n-ui/utils': require.resolve('./utils')
-				},
 				root: [
 					path.join(__dirname, 'bower_components'),
 					path.join(__dirname, 'node_modules')
