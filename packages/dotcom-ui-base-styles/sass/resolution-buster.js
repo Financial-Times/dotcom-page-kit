@@ -1,4 +1,4 @@
-const fs = require('fs');
+/*eslint no-console: 0*/
 const path = require('path');
 
 const topLevelDeps = require(path.join(process.cwd(), 'bower.json')).dependencies;
@@ -14,7 +14,7 @@ You have declared dependencies that n-ui-foundations takes care of for you.
 Declaring a direct dependency will make it harder to resolve dependencies in future
 There's no need to declare a direct dependency on the following:
 
-	${dupedDeps,join(', ')}
+	${dupedDeps.join(', ')}
 
 It's still safe to require/import them in your sass/js
 `)
