@@ -21,6 +21,8 @@
     "o-colors": "^3.6.0",
     "o-buttons": "^4.5.3",
     "o-visual-effects": ">=0.1.0 < 2.0.0",
-    "ftdomdelegate": "^2.0.0"
+    "ftdomdelegate": "^2.0.0",
+    "superstore": "^2.1.0",
+    "superstore-sync": "^2.1.1"
   }
 }
