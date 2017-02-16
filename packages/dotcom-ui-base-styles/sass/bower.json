@@ -13,14 +13,13 @@
     "tests"
   ],
   "dependencies": {
-    "o-viewport": "~3.1.0",
-    "o-grid": "~4.3.1",
-    "o-typography": "~4.3.2",
-    "o-icons": "~5.2.2",
-    "o-date": "~2.8.0",
-    "o-colors": "~3.6.0",
-    "o-buttons": "~4.5.3",
-    "ftdomdelegate": "~2.1.0",
-    "o-assets": "~3.0.2"
+    "o-viewport": "^3.1.0",
+    "o-grid": "^4.3.1",
+    "o-typography": "^4.3.2",
+    "o-icons": "^5.2.2",
+    "o-date": "^2.8.0",
+    "o-colors": "^3.6.0",
+    "o-buttons": "^4.5.3",
+    "ftdomdelegate": "^2.0.0"
   }
 }
