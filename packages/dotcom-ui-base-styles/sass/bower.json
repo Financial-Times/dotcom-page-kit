@@ -20,6 +20,7 @@
     "o-date": "^2.8.0",
     "o-colors": "^3.6.0",
     "o-buttons": "^4.5.3",
+    "o-visual-effects": ">=0.1.0 < 2.0.0",
     "ftdomdelegate": "^2.0.0"
   }
 }
