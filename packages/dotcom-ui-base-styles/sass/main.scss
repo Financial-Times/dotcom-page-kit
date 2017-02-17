@@ -22,15 +22,20 @@ $o-assets-global-path: 'https://www.ft.com/__origami/service/build/v2/files/';
 @import 'util/main';
 @import 'o-visual-effects/main';
 
+
+@mixin nUiFoundations {
+	@include nUiNormalize;
+	@include nUiGrid;
+	@include nUiTypography;
+	@include nUiUtil;
+}
+
 $n-ui-foundations-is-silent: true !default;
 $n-ui-foundations-applied: false !default;
 
 @if $n-ui-foundations-is-silent == false {
 	@if $n-ui-foundations-applied == false {
 		$n-ui-foundations-applied: true;
-		@include nUiNormalize;
-		@include nUiGrid;
-		@include nUiTypography;
-		@include nUiUtil;
+		@include nUiFoundations;
 	}
 }
