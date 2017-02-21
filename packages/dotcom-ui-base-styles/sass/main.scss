@@ -32,6 +32,12 @@ $o-assets-global-path: 'https://www.ft.com/__origami/service/build/v2/files/';
 
 $n-ui-foundations-applied: false !default;
 
+// backwards compatible. This enables us to roll n-ui-foundations out to
+// components without risk of outputting o-grid etc. twice in apps
+@if variable-exists('n-ui-configured') {
+	$n-ui-foundations-applied: true;
+}
+
 @if $n-ui-foundations-applied == false {
 	$n-ui-foundations-applied: true;
 	@include nUiFoundations;
