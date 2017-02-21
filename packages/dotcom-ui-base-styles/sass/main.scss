@@ -30,12 +30,9 @@ $o-assets-global-path: 'https://www.ft.com/__origami/service/build/v2/files/';
 	@include nUiUtil;
 }
 
-$n-ui-foundations-is-silent: true !default;
 $n-ui-foundations-applied: false !default;
 
-@if $n-ui-foundations-is-silent == false {
-	@if $n-ui-foundations-applied == false {
-		$n-ui-foundations-applied: true;
-		@include nUiFoundations;
-	}
+@if $n-ui-foundations-applied == false {
+	$n-ui-foundations-applied: true;
+	@include nUiFoundations;
 }
