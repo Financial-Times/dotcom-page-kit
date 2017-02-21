@@ -10,7 +10,7 @@ $o-typography-progressive-fonts: sans, sansBold, sansData, sansDataBold, serifDi
 	@include oTypographyLink;
 }
 
-@mixin nLinksTopic {
+@mixin nLinksTopic ($inversed: null){
 	@if ($inversed) {
 		@include oColorsFor(topic-inversed, text);
 	} @else {
