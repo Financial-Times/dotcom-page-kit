@@ -1,5 +1,5 @@
 # n-ui-foundations
-Sass and js foundations and utilties for the next front-end
+Sass and js foundations and utilties for the next front-end. For templates and app bootstrapping see https://github.com/Financial-Times/n-ui
 
 ## Sass
 ```
