@@ -12,6 +12,7 @@ Use
 - `nUiStylesheetStart('stylesheet-name')`
 - `nUiStylesheetEnd('stylesheet-name')`
 - `nUiStylesheet('stylesheet-name') {}`
+
 These insert comments that, when built with `n-ui`'s build tools, will split your stylesheet into multiple sub stylesheets. Can be used for critical css (e.g. use `head-main` as the stylesheet name for the same effect as `n-ui@3`'s `nUiCritical()` mixin)
 
 ### Caveats and customisations
