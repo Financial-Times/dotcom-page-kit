@@ -13,7 +13,7 @@ Use
 - `nUiStylesheetEnd('stylesheet-name')`
 - `nUiStylesheet('stylesheet-name') {}`
 
-These insert comments that, when built with `n-ui`'s build tools, will split your stylesheet into multiple sub stylesheets. Can be used for critical css (e.g. use `head-main` as the stylesheet name for the same effect as `n-ui@3`'s `nUiCritical()` mixin)
+These insert comments that, when built with `n-ui`'s build tools, will split your stylesheet into multiple sub stylesheets. Can be used for critical css (e.g. use `head` as the stylesheet name for the same effect as `n-ui@3`'s `nUiCritical()` mixin)
 
 ### Caveats and customisations
 
@@ -56,25 +56,21 @@ Loads fonts (using o-typography's progressive fonts).
 
 Includes one mixin `nLinksTopic($inversed: null)` for generating styles for topics
 
-## JS
-
 ### JS
 
 ```js
 require('n-ui-foundations');
 ```
 
-#### `$(sel, [context])`
-Equivalent to `context.querySelector(sel)` (`context` defaults to `document`)
-
-#### `$$(sel, [context])`
-Equivalent to `Array.from(context.querySelectorAll(sel))` (`context` defaults to `document`)
-
-#### `throttle(func, wait)`
-Creates a throttled copy of a function
-
-#### `debounce(func, wait)`
-Creates a debounced copy of a function
+- `$(sel, [context])` Equivalent to `context.querySelector(sel)` (`context` defaults to `document`)
+- `$$(sel, [context])` Equivalent to `Array.from(context.querySelectorAll(sel))` (`context` defaults to `document`)
+- `throttle(func, wait)` Creates a throttled copy of a function
+- `debounce(func, wait)` Creates a debounced copy of a function
+- `uuid()` - uuid generator
+- `ascii(str)` converts non-ascii unicode characters to ascii equivalents
+- `broadcast(name, data, bubbles = true)` fires a custom event. Event is fired on `document.body` by default but if called with the context of a `HtmlElement` will be fired on that
+- `perfMark(name)` - log a performance mark
+- `sampleUsers(pct, seed)` - select a % of users to target behaviour at (returns `Bool`)
 
 ### CookieStore
 
