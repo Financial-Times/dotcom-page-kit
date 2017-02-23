@@ -41,3 +41,14 @@ $n-ui-z-index-order: (
 
 	*zoom: 1;
 }
+
+@mixin nUtilsVisuallyHidden {
+	position: absolute;
+	margin: -1px;
+	border: 0;
+	overflow: hidden;
+	padding: 0;
+	width: 0;
+	height: 0;
+	white-space: nowrap;
+}
