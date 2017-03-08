@@ -64,4 +64,13 @@
 		word-wrap: normal;
 	}
 
+	.has-tabbed {
+		a:focus,
+		button:focus,
+		input:focus,
+		select:focus {
+			box-shadow: 0 0 0 4px getColor('claret') !important;
+		}
+	}
+
 }
