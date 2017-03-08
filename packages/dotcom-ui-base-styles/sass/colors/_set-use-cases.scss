@@ -35,15 +35,6 @@
 @include oColorsSetUseCase(n-lists-top-level-hover, border, 'white');
 @include oColorsSetUseCase(n-lists-top-level-hover, background, 'white');
 
-@include oColorsSetUseCase(n-lists-links, background, 'transparent');
-@include oColorsSetUseCase(n-lists-links, border, 'black');
-@include oColorsSetUseCase(n-lists-links-hover, border, 'black');
-@include oColorsSetUseCase(n-lists-links-hover, background, 'warm-3');
-@include oColorsSetUseCase(n-lists-links-inversed, background, 'cold-2');
-@include oColorsSetUseCase(n-lists-links-inversed, border, 'white');
-@include oColorsSetUseCase(n-lists-links-inversed-hover, border, 'white');
-@include oColorsSetUseCase(n-lists-links-inversed-hover, background, 'white');
-
 // Topics
 @include oColorsSetUseCase(topic, text, 'claret');
 @include oColorsSetUseCase(topic-inversed, text, 'claret-inverse');
