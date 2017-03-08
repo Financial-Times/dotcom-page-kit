@@ -52,7 +52,16 @@ $o-typography-progressive-fonts: sans, sansBold, sansData, sansDataBold, serifDi
 		}
 	}
 
+	// cannot use oTypographyLink because it will make an ".o-hoverable-on a" class which will override BEM styles
 	a {
-		@include oTypographyLink;
+		@include oColorsFor(link, text);
+		text-decoration: none;
+		cursor: pointer;
+		border-bottom: 1px dotted oColorsGetColorFor(link, text);
+		&:hover,
+		&:focus {
+			@include oColorsFor(link-hover, text);
+			border-bottom-color: transparent;
+		}
 	}
 }
