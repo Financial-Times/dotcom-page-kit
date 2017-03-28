@@ -1,7 +1,8 @@
 // Set gutters to be slightly smaller than the default on larger screens
 $o-grid-gutters: (
 	default: 10px,
-	M:       16px
+	M: 20px,
+	XL: 30px
 );
 
 $o-grid-ie8-rules: none !default;
