@@ -38,6 +38,11 @@
 		outline-width: 0;
 	}
 
+	a:focus {
+		outline: 3px solid getColor('teal-1');
+		outline-offset: 3px;
+	}
+
 	/* Text-level semantics
 		=====================================================================*/
 
@@ -228,6 +233,7 @@
 
 	/**
 	* Standardise outline styles
+	* This will be phased out...
 	*/
 
 	:focus {
