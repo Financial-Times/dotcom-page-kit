@@ -1,5 +1,7 @@
 include n.Makefile
 
+export IGNORE_ALLY = true
+
 test-unit:
 	karma start karma.conf.js
 
