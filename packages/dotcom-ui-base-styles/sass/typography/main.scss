@@ -4,11 +4,6 @@ $o-typography-load-fonts: false;
 @import 'o-fonts/main';
 @import 'o-typography/main';
 
-@mixin nLinksBody {
-	@warn "nLinksBody is no more. Use oTypographyLink. If you need the 'inverse' variant ask origami nicely or roll your own (or both)";
-	@include oTypographyLink;
-}
-
 @mixin nLinksTopic ($inversed: null) {
 	@if ($inversed) {
 		@include oColorsFor(topic-inversed, text);
