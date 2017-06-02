@@ -19,13 +19,10 @@
     "o-icons": "^5.2.2",
     "o-date": "^2.8.0",
     "o-colors": "^4.0.1",
-    "o-buttons": "^4.5.3",
+    "o-buttons": "^5.0.0",
     "o-visual-effects": "^2.0.0",
     "ftdomdelegate": "^2.0.0",
     "superstore": "^2.1.0",
     "superstore-sync": "^2.1.1"
-  },
-  "resolutions": {
-    "o-colors": "^4.0.1"
   }
 }
