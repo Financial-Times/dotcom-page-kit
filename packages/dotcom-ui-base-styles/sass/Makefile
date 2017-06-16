@@ -1,6 +1,11 @@
-include n.Makefile
+node_modules/@financial-times/n-gage/index.mk:
+	npm install --no-save @financial-times/n-gage
+	touch $@
 
-export IGNORE_ALLY = true
+
+-include node_modules/@financial-times/n-gage/index.mk
+
+export IGNORE_A11Y = true;
 
 test-unit:
 	karma start karma.conf.js

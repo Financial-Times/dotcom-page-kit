@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "commit-wizard"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
   },
   "homepage": "https://github.com/Financial-Times/n-utils#readme",
   "devDependencies": {
+    "@financial-times/n-gage": "^1.5.2",
     "@financial-times/n-heroku-tools": "^6.19.1",
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
@@ -50,5 +52,16 @@
   "dependencies": {
     "chai": "^3.5.0",
     "mocha": "^3.2.0"
+  },
+  "config": {
+    "pre-git": {
+      "pre-commit": [
+        "node_modules/.bin/secret-squirrel",
+        "make verify -j3"
+      ],
+      "pre-push": [
+        "make test-unit"
+      ]
+    }
   }
 }
