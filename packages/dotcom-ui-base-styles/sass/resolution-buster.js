@@ -11,11 +11,11 @@ const dupedDeps = Object.keys(nUiDeps)
 if (dupedDeps.length) {
 	console.warn(`\
 You have declared dependencies that n-ui-foundations takes care of for you.
-Declaring a direct dependency will make it harder to resolve dependencies in future
-There's no need to declare a direct dependency on the following:
+Declaring a direct dependency will make it harder to resolve dependencies in future.
+There’s no need to declare a direct dependency on the following:
 
 	${dupedDeps.join(', ')}
 
-It's still safe to require/import them in your sass/js
-`)
+It’s still safe to require/import them in your Sass/JS.
+`);
 }
