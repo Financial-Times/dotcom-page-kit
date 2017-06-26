@@ -1,9 +1,6 @@
 {
   "name": "n-ui-foundations",
   "homepage": "https://github.com/Financial-Times/n-ui-foundations",
-  "authors": [
-    "Rhys Evans <rhys.evans@ft.com>"
-  ],
   "license": "MIT",
   "ignore": [
     "**/.*",
