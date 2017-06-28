@@ -8,7 +8,9 @@
   },
   "scripts": {
     "test": "make test-unit",
-    "commit": "commit-wizard"
+    "commit": "commit-wizard",
+    "precommit": "node_modules/.bin/secret-squirrel",
+    "prepush": "make verify -j3"
   },
   "repository": {
     "type": "git",
@@ -53,15 +55,5 @@
     "chai": "^3.5.0",
     "mocha": "^3.2.0"
   },
-  "config": {
-    "pre-git": {
-      "pre-commit": [
-        "node_modules/.bin/secret-squirrel",
-        "make verify -j3"
-      ],
-      "pre-push": [
-        "make test-unit"
-      ]
-    }
-  }
+  "config": {}
 }

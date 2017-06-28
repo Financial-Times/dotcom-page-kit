@@ -1,5 +1,4 @@
-/* globals FontFaceObserver */
-require('fontfaceobserver/fontfaceobserver.standalone.js');
+const FontFaceObserver = require('fontfaceobserver/fontfaceobserver.standalone.js');
 import { perfMark } from '../main';
 const fontLoadedPrefix = 'o-typography--loaded-';
 const fontLoadedCookieName = 'next-fonts-loaded';
