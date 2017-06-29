@@ -138,14 +138,14 @@ module.exports = function (karma) {
 			}
 			browserList[`${browserName}_sauce`] = Object.assign({base: 'SauceLabs'}, nightwatchBrowsers[browserName].desiredCapabilities);
 			return browserList;
-		}, {})
+		}, {});
 		config.customLaunchers = sauceBrowsers;
 		config.sauceLabs = {
 			testName: 'n-ui-foundations unit tests',
 			username: process.env.SAUCE_USER,
 			accessKey: process.env.SAUCE_KEY,
 			recordScreenshots: true
-		}
+		};
 
 		config.browsers = Object.keys(sauceBrowsers);
 		config.reporters.push('saucelabs');

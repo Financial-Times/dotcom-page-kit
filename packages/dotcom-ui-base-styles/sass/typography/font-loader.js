@@ -1,5 +1,4 @@
-/* globals FontFaceObserver */
-require('fontfaceobserver/fontfaceobserver.standalone.js');
+const FontFaceObserver = require('fontfaceobserver/fontfaceobserver.standalone.js');
 import { perfMark } from '../main';
 const fontLoadedPrefix = 'o-typography--loaded-';
 const fontLoadedCookieName = 'next-fonts-loaded';
@@ -7,22 +6,22 @@ const fontConfigs = [
 	{
 		family: 'FinancierDisplayWeb',
 		weight: 'normal',
-		labels: ['serifDisplay']
+		labels: ['display']
 	},
 	{
 		family: 'MetricWeb',
 		weight: 'normal',
-		labels: ['sans', 'sansData']
+		labels: ['sans']
 	},
 	{
 		family: 'MetricWeb',
 		weight: 600,
-		labels: ['sansBold', 'sansDataBold']
+		labels: ['sansBold']
 	},
 	{
 		family: 'FinancierDisplayWeb',
 		weight: 700,
-		labels: ['serifDisplayBold']
+		labels: ['displayBold']
 	},
 ];
 

@@ -1,26 +1,28 @@
 {
   "name": "n-ui-foundations",
-  "version": "1.0.0",
-  "description": "Sass and js foundations and utilties for the next front-end",
+  "version": "0.0.0",
+  "description": "Sass & JS foundations and utilities for the FT.com front-end",
   "main": "main.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "commit": "commit-wizard"
+    "test": "make test-unit",
+    "commit": "commit-wizard",
+    "precommit": "node_modules/.bin/secret-squirrel",
+    "prepush": "make verify -j3"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Financial-Times/n-utils.git"
+    "url": "git+https://github.com/Financial-Times/n-ui-foundations.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Financial-Times/n-utils/issues"
+    "url": "https://github.com/Financial-Times/n-ui-foundations/issues"
   },
-  "homepage": "https://github.com/Financial-Times/n-utils#readme",
+  "homepage": "https://github.com/Financial-Times/n-ui-foundations#readme",
   "devDependencies": {
     "@financial-times/n-gage": "^1.5.2",
     "@financial-times/n-heroku-tools": "^6.19.1",
@@ -53,15 +55,5 @@
     "chai": "^3.5.0",
     "mocha": "^3.2.0"
   },
-  "config": {
-    "pre-git": {
-      "pre-commit": [
-        "node_modules/.bin/secret-squirrel",
-        "make verify -j3"
-      ],
-      "pre-push": [
-        "make test-unit"
-      ]
-    }
-  }
+  "config": {}
 }

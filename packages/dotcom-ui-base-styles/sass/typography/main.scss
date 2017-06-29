@@ -1,14 +1,8 @@
-$o-fonts-path: 'https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.0/';
-// TODO - once o-typography lets us control font loading in non-silent mode we should unsilence it
-$o-typography-progressive-fonts: sans, sansBold, sansData, sansDataBold, serifDisplay, serifDisplayBold;
+$o-typography-is-silent: false;
+$o-typography-load-fonts: false;
 
 @import 'o-fonts/main';
 @import 'o-typography/main';
-
-@mixin nLinksBody {
-	@warn "nLinksBody is no more. Use oTypographyLink. If you need the 'inverse' variant ask origami nicely or roll your own (or both)";
-	@include oTypographyLink;
-}
 
 @mixin nLinksTopic ($inversed: null) {
 	@if ($inversed) {
@@ -16,7 +10,7 @@ $o-typography-progressive-fonts: sans, sansBold, sansData, sansDataBold, serifDi
 	} @else {
 		@include oColorsFor(topic, text);
 	}
-	@include oTypographySansBold('s', $load-progressively: true);
+	@include oTypographySansBold($scale: 0, $progressive: true);
 	border-bottom-color: transparent;
 	text-decoration: none;
 
@@ -46,7 +40,7 @@ $o-typography-progressive-fonts: sans, sansBold, sansData, sansDataBold, serifDi
 		font-size: 0.8125em;
 
 		// scss-lint:disable SelectorFormat
-		&.o-typography--loaded-sansData {
+		&.o-typography--loaded-sans {
 			font-family: $o-typography-sans;
 			font-size: initial;
 		}
