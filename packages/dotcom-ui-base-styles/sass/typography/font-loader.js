@@ -1,5 +1,5 @@
 const FontFaceObserver = require('fontfaceobserver/fontfaceobserver.standalone.js');
-import { perfMark } from '../main';
+const perfMark = require('../js/perf-mark');
 const fontLoadedPrefix = 'o-typography--loaded-';
 const fontLoadedCookieName = 'next-fonts-loaded';
 const fontConfigs = [

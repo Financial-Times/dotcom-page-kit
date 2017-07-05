@@ -1,5 +1,4 @@
 const cookieStore = require('./js/cookies');
-
 const getSpoorNumber = () => {
 	let spoorId = cookieStore.get('spoor-id').replace(/-/g, '');
 	spoorId = spoorId.substring(spoorId.length - 12, spoorId.length); // Don't overflow the int
@@ -50,12 +49,7 @@ module.exports = {
 		}
 		rootEl.dispatchEvent(event);
 	},
-	perfMark: name => {
-		const performance = window.LUX || window.performance || window.msPerformance || window.webkitPerformance || window.mozPerformance;
-		if (performance && performance.mark) {
-			performance.mark(name);
-		}
-	},
+	perfMark: require('./js/perf-mark'),
 	sampleUsers: (pct, seed) => {
 		if (!seed) {
 			throw new Error('sampleUsers needs a seed string to be passed in as the second parameter');
