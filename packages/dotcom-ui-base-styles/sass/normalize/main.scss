@@ -39,11 +39,6 @@
 		outline-width: 0 !important;
 	}
 
-	a:focus {
-		outline: 3px solid getColor('teal-40');
-		outline-offset: 3px;
-	}
-
 	/* Text-level semantics
 		=====================================================================*/
 
@@ -231,15 +226,5 @@
 
 	/* Next specific stuff
 		=====================================================================*/
-
-	/**
-	* Standardise outline styles
-	* This will be phased out...
-	*/
-
-	:focus {
-		outline: thin dotted;
-		outline-offset: 1px;
-	}
 
 }
