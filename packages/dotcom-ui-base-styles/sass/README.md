@@ -54,8 +54,6 @@ nGetImage(
 See https://github.com/Financial-Times/n-ui-foundations/blob/master/util/README.md for a full list of utility classes
 
 #### typography
-Loads fonts (using o-typography's progressive fonts).
-
 Includes one mixin `nLinksTopic($inversed: null)` for generating styles for topics
 
 ### JS
