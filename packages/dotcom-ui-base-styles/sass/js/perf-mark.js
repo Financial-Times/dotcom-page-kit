@@ -3,4 +3,4 @@ module.exports = name => {
 	if (performance && performance.mark) {
 		performance.mark(name);
 	}
-}
+};
