@@ -30,17 +30,12 @@
 	@include oFontsInclude(FinancierDisplayWeb, $weight: bold);
 	@include oFontsInclude(MetricWeb);
 	@include oFontsInclude(MetricWeb, $weight: semibold);
+
 	html {
 		//TODO - move elsewhere??
 		@include oColorsFor(page);
 		font-family: sans-serif;
 		font-size: 0.8125em;
-
-		// scss-lint:disable SelectorFormat
-		&.o-typography--loaded-sans {
-			font-family: $o-typography-sans;
-			font-size: initial;
-		}
 	}
 
 	// cannot use oTypographyLink because it will make an ".o-hoverable-on a" class which will override BEM styles
