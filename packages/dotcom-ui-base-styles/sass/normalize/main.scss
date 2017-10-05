@@ -1,14 +1,18 @@
 @mixin nUiNormalize {
 
 	/**
-	* Prevent adjustments of font size after orientation changes in IE and iOS.
+	* Apply font smoothing;
+	* Prevent adjustments of font size after orientation changes in IE and iOS
 	*/
 
 	html {
+		// scss-lint:disable VendorPrefix
+		-moz-osx-font-smoothing: antialiased;
+		-webkit-font-smoothing: antialiased;
 		-ms-text-size-adjust: 100%;
 		-webkit-text-size-adjust: 100%;
+		// scss-lint:enable VendorPrefix
 		text-rendering: optimizeLegibility;
-		-webkit-font-smoothing: antialiased;
 	}
 
 	/**
