@@ -76,7 +76,7 @@ require('n-ui-foundations');
 
 Contain useful methods for working with cookies.
 
-    const cookieStore = require('n-ui-foundations').cookieStore;
+	const cookieStore = require('n-ui-foundations').cookieStore;
 
 #### `get(name)`
 Get the value of the given cookie
