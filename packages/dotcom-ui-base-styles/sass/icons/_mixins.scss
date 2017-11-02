@@ -1,5 +1,7 @@
 @mixin nGetImage($image-type, $image-name, $color: null, $container-width: 128, $container-height: null, $apply-base-styles: true, $apply-width-height: true) {
-	//TODO throw if someone's using it for icons
+	@if $image-type == 'icon' {
+		@error 'We no longer support using nGetImage for icons. Please use o-icons’ oIconsGetIcon mixin instead (https://github.com/Financial-Times/o-icons/blob/v5.4.2/scss/_mixins.scss#L16).';
+	}
 
 	$url: 'https://www.ft.com/__origami/service/image/v2/images/raw/ft#{$image-type}:#{$image-name}';
 	$query: '?source=next';
