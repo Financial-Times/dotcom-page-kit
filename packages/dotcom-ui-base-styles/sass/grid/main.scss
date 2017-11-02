@@ -15,23 +15,11 @@ $o-grid-shuffle-selectors: false;
 @import 'mixins';
 
 @mixin nUiGrid {
-
 	// scss-lint:disable NameFormat, PlaceholderInExtend
 	@include oGridSurfaceCurrentLayout;
 	@include oGridGenerate;
 
-	// As they're quite widely used output the 'hide' selectors
-	// TODO: (for now, eventually should remove in v2 and go through the site changing them all to 0)
-	// Yes I'm using @extend - get used to it :b !
-	[data-o-grid-colspan~="hide"] {
-		@extend [data-o-grid-colspan~="0"];
-	}
-
-	@each $layout-name in $_o-grid-layout-names {
-		[data-o-grid-colspan~="#{$layout-name}hide"] {
-			@extend [data-o-grid-colspan~="#{$layout-name}0"] !optional;
-		}
-	}
+	//BREAKING CHANGE: data-o-grid-colspan="hide Shide Mhide Lhide XLhide" -> data-o-grid-colspan="0 S0 M0 L0 XL0" (HTML change only—leave Sass mixins as they are)
 
 	[data-o-grid-colspan~="center"] {
 		@include oGridCenter;
