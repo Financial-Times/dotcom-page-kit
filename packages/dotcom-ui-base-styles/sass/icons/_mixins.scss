@@ -1,4 +1,4 @@
-@mixin nGetImage($image-type, $image-name, $color: null, $container-width: 128, $container-height: null, $apply-base-styles: true, $apply-width-height: true) {
+@mixin nGetImage($image-type, $image-name, $color: null, $container-width: 128, $container-height: null) {
 	@if $image-type == 'icon' {
 		@error 'We no longer support using nGetImage for icons. Please use o-icons’ oIconsGetIcon mixin instead (https://github.com/Financial-Times/o-icons/blob/v5.4.2/scss/_mixins.scss#L16).';
 	}
@@ -11,25 +11,20 @@
 		$query: $query + "&tint=%23#{$color},%23#{$color}";
 	}
 
+	@if ($container-height == null) {
+		$container-height: $container-width;
+	}
+
+	background-color: transparent;
 	background-image: url($url + $query + '&format=svg');
-
-	// ie7/8 fallback. Uses the `\9` selector hack to target ie6-8.
+	// IE 6/7/8 fallback. Uses the `\9` selector hack to target IE those versions.
 	// Hack is documented here: http://browserhacks.com/#hack-ab1bcc7b3a6544c99260f7608f8e845e
-	// It still needs to use the build service  <-- what does this comment mean?
 	background-image: url($url + $query + '&format=png&width=#{$container-width}')\9;
-
-	// Prevents dimension styles being output by default.
-	// Resolves issue where previous component `o-ft-icons` the mixin this replaces,
-	// dimension styles were included within the $apply-base-styles block as well.
-	@if ($apply-width-height == true) {
-		width: $container-width + 0px;
-		@if ($container-height == null) {
-			$container-height: $container-width;
-		}
-		height: $container-height + 0px;
-	}
-
-	@if ($apply-base-styles == true) {
-		@include oIconsBaseStyles;
-	}
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: contain;
+	display: inline-block;
+	height: $container-height + 0px;
+	vertical-align: baseline;
+	width: $container-width + 0px;
 }
