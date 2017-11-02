@@ -12,9 +12,6 @@ This module is bundled by default and cannot be configured.
 
 #### Layout
 
-##### `.n-util-clearfix`
-_The_ [micro clearfix](http://nicolasgallagher.com/micro-clearfix-hack/).
-
 #### Display
 
 ##### `.n-util-hide`
@@ -32,9 +29,6 @@ Hide an element in the enhanced experience
 ##### `.n-util-hide-core`
 Hide an element in the core experience
 
-##### `.n-util-visually-hidden`
-Hide an element but ensure it is still accessible by assistive devices.
-
 #### Text
 
 ##### `.n-util-text-center`
@@ -48,3 +42,6 @@ Right align text.
 
 ##### `.n-util-truncate`
 Truncate text to a single line.
+
+#### o-normalise
+All of [o-normalise’s helpers](https://github.com/Financial-Times/o-normalise/blob/v1.4.2/main.scss#L12) are included in the output of nUiUtil.

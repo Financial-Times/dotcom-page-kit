@@ -1,13 +1,10 @@
+@import 'o-normalise/main';
 @import 'mixins';
 
-@mixin nUiUtil {
+//BREAKING CHANGE: .n-util-clearfix -> .o-normalise-clearfix
+//BREAKING CHANGE: .n-util-visually-hidden -> .o-normalise-visually-hidden
 
-	//
-	// Layout
-	//
-	.n-util-clearfix {
-		@include clearfix();
-	}
+@mixin nUiUtil {
 
 	//
 	// Display
@@ -28,10 +25,6 @@
 		.n-util-hide\@print {
 			display: none;
 		}
-	}
-
-	.n-util-visually-hidden {
-		@include nUtilsVisuallyHidden;
 	}
 
 	.no-js .n-util-hide-no-js,
@@ -73,4 +66,12 @@
 		}
 	}
 
+	// Output o-normalise’s helper classes
+	.o-normalise-clearfix {
+		@include oNormaliseClearfix;
+	}
+
+	.o-normalise-visually-hidden {
+		@include oNormaliseVisuallyHidden;
+	}
 }
