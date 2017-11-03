@@ -1,6 +1,6 @@
-# Util
+# n-ui-foundations utilities
 
-CSS and JS ui-foundationsities for next
+Utility HTML classes for FT.com.
 
 ## Usage
 
@@ -14,33 +14,42 @@ This module is bundled by default and cannot be configured.
 
 #### Display
 
-##### `.n-util-hide`
+##### `.n-ui-hide`
+
 Hide an element.
 
-##### `.n-util-hide@screen`
+##### `.n-ui-hide@screen`
+
 Hide an element for screens.
 
-##### `.n-util-hide@print`
+##### `.n-ui-hide@print`
+
 Hide an element for print.
 
-##### `.n-util-hide-enhanced`
-Hide an element in the enhanced experience
+##### `.n-ui-hide-enhanced`
 
-##### `.n-util-hide-core`
-Hide an element in the core experience
+Hide an element in the enhanced experience.
+
+##### `.n-ui-hide-core`
+
+Hide an element in the core experience.
 
 #### Text
 
-##### `.n-util-text-center`
+##### `.n-ui-text-center`
+
 Center align text.
 
-##### `.n-util-text-left`
+##### `.n-ui-text-left`
+
 Left align text.
 
-##### `.n-util-text-right`
+##### `.n-ui-text-right`
+
 Right align text.
 
-##### `.n-util-truncate`
+##### `.n-ui-truncate`
+
 Truncate text to a single line.
 
 #### o-normalise

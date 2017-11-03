@@ -7,7 +7,7 @@ For templates and app bootstrapping see https://github.com/Financial-Times/n-ui
 ```
 @import "n-ui-foundations/main"
 ```
-This will output styles for `o-grid`, `o-typography`, `n-util` and `n-ui-normalize`. It will also import mixins for `o-colors`, `o-icons` and `o-visual-effects`. It can be `@imported` multiple times in components or apps with no risk of duplication
+This will output styles for `o-grid`, `o-typography`, and `o-normalise`. It will also import mixins for `o-colors`, `o-icons` and `o-visual-effects`. It can be `@imported` multiple times in components or apps with no risk of duplication.
 
 ### Critical & modular CSS
 Use
@@ -15,7 +15,7 @@ Use
 - `nUiStylesheetEnd('stylesheet-name')`
 - `nUiStylesheet('stylesheet-name') {}`
 
-These insert comments that, when built with `n-ui`'s build tools, will split your stylesheet into multiple sub stylesheets. Can be used for critical css (e.g. use `head` as the stylesheet name for the same effect as `n-ui@3`'s `nUiCritical()` mixin)
+These insert comments that, when built with `n-ui`’s build tools, will split your stylesheet into multiple sub stylesheets. Can be used for critical css (e.g. use `head` as the stylesheet name for the same effect as `n-ui@3`’s `nUiCritical()` mixin)
 
 ### Caveats and customisations
 
@@ -29,7 +29,7 @@ Two shorthand aliases for `o-colors` functions are also provided:
 
 #### o-grid
 
-Human readable classes (e.g. `data-o-grid-colspan="half"`) are all disabled, with the exception of `hide`
+Human readable classes (e.g. `data-o-grid-colspan="half"`) are all disabled, with the exception of `center`.
 
 To avoid shipping unused rulesets `offset` `pull` and `push` column selectors are disabled. To use these a mixin is provided `nUiGridOffset($layout-name, $columns, $mode)`
 
@@ -38,23 +38,18 @@ To avoid shipping unused rulesets `offset` `pull` and `push` column selectors ar
 ```
 
 #### logos
-A mixin for getting logos (or other origami imageset images)
+A mixin for getting logos (or other Origami imageset images)
 ```
 nGetImage(
 	$image-type,
 	$image-name,
 	$color: null,
 	$container-width: 128,
-	$container-height: null,
-	$apply-base-styles: true,
-	$apply-width-height: true
+	$container-height: null
 )
 ```
 #### util
-See https://github.com/Financial-Times/n-ui-foundations/blob/master/util/README.md for a full list of utility classes
-
-#### typography
-Includes one mixin `nLinksTopic($inversed: null)` for generating styles for topics
+See https://github.com/Financial-Times/n-ui-foundations/blob/master/util/README.md for a full list of utility classes.
 
 ### JS
 
@@ -76,20 +71,20 @@ require('n-ui-foundations');
 
 Contain useful methods for working with cookies.
 
-	const cookieStore = require('n-ui-foundations').cookieStore;
+`const cookieStore = require('n-ui-foundations').cookieStore;`
 
 #### `get(name)`
-Get the value of the given cookie
+Get the value of the given cookie.
 
 #### `set(name, value, [options])`
-Set a cookie.  Available options are `domain`, `path`, `expires`, `secure` and `maxAge`
-Note it is "maxAge" not "max-age".  If you don't specify either expires or maxAge the cookie will expire at the end of the session
+Set a cookie.  Available options are `domain`, `path`, `expires`, `secure` and `maxAge`.
+Note it is "maxAge" not "max-age".  If you don't specify either expires or maxAge the cookie will expire at the end of the session.
 
 #### `has(name)`
-Returns true if the given cookie exists
+Returns true if the given cookie exists.
 
 #### `remove(name)`
-Delete the given cookie by seting the expiry to the past
+Delete the given cookie by seting the expiry to the past.
 
 ## Templates
-Nope. None of them
+Nope. None of them.

@@ -1,6 +1,6 @@
 /*
 
-This includes all the basic origami styles and mixins you can
+This includes all the basic Origami styles and mixins you can
 expect to be available when a page uses n-ui
 
 */
@@ -42,7 +42,7 @@ $o-assets-global-path: 'https://www.ft.com/__origami/service/build/v2/files/';
 
 $n-ui-foundations-applied: false !default;
 
-// backwards compatible. This enables us to roll n-ui-foundations out to
+// Backwards compatible. This enables us to roll n-ui-foundations out to
 // components without risk of outputting o-grid etc. twice in apps
 @if variable-exists('n-ui-configured') {
 	$n-ui-foundations-applied: true;

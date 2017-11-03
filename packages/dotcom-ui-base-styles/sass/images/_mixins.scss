@@ -16,10 +16,12 @@
 	}
 
 	background-color: transparent;
+	// scss-lint:disable DuplicateProperty
 	background-image: url($url + $query + '&format=svg');
 	// IE 6/7/8 fallback. Uses the `\9` selector hack to target IE those versions.
 	// Hack is documented here: http://browserhacks.com/#hack-ab1bcc7b3a6544c99260f7608f8e845e
 	background-image: url($url + $query + '&format=png&width=#{$container-width}')\9;
+	// scss-lint:enable DuplicateProperty
 	background-position: 50%;
 	background-repeat: no-repeat;
 	background-size: contain;
