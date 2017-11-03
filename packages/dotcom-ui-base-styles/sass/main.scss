@@ -25,7 +25,7 @@ $o-assets-global-path: 'https://www.ft.com/__origami/service/build/v2/files/';
 @import 'o-visual-effects/main';
 
 @mixin nUiFoundations {
-	//BREAKING CHANGE: HTML data attribute [hide] -> [n-util-hide]
+	//BREAKING CHANGE: HTML data attribute [hide] -> [n-ui-hide]
 
 	// We have to use the o- mixins here (rather than have silent mode off)
 	// because of the way our critical CSS approach works
