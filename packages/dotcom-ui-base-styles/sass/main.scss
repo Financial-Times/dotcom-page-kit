@@ -16,7 +16,9 @@ $o-assets-global-path: 'https://www.ft.com/__origami/service/build/v2/files/';
 // Primitives
 @import 'colors/main';
 @import 'grid/main';
-@import 'icons/main';
+//BREAKING CHANGE: $apply-width-height removed (unused)
+//BREAKING CHANGE: $apply-base-styles removed (unused)
+@import 'images/main';
 @import 'typography/main';
 @import 'util/main';
 @import 'o-normalise/main';
