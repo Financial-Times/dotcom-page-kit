@@ -18,7 +18,18 @@ $n-ui-z-index-order: (
 	'notification'
 );
 
+//BREAKING CHANGE: @include clearfix -> @include oNormaliseClearfix
+@mixin clearfix() {
+	@error "The clearfix mixin has been removed. Please use oNormaliseClearfix instead (straight swap)";
+}
+
+//BREAKING CHANGE: @include nUtilsVisuallyHidden -> @include oNormaliseVisuallyHidden
+@mixin nUtilsVisuallyHidden() {
+	@error "The nUtilsVisuallyHidden mixin has been removed. Please use oNormaliseVisuallyHidden instead (straight swap)";
+}
+
 @mixin nUiZIndexFor($use-case) {
+	// scss-lint:disable ImportantRule
 	$index: index($n-ui-z-index-order, $use-case);
 
 	@if $index {
@@ -26,29 +37,5 @@ $n-ui-z-index-order: (
 	} @else {
 		@warn 'z-index for use case "#{$use-case}" not found.';
 	}
-}
-
-@mixin clearfix() {
-	&:before,
-	&:after {
-		content: " ";
-		display: table;
-	}
-
-	&:after {
-		clear: both;
-	}
-
-	*zoom: 1;
-}
-
-@mixin nUtilsVisuallyHidden {
-	position: absolute;
-	margin: -1px;
-	border: 0;
-	overflow: hidden;
-	padding: 0;
-	width: 0;
-	height: 0;
-	white-space: nowrap;
+	// scss-lint:enable ImportantRule
 }

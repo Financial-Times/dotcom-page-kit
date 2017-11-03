@@ -1,28 +1,9 @@
 @import 'o-fonts/main';
 @import 'o-typography/main';
 
-@mixin nLinksTopic ($inversed: null) {
-	@if ($inversed) {
-		@include oColorsFor(topic-inversed, text);
-	} @else {
-		@include oColorsFor(topic, text);
-	}
-	@include oTypographySansBold($scale: 0, $progressive: true);
-	border-bottom-color: transparent;
-	text-decoration: none;
-
-	&:hover,
-	&:focus {
-		@if ($inversed) {
-			border-bottom-color: lighten(getColorFor(topic-inversed, text), 5%);
-			color: lighten(getColorFor(topic-inversed, text), 5%);
-		} @else {
-			border-bottom-color: darken(getColorFor(topic, text), 20%);
-			color: darken(getColorFor(topic, text), 20%);
-		}
-		border-bottom-style: dotted;
-		border-bottom-width: 1px;
-	}
+//BREAKING CHANGE: @include nLinksTopic -> @include oTypographyTopic
+@mixin nLinksTopic () {
+	@throw 'The nLinksTopic mixin has been removed. Please use o-typography’s oTypographyTopic mixin instead.'
 }
 
 @mixin nUiTypography {
