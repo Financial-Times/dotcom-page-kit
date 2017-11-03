@@ -57,15 +57,6 @@
 		word-wrap: normal;
 	}
 
-	.has-tabbed {
-		a:focus,
-		button:focus,
-		input:focus,
-		select:focus {
-			box-shadow: 0 0 0 4px getColor('claret') !important;
-		}
-	}
-
 	// Output o-normalise’s helper classes
 	.o-normalise-clearfix {
 		@include oNormaliseClearfix;
