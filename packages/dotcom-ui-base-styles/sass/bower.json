@@ -20,6 +20,7 @@
     "o-typography": "^5.0.3",
     "o-viewport": "^3.1.0",
     "o-visual-effects": "^2.0.0",
+    "o-utils": "^1.0.3",
     "superstore": "^2.1.0",
     "superstore-sync": "^2.1.1"
   }
