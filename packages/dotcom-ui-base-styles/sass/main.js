@@ -57,5 +57,14 @@ module.exports = {
 		const seedAsNumber = seed.split('').reduce((num, str, i) => num + Math.pow(2, i) * str.charCodeAt(0), 0);
 		return (getSpoorNumber() + seedAsNumber) % 100 < pct;
 	},
-	cookieStore
+	cookieStore,
+	createToggler: ({ flag = true, callback }) => {
+		return () => {
+			if (typeof callback === 'function') {
+				callback({ flag });
+			}
+			flag = !flag;
+			return flag;
+		};
+	}
 };
