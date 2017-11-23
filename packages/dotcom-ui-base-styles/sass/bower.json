@@ -10,15 +10,17 @@
     "tests"
   ],
   "dependencies": {
-    "o-viewport": "^3.1.0",
-    "o-grid": "^4.3.1",
-    "o-typography": "^5.0.3",
-    "o-icons": ">=4.0.0 <6",
-    "o-date": "^2.8.0",
-    "o-colors": "^4.0.1",
-    "o-buttons": ">=4.0.0 <6",
-    "o-visual-effects": "^2.0.0",
     "ftdomdelegate": "^2.0.0",
+    "o-buttons": ">=4.0.0 <6",
+    "o-colors": "^4.0.1",
+    "o-date": "^2.8.0",
+    "o-grid": "^4.3.1",
+    "o-icons": ">=4.0.0 <6",
+    "o-normalise": "^1.4.2",
+    "o-typography": "^5.0.3",
+    "o-viewport": "^3.1.0",
+    "o-visual-effects": "^2.0.0",
+    "o-utils": "^1.0.3",
     "superstore": "^2.1.0",
     "superstore-sync": "^2.1.1"
   }

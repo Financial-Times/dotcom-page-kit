@@ -1,7 +1,7 @@
 {
   "name": "n-ui-foundations",
   "version": "0.0.0",
-  "description": "Sass & JS foundations and utilities for the FT.com front-end",
+  "description": "Sass & JS foundations and utilities for the FT.com front end",
   "main": "main.js",
   "directories": {
     "test": "test"

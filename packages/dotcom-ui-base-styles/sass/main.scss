@@ -1,30 +1,40 @@
 /*
 
-This includes all the basic origami styles and mixins you can
+This includes all the basic Origami styles and mixins you can
 expect to be available when a page uses n-ui
 
 */
 
 // Base unit to standardize spacing
 // Decide where it's gonna live later
-$spacing-unit: 16px;
+$spacing-unit: 20px;
 
 $o-assets-global-path: 'https://www.ft.com/__origami/service/build/v2/files/';
 
 @import 'mixins';
 
-// primitives
+// Primitives
 @import 'colors/main';
-@import 'normalize/main';
 @import 'grid/main';
-@import 'icons/main';
+//BREAKING CHANGE: $apply-width-height removed (unused)
+//BREAKING CHANGE: $apply-base-styles removed (unused)
+@import 'images/main';
 @import 'typography/main';
 @import 'util/main';
+@import 'o-normalise/main';
 @import 'o-visual-effects/main';
 
-
 @mixin nUiFoundations {
-	@include nUiNormalize;
+	//BREAKING CHANGE: HTML data attribute [hide] -> [n-ui-hide]
+
+	// We have to use the o- mixins here (rather than have silent mode off)
+	// because of the way our critical CSS approach works
+	@include oNormaliseHTML($box-sizing: false);
+	@include oNormaliseLinks;
+	@include oNormaliseText;
+	@include oNormaliseImages;
+	@include oNormaliseForms;
+
 	@include nUiGrid;
 	@include nUiTypography;
 	@include nUiUtil;
@@ -32,7 +42,7 @@ $o-assets-global-path: 'https://www.ft.com/__origami/service/build/v2/files/';
 
 $n-ui-foundations-applied: false !default;
 
-// backwards compatible. This enables us to roll n-ui-foundations out to
+// Backwards compatible. This enables us to roll n-ui-foundations out to
 // components without risk of outputting o-grid etc. twice in apps
 @if variable-exists('n-ui-configured') {
 	$n-ui-foundations-applied: true;

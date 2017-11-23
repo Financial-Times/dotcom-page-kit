@@ -1,3 +1,4 @@
+const { debounce, throttle } = require('o-utils/main');
 const cookieStore = require('./js/cookies');
 const getSpoorNumber = () => {
 	let spoorId = cookieStore.get('spoor-id').replace(/-/g, '');
@@ -8,34 +9,8 @@ const getSpoorNumber = () => {
 module.exports = {
 	$: function (sel, ctx) { return (ctx || document).querySelector(sel); },
 	$$: function (sel, ctx) { return [].slice.call((ctx || document).querySelectorAll(sel));},
-	debounce: function (func, wait) {
-		let timeout;
-		return function () {
-			const args = arguments;
-			const later = () => {
-				timeout = null;
-				func.apply(this, args);
-			};
-			clearTimeout(timeout);
-			timeout = setTimeout(later, wait);
-		};
-	},
-
-	throttle: function (func, wait) {
-		let timeout;
-		return function () {
-			if (timeout) {
-				return;
-			}
-			const args = arguments;
-			const later = () => {
-				timeout = null;
-				func.apply(this, args);
-			};
-
-			timeout = setTimeout(later, wait);
-		};
-	},
+	debounce,
+	throttle,
 	uuid: function uuid (a){return a?(a^Math.random()*16>>a/4).toString(16):([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,uuid);},
 	ascii: require('./js/to-ascii'),
 	broadcast: function (name, data, bubbles = true) {
