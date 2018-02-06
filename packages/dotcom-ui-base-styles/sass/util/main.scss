@@ -15,15 +15,18 @@
 	}
 
 	@media screen {
-		// scss-lint:disable SelectorFormat
+		/* stylelint-disable */
 		.n-ui-hide\@screen {
+		/* stylelint-enable */
 			display: none;
 		}
+
 	}
 
 	@media print {
-		// scss-lint:disable SelectorFormat
+		/* stylelint-disable */
 		.n-ui-hide\@print {
+		/* stylelint-enable */
 			display: none;
 		}
 	}

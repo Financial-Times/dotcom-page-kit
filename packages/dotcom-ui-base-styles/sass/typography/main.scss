@@ -3,7 +3,7 @@
 
 //BREAKING CHANGE: @include nLinksTopic -> @include oTypographyTopic
 @mixin nLinksTopic () {
-	@throw 'The nLinksTopic mixin has been removed. Please use o-typography’s oTypographyTopic mixin instead.'
+	@throw 'The nLinksTopic mixin has been removed. Please use o-typography’s oTypographyTopic mixin instead.';
 }
 
 @mixin nUiTypography {

@@ -47,7 +47,6 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.2",
     "lintspaces-cli": "^0.6.0",
-    "sass-lint": "^1.10.2",
     "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0",
     "webpack": "^1.14.0"
