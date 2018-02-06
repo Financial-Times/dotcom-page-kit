@@ -26,7 +26,11 @@
 	background-repeat: no-repeat;
 	background-size: contain;
 	display: inline-block;
+	/* stylelint-disable */
 	height: $container-height + 0px;
+	/* stylelint-enable */
 	vertical-align: baseline;
+	/* stylelint-disable */
 	width: $container-width + 0px;
+	/* stylelint-enable */
 }
