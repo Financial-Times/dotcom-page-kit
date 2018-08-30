@@ -40,6 +40,7 @@ $o-assets-global-path: 'https://www.ft.com/__origami/service/build/v2/files/';
 	@include nUiUtil;
 }
 
+$n-ui-foundations-is-silent: false !default; // 'silent' means don't apply styles
 $n-ui-foundations-applied: false !default;
 
 // Backwards compatible. This enables us to roll n-ui-foundations out to
@@ -48,7 +49,7 @@ $n-ui-foundations-applied: false !default;
 	$n-ui-foundations-applied: true;
 }
 
-@if $n-ui-foundations-applied == false {
+@if $n-ui-foundations-applied == false and $n-ui-foundations-is-silent == false {
 	$n-ui-foundations-applied: true;
 	@include nUiFoundations;
 }
