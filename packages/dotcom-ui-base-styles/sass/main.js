@@ -5,6 +5,8 @@ const getSpoorNumber = () => {
 	spoorId = spoorId.substring(spoorId.length - 12, spoorId.length); // Don't overflow the int
 	return parseInt(spoorId, 16);
 };
+const oGrid = require('o-grid');
+oGrid.setMinSupportedIeVersion(11);
 
 module.exports = {
 	$: function (sel, ctx) { return (ctx || document).querySelector(sel); },
