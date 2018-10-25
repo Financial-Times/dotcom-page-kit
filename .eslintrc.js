@@ -1,4 +1,5 @@
 module.exports = {
+  parser: 'typescript-eslint-parser',
   env: {
     node: true,
     browser: true,
@@ -16,10 +17,10 @@ module.exports = {
     // Support for ESM is not tied to an ES version
     sourceType: 'module'
   },
-  settings: {
-  },
+  settings: {},
   rules: {
+    eqeqeq: 'error',
+    'no-console': 'error'
   },
-  overrides: [
-  ]
+  overrides: []
 }
