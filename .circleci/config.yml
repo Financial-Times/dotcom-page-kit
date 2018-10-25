@@ -1,0 +1,101 @@
+version: 2
+
+references:
+
+  #
+  # Workspace
+  #
+  container_config_node8: &container_config_node8
+    working_directory: ~/project/build
+    docker:
+      - image: circleci/node:8.12
+
+  workspace_root: &workspace_root
+    ~/project
+
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+
+  #
+  # Cache keys
+  #
+  cache_key: &cache_key
+    keys:
+      - cache-root-v1-{{ .Branch }}-{{ checksum "./package.json" }}
+
+  #
+  # Cache creation
+  #
+  create_cache: &create_cache
+    save_cache:
+      key: cache-root-v1-{{ .Branch }}-{{ checksum "./package.json" }}
+      paths:
+        - ./node_modules/
+
+  #
+  # Cache restoration
+  #
+  restore_cache: &restore_cache
+    restore_cache:
+      <<: *cache_key
+
+  #
+  # Filters
+  #
+  filters_branch_build: &filters_branch_build
+    branches:
+      ignore:
+        - gh-pages
+    tags:
+      ignore: /.*/
+
+  filters_master_branch: &filters_master_branch
+    branches:
+      only:
+        - master
+
+jobs:
+
+  build:
+    <<: *container_config_node8
+    steps:
+      - checkout
+      - *restore_cache
+      - run:
+          name: Install project dependencies
+          command: npm install
+      - *create_cache
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - build
+
+  test:
+    <<: *container_config_node8
+    steps:
+      - *attach_workspace
+      - run:
+          name: Check code style
+          command: npm run prettier -- --list-different
+      - run:
+          name: Run check types
+          command: npm run checktypes
+      - run:
+          name: Run tests
+          command: npm run test
+
+workflows:
+
+  version: 2
+
+  build-test:
+    jobs:
+      - build:
+          filters:
+            <<: *filters_branch_build
+      - test:
+          filters:
+            <<: *filters_branch_build
+          requires:
+            - build
