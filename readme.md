@@ -1,5 +1,7 @@
 # Core UI
 
+[![CircleCI](https://circleci.com/gh/Financial-Times/core-ui/tree/master.svg?style=svg&circle-token=2149091698510f3908776e16620b30494fdca26c)](https://circleci.com/gh/Financial-Times/core-ui/tree/master)
+
 The aim of this project is to provide a high quality, well tested, and thoroughly documented, modern asset pipeline and application shell for Node.js applications based upon the latest industry standards.
 
 
