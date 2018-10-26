@@ -1,4 +1,4 @@
-import subject from '..'
+import subject from '../index'
 
 describe('sample-package', () => {
   it('multiplies the given number by 5', () => {
