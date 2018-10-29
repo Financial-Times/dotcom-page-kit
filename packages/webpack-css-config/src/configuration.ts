@@ -13,6 +13,8 @@ export const configuration = {
       {
         test: /\.scss$/,
         use: [
+          // Extracts CSS into separate, non-JS files
+          // https://github.com/webpack-contrib/mini-css-extract-plugin
           MiniCssExtractPlugin.loader,
           // Add support for handling .css files
           // https://github.com/webpack-contrib/css-loader
@@ -23,7 +25,7 @@ export const configuration = {
               // have already resolved and concatenated these files.
               import: false,
               // Disable Webpack from resolving url() because we do not
-              // currently use this functionality.
+              // currently use this functionality at all.
               url: false
             }
           },
@@ -33,14 +35,15 @@ export const configuration = {
             loader: require.resolve('postcss-loader'),
             options: {
               plugins: [
-                // Add vendor prefixes to rules by Can I Use
+                // Add vendor prefixes automatically using data from Can I Use
                 // https://github.com/postcss/autoprefixer
                 require('autoprefixer')({
                   // TODO: share this browserslist expression
                   browsers: '> 1%, ie 11, bb 10',
                   grid: true
                 }),
-                // Ensure that the final result is as small as possible
+                // Ensure that the final result is as small as possible. This can
+                // de-duplicate rule-sets which is useful if $o-silent-mode is toggled.
                 // https://github.com/cssnano/cssnano
                 require('cssnano')
               ]
@@ -53,7 +56,7 @@ export const configuration = {
             options: {
               // Disable formatting so that we don't spend time pretty printing
               outputStyle: 'compressed',
-              // Enable Sass to @import source files from installed modules
+              // Enable Sass to @import source files from installed dependencies
               includePaths: ['bower_components', 'node_modules/@financial-times']
             }
           }
