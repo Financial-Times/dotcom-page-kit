@@ -7,7 +7,9 @@ module.exports = {
   },
   extends: [
     // https://github.com/jest-community/eslint-plugin-jest
-    'plugin:jest/recommended'
+    'plugin:jest/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings'
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -17,10 +19,17 @@ module.exports = {
     // Support for ESM is not tied to an ES version
     sourceType: 'module'
   },
-  settings: {},
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
+      }
+    }
+  },
   rules: {
-    eqeqeq: 'error',
-    'no-console': 'error'
+    'no-console': 'error',
+    'import/no-unresolved': [2, { commonjs: true, caseSensitive: true }],
+    'import/no-named-as-default': 0
   },
   overrides: []
 }

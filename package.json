@@ -5,15 +5,21 @@
   "description": "The aim of this project is to provide a high quality, well tested, and thoroughly documented, modern asset pipeline and application shell for Node.js applications based upon the latest industry standards.",
   "scripts": {
     "test": "npx jest",
-    "lint": "npx eslint",
+    "build": "npx athloi run build",
     "checktypes": "npx tsc --noEmit",
+    "clean": "git clean -fxd -e .env -e .vscode",
+    "clean:install": "npm run clean && npm install",
+    "dev": "npx athloi run dev --concurrency 10",
+    "lint": "npx eslint . --ext .js,.ts,.tsx,.jsx",
+    "postinstall": "npx athloi exec npm i",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
     "precommit": "npm run checktypes && lint-staged"
   },
   "lint-staged": {
-    "**/*.{ts,tsx,js,jsx,json}": [
+    "**/*.{ts,tsx,js,jsx}": [
       "npm run test -- --no-cache --findRelatedTests",
       "npm run prettier",
+      "npm run lint -- --fix",
       "git add"
     ]
   },
@@ -30,10 +36,15 @@
   "homepage": "https://github.com/Financial-Times/Core-UI#readme",
   "devDependencies": {
     "@financial-times/athloi": "^1.0.0-beta.12",
+    "@ljharb/eslint-config": "^13.0.0",
     "@types/jest": "^23.3.7",
     "@types/node": "^10.12.0",
-    "eslint": "^5.7.0",
+    "eslint": "^5.8.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jest": "^21.26.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
     "husky": "^1.1.2",
     "jest": "^23.6.0",
     "lint-staged": "^7.3.0",
@@ -41,5 +52,8 @@
     "ts-jest": "^23.10.4",
     "typescript": "^3.1.3",
     "typescript-eslint-parser": "^20.0.0"
+  },
+  "dependencies": {
+    "eslint-plugin-node": "^8.0.0"
   }
 }

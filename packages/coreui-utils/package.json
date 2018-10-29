@@ -1,5 +1,5 @@
 {
-  "name": "sample-package",
+  "name": "coreui-utils",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -19,5 +19,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^7.0.0"
+  }
 }
