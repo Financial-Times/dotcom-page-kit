@@ -1,5 +1,5 @@
 {
-  "name": "sample-package",
+  "name": "coreui-webpack",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -19,5 +19,13 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.1.2",
+    "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^0.1.19",
+    "coreui-common": "file:../coreui-common",
+    "coreui-babel": "file:../coreui-babel",
+    "webpack": "^4.23.1"
+  }
 }
