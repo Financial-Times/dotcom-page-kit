@@ -8,7 +8,7 @@ const Hello = () => {
       <head>
         <title>Financial Times</title>
       </head>
-      <body>
+      <body style="background-color: #fff1e5">
         <h1>Hello world</h1>
       </body>
     </Fragment>

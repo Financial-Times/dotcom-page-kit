@@ -1,7 +1,4 @@
 {
-  "compilerOptions": {
-    "jsx": "react",
-    "moduleResolution": "node"
-  },
-  "exclude": ["dist", "**/*.spec.ts"]
+  "rootDir": "./src/",
+  "extends": "../../tsconfig.json"
 }
