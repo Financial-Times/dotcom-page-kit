@@ -1,0 +1,29 @@
+{
+  "name": "webpack-css-config",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/dts/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "../../node_modules/.bin/tsc",
+    "clean": "rm -rf dist",
+    "build:cjs": "npm run tsc -- --outDir ./dist/cjs --module commonjs --target es5 --declarationDir ./dist/dts --declaration true",
+    "build:esm": "npm run tsc -- --outDir ./dist/esm --module es2015 --target es2015",
+    "build": "npm run clean && npm run build:cjs && npm run build:esm"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "css-loader": "^1.0.1",
+    "mini-css-extract-plugin": "^0.4.4",
+    "node-sass": "^4.9.4",
+    "sass-loader": "^7.1.0"
+  },
+  "peerDependencies": {
+    "webpack": "^4.20.0"
+  }
+}
