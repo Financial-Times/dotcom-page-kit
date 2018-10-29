@@ -1,5 +1,5 @@
 /* @jsx h */
-import { h, Fragment, render } from 'hyperons'
+import { h, render } from 'hyperons'
 import * as http from 'http'
 import Hello from './hello'
 

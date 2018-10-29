@@ -1,6 +1,5 @@
 /* @jsx h */
-import { h, Fragment, render } from 'hyperons'
-// import helloStyles from './hello.css'
+import { h, Fragment } from 'hyperons'
 
 const Hello = () => {
   return (
