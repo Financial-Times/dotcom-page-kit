@@ -1,13 +1,11 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 export interface Options {
-  mode?: 'development' | 'production'
   /** You can test your browserslist string at https://browserl.ist/ */
   browserslist?: string
 }
 
 const defaults: Options = {
-  mode: 'development',
   // TODO: share this browserslist expression
   browserslist: '> 1%, ie 11, bb 10'
 }
@@ -15,13 +13,15 @@ const defaults: Options = {
 export function configuration(options: Options) {
   const opts = { ...defaults, ...options }
 
+  const isProduction = process.env.NODE_ENV === 'production'
+
   return {
     plugins: [
       // Extracts CSS into separate, non-JS files
       // https://github.com/webpack-contrib/mini-css-extract-plugin
       new MiniCssExtractPlugin({
         // only include content hash in filename when compiling production assets
-        filename: opts.mode === 'production' ? '[name].[contenthash:12].css' : '[name].css'
+        filename: isProduction ? '[name].[contenthash:12].css' : '[name].css'
       })
     ],
     module: {
