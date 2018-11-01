@@ -20,6 +20,9 @@ export function configuration(options: Options) {
   const opts = { ...defaults, ...options }
 
   return {
+    output: {
+      filename: '[name].[contenthash:12].js'
+    },
     resolve: {
       plugins: [
         // Handle a Bower manifest specifying `main` as an array
