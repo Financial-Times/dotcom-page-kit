@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "../../node_modules/.bin/tsc",
-    "clean": "rm -r dist",
+    "clean": "rm -rf dist",
     "build:cjs": "npm run tsc -- --outDir ./dist/cjs --module commonjs --target es5 --declarationDir ./dist/dts --declaration true",
     "build:esm": "npm run tsc -- --outDir ./dist/esm --module es2015 --target es2015",
     "build": "npm run clean && npm run build:cjs && npm run build:esm"
