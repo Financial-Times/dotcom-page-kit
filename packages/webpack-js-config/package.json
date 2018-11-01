@@ -22,7 +22,8 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
-    "babel-loader": "^8.0.4"
+    "babel-loader": "^8.0.4",
+    "bower-resolve-webpack-plugin": "^1.0.5"
   },
   "peerDependencies": {
     "webpack": "^4.20.0"
