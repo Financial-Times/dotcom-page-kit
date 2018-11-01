@@ -55,6 +55,11 @@ export function configuration(options: Options) {
               loader: require.resolve('babel-loader'),
               options: {
                 cacheDirectory: true,
+                plugins: [
+                  // Enables the re-use of Babel helpers to save on codesize
+                  // https://babeljs.io/docs/en/next/babel-plugin-transform-runtime.html
+                  require.resolve('@babel/plugin-transform-runtime')
+                ],
                 presets: [
                   [
                     // Use the latest JavaScript without micromanaging which transforms to use
