@@ -10,6 +10,7 @@
   "devDependencies": {
     "coreui": "file:../packages/coreui",
     "coreui-plugin-build-css": "file:../packages/coreui-plugin-build-css",
+    "coreui-plugin-ft-bower": "file:../packages/coreui-plugin-ft-bower",
     "prettier": "^1.14.3"
   },
   "dependencies": {

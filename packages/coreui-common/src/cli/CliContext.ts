@@ -1,4 +1,5 @@
 import { Context } from 'adonai'
+import { CliMessenger } from './CliMessenger'
 
 interface AnyObject {
   [key: string]: any
@@ -17,6 +18,8 @@ export class CliContext extends Context {
   args: AnyObject = {}
 
   flags: AnyObject = {}
+
+  messenger = new CliMessenger()
 
   constructor(a: ConstructorArgs) {
     super()

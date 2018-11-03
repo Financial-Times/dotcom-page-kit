@@ -54,6 +54,7 @@
     "typescript-eslint-parser": "^20.0.0"
   },
   "dependencies": {
+    "@types/commander": "^2.12.2",
     "eslint-plugin-node": "^8.0.0"
   }
 }

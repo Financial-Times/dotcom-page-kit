@@ -1,6 +1,6 @@
 import fsx from 'fs-extra'
 import path from 'path'
-import { CliContext } from '../context/CliContext'
+import { CliContext } from 'coreui-common'
 
 export async function loadCliPluginsFromWorkingDir(c: CliContext) {
   const pluginNames = (await getConfigFileDataInProjectDir(c)).plugins

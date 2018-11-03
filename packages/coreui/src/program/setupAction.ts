@@ -1,7 +1,7 @@
 import camelCase from 'lodash.camelcase'
-import { CliContext } from '../context/CliContext'
+import { CliContext } from 'coreui-common'
 import { loadCliPluginsFromWorkingDir } from '../helpers/loadCliPluginsFromWorkingDir'
-import { getPackageFolderPathRelativeTo } from 'coreui-utils'
+import { getPackageFolderPathRelativeTo } from 'coreui-common'
 
 interface Action {
   execute: (c: CliContext) => any
@@ -17,20 +17,26 @@ interface Args {
 
 export function setupAction(a: Args) {
   return async (...args) => {
-    const cli = {
-      args: args.slice(0, -1),
-      command: args[args.length - 1]
-    }
-
     const c = new CliContext({ workingDir: a.workingDir })
 
-    await loadCliPluginsFromWorkingDir(c)
-    prepareCliContextDirs(c)
-    prepareCliContextFlags(c, cli.command)
-    prepareCliContextArgs(c, cli.args, cli.command)
-    await runActionContextPreparer(c, a.action)
+    try {
+      const cli = {
+        args: args.slice(0, -1),
+        command: args[args.length - 1]
+      }
 
-    await a.action.execute(c)
+      await loadCliPluginsFromWorkingDir(c)
+      prepareCliContextDirs(c)
+      prepareCliContextFlags(c, cli.command)
+      prepareCliContextArgs(c, cli.args, cli.command)
+      await runActionContextPreparer(c, a.action)
+
+      await a.action.execute(c)
+
+      await c.messenger.newLine()
+    } catch (error) {
+      c.messenger.indicateFailure(error)
+    }
   }
 }
 

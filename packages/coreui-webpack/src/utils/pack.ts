@@ -1,8 +1,29 @@
 import webpack from 'webpack'
+import ProgressPlugin from 'webpack/lib/ProgressPlugin'
 
-export function pack(config: any) {
+interface AnyObject {
+  // TODO: Put this in coreui-common
+  [key: string]: any
+}
+
+interface Args {
+  webpackConfig: AnyObject
+  onProgress?: (value) => void
+}
+
+export function pack(a: Args) {
   return new Promise((resolve, reject) => {
-    webpack(config, (err, stats) => {
+    if (a.onProgress) {
+      const progressHandler = new ProgressPlugin(function(percentage, msg) {
+        const percentageValue = percentage * 100
+        a.onProgress(percentageValue)
+      })
+      a.webpackConfig.plugins.push(progressHandler)
+    }
+
+    const compiler = webpack(a.webpackConfig)
+
+    compiler.run((err, stats) => {
       if (err || stats.hasErrors()) {
         const error = new WebpackError(err, stats)
         reject(error)

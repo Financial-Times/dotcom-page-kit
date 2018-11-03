@@ -1,5 +1,4 @@
 export * from './program/createProgram'
-export * from './context/CliContext'
 
 // TODO: Add description to packages/webpack
 // TODO: Add README to packages/webpack

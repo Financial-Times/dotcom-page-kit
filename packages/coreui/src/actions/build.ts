@@ -1,5 +1,5 @@
 import path from 'path'
-import { CliContext } from '../context/CliContext'
+import { CliContext } from 'coreui-common'
 import { buildWebpack } from '../helpers/buildWebpack'
 
 export default {
