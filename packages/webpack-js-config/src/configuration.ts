@@ -42,7 +42,10 @@ export function configuration(options: Options) {
       mainFields: ['browser', 'module', 'main'],
 
       // file names for directory resolution
-      mainFiles: ['index', 'main']
+      mainFiles: ['index', 'main'],
+
+      // Automatically resolve these extensions.
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.mjs', '.json']
     },
     module: {
       rules: [
