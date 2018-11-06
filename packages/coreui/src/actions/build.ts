@@ -15,14 +15,10 @@ export async function build(c: CliContext) {
 }
 
 export function prepareContext(c: CliContext) {
-  if (pathIsRelative(c.flags.srcFile)) {
+  if (!path.isAbsolute(c.flags.srcFile)) {
     c.flags.srcFile = path.join(c.paths.workingDir, c.flags.srcFile)
   }
-  if (pathIsRelative(c.flags.outDir)) {
+  if (!path.isAbsolute(c.flags.outDir)) {
     c.flags.outDir = path.join(c.paths.workingDir, c.flags.outDir)
   }
-}
-
-function pathIsRelative(filePath: string) {
-  return !filePath.startsWith(path.sep)
 }

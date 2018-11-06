@@ -1,11 +1,7 @@
 import { CliContext } from 'coreui-common'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
-import getDefaultBabelConfig from 'coreui-babel'
 
 export function getDefaultWebpackConfig(c: CliContext) {
-  const babelConfig = getDefaultBabelConfig()
-  c.amend('babelConfig', babelConfig)
-
   const cleanWebpackPluginPaths = [c.flags.outDir]
   const cleanWebpackPluginOptions = { root: c.paths.workingDir, verbose: false }
   c.amend('webpackConfig::plugin::cleanWebpackPlugin::paths', cleanWebpackPluginPaths)
@@ -16,7 +12,6 @@ export function getDefaultWebpackConfig(c: CliContext) {
   )
   c.amend('webpackConfig::plugin::cleanWebpackPlugin', cleanWebpackPlugin)
 
-  // prettier-ignore
   const config = {
     mode: 'production',
     entry: c.flags.srcFile,
@@ -26,27 +21,12 @@ export function getDefaultWebpackConfig(c: CliContext) {
       path: c.flags.outDir
     },
     resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx', '.mjs', '.json']
+      extensions: ['.js', '.jsx', '.mjs', '.json']
     },
     module: {
-      rules: [
-        {
-          test: /\.(js|jsx|mjs|ts|tsx)$/,
-          exclude: /(node_modules|bower_components)/,
-          use: {
-
-            loader: require.resolve('babel-loader'),
-            options: {
-              ...babelConfig,
-              cacheDirectory: true
-            }
-          }
-        }
-      ]
+      rules: []
     },
-    plugins: [
-      cleanWebpackPlugin
-    ]
+    plugins: [cleanWebpackPlugin]
   }
 
   if (c.flags.devMode) {
@@ -56,12 +36,5 @@ export function getDefaultWebpackConfig(c: CliContext) {
     })
   }
 
-  c.amend('webpackConfig::rule::scriptsRule', config.module.rules[0])
-
   return config
 }
-
-// TODO: Pass in the working directory
-// TODO: Make the options for CleanWebpackPlugin available to be amended
-// TODO: Decide whether it will be better to use typescript-loader
-// TODO: Add an example showing the use of a custom babelrc

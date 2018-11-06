@@ -39,7 +39,6 @@ export class CliMessenger {
   }
 
   indicateFailure(error: any) {
-    // TODO: Do some work to build out a proper stack
     this.spinner.fail(error.stack || error)
   }
 

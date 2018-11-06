@@ -29,7 +29,6 @@
     "commander": "^2.19.0",
     "coreui-common": "file:../coreui-common",
     "coreui-webpack": "file:../coreui-webpack",
-    "fs-extra": "^7.0.0",
-    "lodash.camelcase": "^4.3.0"
+    "fs-extra": "^7.0.0"
   }
 }

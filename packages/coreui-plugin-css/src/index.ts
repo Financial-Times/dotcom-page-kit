@@ -4,7 +4,7 @@ export default new Plugin(({ on }) => {
   on('@Build::amend::webpackConfig', amendWebpackConfig)
 })
 
-export function amendWebpackConfig({ c, webpackConfig }) {
+function amendWebpackConfig({ c, webpackConfig }) {
   const cssRule = {
     test: /\.css$/,
     use: [

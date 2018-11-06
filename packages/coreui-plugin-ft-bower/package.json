@@ -23,12 +23,6 @@
   "dependencies": {
     "adonai": "^0.1.3",
     "bower-resolve-webpack-plugin": "^1.0.5",
-    "lodash.get": "^4.4.2",
-    "lodash.set": "^4.3.2"
-  },
-  "coreui": {
-    "plugins": {
-      "cli": "dist/cjs/plugins/cli.js"
-    }
+    "webpack-merge": "^4.1.4"
   }
 }

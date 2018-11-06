@@ -1,7 +1,5 @@
-import camelCase from 'lodash.camelcase'
-import { CliContext } from 'coreui-common'
-import { loadCliPluginsFromWorkingDir } from '../helpers/loadCliPluginsFromWorkingDir'
-import { getPackageFolderPathRelativeTo } from 'coreui-common'
+import { loadWorkingDirPlugins } from '../helpers/loadWorkingDirPlugins'
+import { CliContext, CliMessenger, getPackageFolderPathRelativeTo } from 'coreui-common'
 
 interface Action {
   execute: (c: CliContext) => any
@@ -15,52 +13,35 @@ interface Args {
 
 // Main =========================================================================
 
-export function setupAction(a: Args) {
+export function setupAction({ workingDir, action }: Args) {
   return async (...args) => {
-    const c = new CliContext({ workingDir: a.workingDir })
-
+    const messenger = new CliMessenger()
     try {
-      const cli = {
-        args: args.slice(0, -1),
-        command: args[args.length - 1]
-      }
-
-      await loadCliPluginsFromWorkingDir(c)
-      prepareCliContextDirs(c)
-      prepareCliContextFlags(c, cli.command)
-      prepareCliContextArgs(c, cli.args, cli.command)
-      await runActionContextPreparer(c, a.action)
-
-      await a.action.execute(c)
-
-      await c.messenger.newLine()
+      const command = args[args.length - 1]
+      const context = new CliContext({ command, messenger, workingDir })
+      await prepareContext(context, action)
+      await action.execute(context)
     } catch (error) {
-      c.messenger.indicateFailure(error)
+      messenger.indicateFailure(error)
     }
+    messenger.newLine()
   }
 }
 
 // Helpers =====================================================================
 
-function prepareCliContextDirs(c: CliContext) {
-  c.paths.packageDir = getPackageFolderPathRelativeTo(__dirname)
+async function prepareContext(context: CliContext, action: Action) {
+  await loadWorkingDirPlugins(context)
+  prepareCliContextDirs(context)
+  await runActionContextPreparer(context, action)
 }
 
-function prepareCliContextArgs(c: CliContext, args: any[], command: any) {
-  command._args.forEach((a, i) => {
-    c.args[a.name] = args[i]
-  })
+function prepareCliContextDirs(context: CliContext) {
+  context.paths.packageDir = getPackageFolderPathRelativeTo(__dirname)
 }
 
-function prepareCliContextFlags(c: CliContext, command: any) {
-  command.options.forEach((o) => {
-    const flagName = camelCase(o.long)
-    c.flags[flagName] = command[flagName]
-  })
-}
-
-async function runActionContextPreparer(c: CliContext, action) {
+async function runActionContextPreparer(context: CliContext, action) {
   if (action.prepareContext) {
-    await action.prepareContext(c)
+    await action.prepareContext(context)
   }
 }

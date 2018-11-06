@@ -10,10 +10,3 @@ async function start() {
   const something = new Something()
   something.doSomething()
 }
-
-// prettier-ignore
-const Index = () => (
-  <div>
-    Hello World
-  </div>
-)

@@ -23,7 +23,7 @@
   "dependencies": {
     "adonai": "^0.1.3",
     "cli-progress": "^2.1.0",
-    "fs-extra": "^7.0.0",
+    "find-up": "^3.0.0",
     "inquirer": "^6.2.0",
     "ora": "^3.0.0"
   }

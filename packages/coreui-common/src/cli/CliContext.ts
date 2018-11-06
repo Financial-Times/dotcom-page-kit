@@ -1,12 +1,12 @@
 import { Context } from 'adonai'
+import { Command } from 'commander'
+import { AnyObject } from '../types'
 import { CliMessenger } from './CliMessenger'
 
-interface AnyObject {
-  [key: string]: any
-}
-
 interface ConstructorArgs {
-  workingDir
+  command: Command
+  messenger: CliMessenger
+  workingDir: string
 }
 
 export class CliContext extends Context {
@@ -19,14 +19,19 @@ export class CliContext extends Context {
 
   flags: AnyObject = {}
 
-  messenger = new CliMessenger()
+  messenger: CliMessenger
 
-  constructor(a: ConstructorArgs) {
+  constructor({ workingDir, command, messenger }: ConstructorArgs) {
     super()
-    this.paths.workingDir = a.workingDir
+
+    this.paths.workingDir = workingDir
+    this.messenger = messenger
+    this.flags = command.opts()
+
+    prepareCliArgs(this, command)
   }
 
-  amend(name: string, value) {
+  amend = (name: string, value) => {
     const nameParts = name.split('::')
     const subject = nameParts[nameParts.length - 1]
     return this.runner.run(
@@ -35,4 +40,11 @@ export class CliContext extends Context {
       { $return: subject, $pluginMayReturn: subject, $pluginResultIsMergeable: true }
     )
   }
+}
+
+function prepareCliArgs(context: CliContext, command: any) {
+  const args = command.parent.args.slice(0, -1)
+  command._args.forEach((arg, idx) => {
+    context.args[arg.name] = args[idx]
+  })
 }
