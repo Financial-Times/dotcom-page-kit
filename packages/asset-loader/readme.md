@@ -1,6 +1,6 @@
 # Asset Loader
 
-Asset Loader allows running instances of apps to load and execute their assets from wherever those assets are stored.
+Asset Loader allows running instances of apps to locate their assets from wherever those assets are stored in the current environment.
 
 It creates associations between individual applications and their bundled JS and CSS code by consuming a manifest file which should be output alongside the .js and .css code bundles.
 
