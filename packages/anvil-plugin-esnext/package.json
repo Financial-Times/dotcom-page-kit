@@ -1,7 +1,6 @@
 {
   "name": "@financial-times/anvil-plugin-esnext",
-  "private": true,
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
