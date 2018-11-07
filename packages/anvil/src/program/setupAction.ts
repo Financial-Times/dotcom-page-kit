@@ -1,9 +1,5 @@
 import { loadWorkingDirPlugins } from '../helpers/loadWorkingDirPlugins'
-import {
-  CliContext,
-  CliMessenger,
-  getPackageFolderPathRelativeTo
-} from '@financial-times/anvil-plugin-helpers'
+import { CliContext, CliMessenger } from '@financial-times/anvil-plugin-helpers'
 
 interface Action {
   execute: (c: CliContext) => any
@@ -36,12 +32,7 @@ export function setupAction({ workingDir, action }: Args) {
 
 async function prepareContext(context: CliContext, action: Action) {
   loadWorkingDirPlugins(context)
-  prepareCliContextDirs(context)
   await runActionContextPreparer(context, action)
-}
-
-function prepareCliContextDirs(context: CliContext) {
-  context.paths.packageDir = getPackageFolderPathRelativeTo(__dirname)
 }
 
 async function runActionContextPreparer(context: CliContext, action) {

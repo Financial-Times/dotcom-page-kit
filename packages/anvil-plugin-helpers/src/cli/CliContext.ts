@@ -11,8 +11,7 @@ interface ConstructorArgs {
 
 export class CliContext extends Context {
   paths = {
-    workingDir: '',
-    packageDir: ''
+    workingDir: ''
   }
 
   args: AnyObject = {}
