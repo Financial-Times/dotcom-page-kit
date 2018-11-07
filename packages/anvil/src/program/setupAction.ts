@@ -1,5 +1,9 @@
 import { loadWorkingDirPlugins } from '../helpers/loadWorkingDirPlugins'
-import { CliContext, CliMessenger, getPackageFolderPathRelativeTo } from 'coreui-common'
+import {
+  CliContext,
+  CliMessenger,
+  getPackageFolderPathRelativeTo
+} from '@financial-times/anvil-plugin-helpers'
 
 interface Action {
   execute: (c: CliContext) => any

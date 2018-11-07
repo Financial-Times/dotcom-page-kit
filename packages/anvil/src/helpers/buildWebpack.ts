@@ -1,5 +1,5 @@
-import { CliContext } from 'coreui-common'
-import { pack, getDefaultWebpackConfig } from 'coreui-webpack'
+import { CliContext } from '@financial-times/anvil-plugin-helpers'
+import { pack, getDefaultWebpackConfig } from '@financial-times/anvil-webpack'
 
 buildWebpack.meta = {
   isAsync: true

@@ -1,5 +1,5 @@
 import path from 'path'
-import { CliContext } from 'coreui-common'
+import { CliContext } from '@financial-times/anvil-plugin-helpers'
 import { buildWebpack } from '../helpers/buildWebpack'
 
 export default {

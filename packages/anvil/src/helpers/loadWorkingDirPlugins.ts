@@ -1,4 +1,4 @@
-import { CliContext } from 'coreui-common'
+import { CliContext } from '@financial-times/anvil-plugin-helpers'
 
 export async function loadWorkingDirPlugins(c: CliContext) {
   const pluginNames = (await getConfigFileDataInProjectDir(c)).plugins
@@ -14,6 +14,6 @@ function getThesePluginsFromDir({ plugins, dir }) {
 }
 
 async function getConfigFileDataInProjectDir(c: CliContext) {
-  const configFilePath = require.resolve('coreui.config.json', { paths: [c.paths.workingDir] })
+  const configFilePath = require.resolve('anvil.config.json', { paths: [c.paths.workingDir] })
   return require(configFilePath)
 }

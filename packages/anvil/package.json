@@ -1,14 +1,12 @@
 {
-  "name": "coreui",
-  "private": true,
-  "version": "1.0.0",
-  "description": "The Core-UI CLI",
+  "name": "@financial-times/anvil",
+  "version": "0.0.0",
+  "description": "The anvil CLI",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "types": "src/index.ts",
   "bin": {
-    "cui": "bin/coreui.js",
-    "coreui": "bin/coreui.js"
+    "anvil": "bin/cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -25,10 +23,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@financial-times/anvil-plugin-helpers": "file:../anvil-plugin-helpers",
+    "@financial-times/anvil-webpack": "file:../anvil-webpack",
     "adonai": "^0.1.3",
-    "commander": "^2.19.0",
-    "coreui-common": "file:../coreui-common",
-    "coreui-webpack": "file:../coreui-webpack",
-    "fs-extra": "^7.0.0"
+    "commander": "^2.19.0"
   }
 }

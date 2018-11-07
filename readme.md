@@ -1,6 +1,6 @@
-# Core UI
+# Anvil
 
-[![CircleCI](https://circleci.com/gh/Financial-Times/core-ui/tree/master.svg?style=svg&circle-token=2149091698510f3908776e16620b30494fdca26c)](https://circleci.com/gh/Financial-Times/core-ui/tree/master)
+[![CircleCI](https://circleci.com/gh/Financial-Times/anvil/tree/master.svg?style=svg&circle-token=2149091698510f3908776e16620b30494fdca26c)](https://circleci.com/gh/Financial-Times/anvil/tree/master)
 
 The aim of this project is to provide a high quality, well tested, and thoroughly documented, modern asset pipeline and application shell for Node.js applications based upon the latest industry standards.
 
@@ -25,10 +25,10 @@ All of the user facing applications that together make up FT.com use a module ca
 
 We plan to split these functions into a suite of tightly defined, loosely coupled modules based upon the current best standards. The aim is to provide a foundation which enables teams to work efficiently with the technologies best suited to solving the problems they have.
 
-See the [core UI pitch document] for more information.
+See the [original pitch document] for more information.
 
 [n-ui]: https://github.com/Financial-Times/n-ui
-[core UI pitch document]: https://docs.google.com/document/d/1UNRbX-BpPESA4-wSfCb6DRYIijyOUhBJh99iUE95cU0/edit?usp=sharing
+[original pitch document]: https://docs.google.com/document/d/1UNRbX-BpPESA4-wSfCb6DRYIijyOUhBJh99iUE95cU0/edit?usp=sharing
 
 ### Does this replace n-ui?
 

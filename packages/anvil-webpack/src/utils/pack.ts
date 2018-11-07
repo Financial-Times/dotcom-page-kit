@@ -1,5 +1,5 @@
 import webpack from 'webpack'
-import { AnyObject } from 'coreui-common'
+import { AnyObject } from '@financial-times/anvil-plugin-helpers'
 import ProgressPlugin from 'webpack/lib/ProgressPlugin'
 
 interface Args {

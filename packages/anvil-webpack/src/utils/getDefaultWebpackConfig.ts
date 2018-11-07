@@ -1,4 +1,4 @@
-import { CliContext } from 'coreui-common'
+import { CliContext } from '@financial-times/anvil-plugin-helpers'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
 
 export function getDefaultWebpackConfig(c: CliContext) {
