@@ -2,7 +2,26 @@
 
 [![CircleCI](https://circleci.com/gh/Financial-Times/anvil/tree/master.svg?style=svg&circle-token=2149091698510f3908776e16620b30494fdca26c)](https://circleci.com/gh/Financial-Times/anvil/tree/master)
 
+<p align="center">
+  <img src="https://media.giphy.com/media/CtGZtZklB1yCs/giphy-downsized.gif" alt="3 fellas hammering it out">
+</p>
+
 The aim of this project is to provide a high quality, well tested, and thoroughly documented, modern asset pipeline and application shell for Node.js applications based upon the latest industry standards.
+
+
+## Scope
+
+### CLI
+
+The CLI tool provides a suite of actions which can be extended via plugins. To begin with we are working on the `build` action which can be used to assemble the static assets for your application. By default this action includes only a barebones Webpack configuration but capabilities to transpile JS2018, TypeScript, CSS, Sass, and more can be added to extend this basic functionality.
+
+### Server-side
+
+This suite of modules will help your application to render user interfaces. These provide a wide range of functionality such as template rendering, hook your app up to external data sources (such as polling feature flags), and middleware to decorate request and response data.
+
+### Application shell
+
+The application shell provides the basic UI components for your application. This includes templates and layouts, feature detection and loading of assets, and shared client-side functionality such as analytics.
 
 
 ## FAQ
