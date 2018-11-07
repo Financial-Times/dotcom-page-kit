@@ -2,6 +2,10 @@
 
 [![CircleCI](https://circleci.com/gh/Financial-Times/anvil/tree/master.svg?style=svg&circle-token=2149091698510f3908776e16620b30494fdca26c)](https://circleci.com/gh/Financial-Times/anvil/tree/master)
 
+<p align="center">
+  <img src="https://media.giphy.com/media/CtGZtZklB1yCs/giphy-downsized.gif" alt="3 fellas hammering it out">
+</p>
+
 The aim of this project is to provide a high quality, well tested, and thoroughly documented, modern asset pipeline and application shell for Node.js applications based upon the latest industry standards.
 
 
