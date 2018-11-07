@@ -1,5 +1,5 @@
 {
-  "name": "sample-package",
+  "name": "coreui-plugin-js-next",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -19,5 +19,12 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "adonai": "^0.1.3"
+  }
 }

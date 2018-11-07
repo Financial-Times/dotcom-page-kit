@@ -1,0 +1,21 @@
+{
+  "name": "example-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "npx coreui build",
+    "build:dev": "npx coreui build -d"
+  },
+  "devDependencies": {
+    "coreui": "file:../packages/coreui",
+    "coreui-plugin-babel": "file:../packages/coreui-plugin-babel",
+    "coreui-plugin-css": "file:../packages/coreui-plugin-css",
+    "coreui-plugin-ft-bower": "file:../packages/coreui-plugin-ft-bower",
+    "coreui-plugin-js-next": "file:../packages/coreui-plugin-js-next",
+    "prettier": "^1.14.3"
+  },
+  "dependencies": {
+    "react": "^16.6.0"
+  }
+}
