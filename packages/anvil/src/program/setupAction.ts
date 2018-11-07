@@ -35,7 +35,7 @@ export function setupAction({ workingDir, action }: Args) {
 // Helpers =====================================================================
 
 async function prepareContext(context: CliContext, action: Action) {
-  await loadWorkingDirPlugins(context)
+  loadWorkingDirPlugins(context)
   prepareCliContextDirs(context)
   await runActionContextPreparer(context, action)
 }
