@@ -1,8 +1,0 @@
-{
-  "plugins": [
-    "coreui-plugin-babel",
-    "coreui-plugin-js-next",
-    "coreui-plugin-css",
-    "coreui-plugin-ft-bower"
-  ]
-}

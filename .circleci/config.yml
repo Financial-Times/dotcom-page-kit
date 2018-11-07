@@ -8,7 +8,7 @@ references:
   container_config_node8: &container_config_node8
     working_directory: ~/project/build
     docker:
-      - image: circleci/node:8.12
+      - image: circleci/node:10.13
 
   workspace_root: &workspace_root
     ~/project
@@ -18,18 +18,11 @@ references:
       at: *workspace_root
 
   #
-  # Cache keys
-  #
-  cache_key: &cache_key
-    keys:
-      - cache-root-v1-{{ .Branch }}-{{ checksum "./package.json" }}
-
-  #
   # Cache creation
   #
   create_cache: &create_cache
     save_cache:
-      key: cache-root-v1-{{ .Branch }}-{{ checksum "./package.json" }}
+      key: cache-v1-{{ .Branch }}-{{ checksum "./package.json" }}
       paths:
         - ./node_modules/
 
@@ -38,7 +31,8 @@ references:
   #
   restore_cache: &restore_cache
     restore_cache:
-      <<: *cache_key
+      keys:
+        - cache-v1-{{ .Branch }}-{{ checksum "./package.json" }}
 
   #
   # Filters
