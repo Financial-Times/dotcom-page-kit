@@ -1,19 +1,18 @@
-import build from '../actions/build'
-import { setupAction } from './setupAction'
+import path from 'path'
+import program, { Command } from 'commander'
 
-interface Args {
-  workingDir: string
-}
+const actions: string[] = ['build']
 
-export function createProgram(a: Args) {
-  const program = require('commander')
-
-  program
-    .command('build')
-    .option('-s, --srcFile [filePath]', 'Path to src file', 'src/index.js')
-    .option('-o, --outDir [folderPath]', 'Path to output folder', 'dist')
-    .option('-d, --devMode', 'Whether to build in dev mode or not', false)
-    .action(setupAction({ action: build, ...a }))
+/**
+ * Create program
+ *
+ * This dynamically loads all of the available actions for this CLI program
+ */
+export function createProgram(args: ProgramArgs): Command {
+  actions.forEach((action) => {
+    const { registerAction } = require(path.join('../actions', action, 'registerAction'))
+    registerAction(program, args)
+  })
 
   return program
 }

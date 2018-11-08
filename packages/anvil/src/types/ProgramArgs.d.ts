@@ -1,0 +1,3 @@
+interface ProgramArgs {
+  workingDir: string
+}

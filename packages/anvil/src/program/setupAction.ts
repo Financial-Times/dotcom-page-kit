@@ -1,24 +1,26 @@
 import { loadWorkingDirPlugins } from '../helpers/loadWorkingDirPlugins'
 import { CliContext, CliMessenger } from '@financial-times/anvil-plugin-helpers'
+import { Command } from 'commander'
 
 interface Action {
-  execute: (c: CliContext) => any
+  execute: (c: CliContext) => Promise<any>
   prepareContext: (c: CliContext) => void
 }
 
-interface Args {
+interface ActionArgs extends ProgramArgs {
   action: Action
-  workingDir: string
 }
 
 // Main =========================================================================
 
-export function setupAction({ workingDir, action }: Args) {
+export function setupAction({ workingDir, action }: ActionArgs) {
   return async (...args) => {
     const messenger = new CliMessenger()
     try {
-      const command = args[args.length - 1]
+      // The commander instance is always the final argument
+      const command: Command = args[args.length - 1]
       const context = new CliContext({ command, messenger, workingDir })
+
       await prepareContext(context, action)
       await action.execute(context)
     } catch (error) {
@@ -32,11 +34,8 @@ export function setupAction({ workingDir, action }: Args) {
 
 async function prepareContext(context: CliContext, action: Action) {
   loadWorkingDirPlugins(context)
-  await runActionContextPreparer(context, action)
-}
 
-async function runActionContextPreparer(context: CliContext, action) {
-  if (action.prepareContext) {
+  if (typeof action.prepareContext === 'function') {
     await action.prepareContext(context)
   }
 }
