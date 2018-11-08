@@ -1,19 +1,46 @@
-import { CliContext } from '@financial-times/anvil-plugin-helpers'
+import { CliContext, AnyObject } from '@financial-times/anvil-plugin-helpers'
 
-export async function loadWorkingDirPlugins(c: CliContext) {
-  const pluginNames = (await getConfigFileDataInProjectDir(c)).plugins
-  const plugins = getThesePluginsFromDir({ plugins: pluginNames, dir: c.paths.workingDir })
-  c.addPlugins(plugins)
+export function loadWorkingDirPlugins(context: CliContext) {
+  const config = loadConfigFile(context.paths.workingDir)
+  const plugins = loadPlugins(context.paths.workingDir, config)
+  context.addPlugins(plugins)
 }
 
-function getThesePluginsFromDir({ plugins, dir }) {
-  return plugins.map((pluginName) => {
-    const pluginPath = require.resolve(pluginName, { paths: [dir] })
-    return require(pluginPath).default
+function loadConfigFile(dir) {
+  const configFilePath = require.resolve('anvil.config.json', { paths: [dir] })
+  return require(configFilePath)
+}
+
+function loadPlugins(dir, config) {
+  return config.plugins.map((moduleName) => {
+    const pluginPath = require.resolve(moduleName, { paths: [dir] })
+    const plugin = interopRequire(pluginPath)
+    const settings = findPluginSettings(moduleName, config)
+
+    return initialisePlugin(plugin, settings)
   })
 }
 
-async function getConfigFileDataInProjectDir(c: CliContext) {
-  const configFilePath = require.resolve('anvil.config.json', { paths: [c.paths.workingDir] })
-  return require(configFilePath)
+function interopRequire(pluginPath: string) {
+  // handle modules written with ESM transpiled to CJS
+  const obj = require(pluginPath)
+  return obj && obj.__esModule ? obj['default'] : obj
+}
+
+function findPluginSettings(moduleName: string, config): AnyObject {
+  const pluginName = moduleName.split('plugin-').pop()
+  return config.settings ? config.settings[pluginName] : {}
+}
+
+function initialisePlugin(plugin, settings?) {
+  if (typeof plugin === 'function') {
+    return plugin(settings)
+  }
+
+  // HACK: cannot check instanceof
+  if (plugin.constructor.name === 'Plugin') {
+    return plugin
+  }
+
+  throw new TypeError('Plugin must export one of: function, Plugin')
 }
