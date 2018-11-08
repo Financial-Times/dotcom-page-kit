@@ -11,22 +11,15 @@ interface ActionArgs extends ProgramArgs {
   action: Action
 }
 
-// Main =========================================================================
-
 export function setupAction({ workingDir, action }: ActionArgs) {
   return async (...args) => {
     const messenger = new CliMessenger()
 
     try {
-      // Expected arguments
-      const commandArgs: any[] = args.slice(0, -1)
       // The commander instance is always the final argument
-      const command: Command = args[args.length - 1]
-      // Get all named flags from argv
+      const command = args.pop()
       const flags = command.opts()
-      // Map arguments to their names
-      const namedArgs = getNamedArguments(command, commandArgs)
-      // Create a new Adonai context to pass around
+      const namedArgs = mapExpectedArgsToNames(command, args)
       const context = new CliContext({ flags, args: namedArgs, messenger, workingDir })
 
       await prepareContext(context, action)
@@ -39,10 +32,8 @@ export function setupAction({ workingDir, action }: ActionArgs) {
   }
 }
 
-// Helpers =====================================================================
-
-function getNamedArguments(program: Command, options: any[]) {
-  // this function is naïve as command arguments may be optional
+function mapExpectedArgsToNames(program: Command, options: any[]) {
+  // This function is naïve as command arguments may be optional
   const properties = program._args.map((arg) => arg.name)
 
   return options.reduce((map, option, i) => {

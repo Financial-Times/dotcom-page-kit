@@ -7,18 +7,21 @@ export default {
   prepareContext
 }
 
-export async function execute(c: CliContext): Promise<void> {
-  const context = { namespace: 'Build' }
-  await c.with(context, async () => {
-    await c.do(buildWebpack)
+export async function execute(context: CliContext): Promise<void> {
+  const settings = { namespace: 'Build' }
+
+  await context.with(settings, async () => {
+    await context.do(buildWebpack)
   })
 }
 
-export function prepareContext({ paths, flags }: CliContext): void {
-  if (!path.isAbsolute(flags.srcFile)) {
-    flags.srcFile = path.join(paths.workingDir, flags.srcFile)
+// This function (if present) will be called before the execute
+// function should decorate or format the context for use
+export function prepareContext(context: CliContext): void {
+  if (!path.isAbsolute(context.flags.srcFile)) {
+    context.flags.srcFile = path.join(context.paths.workingDir, context.flags.srcFile)
   }
-  if (!path.isAbsolute(flags.outDir)) {
-    flags.outDir = path.join(paths.workingDir, flags.outDir)
+  if (!path.isAbsolute(context.flags.outDir)) {
+    context.flags.outDir = path.join(context.paths.workingDir, context.flags.outDir)
   }
 }
