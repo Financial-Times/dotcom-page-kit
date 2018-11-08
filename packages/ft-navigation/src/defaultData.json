@@ -1,0 +1,250 @@
+{
+  "drawer-uk": {
+    "label": "Drawer",
+    "items": [
+      {
+        "label": "Top sections",
+        "url": null,
+        "submenu": {
+          "label": null,
+          "items": [
+            {
+              "label": "Home",
+              "url": "/",
+              "submenu": null
+            },
+            {
+              "label": "World",
+              "url": "/world",
+              "submenu": null
+            },
+            {
+              "label": "UK",
+              "url": "/world/uk",
+              "submenu": null
+            },
+            {
+              "label": "Companies",
+              "url": "/companies",
+              "submenu": null
+            },
+            {
+              "label": "Markets",
+              "url": "/markets",
+              "submenu": null
+            },
+            {
+              "label": "Opinion",
+              "url": "/comment",
+              "submenu": null
+            },
+            {
+              "label": "Work & Careers",
+              "url": "/work-careers",
+              "submenu": null
+            },
+            {
+              "label": "Life & Arts",
+              "url": "/life-arts",
+              "submenu": null
+            },
+            {
+              "label": "Personal Finance",
+              "url": "/personal-finance",
+              "submenu": null
+            },
+            {
+              "label": "Special Reports",
+              "url": "/special-reports",
+              "submenu": null
+            },
+            {
+              "label": "Science & Environment",
+              "url": "/science-environment",
+              "submenu": null
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "drawer-international": {
+    "label": "Drawer",
+    "items": [
+      {
+        "label": "Top sections",
+        "url": null,
+        "submenu": {
+          "label": null,
+          "items": [
+            {
+              "label": "Home",
+              "url": "/",
+              "submenu": null
+            },
+            {
+              "label": "World",
+              "url": "/world",
+              "submenu": null
+            },
+            {
+              "label": "US",
+              "url": "/world/us",
+              "submenu": null
+            },
+            {
+              "label": "Companies",
+              "url": "/companies",
+              "submenu": null
+            },
+            {
+              "label": "Markets",
+              "url": "/markets",
+              "submenu": null
+            },
+            {
+              "label": "Opinion",
+              "url": "/comment",
+              "submenu": null
+            },
+            {
+              "label": "Work & Careers",
+              "url": "/work-careers",
+              "submenu": null
+            },
+            {
+              "label": "Life & Arts",
+              "url": "/life-arts",
+              "submenu": null
+            },
+            {
+              "label": "Personal Finance",
+              "url": "/personal-finance",
+              "submenu": null
+            },
+            {
+              "label": "Special Reports",
+              "url": "/special-reports",
+              "submenu": null
+            },
+            {
+              "label": "Science & Environment",
+              "url": "/science-environment",
+              "submenu": null
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "navbar-simple": {
+    "label": "Navigation",
+    "items": [
+      {
+        "label": "Home",
+        "url": "/",
+        "submenu": null
+      },
+      {
+        "label": "fastFT",
+        "url": "/fastft",
+        "submenu": null
+      },
+      {
+        "label": "Markets Data",
+        "url": "https://markets.ft.com/data",
+        "submenu": null
+      }
+    ]
+  },
+  "navbar-uk": {
+    "label": "Navigation",
+    "items": [
+      {
+        "label": "Home",
+        "url": "/",
+        "submenu": null
+      },
+      {
+        "label": "World",
+        "url": "/world",
+        "submenu": null
+      },
+      {
+        "label": "UK",
+        "url": "/world/uk",
+        "submenu": null
+      },
+      {
+        "label": "Companies",
+        "url": "/companies",
+        "submenu": null
+      },
+      {
+        "label": "Markets",
+        "url": "/markets",
+        "submenu": null
+      },
+      {
+        "label": "Opinion",
+        "url": "/comment",
+        "submenu": null
+      },
+      {
+        "label": "Work & Careers",
+        "url": "/work-careers",
+        "submenu": null
+      },
+      {
+        "label": "Life & Arts",
+        "url": "/life-arts",
+        "submenu": null
+      }
+    ]
+  },
+  "navbar-international": {
+    "label": "Navigation",
+    "items": [
+      {
+        "label": "Home",
+        "url": "/",
+        "submenu": null
+      },
+      {
+        "label": "World",
+        "url": "/world",
+        "submenu": null
+      },
+      {
+        "label": "US",
+        "url": "/world/us",
+        "submenu": null
+      },
+      {
+        "label": "Companies",
+        "url": "/companies",
+        "submenu": null
+      },
+      {
+        "label": "Markets",
+        "url": "/markets",
+        "submenu": null
+      },
+      {
+        "label": "Opinion",
+        "url": "/comment",
+        "submenu": null
+      },
+      {
+        "label": "Work & Careers",
+        "url": "/work-careers",
+        "submenu": null
+      },
+      {
+        "label": "Life & Arts",
+        "url": "/life-arts",
+        "submenu": null
+      }
+    ]
+  }
+}
