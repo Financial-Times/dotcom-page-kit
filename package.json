@@ -12,8 +12,7 @@
     "dev": "athloi run dev --concurrency 10",
     "lint": "eslint . --ext .js,.ts,.tsx,.jsx",
     "postinstall": "athloi exec npm i",
-    "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
-    "precommit": "npm run checktypes && lint-staged"
+    "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'"
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
@@ -57,5 +56,10 @@
   },
   "engines": {
     "node": ">= 10.13.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run checktypes && lint-staged"
+    }
   }
 }
