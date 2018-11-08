@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
   "types": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,9 +10,8 @@
     "clean": "npm run clean:dist && npm run clean:node_modules",
     "clean:dist": "rm -rf dist",
     "clean:node_modules": "rm -rf node_modules",
-    "build:cjs": "npm run tsc -- --outDir ./dist/cjs --module commonjs --target es5",
-    "build:esm": "npm run tsc -- --outDir ./dist/esm --module es2015 --target es2015",
-    "build": "npm run clean:dist && npm run build:cjs && npm run build:esm",
+    "build:cjs": "npm run tsc -- --outDir ./dist/cjs",
+    "build": "npm run clean:dist && npm run build:cjs",
     "dev": "npm run clean:dist && npm run build:cjs -- --watch"
   },
   "keywords": [],
