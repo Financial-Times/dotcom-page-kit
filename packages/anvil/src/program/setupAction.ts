@@ -1,51 +1,53 @@
 import { loadWorkingDirPlugins } from '../helpers/loadWorkingDirPlugins'
-import {
-  CliContext,
-  CliMessenger,
-  getPackageFolderPathRelativeTo
-} from '@financial-times/anvil-plugin-helpers'
+import { CliContext, CliMessenger } from '@financial-times/anvil-plugin-helpers'
+import { Command } from 'commander'
 
 interface Action {
-  execute: (c: CliContext) => any
+  execute: (c: CliContext) => Promise<any>
   prepareContext: (c: CliContext) => void
 }
 
-interface Args {
+interface ActionArgs extends ProgramArgs {
   action: Action
-  workingDir: string
 }
 
 // Main =========================================================================
 
-export function setupAction({ workingDir, action }: Args) {
+export function setupAction({ workingDir, action }: ActionArgs) {
   return async (...args) => {
     const messenger = new CliMessenger()
+
     try {
-      const command = args[args.length - 1]
-      const context = new CliContext({ command, messenger, workingDir })
+      // The commander instance is always the final argument
+      const command = args.pop()
+      const flags = command.opts()
+      const namedArgs = mapExpectedArgsToNames(command, args)
+      const context = new CliContext({ flags, args: namedArgs, messenger, workingDir })
+
       await prepareContext(context, action)
       await action.execute(context)
     } catch (error) {
       messenger.indicateFailure(error)
     }
+
     messenger.newLine()
   }
 }
 
-// Helpers =====================================================================
+function mapExpectedArgsToNames(program: Command, options: any[]) {
+  // This function is naïve as command arguments may be optional
+  const properties = program._args.map((arg) => arg.name)
+
+  return options.reduce((map, option, i) => {
+    map[properties[i]] = option
+    return map
+  }, {})
+}
 
 async function prepareContext(context: CliContext, action: Action) {
-  await loadWorkingDirPlugins(context)
-  prepareCliContextDirs(context)
-  await runActionContextPreparer(context, action)
-}
+  loadWorkingDirPlugins(context)
 
-function prepareCliContextDirs(context: CliContext) {
-  context.paths.packageDir = getPackageFolderPathRelativeTo(__dirname)
-}
-
-async function runActionContextPreparer(context: CliContext, action) {
-  if (action.prepareContext) {
+  if (typeof action.prepareContext === 'function') {
     await action.prepareContext(context)
   }
 }

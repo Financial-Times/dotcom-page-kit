@@ -9,19 +9,19 @@ interface Args {
 export function pack(args: Args) {
   return new Promise((resolve, reject) => {
     if (args.onProgress) {
-      const progressHandler = new ProgressPlugin(function(percentage) {
+      const progressHandler = new ProgressPlugin((percentage) => {
         const percentageValue = percentage * 100
         args.onProgress(percentageValue)
       })
+
       args.webpackConfig.plugins.push(progressHandler)
     }
 
     const compiler = webpack(args.webpackConfig)
 
-    compiler.run((err, stats) => {
-      if (err || stats.hasErrors()) {
-        const error = new WebpackError(err, stats)
-        reject(error)
+    compiler.run((error, stats) => {
+      if (error || stats.hasErrors()) {
+        reject(new WebpackError(error, stats))
       } else {
         resolve()
       }
@@ -32,14 +32,14 @@ export function pack(args: Args) {
 class WebpackError extends Error {
   details: any
   statsError: any
-  constructor(err, stats) {
+  constructor(error, stats) {
     super('Something went wrong')
 
-    if (err && err.details) {
-      this.details = err.details
+    if (error && error.details) {
+      this.details = error.details
     }
 
-    if (err && err.stack) {
+    if (error && error.stack) {
       this.stack
     }
     if (stats.hasErrors()) {
