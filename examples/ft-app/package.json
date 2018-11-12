@@ -11,6 +11,7 @@
   "devDependencies": {
     "@financial-times/anvil": "file:../../packages/anvil",
     "@financial-times/anvil-plugin-babel": "file:../../packages/anvil-plugin-babel",
+    "@financial-times/anvil-plugin-entry": "file:../../packages/anvil-plugin-entry",
     "@financial-times/anvil-plugin-ft-js": "file:../../packages/anvil-plugin-ft-js",
     "prettier": "^1.14.3"
   },

@@ -1,3 +1,13 @@
 {
-  "plugins": ["@financial-times/anvil-plugin-babel", "@financial-times/anvil-plugin-ft-js"]
+  "plugins": [
+    "@financial-times/anvil-plugin-entry",
+    "@financial-times/anvil-plugin-babel",
+    "@financial-times/anvil-plugin-ft-js"
+  ],
+  "settings": {
+    "entry": {
+      "one": "./src/one.ts",
+      "two": "./src/two.ts"
+    }
+  }
 }
