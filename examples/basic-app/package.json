@@ -1,0 +1,19 @@
+{
+  "name": "example-app",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "anvil build",
+    "build:dev": "anvil build -d"
+  },
+  "devDependencies": {
+    "@financial-times/anvil": "file:../../packages/anvil",
+    "@financial-times/anvil-plugin-babel": "file:../../packages/anvil-plugin-babel",
+    "@financial-times/anvil-plugin-css": "file:../../packages/anvil-plugin-css",
+    "@financial-times/anvil-plugin-esnext": "file:../../packages/anvil-plugin-esnext",
+    "prettier": "^1.14.3"
+  },
+  "dependencies": {}
+}

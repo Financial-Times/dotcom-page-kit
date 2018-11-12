@@ -1,0 +1,3 @@
+{
+  "plugins": ["@financial-times/anvil-plugin-babel", "@financial-times/anvil-plugin-ft-js"]
+}
