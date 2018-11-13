@@ -9,17 +9,17 @@ interface AssetLoaderOptions {
   fileSystemPath: string
   /** The base URL for assets (as seen by users) */
   publicPath: string
+  /** Store file contents in memory when accessed */
+  cacheFileContents?: boolean
 }
 
 class AssetLoader {
-  private manifest: object
-  private publicPath: string
-  private fileSystemPath: string
+  public manifest: object
+  public options: AssetLoaderOptions
 
   constructor(options: AssetLoaderOptions) {
     this.manifest = loadManifest(options.manifestPath)
-    this.publicPath = options.publicPath
-    this.fileSystemPath = options.fileSystemPath
+    this.options = options
   }
 
   getHashedAsset(asset: string): string {
@@ -31,18 +31,18 @@ class AssetLoader {
   }
 
   getFileContents(asset: string): string {
-    return loadFile(this.getFileSystemPath(asset))
+    return loadFile(this.getFileSystemPath(asset), this.options.cacheFileContents)
   }
 
   getFileSystemPath(asset: string): string {
     const hashedAsset = this.getHashedAsset(asset)
-    return path.join(this.fileSystemPath, hashedAsset)
+    return path.join(this.options.fileSystemPath, hashedAsset)
   }
 
   getPublicPath(asset: string): string {
     const hashedAsset = this.getHashedAsset(asset)
     // Do not use path.join() as separator is platform specific
-    return `${this.publicPath}/${hashedAsset}`
+    return `${this.options.publicPath}/${hashedAsset}`
   }
 
   getStylesheetInline(stylesheet: string): string {

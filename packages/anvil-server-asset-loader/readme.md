@@ -27,7 +27,8 @@ const AssetLoader = require('@financial-times/anvil-server-asset-loader')
 const assetLoader = new AssetLoader({
   publicPath: 'https://cdn.site.com/assets',
   manifestPath: path.join(process.cwd(), 'public/manifest.json')
-  fileSystemPath: path.join(process.cwd(), 'public')
+  fileSystemPath: path.join(process.cwd(), 'public'),
+  cacheFileContents: false
 })
 ```
 
@@ -36,6 +37,7 @@ The options are:
 - `manifestPath` - A fully resolved path to the manifest file
 - `fileSystemPath` - An absolute path to the assets folder on disk
 - `publicPath` - The base URL for assets (as seen by users)
+- `cacheFileContents` - Store file contents in memory when accessed (optional)
 
 The asset loader instance provides several methods to retrieve the public and private paths to assets and load their contents.
 
