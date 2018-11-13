@@ -1,6 +1,5 @@
 import { Context } from 'adonai'
 import { Command } from 'commander'
-import { AnyObject } from '../types'
 import { CliMessenger } from './CliMessenger'
 
 interface ConstructorArgs {

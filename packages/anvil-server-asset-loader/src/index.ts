@@ -1,39 +1,64 @@
-import fs from 'fs'
-import { loadManifest } from './asset-helpers'
+import path from 'path'
+import { loadFile } from './loadFile'
+import { loadManifest } from './loadManifest'
+
+interface AssetLoaderOptions {
+  /** A fully resolved path to the manifest file */
+  manifestFile: string
+  /** The base URL for assets (as seen by users) */
+  publicPath: string
+  /** An absolute path to the assets folder on disk */
+  fileSystemPath: string
+  /** Store file contents in memory when accessed */
+  cacheFileContents?: boolean
+}
 
 class AssetLoader {
-  private manifest: object
+  public manifest: object
+  public options: AssetLoaderOptions
 
-  constructor(path: string) {
-    this.manifest = loadManifest(path)
+  constructor(options: AssetLoaderOptions) {
+    this.manifest = loadManifest(options.manifestFile)
+    this.options = options
   }
 
-  getAssetPath(asset: string) {
-    if (asset && this.manifest.hasOwnProperty(asset)) {
+  getHashedAsset(asset: string): string {
+    if (this.manifest.hasOwnProperty(asset)) {
       return this.manifest[asset]
     } else {
       throw Error(`Couldn't find asset "${asset}" in manifest`)
     }
   }
 
+  getFileContents(asset: string): string {
+    return loadFile(this.getFileSystemPath(asset), this.options.cacheFileContents)
+  }
+
+  getFileSystemPath(asset: string): string {
+    const hashedAsset = this.getHashedAsset(asset)
+    return path.join(this.options.fileSystemPath, hashedAsset)
+  }
+
+  getPublicPath(asset: string): string {
+    const hashedAsset = this.getHashedAsset(asset)
+    // Do not use path.join() as separator is platform specific
+    return `${this.options.publicPath}/${hashedAsset}`
+  }
+
   getStylesheetInline(stylesheet: string): string {
-    const styles = fs.readFileSync(this.getAssetPath(stylesheet))
-    return `<style>${styles.toString()}</style>`
+    return `<style>${this.getFileContents(stylesheet)}</style>`
   }
 
   getJavascriptInline(javascript: string): string {
-    const scripts = fs.readFileSync(this.getAssetPath(javascript))
-    return `<script>${scripts.toString()}</script>`
+    return `<script>${this.getFileContents(javascript)}</script>`
   }
 
   createStylesheetLink(stylesheet: string): string {
-    // TODO: support production URLs
-    return `<link rel="stylesheet" href="/${this.getAssetPath(stylesheet)}">`
+    return `<link rel="stylesheet" href="${this.getPublicPath(stylesheet)}">`
   }
 
   createJavascriptLink(javascript: string): string {
-    // TODO: support production URLs
-    return `<script rel="text/javascript" src="/${this.getAssetPath(javascript)}"></script>`
+    return `<script src="${this.getPublicPath(javascript)}"></script>`
   }
 }
 

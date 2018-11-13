@@ -1,60 +1,70 @@
 import AssetLoader from '../'
 
-const testCssFile = 'example.css'
-const testJsFile = 'example.js'
 const manifest = {
-  'example.css': 'public/example.1234567.css',
-  'example.js': 'public/example.1234567.js'
+  'example.css': 'example.1234567.css',
+  'example.js': 'example.1234567.js'
 }
 
-jest.mock('../asset-helpers', () => {
+jest.mock('../loadManifest', () => {
   return {
     loadManifest: jest.fn(() => manifest)
   }
 })
 
-jest.mock('fs', () => {
+jest.mock('../loadFile', () => {
   return {
-    readFileSync: jest.fn(() => {
+    loadFile: jest.fn(() => {
       return 'some-stringified-asset-data'
     })
   }
 })
 
-describe('asset-loader', () => {
+describe('anvil-server-asset-loader', () => {
   let loader
+
   beforeEach(() => {
-    loader = new AssetLoader('path/to/manifest')
+    loader = new AssetLoader({
+      manifestFile: '/path/to/manifest.json',
+      publicPath: 'public/assets',
+      fileSystemPath: '/internal/path/to/assets'
+    })
   })
+
   afterEach(() => {
     jest.restoreAllMocks()
   })
 
-  it('should create a stylesheet <link> tag', () => {
-    expect(loader.createStylesheetLink(testCssFile)).toEqual(
-      '<link rel="stylesheet" href="/public/example.1234567.css">'
-    )
+  describe('.getHashedAsset()', () => {
+    it('returns the hashed name from a manifest', () => {
+      const result = loader.getHashedAsset('example.css')
+      expect(result).toEqual('example.1234567.css')
+    })
+
+    it("errors if the file can't be found in the manifest", () => {
+      expect(() => {
+        loader.getHashedAsset('test')
+      }).toThrow(Error('Couldn\'t find asset "test" in manifest'))
+    })
   })
-  it('should create a javascript <link> tag', () => {
-    expect(loader.createJavascriptLink(testJsFile)).toEqual(
-      '<script rel="text/javascript" src="/public/example.1234567.js"></script>'
-    )
+
+  describe('.getFileSystemPath()', () => {
+    it('returns the file system path for the requested file', () => {
+      const result = loader.getFileSystemPath('example.css')
+      expect(result).toEqual('/internal/path/to/assets/example.1234567.css')
+    })
   })
-  it('should create a stylesheet <style> tag', () => {
-    const styles = loader.getStylesheetInline(testCssFile)
-    expect(styles).toEqual('<style>some-stringified-asset-data</style>')
+
+  describe('.getPublicPath()', () => {
+    it('returns the public path for the requested file', () => {
+      const result = loader.getPublicPath('example.css')
+      expect(result).toEqual('public/assets/example.1234567.css')
+    })
   })
-  it('should create a javascript <script> tag', () => {
-    const styles = loader.getJavascriptInline(testJsFile)
-    expect(styles).toEqual('<script>some-stringified-asset-data</script>')
-  })
-  it("should fetch a file's location from a manifest", () => {
-    const assetPath = loader.getAssetPath(testCssFile)
-    expect(assetPath).toEqual('public/example.1234567.css')
-  })
-  it("should error if the file can't be found in a manifest", () => {
-    expect(() => {
-      loader.getAssetPath('test')
-    }).toThrow(Error('Couldn\'t find asset "test" in manifest'))
+
+  describe('.getFileContents()', () => {
+    it('returns the file contents for the requested file', () => {
+      const result = loader.getFileContents('example.css')
+      expect(result).toEqual('some-stringified-asset-data')
+    })
   })
 })
