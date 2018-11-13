@@ -29,7 +29,7 @@ describe('anvil-server-asset-loader', () => {
     loader = new AssetLoader({
       manifestPath: 'path/to/manifest',
       publicPath: 'public/path/to/assets',
-      internalPath: '/internal/path/to/assets'
+      fileSystemPath: '/internal/path/to/assets'
     })
   })
 

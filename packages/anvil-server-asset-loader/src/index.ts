@@ -3,23 +3,23 @@ import { loadFile } from './loadFile'
 import { loadManifest } from './loadManifest'
 
 interface AssetLoaderOptions {
-  /** A fully resolved path to manifest file */
+  /** A fully resolved path to the manifest file */
   manifestPath: string
-  /** The base URL or path to assets */
+  /** An absolute path to the assets folder on disk */
+  fileSystemPath: string
+  /** The base URL for assets (as seen by users) */
   publicPath: string
-  /** The absolute path to assets on disk */
-  internalPath: string
 }
 
 class AssetLoader {
   private manifest: object
   private publicPath: string
-  private internalPath: string
+  private fileSystemPath: string
 
   constructor(options: AssetLoaderOptions) {
     this.manifest = loadManifest(options.manifestPath)
     this.publicPath = options.publicPath
-    this.internalPath = options.internalPath
+    this.fileSystemPath = options.fileSystemPath
   }
 
   getHashedAsset(asset: string): string {
@@ -31,12 +31,12 @@ class AssetLoader {
   }
 
   getFileContents(asset: string): string {
-    return loadFile(this.getInternalPath(asset))
+    return loadFile(this.getFileSystemPath(asset))
   }
 
-  getInternalPath(asset: string): string {
+  getFileSystemPath(asset: string): string {
     const hashedAsset = this.getHashedAsset(asset)
-    return path.join(this.internalPath, hashedAsset)
+    return path.join(this.fileSystemPath, hashedAsset)
   }
 
   getPublicPath(asset: string): string {
