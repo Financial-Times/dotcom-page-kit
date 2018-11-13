@@ -1,10 +1,11 @@
 import { Plugin } from 'adonai'
+import { RunningWebpackContext } from '@financial-times/anvil-types-build'
 
 export default new Plugin(({ on }) => {
   on('@Build::amend::webpackConfig', amendWebpackConfig)
 })
 
-function amendWebpackConfig({ c, webpackConfig }) {
+function amendWebpackConfig({ c, webpackConfig }: RunningWebpackContext) {
   const cssRule = {
     test: /\.css$/,
     use: [
