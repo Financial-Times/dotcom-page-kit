@@ -1,1 +1,1 @@
-export * from './navigationPoller'
+export * from './navigation'
