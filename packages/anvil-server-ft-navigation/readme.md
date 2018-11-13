@@ -1,4 +1,4 @@
-# FT Navigation
+# anvil-server-ft-navigation
 
 The FT Navigation package exposes a Navigation class with some methods for accessing navigation data for ft.com. This package should be consumed by a Navigation middleware such as [Navigation Middleware] which can handle the responses. // TODO: Fill in a location for our default navigation middleware
 
