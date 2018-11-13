@@ -4,11 +4,11 @@ import { loadManifest } from './loadManifest'
 
 interface AssetLoaderOptions {
   /** A fully resolved path to the manifest file */
-  manifestPath: string
-  /** An absolute path to the assets folder on disk */
-  fileSystemPath: string
+  manifestFile: string
   /** The base URL for assets (as seen by users) */
   publicPath: string
+  /** An absolute path to the assets folder on disk */
+  fileSystemPath: string
   /** Store file contents in memory when accessed */
   cacheFileContents?: boolean
 }
@@ -18,7 +18,7 @@ class AssetLoader {
   public options: AssetLoaderOptions
 
   constructor(options: AssetLoaderOptions) {
-    this.manifest = loadManifest(options.manifestPath)
+    this.manifest = loadManifest(options.manifestFile)
     this.options = options
   }
 
