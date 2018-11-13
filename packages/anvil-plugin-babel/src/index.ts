@@ -1,12 +1,13 @@
 import merge from 'webpack-merge'
 import { Plugin } from 'adonai'
 import babelPreset from './babel'
+import { RunningWebpackContext } from '@financial-times/anvil-types-build'
 
 export default new Plugin(({ on }) => {
   on('@Build::amend::webpackConfig', amendWebpackConfig)
 })
 
-function amendWebpackConfig(runningContext) {
+function amendWebpackConfig(runningContext: RunningWebpackContext) {
   const c = runningContext.c
   const baseConfig = runningContext.webpackConfig
   const config = {

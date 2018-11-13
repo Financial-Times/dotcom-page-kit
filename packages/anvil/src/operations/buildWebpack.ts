@@ -1,5 +1,6 @@
-import { CliContext } from '@financial-times/anvil-plugin-helpers'
-import { pack, getDefaultWebpackConfig } from '@financial-times/anvil-webpack'
+import { CliContext } from '../context/CliContext'
+import { pack } from '../utils/pack'
+import { getDefaultWebpackConfig } from './getDefaultWebpackConfig'
 
 buildWebpack.meta = {
   isAsync: true

@@ -1,12 +1,13 @@
 import merge from 'webpack-merge'
 import { Plugin } from 'adonai'
 import BowerResolvePlugin from 'bower-resolve-webpack-plugin'
+import { RunningWebpackContext } from '@financial-times/anvil-types-build'
 
 export default new Plugin(({ on }) => {
   on('@Build::amend::webpackConfig', amendWebpackConfig)
 })
 
-function amendWebpackConfig(runnerContext) {
+function amendWebpackConfig(runnerContext: RunningWebpackContext) {
   const baseConfig = runnerContext.webpackConfig
   const config = {
     resolve: {
@@ -28,5 +29,5 @@ function amendWebpackConfig(runnerContext) {
     }
   }
 
-  runnerContext.webpackContext = merge.strategy({ 'resolve.plugins': 'append' })(baseConfig, config)
+  runnerContext.webpackConfig = merge.strategy({ 'resolve.plugins': 'append' })(baseConfig, config)
 }

@@ -1,5 +1,6 @@
 import { Context } from 'adonai'
 import { Command } from 'commander'
+import { AnyObject } from '@financial-times/anvil-types-generic'
 import { CliMessenger } from './CliMessenger'
 
 interface ConstructorArgs {

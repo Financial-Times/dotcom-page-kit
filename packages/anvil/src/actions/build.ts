@@ -1,6 +1,6 @@
 import path from 'path'
-import { CliContext } from '@financial-times/anvil-plugin-helpers'
-import { buildWebpack } from '../helpers/buildWebpack'
+import { CliContext } from '../context/CliContext'
+import { buildWebpack } from '../operations/buildWebpack'
 
 export default {
   execute: build,

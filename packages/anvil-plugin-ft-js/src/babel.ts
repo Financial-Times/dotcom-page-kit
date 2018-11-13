@@ -1,8 +1,13 @@
-interface Args {
-  amend?: (hook: string, value: any) => void
-}
+import { OptionalAmender } from '@financial-times/anvil-types-adonai'
 
-export default ({ amend }: Args = {}) => {
+/**
+ * Returns the babel config.
+ *
+ * NOTE: This file can also be specified as a preset in a .babelrc file.
+ * When used in such a manner, there will be no args supplied to the function,
+ * hence why the amender function is optional.
+ */
+export default ({ amend }: OptionalAmender = {}) => {
   const jsx = {
     pragma: 'h',
     fragment: 'Fragment'

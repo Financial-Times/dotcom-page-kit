@@ -1,4 +1,5 @@
 import webpack from 'webpack'
+import { AnyObject } from '@financial-times/anvil-types-generic'
 import ProgressPlugin from 'webpack/lib/ProgressPlugin'
 
 interface Args {

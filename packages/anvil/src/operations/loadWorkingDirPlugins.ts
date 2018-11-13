@@ -1,4 +1,5 @@
-import { CliContext } from '@financial-times/anvil-plugin-helpers'
+import { CliContext } from '../context/CliContext'
+import { AnyObject } from '@financial-times/anvil-types-generic'
 
 export function loadWorkingDirPlugins(context: CliContext) {
   const config = loadConfigFile(context.paths.workingDir)
