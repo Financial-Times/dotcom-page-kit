@@ -1,5 +1,5 @@
-import fs from 'fs'
-import { loadManifest } from './asset-helpers'
+import { loadFile } from './loadFile'
+import { loadManifest } from './loadManifest'
 
 class AssetLoader {
   private manifest: object
@@ -17,12 +17,12 @@ class AssetLoader {
   }
 
   getStylesheetInline(stylesheet: string): string {
-    const styles = fs.readFileSync(this.getAssetPath(stylesheet))
+    const styles = loadFile(this.getAssetPath(stylesheet))
     return `<style>${styles.toString()}</style>`
   }
 
   getJavascriptInline(javascript: string): string {
-    const scripts = fs.readFileSync(this.getAssetPath(javascript))
+    const scripts = loadFile(this.getAssetPath(javascript))
     return `<script>${scripts.toString()}</script>`
   }
 

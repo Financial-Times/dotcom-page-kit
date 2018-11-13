@@ -7,25 +7,27 @@ const manifest = {
   'example.js': 'public/example.1234567.js'
 }
 
-jest.mock('../asset-helpers', () => {
+jest.mock('../loadManifest', () => {
   return {
     loadManifest: jest.fn(() => manifest)
   }
 })
 
-jest.mock('fs', () => {
+jest.mock('../loadFile', () => {
   return {
-    readFileSync: jest.fn(() => {
+    loadFile: jest.fn(() => {
       return 'some-stringified-asset-data'
     })
   }
 })
 
-describe('asset-loader', () => {
+describe('anvil-server-asset-loader', () => {
   let loader
+
   beforeEach(() => {
     loader = new AssetLoader('path/to/manifest')
   })
+
   afterEach(() => {
     jest.restoreAllMocks()
   })
@@ -35,23 +37,28 @@ describe('asset-loader', () => {
       '<link rel="stylesheet" href="/public/example.1234567.css">'
     )
   })
+
   it('should create a javascript <link> tag', () => {
     expect(loader.createJavascriptLink(testJsFile)).toEqual(
       '<script rel="text/javascript" src="/public/example.1234567.js"></script>'
     )
   })
+
   it('should create a stylesheet <style> tag', () => {
     const styles = loader.getStylesheetInline(testCssFile)
     expect(styles).toEqual('<style>some-stringified-asset-data</style>')
   })
+
   it('should create a javascript <script> tag', () => {
     const styles = loader.getJavascriptInline(testJsFile)
     expect(styles).toEqual('<script>some-stringified-asset-data</script>')
   })
+
   it("should fetch a file's location from a manifest", () => {
     const assetPath = loader.getAssetPath(testCssFile)
     expect(assetPath).toEqual('public/example.1234567.css')
   })
+
   it("should error if the file can't be found in a manifest", () => {
     expect(() => {
       loader.getAssetPath('test')
