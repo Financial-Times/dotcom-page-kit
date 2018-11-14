@@ -1,7 +1,7 @@
+import { Command } from 'commander'
 import { CliContext } from '../context/CliContext'
 import { CliMessenger } from '../context/CliMessenger'
 import { loadWorkingDirPlugins } from '../operations/loadWorkingDirPlugins'
-import { getPackageFolderPathRelativeTo } from '@financial-times/anvil-utils'
 
 interface Action {
   execute: (c: CliContext) => any
@@ -13,37 +13,41 @@ interface Args {
   workingDir: string
 }
 
-// Main =========================================================================
-
 export function setupAction({ workingDir, action }: Args) {
   return async (...args) => {
     const messenger = new CliMessenger()
+
     try {
-      const command = args[args.length - 1]
-      const context = new CliContext({ command, messenger, workingDir })
+      // The commander instance is always the final argument
+      const command = args.pop()
+      const flags = command.opts()
+      const namedArgs = mapExpectedArgsToNames(command, args)
+      const context = new CliContext({ flags, args: namedArgs, messenger, workingDir })
+
       await prepareContext(context, action)
       await action.execute(context)
     } catch (error) {
       messenger.indicateFailure(error)
     }
+
     messenger.newLine()
   }
 }
 
-// Helpers =====================================================================
+function mapExpectedArgsToNames(program: Command, options: any[]) {
+  // This function is naive as command arguments may be optional
+  const properties = program._args.map((arg) => arg.name)
+
+  return options.reduce((map, option, i) => {
+    map[properties[i]] = option
+    return map
+  }, {})
+}
 
 async function prepareContext(context: CliContext, action: Action) {
-  await loadWorkingDirPlugins(context)
-  prepareCliContextDirs(context)
-  await runActionContextPreparer(context, action)
-}
+  loadWorkingDirPlugins(context)
 
-function prepareCliContextDirs(context: CliContext) {
-  context.paths.packageDir = getPackageFolderPathRelativeTo(__dirname)
-}
-
-async function runActionContextPreparer(context: CliContext, action) {
-  if (action.prepareContext) {
+  if (typeof action.prepareContext === 'function') {
     await action.prepareContext(context)
   }
 }

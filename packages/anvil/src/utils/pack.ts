@@ -2,27 +2,25 @@ import webpack from 'webpack'
 import { AnyObject } from '@financial-times/anvil-types-generic'
 import ProgressPlugin from 'webpack/lib/ProgressPlugin'
 
+interface OnProgress {
+  (percentageValue: number): void
+}
 interface Args {
   webpackConfig: AnyObject
-  onProgress?: (value) => void
+  onProgress?: OnProgress
 }
 
-export function pack(args: Args) {
+export function pack({ webpackConfig, onProgress }: Args) {
   return new Promise((resolve, reject) => {
-    if (args.onProgress) {
-      const progressHandler = new ProgressPlugin(function(percentage) {
-        const percentageValue = percentage * 100
-        args.onProgress(percentageValue)
-      })
-      args.webpackConfig.plugins.push(progressHandler)
+    if (onProgress) {
+      webpackConfig.plugins.push(createProgressHandler(onProgress))
     }
 
-    const compiler = webpack(args.webpackConfig)
+    const compiler = webpack(webpackConfig)
 
-    compiler.run((err, stats) => {
-      if (err || stats.hasErrors()) {
-        const error = new WebpackError(err, stats)
-        reject(error)
+    compiler.run((error, stats) => {
+      if (error || stats.hasErrors()) {
+        reject(new WebpackError(error, stats))
       } else {
         resolve()
       }
@@ -30,18 +28,25 @@ export function pack(args: Args) {
   })
 }
 
+function createProgressHandler(onProgress: OnProgress) {
+  return new ProgressPlugin((percentage) => {
+    const percentageValue = percentage * 100
+    onProgress(percentageValue)
+  })
+}
+
 class WebpackError extends Error {
   details: any
   statsError: any
-  constructor(err, stats) {
+  constructor(error, stats) {
     super('Something went wrong')
 
-    if (err && err.details) {
-      this.details = err.details
+    if (error && error.details) {
+      this.details = error.details
     }
 
-    if (err && err.stack) {
-      this.stack
+    if (error && error.stack) {
+      this.stack = error.stack
     }
     if (stats.hasErrors()) {
       const info = stats.toJson()

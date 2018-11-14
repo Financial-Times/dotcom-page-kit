@@ -10,11 +10,7 @@ export async function buildWebpack(context: CliContext) {
   context.messenger.setTitle('Compiling build')
   context.messenger.startProgressBar()
   const webpackConfig = context.amend('webpackConfig', getDefaultWebpackConfig(context))
-  await pack({
-    webpackConfig,
-    onProgress: (value) => {
-      context.messenger.updateProgressBar(value)
-    }
-  })
+  const onProgress = (value) => context.messenger.updateProgressBar(value)
+  await pack({ webpackConfig, onProgress })
   context.messenger.stopProgressBar()
 }
