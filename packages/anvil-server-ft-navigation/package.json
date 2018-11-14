@@ -21,6 +21,7 @@
     "@types/deep-freeze": "^0.1.1",
     "deep-freeze": "0.0.1",
     "ft-poller": "^3.0.1",
+    "http-errors": "^1.7.1",
     "node-fetch": "^2.2.1"
   },
   "devDependencies": {
