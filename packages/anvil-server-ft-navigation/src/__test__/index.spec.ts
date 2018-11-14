@@ -54,14 +54,9 @@ describe('anvil-server-ft-navigation', () => {
     })
 
     it('rejects if the requested menu does not exist', async () => {
-      return navigationInstance
-        .getMenu('invalidMenu')
-        .then(() => {
-          throw Error('THIS SHOULD NEVER BE CALLED')
-        })
-        .catch(() => {
-          expect.stringContaining('Navigation menu "invalidMenu" does not exist')
-        })
+      await expect(navigationInstance.getMenu('invalidMenu')).rejects.toThrowError(
+        'Navigation menu "invalidMenu" does not exist'
+      )
     })
   })
 
@@ -80,15 +75,9 @@ describe('anvil-server-ft-navigation', () => {
       nock('http://next-navigation.ft.com')
         .get('/v2/hierarchy/world')
         .reply(500)
-
-      return navigationInstance
-        .getCrumbtrail('world')
-        .then(() => {
-          throw Error('THIS SHOULD NEVER BE CALLED')
-        })
-        .catch((error) => {
-          expect(error.name).toEqual('InternalServerError')
-        })
+      await expect(navigationInstance.getCrumbtrail('world')).rejects.toMatchObject({
+        message: 'Navigation crumbtrail for world could not be found.'
+      })
     })
   })
 })
