@@ -1,5 +1,6 @@
 import { Context } from 'adonai'
 import { Command } from 'commander'
+import { AnyObject } from '@financial-times/anvil-types-generic'
 import { CliMessenger } from './CliMessenger'
 
 interface ConstructorArgs {
@@ -28,16 +29,6 @@ export class CliContext extends Context {
     this.flags = command.opts()
 
     prepareCliArgs(this, command)
-  }
-
-  amend = (name: string, value) => {
-    const nameParts = name.split('::')
-    const subject = nameParts[nameParts.length - 1]
-    return this.runner.run(
-      `amend::${name}`,
-      { [subject]: value },
-      { $return: subject, $pluginMayReturn: subject, $pluginResultIsMergeable: true }
-    )
   }
 }
 
