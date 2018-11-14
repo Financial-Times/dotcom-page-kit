@@ -6,7 +6,7 @@ buildWebpack.meta = {
   isAsync: true
 }
 
-export async function buildWebpack({ context }: CliContext) {
+export async function buildWebpack(context: CliContext) {
   context.messenger.setTitle('Compiling build')
   context.messenger.startProgressBar()
   const webpackConfig = context.amend('webpackConfig', getDefaultWebpackConfig(context))
