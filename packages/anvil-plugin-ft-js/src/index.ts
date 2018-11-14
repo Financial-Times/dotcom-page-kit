@@ -14,8 +14,8 @@ function useCacheDirInScriptsRule({ scriptsRule }) {
   scriptsRule.use.options.cacheDirectory = true
 }
 
-function addPresetToBabelConfig({ c, babelConfig }: RunningBabelContext) {
-  babelConfig.presets.push(babelPreset(c))
+function addPresetToBabelConfig({ context, babelConfig }: RunningBabelContext) {
+  babelConfig.presets.push(babelPreset(context))
 }
 
 function amendBabelPresetEnvOptions({ options }) {

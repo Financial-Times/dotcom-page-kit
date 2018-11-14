@@ -6,6 +6,6 @@ export default new Plugin(({ on }) => {
   on('@Build::amend::babelConfig', amendBabelConfig)
 })
 
-function amendBabelConfig({ c, babelConfig }: RunningBabelContext) {
-  babelConfig.presets.push(babelPreset(c))
+function amendBabelConfig({ context, babelConfig }: RunningBabelContext) {
+  babelConfig.presets.push(babelPreset(context))
 }
