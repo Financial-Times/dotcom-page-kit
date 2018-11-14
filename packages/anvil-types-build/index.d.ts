@@ -2,7 +2,7 @@ import { AnyObject } from '@financial-times/anvil-types-generic'
 import { CliContext } from '@financial-times/anvil'
 
 export interface RunningContext {
-  c: CliContext
+  context: CliContext
 }
 
 export interface RunningWebpackContext extends RunningContext {

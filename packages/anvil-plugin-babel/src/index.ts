@@ -8,7 +8,7 @@ export default new Plugin(({ on }) => {
 })
 
 function amendWebpackConfig(runningContext: RunningWebpackContext) {
-  const c = runningContext.c
+  const context = runningContext.context
   const baseConfig = runningContext.webpackConfig
   const config = {
     module: {
@@ -19,7 +19,7 @@ function amendWebpackConfig(runningContext: RunningWebpackContext) {
           use: {
             loader: require.resolve('babel-loader'),
             options: {
-              ...babelPreset(c),
+              ...babelPreset(context),
               cacheDirectory: true
             }
           }
@@ -28,7 +28,7 @@ function amendWebpackConfig(runningContext: RunningWebpackContext) {
     }
   }
 
-  c.amend('webpackConfig::rule::scriptsRule', config.module.rules[0])
+  context.amend('webpackConfig::rule::scriptsRule', config.module.rules[0])
 
   runningContext.webpackConfig = merge.smart(baseConfig, config)
 }

@@ -23,6 +23,6 @@
     "@financial-times/anvil": "file:../anvil"
   },
   "dependencies": {
-    "adonai": "^0.1.3"
+    "adonai": "^0.2.0"
   }
 }

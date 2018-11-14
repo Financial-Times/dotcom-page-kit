@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@financial-times/anvil-types-build": "file:../anvil-types-build",
-    "adonai": "^0.1.3",
+    "adonai": "^0.2.0",
     "css-loader": "^1.0.1",
     "style-loader": "^0.23.1"
   }
