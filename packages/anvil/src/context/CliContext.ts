@@ -30,16 +30,6 @@ export class CliContext extends Context {
 
     prepareCliArgs(this, command)
   }
-
-  amend = (name: string, value) => {
-    const nameParts = name.split('::')
-    const subject = nameParts[nameParts.length - 1]
-    return this.runner.run(
-      `amend::${name}`,
-      { [subject]: value },
-      { $return: subject, $pluginMayReturn: subject, $pluginResultIsMergeable: true }
-    )
-  }
 }
 
 function prepareCliArgs(context: CliContext, command: any) {
