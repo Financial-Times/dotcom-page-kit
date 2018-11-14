@@ -31,6 +31,6 @@
     "@babel/preset-typescript": "^7.1.0",
     "@financial-times/anvil-types-adonai": "file:../anvil-types-adonai",
     "@financial-times/anvil-types-build": "file:../anvil-types-build",
-    "adonai": "^0.1.3"
+    "adonai": "^0.2.0"
   }
 }
