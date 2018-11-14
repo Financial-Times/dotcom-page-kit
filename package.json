@@ -5,11 +5,11 @@
   "description": "The aim of this project is to provide a high quality, well tested, and thoroughly documented, modern asset pipeline and application shell for Node.js applications based upon the latest industry standards.",
   "scripts": {
     "test": "jest",
-    "build": "athloi run build",
+    "build": "athloi run build --filter scope:'\"anvil\"' --concurrency 100",
     "checktypes": "tsc --noEmit",
     "clean": "git clean -fxd -e .vscode",
     "clean:install": "npm run clean && npm install",
-    "dev": "athloi run dev --concurrency 10",
+    "dev": "athloi run dev --concurrency 100",
     "lint": "eslint . --ext .js,.ts,.tsx,.jsx",
     "postinstall": "athloi exec npm i",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'"
