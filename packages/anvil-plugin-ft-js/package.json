@@ -30,8 +30,10 @@
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
-    "@financial-times/anvil-types-adonai": "file:../anvil-types-adonai",
     "@financial-times/anvil-types-build": "file:../anvil-types-build",
     "adonai": "^0.3.0"
+  },
+  "devDependencies": {
+    "@financial-times/anvil": "file:../anvil"
   }
 }

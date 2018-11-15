@@ -45,9 +45,7 @@ export class Navigation {
     if (data.hasOwnProperty(menuItem)) {
       return data[menuItem]
     } else {
-      throw Error(
-        `Navigation menu "${menuItem}" does not exist. Available options: ${Object.keys(data)}.`
-      )
+      throw Error(`Navigation menu "${menuItem}" does not exist. Available options: ${Object.keys(data)}.`)
     }
   }
 
@@ -59,10 +57,7 @@ export class Navigation {
       const data = await response.json()
       return parseData(data)
     } else {
-      throw httpError(
-        response.status,
-        `Navigation crumbtrail for ${currentPage} could not be found.`
-      )
+      throw httpError(response.status, `Navigation crumbtrail for ${currentPage} could not be found.`)
     }
   }
 }
