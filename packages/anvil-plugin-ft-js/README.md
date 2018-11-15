@@ -19,3 +19,9 @@ anvil.config.json
 ```
 
 Note that `anvil-plugin-ft-js` extends `anvil-plugin-babel` and so it must be specified after `anvil-plugin-babel`
+
+## Settings
+
+- **jsxPragma**: (Defaults to `h`) See https://babeljs.io/docs/en/babel-preset-react#pragma
+- **jsxPragmaFrag**: (Defaults to `Fragment`) See https://babeljs.io/docs/en/babel-preset-react#pragmafrag 
+- **envTargets**: (defaults to `> 1%, ie 11, bb 10`) See https://babeljs.io/docs/en/babel-preset-env#targets and https://browserl.ist/
