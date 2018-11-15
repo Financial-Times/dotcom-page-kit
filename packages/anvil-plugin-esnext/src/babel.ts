@@ -11,7 +11,8 @@ export default (context?: CliContext) => {
   const opts = {
     classProperties: {},
     objectRestSpread: {},
-    dynamicImport: {}
+    syntaxDynamicImport: {},
+    transformRuntime: {}
   }
 
   const config = {
@@ -19,14 +20,16 @@ export default (context?: CliContext) => {
     plugins: [
       [require.resolve('@babel/plugin-proposal-class-properties'), opts.classProperties],
       [require.resolve('@babel/plugin-proposal-object-rest-spread'), opts.objectRestSpread],
-      [require.resolve('@babel/plugin-syntax-dynamic-import'), opts.dynamicImport]
+      [require.resolve('@babel/plugin-syntax-dynamic-import'), opts.syntaxDynamicImport],
+      [require.resolve('@babel/plugin-transform-runtime'), opts.transformRuntime]
     ]
   }
 
   if (context) {
     context.amend('babelConfig::plugin::proposalClassProperties::options', opts.classProperties)
     context.amend('babelConfig::plugin::proposalObjectRestSpread::options', opts.objectRestSpread)
-    context.amend('babelConfig::plugin::syntaxDynamicImport::options', opts.dynamicImport)
+    context.amend('babelConfig::plugin::syntaxDynamicImport::options', opts.syntaxDynamicImport)
+    context.amend('babelConfig::plugin::transformRuntime::options', opts.transformRuntime)
   }
 
   return config

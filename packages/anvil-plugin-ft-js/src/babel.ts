@@ -25,7 +25,8 @@ export default (context?: CliContext, settings: Settings = {}) => {
     },
     pluginDynamicImport: {},
     pluginClassProperties: {},
-    pluginObjectRestSpread: {}
+    pluginObjectRestSpread: {},
+    pluginTransformRuntime: {}
   }
 
   const config = {
@@ -36,7 +37,8 @@ export default (context?: CliContext, settings: Settings = {}) => {
     plugins: [
       [require.resolve('@babel/plugin-proposal-class-properties'), opts.pluginClassProperties],
       [require.resolve('@babel/plugin-proposal-object-rest-spread'), opts.pluginObjectRestSpread],
-      [require.resolve('@babel/plugin-syntax-dynamic-import'), opts.pluginDynamicImport]
+      [require.resolve('@babel/plugin-syntax-dynamic-import'), opts.pluginDynamicImport],
+      [require.resolve('@babel/plugin-transform-runtime'), opts.pluginTransformRuntime]
     ]
   }
 
@@ -46,6 +48,7 @@ export default (context?: CliContext, settings: Settings = {}) => {
     context.amend('babelConfig::plugin::proposalClassProperties::options', opts.pluginClassProperties)
     context.amend('babelConfig::plugin::proposalObjectRestSpread::options', opts.pluginObjectRestSpread)
     context.amend('babelConfig::plugin::syntaxDynamicImport::options', opts.pluginDynamicImport)
+    context.amend('babelConfig::plugin::transformRuntime::options', opts.pluginTransformRuntime)
   }
 
   return config

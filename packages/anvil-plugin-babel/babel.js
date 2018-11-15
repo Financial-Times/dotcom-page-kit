@@ -1,5 +1,5 @@
 /**
- * This file is meant to export the babel preset so that it can be used in a babelrc as follows:
+ * This file exports the babel preset so that it can be used in a babelrc as follows:
  * {
  *    "preset": [
  *      "@financial-times/anvil-plugin-babel/babel"

@@ -1,13 +1,19 @@
 import { CliContext } from '../context/CliContext'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
+import ManifestPlugin from 'webpack-manifest-plugin'
 
 export function getDefaultWebpackConfig(context: CliContext) {
-  const cleanWebpackPluginPaths = [context.flags.outDir]
-  const cleanWebpackPluginOptions = { root: context.paths.workingDir, verbose: false }
-  context.amend('webpackConfig::plugin::cleanWebpackPlugin::paths', cleanWebpackPluginPaths)
-  context.amend('webpackConfig::plugin::cleanWebpackPlugin::options', cleanWebpackPluginPaths)
-  const cleanWebpackPlugin = new CleanWebpackPlugin(cleanWebpackPluginPaths, cleanWebpackPluginOptions)
-  context.amend('webpackConfig::plugin::cleanWebpackPlugin', cleanWebpackPlugin)
+  const opts = {
+    cleanWebpackPlugin: {
+      paths: [context.flags.outDir],
+      options: { root: context.paths.workingDir, verbose: false }
+    },
+    manifestPlugin: {}
+  }
+
+  context.amend('webpackConfig::plugin::cleanWebpackPlugin::paths', opts.cleanWebpackPlugin.paths)
+  context.amend('webpackConfig::plugin::cleanWebpackPlugin::options', opts.cleanWebpackPlugin.options)
+  context.amend('webpackConfig::plugin::manifestPlugin::options', opts.manifestPlugin)
 
   const config = {
     mode: 'production',
@@ -23,7 +29,10 @@ export function getDefaultWebpackConfig(context: CliContext) {
     module: {
       rules: []
     },
-    plugins: [cleanWebpackPlugin]
+    plugins: [
+      new CleanWebpackPlugin(opts.cleanWebpackPlugin.paths, opts.cleanWebpackPlugin.options),
+      new ManifestPlugin(opts.manifestPlugin)
+    ]
   }
 
   if (context.flags.devMode) {

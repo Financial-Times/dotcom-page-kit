@@ -2,7 +2,7 @@
  * This file exports the babel preset so that it can be used in a .babelrc file as follows:
  * {
  *    "preset": [
- *      "@financial-times/anvil-plugin-js-next/babel"
+ *      "@financial-times/anvil-plugin-code-splitting/babel"
  *    ]
  * }
  *
