@@ -1,14 +1,14 @@
 import { Settings } from './types'
-import { OptionalAmender } from '@financial-times/anvil-types-adonai'
+import { CliContext } from '@financial-times/anvil'
 
 /**
  * Returns the babel config
  *
  * NOTE: This file can also be specified as a preset in a .babelrc file.
  * When used in such a manner, there will be no args supplied to the function,
- * hence why the amender function is optional.
+ * hence why the `context` arg is optional.
  */
-export default ({ amend }: OptionalAmender = {}, settings: Settings) => {
+export default (context?: CliContext, settings: Settings = {}) => {
   const jsx = {
     pragma: settings.jsxPragma || 'h',
     fragment: settings.jsxPragmaFrag || 'Fragment'
@@ -40,12 +40,12 @@ export default ({ amend }: OptionalAmender = {}, settings: Settings) => {
     ]
   }
 
-  if (amend) {
-    amend('babelConfig::preset::react::options', opts.presetReact)
-    amend('babelConfig::preset::typescript::options', opts.presetTypescript)
-    amend('babelConfig::plugin::proposalClassProperties::options', opts.pluginClassProperties)
-    amend('babelConfig::plugin::proposalObjectRestSpread::options', opts.pluginObjectRestSpread)
-    amend('babelConfig::plugin::syntaxDynamicImport::options', opts.pluginDynamicImport)
+  if (context) {
+    context.amend('babelConfig::preset::react::options', opts.presetReact)
+    context.amend('babelConfig::preset::typescript::options', opts.presetTypescript)
+    context.amend('babelConfig::plugin::proposalClassProperties::options', opts.pluginClassProperties)
+    context.amend('babelConfig::plugin::proposalObjectRestSpread::options', opts.pluginObjectRestSpread)
+    context.amend('babelConfig::plugin::syntaxDynamicImport::options', opts.pluginDynamicImport)
   }
 
   return config
