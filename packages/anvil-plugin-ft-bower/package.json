@@ -1,5 +1,6 @@
 {
   "name": "@financial-times/anvil-plugin-ft-bower",
+  "scope": "anvil",
   "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
@@ -22,7 +23,7 @@
   },
   "dependencies": {
     "@financial-times/anvil-types-build": "file:../anvil-types-build",
-    "adonai": "^0.2.0",
+    "adonai": "^0.3.0",
     "bower-resolve-webpack-plugin": "^1.0.5",
     "webpack-merge": "^4.1.4"
   }

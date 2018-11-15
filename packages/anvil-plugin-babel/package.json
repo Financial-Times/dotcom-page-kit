@@ -1,5 +1,6 @@
 {
   "name": "@financial-times/anvil-plugin-babel",
+  "scope": "anvil",
   "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
@@ -25,7 +26,7 @@
     "@babel/preset-env": "^7.1.0",
     "@financial-times/anvil-types-adonai": "file:../anvil-types-adonai",
     "@financial-times/anvil-types-build": "file:../anvil-types-build",
-    "adonai": "^0.2.0",
+    "adonai": "^0.3.0",
     "babel-loader": "^8.0.4",
     "webpack-merge": "^4.1.4"
   }

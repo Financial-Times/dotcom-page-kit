@@ -1,5 +1,6 @@
 {
   "name": "@financial-times/anvil-plugin-css",
+  "scope": "anvil",
   "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
@@ -22,7 +23,7 @@
   },
   "dependencies": {
     "@financial-times/anvil-types-build": "file:../anvil-types-build",
-    "adonai": "^0.2.0",
+    "adonai": "^0.3.0",
     "css-loader": "^1.0.1",
     "style-loader": "^0.23.1"
   }

@@ -1,5 +1,6 @@
 {
   "name": "@financial-times/anvil-plugin-esnext",
+  "scope": "anvil",
   "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
@@ -27,6 +28,6 @@
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@financial-times/anvil-types-adonai": "file:../anvil-types-adonai",
     "@financial-times/anvil-types-build": "file:../anvil-types-build",
-    "adonai": "^0.2.0"
+    "adonai": "^0.3.0"
   }
 }
