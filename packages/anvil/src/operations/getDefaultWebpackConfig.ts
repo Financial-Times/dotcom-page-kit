@@ -6,10 +6,7 @@ export function getDefaultWebpackConfig(context: CliContext) {
   const cleanWebpackPluginOptions = { root: context.paths.workingDir, verbose: false }
   context.amend('webpackConfig::plugin::cleanWebpackPlugin::paths', cleanWebpackPluginPaths)
   context.amend('webpackConfig::plugin::cleanWebpackPlugin::options', cleanWebpackPluginPaths)
-  const cleanWebpackPlugin = new CleanWebpackPlugin(
-    cleanWebpackPluginPaths,
-    cleanWebpackPluginOptions
-  )
+  const cleanWebpackPlugin = new CleanWebpackPlugin(cleanWebpackPluginPaths, cleanWebpackPluginOptions)
   context.amend('webpackConfig::plugin::cleanWebpackPlugin', cleanWebpackPlugin)
 
   const config = {
