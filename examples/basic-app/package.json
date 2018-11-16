@@ -16,5 +16,7 @@
     "@financial-times/anvil-plugin-esnext": "file:../../packages/anvil-plugin-esnext",
     "prettier": "^1.14.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@babel/runtime": "^7.1.5"
+  }
 }
