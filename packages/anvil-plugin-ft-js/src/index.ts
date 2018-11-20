@@ -7,7 +7,7 @@ export default (settings: Settings = {}) => {
   return new Plugin(({ on }) => {
     on('@Build::amend::babelConfig', addPresetToBabelConfig(settings))
     on('@Build::amend::babelConfig::preset::env::options', amendBabelPresetEnvOptions(settings))
-    on('@Build::amend::webpackConfig::rule::scriptsRule', useCacheDirInScriptsRule)
+    on('@Build::amend::webpackConfig::scriptsRule', useCacheDirInScriptsRule)
     on('@Build::amend::webpackConfig', amendWebpackConfig)
   })
 }

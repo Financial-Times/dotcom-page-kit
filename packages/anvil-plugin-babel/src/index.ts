@@ -28,7 +28,7 @@ function amendWebpackConfig(runningContext: RunningWebpackContext) {
     }
   }
 
-  context.amend('webpackConfig::rule::scriptsRule', config.module.rules[0])
+  context.amend('webpackConfig::scriptsRule', config.module.rules[0])
 
   runningContext.webpackConfig = merge.smart(baseConfig, config)
 }
