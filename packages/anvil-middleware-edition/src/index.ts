@@ -1,4 +1,5 @@
-module.exports = (options = {}) => {
+export default (options = {}) => {
+
   return (request, response, next) => {
     const availableEditions = [
       {
@@ -12,7 +13,8 @@ module.exports = (options = {}) => {
         url: '/'
       }
     ]
-    const editionIds = availableEditions.map((edition) => edition.id)
+    const editionIds = availableEditions.map((e) => e.id)
+
     let currentEdition = request.get('FT-Edition') || 'uk'
 
     // if query string contains ?edition=..., switch to that edition (and save in a cookie)
@@ -31,6 +33,7 @@ module.exports = (options = {}) => {
       current: availableEditions.find((edition) => edition.id === currentEdition),
       others: availableEditions.filter((edition) => edition.id !== currentEdition)
     }
+
 
     response.vary('FT-Edition')
     next()

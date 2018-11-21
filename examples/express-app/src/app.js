@@ -2,15 +2,16 @@
 
 const editionMiddleware = require('@financial-times/anvil-middleware-edition')
 
+const express = require('express')
+const app = express()
+const port = 3456
 
-const express = require('express');
-const app = express();
+const middleware = editionMiddleware.default({})
+app.use(middleware)
 
-console.log('** express app **')
+app.get('/', (req, res) => {
+  res.send('HELLO WORLD')
+})
 
-const instance = editionMiddleware({})
-app.use(instance)
-
-app.get('/', (req, res) => { console.log('GET /') || res.send('HELLO WORLD')})
-
-app.listen(3456);
+app.listen(port)
+console.log(`Listening on PORT:${port}`)

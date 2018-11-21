@@ -1,10 +1,13 @@
 {
   "plugins": [
-    "@financial-times/anvil-plugin-esnext"
+    "@financial-times/anvil",
+    "@financial-times/anvil-plugin-esnext",
+    "@financial-times/anvil-middleware-edition"
   ],
   "settings": {
-    "babel": {
-      "foobar": true
+    "entry": {
+      "one": "./src/one.ts",
+      "two": "./src/two.ts"
     }
   }
 }
