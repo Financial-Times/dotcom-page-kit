@@ -1,5 +1,4 @@
-export default (options = {}) => {
-
+export default () => {
   return (request, response, next) => {
     const availableEditions = [
       {
@@ -33,7 +32,6 @@ export default (options = {}) => {
       current: availableEditions.find((edition) => edition.id === currentEdition),
       others: availableEditions.filter((edition) => edition.id !== currentEdition)
     }
-
 
     response.vary('FT-Edition')
     next()
