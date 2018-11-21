@@ -1,14 +1,13 @@
 import { CliContext } from '../context/CliContext'
-import { AnyObject } from '@financial-times/anvil-types-generic'
 
 export function loadWorkingDirPlugins(context: CliContext) {
-  const plugins = loadPlugins(context.paths.workingDir, context.config)
+  const plugins = loadPlugins(context)
   context.addPlugins(plugins)
 }
 
-function loadPlugins(directory: string, config: AnyObject): any[] {
+function loadPlugins({ paths, config }: CliContext): any[] {
   return config.plugins.map((moduleName) => {
-    const pluginPath = require.resolve(moduleName, { paths: [directory] })
+    const pluginPath = require.resolve(moduleName, { paths: [paths.workingDir] })
     return interopRequire(pluginPath)
   })
 }
