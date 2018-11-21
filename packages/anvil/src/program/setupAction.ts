@@ -2,6 +2,7 @@ import { Command } from 'commander'
 import { CliContext } from '../context/CliContext'
 import { CliMessenger } from '../context/CliMessenger'
 import { loadWorkingDirPlugins } from '../operations/loadWorkingDirPlugins'
+import { AnyObject } from '@financial-times/anvil-types-generic'
 
 interface Action {
   execute: (c: CliContext) => any
@@ -10,11 +11,13 @@ interface Action {
 
 interface Args {
   action: Action
+  config: AnyObject
   workingDir: string
 }
 
-export function setupAction({ workingDir, action }: Args) {
+export function setupAction({ workingDir, action, config }: Args) {
   return async (...args) => {
+    // Provide a shared toolset for formatted CLI output
     const messenger = new CliMessenger()
 
     try {
@@ -22,7 +25,7 @@ export function setupAction({ workingDir, action }: Args) {
       const command = args.pop()
       const flags = command.opts()
       const namedArgs = mapExpectedArgsToNames(command, args)
-      const context = new CliContext({ flags, args: namedArgs, messenger, workingDir })
+      const context = new CliContext({ args: namedArgs, flags, config, messenger, workingDir })
 
       await prepareContext(context, action)
       await action.execute(context)

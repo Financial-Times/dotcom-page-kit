@@ -5,6 +5,7 @@ import { CliMessenger } from './CliMessenger'
 interface ConstructorArgs {
   args: AnyObject
   flags: AnyObject
+  config: AnyObject
   messenger: CliMessenger
   workingDir: string
 }
@@ -16,13 +17,15 @@ export class CliContext extends Context {
 
   args: AnyObject = {}
   flags: AnyObject = {}
+  config: AnyObject = {}
   messenger: CliMessenger
 
-  constructor({ workingDir, args, flags, messenger }: ConstructorArgs) {
+  constructor({ args, flags, config, messenger, workingDir }: ConstructorArgs) {
     super()
 
     this.args = args
     this.flags = flags
+    this.config = config
     this.messenger = messenger
     this.paths.workingDir = workingDir
   }
