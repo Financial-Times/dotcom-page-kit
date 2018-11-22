@@ -5,7 +5,7 @@ interface Args {
   workingDir: string
 }
 
-export function createProgram(a: Args) {
+export function createProgram(args: Args) {
   const program = require('commander')
 
   program
@@ -13,7 +13,7 @@ export function createProgram(a: Args) {
     .option('-s, --srcFile [filePath]', 'Path to src file', 'src/index.js')
     .option('-o, --outDir [folderPath]', 'Path to output folder', 'dist')
     .option('-d, --devMode', 'Whether to build in dev mode or not', false)
-    .action(setupAction({ action: build, ...a }))
+    .action(setupAction({ action: build, ...args }))
 
   return program
 }

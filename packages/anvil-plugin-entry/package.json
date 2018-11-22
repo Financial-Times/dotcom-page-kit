@@ -24,6 +24,7 @@
     "@financial-times/anvil": "file:../anvil"
   },
   "dependencies": {
+    "@financial-times/anvil-types-build": "file:../anvil-types-build",
     "adonai": "^0.5.0"
   }
 }
