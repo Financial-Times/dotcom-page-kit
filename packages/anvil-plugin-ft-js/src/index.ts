@@ -4,25 +4,23 @@ import { RunningWebpackContext, RunningBabelContext } from '@financial-times/anv
 import { PluginSettings } from './types'
 
 export default new Plugin(({ on }) => {
-  on('@Build::amend::babelConfig', amendBabelConfig)
+  on('@Build::amend::babelConfig', addBabelPreset)
   on('@Build::amend::babelConfig::preset::env::options', amendBabelPresetEnvOptions)
   on('@Build::amend::webpackConfig::scriptsRule', amendWebpackConfigScriptsRule)
-  on('@Build::amend::webpackConfig', amendWebpackConfig)
+  on('@Build::amend::webpackConfig', addTypeScriptFileTypesToResolvers)
 })
 
-function amendWebpackConfig({ webpackConfig }: RunningWebpackContext) {
-  // Add TypeScript files to the list of file extensions to resolve
+function addTypeScriptFileTypesToResolvers({ webpackConfig }: RunningWebpackContext) {
   webpackConfig.resolve.extensions.push('.ts', '.tsx')
 }
 
 function amendWebpackConfigScriptsRule({ scriptsRule }) {
   // Replace default JS rule matcher with a RegExp including TypeScript files
   scriptsRule.test = /\.(js|jsx|mjs|ts|tsx)$/
-  // Enable Babel caching to avoid running recompilation for each run
   scriptsRule.use.options.cacheDirectory = true
 }
 
-function amendBabelConfig({ context, babelConfig }: RunningBabelContext) {
+function addBabelPreset({ context, babelConfig }: RunningBabelContext) {
   babelConfig.presets.push(babelPreset(context))
 }
 

@@ -32,25 +32,17 @@ export default (context?: CliContext) => {
 
   const config = {
     presets: [
-      // Support JSX syntax and React dev tools if required
-      // https://babeljs.io/docs/en/babel-preset-react
       [require.resolve('@babel/preset-react'), options.presetReact],
-      // Parse and transform TypeScript without performing type checking
-      // https://babeljs.io/docs/en/next/babel-preset-typescript.html
+      // This only enables the parsing of TypeScript, it does not check types
       [require.resolve('@babel/preset-typescript'), options.presetTypescript]
     ],
     plugins: [
-      // Stage 3 proposal
       // https://github.com/tc39/proposal-class-fields
       [require.resolve('@babel/plugin-proposal-class-properties'), options.pluginClassProperties],
-      // Stage 4 proposal
-      // https://github.com/tc39/proposal-object-rest-spread
+      // TODO: remove when part of babel core
       [require.resolve('@babel/plugin-proposal-object-rest-spread'), options.pluginObjectRestSpread],
-      // Enable Babel's built-in 'dynamicImport' flag which defines import() function usage
-      // https://babeljs.io/docs/en/next/babel-plugin-syntax-dynamic-import.html
+      // This enables Babel's built-in 'dynamicImport' flag which defines import() function usage
       [require.resolve('@babel/plugin-syntax-dynamic-import'), options.pluginDynamicImport],
-      // Enables the re-use of Babel helpers to save on codesize
-      // https://babeljs.io/docs/en/next/babel-plugin-transform-runtime.html
       [require.resolve('@babel/plugin-transform-runtime'), options.pluginTransformRuntime]
     ]
   }

@@ -16,7 +16,6 @@ interface SetupArgs {
 
 export function setupAction({ workingDir, action }: SetupArgs) {
   return async (...args) => {
-    // Provide a shared toolset for formatted CLI output
     const messenger = new CliMessenger()
 
     try {
@@ -37,8 +36,10 @@ export function setupAction({ workingDir, action }: SetupArgs) {
   }
 }
 
+/**
+ * NOTE: This function is naive as command arguments may be optional
+ */
 function mapExpectedArgsToNames(program: Command, options: any[]) {
-  // This function is naive as command arguments may be optional
   const properties = program._args.map((arg) => arg.name)
 
   return options.reduce((map, option, i) => {

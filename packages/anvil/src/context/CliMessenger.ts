@@ -2,6 +2,10 @@ import ora from 'ora'
 import inquirer from 'inquirer'
 import CliProgress from 'cli-progress'
 
+/**
+ * CLI Messenger
+ * @description Provides a shared toolset for formatted CLI output
+ */
 export class CliMessenger {
   spinner = ora()
   progressBar = new CliProgress.Bar(
