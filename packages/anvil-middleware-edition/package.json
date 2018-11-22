@@ -1,9 +1,10 @@
 {
   "name": "@financial-times/anvil-middleware-edition",
+  "scope": "anvil",
   "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
-  "types": "src/index.d.ts",
+  "types": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "../../node_modules/.bin/tsc",

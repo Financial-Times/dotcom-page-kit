@@ -16,15 +16,14 @@ export default () => {
 
     let currentEdition = request.get('FT-Edition') || 'uk'
 
-    // if query string contains ?edition=..., switch to that edition (and save in a cookie)
+    // if query string contains ?edition=..., serve that edition and save preference in a cookie
     const selectedEdition = request.query.edition
 
-    if (selectedEdition && editionIds.indexOf(selectedEdition) > -1) {
+    if (selectedEdition && editionIds.includes(selectedEdition)) {
       currentEdition = selectedEdition
-      // set cookie for a year
       response.cookie('next-edition', currentEdition, {
         domain: 'ft.com',
-        maxAge: 1000 * 60 * 60 * 24 * 365
+        maxAge: 1000 * 60 * 60 * 24 * 365 // 1 year
       })
     }
 

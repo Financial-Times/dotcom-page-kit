@@ -2,13 +2,13 @@ import subject from '../index'
 import httpMocks from 'node-mocks-http'
 
 const editionsUk = {
-  current: { id: 'uk', name: 'UK', url: '/' },
-  others: [{ id: 'international', name: 'International', url: '/' }]
+  current: expect.objectContaining({ id: 'uk' }),
+  others: [expect.objectContaining({ id: 'international' })]
 }
 
 const editionsInternational = {
-  current: { id: 'international', name: 'International', url: '/' },
-  others: [{ id: 'uk', name: 'UK', url: '/' }]
+  current: expect.objectContaining({ id: 'international' }),
+  others: [expect.objectContaining({ id: 'uk' })]
 }
 
 describe('anvil-middleware-edition', () => {
@@ -34,26 +34,25 @@ describe('anvil-middleware-edition', () => {
     })
 
     it('returns a function', () => {
-      instance(requestMock, responseMock, next)
       expect(instance).toBeInstanceOf(Function)
-    }),
-      it('calls the fallthrough function', () => {
-        instance(requestMock, responseMock, next)
-        expect(next).toHaveBeenCalled()
-      }),
-      it('sets the edition to uk as a default', () => {
-        instance(requestMock, responseMock, next)
-        expect(responseMock.locals.editions).toEqual(expect.objectContaining(editionsUk))
-      }),
-      it('sets the edition to international if passed a valid query string', () => {
-        requestMock.query.edition = 'international'
-        instance(requestMock, responseMock, next)
-        expect(responseMock.locals.editions).toEqual(expect.objectContaining(editionsInternational))
-      }),
-      it('sets a cookie', () => {
-        requestMock.query.edition = 'international'
-        instance(requestMock, responseMock, next)
-        expect(responseMock.cookie().cookies).toHaveProperty('next-edition')
-      })
+    })
+    it('calls the fallthrough function', () => {
+      instance(requestMock, responseMock, next)
+      expect(next).toHaveBeenCalled()
+    })
+    it('sets the edition to uk as default', () => {
+      instance(requestMock, responseMock, next)
+      expect(responseMock.locals.editions).toEqual(expect.objectContaining(editionsUk))
+    })
+    it('sets the edition to international if passed a valid query string', () => {
+      requestMock.query.edition = 'international'
+      instance(requestMock, responseMock, next)
+      expect(responseMock.locals.editions).toEqual(expect.objectContaining(editionsInternational))
+    })
+    it('sets a cookie if passed a valid query string', () => {
+      requestMock.query.edition = 'international'
+      instance(requestMock, responseMock, next)
+      expect(responseMock.cookies).toHaveProperty('next-edition')
+    })
   })
 })
