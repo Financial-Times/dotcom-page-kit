@@ -1,5 +1,6 @@
 export default () => {
   return (request, response, next) => {
+    console.log('** EDITION MIDDLEWARE **')
     const availableEditions = [
       {
         id: 'uk',
