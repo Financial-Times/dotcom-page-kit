@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-const editionMiddleware = require('@financial-times/anvil-middleware-edition')
+const editionMiddleware = require('@financial-times/anvil-middleware-ft-edition')
 
 const express = require('express')
 const app = express()

@@ -11,7 +11,7 @@ const editionsInternational = {
   others: [expect.objectContaining({ id: 'uk' })]
 }
 
-describe('anvil-middleware-edition', () => {
+describe('anvil-middleware-ft-edition', () => {
   let instance
 
   beforeEach(() => {
