@@ -8,6 +8,15 @@
 
 The aim of this project is to provide a high quality, well tested, and thoroughly documented, modern asset pipeline and application shell for Node.js applications based upon the latest industry standards.
 
+---
+
+- [Scope](#scope)
+- [FAQ](#faq)
+- [Development](#development)
+  - [Running Storybook](#running-storybook)
+
+---
+
 
 ## Scope
 
@@ -60,3 +69,22 @@ This project does not include any visual changes to the FT.com application UI so
 ### Will this target non-FT.com teams?
 
 It is our aim to build a core set of modules which should be considered usable by the wider JavaScript community. On top of this core we will build FT specific modules. We hope that by introducing this conceptual divide we can make fewer assumptions, encourage contributions, and more effectively manage opinionated parts of the codebase.
+
+## Development
+### Using Storybook
+
+To start storybook, first build the packages using the command:
+
+```
+npm run build
+```
+
+or `npm run dev` to build in watch mode. Once the files have been built, run the command: 
+
+```
+npm run storybook
+```
+
+The storybook interface should then automatically open in your default browser. Nothing else is needed. The storybook installation is configured to automatically find stories whose file name ends with `stories.tsx`, and that live in a package whose name starts with `anvil-ui-`.
+
+Note that the storybook `config.js` file is automatically generated from the template located at `./.storybook/config.template.js`. As such, anything that needs to be added to the `config.js` file will have to be instead placed in the `./.storybook/config.template.js`. Remember though that you don't have to manually add stories to the `config.js` file as they are automatically discovered

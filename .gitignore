@@ -6,3 +6,4 @@ Thumbs.db
 npm-debug.log
 package-lock.json
 .vscode
+.cache
