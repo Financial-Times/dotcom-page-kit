@@ -50,3 +50,7 @@ const clone = menuItem => JSON.parse(JSON.stringify(menuItem));
 // TODO: Expand on usage once we have more of the Navigation middleware in in place.
 
 // TODO: run tests
+
+### Run the tests
+
+From the top-level of anvil run `jest` or`jest packages/anvil-server-ft-navigation`.

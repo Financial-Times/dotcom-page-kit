@@ -8,7 +8,10 @@ const navigationData = {
 }
 
 const crumbtrailData = {
-  testData: 'some-crumbtrail-data'
+  testData: 'some-crumbtrail-data',
+  ancestors: 'some-ancestors',
+  children: 'some-children',
+  item: 'some-data-item'
 }
 
 const FakePoller = {
@@ -67,9 +70,9 @@ describe('anvil-server-ft-navigation', () => {
         .get('/v2/hierarchy/streamPage')
         .reply(200, clone(crumbtrailData))
       const result = await navigationInstance.getCrumbtrail('streamPage')
-      console.log('*** result', result);
 
-      expect(Object.isFrozen(result)).toEqual(true)
+      expect(Object.isFrozen(result.breadcrumb)).toEqual(true)
+      expect(Object.isFrozen(result.subsections)).toEqual(true)
     })
 
     it('throws an HTTP error when fetch fails', async () => {

@@ -1,24 +1,30 @@
 import { Navigation } from '@financial-times/anvil-server-ft-navigation'
 
-export default (options = {}) => {
+interface MiddlewareOptions {
+  enableCrumbtrail?: boolean
+}
+
+const defaultOptions = {
+  enableCrumbtrail: false
+}
+
+export default (userOptions: MiddlewareOptions = {}) => {
+  const options = { ...defaultOptions, ...userOptions }
   const poller = new Navigation(options)
 
   return async (request, response, next) => {
-    console.log('** NAVIGATION MIDDLEWARE **')
-    console.log('** request', Boolean(request))
     try {
-      const [ navigation, crumbtrail ] = await Promise.all([
+      const [navigation, crumbtrail] = await Promise.all([
         poller.getNavigation(),
-        poller.getCrumbtrail(request.path)
+        options.enableCrumbtrail ? poller.getCrumbtrail(request.path) : null
       ])
 
-      console.log('** response.locals.editions', response.locals.editions, '\n')
-
       response.locals.navigation = navigation
-      response.locals.crumbtrail = crumbtrail
-
-      console.log('** response.locals.navigation', response.locals.navigation, '\n')
-      console.log('** response.locals.crumbtrail', response.locals.crumbtrail, '\n')
+      response.locals.crumbtrail = {}
+      // TODO Question: Are the names crumbtrail.breadcrumb and crumbtrail.subsections
+      // compatible with existing n-ui? See `data` keyword.
+      response.locals.crumbtrail.breadcrumb = crumbtrail.breadcrumb
+      response.locals.crumbtrail.subsections = crumbtrail.subsections
 
       next()
     } catch (error) {

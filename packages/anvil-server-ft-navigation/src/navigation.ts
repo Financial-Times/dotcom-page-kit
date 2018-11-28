@@ -9,23 +9,20 @@ const parseData = (data: object) => {
   return deepFreeze(data)
 }
 
+const removeLeadingForwardSlash = (pagePath) => {
+  return pagePath.charAt(0) === '/' ? pagePath.substring(1) : pagePath
+}
+
 const defaults = {
   menuUrl: 'http://next-navigation.ft.com/v2/menus',
   crumbtrailUrl: 'http://next-navigation.ft.com/v2/hierarchy',
-  streamPagesUrl: 'http://next-navigation.ft.com/v2/ids',
   interval: 15 * 60 * 1000 // poll every 15 minutes
-}
-
-const removeLeadingForwardSlash = (pagePath) => {
-  return pagePath.charAt(0) === '/' ? pagePath.substring(1) : pagePath
 }
 
 export class Navigation {
   public options
   public poller
-  public streamListPoller
   public initialPromise
-  public initialStreamsPromise
 
   constructor(options = {}) {
     this.options = { ...defaults, ...options }
@@ -36,14 +33,7 @@ export class Navigation {
       parseData
     })
 
-    this.streamListPoller = new Poller({
-      url: this.options.streamPagesUrl,
-      refreshInterval: this.options.interval,
-      parseData
-    })
-
     this.initialPromise = this.poller.start({ initialRequest: true })
-    this.initialStreamsPromise = this.streamListPoller.start({ initialRequest: true })
   }
 
   async getNavigation() {
@@ -63,26 +53,20 @@ export class Navigation {
     }
   }
 
-  async getStreamPages() {
-    await this.initialStreamsPromise
-    return this.streamListPoller.getData()
-  }
-
   async getCrumbtrail(currentPage: string) {
-    const streams = await this.getStreamPages()
-    const isStreamPage = streams.hasOwnProperty(`${currentPage}`)
-
-    if(isStreamPage) {
-      const crumbtrail = `${this.options.crumbtrailUrl}/${removeLeadingForwardSlash(currentPage)}`
-      const response = await fetch(crumbtrail)
-      if (response.ok) {
-        const data = await response.json()
-        return parseData(data)
-      } else {
-        throw httpError(response.status, `Navigation crumbtrail for ${removeLeadingForwardSlash(currentPage)} could not be found.`)
+    const crumbtrail = `${this.options.crumbtrailUrl}/${removeLeadingForwardSlash(currentPage)}`
+    const response = await fetch(crumbtrail)
+    if (response.ok) {
+      const data = await response.json()
+      return {
+        breadcrumb: parseData(data.ancestors.concat(data.item)),
+        subsections: parseData(data.children)
       }
     } else {
-      return Promise.reject(null)
+      throw httpError(
+        response.status,
+        `Navigation crumbtrail for ${removeLeadingForwardSlash(currentPage)} could not be found.`
+      )
     }
   }
 }
