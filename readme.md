@@ -99,13 +99,7 @@ Please note that Anvil has only been tested in Mac and Linux environments. If yo
     npm install
     ```
 
-3. Run the build script for all packages:
-
-    ```bash
-    npm run build
-    ```
-
-4. You can now choose to run an example application or start Storybook to view the current set of UI components. Examples are located in the `examples/` directory and have their own instructions. To use Storybook you can follow [the guide below](#using-storybook).
+3. You can now choose to run an example application or start Storybook to view the current set of UI components. Examples are located in the `examples/` directory and have their own instructions. To use Storybook you can follow [the guide below](#using-storybook).
 
 Before getting started on writing any code you may also find it useful to refer to the [contribution guide](contribution.md) which covers coding standards and expectations.
 
