@@ -105,6 +105,8 @@ Please note that x-dash has only been tested in Mac and Linux environments. If y
     npm run storybook
     ```
 
+Before getting started on writing any code you may also find it useful to refer to the [contribution guide](contribution.md) which covers coding standards and expectations.
+
 ### Project structure
 
 The repository groups all public packages together in a single `packages/` directory. There is also an `example/` directory which includes several applications demonstrating the usage and aiding the development of various packages.
