@@ -99,7 +99,13 @@ Please note that Anvil has only been tested in Mac and Linux environments. If yo
     npm install
     ```
 
-3. Start Storybook to view the current set of UI components:
+3. Run the build script for all packages:
+
+    ```bash
+    npm run build
+    ```
+
+4. Start Storybook to view the current set of UI components:
 
     ```bash
     npm run storybook
@@ -139,6 +145,6 @@ Once all of the packages have been built you can run Storybook using the followi
 npm run storybook
 ```
 
-The Storybook interface should then automatically open in your default browser. Storybook has been configured to automatically find stories in files ending `*story.tsx` inside packages prefixed with `anvil-ui-`.
+The Storybook interface should then automatically open in your default browser. Storybook has been configured to automatically find stories in files ending with `*story.tsx` inside packages prefixed with `anvil-ui-`.
 
 Please note that the Storybook configuration file is automatically generated from the template located at `./.storybook/config.template.js`. As such, anything that needs to be added to the `config.js` file will have to be instead placed in the `./.storybook/config.template.js`. You do not need to manually add stories to the `config.js` file as these are automatically discovered
