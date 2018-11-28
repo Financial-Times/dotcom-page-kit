@@ -6,14 +6,13 @@
   <img src="https://media.giphy.com/media/CtGZtZklB1yCs/giphy-downsized.gif" alt="3 fellas hammering it out">
 </p>
 
-The aim of this project is to provide a high quality, well tested, and thoroughly documented, modern asset pipeline and application shell for Node.js applications based upon the latest industry standards.
+The aim of this project is to provide a high quality, well tested, and thoroughly documented set of tools for assembling and delivering modern websites with Node.js  based upon the best industry standards.
 
 ---
 
 - [Scope](#scope)
 - [FAQ](#faq)
-- [Development](#development)
-  - [Running Storybook](#running-storybook)
+- [Getting started](#getting-started)
 
 ---
 
@@ -22,7 +21,7 @@ The aim of this project is to provide a high quality, well tested, and thoroughl
 
 ### CLI
 
-The CLI tool provides a suite of actions which can be extended via plugins. To begin with we are working on the `build` action which can be used to assemble the static assets for your application. By default this action includes only a barebones Webpack configuration but capabilities to transpile JS2018, TypeScript, CSS, Sass, and more can be added to extend this basic functionality.
+The CLI tool provides a suite of actions which can be extended via plugins. To begin with we are working on the `build` action which can be used to assemble the static assets for your application. By default this action includes only a barebones Webpack configuration but capabilities to transpile JS2018, TypeScript, CSS, Sass, and more can be plugged in to extend this functionality.
 
 ### Server-side
 
@@ -30,7 +29,7 @@ This suite of modules will help your application to render user interfaces. Thes
 
 ### Application shell
 
-The application shell provides the basic UI components for your application. This includes templates and layouts, feature detection and loading of assets, and shared client-side functionality such as analytics.
+The application shell provides the basic UI components for your application. This includes templates and layouts, feature detection, client-side bootstrapping, and shared client-side functionality such as analytics.
 
 
 ## FAQ
@@ -70,21 +69,72 @@ This project does not include any visual changes to the FT.com application UI so
 
 It is our aim to build a core set of modules which should be considered usable by the wider JavaScript community. On top of this core we will build FT specific modules. We hope that by introducing this conceptual divide we can make fewer assumptions, encourage contributions, and more effectively manage opinionated parts of the codebase.
 
-## Development
+
+## Getting started
+
+### Requirements
+
+To get started with Anvil, you'll need to make sure you have the following software tools installed.
+
+1. [Git](https://git-scm.com/)
+2. [Make](https://www.gnu.org/software/make/)
+3. [Node.js](https://nodejs.org/en/) (version 8 or higher is required)
+4. [npm](http://npmjs.com/)
+
+Please note that Anvil has only been tested in Mac and Linux environments. If you are on a Mac you may find it easiest to install the [Command Line Tools](https://developer.apple.com/download/more/) package which includes Git and Make.
+
+
+### Project setup
+
+1. Clone the Anvil Git repository and change to the new directory that has been created:
+
+    ```bash
+    git clone git@github.com:financial-times/anvil
+    cd anvil
+    ```
+
+2. Install all of the project dependencies (this may take a few minutes if you are running this for the first time):
+
+    ```bash
+    npm install
+    ```
+
+3. You can now choose to run an example application or start Storybook to view the current set of UI components. Examples are located in the `examples/` directory and have their own instructions. To use Storybook you can follow [the guide below](#using-storybook).
+
+Before getting started on writing any code you may also find it useful to refer to the [contribution guide](contribution.md) which covers coding standards and expectations.
+
+### Project structure
+
+The repository groups all public packages together in a single `packages/` directory. There is also an `example/` directory which includes several applications demonstrating the usage and aiding the development of various packages.
+
+Packages should follow a naming convention to denote their functionality, these are:
+
+- `anvil-middleware-*` An [express.js] compatible middleware
+- `anvil-plugin-*` A plugin for the Anvil CLI tool
+- `anvil-server-*` A generic Node.js module
+- `anvil-types-*` Shared TypeScript declaration files
+- `anvil-ui-*` A UI component
+
+[express.js]: https://expressjs.com/
+
 ### Using Storybook
 
-To start storybook, first build the packages using the command:
+[Storybook] is a development environment and showcase for UI components. It makes working on and sharing UI components easier by providing a richly configurable environment.
+
+[Storybook]: https://storybook.js.org/
+
+Before starting Storybook you must first run the build script for all packages using this command:
 
 ```
 npm run build
 ```
 
-or `npm run dev` to build in watch mode. Once the files have been built, run the command: 
+Once all of the packages have been built you can run Storybook using the following the command:
 
 ```
 npm run storybook
 ```
 
-The storybook interface should then automatically open in your default browser. Nothing else is needed. The storybook installation is configured to automatically find stories whose file name ends with `stories.tsx`, and that live in a package whose name starts with `anvil-ui-`.
+The Storybook interface should then automatically open in your default browser. Storybook has been configured to automatically find stories in files ending with `*story.tsx` inside packages prefixed with `anvil-ui-`.
 
-Note that the storybook `config.js` file is automatically generated from the template located at `./.storybook/config.template.js`. As such, anything that needs to be added to the `config.js` file will have to be instead placed in the `./.storybook/config.template.js`. Remember though that you don't have to manually add stories to the `config.js` file as they are automatically discovered
+_Please note_ that the Storybook configuration file at `./.storybook/config.js` is automatically generated from the template located at `./.storybook/config.template.js`. Anything that needs to be added to the Storybook configuration file should be added to `./.storybook/config.template.js`. You do not need to manually add stories to the Storybook configuration file as these will be automatically discovered.
