@@ -105,11 +105,7 @@ Please note that Anvil has only been tested in Mac and Linux environments. If yo
     npm run build
     ```
 
-4. Start Storybook to view the current set of UI components:
-
-    ```bash
-    npm run storybook
-    ```
+4. You can now choose to run an example application or start Storybook to view the current set of UI components. Examples are located in the `examples/` directory and have their own instructions. To use Storybook you can follow [the guide below](#using-storybook).
 
 Before getting started on writing any code you may also find it useful to refer to the [contribution guide](contribution.md) which covers coding standards and expectations.
 
@@ -133,7 +129,7 @@ Packages should follow a naming convention to denote their functionality, these 
 
 [Storybook]: https://storybook.js.org/
 
-Before starting Storybook, first run the build script for all packages using this command:
+Before starting Storybook you must first run the build script for all packages using this command:
 
 ```
 npm run build
