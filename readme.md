@@ -147,4 +147,4 @@ npm run storybook
 
 The Storybook interface should then automatically open in your default browser. Storybook has been configured to automatically find stories in files ending with `*story.tsx` inside packages prefixed with `anvil-ui-`.
 
-Please note that the Storybook configuration file is automatically generated from the template located at `./.storybook/config.template.js`. As such, anything that needs to be added to the `config.js` file will have to be instead placed in the `./.storybook/config.template.js`. You do not need to manually add stories to the `config.js` file as these are automatically discovered
+_Please note_ that the Storybook configuration file at `./.storybook/config.js` is automatically generated from the template located at `./.storybook/config.template.js`. Anything that needs to be added to the Storybook configuration file should be added to `./.storybook/config.template.js`. You do not need to manually add stories to the Storybook configuration file as these will be automatically discovered.
