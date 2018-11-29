@@ -11,7 +11,7 @@ This middleware should be consumed by your application's server file.
 
 ### Installation
 ```
-npm install --save @financial-times/anvil-middleware-navigation
+npm install --save @financial-times/anvil-middleware-ft-navigation
 ```
 
 
