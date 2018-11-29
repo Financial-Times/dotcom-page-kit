@@ -1,4 +1,4 @@
-# Edition Middleware
+# FT Edition Middleware
 
 The Edition middleware appends the current and available editions to app.locals for each request.
 
@@ -9,15 +9,15 @@ This middleware should be consumed by your application's server file.
 
 ### Installation
 ```
-npm install --save @financial-times/anvil-middleware-edition
+npm install --save @financial-times/anvil-middleware-ft-edition
 ```
 
 
 ### Example usage:
 ```
-const editionMiddleware = require('@financial-times/anvil-middleware-edition')
+const editionMiddleware = require('@financial-times/anvil-middleware-ft-edition')
 
-const instance = editionMiddleware()
+const instance = editionMiddleware.default()
 
 app.use(instance)
 ```
