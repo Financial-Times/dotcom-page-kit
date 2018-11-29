@@ -1,6 +1,7 @@
 import path from 'path'
-import { loadFile } from './loadFile'
-import { loadManifest } from './loadManifest'
+import { loadFile } from './helpers/loadFile'
+import { loadManifest } from './helpers/loadManifest'
+import { getOrderedAssetUrls } from './helpers/getOrderedAssetUrls'
 
 interface AssetLoaderOptions {
   /** A fully resolved path to the manifest file */
@@ -8,7 +9,7 @@ interface AssetLoaderOptions {
   /** The base URL for assets (as seen by users) */
   publicPath: string
   /** An absolute path to the assets folder on disk */
-  fileSystemPath: string
+  fileSystemPath?: string
   /** Store file contents in memory when accessed */
   cacheFileContents?: boolean
 }
@@ -28,6 +29,10 @@ class AssetLoader {
     } else {
       throw Error(`Couldn't find asset "${asset}" in manifest`)
     }
+  }
+
+  getOrderedAssetUrls(): string[] {
+    return getOrderedAssetUrls(this)
   }
 
   getFileContents(asset: string): string {

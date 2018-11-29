@@ -1,22 +1,33 @@
 import React from 'react'
-import FTShell from '@financial-times/anvil-ui-ft-shell'
 import FTHeader from '@financial-times/anvil-ui-ft-header'
 import FTFooter from '@financial-times/anvil-ui-ft-footer'
+import { placeholder, createSlotterFor, Renderable } from '@financial-times/anvil-ui-slots'
 
 interface Props {
-  children: any
+  children?: any
+  bodySlot?: Renderable
+  headerSlot?: Renderable
+  footerSlot?: Renderable
 }
 
-export default function Layout({ children }: Partial<Props>) {
+FTLayout.body = placeholder()
+FTLayout.header = placeholder()
+FTLayout.footer = placeholder()
+
+export default function FTLayout(props: Props) {
+  const Slot = createSlotterFor(FTLayout, props)
+
   return (
-    <FTShell>
+    <React.Fragment>
       <header>
-        <FTHeader />
+        <Slot name="header" Default={FTHeader} />
       </header>
-      <main>{children}</main>
-      <header>
-        <FTFooter />
-      </header>
-    </FTShell>
+      <main id="root">
+        <Slot name="body" />
+      </main>
+      <footer>
+        <Slot name="footer" Default={FTFooter} />
+      </footer>
+    </React.Fragment>
   )
 }

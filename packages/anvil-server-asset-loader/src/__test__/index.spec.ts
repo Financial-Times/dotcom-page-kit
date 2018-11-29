@@ -5,13 +5,13 @@ const manifest = {
   'example.js': 'example.1234567.js'
 }
 
-jest.mock('../loadManifest', () => {
+jest.mock('../helpers/loadManifest', () => {
   return {
     loadManifest: jest.fn(() => manifest)
   }
 })
 
-jest.mock('../loadFile', () => {
+jest.mock('../helpers/loadFile', () => {
   return {
     loadFile: jest.fn(() => {
       return 'some-stringified-asset-data'

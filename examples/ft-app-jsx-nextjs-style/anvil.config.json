@@ -8,7 +8,7 @@
   ],
   "settings": {
     "entry": {
-      "main": "./src/index.js"
+      "client.js": "./src/client.js"
     },
     "ft-js": {
       "jsxPragma": "React.createElement",
