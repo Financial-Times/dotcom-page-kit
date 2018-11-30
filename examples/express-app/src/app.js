@@ -10,8 +10,7 @@ const port = 3456
 const edition = editionMiddleware.default({})
 const navigation = navigationMiddleware.default({ enableCrumbtrail: true })
 
-app.use(edition)
-app.use(navigation)
+app.use([edition, navigation])
 
 app.get('/', (req, res) => {
   res.send('HELLO WORLD')

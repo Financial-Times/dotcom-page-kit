@@ -21,10 +21,8 @@ export default (userOptions: MiddlewareOptions = {}) => {
 
       response.locals.navigation = navigation
       response.locals.crumbtrail = {}
-      // TODO Question: Are the names crumbtrail.breadcrumb and crumbtrail.subsections
-      // compatible with existing n-ui? See `data` keyword.
-      response.locals.crumbtrail.breadcrumb = crumbtrail.breadcrumb
-      response.locals.crumbtrail.subsections = crumbtrail.subsections
+      response.locals.crumbtrail.breadcrumb = crumbtrail && crumbtrail.breadcrumb
+      response.locals.crumbtrail.subsections = crumbtrail && crumbtrail.subsections
 
       next()
     } catch (error) {
