@@ -54,8 +54,10 @@ export class Navigation {
   }
 
   async getCrumbtrail(currentPage: string) {
-    const crumbtrail = `${this.options.crumbtrailUrl}/${removeLeadingForwardSlash(currentPage)}`
+    currentPage = removeLeadingForwardSlash(currentPage)
+    const crumbtrail = `${this.options.crumbtrailUrl}/${currentPage}`
     const response = await fetch(crumbtrail)
+
     if (response.ok) {
       const data = await response.json()
       return {
@@ -63,10 +65,7 @@ export class Navigation {
         subsections: parseData(data.children)
       }
     } else {
-      throw httpError(
-        response.status,
-        `Navigation crumbtrail for ${removeLeadingForwardSlash(currentPage)} could not be found.`
-      )
+      throw httpError(response.status, `Navigation crumbtrail for ${currentPage} could not be found.`)
     }
   }
 }

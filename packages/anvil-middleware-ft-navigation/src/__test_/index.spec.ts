@@ -28,18 +28,18 @@ describe('anvil-middleware-ft-navigation', () => {
   let next
 
   beforeEach(() => {
-    ;(instance = subject()), (instanceWithCrumbtrail = subject({ enableCrumbtrail: true }))
+    instance = subject()
+    instanceWithCrumbtrail = subject({ enableCrumbtrail: true })
     requestMock = httpMocks.createRequest()
     responseMock = httpMocks.createResponse({
-      locals: {
-        testProperty: 'test'
-      }
+      locals: {}
     })
     next = jest.fn()
   })
 
   afterEach(() => {
-    ;(instance = null), (instanceWithCrumbtrail = null)
+    instance = null
+    instanceWithCrumbtrail = null
     jest.clearAllMocks()
   })
 
@@ -51,12 +51,12 @@ describe('anvil-middleware-ft-navigation', () => {
   describe('without the enableCrumbtrail option', async () => {
     it('sets the navigation properties on response.locals', async () => {
       await instance(requestMock, responseMock, next)
-      expect(responseMock.locals.navigation).toEqual(fakeNavigation)
+      expect(responseMock.locals.navigation.main).toEqual(fakeNavigation)
     })
     it('does not set the crumbtrail properties on response.locals', async () => {
       await instance(requestMock, responseMock, next)
-      expect(responseMock.locals.crumbtrail.breadcrumb).toBeNull()
-      expect(responseMock.locals.crumbtrail.subsections).toBeNull()
+      expect(responseMock.locals.navigation.crumbtrail.breadcrumb).toBeNull()
+      expect(responseMock.locals.navigation.crumbtrail.subsections).toBeNull()
     })
     it('calls the fallthrough function', async () => {
       await instance(requestMock, responseMock, next)
@@ -71,11 +71,11 @@ describe('anvil-middleware-ft-navigation', () => {
     })
     it('sets the crumbtrail properties on response.locals', async () => {
       await instanceWithCrumbtrail(requestMock, responseMock, next)
-      expect(responseMock.locals.crumbtrail.breadcrumb).toEqual(fakeCrumbtrail.breadcrumb)
-      expect(responseMock.locals.crumbtrail.subsections).toEqual(fakeCrumbtrail.subsections)
+      expect(responseMock.locals.navigation.crumbtrail.breadcrumb).toEqual(fakeCrumbtrail.breadcrumb)
+      expect(responseMock.locals.navigation.crumbtrail.subsections).toEqual(fakeCrumbtrail.subsections)
     })
     it('calls the fallthrough function', async () => {
-      await instance(requestMock, responseMock, next)
+      await instanceWithCrumbtrail(requestMock, responseMock, next)
       expect(next).toHaveBeenCalled()
     })
   })

@@ -14,15 +14,16 @@ export default (userOptions: MiddlewareOptions = {}) => {
 
   return async (request, response, next) => {
     try {
+      response.locals.navigation = {}
+      response.locals.navigation.crumbtrail = {}
+
       const [navigation, crumbtrail] = await Promise.all([
         poller.getNavigation(),
         options.enableCrumbtrail ? poller.getCrumbtrail(request.path) : null
       ])
-
-      response.locals.navigation = navigation
-      response.locals.crumbtrail = {}
-      response.locals.crumbtrail.breadcrumb = crumbtrail && crumbtrail.breadcrumb
-      response.locals.crumbtrail.subsections = crumbtrail && crumbtrail.subsections
+      response.locals.navigation.main = navigation
+      response.locals.navigation.crumbtrail.breadcrumb = crumbtrail && crumbtrail.breadcrumb
+      response.locals.navigation.crumbtrail.subsections = crumbtrail && crumbtrail.subsections
 
       next()
     } catch (error) {

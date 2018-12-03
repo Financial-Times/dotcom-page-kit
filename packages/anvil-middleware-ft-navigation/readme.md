@@ -4,7 +4,7 @@ The FT Navigation middleware appends an instance of the navigation package to ap
 
 The navigation data must be present in order to render the navigation components for the page.
 
-Pages which should render a navigation crumbtrail, including most Stream pages, should call the middleware with { `enableCrumbtrail: ture }` set to true to include crumbtrail data in the response.
+Pages which should render a navigation crumbtrail, which includes most Stream pages, should call the middleware with { `enableCrumbtrail: ture }` to tell the middleware to include crumbtrail data in the response.
 
 This middleware should be consumed by your application's server file.
 
