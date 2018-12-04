@@ -1,9 +1,9 @@
 {
-  "name": "@financial-times/anvil-server-ft-navigation",
-  "private": true,
-  "version": "1.0.0",
+  "name": "@financial-times/anvil-middleware-ft-navigation",
+  "scope": "anvil",
+  "version": "0.0.0",
   "description": "",
-  "main": "dist/cjs/navigation.js",
+  "main": "dist/cjs/index.js",
   "types": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,13 +19,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/deep-freeze": "^0.1.1",
-    "deep-freeze": "0.0.1",
-    "ft-poller": "^3.0.1",
-    "http-errors": "^1.7.1",
-    "node-fetch": "^2.2.1"
+    "@financial-times/anvil-server-ft-navigation": "file:../../packages/anvil-server-ft-navigation"
   },
   "devDependencies": {
-    "nock": "^10.0.2"
+    "node-mocks-http": "^1.7.3"
   }
 }

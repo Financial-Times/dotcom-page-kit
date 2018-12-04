@@ -13,6 +13,7 @@
     "express": "^4.16.2"
   },
   "devDependencies": {
-    "@financial-times/anvil-middleware-ft-edition": "file:../../packages/anvil-middleware-ft-edition"
+    "@financial-times/anvil-middleware-ft-edition": "file:../../packages/anvil-middleware-ft-edition",
+    "@financial-times/anvil-middleware-ft-navigation": "file:../../packages/anvil-middleware-ft-navigation"
   }
 }

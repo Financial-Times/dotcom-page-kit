@@ -3,11 +3,15 @@ import nock from 'nock'
 
 const navigationData = {
   testData: 'some-navigation-data',
-  testMenu: 'some-menu-data'
+  testMenu: 'some-menu-data',
+  streamPage: 'some-stream-id'
 }
 
 const crumbtrailData = {
-  testData: 'some-crumbtrail-data'
+  testData: 'some-crumbtrail-data',
+  ancestors: 'some-ancestors',
+  children: 'some-children',
+  item: 'some-data-item'
 }
 
 const FakePoller = {
@@ -63,20 +67,20 @@ describe('anvil-server-ft-navigation', () => {
   describe('.getCrumbtrail()', () => {
     it('fetches the crumbtrail data', async () => {
       nock('http://next-navigation.ft.com')
-        .get('/v2/hierarchy/world')
+        .get('/v2/hierarchy/streamPage')
         .reply(200, clone(crumbtrailData))
+      const result = await navigationInstance.getCrumbtrail('streamPage')
 
-      const result = await navigationInstance.getCrumbtrail('world')
-
-      expect(Object.isFrozen(result)).toEqual(true)
+      expect(Object.isFrozen(result.breadcrumb)).toEqual(true)
+      expect(Object.isFrozen(result.subsections)).toEqual(true)
     })
 
     it('throws an HTTP error when fetch fails', async () => {
       nock('http://next-navigation.ft.com')
-        .get('/v2/hierarchy/world')
+        .get('/v2/hierarchy/streamPage')
         .reply(500)
-      await expect(navigationInstance.getCrumbtrail('world')).rejects.toMatchObject({
-        message: 'Navigation crumbtrail for world could not be found.'
+      await expect(navigationInstance.getCrumbtrail('streamPage')).rejects.toMatchObject({
+        message: 'Navigation crumbtrail for streamPage could not be found.'
       })
     })
   })

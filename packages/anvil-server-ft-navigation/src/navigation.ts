@@ -9,6 +9,10 @@ const parseData = (data: object) => {
   return deepFreeze(data)
 }
 
+const removeLeadingForwardSlash = (pagePath) => {
+  return pagePath.charAt(0) === '/' ? pagePath.substring(1) : pagePath
+}
+
 const defaults = {
   menuUrl: 'http://next-navigation.ft.com/v2/menus',
   crumbtrailUrl: 'http://next-navigation.ft.com/v2/hierarchy',
@@ -49,13 +53,17 @@ export class Navigation {
     }
   }
 
-  async getCrumbtrail(currentPage: string) {
+  async getCrumbtrail(currentPath: string) {
+    const currentPage = removeLeadingForwardSlash(currentPath)
     const crumbtrail = `${this.options.crumbtrailUrl}/${currentPage}`
     const response = await fetch(crumbtrail)
 
     if (response.ok) {
       const data = await response.json()
-      return parseData(data)
+      return {
+        breadcrumb: parseData(data.ancestors.concat(data.item)),
+        subsections: parseData(data.children)
+      }
     } else {
       throw httpError(response.status, `Navigation crumbtrail for ${currentPage} could not be found.`)
     }
