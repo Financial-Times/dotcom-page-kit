@@ -14,11 +14,15 @@ const FakePoller = {
   getCrumbtrail: jest.fn().mockImplementation(() => fakeCrumbtrail)
 }
 
-jest.mock('@financial-times/anvil-server-ft-navigation', () => {
-  return {
-    Navigation: jest.fn().mockImplementation(() => FakePoller)
-  }
-})
+jest.mock(
+  '@financial-times/anvil-server-ft-navigation',
+  () => {
+    return {
+      Navigation: jest.fn().mockImplementation(() => FakePoller)
+    }
+  },
+  { virtual: true }
+)
 
 describe('anvil-middleware-ft-navigation', () => {
   let instance
