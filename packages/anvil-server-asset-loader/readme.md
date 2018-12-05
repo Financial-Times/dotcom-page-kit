@@ -25,7 +25,7 @@ const path = require('path')
 const AssetLoader = require('@financial-times/anvil-server-asset-loader')
 
 const assetLoader = new AssetLoader({
-  manifestFile: path.join(process.cwd(), 'asset-manifest.json')
+  manifestFile: path.join(process.cwd(), 'asset-manifest.json'),
   publicPath: 'https://cdn.site.com/assets',
   fileSystemPath: path.join(process.cwd(), 'public'),
   cacheFileContents: false

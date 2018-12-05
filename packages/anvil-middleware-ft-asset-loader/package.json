@@ -20,5 +20,6 @@
   "license": "ISC",
   "devDependencies": {
     "node-mocks-http": "^1.7.3"
-  }
+  },
+  "peerDependencies": {}
 }

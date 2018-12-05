@@ -16,7 +16,7 @@ npm install --save @financial-times/anvil-middleware-ft-asset-loader
 ```
 const assetLoaderMiddleware = require('@financial-times/anvil-middleware-ft-asset-loader')
 
-const instance = assetLoaderMiddleware.default({ enableCrumbtrail: true })
+const instance = assetLoaderMiddleware.default({})
 
 app.use(instance)
 ```
