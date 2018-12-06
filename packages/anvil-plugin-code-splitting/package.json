@@ -1,6 +1,5 @@
 {
   "name": "@financial-times/anvil-plugin-code-splitting",
-  "scope": "package",
   "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",

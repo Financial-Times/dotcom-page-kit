@@ -1,6 +1,5 @@
 {
   "name": "@financial-times/anvil-server-asset-loader",
-  "scope": "package",
   "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
