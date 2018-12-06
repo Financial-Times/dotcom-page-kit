@@ -22,6 +22,7 @@
   "license": "ISC",
   "dependencies": {
     "adonai": "^0.5.0",
+    "ansi-escapes": "^3.1.0",
     "clean-webpack-plugin": "^0.1.19",
     "cli-progress": "^2.1.0",
     "commander": "^2.19.0",

@@ -7,18 +7,17 @@ export default {
   prepareContext
 }
 
-export async function build(c: CliContext) {
-  const context = { namespace: 'Build' }
-  await c.with(context, async () => {
-    await c.do(buildWebpack)
+export async function build(context: CliContext) {
+  await context.with({ namespace: 'Build' }, async () => {
+    await context.do(buildWebpack)
   })
 }
 
-export function prepareContext(c: CliContext) {
-  if (!path.isAbsolute(c.flags.srcFile)) {
-    c.flags.srcFile = path.join(c.paths.workingDir, c.flags.srcFile)
+export function prepareContext({ flags, paths }: CliContext) {
+  if (!path.isAbsolute(flags.srcFile)) {
+    flags.srcFile = path.join(paths.workingDir, flags.srcFile)
   }
-  if (!path.isAbsolute(c.flags.outDir)) {
-    c.flags.outDir = path.join(c.paths.workingDir, c.flags.outDir)
+  if (!path.isAbsolute(flags.outDir)) {
+    flags.outDir = path.join(paths.workingDir, flags.outDir)
   }
 }

@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "anvil build",
-    "build:dev": "anvil build -d"
+    "build:dev": "anvil build -d -w"
   },
   "devDependencies": {
     "@financial-times/anvil": "file:../../packages/anvil",
