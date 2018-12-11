@@ -25,8 +25,7 @@
   },
   "homepage": "https://github.com/Financial-Times/n-ui-foundations#readme",
   "devDependencies": {
-    "@financial-times/n-gage": "^1.5.2",
-    "@financial-times/n-heroku-tools": "^7.10.0",
+    "@financial-times/n-gage": "^3.0.0-beta.20",
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-add-module-exports": "^0.2.1",
