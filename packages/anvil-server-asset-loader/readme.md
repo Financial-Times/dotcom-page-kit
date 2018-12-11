@@ -18,14 +18,14 @@ You will also need to ensure your application is configured to create manifest f
 
 ## Usage
 
-This module provides a single class, `AssetLoader`. When creating a new instance of `AssetLoader` it requires several options to be provided.
+This module provides a single class, `AssetLoader`. When creating a new instance of `AssetLoader` it requires several options be provided.
 
 ```js
 const path = require('path')
 const AssetLoader = require('@financial-times/anvil-server-asset-loader')
 
 const assetLoader = new AssetLoader({
-  manifestFile: path.join(process.cwd(), 'asset-manifest.json'),
+  manifestFile: path.join(process.cwd(), 'manifest.json'),
   publicPath: 'https://cdn.site.com/assets',
   fileSystemPath: path.join(process.cwd(), 'public'),
   cacheFileContents: false
