@@ -1,8 +1,9 @@
 import { CliContext } from '../context/CliContext'
-import CleanWebpackPlugin from 'clean-webpack-plugin'
 import ManifestPlugin from 'webpack-manifest-plugin'
+import CleanWebpackPlugin from 'clean-webpack-plugin'
 
 export function getDefaultWebpackConfig(context: CliContext) {
+  const isDevMode = context.flags.devMode
   const opts = {
     cleanWebpackPlugin: {
       paths: [context.flags.outDir],
@@ -15,12 +16,14 @@ export function getDefaultWebpackConfig(context: CliContext) {
   context.amend('webpackConfig::plugin::cleanWebpackPlugin::options', opts.cleanWebpackPlugin.options)
   context.amend('webpackConfig::plugin::manifestPlugin::options', opts.manifestPlugin)
 
+  const outputFilename = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
+
   const config = {
-    mode: 'production',
+    mode: isDevMode ? 'development' : 'production',
     entry: context.flags.srcFile,
     output: {
-      filename: '[name].[contenthash:12].bundle.js',
-      chunkFilename: '[name].[contenthash:12].bundle.js',
+      filename: outputFilename,
+      chunkFilename: outputFilename,
       path: context.flags.outDir
     },
     resolve: {

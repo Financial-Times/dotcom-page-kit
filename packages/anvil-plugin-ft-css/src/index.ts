@@ -11,6 +11,7 @@ export default new Plugin(({ on }) => {
 
 function amendWebpackConfig(runningContext: RunningWebpackContext) {
   const { context, webpackConfig: baseConfig } = runningContext
+  const isDevMode = context.flags.devMode
   const opts = {
     autoprefixer: {
       browsers: '> 1%, ie 11, bb 10',
@@ -18,7 +19,7 @@ function amendWebpackConfig(runningContext: RunningWebpackContext) {
     },
     miniCssExtractPlugin: {
       // only include content hash in filename when compiling production assets
-      filename: '[name].[contenthash:12].css'
+      filename: isDevMode ? '[name].css' : '[name].[contenthash:12].css'
     }
   }
   const config = {
