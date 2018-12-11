@@ -5,8 +5,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "anvil build -s src/index.ts",
-    "build:dev": "anvil build -s src/index.ts -d"
+    "build": "anvil build",
+    "build:dev": "anvil build -d"
   },
   "devDependencies": {
     "@financial-times/anvil": "file:../../packages/anvil",
