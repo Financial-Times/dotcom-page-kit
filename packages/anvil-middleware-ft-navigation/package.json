@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/anvil-middleware-ft-navigation",
-  "scope": "anvil",
+  "scope": "package",
   "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
@@ -18,11 +18,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "node-mocks-http": "^1.7.3",
+  "dependencies": {
     "@financial-times/anvil-server-ft-navigation": "file:../../packages/anvil-server-ft-navigation"
   },
-  "peerDependencies": {
-    "@financial-times/anvil-server-ft-navigation": "file:../../packages/anvil-server-ft-navigation"
+  "devDependencies": {
+    "node-mocks-http": "^1.7.3"
   }
 }

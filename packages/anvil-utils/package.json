@@ -1,6 +1,5 @@
 {
   "name": "@financial-times/anvil-utils",
-  "scope": "anvil",
   "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",

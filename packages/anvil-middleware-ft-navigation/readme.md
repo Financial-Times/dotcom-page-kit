@@ -1,6 +1,6 @@
 # FT Navigation Middleware
 
-The FT Navigation middleware appends an instance of the navigation package to app.locals on app startup.
+The FT Navigation middleware for express appends an instance of the navigation package to app.locals on app startup.
 
 The navigation data must be present in order to render the navigation components for the page.
 

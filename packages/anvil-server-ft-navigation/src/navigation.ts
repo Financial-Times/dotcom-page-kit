@@ -53,8 +53,8 @@ export class Navigation {
     }
   }
 
-  async getCrumbtrail(currentPage: string) {
-    currentPage = removeLeadingForwardSlash(currentPage)
+  async getCrumbtrail(currentPath: string) {
+    const currentPage = removeLeadingForwardSlash(currentPath)
     const crumbtrail = `${this.options.crumbtrailUrl}/${currentPage}`
     const response = await fetch(crumbtrail)
 

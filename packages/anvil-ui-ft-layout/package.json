@@ -1,6 +1,5 @@
 {
   "name": "@financial-times/anvil-ui-ft-layout",
-  "scope": "anvil",
   "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",

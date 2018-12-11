@@ -14,11 +14,15 @@ const FakePoller = {
   getCrumbtrail: jest.fn().mockImplementation(() => fakeCrumbtrail)
 }
 
-jest.mock('@financial-times/anvil-server-ft-navigation', () => {
-  return {
-    Navigation: jest.fn().mockImplementation(() => FakePoller)
-  }
-})
+jest.mock(
+  '@financial-times/anvil-server-ft-navigation',
+  () => {
+    return {
+      Navigation: jest.fn().mockImplementation(() => FakePoller)
+    }
+  },
+  { virtual: true }
+)
 
 describe('anvil-middleware-ft-navigation', () => {
   let instance
@@ -31,9 +35,7 @@ describe('anvil-middleware-ft-navigation', () => {
     instance = subject()
     instanceWithCrumbtrail = subject({ enableCrumbtrail: true })
     requestMock = httpMocks.createRequest()
-    responseMock = httpMocks.createResponse({
-      locals: {}
-    })
+    responseMock = httpMocks.createResponse()
     next = jest.fn()
   })
 
@@ -48,7 +50,7 @@ describe('anvil-middleware-ft-navigation', () => {
     expect(instanceWithCrumbtrail).toBeInstanceOf(Function)
   })
 
-  describe('without the enableCrumbtrail option', async () => {
+  describe('without the enableCrumbtrail option', () => {
     it('sets the navigation properties on response.locals', async () => {
       await instance(requestMock, responseMock, next)
       expect(responseMock.locals.navigation.main).toEqual(fakeNavigation)
@@ -65,10 +67,6 @@ describe('anvil-middleware-ft-navigation', () => {
   })
 
   describe('with the enableCrumbtrail option', () => {
-    it('sets the navigation properties on response.locals', async () => {
-      await instanceWithCrumbtrail(requestMock, responseMock, next)
-      expect(responseMock.locals.navigation).toBeTruthy()
-    })
     it('sets the crumbtrail properties on response.locals', async () => {
       await instanceWithCrumbtrail(requestMock, responseMock, next)
       expect(responseMock.locals.navigation.crumbtrail.breadcrumb).toEqual(fakeCrumbtrail.breadcrumb)
