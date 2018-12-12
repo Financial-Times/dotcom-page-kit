@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@financial-times/anvil-middleware-ft-edition": "file:../../packages/anvil-middleware-ft-edition",
-    "@financial-times/anvil-middleware-ft-navigation": "file:../../packages/anvil-middleware-ft-navigation"
+    "@financial-times/anvil-middleware-ft-navigation": "file:../../packages/anvil-middleware-ft-navigation",
+    "@financial-times/anvil-middleware-asset-loader": "file:../../packages/anvil-middleware-asset-loader"
   }
 }

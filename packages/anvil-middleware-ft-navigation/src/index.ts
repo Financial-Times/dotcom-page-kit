@@ -8,7 +8,7 @@ const defaultOptions = {
   enableCrumbtrail: false
 }
 
-export default (userOptions: MiddlewareOptions = {}) => {
+export const init = (userOptions: MiddlewareOptions = {}) => {
   const options = { ...defaultOptions, ...userOptions }
   const poller = new Navigation(options)
 
@@ -21,6 +21,7 @@ export default (userOptions: MiddlewareOptions = {}) => {
         poller.getNavigation(),
         options.enableCrumbtrail ? poller.getCrumbtrail(request.path) : null
       ])
+      // TODO Revisit these names
       response.locals.navigation.main = navigation
       response.locals.navigation.crumbtrail.breadcrumb = crumbtrail && crumbtrail.breadcrumb
       response.locals.navigation.crumbtrail.subsections = crumbtrail && crumbtrail.subsections
