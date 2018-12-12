@@ -7,23 +7,23 @@ interface MiddlewareOptions {
   manifestFile: string
   /** The public-facing URL associated with the static assets */
   publicPath: string
-  /** Boolean - set to true if files should be cached in memory when accessed  */
+  /** An asset loader option. Set to true if files should be cached in memory when accessed  */
   cacheFileContents: boolean
-  /** Boolean - set to true if assets should be served from a local directory */
-  hostStaticAssets
+  /** Set to true if assets should be served from a local directory */
+  hostStaticAssets: boolean
   /** The absolute path to the directory of static assets */
   fileSystemPath: string
 }
 
 const defaultOptions = {
-  manifestFile: path.join(process.cwd(), 'public', 'manifest.json'),
+  manifestFile: path.resolve('./public/manifest.json'),
   publicPath: '/public',
   cacheFileContents: false,
-  fileSystemPath: path.join(process.cwd(), 'public'),
+  fileSystemPath: path.resolve('./public'),
   hostStaticAssets: false
 }
 
-export default (userOptions?) => {
+export const init = (userOptions?) => {
   const options: MiddlewareOptions = { ...defaultOptions, ...userOptions }
   const loader = new AssetLoader(options)
 
@@ -36,5 +36,11 @@ export default (userOptions?) => {
   const router = express.Router()
   router.use(options.publicPath, express.static(options.fileSystemPath))
 
-  return [middleware, options.hostStaticAssets ? router : null]
+  const stack = [middleware]
+
+  if (options.hostStaticAssets) {
+    stack.push(router)
+  }
+
+  return stack
 }

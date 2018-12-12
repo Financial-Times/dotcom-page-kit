@@ -7,9 +7,9 @@ const app = express()
 const port = 3456
 
 app.use([
-  assetLoaderMiddleware.default({}),
-  editionMiddleware.default({}),
-  navigationMiddleware.default({ enableCrumbtrail: true })
+  assetLoaderMiddleware.init({}),
+  editionMiddleware.init({}),
+  navigationMiddleware.init({ enableCrumbtrail: true })
 ])
 
 app.get('/', (req, res) => {

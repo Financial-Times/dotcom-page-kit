@@ -1,4 +1,4 @@
-import subject from '../index'
+import { init as subject } from '../index'
 import httpMocks from 'node-mocks-http'
 
 const fakeNavigation = { 'some-navigation-data': true }

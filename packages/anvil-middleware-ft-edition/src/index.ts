@@ -1,4 +1,4 @@
-export default () => {
+export const init = () => {
   return (request, response, next) => {
     const availableEditions = [
       {

@@ -1,4 +1,4 @@
-import subject from '../index'
+import { init as subject } from '../index'
 import httpMocks from 'node-mocks-http'
 
 let instance
@@ -51,13 +51,13 @@ describe('anvil-server-ft-asset-loader', () => {
   })
 
   describe('router', () => {
-    it('assigns an instance of the router to response.locals', async () => {
+    it('returns an instance of the router if hostStaticAssets is set to true', async () => {
       instance[0](requestMock, responseMock, next)
       expect(instance[1].name).toEqual('router')
     })
-    it("doesn't assign the router if hostStaticAssets is false", async () => {
+    it('does not return the router if hostStaticAssets is set to false', async () => {
       instanceMiddlewareOnly[0](requestMock, responseMock, next)
-      expect(instanceMiddlewareOnly[1]).toBeNull()
+      expect(instanceMiddlewareOnly[1]).toBeUndefined()
     })
   })
 })

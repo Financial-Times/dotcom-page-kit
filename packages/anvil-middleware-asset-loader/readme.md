@@ -1,9 +1,9 @@
 
 # FT Asset Loader Middleware
 
-The FT Asset Loader middleware provides express compatible middleware which exposes the [asset loader] methods to templates by appending an instance of the asset loader to `response.locals`.
+The FT Asset Loader middleware enables express compatible middleware which appends the [asset loader] to response.locals making it accessible to your Express application controllers.
 
-FT Asset Loader middleware returns an array containing the middleware and optionally containing an express static router for hosting static assets. See the [asset loader] documentation for more information about the asset loader and the [middleware options](#middleware-options) section for details about the router and hosting static assets'
+This package can optionally also provide a [static file server](https://expressjs.com/en/starter/static-files.html).
 
 This middleware should be consumed by your application's server file.
 
@@ -34,8 +34,8 @@ The middleware optionally accepts the following parameters which each have a def
 
 #### `manifestFile`
 
-The absolute path to the asset manifest.json. See the [asset loader] documentation for more details.
-`manifestFile` is passed to the asset loader as an option. Defaults to `/public/manifest.json` as an absolute path.
+The absolute path to the asset manifest file. See the [asset loader] documentation for more details.
+`manifestFile` is passed to the asset loader as an option. Defaults to `./public/manifest.json` as an absolute path.
 
 #### `publicPath`
 
@@ -52,7 +52,7 @@ Boolean - set to true if assets should be served from a local directory. `hostSt
 
 #### `fileSystemPath`
 
-The absolute path to the directory of static assets. When a user visits a specified `publicPath` the static assets for that page will be retrieved from the associated `fileSystemPath`. `fileSystemPath` is passed to both the asset loader and the express static router as an option. Defaults to `/public` as an absolute path.
+The absolute path to the directory of static assets. `fileSystemPath` is passed to both the asset loader and the express static router as an option. Defaults to `./public` as an absolute path.
 
 
 [asset loader]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-asset-loader

@@ -8,7 +8,7 @@ const defaultOptions = {
   enableCrumbtrail: false
 }
 
-export default (userOptions: MiddlewareOptions = {}) => {
+export const init = (userOptions: MiddlewareOptions = {}) => {
   const options = { ...defaultOptions, ...userOptions }
   const poller = new Navigation(options)
 

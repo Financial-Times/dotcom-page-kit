@@ -20,7 +20,8 @@
   "license": "ISC",
   "dependencies": {
     "@types/express": "^4.16.0",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "@financial-times/anvil-server-asset-loader": "file:../../packages/anvil-server-asset-loader"
   },
   "devDependencies": {
     "node-mocks-http": "^1.7.3"
