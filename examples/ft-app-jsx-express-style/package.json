@@ -1,0 +1,36 @@
+{
+  "name": "ft-app-jsx-express-style",
+  "private": true,
+  "version": "1.0.0",
+  "main": "server/app.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "anvil build",
+    "build:dev": "anvil build -d",
+    "start": "node server/start.js",
+    "start:dev": "export NODE_ENV=development; nodemon --watch server --watch client --watch views --watch ../packages server/start.js"
+  },
+  "devDependencies": {
+    "@financial-times/anvil": "file:../../packages/anvil",
+    "@financial-times/anvil-plugin-babel": "file:../../packages/anvil-plugin-babel",
+    "@financial-times/anvil-plugin-code-splitting": "file:../../packages/anvil-plugin-code-splitting",
+    "@financial-times/anvil-plugin-entry": "file:../../packages/anvil-plugin-entry",
+    "@financial-times/anvil-plugin-ft-css": "file:../../packages/anvil-plugin-ft-css",
+    "@financial-times/anvil-plugin-ft-js": "file:../../packages/anvil-plugin-ft-js",
+    "dotenv": "^6.1.0",
+    "nodemon": "^1.18.7",
+    "prettier": "^1.14.3"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.1.5",
+    "@financial-times/anvil-server-asset-loader": "file:../../packages/anvil-server-asset-loader",
+    "@financial-times/anvil-server-jsx-renderer": "file:../../packages/anvil-server-jsx-renderer",
+    "@financial-times/anvil-ui-ft-layout": "file:../../packages/anvil-ui-ft-layout",
+    "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
+    "express": "^4.16.4",
+    "lodash.get": "^4.4.2",
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0",
+    "sucrase": "^3.8.0"
+  }
+}
