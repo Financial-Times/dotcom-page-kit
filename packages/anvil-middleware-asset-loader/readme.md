@@ -10,7 +10,7 @@ This middleware should be consumed by your application's server file.
 
 ### Installation
 ```js
-npm install --save @financial-times/anvil-middleware-ft-asset-loader
+npm install --save @financial-times/anvil-middleware-asset-loader
 ```
 
 
@@ -18,7 +18,7 @@ npm install --save @financial-times/anvil-middleware-ft-asset-loader
 
 In your application's server file include:
 ```js
-const assetLoaderMiddleware = require('@financial-times/anvil-middleware-ft-asset-loader')
+const assetLoaderMiddleware = require('@financial-times/anvil-middleware-asset-loader')
 
 const instance = assetLoaderMiddleware.default()
 

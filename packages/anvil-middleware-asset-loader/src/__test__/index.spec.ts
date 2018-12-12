@@ -55,7 +55,7 @@ describe('anvil-server-ft-asset-loader', () => {
       instance[0](requestMock, responseMock, next)
       expect(instance[1].name).toEqual('router')
     })
-    it("doesn't assigns the router if hostStaticAssets is false", async () => {
+    it("doesn't assign the router if hostStaticAssets is false", async () => {
       instanceMiddlewareOnly[0](requestMock, responseMock, next)
       expect(instanceMiddlewareOnly[1]).toBeNull()
     })
