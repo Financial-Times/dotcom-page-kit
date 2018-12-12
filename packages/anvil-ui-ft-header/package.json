@@ -10,13 +10,15 @@
     "clean": "npm run clean:dist && npm run clean:node_modules",
     "clean:dist": "rm -rf dist",
     "clean:node_modules": "rm -rf node_modules",
+    "clean:install": "npm run clean && npm i",
     "build": "npm run clean:dist && npm run build:cjs",
     "build:cjs": "npm run tsc -- --outDir ./dist/cjs --module commonjs --target es5",
-    "build:styles": "sasss compile src/styles.scss dist/styles.css",
-    "dev": "npm run clean:dist && npm run build:cjs -- --watch",
-    "run:sass": "node ../../scripts/compileSass.js"
+    "dev": "npm run clean:dist && npm run build:cjs -- --watch"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16.7.0-alpha.0"
+  }
 }

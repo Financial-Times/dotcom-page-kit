@@ -10,6 +10,7 @@
     "clean": "npm run clean:dist && npm run clean:node_modules",
     "clean:dist": "rm -rf dist",
     "clean:node_modules": "rm -rf node_modules",
+    "clean:install": "npm run clean && npm i",
     "build:cjs": "npm run tsc -- --outDir ./dist/cjs --module commonjs --target es5",
     "build": "npm run clean:dist && npm run build:cjs",
     "dev": "npm run clean:dist && npm run build:cjs -- --watch"
@@ -20,6 +21,9 @@
   "dependencies": {
     "@financial-times/anvil-ui-ft-header": "file:../anvil-ui-ft-header",
     "@financial-times/anvil-ui-ft-footer": "file:../anvil-ui-ft-footer",
-    "@financial-times/anvil-ui-ft-shell": "file:../anvil-ui-ft-shell"
+    "@financial-times/anvil-ui-slots": "file:../anvil-ui-slots"
+  },
+  "peerDependencies": {
+    "react": "^16.7.0-alpha.0"
   }
 }

@@ -1,0 +1,28 @@
+{
+  "name": "@financial-times/anvil-ui-slots",
+  "scope": "anvil",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/cjs/index.js",
+  "types": "src/index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "../../node_modules/.bin/tsc",
+    "clean": "npm run clean:dist && npm run clean:node_modules",
+    "clean:dist": "rm -rf dist",
+    "clean:node_modules": "rm -rf node_modules",
+    "clean:install": "npm run clean && npm i",
+    "build:cjs": "npm run tsc -- --outDir ./dist/cjs --module commonjs --target es5",
+    "build": "npm run clean:dist && npm run build:cjs",
+    "dev": "npm run clean:dist && npm run build:cjs -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@financial-times/anvil-types-generic": "file:../anvil-types-generic"
+  },
+  "peerDependencies": {
+    "react": "^16.7.0-alpha.0"
+  }
+}

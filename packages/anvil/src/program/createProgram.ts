@@ -13,6 +13,7 @@ export function createProgram(args: Args) {
     .option('-s, --srcFile [filePath]', 'Path to src file', 'src/index.js')
     .option('-o, --outDir [folderPath]', 'Path to output folder', 'dist')
     .option('-d, --devMode', 'Whether to build in dev mode or not', false)
+    .option('-w, --watch', 'Watch for changes and rebuild on change')
     .action(setupAction({ action: build, ...args }))
 
   return program

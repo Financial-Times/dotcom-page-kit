@@ -1,0 +1,18 @@
+{
+  "plugins": [
+    "@financial-times/anvil-plugin-entry",
+    "@financial-times/anvil-plugin-babel",
+    "@financial-times/anvil-plugin-code-splitting",
+    "@financial-times/anvil-plugin-ft-js",
+    "@financial-times/anvil-plugin-ft-css"
+  ],
+  "settings": {
+    "entry": {
+      "client.js": "./client/index.js"
+    },
+    "ft-js": {
+      "jsxPragma": "React.createElement",
+      "jsxPragmaFrag": "React.Fragment"
+    }
+  }
+}
