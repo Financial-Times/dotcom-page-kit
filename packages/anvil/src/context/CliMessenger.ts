@@ -1,6 +1,7 @@
 import ora from 'ora'
 import inquirer from 'inquirer'
 import CliProgress from 'cli-progress'
+import { clearScreen, cursorShow } from 'ansi-escapes'
 
 /**
  * CLI Messenger
@@ -12,7 +13,7 @@ export class CliMessenger {
     {
       format: '[ {bar} ] {percentage}% | ETA: {eta}s | {value}/{total}',
       stopOnComplete: true,
-      clearOnComplete: false,
+      clearOnComplete: true,
       hideCursor: true,
       linewrap: false
     },
@@ -21,13 +22,18 @@ export class CliMessenger {
 
   setTitle(message) {
     stopSpinner(this)
-    process.stdout.write(
-      `\n-------------------------------------------------------------------------------\n`
-    )
+    process.stdout.write(`-------------------------------------------------------------------------------\n`)
     process.stdout.write(`\n${message}\n\n`)
-    process.stdout.write(
-      `-------------------------------------------------------------------------------\n\n`
-    )
+    process.stdout.write(`-------------------------------------------------------------------------------\n`)
+    process.stdout.write('\n')
+  }
+
+  clearScreen() {
+    process.stdout.write(clearScreen)
+  }
+
+  showCursor() {
+    process.stdout.write(cursorShow)
   }
 
   newLine() {
@@ -46,7 +52,7 @@ export class CliMessenger {
     this.spinner.fail(error.stack || error)
   }
 
-  stopTheIndicator() {
+  stopIndicator() {
     stopSpinner(this)
   }
 

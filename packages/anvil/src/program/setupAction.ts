@@ -31,8 +31,6 @@ export function setupAction({ workingDir, action }: SetupArgs) {
     } catch (error) {
       messenger.indicateFailure(error)
     }
-
-    messenger.newLine()
   }
 }
 
