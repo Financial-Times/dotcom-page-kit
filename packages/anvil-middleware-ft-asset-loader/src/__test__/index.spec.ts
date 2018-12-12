@@ -2,6 +2,7 @@ import subject from '../index'
 import httpMocks from 'node-mocks-http'
 
 let instance
+let instanceMiddlewareOnly
 let requestMock
 let responseMock
 let next
@@ -18,7 +19,8 @@ jest.mock('@financial-times/anvil-server-asset-loader', () => {
 })
 
 beforeEach(() => {
-  instance = subject()
+  instance = subject({ hostStaticAssets: true })
+  instanceMiddlewareOnly = subject({})
   requestMock = httpMocks.createRequest()
   responseMock = httpMocks.createResponse({})
   next = jest.fn()
@@ -26,18 +28,19 @@ beforeEach(() => {
 
 afterEach(() => {
   instance = null
+  instanceMiddlewareOnly = null
   jest.clearAllMocks()
 })
 
 describe('anvil-server-ft-asset-loader', () => {
-  xit('returns an Array of functions', () => {
+  it('returns an Array of functions', () => {
     expect(instance).toBeInstanceOf(Array)
     expect(instance[0]).toBeInstanceOf(Function)
     expect(instance[1]).toBeInstanceOf(Function)
   })
 
   describe('middleware', () => {
-    xit('calls the fallthrough function', async () => {
+    it('calls the fallthrough function', async () => {
       await instance[0](requestMock, responseMock, next)
       expect(next).toHaveBeenCalled()
     })
@@ -48,14 +51,13 @@ describe('anvil-server-ft-asset-loader', () => {
   })
 
   describe('router', () => {
-    // TODO
-  })
-})
-
-describe('on error', () => {
-  const invalidResponseMock = null
-  xit('catches the error', async () => {
-    await instance[0](requestMock, invalidResponseMock, next)
-    expect(next).toHaveBeenCalledWith(expect.any(Error))
+    it('assigns an instance of the router to response.locals', async () => {
+      instance[0](requestMock, responseMock, next)
+      expect(instance[1].name).toEqual('router')
+    })
+    it("doesn't assigns the router if hostStaticAssets is false", async () => {
+      instanceMiddlewareOnly[0](requestMock, responseMock, next)
+      expect(instanceMiddlewareOnly[1]).toBeNull()
+    })
   })
 })

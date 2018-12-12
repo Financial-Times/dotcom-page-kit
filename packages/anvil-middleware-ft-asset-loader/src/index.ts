@@ -3,31 +3,32 @@ import path from 'path'
 import express from 'express'
 
 interface MiddlewareOptions {
-  /** Specify the location of manifest.json */
-  manifestFile
-  /** Specify the public path to local/production assets */
-  publicPath
-  /** Specify the file path to where the assets are actually stored  */
-  fileSystemPath
-  /** Specify if files should be cached in memory when accessed  */
-  cacheFileContents
-  /** Specify if assets should be served from a local directory */
+  /** The absolute path to the asset manifest.json */
+  manifestFile: string
+  /** The public-facing URL associated with the static assets */
+  publicPath: string
+  /** Boolean - set to true if files should be cached in memory when accessed  */
+  cacheFileContents: boolean
+  /** Boolean - set to true if assets should be served from a local directory */
   hostStaticAssets
+  /** The absolute path to the directory of static assets */
+  fileSystemPath: string
 }
 
 const defaultOptions = {
   manifestFile: path.join(process.cwd(), 'public', 'manifest.json'),
-  publicPath: '/',
-  fileSystemPath: path.join(process.cwd(), 'public'),
+  publicPath: '/public',
   cacheFileContents: false,
-  hostStaticAssets: process.env.NODE_ENV !== 'production'
+  fileSystemPath: path.join(process.cwd(), 'public'),
+  hostStaticAssets: false
 }
 
 export default (userOptions?) => {
   const options: MiddlewareOptions = { ...defaultOptions, ...userOptions }
   const loader = new AssetLoader(options)
+
   // _ indicates an unused request parameter
-  const middleware = (_, response, next) => {
+  function middleware(_, response, next) {
     response.locals.assets = { loader }
     next()
   }

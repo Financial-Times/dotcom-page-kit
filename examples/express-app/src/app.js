@@ -6,9 +6,11 @@ const express = require('express')
 const app = express()
 const port = 3456
 
-app.use(assetLoaderMiddleware.default({}))
-
-app.use([editionMiddleware.default({}), navigationMiddleware.default({ enableCrumbtrail: true })])
+app.use([
+  assetLoaderMiddleware.default({}),
+  editionMiddleware.default({}),
+  navigationMiddleware.default({ enableCrumbtrail: true })
+])
 
 app.get('/', (req, res) => {
   res.send('HELLO WORLD')
