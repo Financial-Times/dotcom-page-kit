@@ -12,11 +12,15 @@ const FakeLoader = {
   getHashedAssets: jest.fn()
 }
 
-jest.mock('@financial-times/anvil-server-asset-loader', () => {
-  return function() {
-    return { AssetLoader: jest.fn().mockImplementation(() => FakeLoader) }
-  }
-})
+jest.mock(
+  '@financial-times/anvil-server-asset-loader',
+  () => {
+    return function() {
+      return { AssetLoader: jest.fn().mockImplementation(() => FakeLoader) }
+    }
+  },
+  { virtual: true }
+)
 
 beforeEach(() => {
   instance = subject({ hostStaticAssets: true })
