@@ -12,11 +12,16 @@ npm install --save @financial-times/anvil-ui-ft-shell
 
 ## Usage
 
-TBD
+// TODO
+Usage TBD
 
 ## Options
 
-The Shell returns a string of HTML which can be sent to the browser.
+The Shell returns a string of HTML which can be sent to the browser. It supports the following options:
+
+### body (string)
+
+The page <body> contents.
 
 ### scriptsToLoad (array)
 
@@ -25,10 +30,6 @@ An array of URLs to bundles of JavaScript which are required by the page.
 ### initialProps (object)
 
 // TODO
-
-### body (string)
-
-The page <body> contents.
 
 ### siteTitle (string)
 
@@ -40,18 +41,18 @@ The title associated with the page to render.
 
 ### htmlAttributes (object)
 
-Properties in `htmlAttributes` are assigned to elements in the `html`.
+Properties in `htmlAttributes` are parsed and assigned to the `<html>` element.
 
 ### bodyAttributes (object)
 
-Properties in `bodyAttributes` are assigned to elements in the `body`.
+Properties in `bodyAttributes` are parsed and assigned to the `<body>` element.
 
 
 ## How it works
 
 ### Client-side bootstrap
 
-Code which is executed immediately by the browser to deliver the JavaScript and styles required by the page.
+The bootstrap returns JavaScript code which will be executed immediately by the browser when it receives the html for the page. The execution of which delivers the JavaScript and styles required by the page.
 
 #### JS/No JS
 

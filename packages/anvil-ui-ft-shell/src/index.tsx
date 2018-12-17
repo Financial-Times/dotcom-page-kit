@@ -22,10 +22,10 @@ export default function Shell({
   body,
   scriptsToLoad = [],
   initialProps = {},
-  htmlAttributes,
-  bodyAttributes,
-  siteTitle,
-  pageTitle
+  htmlAttributes = {},
+  bodyAttributes = {},
+  siteTitle = '',
+  pageTitle = ''
 }: Partial<Props>) {
   return `<html className="no-js core" ${stringifyAttributes(htmlAttributes)}>
       <head>

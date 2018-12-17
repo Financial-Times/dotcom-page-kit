@@ -27,7 +27,6 @@ var enhanced = (function() {
 })()
 
 if (enhanced) {
-  // flag that we will now try to deliver an ehanced experience
   doc.className = doc.className.replace('core', 'enhanced')
 
   //TODO Make the set of polyfills configurable?
