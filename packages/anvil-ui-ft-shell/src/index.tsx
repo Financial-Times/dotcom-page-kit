@@ -6,7 +6,7 @@ import path from 'path'
 const bootstrap = fs.readFileSync(path.join(__dirname, 'bootstrap.js')).toString()
 
 interface Props {
-  body: any
+  children: any
   initialProps: AnyObject
   scriptsToLoad: string[]
   siteTitle
@@ -18,7 +18,7 @@ function stringifyAttributes(attributes: AnyObject = {}): string {
 }
 
 export default function Shell({
-  body,
+  children,
   scriptsToLoad = [],
   initialProps = {},
   siteTitle = '',
@@ -46,7 +46,7 @@ export default function Shell({
         <script dangerouslySetInnerHTML={{ __html: bootstrap }} />
         {/* TODO: Critical CSS */}
       </head>
-      <body dangerouslySetInnerHTML={{ __html: stringifyAttributes(body) }} />
+      <body>{children}</body>
     </html>
   )
 }
