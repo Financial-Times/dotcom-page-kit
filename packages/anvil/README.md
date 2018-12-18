@@ -20,7 +20,7 @@ Configuration can be passed to the Anvil CLI tool by providing a `anvil.config.j
 }
 ```
 
-The `plugins` property can be used to provide a list of plugin package names. These plugins should be installed in your project as development dependencies. When executing the command line tool all of the plugins defined here will be loaded and registered.
+The `plugins` property can be used to provide a list of plugin package names. These plugins should be installed in your project as development dependencies. When executing the command line tool all of the plugins defined here will be loaded.
 
 The `settings` property is used to provide configuration to the tool or plugins. Please check the individual plugin documentation for details about the configuration required.
 
