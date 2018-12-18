@@ -1,3 +1,0 @@
-export class Something {
-  doSomething() {}
-}
