@@ -37,7 +37,7 @@ export function getDefaultWebpackConfig({ flags, config, paths, amend }: CliCont
       new CleanWebpackPlugin(cleanWebpackPluginPaths, cleanWebpackPluginOptions),
       new ManifestPlugin(manifestPluginOptions)
     ],
-    devtool: 'source-map'
+    devtool: isDevMode ? 'cheap-module-eval-source-map' : 'source-map'
   }
 
   return defaultWebpackConfig
