@@ -25,7 +25,7 @@
     "@financial-times/anvil-server-asset-loader": "file:../../packages/anvil-server-asset-loader",
     "@financial-times/anvil-server-jsx-renderer": "file:../../packages/anvil-server-jsx-renderer",
     "@financial-times/anvil-ui-ft-layout": "file:../../packages/anvil-ui-ft-layout",
-    "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
+    "@financial-times/anvil-server-html-shell": "file:../../packages/anvil-server-html-shell",
     "express": "^4.16.4",
     "lodash.get": "^4.4.2",
     "react": "^16.7.0-alpha.0",
