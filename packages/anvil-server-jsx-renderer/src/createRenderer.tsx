@@ -1,5 +1,5 @@
 import React from 'react'
-import FTShell from '@financial-times/anvil-ui-ft-shell'
+import htmlShell from '@financial-times/anvil-server-html-shell'
 import AssetLoader from '@financial-times/anvil-server-asset-loader'
 import { AnyObject } from '@financial-times/anvil-types-generic'
 import { renderToStaticMarkup } from 'react-dom/server'
@@ -8,7 +8,7 @@ export interface Options {
   /**
    * The component that is used to
    * render the html document shell
-   * @default @financial-times/anvil-ui-ft-shell
+   * @default @financial-times/anvil-ui-server-html-shell
    * */
   shellComponent: Function
 
@@ -60,7 +60,7 @@ export function createRenderer(options: Partial<Options> = {}) {
     assetUrlPrefix,
     assetManifestPath,
     renderFn = renderToStaticMarkup,
-    shellComponent = FTShell
+    shellComponent = htmlShell
   } = options
 
   return async (Component: Function | Object, renderOptions: RenderOptions = {}) => {
@@ -70,25 +70,21 @@ export function createRenderer(options: Partial<Options> = {}) {
       cacheFileContents: false
     })
 
-    const Shell = renderOptions.shellComponent || shellComponent
+    const shell = renderOptions.shellComponent || shellComponent
     const render = renderFn
     const initialProps = renderOptions.props || (await getInitialPropsFrom(Component))
     const scriptsToLoad = [assetLoader.getHashedAsset('runtime.js'), assetLoader.getHashedAsset('client.js')]
     const componentIsObject = typeof Component === 'object'
     const ComponentToRender = Component as Function
 
-    const markup = render(
-      <Shell initialProps={initialProps} scriptsToLoad={scriptsToLoad}>
-        {componentIsObject ? Component : <ComponentToRender {...initialProps} />}
-      </Shell>
-    )
+    const body = render(componentIsObject ? Component : <ComponentToRender {...initialProps} />)
 
-    return `<!DOCTYPE html>${markup}`
+    return shell({ body, initialProps, scriptsToLoad })
   }
 }
 
-async function getInitialPropsFrom(Component) {
+function getInitialPropsFrom(Component) {
   if (Component.getInitialProps) {
-    return await Component.getInitialProps()
+    return Component.getInitialProps()
   } else return {}
 }

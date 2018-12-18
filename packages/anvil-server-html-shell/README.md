@@ -1,12 +1,12 @@
-# @financial-times/anvil-ui-ft-shell
+# @financial-times/anvil-server-html-shell
 
-This module provides a skeleton HTML document structure and client-side JavaScript bootstrap for ft.com apps.
+This module provides a generic HTML document structure and embedded client-side JavaScript bootstrap for your app.
 
 
 ## Installation
 
 ```
-npm install --save @financial-times/anvil-ui-ft-shell
+npm install --save @financial-times/anvil-server-html-shell
 ```
 
 

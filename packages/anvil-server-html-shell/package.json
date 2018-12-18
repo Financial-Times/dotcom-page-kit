@@ -1,9 +1,9 @@
 {
-  "name": "@financial-times/anvil-ui-ft-shell",
+  "name": "@financial-times/anvil-server-html-shell",
   "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
-  "types": "src/index.tsx",
+  "types": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "../../node_modules/.bin/tsc",
@@ -11,7 +11,7 @@
     "clean:dist": "rm -rf dist",
     "clean:node_modules": "rm -rf node_modules",
     "clean:install": "npm run clean && npm i",
-    "build:cjs": "npm run tsc -- --outDir ./dist/cjs --module commonjs --target es5",
+    "build:cjs": "npm run tsc -- --outDir ./dist/cjs --module commonjs --target es2018",
     "build": "npm run clean:dist && npm run build:cjs",
     "dev": "npm run clean:dist && npm run build:cjs -- --watch"
   },
@@ -20,8 +20,5 @@
   "license": "ISC",
   "devDependencies": {
     "@financial-times/anvil-types-generic": "file:../anvil-types-generic"
-  },
-  "peerDependencies": {
-    "react": "^16.7.0-alpha.0"
   }
 }

@@ -15,7 +15,7 @@ export function createRendererMiddleware(options: Options) {
   return ({}, res, next) => {
     res.render = async (ComponentToRender: Function, renderOptions?: RenderOptions) => {
       const markup = await render(ComponentToRender, renderOptions)
-      res.send(`<!DOCTYPE html>${markup}`)
+      res.send(markup)
     }
     next()
   }

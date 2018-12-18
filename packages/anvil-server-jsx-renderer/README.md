@@ -17,11 +17,11 @@ npm install --save @financial-times/anvil-server-jsx-renderer
 
 Returns a render function that can be used to render JSX components on the server.
 
-#### Arguments 
+#### Arguments
 ##### options (Object)
   - **assetUrlPrefix:** The public url to the assets folder (e.g., http://foo.com/assets)<br />
   - **assetManifestPath:** The file path to the asset manifest json file
-  - **shellComponent:** *Defaults to `@financial-times/anvil-ui-ft-shell`* - The component that is used to render the html document shell. 
+  - **shellComponent:** *Defaults to `@financial-times/anvil-server-html-shell`* - The component that is used to render the html document shell.
   - **renderFn:** *Defaults to `react-dom/server#renderToStaticMarkup`* - The function to use to render the JSX component.
 
 #### Returns
@@ -33,7 +33,7 @@ Returns a render function that can be used to render JSX components on the serve
 
 #### Example ####
 ```js
-import express from 'express' 
+import express from 'express'
 import { createRenderer } from '@financial-times/anvil-server-jsx-renderer'
 
 const app = express()
@@ -65,14 +65,14 @@ res.send(render(HomePage, { props }))
 > app.get('/', (req, res) => render(&lt;SomeComponent { ...props } /&gt;) )
 
 Returns a function that can be used to create and [express](https://expressjs.com/) compatible controller function that renders a JSX component
-  
-#### Arguments 
+
+#### Arguments
 ##### options (Object) - See [`createRenderer` options](#options)
-  
+
 #### Example
 
 ```js
-import express from 'express' 
+import express from 'express'
 import { createRenderController } from '@financial-times/anvil-server-jsx-renderer/expess'
 
 const app = express()
@@ -92,13 +92,13 @@ app.get('/', (req, res) => render(<HomePage greeting="hello" />)
 
 Returns an [express](https://expressjs.com/) compatible middleware that assigns a jsx renderer to the `res.render` property.
 
-#### Arguments 
+#### Arguments
 ##### options (Object) - See [`createRenderer` options](#options)
-  
+
 #### Example
 
 ```js
-import express from 'express' 
+import express from 'express'
 import { createRendererMiddleware } from '@financial-times/anvil-server-jsx-renderer/expess'
 
 const app = express()
