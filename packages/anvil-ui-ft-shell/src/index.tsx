@@ -9,8 +9,8 @@ interface Props {
   children: any
   initialProps: AnyObject
   scriptsToLoad: string[]
-  siteTitle
-  pageTitle
+  siteTitle: string
+  pageTitle: string
 }
 
 function stringifyAttributes(attributes: AnyObject = {}): string {
