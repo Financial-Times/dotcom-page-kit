@@ -2,23 +2,30 @@ import { CliContext } from '../context/CliContext'
 import ManifestPlugin from 'webpack-manifest-plugin'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
 
-export function getDefaultWebpackConfig(context: CliContext) {
-  const isDevMode = context.flags.devMode
+export function getDefaultWebpackConfig({ flags, config, paths, amend }: CliContext) {
+  const isDevMode = flags.devMode
 
-  const outputFilename = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
+  const entryOptions = (config.settings && config.settings.entry) || flags.srcFile
 
-  const cleanWebpackPluginPaths = [context.flags.outDir]
-  const cleanWebpackPluginOptions = { root: context.paths.workingDir, verbose: false }
+  const cleanWebpackPluginPaths = [flags.outDir]
+  const cleanWebpackPluginOptions = { root: paths.workingDir, verbose: false }
 
   const manifestPluginOptions = {}
 
-  const config = {
+  amend('webpackConfig::plugins::cleanWebpackPlugin::options', cleanWebpackPluginOptions)
+  amend('webpackConfig::plugins::cleanWebpackPlugin::paths', cleanWebpackPluginPaths)
+  amend('webpackConfig::plugins::manifestPlugin::options', manifestPluginOptions)
+  amend('webpackConfig::entry', entryOptions)
+
+  const outputFilename = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
+
+  const defaultWebpackConfig = {
     mode: isDevMode ? 'development' : 'production',
-    entry: context.flags.srcFile,
+    entry: entryOptions,
     output: {
       filename: outputFilename,
       chunkFilename: outputFilename,
-      path: context.flags.outDir
+      path: flags.outDir
     },
     resolve: {
       extensions: ['.js', '.jsx', '.mjs', '.json']
@@ -33,9 +40,5 @@ export function getDefaultWebpackConfig(context: CliContext) {
     devtool: 'source-map'
   }
 
-  context.amend('webpackConfig::plugin::cleanWebpackPlugin::options', cleanWebpackPluginOptions)
-  context.amend('webpackConfig::plugin::cleanWebpackPlugin::paths', cleanWebpackPluginPaths)
-  context.amend('webpackConfig::plugin::manifestPlugin::options', manifestPluginOptions)
-
-  return config
+  return defaultWebpackConfig
 }
