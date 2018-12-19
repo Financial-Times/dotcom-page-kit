@@ -11,7 +11,7 @@
     "clean:dist": "athloi run clean:dist --filter 'anvil-*' --concurrency 100",
     "clean:install": "npm run clean && npm install",
     "clean:install:ui": "athloi run clean:install --filter 'anvil-ui-*'",
-    "dev": "athloi run dev 'scope:\"anvil\"' --concurrency 100",
+    "dev": "athloi run dev --filter 'anvil-*' --concurrency 100",
     "lint": "eslint . --ext .js,.ts,.tsx,.jsx",
     "postinstall": "athloi exec npm i -- --no-package-lock",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
