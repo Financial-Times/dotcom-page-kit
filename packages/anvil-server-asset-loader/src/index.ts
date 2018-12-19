@@ -31,6 +31,7 @@ class AssetLoader {
     }
   }
 
+  // TODO: this is for JS only
   getOrderedAssetUrls(): string[] {
     return getOrderedAssetUrls(this)
   }
