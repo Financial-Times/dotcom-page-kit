@@ -21,9 +21,11 @@
     "@financial-times/anvil": "file:../anvil"
   },
   "dependencies": {
-    "@financial-times/anvil-types-build": "file:../anvil-types-build",
     "adonai": "^0.5.0",
     "css-loader": "^1.0.1",
-    "style-loader": "^0.23.1"
+    "mini-css-extract-plugin": "^0.5.0"
+  },
+  "devDependencies": {
+    "@financial-times/anvil-types-build": "file:../anvil-types-build"
   }
 }
