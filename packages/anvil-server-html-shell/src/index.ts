@@ -1,4 +1,5 @@
 import { AnyObject } from '@financial-times/anvil-types-generic'
+import stringifyAttributes from './stringifyAttributes'
 import fs from 'fs'
 import path from 'path'
 
@@ -8,6 +9,8 @@ interface Props {
   body: any
   initialProps?: AnyObject
   scriptsToLoad?: string[]
+  htmlAttributes?: AnyObject
+  bodyAttributes?: AnyObject
   siteTitle: string
   pageTitle?: string
 }
@@ -16,11 +19,13 @@ export default function({
   body,
   scriptsToLoad = [],
   initialProps = {},
+  htmlAttributes = {},
+  bodyAttributes = {},
   siteTitle = '',
   pageTitle = ''
 }: Props): string {
   return `<!DOCTYPE html>
-    <html className="no-js core" lang="en-GB">
+    <html class="no-js core" lang="en-GB" ${stringifyAttributes(htmlAttributes)}>
       <head>
         <meta charSet="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,7 +39,7 @@ export default function({
         <script>${bootstrap}</script>
         <!-- TODO: Critical CSS -->
       </head>
-      <body>
+      <body ${stringifyAttributes(bodyAttributes)}>
         ${body}
       </body>
     </html>`

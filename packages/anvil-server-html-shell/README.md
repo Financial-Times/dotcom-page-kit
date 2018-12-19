@@ -12,24 +12,35 @@ npm install --save @financial-times/anvil-server-html-shell
 
 ## Usage
 
-// TODO
-Usage TBD
+```js
+const shell = require('@financial-times/anvil-server-html-shell')
+
+shell({ body: 'Hello World' })
+```
 
 ## Options
 
-The Shell returns a a JSX component. It supports the following options:
+The shell function returns an HTML document ready to send. It supports the following options:
 
 ### body (string)
 
-The page <body> contents.
+The `<body>` contents to render.
 
 ### scriptsToLoad (array)
 
-An array of URLs to bundles of JavaScript which are required by the page.
+An optional array of URLs to bundles of JavaScript which are required by the page.
 
 ### initialProps (object)
 
-// TODO
+Optional data which can be dehydrated and provided to the client-side.
+
+### htmlAttributes (object)
+
+Optional pairs of attributes and values which can be appended to the document element.
+
+### bodyAttributes (object)
+
+Optional pairs of attributes and values which can be appended to the body element.
 
 ### siteTitle (string)
 
@@ -37,8 +48,7 @@ The main title for the site. The `siteTitle` will be included as a `<title>` of 
 
 ### pageTitle (string)
 
-The title associated with the page to render.
-
+An optional title associated with the page to render.
 
 ## How it works
 
