@@ -2,29 +2,30 @@ import { CliContext } from '../context/CliContext'
 import ManifestPlugin from 'webpack-manifest-plugin'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
 
-export function getDefaultWebpackConfig(context: CliContext) {
-  const isDevMode = context.flags.devMode
-  const opts = {
-    cleanWebpackPlugin: {
-      paths: [context.flags.outDir],
-      options: { root: context.paths.workingDir, verbose: false }
-    },
-    manifestPlugin: {}
-  }
+export function getDefaultWebpackConfig({ flags, config, paths, amend }: CliContext) {
+  const isDevMode = flags.devMode
 
-  context.amend('webpackConfig::plugin::cleanWebpackPlugin::paths', opts.cleanWebpackPlugin.paths)
-  context.amend('webpackConfig::plugin::cleanWebpackPlugin::options', opts.cleanWebpackPlugin.options)
-  context.amend('webpackConfig::plugin::manifestPlugin::options', opts.manifestPlugin)
+  const entryOptions = (config.settings && config.settings.entry) || flags.srcFile
+
+  const cleanWebpackPluginPaths = [flags.outDir]
+  const cleanWebpackPluginOptions = { root: paths.workingDir, verbose: false }
+
+  const manifestPluginOptions = {}
+
+  amend('webpackConfig::plugins::cleanWebpackPlugin::options', cleanWebpackPluginOptions)
+  amend('webpackConfig::plugins::cleanWebpackPlugin::paths', cleanWebpackPluginPaths)
+  amend('webpackConfig::plugins::manifestPlugin::options', manifestPluginOptions)
+  amend('webpackConfig::entry', entryOptions)
 
   const outputFilename = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
 
-  const config = {
+  const defaultWebpackConfig = {
     mode: isDevMode ? 'development' : 'production',
-    entry: context.flags.srcFile,
+    entry: entryOptions,
     output: {
       filename: outputFilename,
       chunkFilename: outputFilename,
-      path: context.flags.outDir
+      path: flags.outDir
     },
     resolve: {
       extensions: ['.js', '.jsx', '.mjs', '.json']
@@ -33,17 +34,11 @@ export function getDefaultWebpackConfig(context: CliContext) {
       rules: []
     },
     plugins: [
-      new CleanWebpackPlugin(opts.cleanWebpackPlugin.paths, opts.cleanWebpackPlugin.options),
-      new ManifestPlugin(opts.manifestPlugin)
-    ]
+      new CleanWebpackPlugin(cleanWebpackPluginPaths, cleanWebpackPluginOptions),
+      new ManifestPlugin(manifestPluginOptions)
+    ],
+    devtool: isDevMode ? 'cheap-module-eval-source-map' : 'source-map'
   }
 
-  if (context.flags.devMode) {
-    Object.assign(config, {
-      mode: 'development',
-      devtool: 'inline-source-map'
-    })
-  }
-
-  return config
+  return defaultWebpackConfig
 }
