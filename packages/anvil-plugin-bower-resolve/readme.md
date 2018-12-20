@@ -1,16 +1,17 @@
-# Anvil Plugin Bower
+# Anvil Plugin Bower Resolve
 
 This module extends the [Anvil CLI build action][cli] (`anvil build`) with a way to find and load dependencies installed with [Bower].
 
 [cli]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil#build
 [Bower]: https://bower.io/
 
+
 ## Getting started
 
 This module is compatible with Node 10+ and is distributed on npm.
 
 ```sh
-npm install --save-dev @financial-times/anvil-plugin-ft-bower
+npm install --save-dev @financial-times/anvil-plugin-bower-resolve
 ```
 
 After installing the module you must add it to the list of plugins in your project's `anvil.config.json` configuration file:
@@ -18,14 +19,12 @@ After installing the module you must add it to the list of plugins in your proje
 ```diff
 {
   "plugins": [
-+    "@financial-times/anvil-plugin-ft-bower"
++    "@financial-times/anvil-plugin-bower-resolve"
   ]
 }
 ```
 
 Once setup, this plugin will enable you to use Bower dependencies in your source code.
-
-[entry points]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil#entry-points
 
 
 ## Scope

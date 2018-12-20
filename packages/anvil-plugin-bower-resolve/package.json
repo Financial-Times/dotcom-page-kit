@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-plugin-ft-bower",
+  "name": "@financial-times/anvil-plugin-bower-resolve",
   "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
