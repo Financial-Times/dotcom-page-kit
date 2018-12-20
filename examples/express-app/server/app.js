@@ -3,8 +3,6 @@ const express = require('express')
 const app = express()
 const port = 3456
 
-require('./setup')(app)
-
 app.locals.siteTitle = 'Example App'
 
 app.use(require('./middleware/anvil'))

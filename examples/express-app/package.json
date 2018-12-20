@@ -13,8 +13,8 @@
     "@financial-times/anvil-middleware-asset-loader": "file:../../packages/anvil-middleware-asset-loader",
     "@financial-times/anvil-middleware-ft-edition": "file:../../packages/anvil-middleware-ft-edition",
     "@financial-times/anvil-middleware-ft-navigation": "file:../../packages/anvil-middleware-ft-navigation",
-    "express": "^4.16.2",
-    "express-handlebars": "^3.0.0"
+    "@financial-times/n-handlebars": "^1.21.0",
+    "express": "^4.16.2"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"

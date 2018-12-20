@@ -1,4 +1,6 @@
-module.exports = (request, response) => {
+const render = require('../lib/render')
+
+module.exports = async (request, response) => {
   const data = {
     pageTitle: 'Home',
     foo: 'foo',
@@ -6,5 +8,11 @@ module.exports = (request, response) => {
     baz: 'baz'
   }
 
-  response.render('home', { ...response.locals, ...data })
+  try {
+    const html = await render('home', { ...request.app.locals, ...response.locals, ...data })
+    response.send(html)
+  } catch (error) {
+    console.error(error)
+    response.send(500, 'Oh no, something went wrong!')
+  }
 }

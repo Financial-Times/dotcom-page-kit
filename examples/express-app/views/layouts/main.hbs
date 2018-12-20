@@ -5,6 +5,10 @@
   <title>{{#if pageTitle}}{{pageTitle}} | {{/if}}{{siteTitle}}</title>
 </head>
 <body>
-  {{{body}}}
+  {{>header}}
+  <main>
+    {{{body}}}
+  </main>
+  {{>footer}}
 </body>
 </html>
