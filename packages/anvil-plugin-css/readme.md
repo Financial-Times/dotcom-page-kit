@@ -32,14 +32,21 @@ anvil build --entryFile path/to/styles.css
 [entry points]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil#entry-points
 
 
+## Scope
+
+This plugin adds a [rule] to the Webpack configuration to handle `.css` files. It uses the [css-loader] and [mini-css-extract-plugin] modules to interpret `@import` rules and generate stylesheets. Several [hooks](#extending) are provided in order to access and modify the configuration.
+
+[rule]: https://webpack.js.org/configuration/module/#rule
+[css-loader]: https://github.com/webpack-contrib/css-loader
+[mini-css-extract-plugin]: https://github.com/webpack-contrib/mini-css-extract-plugin
+
+
 ## Settings
 
 There are currently no additional settings for this plugin.
 
 
 ## Extending
-
-This plugin uses the [css-loader] and [mini-css-extract-plugin] modules to interpret `@import` rules and generate `.css` files. Several hooks are provided in order to access and modify their configuration.
 
 _Please note: The hooks below are listed in the order they will be executed._
 
@@ -53,8 +60,4 @@ A synchronous hook which receives the configuration object to be used for the [m
 
 ### `webpackConfig::cssPlugin`
 
-A synchronous hook which receives the entire [rule] to be appended by this plugin. You may directly mutate this object.
-
-[rule]: https://webpack.js.org/configuration/module/#rule
-[css-loader]: https://github.com/webpack-contrib/css-loader
-[mini-css-extract-plugin]: https://github.com/webpack-contrib/mini-css-extract-plugin
+A synchronous hook which receives the entire rule to be appended by this plugin. You may directly mutate this object.
