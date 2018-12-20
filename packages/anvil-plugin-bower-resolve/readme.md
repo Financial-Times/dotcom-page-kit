@@ -29,9 +29,9 @@ Once setup, this plugin will enable you to use Bower dependencies in your source
 
 ## Scope
 
-This plugin adds several properties to [Webpack's resolve configuration][resolve] to instruct it to look for modules within the `bower_components` directory and use the `bower.json` manifest file if present. This plugin also adds the [bower-resolve-webpack-plugin].
+This plugin adds several properties to Webpack's [resolve configuration] instructing it to look for modules within the `bower_components` directory and use the `bower.json` manifest file if present. This plugin also adds the [bower-resolve-webpack-plugin]. Bower dependencies will be favoured over dependencies installed with npm.
 
-[resolve]: https://webpack.js.org/configuration/resolve/
+[resolve configuration]: https://webpack.js.org/configuration/resolve/
 [bower-resolve-webpack-plugin]: https://www.npmjs.com/package/bower-resolve-webpack-plugin
 
 
