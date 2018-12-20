@@ -21,14 +21,32 @@ function render(handlebars, view, context) {
   return new Promise((resolve, reject) => {
     const templateFile = path.join(options.viewsDirectory, `${view}${options.extname}`)
 
-    handlebars.renderView(templateFile, context, (error, rendered) => {
-      return error ? reject(error) : resolve({
-        html: rendered,
-        // Unused blocks (created with the #defineBlock helper) can be pulled out
-        slots: context.blocks
-      })
+    handlebars.renderView(templateFile, context, (error, html) => {
+      if (error) {
+        reject(error)
+      } else {
+        resolve({
+          html,
+          // Unused blocks (created with the #defineBlock helper) can be pulled out now
+          // <https://github.com/Financial-Times/n-handlebars/blob/master/src/helpers/outputBlock.js>
+          slots: context.blocks ? formatBlocks(context.blocks) : {}
+        })
+      }
     })
   })
+}
+
+function formatBlocks(blocks = {}) {
+  return Object.entries(blocks).reduce((blocks, [ key, value ]) => {
+    // Blocks may be used multiple times
+    if (Array.isArray(value)) {
+      blocks[key] = value.join('\n')
+    } else {
+      blocks[key] = value
+    }
+
+    return blocks
+  }, {})
 }
 
 module.exports = (view, context) => {
