@@ -1,0 +1,15 @@
+@import '_typography.css';
+
+html {
+  margin: 0;
+}
+
+a {
+  color: #4745d1;
+  text-decoration: none;
+}
+
+a:focus,
+a:hover {
+  color: #fb6754;
+}

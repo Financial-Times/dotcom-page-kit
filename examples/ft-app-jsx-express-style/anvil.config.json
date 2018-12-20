@@ -3,11 +3,12 @@
     "@financial-times/anvil-plugin-babel",
     "@financial-times/anvil-plugin-code-splitting",
     "@financial-times/anvil-plugin-ft-js",
-    "@financial-times/anvil-plugin-ft-css"
+    "@financial-times/anvil-plugin-css"
   ],
   "settings": {
     "entry": {
-      "client.js": "./client/index.js"
+      "styles": "./client/styles/main.css",
+      "client": "./client/index.js"
     },
     "ft-js": {
       "jsxPragma": "React.createElement",
