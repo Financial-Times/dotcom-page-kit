@@ -34,7 +34,7 @@ anvil build --entryFile path/to/styles.css
 
 ## Scope
 
-This plugin adds a [rule] to the Webpcak configuration to handle `.css` files. It uses the [css-loader] and [mini-css-extract-plugin] modules to interpret `@import` rules and generate stylesheets. Several [hooks](#extending) are provided in order to access and modify the configuration.
+This plugin adds a [rule] to the Webpack configuration to handle `.css` files. It uses the [css-loader] and [mini-css-extract-plugin] modules to interpret `@import` rules and generate stylesheets. Several [hooks](#extending) are provided in order to access and modify the configuration.
 
 [rule]: https://webpack.js.org/configuration/module/#rule
 [css-loader]: https://github.com/webpack-contrib/css-loader
