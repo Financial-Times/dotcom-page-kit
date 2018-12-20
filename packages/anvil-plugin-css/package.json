@@ -27,5 +27,8 @@
   },
   "devDependencies": {
     "@financial-times/anvil-types-build": "file:../anvil-types-build"
+  },
+  "engines": {
+    "node": ">= 10.0.0"
   }
 }

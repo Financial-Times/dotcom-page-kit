@@ -29,9 +29,9 @@ function amendWebpackConfig({ context, webpackConfig }: RunningWebpackContext) {
     ]
   }
 
-  context.amend('webpackConfig::cssPlugin', cssRule)
   context.amend('webpackConfig::cssPlugin::cssLoaderOptions', cssLoaderOptions)
   context.amend('webpackConfig::cssPlugin::miniCssExtractPluginOptions', miniCssExtractPluginOptions)
+  context.amend('webpackConfig::cssPlugin', cssRule)
 
   const miniCssExtractPlugin = new MiniCssExtractPlugin(miniCssExtractPluginOptions)
 
