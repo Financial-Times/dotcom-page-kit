@@ -11,7 +11,7 @@ function amendWebpackConfig({ context, webpackConfig }: RunningWebpackContext) {
 
   const cssLoaderOptions = {}
 
-  const miniCssExtractPluginOptions = {
+  const cssExtractPluginOptions = {
     // only include content hash in filename when compiling production assets
     filename: isDevMode ? '[name].css' : '[name].[contenthash:12].css'
   }
@@ -30,11 +30,11 @@ function amendWebpackConfig({ context, webpackConfig }: RunningWebpackContext) {
   }
 
   context.amend('webpackConfig::cssPlugin::cssLoaderOptions', cssLoaderOptions)
-  context.amend('webpackConfig::cssPlugin::miniCssExtractPluginOptions', miniCssExtractPluginOptions)
+  context.amend('webpackConfig::cssPlugin::cssExtractPluginOptions', cssExtractPluginOptions)
   context.amend('webpackConfig::cssPlugin', cssRule)
 
-  const miniCssExtractPlugin = new MiniCssExtractPlugin(miniCssExtractPluginOptions)
+  const cssExtractPlugin = new MiniCssExtractPlugin(cssExtractPluginOptions)
 
-  webpackConfig.plugins.push(miniCssExtractPlugin)
+  webpackConfig.plugins.push(cssExtractPlugin)
   webpackConfig.module.rules.push(cssRule)
 }
