@@ -1,6 +1,6 @@
 # Anvil Plugin CSS
 
-This module provides a plugin which extends the [Anvil CLI build action][cli] to provide the capability to load and generate CSS files.
+This module extends the [Anvil CLI build action][cli] (`anvil build`) with a way to load and generate CSS files.
 
 [cli]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil#build
 
@@ -23,7 +23,7 @@ After installing the module you must add it to the list of plugins in your proje
 }
 ```
 
-Once setup this plugin will enable you to use CSS files as [entry points] into your source code.
+Once setup, this plugin will enable you to use CSS files as [entry points] into your source code.
 
 ```sh
 anvil build --srcFile path/to/styles.css
