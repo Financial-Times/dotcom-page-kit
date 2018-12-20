@@ -5,11 +5,11 @@ module.exports = async (request, response) => {
     pageTitle: 'Home',
     foo: 'foo',
     bar: 'bar',
-    baz: 'baz'
+    baz: 'baz',
   }
 
   try {
-    const html = await render('home', { ...request.app.locals, ...response.locals, ...data })
+    const { html } = await render('home', { ...request.app.locals, ...response.locals, ...data })
     response.send(html)
   } catch (error) {
     console.error(error)

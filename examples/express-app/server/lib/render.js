@@ -22,7 +22,11 @@ function render(handlebars, view, context) {
     const templateFile = path.join(options.viewsDirectory, `${view}${options.extname}`)
 
     handlebars.renderView(templateFile, context, (error, rendered) => {
-      return error ? reject(error) : resolve(rendered)
+      return error ? reject(error) : resolve({
+        html: rendered,
+        // Unused blocks (created with the #defineBlock helper) can be pulled out
+        slots: context.blocks
+      })
     })
   })
 }
