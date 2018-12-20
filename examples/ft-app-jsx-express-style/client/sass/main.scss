@@ -1,0 +1,20 @@
+$blue: #4745d1;
+$red: #fb6754;
+
+html {
+  margin: 0;
+}
+
+a {
+  color: $blue;
+  text-decoration: none;
+}
+
+a:focus,
+a:hover {
+  color: $red;
+}
+
+p {
+  hyphens: auto;
+}
