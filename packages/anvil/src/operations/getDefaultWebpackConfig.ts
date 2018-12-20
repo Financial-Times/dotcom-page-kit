@@ -3,11 +3,11 @@ import ManifestPlugin from 'webpack-manifest-plugin'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
 
 export function getDefaultWebpackConfig({ flags, config, paths, amend }: CliContext) {
-  const isDevMode = flags.devMode
+  const isDevMode = flags.development
 
-  const entryOptions = (config.settings && config.settings.entry) || flags.srcFile
+  const entryOptions = (config.settings && config.settings.entry) || flags.entryFile
 
-  const cleanWebpackPluginPaths = [flags.outDir]
+  const cleanWebpackPluginPaths = [flags.outputPath]
   const cleanWebpackPluginOptions = { root: paths.workingDir, verbose: false }
 
   const manifestPluginOptions = {}
@@ -25,7 +25,7 @@ export function getDefaultWebpackConfig({ flags, config, paths, amend }: CliCont
     output: {
       filename: outputFilename,
       chunkFilename: outputFilename,
-      path: flags.outDir
+      path: flags.outputPath
     },
     resolve: {
       extensions: ['.js', '.jsx', '.mjs', '.json']

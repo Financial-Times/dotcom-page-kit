@@ -26,7 +26,7 @@ After installing the module you must add it to the list of plugins in your proje
 Once setup, this plugin will enable you to use CSS files as [entry points] into your source code.
 
 ```sh
-anvil build --srcFile path/to/styles.css
+anvil build --entryFile path/to/styles.css
 ```
 
 [entry points]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil#entry-points
