@@ -14,10 +14,10 @@ export async function build(context: CliContext) {
 }
 
 export function prepareContext({ flags, paths }: CliContext) {
-  if (!path.isAbsolute(flags.srcFile)) {
-    flags.srcFile = path.join(paths.workingDir, flags.srcFile)
+  if (!path.isAbsolute(flags.entryFile)) {
+    flags.entryFile = path.join(paths.workingDir, flags.entryFile)
   }
-  if (!path.isAbsolute(flags.outDir)) {
-    flags.outDir = path.join(paths.workingDir, flags.outDir)
+  if (!path.isAbsolute(flags.outputPath)) {
+    flags.outputPath = path.join(paths.workingDir, flags.outputPath)
   }
 }

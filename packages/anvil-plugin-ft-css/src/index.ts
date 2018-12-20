@@ -11,7 +11,7 @@ export default new Plugin(({ on }) => {
 
 function amendWebpackConfig(runningContext: RunningWebpackContext) {
   const { context, webpackConfig: baseConfig } = runningContext
-  const isDevMode = context.flags.devMode
+  const isDevMode = context.flags.development
   const opts = {
     autoprefixer: {
       browsers: '> 1%, ie 11, bb 10',

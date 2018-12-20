@@ -7,7 +7,7 @@ export default new Plugin(({ on }) => {
 })
 
 function amendWebpackConfig({ context, webpackConfig }: RunningWebpackContext) {
-  const isDevMode = context.flags.devMode
+  const isDevMode = context.flags.development
 
   const cssLoaderOptions = {}
 

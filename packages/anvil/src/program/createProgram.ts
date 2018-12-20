@@ -10,13 +10,9 @@ export function createProgram(args: Args) {
 
   program
     .command('build')
-    .option('-s, --srcFile <filePath>', 'Path to the source code entry point', './src/index.js')
-    .option(
-      '-o, --outDir <folderPath>',
-      'Path to the destination directory to store generated code',
-      './dist'
-    )
-    .option('-d, --devMode', 'Enable development mode', false)
+    .option('-e, --entryFile <file>', 'Path to the source code entry point', './src/index.js')
+    .option('-o, --outputPath <path>', 'Path to the directory to store generated output', './dist')
+    .option('-d, --development', 'Enable development mode', false)
     .option('-w, --watch', 'Watch for changes and rebuild on change')
     .action(setupAction({ action: build, ...args }))
 

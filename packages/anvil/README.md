@@ -41,12 +41,12 @@ This action can be used to assemble the static assets for your application using
 
 ##### Entry points
 
-The path for the entry point into your source code can be provided via the `--srcFile` CLI flag or via the configuration file. The configuration file will take precedence over the CLI flag. The default entry point is `src/index.js`. Multiple entry points can only be defined using the configuration file. See the [Webpack entry documentation] for more information about entry points.
+The path for the entry point into your source code can be provided via the `--entryFile` CLI flag or via the configuration file. The configuration file will take precedence over the CLI flag. The default entry point is `src/index.js`. Multiple entry points can only be defined using the configuration file. See the [Webpack entry documentation] for more information about entry points.
 
 Usage via CLI flag:
 
 ```sh
-anvil build --srcFile ./path/to/entry.js
+anvil build --entryFile ./path/to/entry.js
 ```
 
 Usage via configuration file:
@@ -63,12 +63,12 @@ Usage via configuration file:
 
 [Webpack entry documentation]: https://webpack.js.org/concepts/entry-points/
 
-##### Output directory
+##### Output path
 
-The generated output can be directed to a destination directory using the `--outDir` CLI flag. The default destination is `./dist`.
+The generated output can be directed to a destination directory using the `--outputPath` CLI flag. The default destination is `./dist`.
 
 ```sh
-anvil build --outDir ./path/to/dist
+anvil build --outputPath ./path/to/dist
 ```
 
 Files will be created using the pattern `[name].js` in development mode and `[name].[contenthash].js` in production mode.
@@ -77,10 +77,10 @@ Files will be created using the pattern `[name].js` in development mode and `[na
 
 In production mode the generated output will be optimised, file names hashed, and full source maps generated. Production mode is the default.
 
-To enable development mode you can use the `--devMode` CLI flag. This will disable several optimisations in favour of providing faster builds and rebuilds. See the [Webpack mode documentation] for further information about modes.
+To enable development mode you can use the `--development` CLI flag. This will disable several optimisations in favour of providing faster builds and rebuilds. See the [Webpack mode documentation] for further information about modes.
 
 ```sh
-anvil build --devMode
+anvil build --development
 ```
 
 [Webpack mode documentation]: https://webpack.js.org/concepts/mode/
