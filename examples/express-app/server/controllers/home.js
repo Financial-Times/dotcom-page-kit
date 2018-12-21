@@ -6,6 +6,7 @@ module.exports = async (request, response) => {
     foo: 'foo',
     bar: 'bar',
     baz: 'baz',
+    layout: 'main',
     scripts: [response.locals.assets.loader.getPublicURL('main.js')]
   }
 

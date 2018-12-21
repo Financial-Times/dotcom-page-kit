@@ -5,6 +5,8 @@ const port = 3456
 
 app.locals.siteTitle = 'Example App'
 
+app.set('views', null)
+
 app.use(require('./middleware/anvil'))
 
 app.get('/', require('./controllers/home'))
