@@ -33,7 +33,9 @@ function amendWebpackConfig({ context, webpackConfig }: RunningWebpackContext) {
 
   // This plugin prevents empty JS bundles being created for CSS entry points
   // https://github.com/fqborges/webpack-fix-style-only-entries
-  const stylesOnlyPluginOptions = {}
+  const stylesOnlyPluginOptions = {
+    silent: true
+  }
 
   context.amend('webpackConfig::cssPlugin::stylesOnlyPluginOptions', stylesOnlyPluginOptions)
 
