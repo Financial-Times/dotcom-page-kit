@@ -4,8 +4,7 @@ doc.className = doc.className.replace('no-js', 'js')
 
 function scriptLoadError(error) {
   // TODO Log the script failure
-  /* eslint-disable no-console */
-  console.error(error)
+  console.error(error) // eslint-disable-line no-console
 }
 
 function loadScript(src) {
@@ -20,8 +19,8 @@ function loadScript(src) {
 var enhanced = (function() {
   var script = document.createElement('script')
   return (
-    'flex' in doc.style && // not supported by old Safari (< 9) or IE 6-10
     'visibilityState' in document && // not supported by old Android (4.0-4.4) without a prefix
+    'flex' in doc.style && // not supported by old Safari (< 9) or IE 6-10
     'async' in script // not supported by old Opera (Presto)
   )
 })()
@@ -31,15 +30,14 @@ if (enhanced) {
 
   //TODO Make the set of polyfills configurable?
   var scripts = ['https://cdn.polyfill.io/v2/polyfill.min.js?features=default,HTMLPictureElement,fetch']
+  var scriptsConfigEl = document.getElementById('scripts-config')
 
   if (scriptsConfigEl) {
     try {
-      var scriptsConfigEl = document.getElementById('scripts-config')
       var scriptsConfig = JSON.parse(scriptsConfigEl.innerHTML)
       Array.prototype.push.apply(scripts, scriptsConfig)
     } catch (error) {
-      /* eslint-disable no-console */
-      console.error(error)
+      console.error(error) // eslint-disable-line no-console
     }
   }
 
