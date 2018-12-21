@@ -20,7 +20,7 @@ Configuration is provided to the CLI by a `anvil.config.json` file placed in you
 }
 ```
 
-The `plugins` property can be used to provide a list of plugin package names. These plugins should be installed in your project as development dependencies. When using the CLI all of the plugins defined here will be loaded.
+The `plugins` property can be used to provide a list of plugin package names. Plugins are packages with names beginning with `anvil-plugin-`. These plugins should be installed in your project as development dependencies and after installation will need to be added to this list. When using the CLI all of the plugins defined here will be loaded.
 
 The `settings` property is used to provide specific configuration for the CLI and plugins. Please check the individual plugin documentation for details about the configuration required. Settings for actions provided by the CLI are covered below (see [actions](#actions).)
 
