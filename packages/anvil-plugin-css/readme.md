@@ -34,13 +34,14 @@ anvil build --entryFile path/to/styles.css
 
 ## Scope
 
-This plugin adds a [rule] to the Webpack configuration to handle `.css` files. It uses the [css-loader] to interpret `@import` rules. The [mini-css-extract-plugin] is added to generate `.css` files.
+This plugin adds a [rule] to the Webpack configuration to handle `.css` files. It uses the [css-loader] to interpret `@import` rules. The [mini-css-extract-plugin] is added to generate `.css` files and the [webpack-fix-style-only-entries] to clean up any empty JavaScript bundles.
 
 Several [hooks](#extending) are provided in order to access and modify the configuration.
 
 [rule]: https://webpack.js.org/configuration/module/#rule
 [css-loader]: https://github.com/webpack-contrib/css-loader
 [mini-css-extract-plugin]: https://github.com/webpack-contrib/mini-css-extract-plugin
+[webpack-fix-style-only-entries]: https://github.com/fqborges/webpack-fix-style-only-entries
 
 
 ## Settings
@@ -59,6 +60,10 @@ A synchronous hook which receives the configuration object to be used for the [c
 ### `webpackConfig::cssPlugin::rule`
 
 A synchronous hook which receives the entire rule to be appended by this plugin. You may directly mutate this object.
+
+### `webpackConfig::cssPlugin::stylesOnlyPluginOptions`
+
+A synchronous hook which receives the configuration object to be used for the [webpack-fix-style-only-entries]. You may directly mutate this object.
 
 ### `webpackConfig::cssPlugin::cssExtractPluginOptions`
 

@@ -1,6 +1,7 @@
 import { Plugin } from 'adonai'
 import { RunningWebpackContext } from '@financial-times/anvil-types-build'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import StylesOnlyPlugin from 'webpack-fix-style-only-entries'
 
 export default new Plugin(({ on }) => {
   on('@Build::amend::webpackConfig', amendWebpackConfig)
@@ -91,6 +92,14 @@ function amendWebpackConfig({ context, webpackConfig }: RunningWebpackContext) {
   context.amend('webpackConfig::ftCssPlugin::rule', cssRule)
 
   webpackConfig.module.rules.push(cssRule)
+
+  // This plugin prevents empty JS bundles being created for CSS entry points
+  // https://github.com/fqborges/webpack-fix-style-only-entries
+  const stylesOnlyPluginOptions = {}
+
+  context.amend('webpackConfig::ftCssPlugin::stylesOnlyPluginOptions', stylesOnlyPluginOptions)
+
+  webpackConfig.plugins.push(new StylesOnlyPlugin(stylesOnlyPluginOptions))
 
   const cssExtractPluginOptions = {
     // only include content hash in filename when compiling production assets

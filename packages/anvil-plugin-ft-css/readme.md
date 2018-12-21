@@ -34,7 +34,7 @@ anvil build --entryFile path/to/styles.scss
 
 ## Scope
 
-This plugin adds a [rule] to the Webpack configuration to handle `.scss` files. It first uses the [sass-loader] to transpile Sass source code, then sends the output through to the [postcss-loader] for optimisations, and finally the [css-loader]. The [mini-css-extract-plugin] is added to generate `.css` files.
+This plugin adds a [rule] to the Webpack configuration to handle `.scss` files. It first uses the [sass-loader] to transpile Sass source code, then sends the output through to the [postcss-loader] for optimisations, and finally the [css-loader]. The [mini-css-extract-plugin] is added to generate `.css` files and the [webpack-fix-style-only-entries] to clean up any empty JavaScript bundles.
 
 Sass has been configured to find packages installed with Bower and or npm from the `@financial-times` organisation.
 
@@ -49,6 +49,7 @@ Several [hooks](#extending) are provided in order to access and modify the confi
 [postcss-loader]: https://github.com/postcss/postcss-loader
 [css-loader]: https://github.com/webpack-contrib/css-loader
 [mini-css-extract-plugin]: https://github.com/webpack-contrib/mini-css-extract-plugin
+[webpack-fix-style-only-entries]: https://github.com/fqborges/webpack-fix-style-only-entries
 [PostCSS]: https://postcss.org/
 [Autoprefixer]: https://github.com/postcss/autoprefixer
 [cssnano]: https://cssnano.co/
@@ -86,6 +87,10 @@ A synchronous hook which receives the configuration object to be used for the [c
 ### `webpackConfig::ftCssPlugin::rule`
 
 A synchronous hook which receives the entire [rule] to be appended by this plugin. You may directly mutate this object.
+
+### `webpackConfig::ftCssPlugin::stylesOnlyPluginOptions`
+
+A synchronous hook which receives the configuration object to be used for the [webpack-fix-style-only-entries]. You may directly mutate this object.
 
 ### `webpackConfig::ftCssPlugin::cssExtractPluginOptions`
 
