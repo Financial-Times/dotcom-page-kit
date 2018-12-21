@@ -56,10 +56,10 @@ _Please note: The hooks below are listed in the order they will be executed._
 
 A synchronous hook which receives the configuration object to be used for the [css-loader]. You may directly mutate this object.
 
+### `webpackConfig::cssPlugin::rule`
+
+A synchronous hook which receives the entire rule to be appended by this plugin. You may directly mutate this object.
+
 ### `webpackConfig::cssPlugin::cssExtractPluginOptions`
 
 A synchronous hook which receives the configuration object to be used for the [mini-css-extract-plugin]. You may directly mutate this object.
-
-### `webpackConfig::cssPlugin`
-
-A synchronous hook which receives the entire rule to be appended by this plugin. You may directly mutate this object.
