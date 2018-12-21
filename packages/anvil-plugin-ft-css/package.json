@@ -29,9 +29,7 @@
     "node-sass": "^4.10.0",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
-    "webpack": "^4.26.0",
-    "webpack-merge": "^4.1.4"
+    "style-loader": "^0.23.1"
   },
   "devDependencies": {
     "@financial-times/anvil-types-build": "file:../anvil-types-build"
