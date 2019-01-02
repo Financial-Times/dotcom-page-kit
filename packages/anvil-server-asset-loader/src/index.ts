@@ -31,10 +31,15 @@ class AssetLoader {
     }
   }
 
-  findHashedAssets(pattern: RegExp): string[] {
+  findHashedAssets(pattern: string|RegExp): string[] {
     return Object.keys(this.manifest).reduce((matches: string[], key: string) => {
-      if (pattern.test(key)) {
-        matches.push(this.manifest[key])
+      const item = this.manifest[key]
+
+      if (typeof pattern === 'string' && key.includes(pattern)) {
+        matches.push(item)
+      }
+      if (pattern instanceof RegExp && pattern.test(key)) {
+        matches.push(item)
       }
 
       return matches

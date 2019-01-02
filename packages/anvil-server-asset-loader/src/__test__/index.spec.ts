@@ -50,11 +50,11 @@ describe('anvil-server-asset-loader', () => {
   })
 
   describe('.findHashedAssets()', () => {
-    it('returns an array of hashed names from the manifest', () => {
-      const a = loader.findHashedAssets(/styles\.css/)
-      expect(a).toEqual(['styles.12345.bundle.css'])
+    it('returns an array of matching hashed names from the manifest', () => {
+      const a = loader.findHashedAssets(/main/)
+      expect(a).toEqual(['main.12345.bundle.js', 'vendor~main~secondary.12345.bundle.js'])
 
-      const b = loader.findHashedAssets(/main/)
+      const b = loader.findHashedAssets('main')
       expect(b).toEqual(['main.12345.bundle.js', 'vendor~main~secondary.12345.bundle.js'])
     })
   })
