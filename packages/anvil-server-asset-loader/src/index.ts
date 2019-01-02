@@ -31,6 +31,16 @@ class AssetLoader {
     }
   }
 
+  findHashedAssets(pattern: RegExp): string[] {
+    return Object.keys(this.manifest).reduce((matches: string[], key: string) => {
+      if (pattern.test(key)) {
+        matches.push(this.manifest[key])
+      }
+
+      return matches
+    }, [])
+  }
+
   // TODO: this is for JS only
   getOrderedAssetUrls(): string[] {
     return getOrderedAssetUrls(this)
