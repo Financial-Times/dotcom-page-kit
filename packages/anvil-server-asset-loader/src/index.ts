@@ -1,7 +1,6 @@
 import path from 'path'
 import { loadFile } from './helpers/loadFile'
 import { loadManifest } from './helpers/loadManifest'
-import { getOrderedAssetUrls } from './helpers/getOrderedAssetUrls'
 
 interface AssetLoaderOptions {
   /** A fully resolved path to the manifest file */
@@ -31,7 +30,7 @@ class AssetLoader {
     }
   }
 
-  findHashedAssets(pattern: string|RegExp): string[] {
+  findHashedAssets(pattern: string | RegExp): string[] {
     return Object.keys(this.manifest).reduce((matches: string[], key: string) => {
       const item = this.manifest[key]
 
@@ -44,11 +43,6 @@ class AssetLoader {
 
       return matches
     }, [])
-  }
-
-  // TODO: this is for JS only
-  getOrderedAssetUrls(): string[] {
-    return getOrderedAssetUrls(this)
   }
 
   getFileContents(asset: string): string {

@@ -73,7 +73,7 @@ export function createRenderer(options: Partial<Options> = {}) {
     const Shell = renderOptions.shellComponent || shellComponent
     const render = renderFn
     const initialProps = renderOptions.props || (await getInitialPropsFrom(Component))
-    const scriptsToLoad = assetLoader.getOrderedAssetUrls()
+    const scriptsToLoad = [assetLoader.getHashedAsset('runtime.js'), assetLoader.getHashedAsset('client.js')]
     const componentIsObject = typeof Component === 'object'
     const ComponentToRender = Component as Function
 
