@@ -1,8 +1,10 @@
 import AssetLoader from '../'
 
 const manifest = {
-  'example.css': 'example.1234567.css',
-  'example.js': 'example.1234567.js'
+  'styles.css': 'styles.12345.bundle.css',
+  'main.js': 'main.12345.bundle.js',
+  'secondary.js': 'secondary.12345.bundle.js',
+  'vendor~main~secondary.js': 'vendor~main~secondary.12345.bundle.js'
 }
 
 jest.mock('../helpers/loadManifest', () => {
@@ -14,7 +16,7 @@ jest.mock('../helpers/loadManifest', () => {
 jest.mock('../helpers/loadFile', () => {
   return {
     loadFile: jest.fn(() => {
-      return 'some-stringified-asset-data'
+      return 'FILE CONTENTS'
     })
   }
 })
@@ -36,8 +38,8 @@ describe('anvil-server-asset-loader', () => {
 
   describe('.getHashedAsset()', () => {
     it('returns the hashed name from a manifest', () => {
-      const result = loader.getHashedAsset('example.css')
-      expect(result).toEqual('example.1234567.css')
+      const result = loader.getHashedAsset('styles.css')
+      expect(result).toEqual('styles.12345.bundle.css')
     })
 
     it("errors if the file can't be found in the manifest", () => {
@@ -47,24 +49,34 @@ describe('anvil-server-asset-loader', () => {
     })
   })
 
+  describe('.findHashedAssets()', () => {
+    it('returns an array of matching hashed names from the manifest', () => {
+      const a = loader.findHashedAssets(/main/)
+      expect(a).toEqual(['main.12345.bundle.js', 'vendor~main~secondary.12345.bundle.js'])
+
+      const b = loader.findHashedAssets('main')
+      expect(b).toEqual(['main.12345.bundle.js', 'vendor~main~secondary.12345.bundle.js'])
+    })
+  })
+
   describe('.getFileSystemPath()', () => {
     it('returns the file system path for the requested file', () => {
-      const result = loader.getFileSystemPath('example.css')
-      expect(result).toEqual('/internal/path/to/assets/example.1234567.css')
+      const result = loader.getFileSystemPath('styles.css')
+      expect(result).toEqual('/internal/path/to/assets/styles.12345.bundle.css')
     })
   })
 
   describe('.getPublicPath()', () => {
     it('returns the public path for the requested file', () => {
-      const result = loader.getPublicPath('example.css')
-      expect(result).toEqual('public/assets/example.1234567.css')
+      const result = loader.getPublicPath('styles.css')
+      expect(result).toEqual('public/assets/styles.12345.bundle.css')
     })
   })
 
   describe('.getFileContents()', () => {
     it('returns the file contents for the requested file', () => {
-      const result = loader.getFileContents('example.css')
-      expect(result).toEqual('some-stringified-asset-data')
+      const result = loader.getFileContents('styles.css')
+      expect(result).toEqual('FILE CONTENTS')
     })
   })
 })
