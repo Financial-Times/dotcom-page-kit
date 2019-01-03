@@ -1,6 +1,6 @@
 # @financial-times/anvil-ui-bootstrap
 
-This module provides a client-side bootstrap to be embedded in your HTML response. The bootstrap implements feature detection ([cuts the mustard](#cutting-the-mustard)) to determine if a browser should receive a core or enhanced experience, and the capability to load scripts appropriately.
+This module provides a client-side bootstrap to be embedded in your HTML response. The bootstrap implements feature detection ([cuts the mustard](#cutting-the-mustard)) to determine if a browser should receive a core or enhanced experience, and the capability to load scripts as appropriate.
 
 
 ## Getting started
@@ -44,7 +44,7 @@ function view() {
 }
 ```
 
-The bootstrap function accepts an object of [options](#options) used to configure the scripts to load and serialize any data required by your client-side code.
+The bootstrap function accepts an object of [options](#options) used to configure which scripts to load.
 
 
 ## Options
@@ -58,12 +58,6 @@ An array of JavaScript file URLs which are required by the page if the browser f
 ### enhancedScriptFiles (array)
 
 An array of JavaScript file URLs which are required by the page if the browser successfully [cuts the mustard](#cutting-the-mustard) and should deliver an [enhanced experience](#core-enhanced).
-
-### initialData (any)
-
-Data to be serialized and embedded in the page in order to be re-used on the client-side. This is useful for universal or isomorphic applications which need to [dehydrate and rehydrate] data.
-
-[dehydrate and rehydrate]: https://en.wikipedia.org/wiki/Isomorphic_JavaScript
 
 
 ## Scope
