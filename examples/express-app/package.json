@@ -6,14 +6,17 @@
   "main": "app.js",
   "license": "MIT",
   "scripts": {
-    "start": "node src/app.js"
+    "dev": "nodemon server/app.js --ext js,hbs",
+    "start": "node server/app.js"
   },
   "dependencies": {
+    "@financial-times/anvil-middleware-asset-loader": "file:../../packages/anvil-middleware-asset-loader",
+    "@financial-times/anvil-middleware-ft-edition": "file:../../packages/anvil-middleware-ft-edition",
+    "@financial-times/anvil-middleware-ft-navigation": "file:../../packages/anvil-middleware-ft-navigation",
+    "@financial-times/n-handlebars": "^1.21.0",
     "express": "^4.16.2"
   },
   "devDependencies": {
-    "@financial-times/anvil-middleware-ft-edition": "file:../../packages/anvil-middleware-ft-edition",
-    "@financial-times/anvil-middleware-ft-navigation": "file:../../packages/anvil-middleware-ft-navigation",
-    "@financial-times/anvil-middleware-asset-loader": "file:../../packages/anvil-middleware-asset-loader"
+    "nodemon": "^1.18.9"
   }
 }

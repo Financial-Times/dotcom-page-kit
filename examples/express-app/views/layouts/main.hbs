@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{#if pageTitle}}{{pageTitle}} | {{/if}}{{siteTitle}}</title>
+  {{#outputBlock 'meta'}}{{/outputBlock}}
+</head>
+<body>
+  {{>header}}
+  <main>
+    {{{body}}}
+  </main>
+  {{>footer}}
+</body>
+</html>
