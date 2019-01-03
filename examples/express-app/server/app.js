@@ -10,6 +10,5 @@ app.use(require('./middleware/anvil'))
 app.get('/', require('./controllers/home'))
 
 app.listen(port, () => {
-  /* eslint-disable no-console */
-  console.log(`Listening on PORT:${port}`)
+  console.log(`Listening on PORT:${port}`) // eslint-disable-line no-console
 })
