@@ -1,4 +1,5 @@
-import handlebars from '@financial-times/n-handlebars'
+import handlebars from 'express-handlebars'
+import handlebarsHelpers from '@financial-times/n-handlebars/src/extend-helpers'
 import renderWithLayout, { RenderContext } from './renderWithLayout'
 import resolveViewFile from './resolveViewFile'
 
@@ -13,8 +14,10 @@ export interface Options {
   viewsDirectory: string
   /** Path to layout templates, defaults to "views/layouts" */
   layoutsDir: string
-  /** List of paths to lookup partial template files on startup, defaults to ["views/partials", "node_modules/@financial-times"] */
+  /** List of paths to lookup partial template files on startup, defaults to ["views/partials", "bower_components", "node_modules/@financial-times"] */
   partialsDir: string[]
+  /** Helper functions to register with the Handlebars instance */
+  helpers?: { [key: string]: Function }
 }
 
 const defaults: Options = {
@@ -22,18 +25,21 @@ const defaults: Options = {
   defaultLayout: null,
   extname: '.html',
   viewsDirectory: 'views',
+  helpers: {},
   layoutsDir: 'views/layouts',
-  // NOTE: n-handlebars will load partials from `bower_components` by default
-  partialsDir: ['views/partials', 'node_modules/@financial-times']
+  partialsDir: ['views/partials', 'bower_components', 'node_modules/@financial-times']
 }
 
 class AnvilServerHandlebars {
   private options: Options
-  private startup: Promise<any>
+  private handlebars
 
   constructor(options: Partial<Options>) {
     this.options = { ...defaults, ...options }
-    this.startup = handlebars.standalone(this.options)
+
+    handlebarsHelpers(this.options.helpers)
+
+    this.handlebars = handlebars.create(this.options)
   }
 
   render(view: string, context: RenderContext): Promise<string> {
@@ -42,7 +48,7 @@ class AnvilServerHandlebars {
     // <https://github.com/expressjs/express/blob/master/lib/view.js>
     const viewPath = resolveViewFile.call(this, view)
 
-    return this.startup.then((handlebars) => renderWithLayout(handlebars, viewPath, context))
+    return renderWithLayout(this.handlebars, viewPath, context)
   }
 }
 

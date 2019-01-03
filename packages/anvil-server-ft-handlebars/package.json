@@ -18,7 +18,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@financial-times/n-handlebars": "^1.21.0"
+    "@financial-times/n-handlebars": "^1.21.1",
+    "express-handlebars": "^3.0.0"
   },
   "engines": {
     "node": ">= 10.0.0"

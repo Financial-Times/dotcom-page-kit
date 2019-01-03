@@ -1,4 +1,4 @@
-export type RenderContext = { [key: string]: any; layout: string }
+export type RenderContext = { [key: string]: any; layout?: string; blocks?: string[] }
 
 export default (handlebars, filePath: string, context: RenderContext): Promise<string> => {
   return new Promise((resolve, reject) => {
