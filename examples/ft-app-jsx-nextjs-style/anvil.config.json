@@ -7,7 +7,7 @@
   ],
   "settings": {
     "entry": {
-      "client.js": "./src/client.js"
+      "client": "./src/client.js"
     },
     "ft-js": {
       "jsxPragma": "React.createElement",
