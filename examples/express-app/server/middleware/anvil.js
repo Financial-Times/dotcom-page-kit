@@ -5,8 +5,7 @@ const assetLoaderMiddleware = require('@financial-times/anvil-middleware-asset-l
 module.exports = [
   assetLoaderMiddleware.init({
     hostStaticAssets: true,
-    fileSystemPath: './dist',
-    manifestFile: './dist/manifest.json'
+    fileSystemPath: './dist'
   }),
   editionMiddleware.init({}),
   navigationMiddleware.init({ enableCrumbtrail: true })

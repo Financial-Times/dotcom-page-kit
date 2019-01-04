@@ -3,27 +3,27 @@ import path from 'path'
 import express from 'express'
 
 interface MiddlewareOptions {
-  /** The absolute path to the asset manifest.json */
-  manifestFile: string
-  /** The public-facing URL associated with the static assets */
+  /** The name of the manifest file which will be resolved from the fileSystemPath option */
+  manifestFileName: string
+  /** The base URL for assets (as seen by users) */
   publicPath: string
-  /** An asset loader option. Set to true if files should be cached in memory when accessed  */
+  /** An absolute path to the assets folder on disk */
+  fileSystemPath: string
+  /** Store file contents in memory when accessed */
   cacheFileContents: boolean
   /** Set to true if assets should be served from a local directory */
   hostStaticAssets: boolean
-  /** The absolute path to the directory of static assets */
-  fileSystemPath: string
 }
 
-const defaultOptions = {
-  manifestFile: path.resolve('./public/manifest.json'),
+const defaultOptions: MiddlewareOptions = {
+  manifestFileName: 'manifest.json',
   publicPath: '/public',
-  cacheFileContents: false,
   fileSystemPath: path.resolve('./public'),
+  cacheFileContents: false,
   hostStaticAssets: false
 }
 
-export const init = (userOptions?) => {
+export const init = (userOptions: Partial<MiddlewareOptions>) => {
   const options: MiddlewareOptions = { ...defaultOptions, ...userOptions }
   const loader = new AssetLoader(options)
 
@@ -33,12 +33,11 @@ export const init = (userOptions?) => {
     next()
   }
 
-  const router = express.Router()
-  router.use(options.publicPath, express.static(options.fileSystemPath))
-
   const stack = [middleware]
 
   if (options.hostStaticAssets) {
+    const router = express.Router()
+    router.use(options.publicPath, express.static(options.fileSystemPath))
     stack.push(router)
   }
 
