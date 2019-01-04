@@ -3,8 +3,8 @@ import { loadFile } from './helpers/loadFile'
 import { loadManifest } from './helpers/loadManifest'
 
 interface AssetLoaderOptions {
-  /** A fully resolved path to the manifest file */
-  manifestFile: string
+  /** The name of the manifest file which will be resolved from the fileSystemPath option */
+  manifestFileName: string
   /** The base URL for assets (as seen by users) */
   publicPath: string
   /** An absolute path to the assets folder on disk */
@@ -13,8 +13,8 @@ interface AssetLoaderOptions {
   cacheFileContents: boolean
 }
 
-const defaultOptions = {
-  manifestFile: path.resolve('./public/manifest.json'),
+const defaultOptions: AssetLoaderOptions = {
+  manifestFileName: 'manifest.json',
   publicPath: 'public',
   fileSystemPath: path.resolve('./public'),
   cacheFileContents: false
@@ -24,9 +24,9 @@ class AssetLoader {
   public options: AssetLoaderOptions
   public manifest: object
 
-  constructor(options: Partial<AssetLoaderOptions>) {
-    this.options = { ...defaultOptions, ...options }
-    this.manifest = loadManifest(this.options.manifestFile)
+  constructor(userOptions: Partial<AssetLoaderOptions>) {
+    this.options = { ...defaultOptions, ...userOptions }
+    this.manifest = loadManifest(path.resolve(this.options.fileSystemPath, this.options.manifestFileName))
   }
 
   getHashedAsset(asset: string): string {
