@@ -8,18 +8,25 @@ interface AssetLoaderOptions {
   /** The base URL for assets (as seen by users) */
   publicPath: string
   /** An absolute path to the assets folder on disk */
-  fileSystemPath?: string
+  fileSystemPath: string
   /** Store file contents in memory when accessed */
-  cacheFileContents?: boolean
+  cacheFileContents: boolean
+}
+
+const defaultOptions = {
+  manifestFile: path.resolve('./public/manifest.json'),
+  publicPath: 'public',
+  fileSystemPath: path.resolve('./public'),
+  cacheFileContents: false
 }
 
 class AssetLoader {
-  public manifest: object
   public options: AssetLoaderOptions
+  public manifest: object
 
-  constructor(options: AssetLoaderOptions) {
-    this.manifest = loadManifest(options.manifestFile)
-    this.options = options
+  constructor(options: Partial<AssetLoaderOptions>) {
+    this.options = { ...defaultOptions, ...options }
+    this.manifest = loadManifest(this.options.manifestFile)
   }
 
   getHashedAsset(asset: string): string {
