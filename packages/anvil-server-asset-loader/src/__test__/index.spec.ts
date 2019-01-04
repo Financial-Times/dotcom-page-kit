@@ -26,7 +26,6 @@ describe('anvil-server-asset-loader', () => {
 
   beforeEach(() => {
     loader = new AssetLoader({
-      manifestFile: '/path/to/manifest.json',
       publicPath: 'public/assets',
       fileSystemPath: '/internal/path/to/assets'
     })

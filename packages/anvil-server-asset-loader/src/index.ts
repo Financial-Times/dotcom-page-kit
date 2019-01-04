@@ -3,7 +3,7 @@ import { loadFile } from './helpers/loadFile'
 import { loadManifest } from './helpers/loadManifest'
 
 interface AssetLoaderOptions {
-  /** The name of the manifest file which will be resolved from the fileSystemPath option */
+  /** The name of the manifest file which will be resolved from the given fileSystemPath */
   manifestFileName: string
   /** The base URL for assets (as seen by users) */
   publicPath: string

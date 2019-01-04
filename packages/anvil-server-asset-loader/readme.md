@@ -25,7 +25,7 @@ const path = require('path')
 const AssetLoader = require('@financial-times/anvil-server-asset-loader')
 
 const assetLoader = new AssetLoader({
-  manifestFile: path.join(process.cwd(), 'manifest.json'),
+  manifestFileName: 'manifest.json',
   publicPath: 'https://cdn.site.com/assets',
   fileSystemPath: path.join(process.cwd(), 'public'),
   cacheFileContents: false
@@ -34,7 +34,7 @@ const assetLoader = new AssetLoader({
 
 The options are:
 
-- `manifestFile` - A fully resolved path to the manifest file
+- `manifestFileName` - The name of the manifest file which will be resolved from the given fileSystemPath
 - `publicPath` - The base URL for assets (as seen by users)
 - `fileSystemPath` - An absolute path to the assets folder on disk
 - `cacheFileContents` - Store file contents in memory when accessed (optional)
