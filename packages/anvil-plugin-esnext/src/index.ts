@@ -1,17 +1,32 @@
+// The Babel configuration is inspired by  create-react-app Babel preset which is a very popular
+// and (we hope) reliable configuration:
+// <https://github.com/facebook/create-react-app/blob/master/packages/babel-preset-react-app/create.js>
+
 import { Plugin } from 'adonai'
 import { RunningWebpackContext } from '@financial-times/anvil-types-build'
+
+interface PluginSettings {
+  /**
+   * A Browserslist compatible query describing the targets for your project
+   * https://babeljs.io/docs/en/babel-preset-env#targets
+   */
+  targets: string | { [key: string]: string }
+}
+
+const defaultSettings: PluginSettings = {
+  targets: '> 1%, ie 11, bb 10'
+}
 
 export default new Plugin(({ on }) => {
   on('@Build::amend::webpackConfig', amendWebpackConfig)
 })
 
-// The Babel configuration is inspired by  create-react-app Babel preset which is a very popular
-// and (we hope) reliable configuration:
-// <https://github.com/facebook/create-react-app/blob/master/packages/babel-preset-react-app/create.js>
 function amendWebpackConfig({ context, webpackConfig }: RunningWebpackContext) {
+  const userSettings = context.config.settings && context.config.settings.esnext
+  const settings = { ...defaultSettings, ...userSettings }
+
   const presetEnvOptions = {
-    // TODO: make configurable via setting
-    targets: '> 1%, ie 11, bb 10',
+    targets: settings.targets,
     useBuiltIns: false,
     // Exclude transforms that make all code slower
     exclude: ['transform-typeof-symbol']
@@ -20,7 +35,6 @@ function amendWebpackConfig({ context, webpackConfig }: RunningWebpackContext) {
   const pluginTransformRuntimeOptions = {
     corejs: false,
     helpers: true,
-    // TODO: make configurable via setting
     regenerator: true
   }
 

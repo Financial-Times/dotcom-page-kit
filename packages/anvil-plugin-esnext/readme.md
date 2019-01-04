@@ -46,7 +46,21 @@ Several [hooks](#extending) are provided in order to access and modify the confi
 
 ## Settings
 
-There are currently no additional settings for this plugin.
+Settings for this plugin are provided by adding an `esnext` property to your `anvil.config.json` configuration file in the root of your project.
+
+```diff
+{
+  "settings": {
++    "esnext": {}
+  }
+}
+```
+
+### `targets`
+
+A [Browserslist] compatible query describing the targets for your project. Defaults to `"> 1%, ie 11, bb 10"`.
+
+[Browserslist]: https://browserl.ist/
 
 
 ## Extending
