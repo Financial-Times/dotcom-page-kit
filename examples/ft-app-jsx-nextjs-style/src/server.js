@@ -3,15 +3,19 @@ import express from 'express'
 import HomePage from './pages/Home'
 import AboutPage from './pages/About'
 import { renderToString } from 'react-dom/server'
+import AssetLoader from '@financial-times/anvil-server-asset-loader'
 import { createRenderController } from '@financial-times/anvil-server-jsx-renderer/express'
 
 export const app = express()
 
-const render = createRenderController({
-  renderFn: renderToString,
-  assetUrlPrefix: process.env.ASSET_URL_PREFIX || '/assets',
-  assetManifestPath: path.resolve('./dist/manifest.json'),
+const assets = new AssetLoader({
+  fileSystemPath: './dist',
+  publicPath: '/assets'
 })
+
+const scriptsToLoad = [assets.getPublicPath('client.js'), assets.getPublicPath('runtime.js')]
+
+const render = createRenderController({ renderFn: renderToString, scriptsToLoad })
 
 app.use('/assets', express.static(path.resolve('./dist')))
 
