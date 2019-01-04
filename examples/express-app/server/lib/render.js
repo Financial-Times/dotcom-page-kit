@@ -37,7 +37,7 @@ function render(handlebars, view, context) {
 }
 
 function formatBlocks(blocks = {}) {
-  return Object.entries(blocks).reduce((blocks, [ key, value ]) => {
+  return Object.entries(blocks).reduce((blocks, [key, value]) => {
     // Blocks may be used multiple times
     if (Array.isArray(value)) {
       blocks[key] = value.join('\n')

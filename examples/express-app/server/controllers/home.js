@@ -5,16 +5,17 @@ module.exports = async (request, response) => {
     pageTitle: 'Home',
     foo: 'foo',
     bar: 'bar',
-    baz: 'baz'
+    baz: 'baz',
+    scripts: [response.locals.assets.loader.getPublicPath('main.js')]
   }
 
   try {
     // When calling Express's `.render()` method locals will be appended to view data.
     // <https://github.com/expressjs/express/blob/master/lib/application.js#L545-L554>
     const data = { ...request.app.locals, ...response.locals, ...options }
-    const html = await render('home', data)
+    const output = await render('home', data)
 
-    response.send(html)
+    response.send(output.html)
   } catch (error) {
     console.error(error) // eslint-disable-line no-console
     response.status(500).send('Oh no, something went wrong!')

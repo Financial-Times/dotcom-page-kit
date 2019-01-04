@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    "@financial-times/anvil-plugin-esnext"
+  ],
+  "settings": {
+    "entry": {
+      "main": "./client/main.js"
+    }
+  }
+}

@@ -3,7 +3,11 @@ const navigationMiddleware = require('@financial-times/anvil-middleware-ft-navig
 const assetLoaderMiddleware = require('@financial-times/anvil-middleware-asset-loader')
 
 module.exports = [
-  assetLoaderMiddleware.init({}),
+  assetLoaderMiddleware.init({
+    hostStaticAssets: true,
+    fileSystemPath: './dist',
+    manifestFile: './dist/manifest.json'
+  }),
   editionMiddleware.init({}),
   navigationMiddleware.init({ enableCrumbtrail: true })
 ]
