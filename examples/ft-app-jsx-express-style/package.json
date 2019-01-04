@@ -28,7 +28,6 @@
     "@financial-times/anvil-ui-ft-layout": "file:../../packages/anvil-ui-ft-layout",
     "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
     "express": "^4.16.4",
-    "lodash.get": "^4.4.2",
     "react": "^16.7.0-alpha.0",
     "react-dom": "^16.7.0-alpha.0",
     "sucrase": "^3.8.0"
