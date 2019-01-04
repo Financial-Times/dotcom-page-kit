@@ -15,7 +15,7 @@ interface AssetLoaderOptions {
 
 const defaultOptions: AssetLoaderOptions = {
   manifestFileName: 'manifest.json',
-  publicPath: 'public',
+  publicPath: '/public',
   fileSystemPath: path.resolve('./public'),
   cacheFileContents: false
 }
