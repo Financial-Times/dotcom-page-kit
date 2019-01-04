@@ -1,6 +1,5 @@
 import React from 'react'
 import FTShell from '@financial-times/anvil-ui-ft-shell'
-import AssetLoader from '@financial-times/anvil-server-asset-loader'
 import { AnyObject } from '@financial-times/anvil-types-generic'
 import { renderToStaticMarkup } from 'react-dom/server'
 
@@ -13,21 +12,15 @@ export interface Options {
   shellComponent: Function
 
   /**
-   * The public url to the assets folder
-   * @example http://foo.com/asstes
-   */
-  assetUrlPrefix: string
-
-  /**
-   * The file path to the asset manifest json file
-   */
-  assetManifestPath: string
-
-  /**
    * The function to use to render the component
    * @default react-dom/server#renderToStaticMarkup
    */
   renderFn: Function
+
+  /**
+   * List of script files to load by default
+   */
+  scriptsToLoad: string[]
 }
 
 export interface RenderOptions {
@@ -41,6 +34,17 @@ export interface RenderOptions {
    * render the html document shell
    * */
   shellComponent?: Function
+
+  /**
+   * List of script files to load by default
+   */
+  scriptsToLoad?: string[]
+}
+
+const defaultOptions: Options = {
+  scriptsToLoad: [],
+  renderFn: renderToStaticMarkup,
+  shellComponent: FTShell
 }
 
 /**
@@ -55,29 +59,17 @@ export interface RenderOptions {
  *
  * app.get('/', (req, res) => { res.send(render(HomePage, { props: {greeting: hello} })) })
  */
-export function createRenderer(options: Partial<Options> = {}) {
-  const {
-    assetUrlPrefix,
-    assetManifestPath,
-    renderFn = renderToStaticMarkup,
-    shellComponent = FTShell
-  } = options
+export function createRenderer(userOptions: Partial<Options> = {}) {
+  const options = { ...defaultOptions, ...userOptions }
 
   return async (Component: Function | Object, renderOptions: RenderOptions = {}) => {
-    const assetLoader = new AssetLoader({
-      publicPath: assetUrlPrefix,
-      manifestFile: assetManifestPath,
-      cacheFileContents: false
-    })
-
-    const Shell = renderOptions.shellComponent || shellComponent
-    const render = renderFn
+    const Shell = renderOptions.shellComponent || options.shellComponent
     const initialProps = renderOptions.props || (await getInitialPropsFrom(Component))
-    const scriptsToLoad = [assetLoader.getHashedAsset('runtime.js'), assetLoader.getHashedAsset('client.js')]
+    const scriptsToLoad = renderOptions.scriptsToLoad || options.scriptsToLoad
     const componentIsObject = typeof Component === 'object'
     const ComponentToRender = Component as Function
 
-    const markup = render(
+    const markup = options.renderFn(
       <Shell initialProps={initialProps} scriptsToLoad={scriptsToLoad}>
         {componentIsObject ? Component : <ComponentToRender {...initialProps} />}
       </Shell>
