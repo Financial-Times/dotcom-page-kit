@@ -30,19 +30,22 @@ class AssetLoader {
     }
   }
 
-  findHashedAssets(pattern: string | RegExp): string[] {
+  findAssets(pattern: string | RegExp): string[] {
     return Object.keys(this.manifest).reduce((matches: string[], key: string) => {
-      const item = this.manifest[key]
-
       if (typeof pattern === 'string' && key.includes(pattern)) {
-        matches.push(item)
+        matches.push(key)
       }
+
       if (pattern instanceof RegExp && pattern.test(key)) {
-        matches.push(item)
+        matches.push(key)
       }
 
       return matches
     }, [])
+  }
+
+  findHashedAssets(pattern: string | RegExp): string[] {
+    return this.findAssets(pattern).map((asset) => this.getHashedAsset(asset))
   }
 
   getFileContents(asset: string): string {
