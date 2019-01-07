@@ -1,12 +1,13 @@
-interface HintMeta {
+interface ResourceHintMeta {
   // <https://www.w3.org/TR/preload/#as-attribute>
-  as: 'style' | 'script' | 'image' | 'document' | 'font' | 'file' | string
+  as?: 'style' | 'script' | 'image' | 'document' | 'font' | 'file' | string
   // <https://w3c.github.io/resource-hints/#dfn-resource-hint-link>
-  rel: 'preload' | 'prefetch' | 'precache' | 'preconnect' | 'prerender' | string
-  crossorigin: boolean
+  rel?: 'preload' | 'prefetch' | 'precache' | 'preconnect' | 'prerender' | string
+  // <https://html.spec.whatwg.org/multipage/urls-and-fetching.html#cors-settings-attributes>
+  crossorigin?: 'use-credentials' | 'anonymous' | boolean
 }
 
-export default function(file: string, meta: Partial<HintMeta> = {}): string {
+export default function(file: string, meta: ResourceHintMeta = {}): string {
   const header = []
 
   header.push(`<${file}>`)

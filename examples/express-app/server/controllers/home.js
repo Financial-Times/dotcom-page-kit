@@ -6,7 +6,7 @@ module.exports = async (request, response) => {
     foo: 'foo',
     bar: 'bar',
     baz: 'baz',
-    scripts: [response.locals.assets.use('main.js')]
+    scripts: [response.locals.assets.getPublicPathAndHint('main.js')]
   }
 
   try {

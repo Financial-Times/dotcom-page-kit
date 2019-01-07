@@ -38,11 +38,15 @@ app.get('/', (request, response) => {
 })
 ```
 
-This package extends the basic asset loader with an extra `.use()` method which records the requested assets and adds [resource hints] for them to the response data:
+This package extends the basic asset loader with two extra methods which can be used to add [resource hints] to the response data:
 
 ```js
 app.get('/', (request, response) => {
-  const assetURL = response.locals.assets.use('main.css')
+  // Add a resource hint to the response for a file
+  reponse.locals.assets.addResourceHint('/public/logo.png')
+
+  // Get the public URL to an asset and add a resource hint to the response
+  const assetURL = response.locals.assets.getPublicPathAndHint('main.css')
 
   response.send('A resource hint will be added to this response for main.css')
 })

@@ -1,6 +1,6 @@
-import subject from '../createHint'
+import subject from '../formatResourceHint'
 
-describe('anvil-middleware-asset-loader/src/createHint', () => {
+describe('anvil-middleware-asset-loader/src/formatResourceHint', () => {
   it('formats a given resource as a link header', () => {
     const result = subject('main.css', { as: 'style', rel: 'prefetch' })
     expect(result).toEqual('<main.css>; as="style"; rel="prefetch"; nopush')

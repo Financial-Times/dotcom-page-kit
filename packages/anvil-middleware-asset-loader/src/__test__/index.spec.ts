@@ -5,28 +5,29 @@ let instance
 let instanceMiddlewareOnly
 let requestMock
 let responseMock
-let next
+let nextMock
 
 const FakeLoader = {
-  getHashedAssets: jest.fn()
+  getPublicPath: jest.fn(),
+  addResourceHint: jest.fn(),
+  formatResourceHints: jest.fn(),
+  getPublicPathAndHint: jest.fn()
 }
 
 jest.mock(
   '../ExtendedAssetLoader',
   () => {
-    return function() {
-      return jest.fn().mockImplementation(() => FakeLoader)
-    }
+    return jest.fn().mockImplementation(() => FakeLoader)
   },
   { virtual: true }
 )
 
 beforeEach(() => {
   instance = subject({ hostStaticAssets: true })
-  instanceMiddlewareOnly = subject({})
+  instanceMiddlewareOnly = subject({ hostStaticAssets: false })
   requestMock = httpMocks.createRequest()
-  responseMock = httpMocks.createResponse({})
-  next = jest.fn()
+  responseMock = httpMocks.createResponse()
+  nextMock = jest.fn()
 })
 
 afterEach(() => {
@@ -44,17 +45,17 @@ describe('anvil-middleware-asset-loader', () => {
 
   describe('middleware', () => {
     it('calls the fallthrough function', () => {
-      instance[0](requestMock, responseMock, next)
-      expect(next).toHaveBeenCalled()
+      instance[0](requestMock, responseMock, nextMock)
+      expect(nextMock).toHaveBeenCalled()
     })
 
     it('assigns an instance of the asset loader to response.locals', () => {
-      instance[0](requestMock, responseMock, next)
+      instance[0](requestMock, responseMock, nextMock)
       expect(responseMock.locals.assets).toBeDefined()
     })
 
     it('intercepts the default response.send() method and appends link header', () => {
-      instance[0](requestMock, responseMock, next)
+      instance[0](requestMock, responseMock, nextMock)
 
       responseMock.send('Hello World')
 
@@ -65,12 +66,12 @@ describe('anvil-middleware-asset-loader', () => {
 
   describe('router', () => {
     it('returns an instance of the router if hostStaticAssets is set to true', () => {
-      instance[0](requestMock, responseMock, next)
+      instance[0](requestMock, responseMock, nextMock)
       expect(instance[1].name).toEqual('router')
     })
 
     it('does not return the router if hostStaticAssets is set to false', () => {
-      instanceMiddlewareOnly[0](requestMock, responseMock, next)
+      instanceMiddlewareOnly[0](requestMock, responseMock, nextMock)
       expect(instanceMiddlewareOnly[1]).toBeUndefined()
     })
   })

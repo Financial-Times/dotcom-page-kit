@@ -1,28 +1,26 @@
 import getFileType from './getFileType'
-import createHint from './createHint'
+import formatResourceHint from './formatResourceHint'
 import AssetLoader from '@financial-times/anvil-server-asset-loader'
 
 export default class ExtendedAssetLoader extends AssetLoader {
-  public hints: Set<string> = new Set()
+  private hints: Set<string> = new Set()
 
-  use(filename: string): string {
-    const isAbsoluteURL = /^\/|https?:\/\//
-
-    if (!isAbsoluteURL.test(filename)) {
-      filename = this.getPublicPath(filename)
-    }
-
-    this.hints.add(filename)
-
-    return filename
+  addResourceHint(url: string): void {
+    this.hints.add(url)
   }
 
-  toString(): string {
+  getPublicPathAndHint(filename: string): string {
+    const publicPath = this.getPublicPath(filename)
+    this.addResourceHint(publicPath)
+    return publicPath
+  }
+
+  formatResourceHints(): string {
     const hints = []
 
     for (const filename of this.hints) {
       const type = getFileType(filename)
-      hints.push(createHint(filename, { as: type }))
+      hints.push(formatResourceHint(filename, { as: type }))
     }
 
     return hints.join(', ')
