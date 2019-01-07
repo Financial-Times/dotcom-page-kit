@@ -19,8 +19,8 @@ export default function(file: string, meta: Partial<HintMeta> = {}): string {
     }
   })
 
-  if (!meta.hasOwnProperty('rel')) {
-    header.push('rel=preload')
+  if (!meta.rel) {
+    header.push('rel="preload"')
   }
 
   header.push('nopush')

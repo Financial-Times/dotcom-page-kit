@@ -1,6 +1,6 @@
 import path from 'path'
 import express from 'express'
-import ExtendedAssetLoader from './resource-hints/ExtendedAssetLoader'
+import ExtendedAssetLoader from './ExtendedAssetLoader'
 
 interface MiddlewareOptions {
   /**

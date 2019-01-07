@@ -12,7 +12,7 @@ const FakeLoader = {
 }
 
 jest.mock(
-  '../resource-hints/ExtendedAssetLoader',
+  '../ExtendedAssetLoader',
   () => {
     return function() {
       return jest.fn().mockImplementation(() => FakeLoader)
@@ -35,7 +35,7 @@ afterEach(() => {
   jest.clearAllMocks()
 })
 
-describe('anvil-server-ft-asset-loader', () => {
+describe('anvil-middleware-asset-loader', () => {
   it('returns an Array of functions', () => {
     expect(instance).toBeInstanceOf(Array)
     expect(instance[0]).toBeInstanceOf(Function)
@@ -48,18 +48,18 @@ describe('anvil-server-ft-asset-loader', () => {
       expect(next).toHaveBeenCalled()
     })
 
-    it('intercepts the default response.send() method', () => {
+    it('assigns an instance of the asset loader to response.locals', () => {
+      instance[0](requestMock, responseMock, next)
+      expect(responseMock.locals.assets).toBeDefined()
+    })
+
+    it('intercepts the default response.send() method and appends link header', () => {
       instance[0](requestMock, responseMock, next)
 
       responseMock.send('Hello World')
 
       expect(responseMock._headers).toHaveProperty('link')
       expect(responseMock._isEndCalled()).toEqual(true)
-    })
-
-    it('assigns an instance of the asset loader to response.locals', () => {
-      instance[0](requestMock, responseMock, next)
-      expect(responseMock.locals.assets).toBeDefined()
     })
   })
 

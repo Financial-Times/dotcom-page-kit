@@ -6,9 +6,9 @@ export default class ExtendedAssetLoader extends AssetLoader {
   public hints: Set<string> = new Set()
 
   use(filename: string): string {
-    const isAbsolute = /^\/|https?:\/\//
+    const isAbsoluteURL = /^\/|https?:\/\//
 
-    if (!isAbsolute.test(filename)) {
+    if (!isAbsoluteURL.test(filename)) {
       filename = this.getPublicPath(filename)
     }
 

@@ -44,7 +44,7 @@ This package extends the basic asset loader with an extra `.use()` method which 
 app.get('/', (request, response) => {
   const assetURL = response.locals.assets.use('main.css')
 
-  response.send('A resource hints will be added to this response for main.css')
+  response.send('A resource hint will be added to this response for main.css')
 })
 ```
 
