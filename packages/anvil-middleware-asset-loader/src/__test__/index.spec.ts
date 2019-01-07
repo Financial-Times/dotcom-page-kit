@@ -8,15 +8,14 @@ let responseMock
 let next
 
 const FakeLoader = {
-  testProperty: jest.fn(),
   getHashedAssets: jest.fn()
 }
 
 jest.mock(
-  '@financial-times/anvil-server-asset-loader',
+  '../resource-hints/AssetLoaderWithHints',
   () => {
     return function() {
-      return { AssetLoader: jest.fn().mockImplementation(() => FakeLoader) }
+      return jest.fn().mockImplementation(() => FakeLoader)
     }
   },
   { virtual: true }
@@ -44,22 +43,33 @@ describe('anvil-server-ft-asset-loader', () => {
   })
 
   describe('middleware', () => {
-    it('calls the fallthrough function', async () => {
-      await instance[0](requestMock, responseMock, next)
+    it('calls the fallthrough function', () => {
+      instance[0](requestMock, responseMock, next)
       expect(next).toHaveBeenCalled()
     })
-    it('assigns an instance of the loader to response.locals', async () => {
-      await instance[0](requestMock, responseMock, next)
-      expect(responseMock.locals.assets.loader).toHaveProperty('AssetLoader')
+
+    it('intercepts the default response.send() method', () => {
+      instance[0](requestMock, responseMock, next)
+
+      responseMock.send('Hello World')
+
+      expect(responseMock._headers).toHaveProperty('link')
+      expect(responseMock._isEndCalled()).toEqual(true)
+    })
+
+    it('assigns an instance of the loader to response.locals', () => {
+      instance[0](requestMock, responseMock, next)
+      expect(responseMock.locals.assets).toBeDefined()
     })
   })
 
   describe('router', () => {
-    it('returns an instance of the router if hostStaticAssets is set to true', async () => {
+    it('returns an instance of the router if hostStaticAssets is set to true', () => {
       instance[0](requestMock, responseMock, next)
       expect(instance[1].name).toEqual('router')
     })
-    it('does not return the router if hostStaticAssets is set to false', async () => {
+
+    it('does not return the router if hostStaticAssets is set to false', () => {
       instanceMiddlewareOnly[0](requestMock, responseMock, next)
       expect(instanceMiddlewareOnly[1]).toBeUndefined()
     })

@@ -1,17 +1,36 @@
-import AssetLoader from '@financial-times/anvil-server-asset-loader'
 import path from 'path'
 import express from 'express'
+import AssetLoaderWithHints from './resource-hints/AssetLoaderWithHints'
 
 interface MiddlewareOptions {
-  /** The name of the manifest file which will be resolved from the fileSystemPath option */
+  /**
+   * The name of the manifest file which will be resolved from the fileSystemPath option
+   * @default "manifest.json"
+   */
   manifestFileName: string
-  /** The base URL for assets (as seen by users) */
+
+  /**
+   * The base URL for assets (as seen by users)
+   * @default "/public"
+   */
   publicPath: string
-  /** An absolute path to the assets folder on disk */
+
+  /**
+   * An absolute path to the assets folder on disk
+   * @default path.resolve('./public')
+   */
   fileSystemPath: string
-  /** Store file contents in memory when accessed */
+
+  /**
+   * Store file contents in memory when accessed
+   * @default false
+   */
   cacheFileContents: boolean
-  /** Set to true if assets should be served from a local directory */
+
+  /**
+   * Set to true if assets should be served from a local directory
+   * @default false
+   */
   hostStaticAssets: boolean
 }
 
@@ -23,13 +42,28 @@ const defaultOptions: MiddlewareOptions = {
   hostStaticAssets: false
 }
 
-export const init = (userOptions: Partial<MiddlewareOptions>) => {
+export const init = (userOptions: Partial<MiddlewareOptions>): Function[] => {
   const options: MiddlewareOptions = { ...defaultOptions, ...userOptions }
-  const loader = new AssetLoader(options)
 
   // _ indicates an unused request parameter
   function middleware(_, response, next) {
-    response.locals.assets = { loader }
+    response.locals.assets = new AssetLoaderWithHints(options)
+
+    // Intercept the original send method to add resource hints for any requested
+    // stylesheet, script, image, or font assets to the response.
+    // <https://w3c.github.io/resource-hints/>
+    const originalSendMethod = response.send
+
+    response.send = (chunk) => {
+      const type = response.get('Content-Type')
+
+      if ((type && type === 'text/html') || (!type && typeof chunk === 'string')) {
+        response.header('Link', response.locals.assets.toString())
+      }
+
+      return originalSendMethod.call(response, chunk)
+    }
+
     next()
   }
 
