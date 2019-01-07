@@ -12,7 +12,11 @@ export default function(file: string, meta: Partial<HintMeta> = {}): string {
   header.push(`<${file}>`)
 
   Object.keys(meta).forEach((key) => {
-    header.push(`${key}=${meta[key]}`)
+    const value = meta[key]
+
+    if (value) {
+      header.push(`${key}="${value}"`)
+    }
   })
 
   if (!meta.hasOwnProperty('rel')) {

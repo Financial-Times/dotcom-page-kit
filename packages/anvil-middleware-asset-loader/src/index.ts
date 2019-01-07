@@ -1,6 +1,6 @@
 import path from 'path'
 import express from 'express'
-import AssetLoaderWithHints from './resource-hints/AssetLoaderWithHints'
+import ExtendedAssetLoader from './resource-hints/ExtendedAssetLoader'
 
 interface MiddlewareOptions {
   /**
@@ -47,21 +47,21 @@ export const init = (userOptions: Partial<MiddlewareOptions>): Function[] => {
 
   // _ indicates an unused request parameter
   function middleware(_, response, next) {
-    response.locals.assets = new AssetLoaderWithHints(options)
+    response.locals.assets = new ExtendedAssetLoader(options)
 
-    // Intercept the original send method to add resource hints for any requested
+    const originalSendMethod = response.send.bind(response)
+
+    // Intercept the original send method to add a link header including any requested
     // stylesheet, script, image, or font assets to the response.
     // <https://w3c.github.io/resource-hints/>
-    const originalSendMethod = response.send
-
-    response.send = (chunk) => {
+    response.send = function(chunk) {
       const type = response.get('Content-Type')
 
-      if ((type && type === 'text/html') || (!type && typeof chunk === 'string')) {
+      if (type === 'text/html' || (!type && typeof chunk === 'string')) {
         response.header('Link', response.locals.assets.toString())
       }
 
-      return originalSendMethod.call(response, chunk)
+      return originalSendMethod(chunk)
     }
 
     next()

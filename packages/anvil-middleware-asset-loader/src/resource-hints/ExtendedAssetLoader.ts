@@ -2,13 +2,13 @@ import getFileType from './getFileType'
 import createHint from './createHint'
 import AssetLoader from '@financial-times/anvil-server-asset-loader'
 
-export default class AssetLoaderWithHints extends AssetLoader {
+export default class ExtendedAssetLoader extends AssetLoader {
   public hints: Set<string> = new Set()
 
   use(filename: string): string {
     const isAbsolute = /^\/|https?:\/\//
 
-    if (isAbsolute.test(filename) === false) {
+    if (!isAbsolute.test(filename)) {
       filename = this.getPublicPath(filename)
     }
 
@@ -21,10 +21,8 @@ export default class AssetLoaderWithHints extends AssetLoader {
     const hints = []
 
     for (const filename of this.hints) {
-      const url = this.getPublicPath(filename)
       const type = getFileType(filename)
-
-      hints.push(createHint(url, { as: type }))
+      hints.push(createHint(filename, { as: type }))
     }
 
     return hints.join(', ')

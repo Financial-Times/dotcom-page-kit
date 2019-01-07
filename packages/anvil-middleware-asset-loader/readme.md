@@ -26,7 +26,7 @@ const app = express()
 +app.use(assetLoader.init())
 ```
 
-Once added to your application the asset loader will be added to each response and used to locate your static assets.
+Once added to your application the asset loader will be appended to each response which can be used to locate your static assets.
 
 ```js
 app.get('/', (request, response) => {
@@ -38,13 +38,13 @@ app.get('/', (request, response) => {
 })
 ```
 
-This package extends the basic asset loader with an extra `.use()` method which records the assets requested with it and adds [resource hints] for them to the response data:
+This package extends the basic asset loader with an extra `.use()` method which records the requested assets and adds [resource hints] for them to the response data:
 
 ```js
 app.get('/', (request, response) => {
   const assetURL = response.locals.assets.use('main.css')
 
-  response.send('Resource hints will automatically be added to this response for main.css')
+  response.send('A resource hints will be added to this response for main.css')
 })
 ```
 
@@ -73,4 +73,4 @@ The absolute path to the directory of static assets. See the [asset loader] docu
 
 ### `hostStaticAssets`
 
-Serve static assets from a local directory. Uses the Express static middleware to load assets from the configured `fileSystemPath` and serves them from the configured `publicPath`.  Defaults to `false`.
+Serve static assets from a local directory. Uses the Express static middleware to load assets from the configured `fileSystemPath` and serve them from the configured `publicPath`.  Defaults to `false`.

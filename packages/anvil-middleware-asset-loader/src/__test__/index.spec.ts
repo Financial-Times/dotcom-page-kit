@@ -12,7 +12,7 @@ const FakeLoader = {
 }
 
 jest.mock(
-  '../resource-hints/AssetLoaderWithHints',
+  '../resource-hints/ExtendedAssetLoader',
   () => {
     return function() {
       return jest.fn().mockImplementation(() => FakeLoader)
@@ -57,7 +57,7 @@ describe('anvil-server-ft-asset-loader', () => {
       expect(responseMock._isEndCalled()).toEqual(true)
     })
 
-    it('assigns an instance of the loader to response.locals', () => {
+    it('assigns an instance of the asset loader to response.locals', () => {
       instance[0](requestMock, responseMock, next)
       expect(responseMock.locals.assets).toBeDefined()
     })
