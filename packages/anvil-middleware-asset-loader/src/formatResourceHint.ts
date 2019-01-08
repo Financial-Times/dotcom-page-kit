@@ -7,14 +7,10 @@ interface ResourceHintMeta {
   crossorigin?: 'use-credentials' | 'anonymous' | boolean
 }
 
-export default function(file: string, meta: ResourceHintMeta = {}): string {
-  const header = []
+export default (file: string, meta: ResourceHintMeta = {}): string => {
+  const header = [`<${file}>`]
 
-  header.push(`<${file}>`)
-
-  Object.keys(meta).forEach((key) => {
-    const value = meta[key]
-
+  Object.entries(meta).forEach(([key, value]) => {
     if (value) {
       header.push(`${key}="${value}"`)
     }

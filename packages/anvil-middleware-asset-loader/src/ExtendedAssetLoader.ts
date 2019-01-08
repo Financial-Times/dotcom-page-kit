@@ -1,4 +1,4 @@
-import getFileType from './getFileType'
+import getResourceType from './getResourceType'
 import formatResourceHint from './formatResourceHint'
 import AssetLoader from '@financial-times/anvil-server-asset-loader'
 
@@ -19,7 +19,7 @@ export default class ExtendedAssetLoader extends AssetLoader {
     const hints = []
 
     for (const filename of this.hints) {
-      const type = getFileType(filename)
+      const type = getResourceType(filename)
       hints.push(formatResourceHint(filename, { as: type }))
     }
 

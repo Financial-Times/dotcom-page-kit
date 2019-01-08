@@ -2,32 +2,9 @@ import path from 'path'
 import express from 'express'
 import ExtendedAssetLoader from './ExtendedAssetLoader'
 import { Handler, Request, Response, NextFunction } from 'express'
+import { AssetLoaderOptions } from '@financial-times/anvil-server-asset-loader'
 
-interface MiddlewareOptions {
-  /**
-   * The name of the manifest file which will be resolved from the fileSystemPath option
-   * @default "manifest.json"
-   */
-  manifestFileName?: string
-
-  /**
-   * The base URL for assets (as seen by users)
-   * @default "/public"
-   */
-  publicPath?: string
-
-  /**
-   * An absolute path to the assets folder on disk
-   * @default path.resolve('./public')
-   */
-  fileSystemPath?: string
-
-  /**
-   * Store file contents in memory when accessed
-   * @default false
-   */
-  cacheFileContents?: boolean
-
+export interface MiddlewareOptions extends AssetLoaderOptions {
   /**
    * Set to true if assets should be served from a local directory
    * @default false
@@ -36,14 +13,12 @@ interface MiddlewareOptions {
 }
 
 const defaultOptions: MiddlewareOptions = {
-  manifestFileName: 'manifest.json',
+  hostStaticAssets: false,
   publicPath: '/public',
-  fileSystemPath: path.resolve('./public'),
-  cacheFileContents: false,
-  hostStaticAssets: false
+  fileSystemPath: path.resolve('./public')
 }
 
-export const init = (userOptions: MiddlewareOptions): Handler[] => {
+export function init(userOptions: MiddlewareOptions): Handler[] {
   const options: MiddlewareOptions = { ...defaultOptions, ...userOptions }
 
   // _ indicates an unused request parameter
