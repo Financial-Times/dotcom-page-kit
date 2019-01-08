@@ -6,21 +6,7 @@ let request
 let response
 let next
 
-const FakeAssetLoader = {
-  getPublicPath: jest.fn(),
-  getFileSystemPath: jest.fn(),
-  addResourceHint: jest.fn(),
-  formatResourceHints: jest.fn(),
-  getPublicPathAndHint: jest.fn()
-}
-
-jest.mock(
-  '../ExtendedAssetLoader',
-  () => {
-    return jest.fn().mockImplementation(() => FakeAssetLoader)
-  },
-  { virtual: true }
-)
+jest.mock('../ExtendedAssetLoader')
 
 describe('anvil-middleware-asset-loader/src/createMiddleware', () => {
   beforeEach(() => {
@@ -32,7 +18,9 @@ describe('anvil-middleware-asset-loader/src/createMiddleware', () => {
 
   afterEach(() => {
     instance = null
-    jest.clearAllMocks()
+    request = null
+    response = null
+    next = null
   })
 
   it('calls the fallthrough function', () => {

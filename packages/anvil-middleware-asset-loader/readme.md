@@ -22,8 +22,8 @@ After installing the package create a new instance of the middleware and add it 
 const express = require('express')
 const app = express()
 
-+const assetLoader = require('@financial-times/anvil-middleware-asset-loader')
-+app.use(assetLoader.init())
++ const assetLoader = require('@financial-times/anvil-middleware-asset-loader')
++ app.use(assetLoader.init())
 ```
 
 Once added to your application the asset loader will be appended to each response which can be used to locate your static assets.
