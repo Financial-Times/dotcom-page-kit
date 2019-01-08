@@ -1,8 +1,8 @@
 # Asset Loader Middleware
 
-This package provides an [Express] compatible middleware which adds the [asset loader] to your application each response making it available to your application's controllers. The asset loader helps applications to locate their static assets from wherever they are stored.
+This package provides an [Express] compatible middleware which adds the [asset loader] to your application and adds it to each response making it available to your application's controllers. The asset loader helps applications to locate their static assets from wherever they are stored.
 
-In addition this package can also send [resource hints] and [serve static files].
+In addition this package can also be used to send [resource hints] and [serve static files].
 
 [Express]: https://expressjs.com/
 [asset loader]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-asset-loader
@@ -47,7 +47,6 @@ app.get('/', (request, response) => {
 
 See the [asset loader] documentation for a complete list of available methods.
 
-[application locals]: https://expressjs.com/en/api.html#app.locals
 [response locals]: https://expressjs.com/en/api.html#res.locals
 
 
@@ -55,20 +54,20 @@ See the [asset loader] documentation for a complete list of available methods.
 
 ### Loader
 
-A copy of the asset loader will be added to `response.locals.assets.loader`. See the [asset loader] documentation for a list of available methods.
+A copy of the asset loader will be added to each response and made available at `response.locals.assets.loader`. See the [asset loader] documentation for a list of available methods and their usage.
 
 
 ### Resource Hints
 
-Methods to create resource hints will be added to `response.locals.assets.resourceHints`. The available methods are listed below.
+Methods to add and use resource hints will be added to each response and made available at `response.locals.assets.resourceHints`. The available methods are listed below.
 
 #### `.add(url: string)`
 
-Adds a resource hint to the response for the given URL or path. The file type will be inferred from the file extension.
+Adds a resource hint to the response for the given URL or path. The resource type (style, script, image, or font) will be inferred from the file extension.
 
 #### `.toString(filename: string)`
 
-Formats all resource hints to be sent as a `link` header.
+Formats all resource hints added to the response into a valid `link` header string. This is intended to only be used internally but may be useful for debugging purposes.
 
 
 ## Options
@@ -77,22 +76,24 @@ The middleware accepts the following parameters. All options will be passed alon
 
 ### `hostStaticAssets`
 
-Serve static assets from a local directory. Uses the [Express static] middleware to load assets from the configured `fileSystemPath` and serve them from the configured `publicPath`. Defaults to `false`.
+Enable static static assets to be served from a local directory. Uses the [Express static] middleware to load assets from the configured `fileSystemPath` and serve them from the configured `publicPath`. Defaults to `false`.
 
 [Express static]: https://expressjs.com/en/starter/static-files.html
 
 ### `manifestFileName`
 
-See the [asset loader] documentation for more details.
+See the [asset loader documentation] for more details.
 
 ### `publicPath`
 
-See the [asset loader] documentation for more details.
+See the [asset loader documentation] for more details.
 
 ### `cacheFileContents`
 
-See the [asset loader] documentation for more details.
+See the [asset loader documentation] for more details.
 
 ### `fileSystemPath`
 
-See the [asset loader] documentation for more details.
+See the [asset loader documentation] for more details.
+
+[asset loader documentation]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-asset-loader#options
