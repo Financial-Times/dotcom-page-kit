@@ -1,21 +1,27 @@
 # FT A/B State Middleware
 
-The A/B State middleware appends the A/B test status to app.locals for each request.
+This package provides an [Express] compatible middleware which appends the A/B test status to each request.
 
-This middleware should be consumed by your application's server file.
+[Express]: https://expressjs.com/
 
 
-### Installation
-```
+### Getting started
+
+This package is compatible with Node 10+ and is distributed on npm.
+
+```sh
 npm install --save @financial-times/anvil-middleware-ft-ab-state
 ```
 
+After installing the package create a new instance of the middleware and add it to your application:
 
-### Example usage:
+```diff
+const express = require('express')
+const app = express()
+
++const abStateMiddleware = require('@financial-times/anvil-middleware-ft-ab-test')
++app.use(abStateMiddleware.init())
 ```
-const abStateMiddleware = require('@financial-times/anvil-middleware-ft-ab-test')
 
-const instance = abStateMiddleware.default()
+Once added to your application the A/B state middleware will append the A/B test status to each request.
 
-app.use(instance)
-```

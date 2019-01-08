@@ -30,5 +30,9 @@ describe('anvil-middleware-ft-ab-test', () => {
       instance(requestMock, responseMock, next)
       expect(next).toHaveBeenCalled()
     })
+    it('assigns an instance of the middleware to response.locals', () => {
+      instance(requestMock, responseMock, next)
+      expect(responseMock.locals.abState).toBeDefined()
+    })
   })
 })
