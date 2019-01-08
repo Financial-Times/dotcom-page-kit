@@ -1,6 +1,8 @@
 # Asset Loader Middleware
 
-This package provides an [Express] compatible middleware which adds the [asset loader] to each response making it accessible to your application's controllers. It can also send [resource hints] and [serve static files].
+This package provides an [Express] compatible middleware which adds the [asset loader] to your application each response making it available to your application's controllers. The asset loader helps applications to locate their static assets from wherever they are stored.
+
+In addition this package can also send [resource hints] and [serve static files].
 
 [Express]: https://expressjs.com/
 [asset loader]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-asset-loader
@@ -16,7 +18,7 @@ This package is compatible with Node 10+ and is distributed on npm.
 npm install --save @financial-times/anvil-middleware-asset-loader
 ```
 
-After installing the package create a new instance of the middleware and add it to your application:
+After installing the package create a new instance of the middleware and register it with your application. The middleware can be configured with several [options](#options):
 
 ```diff
 const express = require('express')
@@ -26,27 +28,18 @@ const app = express()
 + app.use(assetLoader.init())
 ```
 
-Once added to your application the asset loader will be appended to each response which can be used to locate your static assets.
+Once registered an `assets` property will be added to the [response locals] object which provides a copy of the asset loader (used to locate your static assets) and methods to add [resource hints] to the response data.
 
 ```js
 app.get('/', (request, response) => {
   // Get the absolute file system path to an asset
-  const assetPath = response.locals.assets.getFileSystemPath('main.css')
+  const filePath = response.locals.assets.loader.getFileSystemPath('main.css')
 
   // Get the public URL to an asset
-  const assetURL = response.locals.assets.getPublicPath('main.css')
-})
-```
+  const publicURL = response.locals.assets.loader.getPublicPath('main.css')
 
-This package extends the basic asset loader with two extra methods which can be used to add [resource hints] to the response data:
-
-```js
-app.get('/', (request, response) => {
-  // Add a resource hint to the response for a file
-  reponse.locals.assets.addResourceHint('/public/logo.png')
-
-  // Get the public URL to an asset and add a resource hint to the response
-  const assetURL = response.locals.assets.getPublicPathAndHint('main.css')
+  // Add a resource hint to the response
+  response.locals.assets.resourceHints.add(publicURL)
 
   response.send('A resource hint will be added to this response for main.css')
 })
@@ -54,27 +47,52 @@ app.get('/', (request, response) => {
 
 See the [asset loader] documentation for a complete list of available methods.
 
+[application locals]: https://expressjs.com/en/api.html#app.locals
+[response locals]: https://expressjs.com/en/api.html#res.locals
 
-## Settings
 
-The middleware accepts the following parameters. All options are passed to the asset loader:
+## API
 
-### `manifestFileName`
+### Loader
 
-The name of the asset manifest file. See the [asset loader] documentation for more details. Defaults to `"manifest.json"`.
+A copy of the asset loader will be added to `response.locals.assets.loader`. See the [asset loader] documentation for a list of available methods.
 
-### `publicPath`
 
-The public-facing URL for the static assets. See the [asset loader] documentation for more details. Defaults to `"/public"`.
+### Resource Hints
 
-### `cacheFileContents`
+Methods to create resource hints will be added to `response.locals.assets.resourceHints`. The available methods are listed below.
 
-Cache files in memory when accessed. See the [asset loader] documentation for more details. Defaults to `false`.
+#### `.add(url: string)`
 
-### `fileSystemPath`
+Adds a resource hint to the response for the given URL or path. The file type will be inferred from the file extension.
 
-The absolute path to the directory of static assets. See the [asset loader] documentation for more details. Defaults to `path.resolve("./public")`.
+#### `.toString(filename: string)`
+
+Formats all resource hints to be sent as a `link` header.
+
+
+## Options
+
+The middleware accepts the following parameters. All options will be passed along to the asset loader:
 
 ### `hostStaticAssets`
 
-Serve static assets from a local directory. Uses the Express static middleware to load assets from the configured `fileSystemPath` and serve them from the configured `publicPath`.  Defaults to `false`.
+Serve static assets from a local directory. Uses the [Express static] middleware to load assets from the configured `fileSystemPath` and serve them from the configured `publicPath`. Defaults to `false`.
+
+[Express static]: https://expressjs.com/en/starter/static-files.html
+
+### `manifestFileName`
+
+See the [asset loader] documentation for more details.
+
+### `publicPath`
+
+See the [asset loader] documentation for more details.
+
+### `cacheFileContents`
+
+See the [asset loader] documentation for more details.
+
+### `fileSystemPath`
+
+See the [asset loader] documentation for more details.

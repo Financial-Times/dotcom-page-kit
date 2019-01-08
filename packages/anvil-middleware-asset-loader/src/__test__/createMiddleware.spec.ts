@@ -11,7 +11,7 @@ jest.mock('@financial-times/anvil-server-asset-loader')
 describe('anvil-middleware-asset-loader/src/createMiddleware', () => {
   beforeEach(() => {
     instance = subject({})
-    request = httpMocks.createRequest()
+    request = httpMocks.createRequest({ app: { locals: {} } })
     response = httpMocks.createResponse()
     next = jest.fn()
   })
@@ -28,9 +28,14 @@ describe('anvil-middleware-asset-loader/src/createMiddleware', () => {
     expect(next).toHaveBeenCalled()
   })
 
-  it('assigns an instance of the asset loader to response.locals', () => {
+  it('adds an instance of the asset loader to response.locals', () => {
     instance(request, response, next)
-    expect(response.locals.assets).toBeDefined()
+    expect(response.locals.assets.loader).toBeDefined()
+  })
+
+  it('adds an instance of resource hints to response.locals', () => {
+    instance(request, response, next)
+    expect(response.locals.assets.resourceHints).toBeDefined()
   })
 
   it('intercepts the default response.send() method to append link headers', () => {

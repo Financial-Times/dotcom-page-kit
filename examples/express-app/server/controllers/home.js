@@ -6,8 +6,12 @@ module.exports = async (request, response) => {
     foo: 'foo',
     bar: 'bar',
     baz: 'baz',
-    scripts: [response.locals.assets.getPublicPathAndHint('main.js')]
+    scripts: [response.locals.assets.loader.getPublicPath('main.js')]
   }
+
+  options.scripts.forEach((script) => {
+    response.locals.assets.resourceHints.add(script)
+  })
 
   try {
     // When calling Express's `.render()` method locals will be appended to view data.

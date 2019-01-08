@@ -3,6 +3,8 @@ import { init } from '../index'
 let instanceWithStaticHost
 let instanceNoStaticHost
 
+jest.mock('@financial-times/anvil-server-asset-loader')
+
 describe('anvil-middleware-asset-loader', () => {
   beforeEach(() => {
     instanceWithStaticHost = init({ hostStaticAssets: true })
