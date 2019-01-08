@@ -6,21 +6,23 @@ import { Handler, Request, Response, NextFunction } from 'express'
 export default (options: MiddlewareOptions): Handler => {
   const loader = new AssetLoader(options)
 
-  return (_: Request, response: Response, next: NextFunction) => {
+  return (request: Request, response: Response, next: NextFunction) => {
     const resourceHints = new ResourceHints()
     const originalSendMethod = response.send.bind(response)
 
     response.locals.assets = { loader, resourceHints }
 
-    response.send = (data) => {
-      const mimeType = response.get('Content-Type')
-      const inferAsHTML = !mimeType && typeof data === 'string'
+    response.send = (chunk) => {
+      // Assume the content type is HTML if the chunk is a string
+      // <https://github.com/expressjs/express/blob/master/lib/response.js#L141-L147>
+      const contentType = response.get('Content-Type')
+      const inferAsHTML = !contentType && typeof chunk === 'string'
 
-      if (mimeType === 'text/html' || inferAsHTML) {
+      if (request.method !== 'HEAD' && (contentType === 'text/html' || inferAsHTML)) {
         response.header('Link', resourceHints.toString())
       }
 
-      return originalSendMethod(data)
+      return originalSendMethod(chunk)
     }
 
     next()

@@ -46,4 +46,25 @@ describe('anvil-middleware-asset-loader/src/createMiddleware', () => {
     expect(response._headers).toHaveProperty('link')
     expect(response._isEndCalled()).toEqual(true)
   })
+
+  it('only adds link headers for HTML responses', () => {
+    instance(request, response, next)
+
+    response.type('txt')
+    response.send('Hello World')
+
+    expect(response._headers).not.toHaveProperty('link')
+    expect(response._isEndCalled()).toEqual(true)
+  })
+
+  it('does not add link headers for HEAD requests', () => {
+    const request = httpMocks.createRequest({ method: 'HEAD' })
+
+    instance(request, response, next)
+
+    response.send('Hello World')
+
+    expect(response._headers).not.toHaveProperty('link')
+    expect(response._isEndCalled()).toEqual(true)
+  })
 })
