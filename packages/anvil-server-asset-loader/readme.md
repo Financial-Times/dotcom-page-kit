@@ -1,64 +1,91 @@
 # anvil-server-asset-loader
 
-This package enables apps to locate their static hashed assets from wherever they are stored.
-
-It creates associations between applications and their bundled JS and CSS code by consuming a manifest file.
+This package helps applications to locate their static assets from wherever they are stored.
 
 
-## Installation
+### Getting started
 
-This module is compatible with Node 8+ and is distributed on npm.
+This module is compatible with Node 10+ and is distributed on npm.
 
 ```bash
 npm install -S @financial-times/anvil-server-asset-loader
 ```
 
-You will also need to ensure your application is configured to create manifest files for your static assets. See the [creating a manifest](#creating-a-manifest) section for more information.
+You will also need to ensure your application is configured to create manifest files for your static assets. See the [creating a manifest file](#creating-a-manifest-file) section for more information.
 
-
-## Usage
-
-This module provides a single class, `AssetLoader`. When creating a new instance of `AssetLoader` it requires several options be provided.
+This module provides a single class, `AssetLoader` which accepts several configuration [options](#options).
 
 ```js
-const path = require('path')
-const AssetLoader = require('@financial-times/anvil-server-asset-loader')
+import path from 'path'
+import AssetLoader from '@financial-times/anvil-server-asset-loader'
 
 const assetLoader = new AssetLoader({
-  manifestFileName: 'manifest.json',
   publicPath: 'https://cdn.site.com/assets',
-  fileSystemPath: path.join(process.cwd(), 'public'),
-  cacheFileContents: false
+  fileSystemPath: path.resolve('./dist'),
 })
 ```
 
-The options are:
+The asset loader provides several methods which can be used to locate assets on the file system and create URLs:
 
-- `manifestFileName` - The name of the manifest file which will be resolved from the given fileSystemPath
-- `publicPath` - The base URL for assets (as seen by users)
-- `fileSystemPath` - An absolute path to the assets folder on disk
-- `cacheFileContents` - Store file contents in memory when accessed (optional)
+```js
+// Get the absolute file system path to an asset
+const assetPath = assetLoader.getFileSystemPath('main.css')
 
-The asset loader instance provides several methods to retrieve the public and private paths to assets and load their contents.
+// Get the public URL to an asset
+const assetURL = assetLoader.getPublicPath('main.css')
+```
 
 
-## Creating a manifest
+## API
 
-To begin with you must create a manifest file. If you have implemented a build step you should configure your tools to output this file alongside your other compiled files.
+### `getHashedAsset(filename: string)`
+
+### `getPublicPath(filename: string)`
+
+### `getFileSystemPath(filename: string)`
+
+### `getFileContents(filename: string)`
+
+### `findAssets(pattern: string | RegExp)`
+
+### `findHashedAssets(pattern: string | RegExp)`
+
+## Options
+
+The `AssetLoader` class accepts the following parameters. All parameters are optional:
+
+### `manifestFileName`
+
+The name of the asset manifest file. This will be resolved relative to the `fileSystemPath`. Defaults to `"manifest.json"`.
+
+### `publicPath`
+
+The public-facing URL for the static assets. This is used when formatting publicly accessible URLs to assets for the browser or user to download. This should begin with a slash or protocol (e.g. `https://`) but no trailing slash is necessary. Defaults to `"/public"`.
+
+### `cacheFileContents`
+
+Store files in memory when accessed. The cache is global and is shared between all instances of the asset loader. Defaults to `false`.
+
+### `fileSystemPath`
+
+The absolute path to the directory of static assets. This will be used to locate files in order to read them. Defaults to `path.resolve("./public")`.
+
+
+## Creating a manifest file
+
+To use the asset loader you must provide a manifest file. If you have implemented a build step you should configure your build tooling to output this file alongside your other compiled files.
 
 A manifest is a JSON file which provides a map of original file names to their production file names, e.g.:
 
 ```
 {
-  "main.js": {
-    "development": "main.1793bd7a.js"
-  }
+  "main.js": "main.1793bd7a.js"
 }
 ```
 
-This is important because many build tools can be configured to write files with different names. Often file names will be appended with a hash based on their contents to ensure the file is redownloaded by users when it changes.
+This is required because many build tools can be configured to write files with different names or split code into multiple chunks.
 
-Plugins to create manifest files are available for most build tools:
+Plugins to create manifest files are available for most build popular tools:
 
 - [Manifest plugin for Webpack](https://www.npmjs.com/package/webpack-manifest-plugin)
 - [Manifest plugin for Parcel](https://www.npmjs.com/package/parcel-plugin-bundle-manifest)

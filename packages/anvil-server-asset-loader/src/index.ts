@@ -4,25 +4,25 @@ import { loadManifest } from './helpers/loadManifest'
 
 export interface AssetLoaderOptions {
   /**
-   * The name of the manifest file which will be resolved from the fileSystemPath option
+   * The name of the asset manifest file
    * @default "manifest.json"
    */
   manifestFileName?: string
 
   /**
-   * The base URL for assets (as seen by users)
+   * The public-facing URL for the static assets
    * @default "/public"
    */
   publicPath?: string
 
   /**
-   * An absolute path to the assets folder on disk
+   * The absolute path to the directory of static assets
    * @default path.resolve('./public')
    */
   fileSystemPath?: string
 
   /**
-   * Store file contents in memory when accessed
+   * Store files in memory when accessed
    * @default false
    */
   cacheFileContents?: boolean
