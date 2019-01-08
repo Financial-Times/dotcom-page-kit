@@ -25,3 +25,9 @@ const app = express()
 
 Once added to your application the A/B state middleware will append the A/B test status to each request.
 
+```js
+app.get('/', (request, response) => {
+// The A/B test state will be available on response.locals.
+const abState = response.locals.abState
+})
+```
