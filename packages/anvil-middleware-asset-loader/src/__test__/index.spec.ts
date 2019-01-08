@@ -1,78 +1,41 @@
-import { init as subject } from '../index'
-import httpMocks from 'node-mocks-http'
+import { init } from '../index'
 
-let instance
-let instanceMiddlewareOnly
-let requestMock
-let responseMock
-let nextMock
-
-const FakeLoader = {
-  getPublicPath: jest.fn(),
-  addResourceHint: jest.fn(),
-  formatResourceHints: jest.fn(),
-  getPublicPathAndHint: jest.fn()
-}
-
-jest.mock(
-  '../ExtendedAssetLoader',
-  () => {
-    return jest.fn().mockImplementation(() => FakeLoader)
-  },
-  { virtual: true }
-)
-
-beforeEach(() => {
-  instance = subject({ hostStaticAssets: true })
-  instanceMiddlewareOnly = subject({ hostStaticAssets: false })
-  requestMock = httpMocks.createRequest()
-  responseMock = httpMocks.createResponse()
-  nextMock = jest.fn()
-})
-
-afterEach(() => {
-  instance = null
-  instanceMiddlewareOnly = null
-  jest.clearAllMocks()
-})
+let instanceWithStaticHost
+let instanceNoStaticHost
 
 describe('anvil-middleware-asset-loader', () => {
-  it('returns an Array of functions', () => {
-    expect(instance).toBeInstanceOf(Array)
-    expect(instance[0]).toBeInstanceOf(Function)
-    expect(instance[1]).toBeInstanceOf(Function)
+  beforeEach(() => {
+    instanceWithStaticHost = init({ hostStaticAssets: true })
+    instanceNoStaticHost = init({ hostStaticAssets: false })
   })
 
-  describe('middleware', () => {
-    it('calls the fallthrough function', () => {
-      instance[0](requestMock, responseMock, nextMock)
-      expect(nextMock).toHaveBeenCalled()
-    })
+  afterEach(() => {
+    instanceWithStaticHost = null
+    instanceNoStaticHost = null
+  })
 
-    it('assigns an instance of the asset loader to response.locals', () => {
-      instance[0](requestMock, responseMock, nextMock)
-      expect(responseMock.locals.assets).toBeDefined()
-    })
+  it('returns an array of handler functions', () => {
+    expect(instanceWithStaticHost).toBeInstanceOf(Array)
 
-    it('intercepts the default response.send() method and appends link header', () => {
-      instance[0](requestMock, responseMock, nextMock)
-
-      responseMock.send('Hello World')
-
-      expect(responseMock._headers).toHaveProperty('link')
-      expect(responseMock._isEndCalled()).toEqual(true)
+    instanceWithStaticHost.forEach((item) => {
+      expect(item).toBeInstanceOf(Function)
+      expect(item).toHaveLength(3)
     })
   })
 
-  describe('router', () => {
-    it('returns an instance of the router if hostStaticAssets is set to true', () => {
-      instance[0](requestMock, responseMock, nextMock)
-      expect(instance[1].name).toEqual('router')
+  describe('with hostStaticAssets enabled', () => {
+    it('returns multiple handlers', () => {
+      expect(instanceWithStaticHost).toHaveLength(2)
     })
 
-    it('does not return the router if hostStaticAssets is set to false', () => {
-      instanceMiddlewareOnly[0](requestMock, responseMock, nextMock)
-      expect(instanceMiddlewareOnly[1]).toBeUndefined()
+    it('returns an instance of the router', () => {
+      expect(instanceWithStaticHost[1].name).toEqual('router')
+    })
+  })
+
+  describe('without hostStaticAssets enabled', () => {
+    it('returns one handler', () => {
+      expect(instanceNoStaticHost).toHaveLength(1)
     })
   })
 })
