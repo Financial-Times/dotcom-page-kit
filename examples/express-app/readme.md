@@ -25,7 +25,7 @@ const middelware = myMiddleware()
 app.use(middelware)
 ```
 
-Navigate to the root of this `express-app` and use `npm run build` to start the app on localhost:3456.
+Navigate to the root of this `express-app` and use `npm run start` to start the app on localhost:3456.
 
 Tip - Remember to build your middleware after making a change to make it available to the example app `athloi run build --filter anvil-middleware-my-middleware`.
 
