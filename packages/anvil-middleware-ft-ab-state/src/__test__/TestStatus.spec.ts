@@ -19,7 +19,7 @@ describe('anvil-middleware-ft-ab-test/src/parseTestList', () => {
   })
 
   describe('.toString()', () => {
-    it('returns the original test list string', () => {
+    it('formats each allocated test as a string', () => {
       expect(instance.toString()).toEqual('headlineTesting:variant1,premiumCohort:on,fcfABTest:1')
     })
   })

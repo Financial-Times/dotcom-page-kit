@@ -9,23 +9,27 @@ interface TestStatusOptions {
 }
 
 export default class TestStatus {
-  private testList: string
   private status: Map<string, string>
 
   constructor(userOptions: TestStatusOptions) {
-    this.testList = userOptions.testList
     this.status = parseTestList(userOptions.testList)
   }
 
-  get(testName: string): string | boolean | number | null {
-    if (this.status.has(testName)) {
-      return parseTestValue(this.status.get(testName))
+  get(test: string): string | boolean | number | null {
+    if (this.status.has(test)) {
+      return parseTestValue(this.status.get(test))
     }
 
     return null
   }
 
   toString() {
-    return this.testList
+    const items = []
+
+    for (const [key, value] of this.status) {
+      items.push(`${key}:${value}`)
+    }
+
+    return items.join(',')
   }
 }

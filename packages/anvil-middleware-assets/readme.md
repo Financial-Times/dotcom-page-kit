@@ -50,22 +50,20 @@ See the [asset loader] documentation for a complete list of available methods.
 [response locals]: https://expressjs.com/en/api.html#res.locals
 
 
-## API
-
-### Loader
+## Loader API
 
 A copy of the asset loader will be added to each response and made available at `response.locals.assets.loader`. See the [asset loader] documentation for a list of available methods and their usage.
 
 
-### Resource Hints
+## Resource Hints API
 
 Methods to add and use resource hints will be added to each response and made available at `response.locals.assets.resourceHints`. The available methods are listed below.
 
-#### `.add(url: string)`
+### `.add(url: string)`
 
 Adds a resource hint to the response for the given URL or path. The resource type (style, script, image, or font) will be inferred from the file extension.
 
-#### `.toString(filename: string)`
+### `.toString(filename: string)`
 
 Formats all resource hints added to the response into a valid `link` header string. This is intended to only be used internally but may be useful for debugging purposes.
 

@@ -14,7 +14,7 @@ This package is compatible with Node 10+ and is distributed on npm.
 npm install --save @financial-times/anvil-middleware-ft-ab-state
 ```
 
-After installing the package create a new instance of the middleware and add it to your application:
+After installing the package create a new instance of the middleware and register it with your application:
 
 ```diff
 const express = require('express')
@@ -24,11 +24,30 @@ const app = express()
 +app.use(abStateMiddleware.init())
 ```
 
-Once added to your application the A/B state middleware will append the A/B test status to each request.
+Once added to your application the A/B test status will be added to each request.
 
 ```js
 app.get('/', (request, response) => {
-// The A/B test state will be available on response.locals.
-const abState = response.locals.abState
+  if (response.locals.abState.get('headlineTest')) {
+    ...
+  }
 })
 ```
+
+
+## Test Status API
+
+Methods to get A/B test statuses will be added to each response and made available at `response.locals.abStatus`. The available methods are listed below.
+
+### `.get(test: string)`
+
+Get the status for a given test. Number and boolean values will be parsed. Tests with values set to "on" or "off" will be coerced to booleans.
+
+### `.toString()`
+
+Formats all allocated A/B tests as a string. This is intended to only be used internally but may be useful for debugging purposes.
+
+
+## Options
+
+There are currently no additional options for this middleware package.
