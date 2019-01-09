@@ -9,9 +9,11 @@ interface TestStatusOptions {
 }
 
 export default class TestStatus {
+  private testList: string
   private status: Map<string, string>
 
   constructor(userOptions: TestStatusOptions) {
+    this.testList = userOptions.testList
     this.status = parseTestList(userOptions.testList)
   }
 
@@ -24,12 +26,6 @@ export default class TestStatus {
   }
 
   toString() {
-    const items = []
-
-    for (const [key, value] of this.status) {
-      items.push(`${key}:${value}`)
-    }
-
-    return items.join(',')
+    return this.testList
   }
 }
