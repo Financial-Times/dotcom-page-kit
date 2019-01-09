@@ -44,13 +44,17 @@ class AssetLoader {
     this.manifest = loadManifest(path.resolve(this.options.fileSystemPath, this.options.manifestFileName))
   }
 
-  matchAssets(pattern: string | RegExp): string[] {
+  matchAssets(pattern: string | RegExp | Function): string[] {
     return Object.keys(this.manifest).reduce((matches: string[], key: string) => {
       if (typeof pattern === 'string' && key.includes(pattern)) {
         matches.push(key)
       }
 
       if (pattern instanceof RegExp && pattern.test(key)) {
+        matches.push(key)
+      }
+
+      if (pattern instanceof Function && pattern(key)) {
         matches.push(key)
       }
 

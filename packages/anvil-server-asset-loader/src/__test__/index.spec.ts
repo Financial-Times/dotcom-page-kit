@@ -55,6 +55,9 @@ describe('anvil-server-asset-loader', () => {
 
       const b = loader.matchAssets('main')
       expect(b).toEqual(['main.js', 'vendor~main~secondary.js'])
+
+      const c = loader.matchAssets((filename) => filename === 'main.js')
+      expect(c).toEqual(['main.js'])
     })
   })
 
