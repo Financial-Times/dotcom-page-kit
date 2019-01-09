@@ -1,6 +1,6 @@
 # anvil-server-asset-loader
 
-This package helps applications to locate their static assets from wherever they are stored.
+This package helps applications to locate their static assets from wherever they are output.
 
 
 ### Getting started
@@ -40,13 +40,24 @@ const assetURL = assetLoader.getPublicURL('main.css')
 
 ### `getHashedAsset(filename: string)`
 
+Returns the output file name for the given the original file name.
+
 ### `getPublicURL(filename: string)`
+
+Returns the public URL (accessible to a website user) for the given the original file name.
 
 ### `getFileSystemPath(filename: string)`
 
+Returns the absolute file system path to an output file for the given the original file name.
+
 ### `getFileContents(filename: string)`
 
+Loads the contents of an output file for the given the original file name.
+
 ### `matchAssets(pattern: string | RegExp)`
+
+Match original file names based on a pattern which may be useful when output is split into multiple files.
+
 
 ## Options
 
@@ -73,7 +84,7 @@ The absolute path to the directory of static assets. This will be used to locate
 
 To use the asset loader you must provide a manifest file. If you have implemented a build step you should configure your build tooling to output this file alongside your other compiled files.
 
-A manifest is a JSON file which provides a map of original file names to their production file names, e.g.:
+A manifest is a JSON file which provides a map of original file names to their corresponding output file names, e.g.:
 
 ```
 {
@@ -81,10 +92,10 @@ A manifest is a JSON file which provides a map of original file names to their p
 }
 ```
 
-This is required because many build tools can be configured to write files with different names or split code into multiple chunks.
+This is required because many build tools can be configured to write files with different output names or split code into multiple chunks which can change or are not human readable.
 
 Plugins to create manifest files are available for most build popular tools:
 
 - [Manifest plugin for Webpack](https://www.npmjs.com/package/webpack-manifest-plugin)
 - [Manifest plugin for Parcel](https://www.npmjs.com/package/parcel-plugin-bundle-manifest)
-- [Manifest plugin for Rollup](https://www.npmjs.com/package/rollup-plugin-hash-manifest)
+- [Hash plugin with manifest support for Rollup](https://www.npmjs.com/package/rollup-plugin-hash-manifest)
