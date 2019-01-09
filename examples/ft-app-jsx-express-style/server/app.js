@@ -12,7 +12,7 @@ const assets = new AssetLoader({
   publicPath: '/assets'
 })
 
-const scriptsToLoad = [assets.getPublicPath('client.js'), assets.getPublicPath('runtime.js')]
+const scriptsToLoad = [assets.getPublicURL('client.js'), assets.getPublicURL('runtime.js')]
 
 const renderer = createRendererMiddleware({ scriptsToLoad })
 

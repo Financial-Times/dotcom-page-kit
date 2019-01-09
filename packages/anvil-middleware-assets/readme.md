@@ -36,7 +36,7 @@ app.get('/', (request, response) => {
   const filePath = response.locals.assets.loader.getFileSystemPath('main.css')
 
   // Get the public URL to an asset
-  const publicURL = response.locals.assets.loader.getPublicPath('main.css')
+  const publicURL = response.locals.assets.loader.getPublicURL('main.css')
 
   // Add a resource hint to the response
   response.locals.assets.resourceHints.add(publicURL)

@@ -75,9 +75,9 @@ describe('anvil-server-asset-loader', () => {
     })
   })
 
-  describe('.getPublicPath()', () => {
+  describe('.getPublicURL()', () => {
     it('returns the public path for the requested file', () => {
-      const result = loader.getPublicPath('styles.css')
+      const result = loader.getPublicURL('styles.css')
       expect(result).toEqual('public/assets/styles.12345.bundle.css')
     })
   })

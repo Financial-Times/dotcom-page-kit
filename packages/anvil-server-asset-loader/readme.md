@@ -32,7 +32,7 @@ The asset loader provides several methods which can be used to locate assets on 
 const assetPath = assetLoader.getFileSystemPath('main.css')
 
 // Get the public URL to an asset
-const assetURL = assetLoader.getPublicPath('main.css')
+const assetURL = assetLoader.getPublicURL('main.css')
 ```
 
 
@@ -40,7 +40,7 @@ const assetURL = assetLoader.getPublicPath('main.css')
 
 ### `getHashedAsset(filename: string)`
 
-### `getPublicPath(filename: string)`
+### `getPublicURL(filename: string)`
 
 ### `getFileSystemPath(filename: string)`
 

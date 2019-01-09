@@ -79,7 +79,7 @@ class AssetLoader {
     return path.join(this.options.fileSystemPath, hashedAsset)
   }
 
-  getPublicPath(asset: string): string {
+  getPublicURL(asset: string): string {
     const hashedAsset = this.getHashedAsset(asset)
     // Do not use path.join() as separator is platform specific
     return `${this.options.publicPath}/${hashedAsset}`
@@ -94,11 +94,11 @@ class AssetLoader {
   }
 
   createStylesheetLink(stylesheet: string): string {
-    return `<link rel="stylesheet" href="${this.getPublicPath(stylesheet)}">`
+    return `<link rel="stylesheet" href="${this.getPublicURL(stylesheet)}">`
   }
 
   createJavascriptLink(javascript: string): string {
-    return `<script src="${this.getPublicPath(javascript)}"></script>`
+    return `<script src="${this.getPublicURL(javascript)}"></script>`
   }
 }
 
