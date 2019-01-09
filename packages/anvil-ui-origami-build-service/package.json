@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-ui-ft-header",
+  "name": "@financial-times/anvil-ui-origami-build-service",
   "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
@@ -21,7 +21,10 @@
   "peerDependencies": {
     "react": "^16.7.0-alpha.0"
   },
+  "dependencies": {
+    "react-helmet": "^5.2.0"
+  },
   "devDependencies": {
-    "@financial-times/anvil-ui-origami-build-service": "file:../anvil-ui-origami-build-service"
+    "@financial-times/anvil-types-generic": "file:../anvil-types-generic"
   }
 }

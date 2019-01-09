@@ -1,5 +1,9 @@
 import React from 'react'
 
-export default function FTHeader() {
-  return <div>header...</div>
+interface Props {
+  children?: any
+}
+
+export default function FTHeader({ children }: Props) {
+  return <div>header... {children}</div>
 }
