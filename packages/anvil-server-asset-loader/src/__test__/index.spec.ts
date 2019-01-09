@@ -48,23 +48,16 @@ describe('anvil-server-asset-loader', () => {
     })
   })
 
-  describe('.findAssets()', () => {
+  describe('.matchAssets()', () => {
     it('returns an array of matching file names from the manifest', () => {
-      const a = loader.findAssets(/main/)
+      const a = loader.matchAssets(/main/)
       expect(a).toEqual(['main.js', 'vendor~main~secondary.js'])
 
-      const b = loader.findAssets('main')
+      const b = loader.matchAssets('main')
       expect(b).toEqual(['main.js', 'vendor~main~secondary.js'])
-    })
-  })
 
-  describe('.findHashedAssets()', () => {
-    it('returns an array of matching hashed file names from the manifest', () => {
-      const a = loader.findHashedAssets(/main/)
-      expect(a).toEqual(['main.12345.bundle.js', 'vendor~main~secondary.12345.bundle.js'])
-
-      const b = loader.findHashedAssets('main')
-      expect(b).toEqual(['main.12345.bundle.js', 'vendor~main~secondary.12345.bundle.js'])
+      const c = loader.matchAssets((filename) => filename === 'main.js')
+      expect(c).toEqual(['main.js'])
     })
   })
 
@@ -75,9 +68,9 @@ describe('anvil-server-asset-loader', () => {
     })
   })
 
-  describe('.getPublicPath()', () => {
+  describe('.getPublicURL()', () => {
     it('returns the public path for the requested file', () => {
-      const result = loader.getPublicPath('styles.css')
+      const result = loader.getPublicURL('styles.css')
       expect(result).toEqual('public/assets/styles.12345.bundle.css')
     })
   })

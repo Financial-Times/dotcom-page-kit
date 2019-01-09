@@ -1,6 +1,6 @@
 # anvil-server-asset-loader
 
-This package helps applications to locate their static assets from wherever they are stored.
+This package provides functions to help applications locate their static assets from wherever they are output.
 
 
 ### Getting started
@@ -13,7 +13,7 @@ npm install -S @financial-times/anvil-server-asset-loader
 
 You will also need to ensure your application is configured to create manifest files for your static assets. See the [creating a manifest file](#creating-a-manifest-file) section for more information.
 
-This module provides a single class, `AssetLoader` which accepts several configuration [options](#options).
+This module provides a single class which can be configured using [options](#options).
 
 ```js
 import path from 'path'
@@ -25,14 +25,14 @@ const assetLoader = new AssetLoader({
 })
 ```
 
-The asset loader provides several methods which can be used to locate assets on the file system and create URLs:
+The asset loader provides methods which can be used to locate assets on the file system and create URLs:
 
 ```js
 // Get the absolute file system path to an asset
 const assetPath = assetLoader.getFileSystemPath('main.css')
 
 // Get the public URL to an asset
-const assetURL = assetLoader.getPublicPath('main.css')
+const assetURL = assetLoader.getPublicURL('main.css')
 ```
 
 
@@ -40,15 +40,24 @@ const assetURL = assetLoader.getPublicPath('main.css')
 
 ### `getHashedAsset(filename: string)`
 
-### `getPublicPath(filename: string)`
+Returns the output file name for the given the source file name.
+
+### `getPublicURL(filename: string)`
+
+Returns the public URL (accessible to a website user) for the given the source file name.
 
 ### `getFileSystemPath(filename: string)`
 
+Returns the absolute file system path to an output file for the given the source file name.
+
 ### `getFileContents(filename: string)`
 
-### `findAssets(pattern: string | RegExp)`
+Loads the contents of an output file for the given the source file name.
 
-### `findHashedAssets(pattern: string | RegExp)`
+### `matchAssets(pattern: string | RegExp | Function)`
+
+Match source file names based on a pattern which may be useful when output is split into multiple files.
+
 
 ## Options
 
@@ -75,7 +84,7 @@ The absolute path to the directory of static assets. This will be used to locate
 
 To use the asset loader you must provide a manifest file. If you have implemented a build step you should configure your build tooling to output this file alongside your other compiled files.
 
-A manifest is a JSON file which provides a map of original file names to their production file names, e.g.:
+A manifest is a JSON file which provides a map of source file names to their corresponding output file names, e.g.:
 
 ```
 {
@@ -83,10 +92,10 @@ A manifest is a JSON file which provides a map of original file names to their p
 }
 ```
 
-This is required because many build tools can be configured to write files with different names or split code into multiple chunks.
+This is required because many build tools can be configured to write files with different output names or split code into multiple chunks which can change or are not human readable.
 
 Plugins to create manifest files are available for most build popular tools:
 
 - [Manifest plugin for Webpack](https://www.npmjs.com/package/webpack-manifest-plugin)
 - [Manifest plugin for Parcel](https://www.npmjs.com/package/parcel-plugin-bundle-manifest)
-- [Manifest plugin for Rollup](https://www.npmjs.com/package/rollup-plugin-hash-manifest)
+- [Hash plugin with manifest support for Rollup](https://www.npmjs.com/package/rollup-plugin-hash-manifest)

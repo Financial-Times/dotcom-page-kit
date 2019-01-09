@@ -44,15 +44,7 @@ class AssetLoader {
     this.manifest = loadManifest(path.resolve(this.options.fileSystemPath, this.options.manifestFileName))
   }
 
-  getHashedAsset(asset: string): string {
-    if (this.manifest.hasOwnProperty(asset)) {
-      return this.manifest[asset]
-    } else {
-      throw Error(`Couldn't find asset "${asset}" in manifest`)
-    }
-  }
-
-  findAssets(pattern: string | RegExp): string[] {
+  matchAssets(pattern: string | RegExp | Function): string[] {
     return Object.keys(this.manifest).reduce((matches: string[], key: string) => {
       if (typeof pattern === 'string' && key.includes(pattern)) {
         matches.push(key)
@@ -62,12 +54,20 @@ class AssetLoader {
         matches.push(key)
       }
 
+      if (pattern instanceof Function && pattern(key)) {
+        matches.push(key)
+      }
+
       return matches
     }, [])
   }
 
-  findHashedAssets(pattern: string | RegExp): string[] {
-    return this.findAssets(pattern).map((asset) => this.getHashedAsset(asset))
+  getHashedAsset(asset: string): string {
+    if (this.manifest.hasOwnProperty(asset)) {
+      return this.manifest[asset]
+    } else {
+      throw Error(`Couldn't find asset "${asset}" in manifest`)
+    }
   }
 
   getFileContents(asset: string): string {
@@ -79,7 +79,7 @@ class AssetLoader {
     return path.join(this.options.fileSystemPath, hashedAsset)
   }
 
-  getPublicPath(asset: string): string {
+  getPublicURL(asset: string): string {
     const hashedAsset = this.getHashedAsset(asset)
     // Do not use path.join() as separator is platform specific
     return `${this.options.publicPath}/${hashedAsset}`
@@ -94,11 +94,11 @@ class AssetLoader {
   }
 
   createStylesheetLink(stylesheet: string): string {
-    return `<link rel="stylesheet" href="${this.getPublicPath(stylesheet)}">`
+    return `<link rel="stylesheet" href="${this.getPublicURL(stylesheet)}">`
   }
 
   createJavascriptLink(javascript: string): string {
-    return `<script src="${this.getPublicPath(javascript)}"></script>`
+    return `<script src="${this.getPublicURL(javascript)}"></script>`
   }
 }
 

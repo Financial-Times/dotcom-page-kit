@@ -5,7 +5,7 @@ let instanceNoStaticHost
 
 jest.mock('@financial-times/anvil-server-asset-loader')
 
-describe('anvil-middleware-asset-loader', () => {
+describe('anvil-middleware-assets', () => {
   beforeEach(() => {
     instanceWithStaticHost = init({ hostStaticAssets: true })
     instanceNoStaticHost = init({ hostStaticAssets: false })

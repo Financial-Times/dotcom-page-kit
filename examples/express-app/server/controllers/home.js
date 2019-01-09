@@ -6,7 +6,7 @@ module.exports = async (request, response) => {
     foo: 'foo',
     bar: 'bar',
     baz: 'baz',
-    scripts: [response.locals.assets.loader.getPublicPath('main.js')]
+    scripts: [response.locals.assets.loader.getPublicURL('main.js')]
   }
 
   options.scripts.forEach((script) => {

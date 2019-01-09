@@ -15,7 +15,7 @@ In addition this package can also be used to send [resource hints] and [serve st
 This package is compatible with Node 10+ and is distributed on npm.
 
 ```sh
-npm install --save @financial-times/anvil-middleware-asset-loader
+npm install --save @financial-times/anvil-middleware-assets
 ```
 
 After installing the package create a new instance of the middleware and register it with your application. The middleware can be configured with several [options](#options):
@@ -24,7 +24,7 @@ After installing the package create a new instance of the middleware and registe
 const express = require('express')
 const app = express()
 
-+ const assetLoader = require('@financial-times/anvil-middleware-asset-loader')
++ const assetLoader = require('@financial-times/anvil-middleware-assets')
 + app.use(assetLoader.init())
 ```
 
@@ -36,7 +36,7 @@ app.get('/', (request, response) => {
   const filePath = response.locals.assets.loader.getFileSystemPath('main.css')
 
   // Get the public URL to an asset
-  const publicURL = response.locals.assets.loader.getPublicPath('main.css')
+  const publicURL = response.locals.assets.loader.getPublicURL('main.css')
 
   // Add a resource hint to the response
   response.locals.assets.resourceHints.add(publicURL)
