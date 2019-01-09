@@ -9,6 +9,10 @@ module.exports = async (request, response) => {
     scripts: [response.locals.assets.loader.getPublicPath('main.js')]
   }
 
+  options.scripts.forEach((script) => {
+    response.locals.assets.resourceHints.add(script)
+  })
+
   try {
     // When calling Express's `.render()` method locals will be appended to view data.
     // <https://github.com/expressjs/express/blob/master/lib/application.js#L545-L554>

@@ -73,8 +73,8 @@ jobs:
           name: Check code style
           command: npm run prettier -- --list-different
       - run:
-          name: Run check types
-          command: npm run checktypes
+          name: Run build
+          command: npm run build
       - run:
           name: Run tests
           command: npm run test

@@ -2,15 +2,30 @@ import path from 'path'
 import { loadFile } from './helpers/loadFile'
 import { loadManifest } from './helpers/loadManifest'
 
-interface AssetLoaderOptions {
-  /** The name of the manifest file which will be resolved from the given fileSystemPath */
-  manifestFileName: string
-  /** The base URL for assets (as seen by users) */
-  publicPath: string
-  /** An absolute path to the assets folder on disk */
-  fileSystemPath: string
-  /** Store file contents in memory when accessed */
-  cacheFileContents: boolean
+export interface AssetLoaderOptions {
+  /**
+   * The name of the asset manifest file
+   * @default "manifest.json"
+   */
+  manifestFileName?: string
+
+  /**
+   * The public-facing URL for the static assets
+   * @default "/public"
+   */
+  publicPath?: string
+
+  /**
+   * The absolute path to the directory of static assets
+   * @default path.resolve('./public')
+   */
+  fileSystemPath?: string
+
+  /**
+   * Store files in memory when accessed
+   * @default false
+   */
+  cacheFileContents?: boolean
 }
 
 const defaultOptions: AssetLoaderOptions = {
@@ -24,7 +39,7 @@ class AssetLoader {
   public options: AssetLoaderOptions
   public manifest: object
 
-  constructor(userOptions: Partial<AssetLoaderOptions>) {
+  constructor(userOptions: AssetLoaderOptions) {
     this.options = { ...defaultOptions, ...userOptions }
     this.manifest = loadManifest(path.resolve(this.options.fileSystemPath, this.options.manifestFileName))
   }
