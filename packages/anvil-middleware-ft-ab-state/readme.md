@@ -1,8 +1,9 @@
 # FT A/B State Middleware
 
-This package provides an [Express] compatible middleware which appends the A/B test status to each request.
+This package provides an [Express] compatible middleware which appends the [Ammit] A/B test status to each request.
 
 [Express]: https://expressjs.com/
+[Ammit]: https://ammit.ft.com/
 
 
 ### Getting started
