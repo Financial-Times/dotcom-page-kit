@@ -1,6 +1,6 @@
 import subject from '../getResourceType'
 
-describe('anvil-middleware-asset-loader/src/getFileType', () => {
+describe('anvil-middleware-assets/src/getFileType', () => {
   it('uses the file extension to match to a resource type', () => {
     expect(subject('style.css')).toEqual('style')
     expect(subject('script.js')).toEqual('script')

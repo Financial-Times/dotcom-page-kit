@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-middleware-asset-loader",
+  "name": "@financial-times/anvil-middleware-assets",
   "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",

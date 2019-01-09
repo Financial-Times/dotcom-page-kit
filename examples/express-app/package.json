@@ -11,7 +11,7 @@
     "build": "anvil build -d"
   },
   "dependencies": {
-    "@financial-times/anvil-middleware-asset-loader": "file:../../packages/anvil-middleware-asset-loader",
+    "@financial-times/anvil-middleware-assets": "file:../../packages/anvil-middleware-assets",
     "@financial-times/anvil-middleware-ft-ab-state": "file:../../packages/anvil-middleware-ft-ab-state",
     "@financial-times/anvil-middleware-ft-edition": "file:../../packages/anvil-middleware-ft-edition",
     "@financial-times/anvil-middleware-ft-navigation": "file:../../packages/anvil-middleware-ft-navigation",
