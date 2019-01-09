@@ -46,9 +46,7 @@ const assetURL = assetLoader.getPublicURL('main.css')
 
 ### `getFileContents(filename: string)`
 
-### `findAssets(pattern: string | RegExp)`
-
-### `findHashedAssets(pattern: string | RegExp)`
+### `matchAssets(pattern: string | RegExp)`
 
 ## Options
 

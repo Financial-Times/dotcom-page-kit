@@ -44,15 +44,7 @@ class AssetLoader {
     this.manifest = loadManifest(path.resolve(this.options.fileSystemPath, this.options.manifestFileName))
   }
 
-  getHashedAsset(asset: string): string {
-    if (this.manifest.hasOwnProperty(asset)) {
-      return this.manifest[asset]
-    } else {
-      throw Error(`Couldn't find asset "${asset}" in manifest`)
-    }
-  }
-
-  findAssets(pattern: string | RegExp): string[] {
+  matchAssets(pattern: string | RegExp): string[] {
     return Object.keys(this.manifest).reduce((matches: string[], key: string) => {
       if (typeof pattern === 'string' && key.includes(pattern)) {
         matches.push(key)
@@ -66,8 +58,12 @@ class AssetLoader {
     }, [])
   }
 
-  findHashedAssets(pattern: string | RegExp): string[] {
-    return this.findAssets(pattern).map((asset) => this.getHashedAsset(asset))
+  getHashedAsset(asset: string): string {
+    if (this.manifest.hasOwnProperty(asset)) {
+      return this.manifest[asset]
+    } else {
+      throw Error(`Couldn't find asset "${asset}" in manifest`)
+    }
   }
 
   getFileContents(asset: string): string {
