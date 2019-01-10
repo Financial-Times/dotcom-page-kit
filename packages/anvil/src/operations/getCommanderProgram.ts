@@ -1,11 +1,8 @@
-import build from '../actions/build'
-import { setupAction } from './setupAction'
+import { build } from '../tasks/build'
+import { setupTask } from './setupTask'
+import { CliOperation } from '../entities/CliOperation'
 
-interface Args {
-  workingDir: string
-}
-
-export function createProgram(args: Args) {
+export function getCommanderProgram(operation: CliOperation) {
   const program = require('commander')
 
   program
@@ -14,7 +11,7 @@ export function createProgram(args: Args) {
     .option('-o, --outputPath <path>', 'Path to the directory to store generated output', './dist')
     .option('-d, --development', 'Enable development mode', false)
     .option('-w, --watch', 'Watch for changes and rebuild on change')
-    .action(setupAction({ action: build, ...args }))
+    .action(setupTask(operation, build))
 
   return program
 }

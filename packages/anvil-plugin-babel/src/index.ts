@@ -1,15 +1,16 @@
 import merge from 'webpack-merge'
 import { Plugin } from 'adonai'
 import babelPreset from './babel'
+import { CliOperation } from '@financial-times/anvil'
 import { RunningWebpackContext } from '@financial-times/anvil-types-build'
 
 export default new Plugin(({ on }) => {
-  on('@Build::amend::webpackConfig', amendWebpackConfig)
+  on('anvil::cli::operation::@build::amend::webpackConfig', amendWebpackConfig)
 })
 
-function amendWebpackConfig(runningContext: RunningWebpackContext) {
-  const context = runningContext.context
-  const baseConfig = runningContext.webpackConfig
+function amendWebpackConfig(context: RunningWebpackContext) {
+  const operation = context.dispatcher as CliOperation
+  const baseConfig = context.webpackConfig
   const config = {
     module: {
       rules: [
@@ -19,7 +20,7 @@ function amendWebpackConfig(runningContext: RunningWebpackContext) {
           use: {
             loader: require.resolve('babel-loader'),
             options: {
-              ...babelPreset(context),
+              ...babelPreset(operation),
               cacheDirectory: true
             }
           }
@@ -28,7 +29,7 @@ function amendWebpackConfig(runningContext: RunningWebpackContext) {
     }
   }
 
-  context.amend('webpackConfig::scriptsRule', config.module.rules[0])
+  operation.amend('webpackConfig::scriptsRule', config.module.rules[0])
 
-  runningContext.webpackConfig = merge.smart(baseConfig, config)
+  context.webpackConfig = merge.smart(baseConfig, config)
 }

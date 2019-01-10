@@ -1,2 +1,2 @@
-export * from './program/createProgram'
-export * from './context/CliContext'
+export * from './entities/CliOperation'
+export * from './operations/executeCli'

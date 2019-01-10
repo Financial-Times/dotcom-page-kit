@@ -1,4 +1,4 @@
-import ora from 'ora'
+import ora, { Ora } from 'ora'
 import inquirer from 'inquirer'
 import CliProgress from 'cli-progress'
 import { clearScreen, cursorShow } from 'ansi-escapes'
@@ -7,9 +7,9 @@ import { clearScreen, cursorShow } from 'ansi-escapes'
  * CLI Messenger
  * @description Provides a shared toolset for formatted CLI output
  */
-export class CliMessenger {
-  spinner = ora()
-  progressBar = new CliProgress.Bar(
+export class CliPrompt {
+  private spinner: Ora = ora()
+  private progressBar = new CliProgress.Bar(
     {
       format: '[ {bar} ] {percentage}% | ETA: {eta}s | {value}/{total}',
       stopOnComplete: true,
@@ -20,8 +20,8 @@ export class CliMessenger {
     CliProgress.Presets.rect
   )
 
-  setTitle(message) {
-    stopSpinner(this)
+  title(message) {
+    this.stopSpinner()
     process.stdout.write(`-------------------------------------------------------------------------------\n`)
     process.stdout.write(`\n${message}\n\n`)
     process.stdout.write(`-------------------------------------------------------------------------------\n`)
@@ -32,7 +32,7 @@ export class CliMessenger {
     process.stdout.write(clearScreen)
   }
 
-  showCursor() {
+  cursor() {
     process.stdout.write(cursorShow)
   }
 
@@ -40,20 +40,26 @@ export class CliMessenger {
     process.stdout.write('\n')
   }
 
-  indicateActivity(message: string) {
-    startSpinnerWith(this, message)
+  activity(message: string) {
+    if (this.spinner.isSpinning) {
+      this.spinner.text = message
+    } else {
+      this.spinner.start(message)
+    }
   }
 
-  indicateSuccess(message: string) {
+  success(message: string) {
     this.spinner.succeed(message)
   }
 
-  indicateFailure(error: any) {
+  failure(error: any) {
     this.spinner.fail(error.stack || error)
   }
 
-  stopIndicator() {
-    stopSpinner(this)
+  stopSpinner() {
+    if (this.spinner.isSpinning) {
+      this.spinner.stop()
+    }
   }
 
   startProgressBar(totalValue = 100, startValue = 0) {
@@ -68,24 +74,8 @@ export class CliMessenger {
     this.progressBar.update(value)
   }
 
-  async ask(questions: any[]) {
-    stopSpinner(this)
+  async questions(questions: any[]) {
+    this.stopSpinner()
     return await inquirer.prompt(questions)
-  }
-}
-
-function stopSpinner(CliMessenger: CliMessenger) {
-  const { spinner } = CliMessenger
-  if (spinner.isSpinning) {
-    spinner.stop()
-  }
-}
-
-function startSpinnerWith(CliMessenger: CliMessenger, message: string) {
-  const { spinner } = CliMessenger
-  if (spinner.isSpinning) {
-    spinner.text = message
-  } else {
-    spinner.start(message)
   }
 }

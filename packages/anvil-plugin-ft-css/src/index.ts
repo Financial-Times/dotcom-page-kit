@@ -4,11 +4,11 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import StylesOnlyPlugin from 'webpack-fix-style-only-entries'
 
 export default new Plugin(({ on }) => {
-  on('@Build::amend::webpackConfig', amendWebpackConfig)
+  on('anvil::cli::operation::@build::amend::webpackConfig', amendWebpackConfig)
 })
 
-function amendWebpackConfig({ context, webpackConfig }: RunningWebpackContext) {
-  const isDevMode = context.flags.development
+function amendWebpackConfig({ dispatcher: operation, webpackConfig }: RunningWebpackContext) {
+  const isDevMode = operation.options.development
 
   const sassLoaderOptions = {
     // Disable formatting so that we don't spend time pretty printing
@@ -17,7 +17,7 @@ function amendWebpackConfig({ context, webpackConfig }: RunningWebpackContext) {
     includePaths: ['bower_components', 'node_modules/@financial-times']
   }
 
-  context.amend('webpackConfig::ftCssPlugin::sassLoaderOptions', sassLoaderOptions)
+  operation.amend('webpackConfig::ftCssPlugin::sassLoaderOptions', sassLoaderOptions)
 
   const autoprefixerOptions = {
     // https://github.com/browserslist/browserslist
@@ -26,14 +26,14 @@ function amendWebpackConfig({ context, webpackConfig }: RunningWebpackContext) {
     grid: true
   }
 
-  context.amend('webpackConfig::ftCssPlugin::autoprefixerOptions', autoprefixerOptions)
+  operation.amend('webpackConfig::ftCssPlugin::autoprefixerOptions', autoprefixerOptions)
 
   // https://cssnano.co/guides/optimisations
   const cssnanoOptions = {
     preset: 'default'
   }
 
-  context.amend('webpackConfig::ftCssPlugin::cssnanoOptions', cssnanoOptions)
+  operation.amend('webpackConfig::ftCssPlugin::cssnanoOptions', cssnanoOptions)
 
   const postcssLoaderOptions = {
     plugins: [
@@ -47,7 +47,7 @@ function amendWebpackConfig({ context, webpackConfig }: RunningWebpackContext) {
     ]
   }
 
-  context.amend('webpackConfig::ftCssPlugin::postcssLoaderOptions', postcssLoaderOptions)
+  operation.amend('webpackConfig::ftCssPlugin::postcssLoaderOptions', postcssLoaderOptions)
 
   const cssLoaderOptions = {
     // Disable Webpack from resolving @import because Sass should
@@ -58,7 +58,7 @@ function amendWebpackConfig({ context, webpackConfig }: RunningWebpackContext) {
     url: false
   }
 
-  context.amend('webpackConfig::ftCssPlugin::cssLoaderOptions', cssLoaderOptions)
+  operation.amend('webpackConfig::ftCssPlugin::cssLoaderOptions', cssLoaderOptions)
 
   const cssRule = {
     test: /\.scss$/,
@@ -89,7 +89,7 @@ function amendWebpackConfig({ context, webpackConfig }: RunningWebpackContext) {
     ]
   }
 
-  context.amend('webpackConfig::ftCssPlugin::rule', cssRule)
+  operation.amend('webpackConfig::ftCssPlugin::rule', cssRule)
 
   webpackConfig.module.rules.push(cssRule)
 
@@ -99,7 +99,7 @@ function amendWebpackConfig({ context, webpackConfig }: RunningWebpackContext) {
     silent: true
   }
 
-  context.amend('webpackConfig::ftCssPlugin::stylesOnlyPluginOptions', stylesOnlyPluginOptions)
+  operation.amend('webpackConfig::ftCssPlugin::stylesOnlyPluginOptions', stylesOnlyPluginOptions)
 
   webpackConfig.plugins.push(new StylesOnlyPlugin(stylesOnlyPluginOptions))
 
@@ -108,7 +108,7 @@ function amendWebpackConfig({ context, webpackConfig }: RunningWebpackContext) {
     filename: isDevMode ? '[name].css' : '[name].[contenthash:12].css'
   }
 
-  context.amend('webpackConfig::ftCssPlugin::cssExtractPluginOptions', cssExtractPluginOptions)
+  operation.amend('webpackConfig::ftCssPlugin::cssExtractPluginOptions', cssExtractPluginOptions)
 
   webpackConfig.plugins.push(new MiniCssExtractPlugin(cssExtractPluginOptions))
 }
