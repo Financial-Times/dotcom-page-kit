@@ -1,5 +1,9 @@
 import React from 'react'
 
-export default function Footer() {
-  return <div>footer...</div>
+interface Props {
+  children?: any
+}
+
+export default function Footer({ children }: Props) {
+  return <div>footer... {children}</div>
 }
