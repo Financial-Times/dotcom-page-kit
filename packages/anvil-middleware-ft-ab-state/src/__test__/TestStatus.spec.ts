@@ -7,6 +7,10 @@ describe('anvil-middleware-ft-ab-test/src/parseTestList', () => {
     instance = new Subject({ testList: 'headlineTesting:variant1,premiumCohort:on,fcfABTest:1' })
   })
 
+  afterEach(() => {
+    instance = null
+  })
+
   describe('.get()', () => {
     it('provides access to individual test statuses', () => {
       expect(instance.get('headlineTesting')).toEqual('variant1')

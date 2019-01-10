@@ -1,9 +1,10 @@
 # FT A/B State Middleware
 
-This package provides an [Express] compatible middleware which appends the [Ammit] A/B test status to each request.
+This package provides an [Express] compatible middleware which appends the [Ammit] A/B test status added by [Preflight] to each request.
 
 [Express]: https://expressjs.com/
 [Ammit]: https://ammit.ft.com/
+[Preflight]: https://github.com/Financial-Times/next-preflight
 
 
 ### Getting started
@@ -24,7 +25,7 @@ const app = express()
 +app.use(abStateMiddleware.init())
 ```
 
-Once added to your application the A/B test status will be added to each request.
+Once added to your application the A/B test state will be added to each request.
 
 ```js
 app.get('/', (request, response) => {
@@ -35,13 +36,13 @@ app.get('/', (request, response) => {
 ```
 
 
-## Test Status API
+## A/B State API
 
-Methods to get A/B test statuses will be added to each response and made available at `response.locals.abStatus`. The available methods are listed below.
+Methods to get A/B test states will be added to each response and made available at `response.locals.abState`. The available methods are listed below.
 
 ### `.get(test: string)`
 
-Get the status for a given test. Number and boolean values will be parsed. Tests with values set to "on" or "off" will be coerced to booleans.
+Get the state for a given test. Number and boolean values will be coerced with `JSON.parse()`. Tests with values of "on" or "off" will be returned as a correlating boolean.
 
 ### `.toString()`
 
@@ -50,4 +51,4 @@ Formats all allocated A/B tests as a string. This is intended to only be used in
 
 ## Options
 
-There are currently no additional options for this middleware package.
+There are currently no options for this middleware package.
