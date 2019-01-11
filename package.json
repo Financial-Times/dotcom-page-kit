@@ -19,7 +19,7 @@
     "storybook:start": "start-storybook -p 9001 -c .storybook -h local.ft.com",
     "storybook:generate": "node ./.storybook/scripts/generateConfig",
     "storybook:generate:watch": "nodemon -e tsx --watch packages --exec \"npm run storybook:generate\"",
-    "storybook:concurrently": "./node_modules/.bin/concurrently \"npm run storybook:generate:watch\" \"npm run storybook:start\""
+    "storybook:concurrently": "concurrently \"npm run storybook:generate:watch\" \"npm run storybook:start\""
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
