@@ -22,7 +22,7 @@ function amendWebpackConfig({ context, webpackConfig }: RunningWebpackContext) {
   const autoprefixerOptions = {
     // https://github.com/browserslist/browserslist
     // TODO: make configurable via browserslist setting
-    browsers: '> 1%, ie 11, bb 10',
+    browsers: '> 1%, ie 11',
     grid: true
   }
 

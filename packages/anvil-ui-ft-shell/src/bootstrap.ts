@@ -18,10 +18,13 @@ function loadScript(src) {
 // Cuts the mustard
 var enhanced = (function() {
   var script = document.createElement('script')
+  var input = document.createElement('input')
+
   return (
     'visibilityState' in document && // not supported by old Android (4.0-4.4) without a prefix
+    'indeterminate' in input && // not supported by BB 10
     'flex' in doc.style && // not supported by old Safari (< 9) or IE 6-10
-    'async' in script // not supported by old Opera (Presto)
+    'async' in script // not supported by old Opera (Presto engine < 15)
   )
 })()
 

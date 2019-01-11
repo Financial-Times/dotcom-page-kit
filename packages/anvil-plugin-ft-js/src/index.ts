@@ -26,5 +26,5 @@ function addBabelPreset({ context, babelConfig }: RunningBabelContext) {
 
 function amendBabelPresetEnvOptions({ context, options }) {
   const settings: PluginSettings = context ? context.config.settings['ft-js'] : {}
-  options.targets = settings.presetEnvTargets || '> 1%, ie 11, bb 10'
+  options.targets = settings.presetEnvTargets || '> 1%, ie 11'
 }
