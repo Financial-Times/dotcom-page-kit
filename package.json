@@ -5,13 +5,13 @@
   "description": "The aim of this project is to provide a high quality, well tested, and thoroughly documented, modern asset pipeline and application shell for Node.js applications based upon the latest industry standards.",
   "scripts": {
     "test": "jest",
-    "build": "athloi run build --filter 'anvil-*' --concurrency 100",
+    "build": "athloi run build --filter 'anvil*' --concurrency 100",
     "checktypes": "tsc --noEmit",
     "clean": "git clean -fxd -e .vscode",
-    "clean:dist": "athloi run clean:dist --filter 'anvil-*' --concurrency 100",
+    "clean:dist": "athloi run clean:dist --filter 'anvil*' --concurrency 100",
     "clean:install": "npm run clean && npm install",
     "clean:install:ui": "athloi run clean:install --filter 'anvil-ui-*'",
-    "dev": "athloi run dev --filter 'anvil-*' --concurrency 100",
+    "dev": "athloi run dev --filter 'anvil*' --concurrency 100",
     "lint": "eslint . --ext .js,.ts,.tsx,.jsx",
     "postinstall": "athloi exec npm i -- --no-package-lock",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
@@ -19,7 +19,7 @@
     "storybook:start": "start-storybook -p 9001 -c .storybook -h local.ft.com",
     "storybook:generate": "node ./.storybook/scripts/generateConfig",
     "storybook:generate:watch": "nodemon -e tsx --watch packages --exec \"npm run storybook:generate\"",
-    "storybook:concurrently": "./node_modules/.bin/concurrently \"npm run storybook:generate:watch\" \"npm run storybook:start\""
+    "storybook:concurrently": "concurrently \"npm run storybook:generate:watch\" \"npm run storybook:start\""
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
