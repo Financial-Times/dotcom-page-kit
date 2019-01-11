@@ -58,7 +58,7 @@ Settings for this plugin are provided by adding an `esnext` property to your `an
 
 ### `targets`
 
-A [Browserslist] compatible query describing the targets for your project. Defaults to `"> 1%, ie 11, bb 10"`.
+A [Browserslist] compatible query describing the targets for your project. Defaults to `"> 1%, ie 11, bb 10, ff ESR"`.
 
 [Browserslist]: https://browserl.ist/
 
@@ -80,6 +80,8 @@ A synchronous hook which receives the configuration object to be used for the [p
 ### `webpackConfig::esnextPlugin::babelLoaderOptions`
 
 A synchronous hook which receives the entire configuration object to be used for the [babel-loader]. You may directly mutate this object.
+
+[babel-loader]: https://github.com/babel/babel-loader
 
 ### `webpackConfig::esnextPlugin::rule`
 

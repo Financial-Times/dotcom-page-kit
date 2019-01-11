@@ -14,7 +14,7 @@ interface PluginSettings {
 }
 
 const defaultSettings: PluginSettings = {
-  targets: '> 1%, ie 11, bb 10'
+  targets: '> 1%, ie 11, bb 10, ff ESR'
 }
 
 export default new Plugin(({ on }) => {
