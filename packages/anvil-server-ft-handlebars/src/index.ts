@@ -1,6 +1,6 @@
 import handlebars from 'express-handlebars'
 import handlebarsHelpers from '@financial-times/n-handlebars/src/extend-helpers'
-import renderWithLayout, { RenderContext } from './renderWithLayout'
+import render, { RenderContext } from './render'
 import resolveViewFile from './resolveViewFile'
 
 export interface Options {
@@ -17,7 +17,8 @@ export interface Options {
   /** List of paths to lookup partial template files on startup, defaults to ["views/partials", "bower_components", "node_modules/@financial-times"] */
   partialsDir: string[]
   /** Helper functions to register with the Handlebars instance */
-  helpers?: { [key: string]: Function }
+  helpers: { [key: string]: Function }
+  cache: boolean
 }
 
 const defaults: Options = {
@@ -25,12 +26,13 @@ const defaults: Options = {
   defaultLayout: null,
   extname: '.html',
   viewsDirectory: 'views',
-  helpers: {},
   layoutsDir: 'views/layouts',
-  partialsDir: ['views/partials', 'bower_components', 'node_modules/@financial-times']
+  partialsDir: ['views/partials', 'bower_components', 'node_modules/@financial-times'],
+  helpers: {},
+  cache: true
 }
 
-class AnvilServerHandlebars {
+export default class AnvilHandlebars {
   private options: Options
   private handlebars
 
@@ -47,9 +49,8 @@ class AnvilServerHandlebars {
     // template will be resolved based on the "views" setting and registered engine.
     // <https://github.com/expressjs/express/blob/master/lib/view.js>
     const viewPath = resolveViewFile.call(this, view)
-
-    return renderWithLayout(this.handlebars, viewPath, context)
+    // Enable caching to avoid looking up partials for each render. The partials
+    // lookup can be very slow due to a generic glob pattern.
+    return render(this.handlebars, viewPath, { ...context, cache: true })
   }
 }
-
-export default AnvilServerHandlebars

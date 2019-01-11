@@ -18,9 +18,9 @@ module.exports = async (request, response) => {
     // When calling Express's `.render()` method locals will be appended to view data.
     // <https://github.com/expressjs/express/blob/master/lib/application.js#L545-L554>
     const data = { ...request.app.locals, ...response.locals, ...options }
-    const output = await render('home', data)
+    const output = await render('home.hbs', data)
 
-    response.send(output.html)
+    response.send(output)
   } catch (error) {
     console.error(error) // eslint-disable-line no-console
     response.status(500).send('Oh no, something went wrong!')
