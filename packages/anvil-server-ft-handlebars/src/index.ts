@@ -2,26 +2,23 @@ import handlebars from 'express-handlebars'
 import handlebarsHelpers from '@financial-times/n-handlebars/src/extend-helpers'
 
 export interface Options {
-  /** Defaults to current working directory */
-  directory: string
-  /** File name for the default layout template, defaults to "main" */
+  /** File name for the default layout template. Defaults to null */
   defaultLayout: string | boolean
-  /** Template file name extension, defaults to ".html" */
+  /** Template file name extension. Defaults to ".hbs" */
   extname: string
-  /** Path to view templates, defaults to "views" */
+  /** Path to a directory containing view template files. Defaults to "views" */
   viewsDirectory: string
-  /** Path to layout templates, defaults to "views/layouts" */
+  /** Path to a directory containing layout template files. Defaults to "views/layouts" */
   layoutsDir: string
-  /** List of paths to lookup partial template files on startup, defaults to ["views/partials", "bower_components", "node_modules/@financial-times"] */
+  /** An array of paths to lookup partial template files. Defaults to ["views/partials", "bower_components", "node_modules/@financial-times"] */
   partialsDir: string[]
-  /** Helper functions to register with the Handlebars instance */
+  /** An object of additional helper functions to register with Handlebars. Defaults to {}. */
   helpers: { [key: string]: Function }
 }
 
 const defaultOptions: Options = {
-  directory: process.cwd(),
   defaultLayout: null,
-  extname: '.html',
+  extname: '.hbs',
   viewsDirectory: 'views',
   layoutsDir: 'views/layouts',
   partialsDir: ['views/partials', 'bower_components', 'node_modules/@financial-times'],
