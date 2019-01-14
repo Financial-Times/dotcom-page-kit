@@ -5,6 +5,9 @@ const port = 3456
 
 app.locals.siteTitle = 'Example App'
 
+// Set up rendering engine
+require('./lib/render')(app)
+
 app.use(require('./middleware/anvil'))
 
 app.get('/', require('./controllers/home'))

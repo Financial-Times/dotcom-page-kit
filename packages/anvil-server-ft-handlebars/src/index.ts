@@ -44,6 +44,10 @@ export default class AnvilHandlebars {
     this.handlebars = handlebars.create(this.options)
   }
 
+  get engine() {
+    return this.handlebars.engine
+  }
+
   render(view: string, context: RenderContext): Promise<string> {
     // If called via Express's `.render()` method then the absolute path to the
     // template will be resolved based on the "views" setting and registered engine.
