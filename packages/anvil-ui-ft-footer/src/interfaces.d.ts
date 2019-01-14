@@ -1,6 +1,7 @@
 export interface Props {
-  themeLight?: boolean
   data: Array<FooterDataItem>
+  theme?: 'light' | 'dark' | string
+  legalOnly?: boolean
 }
 
 interface FooterDataItem {
