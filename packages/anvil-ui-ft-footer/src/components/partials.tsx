@@ -6,16 +6,12 @@ const LegalOnly = (items) => {
   })
   return (
     <div>
-      <ul class="o-footer__legal-links">
-        {LegalPrivacy[0].submenu.items.map((item, index) => {
+      <ul className="o-footer__legal-links">
+        {LegalPrivacy[0].submenu.items[0].map((item, index) => {
           const disableTracking = { 'data-o-tracking-do-not-track': item.disableTracking ? 'true' : null }
           return (
             <li key={`item-${index}`}>
-              <a
-                className="o-footer__matrix-link"
-                href={`${item.url}`}
-                data-trackable={`${item.label}`}
-                {...disableTracking}>
+              <a href={`${item.url}`} data-trackable={`${item.label}`} {...disableTracking}>
                 {item.label}
               </a>
             </li>
