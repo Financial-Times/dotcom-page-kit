@@ -1,19 +1,26 @@
 import React from 'react'
 import { Props } from './interfaces'
-import { LegalOnly, MenuItems, MenuRow, MoreFromFt, Copyright, BrandLogo } from './components/partials'
+import {
+  FooterRow,
+  FooterContents,
+  MoreFromFt,
+  CopyrightNotice,
+  NikkeiBrandLogo,
+  CompressedLegal
+} from './components/partials'
 
 export function Footer(props: Props) {
   const theme = props.theme ? `${props.theme}` : 'dark'
   return (
     <footer id="site-footer" className={`o-footer o-footer--theme-${theme}`} data-o-component="o-footer">
       <div className="o-footer__container">
-        <MenuRow>
-          <MenuItems items={props.data} />
-        </MenuRow>
+        <FooterRow>
+          <FooterContents footerData={props.data} />
+        </FooterRow>
         <MoreFromFt />
-        <Copyright />
+        <CopyrightNotice />
       </div>
-      <BrandLogo /> {/* Nikkei banner */}
+      <NikkeiBrandLogo />
     </footer>
   )
 }
@@ -23,10 +30,10 @@ export function LegalFooter(props: Props) {
   return (
     <footer id="site-footer" className={`o-footer o-footer--theme-${theme}`} data-o-component="o-footer">
       <div className="o-footer__container">
-        <LegalOnly items={props.data} />
-        <Copyright />
+        <CompressedLegal footerData={props.data} />
+        <CopyrightNotice withoutMarketsData={true} />
       </div>
-      <BrandLogo /> {/* Nikkei banner */}
+      <NikkeiBrandLogo />
     </footer>
   )
 }

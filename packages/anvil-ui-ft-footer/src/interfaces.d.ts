@@ -1,10 +1,9 @@
 export interface Props {
-  data: Array<FooterDataItem>
-  theme?: 'light' | 'dark' | string
-  legalOnly?: boolean
+  data: Array<FooterSection>
+  theme?: 'dark' | 'light' | string
 }
 
-interface FooterDataItem {
+interface FooterSection {
   label: string
   submenu: FooterSubmenu
 }

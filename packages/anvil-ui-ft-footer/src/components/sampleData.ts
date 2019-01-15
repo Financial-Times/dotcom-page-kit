@@ -64,6 +64,11 @@ export default {
               label: 'Copyright',
               url: 'http://help.ft.com/help/legal-privacy/copyright/copyright-policy/',
               submenu: null
+            },
+            {
+              label: 'Slavery Statement & Policies',
+              url: 'https://help.ft.com/help/legal/slavery-statement/',
+              submenu: null
             }
           ]
         ]
@@ -90,22 +95,6 @@ export default {
             {
               label: 'Individual Subscriptions',
               url: 'http://www.ft.com/products',
-              submenu: null
-            },
-            {
-              label: 'Group Subscriptions',
-              url:
-                'https://enterprise.ft.com/en-gb/services/group-subscriptions/group-contact-us/?segmentId=383c7f63-abf4-b62d-cb33-4c278e6fdf61&cpccampaign=B2B_link_ft.com_footer',
-              submenu: null
-            },
-            {
-              label: 'Republishing',
-              url: 'https://enterprise.ft.com/en-gb/services/republishing/',
-              submenu: null
-            },
-            {
-              label: 'Contracts & Tenders',
-              url: 'http://www.businessesforsale.com/ft2/notices',
               submenu: null
             },
             {
