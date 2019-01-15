@@ -45,8 +45,13 @@ app.get('/', (request, response) => {
 })
 ```
 
+Express view engines will also inherit some [settings] from the application which can override the [options](#options) provided to this module, these are:
+
+- The `views` will be used to help find your view template files. Partial and layout template files will be looked up independently of this setting.
+- The `view cache` setting will optimistically cache partial template files to avoid looking for them on each render. This will be enabled by default in production.
+
 [render documentation]: https://expressjs.com/en/4x/api.html#res.render
-[app engine]: https://expressjs.com/en/4x/api.html#app.engine
+[settings]: https://expressjs.com/en/api.html#app.settings.table
 
 
 ### Standalone usage
@@ -103,19 +108,15 @@ File name for the default layout template. Defaults to `null` (which means no la
 
 ### `extname`
 
-Template file name extension. Defaults to `".hbs"`. Partial and layout templates _must_ use this extension.
-
-### `viewsDirectory`
-
-Path to a directory containing view template files. Defaults to `"views"` which will be resolved relative to the current working directory.
+Template file name extension. Defaults to `".hbs"`. Partial and layout templates _must_ all use this extension.
 
 ### `layoutsDir`
 
-Path to a directory containing layout template files. Defaults to `"views/layouts"` which will be resolved relative to the current working directory.
+Path to a directory containing layout template files. Defaults to `"views/layouts"` which will be resolved relative to the current working directory. This may be overridden by the Express `views` setting when this module is used as a view engine.
 
 ### `partialsDir`
 
-An array of paths to lookup partial template files. Defaults to `["views/partials", "bower_components", "node_modules/@financial-times"]` which will all be resolved relative to the current working directory.
+An array of paths to lookup partial template files. Defaults to `["views/partials", "bower_components", "node_modules/@financial-times"]` which will all be resolved relative to the current working directory. This may be overridden by the Express `views` setting when this module is used as a view engine.
 
 ### `helpers`
 

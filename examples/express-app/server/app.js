@@ -6,7 +6,7 @@ const port = 3456
 
 app.locals.siteTitle = 'Example App'
 
-// Enable vuew caching to avoid looking up partials for each render. The partials
+// Enable view caching to avoid looking up partials for each render. The partials
 // lookup can be very slow due to an overly generic glob pattern.
 app.enable('view cache')
 

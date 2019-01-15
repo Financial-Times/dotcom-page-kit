@@ -6,8 +6,6 @@ export interface Options {
   defaultLayout: string | boolean
   /** Template file name extension. Defaults to ".hbs" */
   extname: string
-  /** Path to a directory containing view template files. Defaults to "views" */
-  viewsDirectory: string
   /** Path to a directory containing layout template files. Defaults to "views/layouts" */
   layoutsDir: string
   /** An array of paths to lookup partial template files. Defaults to ["views/partials", "bower_components", "node_modules/@financial-times"] */
@@ -19,7 +17,6 @@ export interface Options {
 const defaultOptions: Options = {
   defaultLayout: null,
   extname: '.hbs',
-  viewsDirectory: 'views',
   layoutsDir: 'views/layouts',
   partialsDir: ['views/partials', 'bower_components', 'node_modules/@financial-times'],
   helpers: {}
