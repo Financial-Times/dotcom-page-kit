@@ -1,0 +1,27 @@
+{
+  "name": "@financial-times/anvil-server-ft-handlebars",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/cjs/index.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "../../node_modules/.bin/tsc",
+    "clean": "npm run clean:dist && npm run clean:node_modules",
+    "clean:dist": "rm -rf dist",
+    "clean:node_modules": "rm -rf node_modules",
+    "build:cjs": "npm run tsc -- --outDir ./dist/cjs",
+    "build": "npm run clean:dist && npm run build:cjs",
+    "dev": "npm run clean:dist && npm run build:cjs -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@financial-times/n-handlebars": "^1.21.1",
+    "express-handlebars": "^3.0.0"
+  },
+  "engines": {
+    "node": ">= 10.0.0"
+  }
+}

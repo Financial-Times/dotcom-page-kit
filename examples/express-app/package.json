@@ -15,7 +15,7 @@
     "@financial-times/anvil-middleware-ft-ab-state": "file:../../packages/anvil-middleware-ft-ab-state",
     "@financial-times/anvil-middleware-ft-edition": "file:../../packages/anvil-middleware-ft-edition",
     "@financial-times/anvil-middleware-ft-navigation": "file:../../packages/anvil-middleware-ft-navigation",
-    "@financial-times/n-handlebars": "^1.21.0",
+    "@financial-times/anvil-server-ft-handlebars": "file:../../packages/anvil-server-ft-handlebars",
     "express": "^4.16.2"
   },
   "devDependencies": {
