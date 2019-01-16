@@ -1,19 +1,12 @@
-import { RenderComponent, RenderContext } from './types'
-
-export interface CreateRendererOptions {
+export interface RendererOptions {
   createElement: Function
   renderToString: Function
 }
 
-const defaultOptions: CreateRendererOptions = {
-  createElement: new Function(),
-  renderToString: new Function()
-}
+export type RenderComponent = any
 
-export default function createRenderer(userOptions: CreateRendererOptions) {
-  const { createElement, renderToString } = { ...defaultOptions, ...userOptions }
-
-  return (Component: RenderComponent, context?: RenderContext) => {
+export default function createRenderer({ renderToString, createElement }: RendererOptions) {
+  return (Component: RenderComponent, context: any): string => {
     return renderToString(createElement(Component, context))
   }
 }
