@@ -23,12 +23,12 @@
   "dependencies": {
     "@babel/runtime": "^7.1.5",
     "@financial-times/anvil-server-asset-loader": "file:../../packages/anvil-server-asset-loader",
-    "@financial-times/anvil-server-jsx-renderer": "file:../../packages/anvil-server-jsx-renderer",
+    "@financial-times/anvil-server-ft-jsx": "file:../../packages/anvil-server-ft-jsx",
     "@financial-times/anvil-ui-ft-layout": "file:../../packages/anvil-ui-ft-layout",
     "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
     "express": "^4.16.4",
-    "react": "^16.7.0-alpha.0",
-    "react-dom": "^16.7.0-alpha.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
     "sucrase": "^3.8.0"
   }
 }

@@ -1,23 +1,23 @@
-import path from 'path'
 import express from 'express'
+import { createElement } from 'react'
+import { renderToString } from 'react-dom/server'
 import { homePageController } from './controllers/home'
 import { aboutPageController } from './controllers/about'
-import AssetLoader from '@financial-times/anvil-server-asset-loader'
-import { createRendererMiddleware } from '@financial-times/anvil-server-jsx-renderer/express'
+// import AssetLoader from '@financial-times/anvil-server-asset-loader'
+import { createViewEngine } from '@financial-times/anvil-server-ft-jsx'
 
 export const app = express()
 
-const assets = new AssetLoader({
-  fileSystemPath: './dist',
-  publicPath: '/assets'
-})
+// const assets = new AssetLoader({
+//   fileSystemPath: './dist',
+//   publicPath: '/assets'
+// })
 
-const scriptsToLoad = [assets.getPublicURL('client.js'), assets.getPublicURL('runtime.js')]
+// const scriptsToLoad = [assets.getPublicURL('client.js'), assets.getPublicURL('runtime.js')]
 
-const renderer = createRendererMiddleware({ scriptsToLoad })
+app.engine('.jsx', createViewEngine({ createElement, renderToString }))
 
-app.use(renderer)
-app.use('/assets', express.static(path.resolve('./dist')))
+app.use('/assets', express.static('./dist'))
 
 app.get('/', homePageController)
 app.get('/about', aboutPageController)
