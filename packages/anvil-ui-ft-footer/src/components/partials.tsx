@@ -3,11 +3,7 @@ import React from 'react'
 const Link: Function = ({ item }) => {
   const disableTracking = { 'data-o-tracking-do-not-track': item.disableTracking ? 'true' : null }
   return (
-    <a
-      className="o-footer__matrix-link"
-      href={`${item.url}`}
-      data-trackable={`${item.label}`}
-      {...disableTracking}>
+    <a className="o-footer__matrix-link" href={item.url} data-trackable={item.label} {...disableTracking}>
       {item.label}
     </a>
   )
@@ -76,7 +72,7 @@ const MoreFromFt = () => (
   </div>
 )
 
-const CopyrightNotice: Function = ({ withoutMarketsData }) => {
+const CopyrightNotice = ({ withoutMarketsData = false }) => {
   const marketsData = withoutMarketsData ? null : 'Markets data delayed by at least 15 minutes.'
   return (
     <div className="o-footer__copyright" role="contentinfo">
@@ -97,11 +93,11 @@ const CopyrightNotice: Function = ({ withoutMarketsData }) => {
   )
 }
 
-const LegalLink: Function = ({ item, index }) => {
+const LegalLink: Function = ({ item }) => {
   const disableTracking = { 'data-o-tracking-do-not-track': item.disableTracking ? 'true' : null }
   return (
-    <li key={`legalFooter-link-${index}`}>
-      <a href={`${item.url}`} data-trackable={`${item.label}`} {...disableTracking}>
+    <li>
+      <a href={item.url} data-trackable={item.label} {...disableTracking}>
         {item.label}
       </a>
     </li>
@@ -109,10 +105,10 @@ const LegalLink: Function = ({ item, index }) => {
 }
 
 const CompressedLegal = ({ footerData }) => {
-  const LegalAndPrivacy = footerData.filter((item) => {
+  const legalAndPrivacyData = footerData.filter((item) => {
     return item.label === 'Legal & Privacy'
   })
-  return LegalAndPrivacy.map((legal, sectionIndex) => (
+  return legalAndPrivacyData.map((legal, sectionIndex) => (
     <div key={`legalFooter-${sectionIndex}`}>
       {legal.submenu && legal.submenu.items
         ? legal.submenu.items.map((items, submenuIndex) => (

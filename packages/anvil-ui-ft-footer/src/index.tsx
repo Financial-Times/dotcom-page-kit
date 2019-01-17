@@ -26,7 +26,7 @@ export function Footer(props: Props) {
 }
 
 export function LegalFooter(props: Props) {
-  const theme = props.theme ? `${props.theme}` : 'dark'
+  const theme = props.theme ? props.theme : 'dark'
   return (
     <footer id="site-footer" className={`o-footer o-footer--theme-${theme}`} data-o-component="o-footer">
       <div className="o-footer__container">

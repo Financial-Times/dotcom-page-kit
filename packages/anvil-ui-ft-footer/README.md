@@ -1,6 +1,6 @@
 # @financial-times/anvil-ui-ft-footer
 
-This package exposes functions which return variations on the footer component for ft.com; the standard ft.com `Footer` and a compressed `LegalFooter`.
+This package provides components which return variations on the footer component for ft.com; the standard ft.com `Footer` and a compressed `LegalFooter`.
 
 
 ### Getting started
@@ -20,7 +20,7 @@ import footerData from './navigation/footer'
 <Footer {...footerData} />
 ```
 
-The footer component expects data from the [navigation API](https://github.com/Financial-Times/next-navigation-api). The [anvil-middleware-navigation](../anvil-middleware-navigation) package can be used to make data from this API available on `response.locals.navigation`.
+The footer component expects data from the [navigation API](https://github.com/Financial-Times/next-navigation-api). The [anvil-server-ft-navigation](../anvil-server-ft-navigation/readme.md) package or its middleware, [anvil-middleware-navigation](../anvil-middleware-ft-navigation/readme.md), can be used to make data from this API available on `response.locals.navigation`.
 
 ## Options
 
