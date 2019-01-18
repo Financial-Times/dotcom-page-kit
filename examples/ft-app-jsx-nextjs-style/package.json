@@ -12,7 +12,6 @@
   },
   "devDependencies": {
     "@financial-times/anvil": "file:../../packages/anvil",
-    "@financial-times/anvil-plugin-babel": "file:../../packages/anvil-plugin-babel",
     "@financial-times/anvil-plugin-code-splitting": "file:../../packages/anvil-plugin-code-splitting",
     "@financial-times/anvil-plugin-ft-css": "file:../../packages/anvil-plugin-ft-css",
     "@financial-times/anvil-plugin-ft-js": "file:../../packages/anvil-plugin-ft-js",

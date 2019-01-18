@@ -93,7 +93,6 @@ For convenience the build action can watch source files and trigger a rebuild wh
 anvil build --watch
 ```
 
-
 ## Writing a plugin
 
 TODO
