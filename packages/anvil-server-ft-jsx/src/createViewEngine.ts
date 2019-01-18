@@ -14,7 +14,7 @@ export default function createViewEngine(options: RendererOptions) {
 
     try {
       const output = renderer(Component, context)
-      callback(null, output)
+      callback(null, '<!DOCTYPE html>' + output)
     } catch (error) {
       callback(error)
     }

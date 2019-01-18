@@ -11,7 +11,7 @@ This module provides rendering for [JSX] components with Express. It can be used
 This module is compatible with Node 10+ and is distributed on npm.
 
 ```sh
-npm install --save-dev @financial-times/anvil-server-ft-jsx
+npm install --save-dev @financial-times/anvil-server-jsx
 ```
 
 Once installed the package can be used [as a view engine](#usage-as-a-view-engine) or dynamically [create route handlers](#creating-route-handlers) for routes served by your Express application.
@@ -25,7 +25,7 @@ View engines enable the use of the `.render()` method on Express's [response obj
 You can use this module as a view engine with the `createViewEngine()` function (this requires [options](#options) to be provided):
 
 ```diff
-+ const { createViewEngine } = require('@financial-times/anvil-server-ft-jsx')
++ const { createViewEngine } = require('@financial-times/anvil-server-jsx')
 + const viewEngine = createViewEngine(options)
 ```
 
@@ -66,7 +66,7 @@ This module can be used to dynamically create [route handlers] (also known as co
 You can create a new route handler factory with the `createHandlerFactory()` function  (this requires [options](#options) to be provided):
 
 ```diff
-+ const { createHandlerFactory } = require('@financial-times/anvil-server-ft-jsx')
++ const { createHandlerFactory } = require('@financial-times/anvil-server-jsx')
 + const routeHandler = new createHandlerFactory(options)
 ```
 

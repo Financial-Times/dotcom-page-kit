@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-server-ft-jsx",
+  "name": "@financial-times/anvil-server-jsx",
   "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",

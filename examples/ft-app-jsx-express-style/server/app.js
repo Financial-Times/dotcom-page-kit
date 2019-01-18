@@ -4,7 +4,7 @@ import { renderToString } from 'react-dom/server'
 import { homePageController } from './controllers/home'
 import { aboutPageController } from './controllers/about'
 // import AssetLoader from '@financial-times/anvil-server-asset-loader'
-import { createViewEngine } from '@financial-times/anvil-server-ft-jsx'
+import { createViewEngine } from '@financial-times/anvil-server-jsx'
 
 export const app = express()
 

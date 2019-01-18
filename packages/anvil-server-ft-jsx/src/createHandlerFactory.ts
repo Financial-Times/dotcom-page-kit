@@ -14,7 +14,7 @@ export default function createHandlerFactory(options: RendererOptions) {
         }
 
         const output = renderer(Component, context)
-        response.send(output)
+        response.send('<!DOCTYPE html>' + output)
       } catch (error) {
         next(error)
       }
