@@ -48,6 +48,7 @@
     "@storybook/react": "^4.0.9",
     "@types/jest": "^23.3.7",
     "@types/node": "^10.12.1",
+    "@types/ora": "^3.0.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.4",
     "concurrently": "^4.1.0",
@@ -72,8 +73,5 @@
     "hooks": {
       "pre-commit": "npm run checktypes && lint-staged"
     }
-  },
-  "dependencies": {
-    "@types/ora": "^3.0.0"
   }
 }
