@@ -3,7 +3,7 @@ import { Footer, LegalFooter } from '.'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, radios } from '@storybook/addon-knobs'
 import { OrigamiBuildService } from '@financial-times/anvil-ui-origami-build-service'
-import sampleData from './components/sampleData'
+import sampleData from './storyData'
 
 const themeOptions = ['Theme', { dark: 'dark', light: 'light' }, 'dark']
 
