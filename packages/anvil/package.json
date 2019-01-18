@@ -21,12 +21,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "adonai": "^0.5.0",
+    "adonai": "v1.0.0-beta.5",
     "ansi-escapes": "^3.1.0",
     "clean-webpack-plugin": "^0.1.19",
     "cli-progress": "^2.1.0",
     "commander": "^2.19.0",
     "inquirer": "^6.2.0",
+    "lodash.get": "^4.4.2",
     "ora": "^3.0.0",
     "webpack": "^4.23.1",
     "webpack-manifest-plugin": "^2.0.4"

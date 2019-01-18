@@ -64,34 +64,34 @@ There are currently no additional settings for this plugin.
 
 _Please note: The hooks below are listed in the order they will be executed._
 
-### `webpackConfig::ftCssPlugin::sassLoaderOptions`
+### `anvil::cli::operation::@build::webpackConfig::ftCssPlugin::sassLoaderOptions`
 
 A synchronous hook which receives the configuration object to be used for the [sass-loader]. You may directly mutate this object.
 
-### `webpackConfig::ftCssPlugin::autoprefixerOptions`
+### `anvil::cli::operation::@build::webpackConfig::ftCssPlugin::autoprefixerOptions`
 
 A synchronous hook which receives the configuration object to be used for the [Autoprefixer] PostCSS plugin. You may directly mutate this object.
 
-### `webpackConfig::ftCssPlugin::cssnanoOptions`
+### `anvil::cli::operation::@build::webpackConfig::ftCssPlugin::cssnanoOptions`
 
 A synchronous hook which receives the configuration object to be used for the [cssnano] PostCSS plugin. You may directly mutate this object.
 
-### `webpackConfig::ftCssPlugin::postcssLoaderOptions`
+### `anvil::cli::operation::@build::webpackConfig::ftCssPlugin::postcssLoaderOptions`
 
 A synchronous hook which receives the configuration object to be used for the [postcss-loader]. You may directly mutate this object.
 
-### `webpackConfig::ftCssPlugin::cssLoaderOptions`
+### `anvil::cli::operation::@build::webpackConfig::ftCssPlugin::cssLoaderOptions`
 
 A synchronous hook which receives the configuration object to be used for the [css-loader]. You may directly mutate this object.
 
-### `webpackConfig::ftCssPlugin::rule`
+### `anvil::cli::operation::@build::webpackConfig::ftCssPlugin::rule`
 
 A synchronous hook which receives the entire [rule] to be appended by this plugin. You may directly mutate this object.
 
-### `webpackConfig::ftCssPlugin::stylesOnlyPluginOptions`
+### `anvil::cli::operation::@build::webpackConfig::ftCssPlugin::stylesOnlyPluginOptions`
 
 A synchronous hook which receives the configuration object to be used for the [webpack-fix-style-only-entries]. You may directly mutate this object.
 
-### `webpackConfig::ftCssPlugin::cssExtractPluginOptions`
+### `anvil::cli::operation::@build::webpackConfig::ftCssPlugin::cssExtractPluginOptions`
 
 A synchronous hook which receives the configuration object to be used for the [mini-css-extract-plugin]. You may directly mutate this object.

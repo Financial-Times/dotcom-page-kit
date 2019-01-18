@@ -1,8 +1,8 @@
 import { AnyObject } from '@financial-times/anvil-types-generic'
-import { CliContext } from '@financial-times/anvil'
+import { CliOperation } from '@financial-times/anvil'
 
 export interface RunningContext {
-  context: CliContext
+  dispatcher: CliOperation
 }
 
 export interface RunningWebpackContext extends RunningContext {

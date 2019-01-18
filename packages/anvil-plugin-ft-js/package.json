@@ -29,7 +29,7 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
     "@financial-times/anvil-types-build": "file:../anvil-types-build",
-    "adonai": "^0.5.0"
+    "adonai": "v1.0.0-beta.5"
   },
   "devDependencies": {
     "@financial-times/anvil": "file:../anvil"

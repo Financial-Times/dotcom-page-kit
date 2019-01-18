@@ -1,13 +1,13 @@
-import { CliContext } from '@financial-times/anvil'
+import { CliOperation } from '@financial-times/anvil'
 
 /**
  * Returns the babel config.
  *
  * NOTE: This file can also be specified as a preset in a .babelrc file.
  * When used in such a manner, there will be no args supplied to the function,
- * hence why the `context` arg is optional.
+ * hence why the `operation` arg is optional.
  */
-export default (context?: CliContext) => {
+export default (operation?: CliOperation) => {
   const opts = {
     classProperties: {},
     objectRestSpread: {},
@@ -25,11 +25,11 @@ export default (context?: CliContext) => {
     ]
   }
 
-  if (context) {
-    context.amend('babelConfig::plugin::proposalClassProperties::options', opts.classProperties)
-    context.amend('babelConfig::plugin::proposalObjectRestSpread::options', opts.objectRestSpread)
-    context.amend('babelConfig::plugin::syntaxDynamicImport::options', opts.syntaxDynamicImport)
-    context.amend('babelConfig::plugin::transformRuntime::options', opts.transformRuntime)
+  if (operation) {
+    operation.amend('babelConfig::plugin::proposalClassProperties::options', opts.classProperties)
+    operation.amend('babelConfig::plugin::proposalObjectRestSpread::options', opts.objectRestSpread)
+    operation.amend('babelConfig::plugin::syntaxDynamicImport::options', opts.syntaxDynamicImport)
+    operation.amend('babelConfig::plugin::transformRuntime::options', opts.transformRuntime)
   }
 
   return config

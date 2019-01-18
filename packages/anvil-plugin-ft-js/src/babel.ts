@@ -1,15 +1,15 @@
 import { PluginSettings } from './types'
-import { CliContext } from '@financial-times/anvil'
+import { CliOperation } from '@financial-times/anvil'
 
 /**
  * Returns the babel config
  *
  * NOTE: This file can also be specified as a preset in a .babelrc file.
  * When used in such a manner, there will be no args supplied to the function,
- * hence why the `context` arg is optional.
+ * hence why the `operation` arg is optional.
  */
-export default (context?: CliContext) => {
-  const settings: PluginSettings = context ? context.config.settings['ft-js'] : {}
+export default (operation?: CliOperation) => {
+  const settings: PluginSettings = operation ? operation.config.settings['ft-js'] : {}
 
   const jsx = {
     pragma: settings.jsxPragma || 'h',
@@ -47,13 +47,13 @@ export default (context?: CliContext) => {
     ]
   }
 
-  if (context) {
-    context.amend('babelConfig::preset::react::options', options.presetReact)
-    context.amend('babelConfig::preset::typescript::options', options.presetTypescript)
-    context.amend('babelConfig::plugin::proposalClassProperties::options', options.pluginClassProperties)
-    context.amend('babelConfig::plugin::proposalObjectRestSpread::options', options.pluginObjectRestSpread)
-    context.amend('babelConfig::plugin::syntaxDynamicImport::options', options.pluginDynamicImport)
-    context.amend('babelConfig::plugin::transformRuntime::options', options.pluginTransformRuntime)
+  if (operation) {
+    operation.amend('babelConfig::preset::react::options', options.presetReact)
+    operation.amend('babelConfig::preset::typescript::options', options.presetTypescript)
+    operation.amend('babelConfig::plugin::proposalClassProperties::options', options.pluginClassProperties)
+    operation.amend('babelConfig::plugin::proposalObjectRestSpread::options', options.pluginObjectRestSpread)
+    operation.amend('babelConfig::plugin::syntaxDynamicImport::options', options.pluginDynamicImport)
+    operation.amend('babelConfig::plugin::transformRuntime::options', options.pluginTransformRuntime)
   }
 
   return config
