@@ -6,15 +6,11 @@ export default function createHandlerFactory(options: RendererOptions) {
 
   return (Component: RenderComponent) => {
     return async (request: Request, response: Response, next: NextFunction): Promise<void> => {
-      let context
-
       try {
-        if (typeof Component.getInitialProps === 'function') {
-          context = await Component.getInitialProps({ ...context, request, response })
-        }
+        const context = { request, response }
+        const output = await renderer(Component, context, true)
 
-        const output = renderer(Component, context)
-        response.send('<!DOCTYPE html>' + output)
+        response.send(output)
       } catch (error) {
         next(error)
       }

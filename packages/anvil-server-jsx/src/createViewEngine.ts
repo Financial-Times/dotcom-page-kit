@@ -5,16 +5,17 @@ type RenderCallback = (error?: Error, output?: string) => any
 export default function createViewEngine(options: RendererOptions) {
   const renderer = createRenderer(options)
 
-  return (viewPath: string, context: any, callback: RenderCallback): void => {
-    const Component = interopRequire(viewPath) as RenderComponent
-
-    if (typeof Component !== 'function') {
-      callback(Error(`The module ${viewPath} requires a default export.`))
-    }
-
+  return async (componentPath: string, context: any, callback: RenderCallback): Promise<void> => {
     try {
-      const output = renderer(Component, context)
-      callback(null, '<!DOCTYPE html>' + output)
+      const Component = interopRequire(componentPath) as RenderComponent
+
+      if (typeof Component !== 'function') {
+        throw Error(`The module ${componentPath} requires a default export.`)
+      }
+
+      const output = await renderer(Component, context, true)
+
+      callback(null, output)
     } catch (error) {
       callback(error)
     }
