@@ -1,6 +1,6 @@
 import React from 'react'
-import FTHeader from '@financial-times/anvil-ui-ft-header'
 import { Footer } from '@financial-times/anvil-ui-ft-footer'
+import { Header } from '@financial-times/anvil-ui-ft-header'
 import { placeholder, createSlotterFor, Renderable } from '@financial-times/anvil-ui-slots'
 
 interface Props {
@@ -20,7 +20,7 @@ export default function FTLayout(props: Props) {
   return (
     <React.Fragment>
       <header>
-        <Slot name="header" Default={FTHeader} />
+        <Slot name="header" Default={Header} />
       </header>
       <main id="root">
         <Slot name="body" />
