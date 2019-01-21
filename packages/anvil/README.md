@@ -53,6 +53,7 @@ Usage via configuration file:
 
 ```json
 {
+  "plugins": [...],
   "settings": {
     "entry": {
       "main": "./path/to/entry.js"
@@ -72,6 +73,27 @@ anvil build --outputPath ./path/to/dist
 ```
 
 Files will be created using the pattern `[name].js` in development mode and `[name].[contenthash].js` in production mode.
+
+##### Targets
+
+A value that describes the environments you support / target for your project. It accepts the same values that the `targets` property of `@babel/preset-env` accepts, and it defaults to the [browserslist-compatible] query `> 1%, ie 11, bb 10, ff ESR`. See the [`@babel/preset-env` documentation] for more information about targets
+
+Usage via configuration file:
+
+```json
+{
+  "plugins": [...],
+  "settings": {
+    "targets": {
+      "chrome": "58",
+      "ie": "11"
+    }
+  }
+}
+```
+
+[browserslist-compatible]: https://github.com/browserslist/browserslist
+[`@babel/preset-env` documentation]: https://babeljs.io/docs/en/babel-preset-env#targets
 
 ##### Development and production modes
 
