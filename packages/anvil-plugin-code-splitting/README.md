@@ -5,7 +5,7 @@ This plugin enables bundle splitting in accordance with the strategy outlined at
 ## Installation
 
 ```
-npm install --save-dev @financial-times/anvil-plugin-code-splitting @financial-times/anvil-plugin-babel
+npm install --save-dev @financial-times/anvil-plugin-code-splitting
 ```
 
 ## Usage
@@ -15,10 +15,7 @@ anvil.config.json
 ```json
 {
   "plugins": [
-    "@financial-times/anvil-plugin-babel"
     "@financial-times/anvil-plugin-code-splitting"
   ]
 }
 ```
-
-NOTE: This plugin extends `@financial-times/anvil-plugin-babel` and so it must be declared first

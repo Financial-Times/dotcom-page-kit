@@ -1,6 +1,5 @@
 {
   "plugins": [
-    "@financial-times/anvil-plugin-babel",
     "@financial-times/anvil-plugin-code-splitting",
     "@financial-times/anvil-plugin-ft-js",
     "@financial-times/anvil-plugin-ft-css"
