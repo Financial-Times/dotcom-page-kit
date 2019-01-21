@@ -29,3 +29,13 @@ export function Header(props) {
     </HeaderHtml>
   )
 }
+
+export function LogoOnly() {
+  return (
+    <HeaderHtml>
+      <FooterTopWrapper>
+        <TopColumnCenter />
+      </FooterTopWrapper>
+    </HeaderHtml>
+  )
+}
