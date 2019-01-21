@@ -7,29 +7,29 @@ import { CliContext } from '@financial-times/anvil'
  * When used in such a manner, there will be no args supplied to the function,
  * hence why the `cli` arg is optional.
  */
+
 export default (cli?: CliContext) => {
-  const opts = {
-    classProperties: {},
-    objectRestSpread: {},
-    syntaxDynamicImport: {},
-    transformRuntime: {}
+  const classPropertiesPluginOptions = {}
+  const syntaxDynamicImportPluginOptions = {}
+  const transformRuntimePluginOptions = {
+    corejs: false,
+    helpers: true,
+    regenerator: true
   }
 
   const config = {
     presets: [],
     plugins: [
-      [require.resolve('@babel/plugin-proposal-class-properties'), opts.classProperties],
-      [require.resolve('@babel/plugin-proposal-object-rest-spread'), opts.objectRestSpread],
-      [require.resolve('@babel/plugin-syntax-dynamic-import'), opts.syntaxDynamicImport],
-      [require.resolve('@babel/plugin-transform-runtime'), opts.transformRuntime]
+      [require.resolve('@babel/plugin-proposal-class-properties'), classPropertiesPluginOptions],
+      [require.resolve('@babel/plugin-syntax-dynamic-import'), syntaxDynamicImportPluginOptions],
+      [require.resolve('@babel/plugin-transform-runtime'), transformRuntimePluginOptions]
     ]
   }
 
   if (cli) {
-    cli.publish('babelConfig::plugin::proposalClassProperties::options', opts.classProperties)
-    cli.publish('babelConfig::plugin::proposalObjectRestSpread::options', opts.objectRestSpread)
-    cli.publish('babelConfig::plugin::syntaxDynamicImport::options', opts.syntaxDynamicImport)
-    cli.publish('babelConfig::plugin::transformRuntime::options', opts.transformRuntime)
+    cli.publish('babelConfig::plugin::proposalClassProperties::options', classPropertiesPluginOptions)
+    cli.publish('babelConfig::plugin::syntaxDynamicImport::options', syntaxDynamicImportPluginOptions)
+    cli.publish('babelConfig::plugin::transformRuntime::options', transformRuntimePluginOptions)
   }
 
   return config
