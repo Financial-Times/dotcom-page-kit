@@ -2,6 +2,7 @@ import { createElement } from 'react'
 import { renderToString, renderToStaticMarkup } from 'react-dom/server'
 import interopRequire from './interopRequire'
 import { Request, Response, NextFunction } from 'express'
+import { Renderable } from './types';
 
 export type RenderCallback = (error?: Error, output?: string) => any
 
@@ -22,7 +23,7 @@ class ReactRenderer {
     this.engine = this.renderView.bind(this)
   }
 
-  async render(component, context: any, includeDoctype?: boolean): Promise<string> {
+  async render(component: Renderable, context: any, includeDoctype?: boolean): Promise<string> {
     if (typeof component.getInitialProps === 'function') {
       context = await component.getInitialProps(context)
     }
@@ -36,7 +37,7 @@ class ReactRenderer {
 
   async renderView(viewPath: string, context: any, callback: RenderCallback): Promise<void> {
     try {
-      const element = interopRequire(viewPath)
+      const element = interopRequire(viewPath) as Renderable
 
       if (typeof element !== 'function') {
         throw Error(`The module ${viewPath} requires a default export.`)
@@ -50,7 +51,7 @@ class ReactRenderer {
     }
   }
 
-  async createHandler(element) {
+  async createHandler(element: Renderable) {
     return async (request: Request, response: Response, next: NextFunction): Promise<void> => {
       try {
         const context = { request, response }
