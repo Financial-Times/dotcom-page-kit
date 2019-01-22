@@ -1,6 +1,6 @@
-# Anvil Server JSX Renderer
+# Anvil Server React Renderer
 
-This module provides rendering for [JSX] components with extra functionality for Express applications.
+This module provides rendering for React components and includes extra functionality for Express applications.
 
 [JSX]: https://jasonformat.com/wtf-is-jsx/
 [view engine]: https://expressjs.com/en/guide/using-template-engines.html
@@ -12,17 +12,14 @@ This module provides rendering for [JSX] components with extra functionality for
 This module is compatible with Node 10+ and is distributed on npm.
 
 ```sh
-npm install --save-dev @financial-times/anvil-server-jsx
+npm install --save-dev @financial-times/anvil-server-react-renderer
 ```
 
-This module provides a single class which can be configured using [options](#options).
+This module provides a single class:
 
-```js
-import { createElement } from 'react'
-import { renderToString } from 'react-dom/server'
-import Renderer from '@financial-times/anvil-server-jsx-renderer'
-
-const renderer = new Renderer({ createElement, renderToString })
+```diff
++ import Renderer from '@financial-times/anvil-server-react-renderer'
++ const renderer = new Renderer()
 ```
 
 Once installed the package can be used [as a view engine](#usage-as-a-view-engine), to dynamically [create route handlers](#creating-route-handlers), or [standalone](#standalone-usage).
@@ -125,15 +122,7 @@ Dynamically generates an Express [route handler] for the given component which w
 
 ## Options
 
-The constructor functions provided by this module each share the following parameters:
-
-### `createElement`
-
-The function to use for creating JSX elements, such as `React.createElement` or `Preact.h`.
-
-### `renderToString`
-
-The function to use for rendering JSX elements to a string, such as `React.renderToString` or `Preact.render`.
+This module currently has no options.
 
 
 ## Using JSX at runtime

@@ -1,25 +1,16 @@
+import { createElement } from 'react'
+import { renderToString } from 'react-dom/server'
 import { Request, Response, NextFunction } from 'express'
 import interopRequire from './interopRequire'
-
-export interface RendererOptions {
-  createElement: Function
-  renderToString: Function
-}
 
 export type RenderElement = Function | any
 
 export type RenderCallback = (error?: Error, output?: string) => any
 
 class JSXRenderer {
-  private createElement: Function
-  private renderToString: Function
-
   public engine: Function
 
-  constructor(options: RendererOptions) {
-    this.createElement = options.createElement
-    this.renderToString = options.renderToString
-
+  constructor() {
     // This method must be bound to this instance
     this.engine = this.viewEngine.bind(this)
   }
@@ -30,7 +21,7 @@ class JSXRenderer {
     }
 
     const outputPrefix = includeDoctype ? '<!DOCTYPE html>' : ''
-    const outputHTML = this.renderToString(this.createElement(component, context))
+    const outputHTML = renderToString(createElement(component, context))
 
     return outputPrefix + outputHTML
   }
