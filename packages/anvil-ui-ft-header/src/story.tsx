@@ -3,7 +3,7 @@ import { Header, LogoOnly } from '.'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, boolean } from '@storybook/addon-knobs'
 import { OrigamiBuildService } from '@financial-times/anvil-ui-origami-build-service'
-import storyData from './storyData'
+import storyData from './story-data/storyData'
 
 const userStateOptions = ['User is logged in', true]
 

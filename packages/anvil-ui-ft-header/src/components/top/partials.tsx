@@ -1,9 +1,10 @@
 import React from 'react'
 
-const HeaderHtml = (props) => (
+const HeaderSimple = (props) => (
+  //TODO handle the presence/absence of o-header--simple class
   <header
     id="site-navigation"
-    className="o-header"
+    className="o-header o-header--simple"
     data-o-component="o-header"
     data-o-header--no-js={true}
     tabIndex={-1}>
@@ -35,7 +36,7 @@ const Search = () => (
   </a>
 )
 
-const FooterTopWrapper = (props) => (
+const TopWrapper = (props) => (
   <div className="o-header__row o-header__top" data-trackable="header-top">
     <div className="o-header__container">
       <div className="o-header__top-wrapper">{props.children}</div>
@@ -81,64 +82,4 @@ const TopColumnRight = () => {
   )
 }
 
-const NavListLeft = ({ navbarUk }) => {
-  return (
-    <ul className="o-header__nav-list o-header__nav-list--left" data-trackable="primary-nav">
-      {navbarUk.map((navItem, index) => {
-        const ariaLabel = navItem.selected ? { 'aria-label': 'Current page', 'aria-current': true } : null
-        return (
-          <li className="o-header__nav-item">
-            <a
-              className="o-header__nav-link o-header__nav-link--primary"
-              href={navItem.href}
-              id={`o-header-link-${index}`}
-              {...ariaLabel}
-              data-trackable={navItem.label}>
-              {navItem.label}
-            </a>
-          </li>
-        )
-      })}
-    </ul>
-  )
-}
-
-const NavListRight = ({ navbarOption }) => {
-  return (
-    <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
-      {navbarOption.map((navItem) => {
-        return (
-          <li className="o-header__nav-item">
-            <a className="o-header__nav-link" href={navItem.href} data-trackable={navItem.label}>
-              {navItem.label}
-            </a>
-          </li>
-        )
-      })}
-    </ul>
-  )
-}
-
-const NavHtml = (props) => {
-  return (
-    <nav
-      id="o-header-nav-desktop"
-      className="o-header__row o-header__nav o-header__nav--desktop"
-      role="navigation"
-      aria-label="Primary navigation"
-      data-trackable="header-nav:desktop">
-      <div className="o-header__container">{props.children}</div>
-    </nav>
-  )
-}
-
-export {
-  HeaderHtml,
-  FooterTopWrapper,
-  TopColumnLeft,
-  TopColumnCenter,
-  TopColumnRight,
-  NavListLeft,
-  NavListRight,
-  NavHtml
-}
+export { HeaderSimple, TopWrapper, TopColumnLeft, TopColumnCenter, TopColumnRight }
