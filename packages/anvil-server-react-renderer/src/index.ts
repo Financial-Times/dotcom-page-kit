@@ -1,1 +1,1 @@
-export * from './JSXRenderer'
+export * from './ReactRenderer'

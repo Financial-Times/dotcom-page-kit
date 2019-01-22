@@ -7,7 +7,7 @@ export type RenderElement = Function | any
 
 export type RenderCallback = (error?: Error, output?: string) => any
 
-class JSXRenderer {
+class ReactRenderer {
   public engine: Function
 
   constructor() {
@@ -56,4 +56,4 @@ class JSXRenderer {
   }
 }
 
-export default JSXRenderer
+export default ReactRenderer
