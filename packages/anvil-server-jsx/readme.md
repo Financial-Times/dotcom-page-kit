@@ -1,10 +1,11 @@
-# Anvil Server JSX
+# Anvil Server JSX Renderer
 
-This module provides rendering for [JSX] components with extra functionality for Express applications. It can be used as a [view engine] or dynamically create [route handlers] which automatically render components.
+This module provides rendering for [JSX] components with extra functionality for Express applications.
 
 [JSX]: https://jasonformat.com/wtf-is-jsx/
 [view engine]: https://expressjs.com/en/guide/using-template-engines.html
-[route handlers]: https://expressjs.com/en/guide/routing.html#route-handlers
+[route handler]: https://expressjs.com/en/guide/routing.html#route-handlers
+
 
 ## Getting started
 
@@ -14,30 +15,33 @@ This module is compatible with Node 10+ and is distributed on npm.
 npm install --save-dev @financial-times/anvil-server-jsx
 ```
 
-Once installed the package can be used [as a view engine](#usage-as-a-view-engine), dynamically [create route handlers](#creating-route-handlers), or [standalone](#standalone-usage).
+This module provides a single class which can be configured using [options](#options).
+
+```js
+import { createElement } from 'react'
+import { renderToString } from 'react-dom/server'
+import Renderer from '@financial-times/anvil-server-jsx-renderer'
+
+const renderer = new Renderer({ createElement, renderToString })
+```
+
+Once installed the package can be used [as a view engine](#usage-as-a-view-engine), to dynamically [create route handlers](#creating-route-handlers), or [standalone](#standalone-usage).
 
 _Please note_ you will need to extend Node's `require()` function to enable the use of `.jsx` files at runtime. See [using JSX at runtime](#using-jsx-at-runtime).
 
 
 ### Usage as a view engine
 
-View engines enable the use of the `.render()` method on Express's [response object]. This will automatically find the component to render and send the result as a response to the request.
+View engines enable the use of the `.render()` method on Express's [response object]. This will automatically find the file containing the component to render and send the result as a response to the request.
 
-You can use this module as a view engine with the `createViewEngine()` function (this requires [options](#options) to be provided):
-
-```diff
-+ const { createViewEngine } = require('@financial-times/anvil-server-jsx')
-+ const jsxViewEngine = createViewEngine(options)
-```
-
-Next, register the new view engine with your Express application. _Please note_ that the first argument should be the file extension used by the files which contain your components:
+After creating a new JSX renderer you can use the `engine` property to register it with your Express application. _Please note_ that the first argument should be the file extension used by the files which contain your components:
 
 ```diff
 const app = express()
-+ app.engine('.jsx', jsxViewEngine)
++ app.engine('.jsx', renderer.engine)
 ```
 
-Once registered Express will be able to find your components, decorate data passed to them with properties from `app.locals` and `response.locals`, and automatically send the rendered result. See the Express [render documentation] for more information.
+Once registered Express will be able to find your component files, decorate any data passed to them with properties from `app.locals` and `response.locals`, and automatically send the rendered result. See the Express [render documentation] for more information.
 
 ```js
 app.get('/', (request, response) => {
@@ -62,37 +66,21 @@ Finally, Express has some [app settings] which can be defined to provide some op
 
 ### Creating route handlers
 
-[Route handlers] (also known as controllers or route callbacks) are functions which handle requests to routes registered with your Express application. This module can be used to dynamically create route handlers which will automatically render a component and send the result as a response to a request.
-
-You can create a new route handler factory with the `createHandlerFactory()` function (this requires [options](#options) to be provided):
-
-```diff
-+ const { createHandlerFactory } = require('@financial-times/anvil-server-jsx')
-+ const jsxRouteHandler = new createHandlerFactory(options)
+```js
+renderer.createHandler(component)
 ```
 
-This new factory function can then be used to wrap components with a dynamically generated Express route handler:
+A [Route handler] (also known as controller or route callback) is a function which handles requests to routes registered with your Express application. This module can dynamically generate route handlers which renders a component and sends the result as a response.
 
 ```js
 const HomeComponent = require('../views/home.jsx')
-app.get('/', jsxRouteHandler(HomeComponent))
+app.get('/', renderer.createHandler(HomeComponent))
 ```
-
-If the component provided has a `.getInitialProps()` method then this method will be called with an object containing the request and response and the resolved value passed to the component as props.
 
 
 ### Standalone usage
 
-If you are not building an application using Express or require more granular control over the rendering of your components you can use a standalone renderer. This renderer is intended to provide some convenient extra functionality over your framework's native render to string method and supports the view engine and dynamic route handler functionality provided by this module.
-
- You can create a new renderer with the `createRenderer()` function (this requires [options](#options) to be provided):
-
-```diff
-+ const { createRenderer } = require('@financial-times/anvil-server-jsx')
-+ const jsxRenderer = createRenderer(options)
-```
-
-This new renderer function can then be used to render your components to a string of HTML. If you are rendering a complete page then the resolved output can be prefixed with the HTML doctype pragma by setting the third argument to `true`:
+If you are not building an application with Express or require more granular control you can use a standalone renderer. This renderer is intended to provide some convenient extra functionality over your framework's native render to string method.
 
 ```js
 const HomeComponent = require('../views/home.jsx')
@@ -104,7 +92,7 @@ app.get('/', async (request, response, next) => {
   }
 
   try {
-    const html = await jsxRenderer(HomeComponent, data, true)
+    const html = await renderer.render(HomeComponent, data, true)
     response.send(html)
   } catch (error) {
     next(error)
@@ -112,39 +100,27 @@ app.get('/', async (request, response, next) => {
 })
 ```
 
-If the component provided has a `.getInitialProps()` method then this method will be called with the value of the `data` argument and the resolved value passed to the component as props. If the component does not have this method then the value of `data` will be passed to the component instead.
-
 
 ## API
 
-This module provides three factory functions (functions which return new functions), these are:
+The renderer class provides three methods, these are:
 
-### `createRenderer(options)`
+### .render(component, context[, includeDoctype])
 
-Creates a new JSX renderer. This function requires [options](#options).
+Renders the given `component` to a string.
 
-### `createViewEngine(options)`
+If the component provided has a `.getInitialProps()` method then this method will be called with the value of the `context` argument and the resolved value passed to the component as props. If the component does not have this method then the value of `context` will be passed directly to the component instead.
 
-Creates a new JSX renderer and returns a function to be used by Express as a [view engine]. This function requires [options](#options).
-
-### `createHandlerFactory(options)`
-
-Creates a new JSX renderer and returns a function to be used for dynamically creating [route handlers]. This function requires [options](#options).
+If `includeDoctype` is true then the output will be prefixed with the HTML document pragma.
 
 
-## JSX renderer API
+### `.viewEngine(componentPath, context, callback)`
 
-### `renderer(Component, context, includeDoctype)
+This method is intended to be used as a [view engine] for Express. If you need to use it directly then the `componentPath` must be an absolute file system path to a component file.
 
+### `.createHandler(component)`
 
-## View engine API
-
-### `engine(componentPath, context, callback)`
-
-
-## Route Handler Factory API
-
-### `createHandler(Component)`
+Dynamically generates an Express [route handler] for the given component which will respond render the component for each request and automatically send the output as a response.
 
 
 ## Options
