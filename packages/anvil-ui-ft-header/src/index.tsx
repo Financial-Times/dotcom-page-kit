@@ -1,41 +1,41 @@
 import React from 'react'
 import {
-  HeaderHtml,
-  FooterTopWrapper,
+  HeaderSimple,
+  TopWrapper,
   TopColumnLeft,
   TopColumnCenter,
-  TopColumnRight,
-  NavListLeft,
-  NavListRight,
-  NavHtml
-} from './components/partials'
+  TopColumnRight
+} from './components/top/partials'
+import { NavListLeft, NavListRight, Nav } from './components/navigation/partials'
 
 export function Header(props) {
-  const navbarUk = props['navbar-uk'].items
+  // TODO Figure out how we should be handling UK v international
+  const navbarOptionsLeft = props['navbar-uk'].items
+  // TODO Figure out how we should be handling anon v user
   const navbarRight = props['navbar-right'].items
   const navbarRightAnon = props['navbar-right-anon'].items
-  const navbarOption = props.userNav ? navbarRight : navbarRightAnon
+  const navbarOptionsRight = props.userNav ? navbarRight : navbarRightAnon
   return (
-    <HeaderHtml>
-      <FooterTopWrapper>
+    <HeaderSimple>
+      <TopWrapper>
         <TopColumnLeft />
         <TopColumnCenter />
         <TopColumnRight />
-      </FooterTopWrapper>
-      <NavHtml>
-        <NavListLeft navbarUk={navbarUk} />
-        <NavListRight navbarOption={navbarOption} />
-      </NavHtml>
-    </HeaderHtml>
+      </TopWrapper>
+      <Nav>
+        <NavListLeft navbarOptionsLeft={navbarOptionsLeft} />
+        <NavListRight navbarOptionsRight={navbarOptionsRight} />
+      </Nav>
+    </HeaderSimple>
   )
 }
 
 export function LogoOnly() {
   return (
-    <HeaderHtml>
-      <FooterTopWrapper>
+    <HeaderSimple>
+      <TopWrapper>
         <TopColumnCenter />
-      </FooterTopWrapper>
-    </HeaderHtml>
+      </TopWrapper>
+    </HeaderSimple>
   )
 }
