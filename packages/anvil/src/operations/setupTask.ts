@@ -1,6 +1,6 @@
 import { Command } from 'commander'
 import { name, as } from 'adonai'
-import { CliOperation } from '../entities/CliOperation'
+import { CliContext } from '../entities/CliContext'
 import { MultiArgOperation } from 'adonai-routine'
 
 interface RunningArgs {
@@ -9,14 +9,14 @@ interface RunningArgs {
   taskArgs: any[]
 }
 
-export function setupTask(operation: CliOperation, task: MultiArgOperation) {
+export function setupTask(cli: CliContext, task: MultiArgOperation) {
   return (...taskArgs) => {
-    return operation
+    return cli
       .routine({ taskArgs, task })
-      .with(name('@setupTask'))
+      .with(name('setupTask'))
       .then(getCommandFromTaskArgs, as('command'))
-      .then(getOptionsFromCommand, as('operation.options'))
-      .then(getArgsFromCommand, as('operation.args'))
+      .then(getOptionsFromCommand, as('cli.options'))
+      .then(getArgsFromCommand, as('cli.args'))
       .then(executeTask)
       .exec()
   }
@@ -38,6 +38,6 @@ function getArgsFromCommand({}, { command, taskArgs }: RunningArgs) {
   }, {})
 }
 
-function executeTask(operation: CliOperation, { task }: RunningArgs) {
-  return operation.exec(task)
+function executeTask(cli: CliContext, { task }: RunningArgs) {
+  return cli.exec(task)
 }

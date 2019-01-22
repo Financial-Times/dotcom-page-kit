@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@financial-times/anvil-types-build": "file:../anvil-types-build",
-    "adonai": "v1.0.0-beta.5",
+    "adonai": "v1.0.0-beta.7",
     "bower-resolve-webpack-plugin": "^1.0.5",
     "webpack-merge": "^4.1.4"
   }

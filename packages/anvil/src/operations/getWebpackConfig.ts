@@ -1,23 +1,23 @@
 import get from 'lodash.get'
 import ManifestPlugin from 'webpack-manifest-plugin'
-import { CliOperation } from '../entities/CliOperation'
+import { CliContext } from '../entities/CliContext'
 import { getBabelConfig } from './getBabelConfig'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
 
-export function getWebpackConfig(operation: CliOperation) {
+export function getWebpackConfig(cli: CliContext) {
   let jsRule
 
-  const isDevMode = operation.options.development
-  const entryOptions = get(operation, 'config.settings.entry') || operation.options.entryFile
+  const isDevMode = cli.options.development
+  const entryOptions = get(cli, 'config.settings.entry') || cli.options.entryFile
   const outputFilename = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
   const manifestPluginOptions = {}
-  const cleanWebpackPluginPaths = [operation.options.outputPath]
-  const cleanWebpackPluginOptions = { root: operation.workingDir, verbose: false }
+  const cleanWebpackPluginPaths = [cli.options.outputPath] // TODO: This value is not being set
+  const cleanWebpackPluginOptions = { root: cli.workingDir, verbose: false }
 
-  operation.amend('webpackConfig::entry', entryOptions)
-  operation.amend('webpackConfig::plugins::cleanWebpackPlugin::options', cleanWebpackPluginOptions)
-  operation.amend('webpackConfig::plugins::cleanWebpackPlugin::paths', cleanWebpackPluginPaths)
-  operation.amend('webpackConfig::plugins::manifestPlugin::options', manifestPluginOptions)
+  cli.publish('webpackConfig::entry', entryOptions)
+  cli.publish('webpackConfig::plugins::manifestPlugin::options', manifestPluginOptions)
+  cli.publish('webpackConfig::plugins::cleanWebpackPlugin::paths', cleanWebpackPluginPaths)
+  cli.publish('webpackConfig::plugins::cleanWebpackPlugin::options', cleanWebpackPluginOptions)
 
   const webpackConfig = {
     mode: isDevMode ? 'development' : 'production',
@@ -25,7 +25,7 @@ export function getWebpackConfig(operation: CliOperation) {
     output: {
       filename: outputFilename,
       chunkFilename: outputFilename,
-      path: operation.options.outputPath
+      path: cli.options.outputPath
     },
     resolve: {
       extensions: ['.js', '.jsx', '.mjs', '.json']
@@ -38,7 +38,7 @@ export function getWebpackConfig(operation: CliOperation) {
           use: {
             loader: require.resolve('babel-loader'),
             options: {
-              ...getBabelConfig(operation),
+              ...getBabelConfig(cli),
               cacheDirectory: true
             }
           }
@@ -52,8 +52,8 @@ export function getWebpackConfig(operation: CliOperation) {
     devtool: isDevMode ? 'cheap-module-eval-source-map' : 'source-map'
   }
 
-  operation.amend('webpackConfig', webpackConfig)
-  operation.amend('webpackConfig::jsRule', jsRule)
+  cli.publish('webpackConfig', webpackConfig)
+  cli.publish('webpackConfig::jsRule', jsRule)
 
   return webpackConfig
 }

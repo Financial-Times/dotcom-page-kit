@@ -4,12 +4,12 @@ import babelPreset from './babel'
 import { RunningWebpackContext, RunningBabelContext } from '@financial-times/anvil-types-build'
 
 export default new Plugin(({ on }) => {
-  on('anvil::cli::operation::@build::amend::babelConfig', amendBabelConfig)
-  on('anvil::cli::operation::@build::amend::webpackConfig', amendWebpackConfig)
+  on('anvil::cli::@build::babelConfig', amendBabelConfig)
+  on('anvil::cli::@build::webpackConfig', amendWebpackConfig)
 })
 
-function amendBabelConfig({ dispatcher: operation, babelConfig }: RunningBabelContext) {
-  babelConfig.presets.push(babelPreset(operation))
+function amendBabelConfig({ cli, babelConfig }: RunningBabelContext) {
+  babelConfig.presets.push(babelPreset(cli))
 }
 
 function amendWebpackConfig(runningContext: RunningWebpackContext) {

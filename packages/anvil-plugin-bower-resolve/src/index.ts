@@ -4,7 +4,7 @@ import BowerResolvePlugin from 'bower-resolve-webpack-plugin'
 import { RunningWebpackContext } from '@financial-times/anvil-types-build'
 
 export default new Plugin(({ on }) => {
-  on('anvil::cli::operation::@build::amend::webpackConfig', amendWebpackConfig)
+  on('anvil::cli::@build::webpackConfig', amendWebpackConfig)
 })
 
 function amendWebpackConfig(runnerContext: RunningWebpackContext) {

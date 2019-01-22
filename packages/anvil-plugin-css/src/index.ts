@@ -4,15 +4,15 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import StylesOnlyPlugin from 'webpack-fix-style-only-entries'
 
 export default new Plugin(({ on }) => {
-  on('anvil::cli::operation::@build::amend::webpackConfig', amendWebpackConfig)
+  on('anvil::cli::@build::webpackConfig', amendWebpackConfig)
 })
 
-function amendWebpackConfig({ dispatcher: operation, webpackConfig }: RunningWebpackContext) {
-  const isDevMode = operation.options.development
+function amendWebpackConfig({ cli, webpackConfig }: RunningWebpackContext) {
+  const isDevMode = cli.options.development
 
   const cssLoaderOptions = {}
 
-  operation.amend('webpackConfig::cssPlugin::cssLoaderOptions', cssLoaderOptions)
+  cli.publish('webpackConfig::cssPlugin::cssLoaderOptions', cssLoaderOptions)
 
   const cssRule = {
     test: /\.css$/,
@@ -27,7 +27,7 @@ function amendWebpackConfig({ dispatcher: operation, webpackConfig }: RunningWeb
     ]
   }
 
-  operation.amend('webpackConfig::cssPlugin::rule', cssRule)
+  cli.publish('webpackConfig::cssPlugin::rule', cssRule)
 
   webpackConfig.module.rules.push(cssRule)
 
@@ -37,7 +37,7 @@ function amendWebpackConfig({ dispatcher: operation, webpackConfig }: RunningWeb
     silent: true
   }
 
-  operation.amend('webpackConfig::cssPlugin::stylesOnlyPluginOptions', stylesOnlyPluginOptions)
+  cli.publish('webpackConfig::cssPlugin::stylesOnlyPluginOptions', stylesOnlyPluginOptions)
 
   webpackConfig.plugins.push(new StylesOnlyPlugin(stylesOnlyPluginOptions))
 
@@ -46,7 +46,7 @@ function amendWebpackConfig({ dispatcher: operation, webpackConfig }: RunningWeb
     filename: isDevMode ? '[name].css' : '[name].[contenthash:12].css'
   }
 
-  operation.amend('webpackConfig::cssPlugin::cssExtractPluginOptions', cssExtractPluginOptions)
+  cli.publish('webpackConfig::cssPlugin::cssExtractPluginOptions', cssExtractPluginOptions)
 
   webpackConfig.plugins.push(new MiniCssExtractPlugin(cssExtractPluginOptions))
 }
