@@ -1,6 +1,6 @@
 # Anvil Server FT Handlebars
 
-This module provides rendering for [Handlebars] templates with additional support for loading partial templates, a mechanism to render views into layouts, and a [suite of helper functions]. It can be used as a [view engine] for Express or standalone.
+This module provides rendering for [Handlebars] templates with additional support for loading partial templates, a mechanism to render views into layouts, and a [suite of helper functions]. This module works best when used as a [view engine] for Express.
 
 [Handlebars]: https://handlebarsjs.com/
 [suite of helper functions]: https://github.com/Financial-Times/n-handlebars/tree/master/src/helpers
@@ -15,14 +15,14 @@ This module is compatible with Node 10+ and is distributed on npm.
 npm install --save-dev @financial-times/anvil-server-ft-handlebars
 ```
 
-It can be used [as a view engine for Express](#usage-with-express) but also works well as a [standalone library](#standalone-usage).
+It is best used [within an Express application](#usage-with-express) but also works as a [standalone library](#standalone-usage).
 
 
 ### Usage with Express
 
-After installing the module you must register it as a [view engine] for your Express application. This enables the use of the `.render()` method on the [response object].
+After installing the module you must register it as a [view engine] for your Express application. This will enable you to render template files with the matching file extension and send the result as a response to requests.
 
-_Please note_ the file extension registered with your application must match the one used by the template files you want to render and the `extname` [option](#options).
+_Please note_ the template file extension registered with your application must match the `extname` [option](#options).
 
 ```diff
 const express = require('express')
@@ -32,7 +32,7 @@ const app = express()
 + app.engine('.hbs', engine())
 ```
 
-When registered Express will be able to find the template file, decorate data passed to it with properties from `app.locals` and `response.locals`, and automatically send the rendered result. See the Express [render documentation] for more information.
+When using this module as a view engine Express will find the template file, decorate any data passed to it with properties from `app.locals` and `response.locals`, and send the rendered result. See the Express [render documentation] for more information.
 
 ```js
 app.get('/', (request, response) => {
@@ -45,23 +45,22 @@ app.get('/', (request, response) => {
 })
 ```
 
-Express view engines require some [app settings] to be defined, these are:
+Express view engines will also inherit some [settings] from the application which can override the [options](#options) provided to this module, these are:
 
-- The `views` setting must be a path to the directory containing your view template files. Partial and layout template files will be found independently of this setting.
-- The `view cache` setting will enable caching of partial template files to avoid finding and compiling them for each render.
+- The `views` will be used to help find your view template files. Partial and layout template files will be looked up independently of this setting.
+- The `view cache` setting will optimistically cache partial template files to avoid looking for them on each render. This will be enabled by default in production.
 
-[response object]: https://expressjs.com/en/4x/api.html#res
 [render documentation]: https://expressjs.com/en/4x/api.html#res.render
 [settings]: https://expressjs.com/en/api.html#app.settings.table
 
 
 ### Standalone usage
 
-This module can also be used without integrating it into Express. This may be suitable for applications which are not built with Express or for custom component rendering needs. You must begin by creating a new renderer:
+This module can be used without integrating into your application. This may be suitable for applications which are not built with Express or for ad-hoc template rendering needs.
 
 ```diff
 + const { create } = require('@financial-times/anvil-server-ft-handlebars')
-+ const hbsRenderer = create()
++ const handlebars = handlebars.create()
 ```
 
 When using this module as a standalone library you will need to find template files, provide all data, and handle the rendered output manually. See the [express-handlebars] documentation for more information.
@@ -75,7 +74,7 @@ module.exports = (request, response) => {
 
   const view = path.resolve('./views/home.hbs')
 
-  hbsRenderer.renderView(view, data, (error, html) => {
+  handlebars.renderView(view, data, (error, html) => {
     if (error) {
       response.status(500).send(`Something went wrong! "${error}"`)
     } else {
@@ -88,20 +87,15 @@ module.exports = (request, response) => {
 [express-handlebars]: https://www.npmjs.com/package/express-handlebars
 
 
-## Top-level API
+## API
 
 ### `.create(options)`
 
-Creates a new Handlebars renderer.
+Creates a new Handlebars instance and returns the [express-handlebars] interface.
 
 ### `.engine(options)`
 
-Creates a new Handlebars renderer and returns a function to be used by Express as a [view engine].
-
-
-## Renderer API
-
-See the [express-handlebars] documentation.
+Creates a new Handlebars instance and returns a function to be used by Express as a [view engine].
 
 
 ## Options
@@ -126,7 +120,7 @@ An array of paths to lookup partial template files. Defaults to `["views/partial
 
 ### `helpers`
 
-An object containing additional [helper functions] to register with Handlebars. Defaults to `{}`.
+An object containing additional [helper functions] to register with Handlebars. Defaults to `{}`. This module provides many helper functions provided by [n-express].
 
 [helper functions]: http://handlebarsjs.com/builtin_helpers.html
 [n-express]: https://github.com/Financial-Times/n-express
