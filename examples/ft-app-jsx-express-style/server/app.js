@@ -1,10 +1,8 @@
 import express from 'express'
-import { createElement } from 'react'
-import { renderToString } from 'react-dom/server'
 import { homePageController } from './controllers/home'
 import { aboutPageController } from './controllers/about'
 // import AssetLoader from '@financial-times/anvil-server-asset-loader'
-import Renderer from '@financial-times/anvil-server-jsx'
+import ReactRenderer from '@financial-times/anvil-server-react-renderer'
 
 export const app = express()
 
@@ -15,7 +13,7 @@ export const app = express()
 
 // const scriptsToLoad = [assets.getPublicURL('client.js'), assets.getPublicURL('runtime.js')]
 
-const renderer = new Renderer({ createElement, renderToString })
+const renderer = new ReactRenderer()
 
 app.engine('.jsx', renderer.engine)
 

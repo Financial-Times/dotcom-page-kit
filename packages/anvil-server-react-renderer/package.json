@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-server-jsx",
+  "name": "@financial-times/anvil-server-react-renderer",
   "version": "0.0.0",
   "description": "",
   "main": "cjs.js",

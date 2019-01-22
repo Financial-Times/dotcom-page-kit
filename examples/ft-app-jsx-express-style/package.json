@@ -23,7 +23,7 @@
   "dependencies": {
     "@babel/runtime": "^7.1.5",
     "@financial-times/anvil-server-asset-loader": "file:../../packages/anvil-server-asset-loader",
-    "@financial-times/anvil-server-jsx": "file:../../packages/anvil-server-jsx",
+    "@financial-times/anvil-server-react-renderer": "file:../../packages/anvil-server-react-renderer",
     "@financial-times/anvil-ui-ft-layout": "file:../../packages/anvil-ui-ft-layout",
     "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
     "express": "^4.16.4",

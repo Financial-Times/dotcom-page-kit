@@ -18,8 +18,8 @@ npm install --save-dev @financial-times/anvil-server-react-renderer
 This module provides a single class:
 
 ```diff
-+ import Renderer from '@financial-times/anvil-server-react-renderer'
-+ const renderer = new Renderer()
++ import ReactRenderer from '@financial-times/anvil-server-react-renderer'
++ const renderer = new ReactRenderer()
 ```
 
 Once installed the package can be used [as a view engine](#usage-as-a-view-engine), to dynamically [create route handlers](#creating-route-handlers), or [standalone](#standalone-usage).
@@ -102,7 +102,7 @@ app.get('/', async (request, response, next) => {
 
 The renderer class provides three methods, these are:
 
-### .render(component, context[, includeDoctype])
+### `.render(component, context[, includeDoctype])`
 
 Renders the given `component` to a string.
 
