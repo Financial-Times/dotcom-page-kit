@@ -1,34 +1,42 @@
 import { createElement } from 'react'
-import { renderToString } from 'react-dom/server'
-import { Request, Response, NextFunction } from 'express'
+import { renderToString, renderToStaticMarkup } from 'react-dom/server'
 import interopRequire from './interopRequire'
-
-export type RenderElement = Function | any
+import { Request, Response, NextFunction } from 'express'
 
 export type RenderCallback = (error?: Error, output?: string) => any
 
+export interface Options {
+  useStaticRendering: boolean
+}
+
+const defaultOptions: Options = {
+  useStaticRendering: false
+}
+
 class ReactRenderer {
+  public options: Options
   public engine: Function
 
-  constructor() {
-    // This method must be bound to this instance
-    this.engine = this.viewEngine.bind(this)
+  constructor(userOptions?: Partial<Options>) {
+    this.options = { ...defaultOptions, ...userOptions }
+    this.engine = this.renderView.bind(this)
   }
 
-  async render(component: RenderElement, context: any, includeDoctype: boolean): Promise<string> {
+  async render(component, context: any, includeDoctype?: boolean): Promise<string> {
     if (typeof component.getInitialProps === 'function') {
       context = await component.getInitialProps(context)
     }
 
     const outputPrefix = includeDoctype ? '<!DOCTYPE html>' : ''
-    const outputHTML = renderToString(createElement(component, context))
+    const renderMethod = this.options.useStaticRendering ? renderToStaticMarkup : renderToString
+    const outputHTML = renderMethod(createElement(component, context))
 
     return outputPrefix + outputHTML
   }
 
-  async viewEngine(viewPath: string, context: any, callback: RenderCallback): Promise<void> {
+  async renderView(viewPath: string, context: any, callback: RenderCallback): Promise<void> {
     try {
-      const element = interopRequire(viewPath) as RenderElement
+      const element = interopRequire(viewPath)
 
       if (typeof element !== 'function') {
         throw Error(`The module ${viewPath} requires a default export.`)
@@ -42,7 +50,7 @@ class ReactRenderer {
     }
   }
 
-  async createHandler(element: RenderElement) {
+  async createHandler(element) {
     return async (request: Request, response: Response, next: NextFunction): Promise<void> => {
       try {
         const context = { request, response }

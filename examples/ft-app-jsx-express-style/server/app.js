@@ -13,7 +13,7 @@ export const app = express()
 
 // const scriptsToLoad = [assets.getPublicURL('client.js'), assets.getPublicURL('runtime.js')]
 
-const renderer = new ReactRenderer()
+const renderer = new ReactRenderer({ useStaticRendering: true })
 
 app.engine('.jsx', renderer.engine)
 

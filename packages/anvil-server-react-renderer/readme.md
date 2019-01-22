@@ -1,6 +1,6 @@
 # Anvil Server React Renderer
 
-This module provides rendering for React components and includes extra functionality for Express applications.
+This module provides rendering for React components with convenient extras for Express applications.
 
 [JSX]: https://jasonformat.com/wtf-is-jsx/
 [view engine]: https://expressjs.com/en/guide/using-template-engines.html
@@ -15,7 +15,7 @@ This module is compatible with Node 10+ and is distributed on npm.
 npm install --save-dev @financial-times/anvil-server-react-renderer
 ```
 
-This module provides a single class:
+This module provides a single class which can be configured by providing [options](#options):
 
 ```diff
 + import ReactRenderer from '@financial-times/anvil-server-react-renderer'
@@ -111,7 +111,7 @@ If the component provided has a `.getInitialProps()` method then this method wil
 If `includeDoctype` is true then the output will be prefixed with the HTML document pragma.
 
 
-### `.viewEngine(componentPath, context, callback)`
+### `.renderView(componentPath, context, callback)`
 
 This method is intended to be used as a [view engine] for Express. If you need to use it directly then the `componentPath` must be an absolute file system path to a component file.
 
@@ -122,7 +122,9 @@ Dynamically generates an Express [route handler] for the given component which w
 
 ## Options
 
-This module currently has no options.
+### `useStaticRendering`
+
+Directs all methods to use `ReactDOMServer.renderToStaticMarkup()` instead of `ReactDOMServer.renderToString()`. This should be enabled if you are rendering static pages and are not using React on the client. Defaults to `false`.
 
 
 ## Using JSX at runtime
