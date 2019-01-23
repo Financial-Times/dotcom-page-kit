@@ -2,7 +2,6 @@
 
 This module provides rendering for React components with convenient extras for Express applications.
 
-[JSX]: https://jasonformat.com/wtf-is-jsx/
 [view engine]: https://expressjs.com/en/guide/using-template-engines.html
 [route handler]: https://expressjs.com/en/guide/routing.html#route-handlers
 
@@ -67,7 +66,7 @@ Finally, Express has some [app settings] which can be defined to provide some op
 renderer.createHandler(component)
 ```
 
-A [Route handler] (also known as controller or route callback) is a function which handles requests to routes registered with your Express application. This module can dynamically generate route handlers which renders a component and sends the result as a response.
+A [Route handler] (also known as a controller or route callback) is a function which handles requests to routes registered with your Express application. This module can dynamically generate route handlers which renders a component and sends the result as a response.
 
 ```js
 const HomeComponent = require('../views/home.jsx')
@@ -117,7 +116,7 @@ This method is intended to be used as a [view engine] for Express. If you need t
 
 ### `.createHandler(component)`
 
-Dynamically generates an Express [route handler] for the given component which will respond render the component for each request and automatically send the output as a response.
+Dynamically generates an Express [route handler] for the given component which will render the component for each request and automatically send the output as a response.
 
 
 ## Options
@@ -128,3 +127,27 @@ Directs all methods to use `ReactDOMServer.renderToStaticMarkup()` instead of `R
 
 
 ## Using JSX at runtime
+
+By default Node cannot parse files which contain [JSX syntax] because it is extension of JavaScript rather than a feature of the language. However, it is widely supported by JavaScript parsers and transpilers.
+
+There are two options for using files which include JSX code:
+
+1. Transpile the code and write the plain JS output to a new file
+2. Transpile the code on-the-fly and keep the plain JS output in memory
+
+_Option 1_ is the best choice if you intend to distribute your code. For example if you publish your code to npm then this should always be in plain JS so that consumers of your code do not need to transpile it themselves.
+
+_Option 2_ is a good choice for code used only in your application. If the code is transpiled efficiently then this should not add any extra overhead but it may cause start-up times to increase. If you are using a template library such as Pug, Handlebars, or EJS you may be using a similar technique already!
+
+Whichever option you choose you will need to use a [transpiler]. Some popular options are [Babel], [Bublé], and [Sucrase]:
+
+- **Babel** is the most popular transpiler and is the most capable. It has support for the most recent and upcoming JS standards and syntax extensions and can output ES5 code. It has options to add relevant [polyfills] for features not supported by your target environment. However, Babel can require significant configuration and has many dependencies. This is the best option for transpiling code targeting the browser.
+- **Bublé** can transpile ES6 syntax to ES5 code. It does not attempt to polyfill features but it supports JSX and it is fast and simple. Bublé is a good choice for projects requiring minimal transformations.
+- **Sucrase** is capable of transpiling new JS features and syntax extensions to ES6 code. It is fast and lightweight so it is suitable for using in server-side projects.
+
+[JSX syntax]: https://jasonformat.com/wtf-is-jsx/
+[transpiler]: https://en.wikipedia.org/wiki/Source-to-source_compiler
+[Babel]: https://babeljs.io/
+[Bublé]: https://github.com/Rich-Harris/buble
+[Sucrase]: https://github.com/alangpierce/sucrase
+[Polyfills]: https://remysharp.com/2010/10/08/what-is-a-polyfill
