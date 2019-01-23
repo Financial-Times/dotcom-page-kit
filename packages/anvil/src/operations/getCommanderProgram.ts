@@ -1,8 +1,8 @@
 import { build } from '../tasks/build'
 import { setupTask } from './setupTask'
-import { CliOperation } from '../entities/CliOperation'
+import { CliContext } from '../entities/CliContext'
 
-export function getCommanderProgram(operation: CliOperation) {
+export function getCommanderProgram(cli: CliContext) {
   const program = require('commander')
 
   program
@@ -11,7 +11,7 @@ export function getCommanderProgram(operation: CliOperation) {
     .option('-o, --outputPath <path>', 'Path to the directory to store generated output', './dist')
     .option('-d, --development', 'Enable development mode', false)
     .option('-w, --watch', 'Watch for changes and rebuild on change')
-    .action(setupTask(operation, build))
+    .action(setupTask(cli, build))
 
   return program
 }

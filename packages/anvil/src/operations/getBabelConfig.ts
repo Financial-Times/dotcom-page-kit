@@ -1,13 +1,13 @@
-import { CliOperation } from '../entities/CliOperation'
+import { CliContext } from '../entities/CliContext'
 
 /**
  * Returns the babel config.
  *
  * NOTE: This function is also used in the `babel.js` file in to root of the package
  * to construct a preset that can be specified in a .babelrc file. When used in as a preset,
- * there will be no args supplied to the function, hence why the `operation` arg is optional.
+ * there will be no args supplied to the function, hence why the `cli` arg is optional.
  */
-export function getBabelConfig(operation?: CliOperation) {
+export function getBabelConfig(cli?: CliContext) {
   const presetEnvOpts = {}
 
   const babelConfig = {
@@ -16,9 +16,9 @@ export function getBabelConfig(operation?: CliOperation) {
     babelrc: true
   }
 
-  if (operation) {
-    operation.amend('babelConfig', babelConfig)
-    operation.amend('babelConfig::preset::env::options', presetEnvOpts)
+  if (cli) {
+    cli.publish('babelConfig', babelConfig)
+    cli.publish('babelConfig::preset::env::options', presetEnvOpts)
   }
 
   return babelConfig

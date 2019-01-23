@@ -1,15 +1,15 @@
 import { PluginSettings } from './types'
-import { CliOperation } from '@financial-times/anvil'
+import { CliContext } from '@financial-times/anvil'
 
 /**
  * Returns the babel config
  *
  * NOTE: This file can also be specified as a preset in a .babelrc file.
  * When used in such a manner, there will be no args supplied to the function,
- * hence why the `operation` arg is optional.
+ * hence why the `cli` arg is optional.
  */
-export default (operation?: CliOperation) => {
-  const settings: PluginSettings = operation ? operation.config.settings['ft-js'] : {}
+export default (cli?: CliContext) => {
+  const settings: PluginSettings = cli ? cli.config.settings['ft-js'] : {}
 
   const jsx = {
     pragma: settings.jsxPragma || 'h',
@@ -47,13 +47,13 @@ export default (operation?: CliOperation) => {
     ]
   }
 
-  if (operation) {
-    operation.amend('babelConfig::preset::react::options', options.presetReact)
-    operation.amend('babelConfig::preset::typescript::options', options.presetTypescript)
-    operation.amend('babelConfig::plugin::proposalClassProperties::options', options.pluginClassProperties)
-    operation.amend('babelConfig::plugin::proposalObjectRestSpread::options', options.pluginObjectRestSpread)
-    operation.amend('babelConfig::plugin::syntaxDynamicImport::options', options.pluginDynamicImport)
-    operation.amend('babelConfig::plugin::transformRuntime::options', options.pluginTransformRuntime)
+  if (cli) {
+    cli.publish('babelConfig::preset::react::options', options.presetReact)
+    cli.publish('babelConfig::preset::typescript::options', options.presetTypescript)
+    cli.publish('babelConfig::plugin::proposalClassProperties::options', options.pluginClassProperties)
+    cli.publish('babelConfig::plugin::proposalObjectRestSpread::options', options.pluginObjectRestSpread)
+    cli.publish('babelConfig::plugin::syntaxDynamicImport::options', options.pluginDynamicImport)
+    cli.publish('babelConfig::plugin::transformRuntime::options', options.pluginTransformRuntime)
   }
 
   return config

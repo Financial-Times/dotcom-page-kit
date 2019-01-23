@@ -3,9 +3,9 @@ import babelPreset from './babel'
 import { RunningBabelContext } from '@financial-times/anvil-types-build'
 
 export default new Plugin(({ on }) => {
-  on('anvil::cli::operation::@build::amend::babelConfig', amendBabelConfig)
+  on('babelConfig', amendBabelConfig)
 })
 
-function amendBabelConfig({ dispatcher: operation, babelConfig }: RunningBabelContext) {
-  babelConfig.presets.push(babelPreset(operation))
+function amendBabelConfig({ cli, babelConfig }: RunningBabelContext) {
+  babelConfig.presets.push(babelPreset(cli))
 }

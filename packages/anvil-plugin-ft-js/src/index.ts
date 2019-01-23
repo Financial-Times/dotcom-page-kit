@@ -4,10 +4,10 @@ import { PluginSettings } from './types'
 import { RunningWebpackContext, RunningBabelContext } from '@financial-times/anvil-types-build'
 
 export default new Plugin(({ on }) => {
-  on('anvil::cli::operation::@build::amend::babelConfig', addBabelPreset)
-  on('anvil::cli::operation::@build::amend::babelConfig::preset::env::options', amendBabelPresetEnvOptions)
-  on('anvil::cli::operation::@build::amend::webpackConfig::scriptsRule', amendWebpackConfigScriptsRule)
-  on('anvil::cli::operation::@build::amend::webpackConfig', addTypeScriptFileTypesToResolvers)
+  on('babelConfig', addBabelPreset)
+  on('babelConfig::preset::env::options', amendBabelPresetEnvOptions)
+  on('webpackConfig::scriptsRule', amendWebpackConfigScriptsRule)
+  on('webpackConfig', addTypeScriptFileTypesToResolvers)
 })
 
 function addTypeScriptFileTypesToResolvers({ webpackConfig }: RunningWebpackContext) {
@@ -20,11 +20,11 @@ function amendWebpackConfigScriptsRule({ scriptsRule }) {
   scriptsRule.use.options.cacheDirectory = true
 }
 
-function addBabelPreset({ dispatcher: operation, babelConfig }: RunningBabelContext) {
-  babelConfig.presets.push(babelPreset(operation))
+function addBabelPreset({ cli, babelConfig }: RunningBabelContext) {
+  babelConfig.presets.push(babelPreset(cli))
 }
 
-function amendBabelPresetEnvOptions({ dispatcher: operation, options }) {
-  const settings: PluginSettings = operation ? operation.config.settings['ft-js'] : {}
+function amendBabelPresetEnvOptions({ cli, options }) {
+  const settings: PluginSettings = cli ? cli.config.settings['ft-js'] : {}
   options.targets = settings.presetEnvTargets || '> 1%, ie 11, bb 10'
 }

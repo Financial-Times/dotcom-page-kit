@@ -27,7 +27,7 @@
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@financial-times/anvil-types-build": "file:../anvil-types-build",
-    "adonai": "v1.0.0-beta.5"
+    "adonai": "v1.0.0-beta.7"
   },
   "devDependencies": {
     "@financial-times/anvil": "file:../anvil"
