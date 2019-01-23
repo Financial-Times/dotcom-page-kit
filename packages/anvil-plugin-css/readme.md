@@ -53,18 +53,18 @@ There are currently no additional settings for this plugin.
 
 _Please note: The hooks below are listed in the order they will be executed._
 
-### `anvil::cli::@build::webpackConfig::cssPlugin::cssLoaderOptions`
+### `webpackConfig::cssPlugin::cssLoaderOptions`
 
 A synchronous hook which receives the configuration object to be used for the [css-loader]. You may directly mutate this object.
 
-### `anvil::cli::@build::webpackConfig::cssPlugin::rule`
+### `webpackConfig::cssPlugin::rule`
 
 A synchronous hook which receives the entire rule to be appended by this plugin. You may directly mutate this object.
 
-### `anvil::cli::@build::webpackConfig::cssPlugin::stylesOnlyPluginOptions`
+### `webpackConfig::cssPlugin::stylesOnlyPluginOptions`
 
 A synchronous hook which receives the configuration object to be used for the [webpack-fix-style-only-entries]. You may directly mutate this object.
 
-### `anvil::cli::@build::webpackConfig::cssPlugin::cssExtractPluginOptions`
+### `webpackConfig::cssPlugin::cssExtractPluginOptions`
 
 A synchronous hook which receives the configuration object to be used for the [mini-css-extract-plugin]. You may directly mutate this object.

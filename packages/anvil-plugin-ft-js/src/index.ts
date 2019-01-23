@@ -4,10 +4,10 @@ import { PluginSettings } from './types'
 import { RunningWebpackContext, RunningBabelContext } from '@financial-times/anvil-types-build'
 
 export default new Plugin(({ on }) => {
-  on('anvil::cli::@build::babelConfig', addBabelPreset)
-  on('anvil::cli::@build::babelConfig::preset::env::options', amendBabelPresetEnvOptions)
-  on('anvil::cli::@build::webpackConfig::scriptsRule', amendWebpackConfigScriptsRule)
-  on('anvil::cli::@build::webpackConfig', addTypeScriptFileTypesToResolvers)
+  on('babelConfig', addBabelPreset)
+  on('babelConfig::preset::env::options', amendBabelPresetEnvOptions)
+  on('webpackConfig::scriptsRule', amendWebpackConfigScriptsRule)
+  on('webpackConfig', addTypeScriptFileTypesToResolvers)
 })
 
 function addTypeScriptFileTypesToResolvers({ webpackConfig }: RunningWebpackContext) {

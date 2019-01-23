@@ -4,7 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import StylesOnlyPlugin from 'webpack-fix-style-only-entries'
 
 export default new Plugin(({ on }) => {
-  on('anvil::cli::@build::webpackConfig', amendWebpackConfig)
+  on('webpackConfig', amendWebpackConfig)
 })
 
 function amendWebpackConfig({ cli, webpackConfig }: RunningWebpackContext) {

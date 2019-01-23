@@ -3,7 +3,7 @@ import babelPreset from './babel'
 import { RunningBabelContext } from '@financial-times/anvil-types-build'
 
 export default new Plugin(({ on }) => {
-  on('anvil::cli::@build::babelConfig', amendBabelConfig)
+  on('babelConfig', amendBabelConfig)
 })
 
 function amendBabelConfig({ cli, babelConfig }: RunningBabelContext) {

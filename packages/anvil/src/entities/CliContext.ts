@@ -19,7 +19,6 @@ export class CliContext extends OperationContext {
   constructor({ prompt = new CliPrompt(), workingDir, ...otherArgs }: ConstructorArgs) {
     super(otherArgs)
 
-    this.scopeTo('anvil', 'cli')
     this.setAliasTo('cli')
 
     this.prompt = prompt
