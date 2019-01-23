@@ -1,0 +1,25 @@
+{
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/coverge": true
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "cSpell.allowCompoundWords": true,
+  "cSpell.spellCheckDelayMs": 300,
+  "cSpell.enabledLanguageIds": [
+    "javascript",
+    "javascriptreact",
+    "markdown",
+    "typescript",
+    "typescriptreact",
+    "yml"
+  ],
+  "cSpell.words": []
+}

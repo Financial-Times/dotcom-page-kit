@@ -5,5 +5,7 @@ dist/
 Thumbs.db
 npm-debug.log
 package-lock.json
-.vscode
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
 .cache
