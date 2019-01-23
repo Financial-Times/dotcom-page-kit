@@ -31,3 +31,5 @@ interface NextStaticLifecycle<P, C> {
 }
 
 export type Renderable = NextComponentClass | NextFunctionComponent
+
+export type RenderCallback = (error?: Error, output?: string) => any

@@ -30,7 +30,7 @@ _Please note_ you will need to extend Node's `require()` function to enable the 
 
 View engines enable the use of the `.render()` method on Express's [response object]. This will automatically find the file containing the component to render and send the result as a response to the request.
 
-After creating a new JSX renderer you can use the `engine` property to register it with your Express application. _Please note_ that the first argument should be the file extension used by the files which contain your components:
+After creating a new renderer you can use the `engine` property to register it with your Express application. _Please note_ that the first argument should be the file extension used by the files which contain your components:
 
 ```diff
 const app = express()
@@ -53,7 +53,7 @@ app.get('/', (request, response) => {
 Finally, Express has some [app settings] which can be defined to provide some options to view engines, these are:
 
 - The `views` setting is the path to the directory containing your view component files. This defaults to `"views"` and will be resolved relative to the current working directory.
-- The `view cache` setting currently has no effect on view engine provided by this module.
+- The `view cache` setting currently has no effect on the view engine provided by this module but enabling it will avoid unnecessary file system access. This defaults to `true` in production environments.
 
 [response object]: https://expressjs.com/en/4x/api.html#res
 [render documentation]: https://expressjs.com/en/4x/api.html#res.render

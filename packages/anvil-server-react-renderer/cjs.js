@@ -1,1 +1,1 @@
-module.exports = require('./cjs/index.js').default // eslint-disable-line import/no-unresolved
+module.exports = require('./dist/cjs/index').default // eslint-disable-line import/no-unresolved
