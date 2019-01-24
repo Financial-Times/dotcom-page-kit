@@ -1,7 +1,21 @@
-(function() {
+;(function() {
   var doc = document.documentElement
+  var isEnhanced = isEnhancedBrowser()
+  var scriptsConfig = getScriptsConfig()
+  var scriptsToLoad = []
 
   doc.className = doc.className.replace('no-js', 'js')
+
+  if (isEnhanced) {
+    doc.className = doc.className.replace('core', 'enhanced')
+    Array.prototype.push.apply(scriptsToLoad, scriptsConfig.enhanced)
+  } else {
+    Array.prototype.push.apply(scriptsToLoad, scriptsConfig.core)
+  }
+
+  for (var i = 0, len = scriptsToLoad.length; i < len; i++) {
+    loadScript(scriptsToLoad[i])
+  }
 
   function scriptLoadError(error) {
     console.error('Script loading error', error) // eslint-disable-line no-console
@@ -15,19 +29,8 @@
     document.head.appendChild(script)
   }
 
-  var scriptsConfigEl = document.getElementById('scripts-config')
-  var scriptsConfig = { core: [], enhanced: [] }
-
-  if (scriptsConfigEl) {
-    try {
-      scriptsConfig = JSON.parse(scriptsConfigEl.innerHTML)
-    } catch (error) {
-      console.error('Scripts configuration error', error) // eslint-disable-line no-console
-    }
-  }
-
-  // Cut the mustard
-  var enhanced = (function() {
+  // "Cut the mustard" test
+  function isEnhancedBrowser() {
     var script = document.createElement('script')
     var input = document.createElement('input')
 
@@ -37,18 +40,20 @@
       'flex' in doc.style && // not supported by old Safari (< 9) or IE 6-10
       'async' in script // not supported by old Opera (Presto engine < 15)
     )
-  })()
-
-  var scripts = []
-
-  if (enhanced) {
-    doc.className = doc.className.replace('core', 'enhanced')
-    Array.prototype.push.apply(scripts, scriptsConfig.enhanced)
-  } else {
-    Array.prototype.push.apply(scripts, scriptsConfig.core)
   }
 
-  for (var i = 0, len = scripts.length; i < len; i++) {
-    loadScript(scripts[i])
+  function getScriptsConfig() {
+    var scriptsConfigEl = document.getElementById('bootstrap-config')
+    var scriptsConfig = { core: [], enhanced: [] }
+
+    if (scriptsConfigEl) {
+      try {
+        scriptsConfig = JSON.parse(scriptsConfigEl.innerHTML)
+      } catch (error) {
+        console.error('Scripts configuration error', error) // eslint-disable-line no-console
+      }
+    }
+
+    return scriptsConfig
   }
 })()
