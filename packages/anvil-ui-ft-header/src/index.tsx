@@ -1,9 +1,12 @@
 import React from 'react'
 
-interface Props {
-  children?: any
-}
+import Drawer from './drawer'
 
-export default function FTHeader({ children }: Props) {
-  return <div>header... {children}</div>
+export default function FTHeader({ children }) {
+  return (
+    <React.Fragment>
+      {children}
+      <Drawer sections={undefined} user={undefined} />
+    </React.Fragment>
+  )
 }

@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react'
 import { withKnobs, select } from '@storybook/addon-knobs'
 import { OrigamiBuildService } from '@financial-times/anvil-ui-origami-build-service'
 
+import FakeHeader from './_header'
 import Drawer from '../drawer'
 
 import storyData from './data/menus.json'
@@ -62,6 +63,7 @@ story.add('international', () => {
 
   return (
     <OrigamiBuildService dependencies={origamiDeps}>
+      <FakeHeader />
       <Drawer
         editions={internationalEditions}
         sections={internationalItems}
