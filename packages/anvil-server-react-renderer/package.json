@@ -1,0 +1,28 @@
+{
+  "name": "@financial-times/anvil-server-react-renderer",
+  "version": "0.0.0",
+  "description": "",
+  "main": "cjs.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "../../node_modules/.bin/tsc",
+    "clean": "npm run clean:dist && npm run clean:node_modules",
+    "clean:dist": "rm -rf dist",
+    "clean:node_modules": "rm -rf node_modules",
+    "build:cjs": "npm run tsc -- --outDir ./dist/cjs",
+    "build": "npm run clean:dist && npm run build:cjs",
+    "dev": "npm run clean:dist && npm run build:cjs -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.16.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "engines": {
+    "node": ">= 10.0.0"
+  }
+}
