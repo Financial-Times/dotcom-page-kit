@@ -1,7 +1,7 @@
 import handlebars from 'express-handlebars'
 import handlebarsHelpers from '@financial-times/n-handlebars/src/extend-helpers'
 
-export interface Options {
+interface Options {
   /** File name for the default layout template. Defaults to null */
   defaultLayout: string | boolean
   /** Template file name extension. Defaults to ".hbs" */
