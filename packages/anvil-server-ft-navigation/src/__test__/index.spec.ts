@@ -58,7 +58,7 @@ describe('anvil-server-ft-navigation', () => {
     })
 
     it('rejects if the requested menu does not exist', async () => {
-      await expect(navigationInstance.getMenu('invalidMenu')).rejects.toThrowError(
+      await expect(navigationInstance.getMenu('invalidMenu')).rejects.toThrow(
         'Navigation menu "invalidMenu" does not exist'
       )
     })
