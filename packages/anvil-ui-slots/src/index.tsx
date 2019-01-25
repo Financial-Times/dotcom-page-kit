@@ -1,7 +1,7 @@
 import React from 'react'
 import { AnyObject } from '@financial-times/anvil-types-generic'
 
-export type Renderable = string | Function | React.ReactNode
+export type Renderable = React.ReactNode
 
 interface SlotProps {
   name: string
@@ -9,7 +9,7 @@ interface SlotProps {
 }
 
 export function placeholder() {
-  return () => null
+  return null
 }
 
 export function createSlotterFor(Constructor: Function, props: AnyObject) {
@@ -37,8 +37,8 @@ function renderComponent(Component: Renderable) {
 function getChildrenOfType(type, children) {
   let result
   React.Children.forEach(children, (child) => {
-    if (child.type === type) {
-      result = child.props.children
+    if (child['type'] === type) {
+      result = child['props'].children
     }
   })
   return result
