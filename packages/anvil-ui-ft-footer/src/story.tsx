@@ -5,12 +5,11 @@ import { withKnobs, radios } from '@storybook/addon-knobs'
 import { OrigamiBuildService } from '@financial-times/anvil-ui-origami-build-service'
 import sampleData from './storyData'
 
-const themeOptions = ['Theme', { dark: 'dark', light: 'light' }, 'dark']
+const toggleTheme = () => radios('Theme', { dark: 'dark', light: 'light' }, 'dark')
 
 storiesOf('FT / Footer', module)
   .addDecorator(withKnobs)
   .add('footer', () => {
-    const toggleTheme = radios(...themeOptions)
     return (
       <OrigamiBuildService
         dependencies={{
@@ -18,12 +17,11 @@ storiesOf('FT / Footer', module)
           'o-fonts': '^3.2.0',
           'o-normalise': '^1.6.2'
         }}>
-        <Footer {...sampleData} theme={toggleTheme} />
+        <Footer {...sampleData} theme={toggleTheme()} />
       </OrigamiBuildService>
     )
   })
   .add('legal footer', () => {
-    const toggleTheme = radios(...themeOptions)
     return (
       <OrigamiBuildService
         dependencies={{
@@ -31,7 +29,7 @@ storiesOf('FT / Footer', module)
           'o-fonts': '^3.2.0',
           'o-normalise': '^1.6.2'
         }}>
-        <LegalFooter {...sampleData} theme={toggleTheme} />
+        <LegalFooter {...sampleData} theme={toggleTheme()} />
       </OrigamiBuildService>
     )
   })

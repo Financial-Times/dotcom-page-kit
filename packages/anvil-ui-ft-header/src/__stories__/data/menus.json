@@ -1,0 +1,3184 @@
+{
+  "account": {
+    "label": "Account",
+    "items": [
+      { "label": "Sign In", "url": "/login?location=${currentPath}", "submenu": null },
+      { "label": "Sign Out", "url": "/logout", "submenu": null },
+      { "label": "Subscribe", "url": "/products", "submenu": null },
+      { "label": "Account Settings", "url": "https://myaccount.ft.com/details/core/view", "submenu": null },
+      { "label": "myFT", "url": "/myft", "submenu": null },
+      { "label": "Portfolio", "url": "https://markets.ft.com/data/portfolio/dashboard", "submenu": null }
+    ]
+  },
+  "drawer-uk": {
+    "label": "Drawer",
+    "items": [
+      {
+        "label": "Top sections",
+        "url": null,
+        "submenu": {
+          "label": null,
+          "items": [
+            { "label": "Home", "url": "/", "submenu": null },
+            {
+              "label": "World",
+              "url": "/world",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Global Economy", "url": "/global-economy", "submenu": null },
+                  {
+                    "label": "UK",
+                    "url": "/world/uk",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "UK Business & Economy", "url": "/uk-business-economy", "submenu": null },
+                        { "label": "UK Politics & Policy", "url": "/world/uk/politics", "submenu": null },
+                        { "label": "UK Companies", "url": "/companies/uk", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "US",
+                    "url": "/world/us",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "US Economy", "url": "/us-economy", "submenu": null },
+                        { "label": "US Politics & Policy", "url": "/world/us/politics", "submenu": null },
+                        { "label": "US Companies", "url": "/companies/us", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "China",
+                    "url": "/world/asia-pacific/china",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Chinese Economy", "url": "/chinese-economy", "submenu": null },
+                        {
+                          "label": "China Politics & Policy",
+                          "url": "/chinese-politics-policy",
+                          "submenu": null
+                        }
+                      ]
+                    }
+                  },
+                  { "label": "Africa", "url": "/world/africa", "submenu": null },
+                  { "label": "Asia Pacific", "url": "/world/asia-pacific", "submenu": null },
+                  { "label": "Emerging Markets", "url": "/emerging-markets", "submenu": null },
+                  { "label": "Europe", "url": "/world/europe", "submenu": null },
+                  { "label": "Americas", "url": "/world/americas", "submenu": null },
+                  { "label": "Middle East and North Africa", "url": "/world/mideast", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "UK",
+              "url": "/world/uk",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "UK Business & Economy", "url": "/uk-business-economy", "submenu": null },
+                  { "label": "UK Politics & Policy", "url": "/world/uk/politics", "submenu": null },
+                  { "label": "UK Companies", "url": "/companies/uk", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Companies",
+              "url": "/companies",
+              "submenu": {
+                "label": null,
+                "items": [
+                  {
+                    "label": "Energy",
+                    "url": "/companies/energy",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Mining", "url": "/companies/mining", "submenu": null },
+                        { "label": "Oil & Gas", "url": "/companies/oil-gas", "submenu": null },
+                        { "label": "Utilities", "url": "/companies/utilities", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Financials",
+                    "url": "/companies/financials",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Banks", "url": "/companies/banks", "submenu": null },
+                        { "label": "Insurance", "url": "/companies/insurance", "submenu": null },
+                        { "label": "Property", "url": "/companies/property", "submenu": null },
+                        {
+                          "label": "Financial Services",
+                          "url": "/companies/financial-services",
+                          "submenu": null
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Health",
+                    "url": "/companies/health",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Health Care", "url": "/companies/healthcare", "submenu": null },
+                        { "label": "Pharmaceuticals", "url": "/companies/pharmaceuticals", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Industrials",
+                    "url": "/companies/industrials",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        {
+                          "label": "Aerospace & Defence",
+                          "url": "/companies/aerospace-defence",
+                          "submenu": null
+                        },
+                        { "label": "Automobiles", "url": "/companies/automobiles", "submenu": null },
+                        { "label": "Basic Resources", "url": "/companies/basic-resources", "submenu": null },
+                        { "label": "Chemicals", "url": "/companies/chemicals", "submenu": null },
+                        { "label": "Construction", "url": "/companies/construction", "submenu": null },
+                        {
+                          "label": "Industrial Goods",
+                          "url": "/companies/industrial-goods",
+                          "submenu": null
+                        },
+                        { "label": "Support Services", "url": "/companies/support-services", "submenu": null }
+                      ]
+                    }
+                  },
+                  { "label": "Media", "url": "/companies/media", "submenu": null },
+                  {
+                    "label": "Professional Services",
+                    "url": "/companies/professional-services",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        {
+                          "label": "Accounting & Consulting Services",
+                          "url": "/accounting-consulting-services",
+                          "submenu": null
+                        },
+                        { "label": "Legal Services", "url": "/companies/legal-services", "submenu": null },
+                        {
+                          "label": "Recruitment Services",
+                          "url": "/companies/recruitment-services",
+                          "submenu": null
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Retail & Consumer",
+                    "url": "/companies/retail-consumer",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Food & Beverage", "url": "/companies/food-beverage", "submenu": null },
+                        { "label": "Luxury Goods", "url": "/companies/luxury-goods", "submenu": null },
+                        {
+                          "label": "Personal & Household Goods",
+                          "url": "/companies/personal-goods",
+                          "submenu": null
+                        },
+                        { "label": "Retail", "url": "/companies/retail", "submenu": null },
+                        { "label": "Tobacco", "url": "/companies/tobacco", "submenu": null },
+                        { "label": "Travel & Leisure", "url": "/companies/travel-leisure", "submenu": null }
+                      ]
+                    }
+                  },
+                  { "label": "Tech Sector", "url": "/companies/technology", "submenu": null },
+                  { "label": "Telecoms", "url": "/companies/telecoms", "submenu": null },
+                  {
+                    "label": "Transport",
+                    "url": "/companies/transport",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Airlines", "url": "/companies/airlines", "submenu": null },
+                        { "label": "Shipping", "url": "/companies/shipping", "submenu": null },
+                        { "label": "Rail", "url": "/companies/rail", "submenu": null }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            { "label": "Tech", "url": "/technology", "submenu": null },
+            {
+              "label": "Markets",
+              "url": "/markets",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "fastFT", "url": "/fastft", "submenu": null },
+                  { "label": "Alphaville", "url": "https://ftalphaville.ft.com", "submenu": null },
+                  { "label": "Markets Data", "url": "https://markets.ft.com/data", "submenu": null },
+                  { "label": "Capital Markets", "url": "/capital-markets", "submenu": null },
+                  {
+                    "label": "Commodities",
+                    "url": "/commodities",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Oil", "url": "/oil", "submenu": null },
+                        { "label": "Gold", "url": "/gold", "submenu": null },
+                        { "label": "Copper", "url": "/copper", "submenu": null }
+                      ]
+                    }
+                  },
+                  { "label": "Currencies", "url": "/currencies", "submenu": null },
+                  {
+                    "label": "Equities",
+                    "url": "/equities",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "US Equities", "url": "/markets/us", "submenu": null },
+                        { "label": "UK Equities", "url": "/markets/uk", "submenu": null },
+                        { "label": "European Equities", "url": "/markets/europe", "submenu": null },
+                        { "label": "Asia-Pacific Equities", "url": "/markets/asia-pacific", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Fund Management",
+                    "url": "/fund-management",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Exchange Traded Funds", "url": "/ftfm/etfs", "submenu": null },
+                        { "label": "Funds Regulation", "url": "/fund-regulation", "submenu": null },
+                        { "label": "Pensions Industry", "url": "/pensions-industry", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Trading",
+                    "url": "/ft-trading-room",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        {
+                          "label": "Clearing & Settlement",
+                          "url": "/ft-trading-room/clearing-settlement",
+                          "submenu": null
+                        },
+                        {
+                          "label": "High Frequency Trading",
+                          "url": "/ft-trading-room/high-frequency-trading",
+                          "submenu": null
+                        },
+                        {
+                          "label": "Markets Regulation",
+                          "url": "/financial-markets-regulation",
+                          "submenu": null
+                        },
+                        { "label": "OTC markets", "url": "/otc-markets", "submenu": null },
+                        { "label": "Derivatives", "url": "/derivatives", "submenu": null }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            { "label": "Graphics", "url": "/graphics", "submenu": null },
+            {
+              "label": "Opinion",
+              "url": "/opinion",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Columnists", "url": "/columnists", "submenu": null },
+                  { "label": "The FT View", "url": "/ft-view", "submenu": null },
+                  { "label": "The Big Read", "url": "/the-big-read", "submenu": null },
+                  { "label": "Instant Insight", "url": "/instant-insight", "submenu": null },
+                  { "label": "Lex", "url": "/lex", "submenu": null },
+                  { "label": "Alphaville", "url": "https://ftalphaville.ft.com", "submenu": null },
+                  { "label": "Obituaries", "url": "/obituaries", "submenu": null },
+                  { "label": "Letters", "url": "/letters", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Work & Careers",
+              "url": "/work-careers",
+              "submenu": {
+                "label": null,
+                "items": [
+                  {
+                    "label": "Business School Rankings",
+                    "url": "http://rankings.ft.com/businessschoolrankings/rankings",
+                    "submenu": null
+                  },
+                  {
+                    "label": "Business Education",
+                    "url": "/business-education",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        {
+                          "label": "Business School Rankings",
+                          "url": "http://rankings.ft.com/businessschoolrankings/rankings",
+                          "submenu": null
+                        }
+                      ]
+                    }
+                  },
+                  { "label": "Entrepreneurship", "url": "/entrepreneurship", "submenu": null },
+                  { "label": "Recruitment", "url": "/recruitment", "submenu": null },
+                  { "label": "Business Books", "url": "/business-books", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Life & Arts",
+              "url": "/life-arts",
+              "submenu": {
+                "label": null,
+                "items": [
+                  {
+                    "label": "Arts",
+                    "url": "/arts",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Architecture", "url": "/architecture", "submenu": null },
+                        { "label": "Collecting", "url": "/collecting", "submenu": null },
+                        { "label": "Dance", "url": "/dance", "submenu": null },
+                        { "label": "Design", "url": "/design", "submenu": null },
+                        { "label": "Film", "url": "/film", "submenu": null },
+                        { "label": "Music", "url": "/music", "submenu": null },
+                        { "label": "Television", "url": "/television", "submenu": null },
+                        { "label": "Theatre", "url": "/theatre", "submenu": null },
+                        { "label": "Visual Arts", "url": "/visual-arts", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Books",
+                    "url": "/books",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Business Books", "url": "/business-books", "submenu": null },
+                        { "label": "Fiction", "url": "/fiction", "submenu": null },
+                        { "label": "Non-Fiction", "url": "/non-fiction", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Food & Drink",
+                    "url": "/food-drink",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Wine", "url": "/wine", "submenu": null },
+                        { "label": "Recipes", "url": "/recipes", "submenu": null },
+                        { "label": "Restaurants", "url": "/restaurants", "submenu": null }
+                      ]
+                    }
+                  },
+                  { "label": "FT Magazine", "url": "/magazine", "submenu": null },
+                  { "label": "House & Home", "url": "/house-home", "submenu": null },
+                  { "label": "Next Act", "url": "/next-act", "submenu": null },
+                  {
+                    "label": "Style",
+                    "url": "/style",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Fashion shows", "url": "/fashion-shows", "submenu": null },
+                        { "label": "The Art of Fashion", "url": "/art-of-fashion", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Travel",
+                    "url": "/travel",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Adventure Holidays", "url": "/adventure-holidays", "submenu": null },
+                        { "label": "Cycling Holidays", "url": "/cycling-holidays", "submenu": null },
+                        { "label": "City Breaks", "url": "/city-breaks", "submenu": null },
+                        { "label": "Winter Sports", "url": "/winter-sports", "submenu": null }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Personal Finance",
+              "url": "/personal-finance",
+              "submenu": {
+                "label": null,
+                "items": [
+                  {
+                    "label": "Property & Mortgages",
+                    "url": "/personal-finance/property-mortgages",
+                    "submenu": null
+                  },
+                  { "label": "Investments", "url": "/personal-finance/investments", "submenu": null },
+                  { "label": "Pensions", "url": "/pensions", "submenu": null },
+                  { "label": "Tax", "url": "/personal-finance/tax", "submenu": null },
+                  {
+                    "label": "Banking & Savings",
+                    "url": "/personal-finance/banking-savings",
+                    "submenu": null
+                  },
+                  { "label": "Advice & Comment", "url": "/personal-finance/advice-commment", "submenu": null }
+                ]
+              }
+            },
+            { "label": "Science", "url": "/companies/science", "submenu": null },
+            { "label": "Special Reports", "url": "/special-reports", "submenu": null }
+          ]
+        }
+      },
+      {
+        "label": "FT recommends",
+        "url": null,
+        "submenu": {
+          "label": null,
+          "items": [
+            { "label": "Lex", "url": "/lex", "submenu": null },
+            { "label": "Alphaville", "url": "https://ftalphaville.ft.com", "submenu": null },
+            { "label": "EM Squared", "url": "/emerging-markets/em-squared", "submenu": null },
+            { "label": "Lunch with the FT", "url": "/lunch-with-the-ft", "submenu": null },
+            {
+              "label": "FT Confidential Research",
+              "url": "https://www.ft.com/ft-confidential-research",
+              "submenu": null
+            },
+            { "label": "Video", "url": "/video", "submenu": null },
+            { "label": "Podcasts", "url": "https://www.ft.com/podcasts", "submenu": null },
+            { "label": "News feed", "url": "/news-feed", "submenu": null },
+            { "label": "Newsletters", "url": "/newsletters", "submenu": null }
+          ]
+        }
+      },
+      {
+        "label": null,
+        "url": null,
+        "submenu": {
+          "label": null,
+          "items": [
+            { "label": "myFT", "url": "/myft", "submenu": null },
+            {
+              "label": "Portfolio",
+              "url": "https://markets.ft.com/data/portfolio/dashboard",
+              "submenu": null
+            },
+            {
+              "label": "Today's Newspaper (ePaper)",
+              "url": "https://www.ft.com/todaysnewspaper",
+              "submenu": null
+            },
+            { "label": "Crossword", "url": "https://www.ft.com/crossword", "submenu": null },
+            { "label": "Our Apps", "url": "https://www.ft.com/tour/apps", "submenu": null }
+          ]
+        }
+      }
+    ]
+  },
+  "drawer-international": {
+    "label": "Drawer",
+    "items": [
+      {
+        "label": "Top sections",
+        "url": null,
+        "submenu": {
+          "label": null,
+          "items": [
+            { "label": "Home", "url": "/", "submenu": null },
+            {
+              "label": "World",
+              "url": "/world",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Global Economy", "url": "/global-economy", "submenu": null },
+                  {
+                    "label": "UK",
+                    "url": "/world/uk",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "UK Business & Economy", "url": "/uk-business-economy", "submenu": null },
+                        { "label": "UK Politics & Policy", "url": "/world/uk/politics", "submenu": null },
+                        { "label": "UK Companies", "url": "/companies/uk", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "US",
+                    "url": "/world/us",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "US Economy", "url": "/us-economy", "submenu": null },
+                        { "label": "US Politics & Policy", "url": "/world/us/politics", "submenu": null },
+                        { "label": "US Companies", "url": "/companies/us", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "China",
+                    "url": "/world/asia-pacific/china",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Chinese Economy", "url": "/chinese-economy", "submenu": null },
+                        {
+                          "label": "China Politics & Policy",
+                          "url": "/chinese-politics-policy",
+                          "submenu": null
+                        }
+                      ]
+                    }
+                  },
+                  { "label": "Africa", "url": "/world/africa", "submenu": null },
+                  { "label": "Asia Pacific", "url": "/world/asia-pacific", "submenu": null },
+                  { "label": "Emerging Markets", "url": "/emerging-markets", "submenu": null },
+                  { "label": "Europe", "url": "/world/europe", "submenu": null },
+                  { "label": "Americas", "url": "/world/americas", "submenu": null },
+                  { "label": "Middle East and North Africa", "url": "/world/mideast", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "US",
+              "url": "/world/us",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "US Economy", "url": "/us-economy", "submenu": null },
+                  { "label": "US Politics & Policy", "url": "/world/us/politics", "submenu": null },
+                  { "label": "US Companies", "url": "/companies/us", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Companies",
+              "url": "/companies",
+              "submenu": {
+                "label": null,
+                "items": [
+                  {
+                    "label": "Energy",
+                    "url": "/companies/energy",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Mining", "url": "/companies/mining", "submenu": null },
+                        { "label": "Oil & Gas", "url": "/companies/oil-gas", "submenu": null },
+                        { "label": "Utilities", "url": "/companies/utilities", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Financials",
+                    "url": "/companies/financials",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Banks", "url": "/companies/banks", "submenu": null },
+                        { "label": "Insurance", "url": "/companies/insurance", "submenu": null },
+                        { "label": "Property", "url": "/companies/property", "submenu": null },
+                        {
+                          "label": "Financial Services",
+                          "url": "/companies/financial-services",
+                          "submenu": null
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Health",
+                    "url": "/companies/health",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Health Care", "url": "/companies/healthcare", "submenu": null },
+                        { "label": "Pharmaceuticals", "url": "/companies/pharmaceuticals", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Industrials",
+                    "url": "/companies/industrials",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        {
+                          "label": "Aerospace & Defence",
+                          "url": "/companies/aerospace-defence",
+                          "submenu": null
+                        },
+                        { "label": "Automobiles", "url": "/companies/automobiles", "submenu": null },
+                        { "label": "Basic Resources", "url": "/companies/basic-resources", "submenu": null },
+                        { "label": "Chemicals", "url": "/companies/chemicals", "submenu": null },
+                        { "label": "Construction", "url": "/companies/construction", "submenu": null },
+                        {
+                          "label": "Industrial Goods",
+                          "url": "/companies/industrial-goods",
+                          "submenu": null
+                        },
+                        { "label": "Support Services", "url": "/companies/support-services", "submenu": null }
+                      ]
+                    }
+                  },
+                  { "label": "Media", "url": "/companies/media", "submenu": null },
+                  {
+                    "label": "Professional Services",
+                    "url": "/companies/professional-services",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        {
+                          "label": "Accounting & Consulting Services",
+                          "url": "/accounting-consulting-services",
+                          "submenu": null
+                        },
+                        { "label": "Legal Services", "url": "/companies/legal-services", "submenu": null },
+                        {
+                          "label": "Recruitment Services",
+                          "url": "/companies/recruitment-services",
+                          "submenu": null
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Retail & Consumer",
+                    "url": "/companies/retail-consumer",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Food & Beverage", "url": "/companies/food-beverage", "submenu": null },
+                        { "label": "Luxury Goods", "url": "/companies/luxury-goods", "submenu": null },
+                        {
+                          "label": "Personal & Household Goods",
+                          "url": "/companies/personal-goods",
+                          "submenu": null
+                        },
+                        { "label": "Retail", "url": "/companies/retail", "submenu": null },
+                        { "label": "Tobacco", "url": "/companies/tobacco", "submenu": null },
+                        { "label": "Travel & Leisure", "url": "/companies/travel-leisure", "submenu": null }
+                      ]
+                    }
+                  },
+                  { "label": "Tech Sector", "url": "/companies/technology", "submenu": null },
+                  { "label": "Telecoms", "url": "/companies/telecoms", "submenu": null },
+                  {
+                    "label": "Transport",
+                    "url": "/companies/transport",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Airlines", "url": "/companies/airlines", "submenu": null },
+                        { "label": "Shipping", "url": "/companies/shipping", "submenu": null },
+                        { "label": "Rail", "url": "/companies/rail", "submenu": null }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            { "label": "Tech", "url": "/technology", "submenu": null },
+            {
+              "label": "Markets",
+              "url": "/markets",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "fastFT", "url": "/fastft", "submenu": null },
+                  { "label": "Alphaville", "url": "https://ftalphaville.ft.com", "submenu": null },
+                  { "label": "Markets Data", "url": "https://markets.ft.com/data", "submenu": null },
+                  { "label": "Capital Markets", "url": "/capital-markets", "submenu": null },
+                  {
+                    "label": "Commodities",
+                    "url": "/commodities",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Oil", "url": "/oil", "submenu": null },
+                        { "label": "Gold", "url": "/gold", "submenu": null },
+                        { "label": "Copper", "url": "/copper", "submenu": null }
+                      ]
+                    }
+                  },
+                  { "label": "Currencies", "url": "/currencies", "submenu": null },
+                  {
+                    "label": "Equities",
+                    "url": "/equities",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "US Equities", "url": "/markets/us", "submenu": null },
+                        { "label": "UK Equities", "url": "/markets/uk", "submenu": null },
+                        { "label": "European Equities", "url": "/markets/europe", "submenu": null },
+                        { "label": "Asia-Pacific Equities", "url": "/markets/asia-pacific", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Fund Management",
+                    "url": "/fund-management",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Exchange Traded Funds", "url": "/ftfm/etfs", "submenu": null },
+                        { "label": "Funds Regulation", "url": "/fund-regulation", "submenu": null },
+                        { "label": "Pensions Industry", "url": "/pensions-industry", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Trading",
+                    "url": "/ft-trading-room",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        {
+                          "label": "Clearing & Settlement",
+                          "url": "/ft-trading-room/clearing-settlement",
+                          "submenu": null
+                        },
+                        {
+                          "label": "High Frequency Trading",
+                          "url": "/ft-trading-room/high-frequency-trading",
+                          "submenu": null
+                        },
+                        {
+                          "label": "Markets Regulation",
+                          "url": "/financial-markets-regulation",
+                          "submenu": null
+                        },
+                        { "label": "OTC markets", "url": "/otc-markets", "submenu": null },
+                        { "label": "Derivatives", "url": "/derivatives", "submenu": null }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            { "label": "Graphics", "url": "/graphics", "submenu": null },
+            {
+              "label": "Opinion",
+              "url": "/opinion",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Columnists", "url": "/columnists", "submenu": null },
+                  { "label": "The FT View", "url": "/ft-view", "submenu": null },
+                  { "label": "The Big Read", "url": "/the-big-read", "submenu": null },
+                  { "label": "Instant Insight", "url": "/instant-insight", "submenu": null },
+                  { "label": "Lex", "url": "/lex", "submenu": null },
+                  { "label": "Alphaville", "url": "https://ftalphaville.ft.com", "submenu": null },
+                  { "label": "Obituaries", "url": "/obituaries", "submenu": null },
+                  { "label": "Letters", "url": "/letters", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Work & Careers",
+              "url": "/work-careers",
+              "submenu": {
+                "label": null,
+                "items": [
+                  {
+                    "label": "Business School Rankings",
+                    "url": "http://rankings.ft.com/businessschoolrankings/rankings",
+                    "submenu": null
+                  },
+                  {
+                    "label": "Business Education",
+                    "url": "/business-education",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        {
+                          "label": "Business School Rankings",
+                          "url": "http://rankings.ft.com/businessschoolrankings/rankings",
+                          "submenu": null
+                        }
+                      ]
+                    }
+                  },
+                  { "label": "Entrepreneurship", "url": "/entrepreneurship", "submenu": null },
+                  { "label": "Recruitment", "url": "/recruitment", "submenu": null },
+                  { "label": "Business Books", "url": "/business-books", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Life & Arts",
+              "url": "/life-arts",
+              "submenu": {
+                "label": null,
+                "items": [
+                  {
+                    "label": "Arts",
+                    "url": "/arts",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Architecture", "url": "/architecture", "submenu": null },
+                        { "label": "Collecting", "url": "/collecting", "submenu": null },
+                        { "label": "Dance", "url": "/dance", "submenu": null },
+                        { "label": "Design", "url": "/design", "submenu": null },
+                        { "label": "Film", "url": "/film", "submenu": null },
+                        { "label": "Music", "url": "/music", "submenu": null },
+                        { "label": "Television", "url": "/television", "submenu": null },
+                        { "label": "Theatre", "url": "/theatre", "submenu": null },
+                        { "label": "Visual Arts", "url": "/visual-arts", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Books",
+                    "url": "/books",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Business Books", "url": "/business-books", "submenu": null },
+                        { "label": "Fiction", "url": "/fiction", "submenu": null },
+                        { "label": "Non-Fiction", "url": "/non-fiction", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Food & Drink",
+                    "url": "/food-drink",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Wine", "url": "/wine", "submenu": null },
+                        { "label": "Recipes", "url": "/recipes", "submenu": null },
+                        { "label": "Restaurants", "url": "/restaurants", "submenu": null }
+                      ]
+                    }
+                  },
+                  { "label": "FT Magazine", "url": "/magazine", "submenu": null },
+                  { "label": "House & Home", "url": "/house-home", "submenu": null },
+                  { "label": "Next Act", "url": "/next-act", "submenu": null },
+                  {
+                    "label": "Style",
+                    "url": "/style",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Fashion shows", "url": "/fashion-shows", "submenu": null },
+                        { "label": "The Art of Fashion", "url": "/art-of-fashion", "submenu": null }
+                      ]
+                    }
+                  },
+                  {
+                    "label": "Travel",
+                    "url": "/travel",
+                    "submenu": {
+                      "label": null,
+                      "items": [
+                        { "label": "Adventure Holidays", "url": "/adventure-holidays", "submenu": null },
+                        { "label": "Cycling Holidays", "url": "/cycling-holidays", "submenu": null },
+                        { "label": "City Breaks", "url": "/city-breaks", "submenu": null },
+                        { "label": "Winter Sports", "url": "/winter-sports", "submenu": null }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Personal Finance",
+              "url": "/personal-finance",
+              "submenu": {
+                "label": null,
+                "items": [
+                  {
+                    "label": "Property & Mortgages",
+                    "url": "/personal-finance/property-mortgages",
+                    "submenu": null
+                  },
+                  { "label": "Investments", "url": "/personal-finance/investments", "submenu": null },
+                  { "label": "Pensions", "url": "/pensions", "submenu": null },
+                  { "label": "Tax", "url": "/personal-finance/tax", "submenu": null },
+                  {
+                    "label": "Banking & Savings",
+                    "url": "/personal-finance/banking-savings",
+                    "submenu": null
+                  },
+                  { "label": "Advice & Comment", "url": "/personal-finance/advice-commment", "submenu": null }
+                ]
+              }
+            },
+            { "label": "Science", "url": "/companies/science", "submenu": null },
+            { "label": "Special Reports", "url": "/special-reports", "submenu": null }
+          ]
+        }
+      },
+      {
+        "label": "FT recommends",
+        "url": null,
+        "submenu": {
+          "label": null,
+          "items": [
+            { "label": "Lex", "url": "/lex", "submenu": null },
+            { "label": "Alphaville", "url": "https://ftalphaville.ft.com", "submenu": null },
+            { "label": "EM Squared", "url": "/emerging-markets/em-squared", "submenu": null },
+            { "label": "Lunch with the FT", "url": "/lunch-with-the-ft", "submenu": null },
+            {
+              "label": "FT Confidential Research",
+              "url": "https://www.ft.com/ft-confidential-research",
+              "submenu": null
+            },
+            { "label": "Video", "url": "/video", "submenu": null },
+            { "label": "Podcasts", "url": "https://www.ft.com/podcasts", "submenu": null },
+            { "label": "News feed", "url": "/news-feed", "submenu": null },
+            { "label": "Newsletters", "url": "/newsletters", "submenu": null }
+          ]
+        }
+      },
+      {
+        "label": null,
+        "url": null,
+        "submenu": {
+          "label": null,
+          "items": [
+            { "label": "myFT", "url": "/myft", "submenu": null },
+            {
+              "label": "Portfolio",
+              "url": "https://markets.ft.com/data/portfolio/dashboard",
+              "submenu": null
+            },
+            {
+              "label": "Today's Newspaper (ePaper)",
+              "url": "https://www.ft.com/todaysnewspaper",
+              "submenu": null
+            },
+            { "label": "Crossword", "url": "https://www.ft.com/crossword", "submenu": null },
+            { "label": "Our Apps", "url": "https://www.ft.com/tour/apps", "submenu": null }
+          ]
+        }
+      }
+    ]
+  },
+  "user": {
+    "label": "User",
+    "items": [
+      { "label": "Help Centre", "url": "http://help.ft.com", "submenu": null },
+      { "label": "Account Settings", "url": "https://myaccount.ft.com/details/core/view", "submenu": null },
+      { "label": "Contact Preferences", "url": "/myft/alerts", "submenu": null },
+      { "label": "Sign Out", "url": "/logout", "submenu": null }
+    ]
+  },
+  "anon": {
+    "label": "Anon",
+    "items": [
+      { "label": "Help Centre", "url": "http://help.ft.com", "submenu": null },
+      {
+        "label": "Subscribe",
+        "url": "/products?segmentId=d290332b-e8e8-d29b-2ff4-2019b13f008a",
+        "submenu": null
+      },
+      { "label": "Sign In", "url": "/login?location=${currentPath}", "submenu": null }
+    ]
+  },
+  "footer": {
+    "label": "Footer",
+    "items": [
+      {
+        "label": "Support",
+        "url": null,
+        "submenu": {
+          "label": null,
+          "items": [
+            [
+              { "label": "View Site Tips", "url": "/tour", "submenu": null },
+              { "label": "Help Centre", "url": "http://help.ft.com", "submenu": null },
+              { "label": "About Us", "url": "http://www.ft.com/aboutus", "submenu": null },
+              { "label": "Accessibility", "url": "/accessibility", "submenu": null },
+              { "label": "myFT Tour", "url": "/tour/myft", "submenu": null }
+            ]
+          ]
+        }
+      },
+      {
+        "label": "Legal & Privacy",
+        "url": null,
+        "submenu": {
+          "label": null,
+          "items": [
+            [
+              {
+                "label": "Terms & Conditions",
+                "url": "http://help.ft.com/help/legal-privacy/terms-conditions/",
+                "submenu": null
+              },
+              {
+                "label": "Privacy",
+                "url": "http://help.ft.com/help/legal-privacy/privacy/",
+                "submenu": null
+              },
+              {
+                "label": "Cookies",
+                "url": "http://help.ft.com/help/legal-privacy/cookies/",
+                "submenu": null
+              },
+              {
+                "label": "Copyright",
+                "url": "http://help.ft.com/help/legal-privacy/copyright/copyright-policy/",
+                "submenu": null
+              },
+              {
+                "label": "Slavery Statement & Policies",
+                "url": "https://help.ft.com/help/legal/slavery-statement/",
+                "submenu": null
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "label": "Services",
+        "url": null,
+        "submenu": {
+          "label": null,
+          "items": [
+            [
+              { "label": "FT Live", "url": "http://live.ft.com/", "submenu": null },
+              {
+                "label": "Share News Tips Securely",
+                "url": "/securedrop",
+                "disableTracking": true,
+                "submenu": null
+              },
+              { "label": "Individual Subscriptions", "url": "http://www.ft.com/products", "submenu": null },
+              {
+                "label": "Group Subscriptions",
+                "url": "https://enterprise.ft.com/en-gb/services/group-subscriptions/group-contact-us/?segmentId=383c7f63-abf4-b62d-cb33-4c278e6fdf61&cpccampaign=B2B_link_ft.com_footer",
+                "submenu": null
+              },
+              {
+                "label": "Republishing",
+                "url": "https://enterprise.ft.com/en-gb/services/republishing/",
+                "submenu": null
+              },
+              {
+                "label": "Contracts & Tenders",
+                "url": "http://www.businessesforsale.com/ft2/notices",
+                "submenu": null
+              }
+            ],
+            [
+              {
+                "label": "Executive Job Search",
+                "url": "https://www.exec-appointments.com/",
+                "submenu": null
+              },
+              { "label": "Advertise with the FT", "url": "http://fttoolkit.co.uk/", "submenu": null },
+              {
+                "label": "Follow the FT on Twitter",
+                "url": "https://twitter.com/financialtimes",
+                "submenu": null
+              },
+              { "label": "FT Transact", "url": "https://transact.ft.com/en-gb/", "submenu": null },
+              {
+                "label": "Secondary Schools",
+                "url": "https://enterprise.ft.com/en-gb/services/group-subscriptions/education/",
+                "submenu": null
+              }
+            ]
+          ]
+        }
+      },
+      {
+        "label": "Tools",
+        "url": null,
+        "submenu": {
+          "label": null,
+          "items": [
+            [
+              {
+                "label": "Portfolio",
+                "url": "https://markets.ft.com/data/portfolio/dashboard",
+                "submenu": null
+              },
+              {
+                "label": "Today's Newspaper (ePaper)",
+                "url": "https://www.ft.com/todaysnewspaper",
+                "submenu": null
+              },
+              { "label": "Alerts Hub", "url": "http://markets.ft.com/data/alerts/", "submenu": null },
+              { "label": "Lexicon", "url": "http://lexicon.ft.com/", "submenu": null },
+              {
+                "label": "MBA Rankings",
+                "url": "http://rankings.ft.com/businessschoolrankings/global-mba-ranking-2016?ft_site=falcon",
+                "submenu": null
+              }
+            ],
+            [
+              {
+                "label": "Economic Calendar",
+                "url": "https://markets.ft.com/data/world/economic-calendar",
+                "submenu": null
+              },
+              { "label": "News feed", "url": "/news-feed", "submenu": null },
+              { "label": "Newsletters", "url": "/newsletters", "submenu": null },
+              {
+                "label": "Currency Converter",
+                "url": "https://markets.ft.com/research/Markets/Currencies?segid=70113",
+                "submenu": null
+              }
+            ]
+          ]
+        }
+      }
+    ]
+  },
+  "navbar-simple": {
+    "label": "Navigation",
+    "items": [
+      { "label": "Home", "url": "/", "submenu": null },
+      { "label": "fastFT", "url": "/fastft", "submenu": null },
+      { "label": "Markets Data", "url": "https://markets.ft.com/data", "submenu": null }
+    ]
+  },
+  "navbar-right": {
+    "label": "Navigation",
+    "items": [
+      { "label": "Portfolio", "url": "https://markets.ft.com/data/portfolio/dashboard", "submenu": null },
+      { "label": "Account Settings", "url": "https://myaccount.ft.com/details/core/view", "submenu": null }
+    ]
+  },
+  "navbar-right-anon": {
+    "label": "Navigation",
+    "items": [
+      { "label": "Sign In", "url": "/login?location=${currentPath}", "submenu": null },
+      {
+        "label": "Subscribe",
+        "url": "/products?segmentId=f860e6c2-18af-ab30-cd5e-6e3a456f9265",
+        "submenu": null
+      }
+    ]
+  },
+  "navbar-uk": {
+    "label": "Navigation",
+    "items": [
+      { "label": "Home", "url": "/", "submenu": null },
+      {
+        "label": "World",
+        "url": "/world",
+        "submenu": {
+          "label": null,
+          "items": [
+            { "label": "Global Economy", "url": "/global-economy", "submenu": null },
+            {
+              "label": "UK",
+              "url": "/world/uk",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "UK Business & Economy", "url": "/uk-business-economy", "submenu": null },
+                  { "label": "UK Politics & Policy", "url": "/world/uk/politics", "submenu": null },
+                  { "label": "UK Companies", "url": "/companies/uk", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "US",
+              "url": "/world/us",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "US Economy", "url": "/us-economy", "submenu": null },
+                  { "label": "US Politics & Policy", "url": "/world/us/politics", "submenu": null },
+                  { "label": "US Companies", "url": "/companies/us", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "China",
+              "url": "/world/asia-pacific/china",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Chinese Economy", "url": "/chinese-economy", "submenu": null },
+                  { "label": "China Politics & Policy", "url": "/chinese-politics-policy", "submenu": null }
+                ]
+              }
+            },
+            { "label": "Africa", "url": "/world/africa", "submenu": null },
+            { "label": "Asia Pacific", "url": "/world/asia-pacific", "submenu": null },
+            { "label": "Emerging Markets", "url": "/emerging-markets", "submenu": null },
+            { "label": "Europe", "url": "/world/europe", "submenu": null },
+            { "label": "Americas", "url": "/world/americas", "submenu": null },
+            { "label": "Middle East and North Africa", "url": "/world/mideast", "submenu": null }
+          ]
+        },
+        "meganav": [
+          {
+            "component": "sectionlist",
+            "dataset": "subsections",
+            "title": "Sections",
+            "data": [
+              [
+                { "label": "World Home", "url": "/world" },
+                { "label": "Global Economy", "url": "/global-economy", "submenu": null },
+                {
+                  "label": "UK",
+                  "url": "/world/uk",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "UK Business & Economy", "url": "/uk-business-economy", "submenu": null },
+                      { "label": "UK Politics & Policy", "url": "/world/uk/politics", "submenu": null },
+                      { "label": "UK Companies", "url": "/companies/uk", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "US",
+                  "url": "/world/us",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "US Economy", "url": "/us-economy", "submenu": null },
+                      { "label": "US Politics & Policy", "url": "/world/us/politics", "submenu": null },
+                      { "label": "US Companies", "url": "/companies/us", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "China",
+                  "url": "/world/asia-pacific/china",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Chinese Economy", "url": "/chinese-economy", "submenu": null },
+                      {
+                        "label": "China Politics & Policy",
+                        "url": "/chinese-politics-policy",
+                        "submenu": null
+                      }
+                    ]
+                  }
+                },
+                { "label": "Africa", "url": "/world/africa", "submenu": null }
+              ],
+              [
+                { "label": "Asia Pacific", "url": "/world/asia-pacific", "submenu": null },
+                { "label": "Emerging Markets", "url": "/emerging-markets", "submenu": null },
+                { "label": "Europe", "url": "/world/europe", "submenu": null },
+                { "label": "Americas", "url": "/world/americas", "submenu": null },
+                { "label": "Middle East and North Africa", "url": "/world/mideast", "submenu": null }
+              ]
+            ]
+          },
+          {
+            "component": "articlelist",
+            "dataset": "popular",
+            "title": "Most Read",
+            "data": [
+              {
+                "label": "Theresa May on Brexit collision course with MPs",
+                "url": "/content/0fa3646c-1cac-11e9-b2f7-97e4dbd3580d"
+              },
+              {
+                "label": "China’s economy grows at slowest annual rate since 1990",
+                "url": "/content/9706b890-1ad7-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "The self-fulfilling prophecy of a no-deal Brexit",
+                "url": "/content/d468b1f6-1b41-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Debt machine: are risks piling up in leveraged loans?",
+                "url": "/content/64c9665e-1814-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Investment banking: The battle for Barclays",
+                "url": "/content/035be220-199a-11e9-b93e-f4351a53f1c3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "UK",
+        "url": "/world/uk",
+        "submenu": {
+          "label": null,
+          "items": [
+            { "label": "UK Business & Economy", "url": "/uk-business-economy", "submenu": null },
+            { "label": "UK Politics & Policy", "url": "/world/uk/politics", "submenu": null },
+            { "label": "UK Companies", "url": "/companies/uk", "submenu": null }
+          ]
+        },
+        "meganav": [
+          {
+            "component": "sectionlist",
+            "dataset": "subsections",
+            "title": "Sections",
+            "data": [
+              [
+                { "label": "UK Home", "url": "/world/uk" },
+                { "label": "UK Business & Economy", "url": "/uk-business-economy", "submenu": null }
+              ],
+              [
+                { "label": "UK Politics & Policy", "url": "/world/uk/politics", "submenu": null },
+                { "label": "UK Companies", "url": "/companies/uk", "submenu": null }
+              ]
+            ]
+          },
+          {
+            "component": "articlelist",
+            "dataset": "popular",
+            "title": "Most Read",
+            "data": [
+              {
+                "label": "Theresa May on Brexit collision course with MPs",
+                "url": "/content/0fa3646c-1cac-11e9-b2f7-97e4dbd3580d"
+              },
+              {
+                "label": "The self-fulfilling prophecy of a no-deal Brexit",
+                "url": "/content/d468b1f6-1b41-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Investment banking: The battle for Barclays",
+                "url": "/content/035be220-199a-11e9-b93e-f4351a53f1c3"
+              },
+              {
+                "label": "Brexit: Theresa May offers MPs chance to shape deal – as it happened",
+                "url": "/content/9d93394d-779b-3bf7-9c23-db4d0ce8dd04"
+              },
+              {
+                "label": "How the Brexit options would affect the economy",
+                "url": "/content/4849bf68-1b13-11e9-9e64-d150b3105d21"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Companies",
+        "url": "/companies",
+        "submenu": {
+          "label": null,
+          "items": [
+            {
+              "label": "Energy",
+              "url": "/companies/energy",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Mining", "url": "/companies/mining", "submenu": null },
+                  { "label": "Oil & Gas", "url": "/companies/oil-gas", "submenu": null },
+                  { "label": "Utilities", "url": "/companies/utilities", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Financials",
+              "url": "/companies/financials",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Banks", "url": "/companies/banks", "submenu": null },
+                  { "label": "Insurance", "url": "/companies/insurance", "submenu": null },
+                  { "label": "Property", "url": "/companies/property", "submenu": null },
+                  { "label": "Financial Services", "url": "/companies/financial-services", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Health",
+              "url": "/companies/health",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Health Care", "url": "/companies/healthcare", "submenu": null },
+                  { "label": "Pharmaceuticals", "url": "/companies/pharmaceuticals", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Industrials",
+              "url": "/companies/industrials",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Aerospace & Defence", "url": "/companies/aerospace-defence", "submenu": null },
+                  { "label": "Automobiles", "url": "/companies/automobiles", "submenu": null },
+                  { "label": "Basic Resources", "url": "/companies/basic-resources", "submenu": null },
+                  { "label": "Chemicals", "url": "/companies/chemicals", "submenu": null },
+                  { "label": "Construction", "url": "/companies/construction", "submenu": null },
+                  { "label": "Industrial Goods", "url": "/companies/industrial-goods", "submenu": null },
+                  { "label": "Support Services", "url": "/companies/support-services", "submenu": null }
+                ]
+              }
+            },
+            { "label": "Media", "url": "/companies/media", "submenu": null },
+            {
+              "label": "Professional Services",
+              "url": "/companies/professional-services",
+              "submenu": {
+                "label": null,
+                "items": [
+                  {
+                    "label": "Accounting & Consulting Services",
+                    "url": "/accounting-consulting-services",
+                    "submenu": null
+                  },
+                  { "label": "Legal Services", "url": "/companies/legal-services", "submenu": null },
+                  {
+                    "label": "Recruitment Services",
+                    "url": "/companies/recruitment-services",
+                    "submenu": null
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Retail & Consumer",
+              "url": "/companies/retail-consumer",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Food & Beverage", "url": "/companies/food-beverage", "submenu": null },
+                  { "label": "Luxury Goods", "url": "/companies/luxury-goods", "submenu": null },
+                  {
+                    "label": "Personal & Household Goods",
+                    "url": "/companies/personal-goods",
+                    "submenu": null
+                  },
+                  { "label": "Retail", "url": "/companies/retail", "submenu": null },
+                  { "label": "Tobacco", "url": "/companies/tobacco", "submenu": null },
+                  { "label": "Travel & Leisure", "url": "/companies/travel-leisure", "submenu": null }
+                ]
+              }
+            },
+            { "label": "Tech Sector", "url": "/companies/technology", "submenu": null },
+            { "label": "Telecoms", "url": "/companies/telecoms", "submenu": null },
+            {
+              "label": "Transport",
+              "url": "/companies/transport",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Airlines", "url": "/companies/airlines", "submenu": null },
+                  { "label": "Shipping", "url": "/companies/shipping", "submenu": null },
+                  { "label": "Rail", "url": "/companies/rail", "submenu": null }
+                ]
+              }
+            }
+          ]
+        },
+        "meganav": [
+          {
+            "component": "sectionlist",
+            "dataset": "subsections",
+            "title": "Sections",
+            "data": [
+              [
+                { "label": "Companies Home", "url": "/companies" },
+                {
+                  "label": "Energy",
+                  "url": "/companies/energy",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Mining", "url": "/companies/mining", "submenu": null },
+                      { "label": "Oil & Gas", "url": "/companies/oil-gas", "submenu": null },
+                      { "label": "Utilities", "url": "/companies/utilities", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "Financials",
+                  "url": "/companies/financials",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Banks", "url": "/companies/banks", "submenu": null },
+                      { "label": "Insurance", "url": "/companies/insurance", "submenu": null },
+                      { "label": "Property", "url": "/companies/property", "submenu": null },
+                      {
+                        "label": "Financial Services",
+                        "url": "/companies/financial-services",
+                        "submenu": null
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Health",
+                  "url": "/companies/health",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Health Care", "url": "/companies/healthcare", "submenu": null },
+                      { "label": "Pharmaceuticals", "url": "/companies/pharmaceuticals", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "Industrials",
+                  "url": "/companies/industrials",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      {
+                        "label": "Aerospace & Defence",
+                        "url": "/companies/aerospace-defence",
+                        "submenu": null
+                      },
+                      { "label": "Automobiles", "url": "/companies/automobiles", "submenu": null },
+                      { "label": "Basic Resources", "url": "/companies/basic-resources", "submenu": null },
+                      { "label": "Chemicals", "url": "/companies/chemicals", "submenu": null },
+                      { "label": "Construction", "url": "/companies/construction", "submenu": null },
+                      { "label": "Industrial Goods", "url": "/companies/industrial-goods", "submenu": null },
+                      { "label": "Support Services", "url": "/companies/support-services", "submenu": null }
+                    ]
+                  }
+                },
+                { "label": "Media", "url": "/companies/media", "submenu": null }
+              ],
+              [
+                {
+                  "label": "Professional Services",
+                  "url": "/companies/professional-services",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      {
+                        "label": "Accounting & Consulting Services",
+                        "url": "/accounting-consulting-services",
+                        "submenu": null
+                      },
+                      { "label": "Legal Services", "url": "/companies/legal-services", "submenu": null },
+                      {
+                        "label": "Recruitment Services",
+                        "url": "/companies/recruitment-services",
+                        "submenu": null
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Retail & Consumer",
+                  "url": "/companies/retail-consumer",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Food & Beverage", "url": "/companies/food-beverage", "submenu": null },
+                      { "label": "Luxury Goods", "url": "/companies/luxury-goods", "submenu": null },
+                      {
+                        "label": "Personal & Household Goods",
+                        "url": "/companies/personal-goods",
+                        "submenu": null
+                      },
+                      { "label": "Retail", "url": "/companies/retail", "submenu": null },
+                      { "label": "Tobacco", "url": "/companies/tobacco", "submenu": null },
+                      { "label": "Travel & Leisure", "url": "/companies/travel-leisure", "submenu": null }
+                    ]
+                  }
+                },
+                { "label": "Tech Sector", "url": "/companies/technology", "submenu": null },
+                { "label": "Telecoms", "url": "/companies/telecoms", "submenu": null },
+                {
+                  "label": "Transport",
+                  "url": "/companies/transport",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Airlines", "url": "/companies/airlines", "submenu": null },
+                      { "label": "Shipping", "url": "/companies/shipping", "submenu": null },
+                      { "label": "Rail", "url": "/companies/rail", "submenu": null }
+                    ]
+                  }
+                }
+              ]
+            ]
+          },
+          {
+            "component": "articlelist",
+            "dataset": "popular",
+            "title": "Most Read",
+            "data": [
+              {
+                "label": "Billionaire founder of hedge fund Citadel buys £95m London home",
+                "url": "/content/4e46b886-1ca2-11e9-b126-46fc3ad87c65"
+              },
+              {
+                "label": "Market delivers humiliating verdict on Dell",
+                "url": "/content/f5e39ffe-1b6d-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Investment banking: The battle for Barclays",
+                "url": "/content/035be220-199a-11e9-b93e-f4351a53f1c3"
+              },
+              {
+                "label": "Temasek steps up pressure over Standard Chartered turnround",
+                "url": "/content/153c1cfc-1b3a-11e9-b93e-f4351a53f1c3"
+              },
+              {
+                "label": "If investors don’t overhaul banker pay, populism will",
+                "url": "/content/ec23fda0-1afb-11e9-9e64-d150b3105d21"
+              }
+            ]
+          }
+        ]
+      },
+      { "label": "Tech", "url": "/technology", "submenu": null },
+      {
+        "label": "Markets",
+        "url": "/markets",
+        "submenu": {
+          "label": null,
+          "items": [
+            { "label": "fastFT", "url": "/fastft", "submenu": null },
+            { "label": "Alphaville", "url": "https://ftalphaville.ft.com", "submenu": null },
+            { "label": "Markets Data", "url": "https://markets.ft.com/data", "submenu": null },
+            { "label": "Capital Markets", "url": "/capital-markets", "submenu": null },
+            {
+              "label": "Commodities",
+              "url": "/commodities",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Oil", "url": "/oil", "submenu": null },
+                  { "label": "Gold", "url": "/gold", "submenu": null },
+                  { "label": "Copper", "url": "/copper", "submenu": null }
+                ]
+              }
+            },
+            { "label": "Currencies", "url": "/currencies", "submenu": null },
+            {
+              "label": "Equities",
+              "url": "/equities",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "US Equities", "url": "/markets/us", "submenu": null },
+                  { "label": "UK Equities", "url": "/markets/uk", "submenu": null },
+                  { "label": "European Equities", "url": "/markets/europe", "submenu": null },
+                  { "label": "Asia-Pacific Equities", "url": "/markets/asia-pacific", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Fund Management",
+              "url": "/fund-management",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Exchange Traded Funds", "url": "/ftfm/etfs", "submenu": null },
+                  { "label": "Funds Regulation", "url": "/fund-regulation", "submenu": null },
+                  { "label": "Pensions Industry", "url": "/pensions-industry", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Trading",
+              "url": "/ft-trading-room",
+              "submenu": {
+                "label": null,
+                "items": [
+                  {
+                    "label": "Clearing & Settlement",
+                    "url": "/ft-trading-room/clearing-settlement",
+                    "submenu": null
+                  },
+                  {
+                    "label": "High Frequency Trading",
+                    "url": "/ft-trading-room/high-frequency-trading",
+                    "submenu": null
+                  },
+                  { "label": "Markets Regulation", "url": "/financial-markets-regulation", "submenu": null },
+                  { "label": "OTC markets", "url": "/otc-markets", "submenu": null },
+                  { "label": "Derivatives", "url": "/derivatives", "submenu": null }
+                ]
+              }
+            }
+          ]
+        },
+        "meganav": [
+          {
+            "component": "sectionlist",
+            "dataset": "subsections",
+            "title": "Sections",
+            "data": [
+              [
+                { "label": "Markets Home", "url": "/markets" },
+                { "label": "fastFT", "url": "/fastft", "submenu": null },
+                { "label": "Alphaville", "url": "https://ftalphaville.ft.com", "submenu": null },
+                { "label": "Markets Data", "url": "https://markets.ft.com/data", "submenu": null },
+                { "label": "Capital Markets", "url": "/capital-markets", "submenu": null }
+              ],
+              [
+                {
+                  "label": "Commodities",
+                  "url": "/commodities",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Oil", "url": "/oil", "submenu": null },
+                      { "label": "Gold", "url": "/gold", "submenu": null },
+                      { "label": "Copper", "url": "/copper", "submenu": null }
+                    ]
+                  }
+                },
+                { "label": "Currencies", "url": "/currencies", "submenu": null },
+                {
+                  "label": "Equities",
+                  "url": "/equities",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "US Equities", "url": "/markets/us", "submenu": null },
+                      { "label": "UK Equities", "url": "/markets/uk", "submenu": null },
+                      { "label": "European Equities", "url": "/markets/europe", "submenu": null },
+                      { "label": "Asia-Pacific Equities", "url": "/markets/asia-pacific", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "Fund Management",
+                  "url": "/fund-management",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Exchange Traded Funds", "url": "/ftfm/etfs", "submenu": null },
+                      { "label": "Funds Regulation", "url": "/fund-regulation", "submenu": null },
+                      { "label": "Pensions Industry", "url": "/pensions-industry", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "Trading",
+                  "url": "/ft-trading-room",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      {
+                        "label": "Clearing & Settlement",
+                        "url": "/ft-trading-room/clearing-settlement",
+                        "submenu": null
+                      },
+                      {
+                        "label": "High Frequency Trading",
+                        "url": "/ft-trading-room/high-frequency-trading",
+                        "submenu": null
+                      },
+                      {
+                        "label": "Markets Regulation",
+                        "url": "/financial-markets-regulation",
+                        "submenu": null
+                      },
+                      { "label": "OTC markets", "url": "/otc-markets", "submenu": null },
+                      { "label": "Derivatives", "url": "/derivatives", "submenu": null }
+                    ]
+                  }
+                }
+              ]
+            ]
+          },
+          {
+            "component": "articlelist",
+            "dataset": "popular",
+            "title": "Most Read",
+            "data": [
+              {
+                "label": "Debt machine: are risks piling up in leveraged loans?",
+                "url": "/content/64c9665e-1814-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "China’s Xi Jinping is no Davos man",
+                "url": "/content/84261604-1b26-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Temasek steps up pressure over Standard Chartered turnround",
+                "url": "/content/153c1cfc-1b3a-11e9-b93e-f4351a53f1c3"
+              },
+              {
+                "label": "China’s economy grows at slowest annual rate since 1990",
+                "url": "/content/9706b890-1ad7-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Big banks embrace fintech to exploit disrupters’ expertise",
+                "url": "/content/f9c1d4c6-1b39-11e9-9e64-d150b3105d21"
+              }
+            ]
+          }
+        ]
+      },
+      { "label": "Graphics", "url": "/graphics", "submenu": null },
+      {
+        "label": "Opinion",
+        "url": "/opinion",
+        "submenu": {
+          "label": null,
+          "items": [
+            { "label": "Columnists", "url": "/columnists", "submenu": null },
+            { "label": "The FT View", "url": "/ft-view", "submenu": null },
+            { "label": "The Big Read", "url": "/the-big-read", "submenu": null },
+            { "label": "Instant Insight", "url": "/instant-insight", "submenu": null },
+            { "label": "Lex", "url": "/lex", "submenu": null },
+            { "label": "Alphaville", "url": "https://ftalphaville.ft.com", "submenu": null },
+            { "label": "Obituaries", "url": "/obituaries", "submenu": null },
+            { "label": "Letters", "url": "/letters", "submenu": null }
+          ]
+        },
+        "meganav": [
+          {
+            "component": "sectionlist",
+            "dataset": "subsections",
+            "title": "Sections",
+            "data": [
+              [
+                { "label": "Opinion Home", "url": "/opinion" },
+                { "label": "Columnists", "url": "/columnists", "submenu": null },
+                { "label": "The FT View", "url": "/ft-view", "submenu": null },
+                { "label": "The Big Read", "url": "/the-big-read", "submenu": null },
+                { "label": "Instant Insight", "url": "/instant-insight", "submenu": null }
+              ],
+              [
+                { "label": "Lex", "url": "/lex", "submenu": null },
+                { "label": "Alphaville", "url": "https://ftalphaville.ft.com", "submenu": null },
+                { "label": "Obituaries", "url": "/obituaries", "submenu": null },
+                { "label": "Letters", "url": "/letters", "submenu": null }
+              ]
+            ]
+          },
+          {
+            "component": "articlelist",
+            "dataset": "popular",
+            "title": "Most Read",
+            "data": [
+              {
+                "label": "The self-fulfilling prophecy of a no-deal Brexit",
+                "url": "/content/d468b1f6-1b41-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "If investors don’t overhaul banker pay, populism will",
+                "url": "/content/ec23fda0-1afb-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "China’s Xi Jinping is no Davos man",
+                "url": "/content/84261604-1b26-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Cleaning up: the peculiar power of Marie Kondo",
+                "url": "/content/8413f9a0-18c0-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Europe is an alliance, not a union of values",
+                "url": "/content/988bdbe0-1d5d-11e9-b2f7-97e4dbd3580d"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Work & Careers",
+        "url": "/work-careers",
+        "submenu": {
+          "label": null,
+          "items": [
+            {
+              "label": "Business School Rankings",
+              "url": "http://rankings.ft.com/businessschoolrankings/rankings",
+              "submenu": null
+            },
+            {
+              "label": "Business Education",
+              "url": "/business-education",
+              "submenu": {
+                "label": null,
+                "items": [
+                  {
+                    "label": "Business School Rankings",
+                    "url": "http://rankings.ft.com/businessschoolrankings/rankings",
+                    "submenu": null
+                  }
+                ]
+              }
+            },
+            { "label": "Entrepreneurship", "url": "/entrepreneurship", "submenu": null },
+            { "label": "Recruitment", "url": "/recruitment", "submenu": null },
+            { "label": "Business Books", "url": "/business-books", "submenu": null }
+          ]
+        },
+        "meganav": [
+          {
+            "component": "sectionlist",
+            "dataset": "subsections",
+            "title": "Sections",
+            "data": [
+              [
+                { "label": "Work & Careers Home", "url": "/work-careers" },
+                {
+                  "label": "Business School Rankings",
+                  "url": "http://rankings.ft.com/businessschoolrankings/rankings",
+                  "submenu": null
+                },
+                {
+                  "label": "Business Education",
+                  "url": "/business-education",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      {
+                        "label": "Business School Rankings",
+                        "url": "http://rankings.ft.com/businessschoolrankings/rankings",
+                        "submenu": null
+                      }
+                    ]
+                  }
+                }
+              ],
+              [
+                { "label": "Entrepreneurship", "url": "/entrepreneurship", "submenu": null },
+                { "label": "Recruitment", "url": "/recruitment", "submenu": null },
+                { "label": "Business Books", "url": "/business-books", "submenu": null }
+              ]
+            ]
+          },
+          {
+            "component": "articlelist",
+            "dataset": "popular",
+            "title": "Most Read",
+            "data": [
+              {
+                "label": "If investors don’t overhaul banker pay, populism will",
+                "url": "/content/ec23fda0-1afb-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Silicon Valley has a problem saying thank you",
+                "url": "/content/d966381a-1a45-11e9-b93e-f4351a53f1c3"
+              },
+              {
+                "label": "When work is not work but an ‘opportunity’ and ‘platform’",
+                "url": "/content/926e0b3c-1a67-11e9-b93e-f4351a53f1c3"
+              },
+              {
+                "label": "Beware the unintended impact of high pay rules",
+                "url": "/content/c7c8f5da-1b16-11e9-b93e-f4351a53f1c3"
+              },
+              {
+                "label": "Jobs fear sends shiver through fund industry",
+                "url": "/content/34d06d4a-5069-36bd-bb0a-06c4f8808f90"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Life & Arts",
+        "url": "/life-arts",
+        "submenu": {
+          "label": null,
+          "items": [
+            {
+              "label": "Arts",
+              "url": "/arts",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Architecture", "url": "/architecture", "submenu": null },
+                  { "label": "Collecting", "url": "/collecting", "submenu": null },
+                  { "label": "Dance", "url": "/dance", "submenu": null },
+                  { "label": "Design", "url": "/design", "submenu": null },
+                  { "label": "Film", "url": "/film", "submenu": null },
+                  { "label": "Music", "url": "/music", "submenu": null },
+                  { "label": "Television", "url": "/television", "submenu": null },
+                  { "label": "Theatre", "url": "/theatre", "submenu": null },
+                  { "label": "Visual Arts", "url": "/visual-arts", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Books",
+              "url": "/books",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Business Books", "url": "/business-books", "submenu": null },
+                  { "label": "Fiction", "url": "/fiction", "submenu": null },
+                  { "label": "Non-Fiction", "url": "/non-fiction", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Food & Drink",
+              "url": "/food-drink",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Wine", "url": "/wine", "submenu": null },
+                  { "label": "Recipes", "url": "/recipes", "submenu": null },
+                  { "label": "Restaurants", "url": "/restaurants", "submenu": null }
+                ]
+              }
+            },
+            { "label": "FT Magazine", "url": "/magazine", "submenu": null },
+            { "label": "House & Home", "url": "/house-home", "submenu": null },
+            { "label": "Next Act", "url": "/next-act", "submenu": null },
+            {
+              "label": "Style",
+              "url": "/style",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Fashion shows", "url": "/fashion-shows", "submenu": null },
+                  { "label": "The Art of Fashion", "url": "/art-of-fashion", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Travel",
+              "url": "/travel",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Adventure Holidays", "url": "/adventure-holidays", "submenu": null },
+                  { "label": "Cycling Holidays", "url": "/cycling-holidays", "submenu": null },
+                  { "label": "City Breaks", "url": "/city-breaks", "submenu": null },
+                  { "label": "Winter Sports", "url": "/winter-sports", "submenu": null }
+                ]
+              }
+            }
+          ]
+        },
+        "meganav": [
+          {
+            "component": "sectionlist",
+            "dataset": "subsections",
+            "title": "Sections",
+            "data": [
+              [
+                { "label": "Life & Arts Home", "url": "/life-arts" },
+                {
+                  "label": "Arts",
+                  "url": "/arts",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Architecture", "url": "/architecture", "submenu": null },
+                      { "label": "Collecting", "url": "/collecting", "submenu": null },
+                      { "label": "Dance", "url": "/dance", "submenu": null },
+                      { "label": "Design", "url": "/design", "submenu": null },
+                      { "label": "Film", "url": "/film", "submenu": null },
+                      { "label": "Music", "url": "/music", "submenu": null },
+                      { "label": "Television", "url": "/television", "submenu": null },
+                      { "label": "Theatre", "url": "/theatre", "submenu": null },
+                      { "label": "Visual Arts", "url": "/visual-arts", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "Books",
+                  "url": "/books",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Business Books", "url": "/business-books", "submenu": null },
+                      { "label": "Fiction", "url": "/fiction", "submenu": null },
+                      { "label": "Non-Fiction", "url": "/non-fiction", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "Food & Drink",
+                  "url": "/food-drink",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Wine", "url": "/wine", "submenu": null },
+                      { "label": "Recipes", "url": "/recipes", "submenu": null },
+                      { "label": "Restaurants", "url": "/restaurants", "submenu": null }
+                    ]
+                  }
+                },
+                { "label": "FT Magazine", "url": "/magazine", "submenu": null }
+              ],
+              [
+                { "label": "House & Home", "url": "/house-home", "submenu": null },
+                { "label": "Next Act", "url": "/next-act", "submenu": null },
+                {
+                  "label": "Style",
+                  "url": "/style",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Fashion shows", "url": "/fashion-shows", "submenu": null },
+                      { "label": "The Art of Fashion", "url": "/art-of-fashion", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "Travel",
+                  "url": "/travel",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Adventure Holidays", "url": "/adventure-holidays", "submenu": null },
+                      { "label": "Cycling Holidays", "url": "/cycling-holidays", "submenu": null },
+                      { "label": "City Breaks", "url": "/city-breaks", "submenu": null },
+                      { "label": "Winter Sports", "url": "/winter-sports", "submenu": null }
+                    ]
+                  }
+                }
+              ]
+            ]
+          },
+          {
+            "component": "articlelist",
+            "dataset": "popular",
+            "title": "Most Read",
+            "data": [
+              {
+                "label": "Billionaire founder of hedge fund Citadel buys £95m London home",
+                "url": "/content/4e46b886-1ca2-11e9-b126-46fc3ad87c65"
+              },
+              {
+                "label": "Cleaning up: the peculiar power of Marie Kondo",
+                "url": "/content/8413f9a0-18c0-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Are UK house prices heading for a post-Brexit meltdown?",
+                "url": "/content/54f5f390-19af-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Tim Harford: how behavioural economics helped kick my phone addiction",
+                "url": "/content/e82e5136-1921-11e9-b93e-f4351a53f1c3"
+              },
+              {
+                "label": "How thousands of foreign students were failed by the Home Office",
+                "url": "/content/11663990-1924-11e9-b93e-f4351a53f1c3"
+              }
+            ]
+          }
+        ]
+      },
+      { "label": "How to Spend It", "url": "https://howtospendit.ft.com/", "submenu": null }
+    ]
+  },
+  "navbar-international": {
+    "label": "Navigation",
+    "items": [
+      { "label": "Home", "url": "/", "submenu": null },
+      {
+        "label": "World",
+        "url": "/world",
+        "submenu": {
+          "label": null,
+          "items": [
+            { "label": "Global Economy", "url": "/global-economy", "submenu": null },
+            {
+              "label": "UK",
+              "url": "/world/uk",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "UK Business & Economy", "url": "/uk-business-economy", "submenu": null },
+                  { "label": "UK Politics & Policy", "url": "/world/uk/politics", "submenu": null },
+                  { "label": "UK Companies", "url": "/companies/uk", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "US",
+              "url": "/world/us",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "US Economy", "url": "/us-economy", "submenu": null },
+                  { "label": "US Politics & Policy", "url": "/world/us/politics", "submenu": null },
+                  { "label": "US Companies", "url": "/companies/us", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "China",
+              "url": "/world/asia-pacific/china",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Chinese Economy", "url": "/chinese-economy", "submenu": null },
+                  { "label": "China Politics & Policy", "url": "/chinese-politics-policy", "submenu": null }
+                ]
+              }
+            },
+            { "label": "Africa", "url": "/world/africa", "submenu": null },
+            { "label": "Asia Pacific", "url": "/world/asia-pacific", "submenu": null },
+            { "label": "Emerging Markets", "url": "/emerging-markets", "submenu": null },
+            { "label": "Europe", "url": "/world/europe", "submenu": null },
+            { "label": "Americas", "url": "/world/americas", "submenu": null },
+            { "label": "Middle East and North Africa", "url": "/world/mideast", "submenu": null }
+          ]
+        },
+        "meganav": [
+          {
+            "component": "sectionlist",
+            "dataset": "subsections",
+            "title": "Sections",
+            "data": [
+              [
+                { "label": "World Home", "url": "/world" },
+                { "label": "Global Economy", "url": "/global-economy", "submenu": null },
+                {
+                  "label": "UK",
+                  "url": "/world/uk",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "UK Business & Economy", "url": "/uk-business-economy", "submenu": null },
+                      { "label": "UK Politics & Policy", "url": "/world/uk/politics", "submenu": null },
+                      { "label": "UK Companies", "url": "/companies/uk", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "US",
+                  "url": "/world/us",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "US Economy", "url": "/us-economy", "submenu": null },
+                      { "label": "US Politics & Policy", "url": "/world/us/politics", "submenu": null },
+                      { "label": "US Companies", "url": "/companies/us", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "China",
+                  "url": "/world/asia-pacific/china",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Chinese Economy", "url": "/chinese-economy", "submenu": null },
+                      {
+                        "label": "China Politics & Policy",
+                        "url": "/chinese-politics-policy",
+                        "submenu": null
+                      }
+                    ]
+                  }
+                },
+                { "label": "Africa", "url": "/world/africa", "submenu": null }
+              ],
+              [
+                { "label": "Asia Pacific", "url": "/world/asia-pacific", "submenu": null },
+                { "label": "Emerging Markets", "url": "/emerging-markets", "submenu": null },
+                { "label": "Europe", "url": "/world/europe", "submenu": null },
+                { "label": "Americas", "url": "/world/americas", "submenu": null },
+                { "label": "Middle East and North Africa", "url": "/world/mideast", "submenu": null }
+              ]
+            ]
+          },
+          {
+            "component": "articlelist",
+            "dataset": "popular",
+            "title": "Most Read",
+            "data": [
+              {
+                "label": "Theresa May on Brexit collision course with MPs",
+                "url": "/content/0fa3646c-1cac-11e9-b2f7-97e4dbd3580d"
+              },
+              {
+                "label": "China’s economy grows at slowest annual rate since 1990",
+                "url": "/content/9706b890-1ad7-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "The self-fulfilling prophecy of a no-deal Brexit",
+                "url": "/content/d468b1f6-1b41-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Debt machine: are risks piling up in leveraged loans?",
+                "url": "/content/64c9665e-1814-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Investment banking: The battle for Barclays",
+                "url": "/content/035be220-199a-11e9-b93e-f4351a53f1c3"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "US",
+        "url": "/world/us",
+        "submenu": {
+          "label": null,
+          "items": [
+            { "label": "US Economy", "url": "/us-economy", "submenu": null },
+            { "label": "US Politics & Policy", "url": "/world/us/politics", "submenu": null },
+            { "label": "US Companies", "url": "/companies/us", "submenu": null }
+          ]
+        },
+        "meganav": [
+          {
+            "component": "sectionlist",
+            "dataset": "subsections",
+            "title": "Sections",
+            "data": [
+              [
+                { "label": "US Home", "url": "/world/us" },
+                { "label": "US Economy", "url": "/us-economy", "submenu": null }
+              ],
+              [
+                { "label": "US Politics & Policy", "url": "/world/us/politics", "submenu": null },
+                { "label": "US Companies", "url": "/companies/us", "submenu": null }
+              ]
+            ]
+          },
+          {
+            "component": "articlelist",
+            "dataset": "popular",
+            "title": "Most Read",
+            "data": [
+              {
+                "label": "Debt machine: are risks piling up in leveraged loans?",
+                "url": "/content/64c9665e-1814-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Investment banking: The battle for Barclays",
+                "url": "/content/035be220-199a-11e9-b93e-f4351a53f1c3"
+              },
+              {
+                "label": "Trump hits back at conservative critics as he defends shutdown offer",
+                "url": "/content/23d66e66-1cca-11e9-b126-46fc3ad87c65"
+              },
+              {
+                "label": "China’s Xi Jinping is no Davos man",
+                "url": "/content/84261604-1b26-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Democrat Kamala Harris joins 2020 US presidential race",
+                "url": "/content/5d5015d8-1d7a-11e9-b126-46fc3ad87c65"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Companies",
+        "url": "/companies",
+        "submenu": {
+          "label": null,
+          "items": [
+            {
+              "label": "Energy",
+              "url": "/companies/energy",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Mining", "url": "/companies/mining", "submenu": null },
+                  { "label": "Oil & Gas", "url": "/companies/oil-gas", "submenu": null },
+                  { "label": "Utilities", "url": "/companies/utilities", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Financials",
+              "url": "/companies/financials",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Banks", "url": "/companies/banks", "submenu": null },
+                  { "label": "Insurance", "url": "/companies/insurance", "submenu": null },
+                  { "label": "Property", "url": "/companies/property", "submenu": null },
+                  { "label": "Financial Services", "url": "/companies/financial-services", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Health",
+              "url": "/companies/health",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Health Care", "url": "/companies/healthcare", "submenu": null },
+                  { "label": "Pharmaceuticals", "url": "/companies/pharmaceuticals", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Industrials",
+              "url": "/companies/industrials",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Aerospace & Defence", "url": "/companies/aerospace-defence", "submenu": null },
+                  { "label": "Automobiles", "url": "/companies/automobiles", "submenu": null },
+                  { "label": "Basic Resources", "url": "/companies/basic-resources", "submenu": null },
+                  { "label": "Chemicals", "url": "/companies/chemicals", "submenu": null },
+                  { "label": "Construction", "url": "/companies/construction", "submenu": null },
+                  { "label": "Industrial Goods", "url": "/companies/industrial-goods", "submenu": null },
+                  { "label": "Support Services", "url": "/companies/support-services", "submenu": null }
+                ]
+              }
+            },
+            { "label": "Media", "url": "/companies/media", "submenu": null },
+            {
+              "label": "Professional Services",
+              "url": "/companies/professional-services",
+              "submenu": {
+                "label": null,
+                "items": [
+                  {
+                    "label": "Accounting & Consulting Services",
+                    "url": "/accounting-consulting-services",
+                    "submenu": null
+                  },
+                  { "label": "Legal Services", "url": "/companies/legal-services", "submenu": null },
+                  {
+                    "label": "Recruitment Services",
+                    "url": "/companies/recruitment-services",
+                    "submenu": null
+                  }
+                ]
+              }
+            },
+            {
+              "label": "Retail & Consumer",
+              "url": "/companies/retail-consumer",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Food & Beverage", "url": "/companies/food-beverage", "submenu": null },
+                  { "label": "Luxury Goods", "url": "/companies/luxury-goods", "submenu": null },
+                  {
+                    "label": "Personal & Household Goods",
+                    "url": "/companies/personal-goods",
+                    "submenu": null
+                  },
+                  { "label": "Retail", "url": "/companies/retail", "submenu": null },
+                  { "label": "Tobacco", "url": "/companies/tobacco", "submenu": null },
+                  { "label": "Travel & Leisure", "url": "/companies/travel-leisure", "submenu": null }
+                ]
+              }
+            },
+            { "label": "Tech Sector", "url": "/companies/technology", "submenu": null },
+            { "label": "Telecoms", "url": "/companies/telecoms", "submenu": null },
+            {
+              "label": "Transport",
+              "url": "/companies/transport",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Airlines", "url": "/companies/airlines", "submenu": null },
+                  { "label": "Shipping", "url": "/companies/shipping", "submenu": null },
+                  { "label": "Rail", "url": "/companies/rail", "submenu": null }
+                ]
+              }
+            }
+          ]
+        },
+        "meganav": [
+          {
+            "component": "sectionlist",
+            "dataset": "subsections",
+            "title": "Sections",
+            "data": [
+              [
+                { "label": "Companies Home", "url": "/companies" },
+                {
+                  "label": "Energy",
+                  "url": "/companies/energy",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Mining", "url": "/companies/mining", "submenu": null },
+                      { "label": "Oil & Gas", "url": "/companies/oil-gas", "submenu": null },
+                      { "label": "Utilities", "url": "/companies/utilities", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "Financials",
+                  "url": "/companies/financials",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Banks", "url": "/companies/banks", "submenu": null },
+                      { "label": "Insurance", "url": "/companies/insurance", "submenu": null },
+                      { "label": "Property", "url": "/companies/property", "submenu": null },
+                      {
+                        "label": "Financial Services",
+                        "url": "/companies/financial-services",
+                        "submenu": null
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Health",
+                  "url": "/companies/health",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Health Care", "url": "/companies/healthcare", "submenu": null },
+                      { "label": "Pharmaceuticals", "url": "/companies/pharmaceuticals", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "Industrials",
+                  "url": "/companies/industrials",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      {
+                        "label": "Aerospace & Defence",
+                        "url": "/companies/aerospace-defence",
+                        "submenu": null
+                      },
+                      { "label": "Automobiles", "url": "/companies/automobiles", "submenu": null },
+                      { "label": "Basic Resources", "url": "/companies/basic-resources", "submenu": null },
+                      { "label": "Chemicals", "url": "/companies/chemicals", "submenu": null },
+                      { "label": "Construction", "url": "/companies/construction", "submenu": null },
+                      { "label": "Industrial Goods", "url": "/companies/industrial-goods", "submenu": null },
+                      { "label": "Support Services", "url": "/companies/support-services", "submenu": null }
+                    ]
+                  }
+                },
+                { "label": "Media", "url": "/companies/media", "submenu": null }
+              ],
+              [
+                {
+                  "label": "Professional Services",
+                  "url": "/companies/professional-services",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      {
+                        "label": "Accounting & Consulting Services",
+                        "url": "/accounting-consulting-services",
+                        "submenu": null
+                      },
+                      { "label": "Legal Services", "url": "/companies/legal-services", "submenu": null },
+                      {
+                        "label": "Recruitment Services",
+                        "url": "/companies/recruitment-services",
+                        "submenu": null
+                      }
+                    ]
+                  }
+                },
+                {
+                  "label": "Retail & Consumer",
+                  "url": "/companies/retail-consumer",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Food & Beverage", "url": "/companies/food-beverage", "submenu": null },
+                      { "label": "Luxury Goods", "url": "/companies/luxury-goods", "submenu": null },
+                      {
+                        "label": "Personal & Household Goods",
+                        "url": "/companies/personal-goods",
+                        "submenu": null
+                      },
+                      { "label": "Retail", "url": "/companies/retail", "submenu": null },
+                      { "label": "Tobacco", "url": "/companies/tobacco", "submenu": null },
+                      { "label": "Travel & Leisure", "url": "/companies/travel-leisure", "submenu": null }
+                    ]
+                  }
+                },
+                { "label": "Tech Sector", "url": "/companies/technology", "submenu": null },
+                { "label": "Telecoms", "url": "/companies/telecoms", "submenu": null },
+                {
+                  "label": "Transport",
+                  "url": "/companies/transport",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Airlines", "url": "/companies/airlines", "submenu": null },
+                      { "label": "Shipping", "url": "/companies/shipping", "submenu": null },
+                      { "label": "Rail", "url": "/companies/rail", "submenu": null }
+                    ]
+                  }
+                }
+              ]
+            ]
+          },
+          {
+            "component": "articlelist",
+            "dataset": "popular",
+            "title": "Most Read",
+            "data": [
+              {
+                "label": "Billionaire founder of hedge fund Citadel buys £95m London home",
+                "url": "/content/4e46b886-1ca2-11e9-b126-46fc3ad87c65"
+              },
+              {
+                "label": "Market delivers humiliating verdict on Dell",
+                "url": "/content/f5e39ffe-1b6d-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Investment banking: The battle for Barclays",
+                "url": "/content/035be220-199a-11e9-b93e-f4351a53f1c3"
+              },
+              {
+                "label": "Temasek steps up pressure over Standard Chartered turnround",
+                "url": "/content/153c1cfc-1b3a-11e9-b93e-f4351a53f1c3"
+              },
+              {
+                "label": "If investors don’t overhaul banker pay, populism will",
+                "url": "/content/ec23fda0-1afb-11e9-9e64-d150b3105d21"
+              }
+            ]
+          }
+        ]
+      },
+      { "label": "Tech", "url": "/technology", "submenu": null },
+      {
+        "label": "Markets",
+        "url": "/markets",
+        "submenu": {
+          "label": null,
+          "items": [
+            { "label": "fastFT", "url": "/fastft", "submenu": null },
+            { "label": "Alphaville", "url": "https://ftalphaville.ft.com", "submenu": null },
+            { "label": "Markets Data", "url": "https://markets.ft.com/data", "submenu": null },
+            { "label": "Capital Markets", "url": "/capital-markets", "submenu": null },
+            {
+              "label": "Commodities",
+              "url": "/commodities",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Oil", "url": "/oil", "submenu": null },
+                  { "label": "Gold", "url": "/gold", "submenu": null },
+                  { "label": "Copper", "url": "/copper", "submenu": null }
+                ]
+              }
+            },
+            { "label": "Currencies", "url": "/currencies", "submenu": null },
+            {
+              "label": "Equities",
+              "url": "/equities",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "US Equities", "url": "/markets/us", "submenu": null },
+                  { "label": "UK Equities", "url": "/markets/uk", "submenu": null },
+                  { "label": "European Equities", "url": "/markets/europe", "submenu": null },
+                  { "label": "Asia-Pacific Equities", "url": "/markets/asia-pacific", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Fund Management",
+              "url": "/fund-management",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Exchange Traded Funds", "url": "/ftfm/etfs", "submenu": null },
+                  { "label": "Funds Regulation", "url": "/fund-regulation", "submenu": null },
+                  { "label": "Pensions Industry", "url": "/pensions-industry", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Trading",
+              "url": "/ft-trading-room",
+              "submenu": {
+                "label": null,
+                "items": [
+                  {
+                    "label": "Clearing & Settlement",
+                    "url": "/ft-trading-room/clearing-settlement",
+                    "submenu": null
+                  },
+                  {
+                    "label": "High Frequency Trading",
+                    "url": "/ft-trading-room/high-frequency-trading",
+                    "submenu": null
+                  },
+                  { "label": "Markets Regulation", "url": "/financial-markets-regulation", "submenu": null },
+                  { "label": "OTC markets", "url": "/otc-markets", "submenu": null },
+                  { "label": "Derivatives", "url": "/derivatives", "submenu": null }
+                ]
+              }
+            }
+          ]
+        },
+        "meganav": [
+          {
+            "component": "sectionlist",
+            "dataset": "subsections",
+            "title": "Sections",
+            "data": [
+              [
+                { "label": "Markets Home", "url": "/markets" },
+                { "label": "fastFT", "url": "/fastft", "submenu": null },
+                { "label": "Alphaville", "url": "https://ftalphaville.ft.com", "submenu": null },
+                { "label": "Markets Data", "url": "https://markets.ft.com/data", "submenu": null },
+                { "label": "Capital Markets", "url": "/capital-markets", "submenu": null }
+              ],
+              [
+                {
+                  "label": "Commodities",
+                  "url": "/commodities",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Oil", "url": "/oil", "submenu": null },
+                      { "label": "Gold", "url": "/gold", "submenu": null },
+                      { "label": "Copper", "url": "/copper", "submenu": null }
+                    ]
+                  }
+                },
+                { "label": "Currencies", "url": "/currencies", "submenu": null },
+                {
+                  "label": "Equities",
+                  "url": "/equities",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "US Equities", "url": "/markets/us", "submenu": null },
+                      { "label": "UK Equities", "url": "/markets/uk", "submenu": null },
+                      { "label": "European Equities", "url": "/markets/europe", "submenu": null },
+                      { "label": "Asia-Pacific Equities", "url": "/markets/asia-pacific", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "Fund Management",
+                  "url": "/fund-management",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Exchange Traded Funds", "url": "/ftfm/etfs", "submenu": null },
+                      { "label": "Funds Regulation", "url": "/fund-regulation", "submenu": null },
+                      { "label": "Pensions Industry", "url": "/pensions-industry", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "Trading",
+                  "url": "/ft-trading-room",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      {
+                        "label": "Clearing & Settlement",
+                        "url": "/ft-trading-room/clearing-settlement",
+                        "submenu": null
+                      },
+                      {
+                        "label": "High Frequency Trading",
+                        "url": "/ft-trading-room/high-frequency-trading",
+                        "submenu": null
+                      },
+                      {
+                        "label": "Markets Regulation",
+                        "url": "/financial-markets-regulation",
+                        "submenu": null
+                      },
+                      { "label": "OTC markets", "url": "/otc-markets", "submenu": null },
+                      { "label": "Derivatives", "url": "/derivatives", "submenu": null }
+                    ]
+                  }
+                }
+              ]
+            ]
+          },
+          {
+            "component": "articlelist",
+            "dataset": "popular",
+            "title": "Most Read",
+            "data": [
+              {
+                "label": "Debt machine: are risks piling up in leveraged loans?",
+                "url": "/content/64c9665e-1814-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "China’s Xi Jinping is no Davos man",
+                "url": "/content/84261604-1b26-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Temasek steps up pressure over Standard Chartered turnround",
+                "url": "/content/153c1cfc-1b3a-11e9-b93e-f4351a53f1c3"
+              },
+              {
+                "label": "China’s economy grows at slowest annual rate since 1990",
+                "url": "/content/9706b890-1ad7-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Big banks embrace fintech to exploit disrupters’ expertise",
+                "url": "/content/f9c1d4c6-1b39-11e9-9e64-d150b3105d21"
+              }
+            ]
+          }
+        ]
+      },
+      { "label": "Graphics", "url": "/graphics", "submenu": null },
+      {
+        "label": "Opinion",
+        "url": "/opinion",
+        "submenu": {
+          "label": null,
+          "items": [
+            { "label": "Columnists", "url": "/columnists", "submenu": null },
+            { "label": "The FT View", "url": "/ft-view", "submenu": null },
+            { "label": "The Big Read", "url": "/the-big-read", "submenu": null },
+            { "label": "Instant Insight", "url": "/instant-insight", "submenu": null },
+            { "label": "Lex", "url": "/lex", "submenu": null },
+            { "label": "Alphaville", "url": "https://ftalphaville.ft.com", "submenu": null },
+            { "label": "Obituaries", "url": "/obituaries", "submenu": null },
+            { "label": "Letters", "url": "/letters", "submenu": null }
+          ]
+        },
+        "meganav": [
+          {
+            "component": "sectionlist",
+            "dataset": "subsections",
+            "title": "Sections",
+            "data": [
+              [
+                { "label": "Opinion Home", "url": "/opinion" },
+                { "label": "Columnists", "url": "/columnists", "submenu": null },
+                { "label": "The FT View", "url": "/ft-view", "submenu": null },
+                { "label": "The Big Read", "url": "/the-big-read", "submenu": null },
+                { "label": "Instant Insight", "url": "/instant-insight", "submenu": null }
+              ],
+              [
+                { "label": "Lex", "url": "/lex", "submenu": null },
+                { "label": "Alphaville", "url": "https://ftalphaville.ft.com", "submenu": null },
+                { "label": "Obituaries", "url": "/obituaries", "submenu": null },
+                { "label": "Letters", "url": "/letters", "submenu": null }
+              ]
+            ]
+          },
+          {
+            "component": "articlelist",
+            "dataset": "popular",
+            "title": "Most Read",
+            "data": [
+              {
+                "label": "The self-fulfilling prophecy of a no-deal Brexit",
+                "url": "/content/d468b1f6-1b41-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "If investors don’t overhaul banker pay, populism will",
+                "url": "/content/ec23fda0-1afb-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "China’s Xi Jinping is no Davos man",
+                "url": "/content/84261604-1b26-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Cleaning up: the peculiar power of Marie Kondo",
+                "url": "/content/8413f9a0-18c0-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Europe is an alliance, not a union of values",
+                "url": "/content/988bdbe0-1d5d-11e9-b2f7-97e4dbd3580d"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Work & Careers",
+        "url": "/work-careers",
+        "submenu": {
+          "label": null,
+          "items": [
+            {
+              "label": "Business School Rankings",
+              "url": "http://rankings.ft.com/businessschoolrankings/rankings",
+              "submenu": null
+            },
+            {
+              "label": "Business Education",
+              "url": "/business-education",
+              "submenu": {
+                "label": null,
+                "items": [
+                  {
+                    "label": "Business School Rankings",
+                    "url": "http://rankings.ft.com/businessschoolrankings/rankings",
+                    "submenu": null
+                  }
+                ]
+              }
+            },
+            { "label": "Entrepreneurship", "url": "/entrepreneurship", "submenu": null },
+            { "label": "Recruitment", "url": "/recruitment", "submenu": null },
+            { "label": "Business Books", "url": "/business-books", "submenu": null }
+          ]
+        },
+        "meganav": [
+          {
+            "component": "sectionlist",
+            "dataset": "subsections",
+            "title": "Sections",
+            "data": [
+              [
+                { "label": "Work & Careers Home", "url": "/work-careers" },
+                {
+                  "label": "Business School Rankings",
+                  "url": "http://rankings.ft.com/businessschoolrankings/rankings",
+                  "submenu": null
+                },
+                {
+                  "label": "Business Education",
+                  "url": "/business-education",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      {
+                        "label": "Business School Rankings",
+                        "url": "http://rankings.ft.com/businessschoolrankings/rankings",
+                        "submenu": null
+                      }
+                    ]
+                  }
+                }
+              ],
+              [
+                { "label": "Entrepreneurship", "url": "/entrepreneurship", "submenu": null },
+                { "label": "Recruitment", "url": "/recruitment", "submenu": null },
+                { "label": "Business Books", "url": "/business-books", "submenu": null }
+              ]
+            ]
+          },
+          {
+            "component": "articlelist",
+            "dataset": "popular",
+            "title": "Most Read",
+            "data": [
+              {
+                "label": "If investors don’t overhaul banker pay, populism will",
+                "url": "/content/ec23fda0-1afb-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Silicon Valley has a problem saying thank you",
+                "url": "/content/d966381a-1a45-11e9-b93e-f4351a53f1c3"
+              },
+              {
+                "label": "When work is not work but an ‘opportunity’ and ‘platform’",
+                "url": "/content/926e0b3c-1a67-11e9-b93e-f4351a53f1c3"
+              },
+              {
+                "label": "Beware the unintended impact of high pay rules",
+                "url": "/content/c7c8f5da-1b16-11e9-b93e-f4351a53f1c3"
+              },
+              {
+                "label": "Jobs fear sends shiver through fund industry",
+                "url": "/content/34d06d4a-5069-36bd-bb0a-06c4f8808f90"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Life & Arts",
+        "url": "/life-arts",
+        "submenu": {
+          "label": null,
+          "items": [
+            {
+              "label": "Arts",
+              "url": "/arts",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Architecture", "url": "/architecture", "submenu": null },
+                  { "label": "Collecting", "url": "/collecting", "submenu": null },
+                  { "label": "Dance", "url": "/dance", "submenu": null },
+                  { "label": "Design", "url": "/design", "submenu": null },
+                  { "label": "Film", "url": "/film", "submenu": null },
+                  { "label": "Music", "url": "/music", "submenu": null },
+                  { "label": "Television", "url": "/television", "submenu": null },
+                  { "label": "Theatre", "url": "/theatre", "submenu": null },
+                  { "label": "Visual Arts", "url": "/visual-arts", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Books",
+              "url": "/books",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Business Books", "url": "/business-books", "submenu": null },
+                  { "label": "Fiction", "url": "/fiction", "submenu": null },
+                  { "label": "Non-Fiction", "url": "/non-fiction", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Food & Drink",
+              "url": "/food-drink",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Wine", "url": "/wine", "submenu": null },
+                  { "label": "Recipes", "url": "/recipes", "submenu": null },
+                  { "label": "Restaurants", "url": "/restaurants", "submenu": null }
+                ]
+              }
+            },
+            { "label": "FT Magazine", "url": "/magazine", "submenu": null },
+            { "label": "House & Home", "url": "/house-home", "submenu": null },
+            { "label": "Next Act", "url": "/next-act", "submenu": null },
+            {
+              "label": "Style",
+              "url": "/style",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Fashion shows", "url": "/fashion-shows", "submenu": null },
+                  { "label": "The Art of Fashion", "url": "/art-of-fashion", "submenu": null }
+                ]
+              }
+            },
+            {
+              "label": "Travel",
+              "url": "/travel",
+              "submenu": {
+                "label": null,
+                "items": [
+                  { "label": "Adventure Holidays", "url": "/adventure-holidays", "submenu": null },
+                  { "label": "Cycling Holidays", "url": "/cycling-holidays", "submenu": null },
+                  { "label": "City Breaks", "url": "/city-breaks", "submenu": null },
+                  { "label": "Winter Sports", "url": "/winter-sports", "submenu": null }
+                ]
+              }
+            }
+          ]
+        },
+        "meganav": [
+          {
+            "component": "sectionlist",
+            "dataset": "subsections",
+            "title": "Sections",
+            "data": [
+              [
+                { "label": "Life & Arts Home", "url": "/life-arts" },
+                {
+                  "label": "Arts",
+                  "url": "/arts",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Architecture", "url": "/architecture", "submenu": null },
+                      { "label": "Collecting", "url": "/collecting", "submenu": null },
+                      { "label": "Dance", "url": "/dance", "submenu": null },
+                      { "label": "Design", "url": "/design", "submenu": null },
+                      { "label": "Film", "url": "/film", "submenu": null },
+                      { "label": "Music", "url": "/music", "submenu": null },
+                      { "label": "Television", "url": "/television", "submenu": null },
+                      { "label": "Theatre", "url": "/theatre", "submenu": null },
+                      { "label": "Visual Arts", "url": "/visual-arts", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "Books",
+                  "url": "/books",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Business Books", "url": "/business-books", "submenu": null },
+                      { "label": "Fiction", "url": "/fiction", "submenu": null },
+                      { "label": "Non-Fiction", "url": "/non-fiction", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "Food & Drink",
+                  "url": "/food-drink",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Wine", "url": "/wine", "submenu": null },
+                      { "label": "Recipes", "url": "/recipes", "submenu": null },
+                      { "label": "Restaurants", "url": "/restaurants", "submenu": null }
+                    ]
+                  }
+                },
+                { "label": "FT Magazine", "url": "/magazine", "submenu": null }
+              ],
+              [
+                { "label": "House & Home", "url": "/house-home", "submenu": null },
+                { "label": "Next Act", "url": "/next-act", "submenu": null },
+                {
+                  "label": "Style",
+                  "url": "/style",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Fashion shows", "url": "/fashion-shows", "submenu": null },
+                      { "label": "The Art of Fashion", "url": "/art-of-fashion", "submenu": null }
+                    ]
+                  }
+                },
+                {
+                  "label": "Travel",
+                  "url": "/travel",
+                  "submenu": {
+                    "label": null,
+                    "items": [
+                      { "label": "Adventure Holidays", "url": "/adventure-holidays", "submenu": null },
+                      { "label": "Cycling Holidays", "url": "/cycling-holidays", "submenu": null },
+                      { "label": "City Breaks", "url": "/city-breaks", "submenu": null },
+                      { "label": "Winter Sports", "url": "/winter-sports", "submenu": null }
+                    ]
+                  }
+                }
+              ]
+            ]
+          },
+          {
+            "component": "articlelist",
+            "dataset": "popular",
+            "title": "Most Read",
+            "data": [
+              {
+                "label": "Billionaire founder of hedge fund Citadel buys £95m London home",
+                "url": "/content/4e46b886-1ca2-11e9-b126-46fc3ad87c65"
+              },
+              {
+                "label": "Cleaning up: the peculiar power of Marie Kondo",
+                "url": "/content/8413f9a0-18c0-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Are UK house prices heading for a post-Brexit meltdown?",
+                "url": "/content/54f5f390-19af-11e9-9e64-d150b3105d21"
+              },
+              {
+                "label": "Tim Harford: how behavioural economics helped kick my phone addiction",
+                "url": "/content/e82e5136-1921-11e9-b93e-f4351a53f1c3"
+              },
+              {
+                "label": "How thousands of foreign students were failed by the Home Office",
+                "url": "/content/11663990-1924-11e9-b93e-f4351a53f1c3"
+              }
+            ]
+          }
+        ]
+      },
+      { "label": "How to Spend It", "url": "https://howtospendit.ft.com/", "submenu": null }
+    ]
+  }
+}
