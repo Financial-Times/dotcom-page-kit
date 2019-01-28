@@ -8,10 +8,11 @@ import {
 } from './components/top/partials'
 import { NavListLeft, NavListRight, Nav } from './components/navigation/partials'
 import { IncludeCrumbtrail } from './components/crumbtrail/partials'
+import { Props } from './interfaces'
 
-export function Header(props) {
+export function Header(props: Props) {
   // TODO Figure out how we should be handling UK v international
-  const navbarOptionsLeft = props['navbar-uk'].items
+  const navbarOptionsLeft = props['navbar'].items
   // TODO Figure out how we should be handling anon v user
   const navbarRight = props['navbar-right'].items
   const navbarRightAnon = props['navbar-right-anon'].items
@@ -41,12 +42,12 @@ export function LogoOnly() {
   )
 }
 
-export function HeaderWithCrumbtrail(props) {
-  const navbarOptionsLeft = props['navbar-uk'].items
+export function HeaderWithCrumbtrail(props: Props) {
+  const navbarOptionsLeft = props['navbar'].items
   const navbarRight = props['navbar-right'].items
   const navbarRightAnon = props['navbar-right-anon'].items
-  const navbarOptionsRight = props.userNav ? navbarRight : navbarRightAnon
   const incudeCrumbtrail = props.breadcrumb && props.subsections ? IncludeCrumbtrail({ props }) : null
+  const navbarOptionsRight = props.userNav ? navbarRight : navbarRightAnon
   return (
     <HeaderSimple>
       <TopWrapper>

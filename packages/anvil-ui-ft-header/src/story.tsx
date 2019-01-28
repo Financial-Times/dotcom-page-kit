@@ -11,7 +11,7 @@ const showSignOutOptions = ['Show sign out link', true]
 storiesOf('FT / Header', module)
   .addDecorator(withKnobs)
   .add('header', () => {
-    const toggleUserState = boolean(...userStateOptions)
+    const toggleHeaderOptions = boolean(...userStateOptions)
     return (
       <OrigamiBuildService
         dependencies={{
@@ -19,7 +19,7 @@ storiesOf('FT / Header', module)
           'o-fonts': '^3.2.0',
           'o-normalise': '^1.6.2'
         }}>
-        <Header {...storyData} userNav={toggleUserState} />
+        <Header {...storyData} userNav={toggleHeaderOptions} />
       </OrigamiBuildService>
     )
   })

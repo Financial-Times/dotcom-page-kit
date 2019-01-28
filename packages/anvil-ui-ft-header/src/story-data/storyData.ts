@@ -7,8 +7,11 @@ const breadcrumb = crumbtrail.ancestors.concat(crumbtrail.item)
 const subsections = crumbtrail.children
 
 export default {
+  // In n-ui these values are under nUi.header, not th @root element
   userNav: true,
-  'navbar-uk': navbarUk,
+  disableStick: false,
+  variant: '',
+  'navbar': navbarUk,
   'navbar-right': navbarRight,
   'navbar-right-anon': navbarRightAnon,
   breadcrumb: breadcrumb,
