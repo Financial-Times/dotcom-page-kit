@@ -1,13 +1,15 @@
 module.exports = {
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
   },
-  devtool: 'source-map',
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        loader: 'awesome-typescript-loader'
+        test: /\.(js|jsx|ts|tsx)$/,
+        loader: require.resolve('babel-loader'),
+        options: {
+          presets: [['react-app', { flow: false, typescript: true }]]
+        }
       }
     ]
   }
