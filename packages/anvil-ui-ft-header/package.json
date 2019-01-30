@@ -23,5 +23,8 @@
   },
   "devDependencies": {
     "@financial-times/anvil-ui-origami-build-service": "file:../anvil-ui-origami-build-service"
+  },
+  "dependencies": {
+    "classcat": "3.2.5"
   }
 }
