@@ -2,7 +2,11 @@ import React from 'react'
 
 import Drawer from './drawer'
 
-export default function FTHeader({ children }) {
+interface Props {
+  children?: any
+}
+
+const FTHeader: React.FC<Props> = ({ children }) => {
   return (
     <React.Fragment>
       {children}
@@ -10,3 +14,5 @@ export default function FTHeader({ children }) {
     </React.Fragment>
   )
 }
+
+export default FTHeader

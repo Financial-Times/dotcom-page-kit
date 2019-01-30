@@ -10,11 +10,13 @@ interface Props {
   footerSlot?: Renderable
 }
 
-FTLayout.body = placeholder()
-FTLayout.header = placeholder()
-FTLayout.footer = placeholder()
+interface Foo extends React.FC<Props> {
+  body?: any
+  header?: any
+  footer?: any
+}
 
-export default function FTLayout(props: Props) {
+const FTLayout: Foo = (props) => {
   const Slot = createSlotterFor(FTLayout, props)
 
   return (
@@ -31,3 +33,9 @@ export default function FTLayout(props: Props) {
     </React.Fragment>
   )
 }
+
+FTLayout.body = placeholder()
+FTLayout.header = placeholder()
+FTLayout.footer = placeholder()
+
+export default FTLayout
