@@ -10,13 +10,7 @@ interface Props {
   footerSlot?: Renderable
 }
 
-interface Foo extends React.FC<Props> {
-  body?: any
-  header?: any
-  footer?: any
-}
-
-const FTLayout: Foo = (props) => {
+const FTLayout = (props: Props) => {
   const Slot = createSlotterFor(FTLayout, props)
 
   return (
