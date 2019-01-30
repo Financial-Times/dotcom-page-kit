@@ -19,11 +19,15 @@ export const Root: React.FC = ({ children }) => {
   )
 }
 
-export const MenuList: React.FC = ({ children }) => {
+interface Props {
+  children?: any
+}
+
+export const MenuList: React.FC<Props> = ({ children }) => {
   return <ul className="o-header__drawer-menu-list">{children}</ul>
 }
 
-export const SectionHead: React.FC = ({ children }) => {
+export const SectionHead: React.FC<Props> = ({ children }) => {
   return <li className="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{children}</li>
 }
 
