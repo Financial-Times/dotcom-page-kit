@@ -64,7 +64,8 @@ function isObjectWithProps(item: any) {
 }
 
 function arrayPushMerge(dest: any[], src: any[]) {
-  return dest.push(...src)
+  dest.push(...src)
+  return dest
 }
 
 function invokeHandler(handler: Handler, resource: any, pluggable: Pluggable) {
@@ -86,16 +87,16 @@ function mergeObjectsInPlace(dest: any, src: any, arrayMerger: Function) {
 
 This is the function that handles the actual publishing of resources to handlers. A resource is just a value that will
 be used by the app to determine how to proceed. It is expected that altering this value would somehow also alter how
-the app behaves. A handler is the function that the resource will be supplied to on publish. It is expected that the
+the app behaves. A handler is the function that the resource will be supplied to, on publish. It is expected that the
 handler will amend the resource in some way.
 
 The requirements for resource publishing are as follows:
 
-  * (R:01) Handlers should be able to amend a resource in place. In other words, if the resource is an array an the
+  * (R:01) Handlers should be able to amend a resource in place. In other words, if the resource is an array and the
     handler pushes more items into the array, the original resource that was published must now also have those new
     items.
 
-  * (R:02) Handlers should be able to alternatively return the changes the changes that will then be merged back to the array.
+  * (R:02) Handlers should be able to alternatively return the changes that will then be merged back to the array.
     In other words, if the resource is the object `{ foo: 'foo' }`, instead of directly adding a property the property
     `bar` to that object, the handler should be able to return `{ bar: 'bar' }`, and expect that it will be merged
     back into the original object, so that the original object now becomes { foo: 'foo', bar: 'bar' }

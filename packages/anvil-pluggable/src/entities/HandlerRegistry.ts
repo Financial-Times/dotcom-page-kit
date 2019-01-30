@@ -1,25 +1,25 @@
 import { Handler } from '../types/Handler'
 
-interface Index {
+interface HookToHandlerMap {
   [hook: string]: Handler[]
 }
 
 export class HandlerRegistry {
-  index: Index = {}
+  hookToHandlerMap: HookToHandlerMap = {}
 
   register(hook: string, resource: any) {
     this.ensureThatSpaceExistsFor(hook)
-    this.index[hook].push(resource)
+    this.hookToHandlerMap[hook].push(resource)
   }
 
   ensureThatSpaceExistsFor(hook: string) {
-    if (!this.index[hook]) {
-      this.index[hook] = []
+    if (!this.hookToHandlerMap[hook]) {
+      this.hookToHandlerMap[hook] = []
     }
   }
 
   getHandlersByHook(hook: string) {
     this.ensureThatSpaceExistsFor(hook)
-    return this.index[hook]
+    return this.hookToHandlerMap[hook]
   }
 }
