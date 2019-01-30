@@ -1,0 +1,7 @@
+{
+  "name": "anvil",
+  "private": true,
+  "dependencies": {
+    "anvil-ui-components": "glob:packages/anvil-ui-*/bower.json"
+  }
+}
