@@ -1,32 +1,33 @@
 import path from 'path'
 import { CliContext } from '../entities/CliContext'
-import { name, as, $if } from 'adonai'
 import { getWebpackConfig } from '../operations/getWebpackConfig'
 import { compileWebpackConfig } from '../operations/compileWebpackConfig'
 
 export async function build(cli: CliContext) {
-  return cli
-    .routine()
-    .with(name('build'))
-    .then(expandOutputPath, $if.not(outputPathIsAbsolute), as('cli.options.outputPath'))
-    .then(expandEntryFilePath, $if.not(entryFilePathIsAbsolute), as('cli.options.entryFile'))
-    .then(getWebpackConfig, as('webpackConfig'))
-    .then(compileWebpackConfig)
-    .exec()
+  if (!entryFilePathIsAbsolute(cli)) {
+    expandEntryFilePath(cli)
+  }
+
+  if (!outputPathIsAbsolute(cli)) {
+    expandOutputPath(cli)
+  }
+
+  const webpackConfig = getWebpackConfig(cli)
+  return compileWebpackConfig(cli, webpackConfig)
 }
 
-function expandEntryFilePath(cli: CliContext) {
-  return path.join(cli.workingDir, cli.options.entryFile)
+function expandEntryFilePath({ options, workingDir }: CliContext) {
+  options.entryFile = path.join(workingDir, options.entryFile)
 }
 
-function expandOutputPath(cli: CliContext) {
-  return path.join(cli.workingDir, cli.options.outputPath)
+function expandOutputPath({ options, workingDir }: CliContext) {
+  options.outputPath = path.join(workingDir, options.outputPath)
 }
 
-function entryFilePathIsAbsolute(cli: CliContext) {
-  return path.isAbsolute(cli.options.entryFile)
+function entryFilePathIsAbsolute({ options }: CliContext) {
+  return path.isAbsolute(options.entryFile)
 }
 
-function outputPathIsAbsolute(cli: CliContext) {
-  return path.isAbsolute(cli.options.outputPath)
+function outputPathIsAbsolute({ options }: CliContext) {
+  return path.isAbsolute(options.outputPath)
 }

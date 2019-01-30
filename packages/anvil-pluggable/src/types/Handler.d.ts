@@ -1,6 +1,6 @@
 import { Pluggable } from '../entities/Pluggable'
 
-interface HandlerArgs {
+export interface HandlerArgs {
   resource: any
   pluggable: Pluggable
   publish: (hook: string, resource: any) => any

@@ -1,20 +1,17 @@
-import merge from 'webpack-merge'
-import { Plugin } from 'adonai'
 import babelPreset from './babel'
-import { RunningWebpackContext, RunningBabelContext } from '@financial-times/anvil-types-build'
+import { HandlerArgs } from '@financial-times/anvil'
 
-export default new Plugin(({ on }) => {
+export default ({ on }) => {
   on('babelConfig', amendBabelConfig)
-  on('webpackConfig', amendWebpackConfig)
-})
+  on('webpackConfig', getWebpackConfigToMerge)
+}
 
-function amendBabelConfig({ cli, babelConfig }: RunningBabelContext) {
+function amendBabelConfig({ cli, resource: babelConfig }: HandlerArgs) {
   babelConfig.presets.push(babelPreset(cli))
 }
 
-function amendWebpackConfig(runningContext: RunningWebpackContext) {
-  const baseConfig = runningContext.webpackConfig
-  const config = {
+function getWebpackConfigToMerge() {
+  return {
     optimization: {
       runtimeChunk: 'single',
       splitChunks: {
@@ -37,5 +34,4 @@ function amendWebpackConfig(runningContext: RunningWebpackContext) {
       }
     }
   }
-  runningContext.webpackConfig = merge(baseConfig, config)
 }

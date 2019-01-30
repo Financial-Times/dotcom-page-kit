@@ -33,6 +33,10 @@ export class Pluggable {
     return this.state.plugins
   }
 
+  set plugins(plugins: Plugin[]) {
+    this.registerPlugins(plugins)
+  }
+
   with(plugin: Plugin) {
     this.registerPlugins([plugin])
     return this

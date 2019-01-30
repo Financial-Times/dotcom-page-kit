@@ -1,11 +1,10 @@
-import { Plugin } from 'adonai'
 import babelPreset from './babel'
-import { RunningBabelContext } from '@financial-times/anvil-types-build'
+import { HandlerArgs } from '@financial-times/anvil'
 
-export default new Plugin(({ on }) => {
+export default ({ on }) => {
   on('babelConfig', amendBabelConfig)
-})
+}
 
-function amendBabelConfig({ cli, babelConfig }: RunningBabelContext) {
+function amendBabelConfig({ cli, resource: babelConfig }: HandlerArgs) {
   babelConfig.presets.push(babelPreset(cli))
 }

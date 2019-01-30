@@ -21,7 +21,6 @@
     "@financial-times/anvil": "file:../anvil"
   },
   "dependencies": {
-    "adonai": "v1.0.0-beta.7",
     "autoprefixer": "^9.3.1",
     "css-loader": "^1.0.1",
     "cssnano": "^4.1.7",
@@ -33,6 +32,6 @@
     "webpack-fix-style-only-entries": "0.0.5"
   },
   "devDependencies": {
-    "@financial-times/anvil-types-build": "file:../anvil-types-build"
+    "@financial-times/anvil": "file:../anvil"
   }
 }

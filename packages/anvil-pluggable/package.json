@@ -17,9 +17,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "peerDependencies": {
-    "@financial-times/anvil": "file:../anvil"
-  },
   "dependencies": {
     "lodash.mergewith": "^4.6.1"
   }
