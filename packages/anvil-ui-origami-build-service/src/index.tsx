@@ -13,7 +13,7 @@ interface Dependencies {
 }
 
 interface Props {
-  children: any
+  children?: any
   dependencies: Dependencies
 }
 

@@ -6,7 +6,7 @@ import path from 'path'
 const bootstrap = fs.readFileSync(path.join(__dirname, 'bootstrap.js')).toString()
 
 interface Props {
-  children: any
+  children?: any
   initialProps: AnyObject
   scriptsToLoad: string[]
   siteTitle: string
