@@ -50,6 +50,7 @@
     "@types/node": "^10.12.1",
     "@types/ora": "^3.0.0",
     "babel-loader": "^8.0.4",
+    "bower": "^1.8.8",
     "concurrently": "^4.1.0",
     "eslint": "^5.8.0",
     "eslint-plugin-import": "^2.14.0",
@@ -72,8 +73,5 @@
     "hooks": {
       "pre-commit": "npm run checktypes && lint-staged"
     }
-  },
-  "dependencies": {
-    "bower": "^1.8.8"
   }
 }
