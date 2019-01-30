@@ -11,7 +11,14 @@
     "clean": "npm run clean:dist && npm run clean:node_modules",
     "clean:dist": "rm -rf dist",
     "clean:node_modules": "rm -rf node_modules",
+<<<<<<< HEAD
     "clean:install": "npm run clean && npm i"
+=======
+    "clean:install": "npm run clean && npm i",
+    "build": "npm run clean:dist && npm run build:cjs",
+    "build:cjs": "npm run tsc -- --outDir ./dist/cjs --module commonjs --target es5",
+    "dev": "npm run clean:dist && npm run build:cjs -- --watch"
+>>>>>>> Use bower-glob-resolver to install bower dependencies for all packages, add example component
   },
   "keywords": [],
   "author": "",
