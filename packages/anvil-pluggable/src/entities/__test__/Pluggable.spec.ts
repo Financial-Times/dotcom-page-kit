@@ -97,6 +97,20 @@ describe('Pluggable', () => {
       expect(resource).toEqual(expected)
     })
 
+    it('should correctly merge arrays nested within objects', () => {
+      const resource = { foo: { bar: arrResource() } }
+      const additionOne = { foo: { bar: arrOne() } }
+      const additionTwo = { foo: { bar: arrTwo() } }
+      const expected = { foo: { bar: arrResource().concat(arrOne(), arrTwo()) } }
+      const pluggable = new Pluggable()
+
+      pluggable.on(hook, () => additionOne)
+      pluggable.on(hook, () => additionTwo)
+
+      pluggable.publish(hook, resource)
+      expect(resource).toEqual(expected)
+    })
+
     it('should not attempt to merge handler results that are not objects or arrays', () => {
       const resource = objResource()
       const pluggable = new Pluggable()
