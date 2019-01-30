@@ -1,10 +1,8 @@
 /* TODO: restore this once types have bewen properly sorted */
 
-/*
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import Layout from '.'
-
 
 storiesOf('FT / Layout', module)
   .add('by default', () => {
@@ -33,9 +31,9 @@ storiesOf('FT / Layout', module)
     return <Layout headerSlot={Header} footerSlot={Footer} bodySlot={Body} />
   })
   .add('with slots as rendered component props', () => {
-    const Header = () => 'header...'
-    const Footer = () => 'footer...'
-    const Body = () => 'body...'
+    const Header = () => <header>header...</header>
+    const Footer = () => <footer>footer...</footer>
+    const Body = () => <main>body...</main>
+
     return <Layout headerSlot={<Header />} footerSlot={<Footer />} bodySlot={<Body />} />
   })
-*/
