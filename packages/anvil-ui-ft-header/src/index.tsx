@@ -21,7 +21,7 @@ export function Header(props: Props) {
     <HeaderSimple>
       <TopWrapper>
         <TopColumnLeft />
-        <TopColumnCenter />
+        <TopColumnCenter props={props} />
         <TopColumnRight />
       </TopWrapper>
       <Nav>
@@ -52,7 +52,7 @@ export function HeaderWithCrumbtrail(props: Props) {
     <HeaderSimple>
       <TopWrapper>
         <TopColumnLeft />
-        <TopColumnCenter />
+        <TopColumnCenter props={props} />
         <TopColumnRight />
       </TopWrapper>
       <Nav>

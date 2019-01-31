@@ -11,6 +11,7 @@ export default {
   userNav: true,
   disableStick: false,
   variant: '',
+  hideOutboundLinks: false,
   'navbar': navbarUk,
   'navbar-right': navbarRight,
   'navbar-right-anon': navbarRightAnon,
