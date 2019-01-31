@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Header = (props) => {
-  //TODO `headerSimple` checks for the presence/absence of o-header--simple class
+  // `headerSimple` checks for the presence/absence of o-header--simple class which indicates a mobile viewport
   const headerSimple = props.data && props.data.viewStyle === 'compact' ? 'o-header--simple' : null
   return (
     <header

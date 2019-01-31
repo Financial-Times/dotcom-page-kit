@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeaderMain, HeaderWithCrumbtrail, LogoOnly } from '.'
+import { HeaderMain, HeaderWithCrumbtrail, LogoOnly, HeaderSimpleNav } from '.'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, boolean } from '@storybook/addon-knobs'
 import { OrigamiBuildService } from '@financial-times/anvil-ui-origami-build-service'
@@ -50,6 +50,18 @@ storiesOf('FT / Header', module)
           'o-normalise': '^1.6.2'
         }}>
         <LogoOnly />
+      </OrigamiBuildService>
+    )
+  })
+  .add('simple-nav', () => {
+    return (
+      <OrigamiBuildService
+        dependencies={{
+          'o-header': '^7.7.0',
+          'o-fonts': '^3.2.0',
+          'o-normalise': '^1.6.2'
+        }}>
+        <HeaderSimpleNav {...storyData} />
       </OrigamiBuildService>
     )
   })
