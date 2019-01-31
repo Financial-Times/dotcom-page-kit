@@ -18,15 +18,13 @@ class ExpanderWithLifecycle extends React.Component {
   }
 
   render() {
-    const buttonText = text('Toggle button text', 'Expand')
-    const textContent = text('Text content', 'Lorem ipsum doler sit amet.')
-
-    return <Expander buttonText={buttonText} textContent={textContent} />
+    const buttonText = text('Toggle button text', 'Show loader')
+    return <Expander buttonText={buttonText} />
   }
 }
 
 storiesOf('Bower Test', module)
   .addDecorator(withKnobs)
-  .add('footer', () => {
+  .add('Origami JS and SCSS', () => {
     return <ExpanderWithLifecycle />
   })

@@ -1,6 +1,11 @@
 @import 'o-loading/main';
+@import 'o-buttons/main';
 
 @include oLoading();
+
+.Expander-toggle {
+  @include oButtons();
+}
 
 [aria-hidden="true"] {
   display: none

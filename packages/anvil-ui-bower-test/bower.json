@@ -1,6 +1,7 @@
 {
   "name": "anvil-ui-bower-test",
   "dependencies": {
+    "o-buttons": "^5.15.0",
     "o-loading": "^3.0.0",
     "o-toggle": "^1.1.10"
   }
