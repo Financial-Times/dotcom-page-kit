@@ -3,10 +3,20 @@
 
 @include oLoading();
 
+.Expander {
+  margin: 20px;
+}
+
 .Expander-toggle {
   @include oButtons();
 }
 
-[aria-hidden="true"] {
+.Expander-content {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20px;
+}
+
+.Expander-content[aria-hidden="true"] {
   display: none
 }
