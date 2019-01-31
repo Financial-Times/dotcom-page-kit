@@ -53,13 +53,22 @@ const TopColumnLeft = () => {
   )
 }
 
-const TopColumnCenter = () => (
-  <div className="o-header__top-column o-header__top-column--center">
-    <div className="o-header__top-logo">
-      <span className="o-header__visually-hidden">Financial Times</span>
-    </div>
+const FTLogo = () => (
+  <a className="o-header__top-logo" data-trackable="logo" href="/" title="Go to Financial Times homepage">
+    <span className="o-header__visually-hidden">Financial Times</span>
+  </a>
+)
+
+const FTLogoNoOutbound = () => (
+  <div className="o-header__top-logo">
+    <span className="o-header__visually-hidden">Financial Times</span>
   </div>
 )
+
+const TopColumnCenter = ({ props = null }) => {
+  const chooseFTLogo = props && props.hideOutboundLinks ? FTLogoNoOutbound() : FTLogo()
+  return <div className="o-header__top-column o-header__top-column--center">{chooseFTLogo}</div>
+}
 
 const MyFt = () => (
   <a
