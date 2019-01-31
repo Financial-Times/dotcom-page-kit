@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   parser: 'typescript-eslint-parser',
   env: {
@@ -22,7 +24,10 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.d.ts', '.tsx', '.mjs']
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts', '.mjs']
+      },
+      webpack: {
+        config: path.resolve('.storybook/webpack.config.js')
       }
     }
   },

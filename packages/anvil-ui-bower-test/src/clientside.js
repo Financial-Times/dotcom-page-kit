@@ -1,4 +1,4 @@
-import Toggle from 'o-toggle' // eslint-disable-line import/no-unresolved
+import Toggle from 'o-toggle'
 
 export function init() {
   const toggleButton = document.querySelector('.Expander-toggle')
