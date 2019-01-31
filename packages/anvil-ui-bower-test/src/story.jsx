@@ -3,6 +3,7 @@ import { Expander } from './Expander'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, text } from '@storybook/addon-knobs'
 import { init } from './clientside'
+import './styles.scss'
 
 class ExpanderWithLifecycle extends React.Component {
   componentDidMount() {
