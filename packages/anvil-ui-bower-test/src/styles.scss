@@ -1,3 +1,7 @@
+@import 'o-loading/main';
+
+@include oLoading();
+
 [aria-hidden="true"] {
   display: none
 }

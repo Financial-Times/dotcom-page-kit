@@ -48,7 +48,10 @@ module.exports = (baseConfig) => {
         loader: require.resolve('css-loader')
       },
       {
-        loader: require.resolve('sass-loader')
+        loader: require.resolve('sass-loader'),
+        options: {
+          includePaths: ['bower_components', 'node_modules/@financial-times']
+        }
       }
     ]
   })
