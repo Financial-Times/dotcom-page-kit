@@ -9,6 +9,6 @@ export interface Props {
   subsections: any // Crumbtrail data
   showSubNav: boolean
   showSignOut: boolean // A myFT option - Adds a Sign out link to the crumbtrail element
-  userIsAnonymous?: boolean // Marks a user as anonymous - set in n-express
-  userIsLoggedIn?: boolean // Marks a user as signed in - set in n-express
+  userIsAnonymous: boolean // Marks a user as anonymous - set in n-express
+  userIsLoggedIn: boolean // Marks a user as signed in - set in n-express
 }
