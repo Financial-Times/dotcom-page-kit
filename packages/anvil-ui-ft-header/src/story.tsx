@@ -1,12 +1,13 @@
 import React from 'react'
 import { HeaderMain, HeaderWithCrumbtrail, LogoOnly, HeaderSimpleNav } from '.'
 import { storiesOf } from '@storybook/react'
-import { withKnobs, boolean } from '@storybook/addon-knobs'
+import { withKnobs, boolean, radios } from '@storybook/addon-knobs'
 import { OrigamiBuildService } from '@financial-times/anvil-ui-origami-build-service'
 import storyData from './story-data/storyData'
 
-const userStateOptions = ['User is logged in', true]
-const showSignOutOptions = ['Show sign out link', true]
+const userStateOptions = ['Show UserNav navigation links', true]
+const showSignOutOptions = ['Show myFT crumbtrail sign out link', true]
+const viewStyleOptions = ['Enable compact variant', { on: 'compact', off: '' }, '']
 
 storiesOf('FT / Header', module)
   .addDecorator(withKnobs)
@@ -42,6 +43,8 @@ storiesOf('FT / Header', module)
     )
   })
   .add('logo-only', () => {
+    const toggelViewStyleOptions = radios(...viewStyleOptions)
+    const PropsViewStyle = { viewStyle: 'compact' }
     return (
       <OrigamiBuildService
         dependencies={{
@@ -49,7 +52,7 @@ storiesOf('FT / Header', module)
           'o-fonts': '^3.2.0',
           'o-normalise': '^1.6.2'
         }}>
-        <LogoOnly />
+        <LogoOnly {...PropsViewStyle} viewStyle={toggelViewStyleOptions} />
       </OrigamiBuildService>
     )
   })
