@@ -1,17 +1,19 @@
 import React from 'react'
 
-const HeaderSimple = (props) => (
-  //TODO handle the presence/absence of o-header--simple class
-  <header
-    id="site-navigation"
-    className="o-header o-header--simple"
-    data-o-component="o-header"
-    data-o-header--no-js={true}
-    tabIndex={-1}>
-    {props.children}
-  </header>
-)
-
+const Header = (props) => {
+  //TODO `headerSimple` checks for the presence/absence of o-header--simple class
+  const headerSimple = props.data && props.data.viewStyle === 'compact' ? 'o-header--simple' : null
+  return (
+    <header
+      id="site-navigation"
+      className={`o-header ${headerSimple}`}
+      data-o-component="o-header"
+      data-o-header--no-js={true}
+      tabIndex={-1}>
+      {props.children}
+    </header>
+  )
+}
 const Drawer = () => (
   <a
     href="#o-header-drawer"
@@ -91,4 +93,4 @@ const TopColumnRight = () => {
   )
 }
 
-export { HeaderSimple, TopWrapper, TopColumnLeft, TopColumnCenter, TopColumnRight }
+export { Header, TopWrapper, TopColumnLeft, TopColumnCenter, TopColumnRight }
