@@ -39,7 +39,7 @@ expect(result).toBe('Hello Jack')
 
 ### Resource
 
-A resource is just a value that will be used by the app to determine how to proceed. It is expected that altering this value would somehow also alter how the app behaves.
+A resource is a value that will be used by the app to determine how to proceed. It is expected that altering this value would in some way also alter how the app behaves.
 
 ### Resource Handler
 
@@ -51,7 +51,7 @@ A resource hook is a string value that uniquely represents the resource within t
 
 ### Plugin
 
-A plugins is a function that accepts a `Pluggable` instance, and then registers resource handlers on it.
+A plugin is a function that accepts a `Pluggable` instance, and then registers resource handlers on it.
 
 ```js
 const plugin = (pluggable) => {

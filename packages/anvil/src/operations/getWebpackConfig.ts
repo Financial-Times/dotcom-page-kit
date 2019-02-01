@@ -4,20 +4,20 @@ import { CliContext } from '../entities/CliContext'
 import { getBabelConfig } from './getBabelConfig'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
 
-export function getWebpackConfig(cli: CliContext) {
+export function getWebpackConfig({ options, workingDir, config, publish, cli }: CliContext) {
   let jsRule
 
-  const isDevMode = cli.options.development
-  const entryOptions = get(cli, 'config.settings.entry') || cli.options.entryFile
+  const isDevMode = options.development
+  const entryOptions = get(config, 'settings.entry') || options.entryFile
   const outputFilename = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
   const manifestPluginOptions = {}
-  const cleanWebpackPluginPaths = [cli.options.outputPath] // TODO: This value is not being set
-  const cleanWebpackPluginOptions = { root: cli.workingDir, verbose: false }
+  const cleanWebpackPluginPaths = [options.outputPath]
+  const cleanWebpackPluginOptions = { root: workingDir, verbose: false }
 
-  cli.publish('webpackConfig::entry', entryOptions)
-  cli.publish('webpackConfig::plugins::manifestPlugin::options', manifestPluginOptions)
-  cli.publish('webpackConfig::plugins::cleanWebpackPlugin::paths', cleanWebpackPluginPaths)
-  cli.publish('webpackConfig::plugins::cleanWebpackPlugin::options', cleanWebpackPluginOptions)
+  publish('webpackConfig::entry', entryOptions)
+  publish('webpackConfig::plugins::manifestPlugin::options', manifestPluginOptions)
+  publish('webpackConfig::plugins::cleanWebpackPlugin::paths', cleanWebpackPluginPaths)
+  publish('webpackConfig::plugins::cleanWebpackPlugin::options', cleanWebpackPluginOptions)
 
   const webpackConfig = {
     mode: isDevMode ? 'development' : 'production',
@@ -25,7 +25,7 @@ export function getWebpackConfig(cli: CliContext) {
     output: {
       filename: outputFilename,
       chunkFilename: outputFilename,
-      path: cli.options.outputPath
+      path: options.outputPath
     },
     resolve: {
       extensions: ['.js', '.jsx', '.mjs', '.json']
@@ -52,8 +52,8 @@ export function getWebpackConfig(cli: CliContext) {
     devtool: isDevMode ? 'cheap-module-eval-source-map' : 'source-map'
   }
 
-  cli.publish('webpackConfig', webpackConfig)
-  cli.publish('webpackConfig::jsRule', jsRule)
+  publish('webpackConfig', webpackConfig)
+  publish('webpackConfig::jsRule', jsRule)
 
   return webpackConfig
 }

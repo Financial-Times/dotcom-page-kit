@@ -4,17 +4,14 @@ import { CliContext } from '../entities/CliContext'
 
 const WATCHING_FOR_CHANGES = 'watching for changes ...'
 
-interface Args {
-  webpackConfig: AnyObject
-}
-
-export async function compileWebpackConfig(cli: CliContext, { webpackConfig }: Args) {
+export async function compileWebpackConfig(cli: CliContext, webpackConfig: AnyObject) {
   const watch = cli.options.watch
+  const prompt = cli.prompt
 
   if (watch) {
-    cli.prompt.clearScreen()
+    prompt.clearScreen()
   }
-  cli.prompt.title('Compiling build')
+  prompt.title('Compiling build')
 
   await pack({
     watch,

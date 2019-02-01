@@ -21,7 +21,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "adonai": "v1.0.0-beta.7",
+    "@financial-times/anvil-pluggable": "file:../anvil-pluggable",
     "ansi-escapes": "^3.1.0",
     "clean-webpack-plugin": "^0.1.19",
     "cli-progress": "^2.1.0",

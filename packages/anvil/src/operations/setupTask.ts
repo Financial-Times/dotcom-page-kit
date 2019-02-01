@@ -1,43 +1,33 @@
 import { Command } from 'commander'
-import { name, as } from 'adonai'
 import { CliContext } from '../entities/CliContext'
-import { MultiArgOperation } from 'adonai-routine'
 
-interface RunningArgs {
-  task: MultiArgOperation
-  command: Command
-  taskArgs: any[]
+interface Task {
+  (cli: CliContext): any
 }
 
-export function setupTask(cli: CliContext, task: MultiArgOperation) {
-  return (...taskArgs) => {
-    return cli
-      .routine({ taskArgs, task })
-      .with(name('setupTask'))
-      .then(getCommandFromTaskArgs, as('command'))
-      .then(getOptionsFromCommand, as('cli.options'))
-      .then(getArgsFromCommand, as('cli.args'))
-      .then(executeTask)
-      .exec()
+export function setupTask(cli: CliContext, invokeTask: Task) {
+  return async (...taskArgs) => {
+    const command = getCommandFromTaskArgs(taskArgs)
+
+    cli.args = getArgsFromCommand(command, taskArgs)
+    cli.options = getOptionsFromCommand(command)
+
+    await invokeTask(cli)
   }
 }
 
-function getCommandFromTaskArgs({}, { taskArgs }: RunningArgs): Command {
+function getCommandFromTaskArgs(taskArgs: any[]): Command {
   return taskArgs.pop()
 }
 
-function getOptionsFromCommand({}, { command }: RunningArgs) {
+function getOptionsFromCommand(command: Command) {
   return command.opts()
 }
 
-function getArgsFromCommand({}, { command, taskArgs }: RunningArgs) {
+function getArgsFromCommand(command: Command, taskArgs: any[]) {
   const properties = command._args.map((arg) => arg.name)
   return taskArgs.reduce((map, option, i) => {
     map[properties[i]] = option
     return map
   }, {})
-}
-
-function executeTask(cli: CliContext, { task }: RunningArgs) {
-  return cli.exec(task)
 }

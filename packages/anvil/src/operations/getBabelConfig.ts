@@ -5,7 +5,7 @@ import { CliContext } from '../entities/CliContext'
  *
  * NOTE: This function is also used in the `babel.js` file in to root of the package
  * to construct a preset that can be specified in a .babelrc file. When used in as a preset,
- * there will be no args supplied to the function, hence why the `cli` arg is optional.
+ * there will be no args supplied to the function, hence why the arg is optional.
  */
 
 export function getBabelConfig(cli?: CliContext) {

@@ -1,15 +1,11 @@
-import merge from 'webpack-merge'
-import { Plugin } from 'adonai'
 import BowerResolvePlugin from 'bower-resolve-webpack-plugin'
-import { RunningWebpackContext } from '@financial-times/anvil-types-build'
 
-export default new Plugin(({ on }) => {
-  on('webpackConfig', amendWebpackConfig)
-})
+export default ({ on }) => {
+  on('webpackConfig', addAbilityToResolveBower)
+}
 
-function amendWebpackConfig(runnerContext: RunningWebpackContext) {
-  const baseConfig = runnerContext.webpackConfig
-  const config = {
+function addAbilityToResolveBower() {
+  return {
     resolve: {
       plugins: [new BowerResolvePlugin()],
       // In which folders the resolver look for modules relative paths are
@@ -28,6 +24,4 @@ function amendWebpackConfig(runnerContext: RunningWebpackContext) {
       mainFiles: ['index', 'main']
     }
   }
-
-  runnerContext.webpackConfig = merge.strategy({ 'resolve.plugins': 'append' })(baseConfig, config)
 }

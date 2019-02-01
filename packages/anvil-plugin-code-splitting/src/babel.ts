@@ -5,7 +5,7 @@ import { CliContext } from '@financial-times/anvil'
  *
  * NOTE: This file can also be specified as a preset in a .babelrc file.
  * When used in such a manner, there will be no args supplied to the function,
- * hence why the `cli` arg is optional.
+ * hence why the arg is optional.
  */
 export default (cli?: CliContext) => {
   const opts = {
