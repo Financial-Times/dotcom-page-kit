@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header, HeaderWithCrumbtrail, LogoOnly } from '.'
+import { HeaderMain, HeaderWithCrumbtrail, LogoOnly } from '.'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, boolean } from '@storybook/addon-knobs'
 import { OrigamiBuildService } from '@financial-times/anvil-ui-origami-build-service'
@@ -19,7 +19,7 @@ storiesOf('FT / Header', module)
           'o-fonts': '^3.2.0',
           'o-normalise': '^1.6.2'
         }}>
-        <Header {...storyData} userNav={toggleHeaderOptions} />
+        <HeaderMain {...storyData} userNav={toggleHeaderOptions} />
       </OrigamiBuildService>
     )
   })
