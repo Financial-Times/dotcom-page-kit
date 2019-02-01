@@ -72,5 +72,6 @@
     "hooks": {
       "pre-commit": "npm run checktypes && lint-staged"
     }
-  }
+  },
+  "dependencies": {}
 }
