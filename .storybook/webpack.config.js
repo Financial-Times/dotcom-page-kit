@@ -11,6 +11,14 @@ module.exports = (baseConfig) => {
   // Use real file paths for symlinked dependencies do avoid including them multiple times
   baseConfig.resolve.symlinks = true
 
+  // Resolve packages installed using Bower
+  Object.assign(baseConfig.resolve, {
+    modules: ['bower_components', 'node_modules'],
+    descriptionFiles: ['bower.json', 'package.json'],
+    mainFields: ['browser', 'module', 'main'],
+    mainFiles: ['index', 'main']
+  })
+
   // HACK: extend existing JS rule to ensure all dependencies are correctly ignored
   // https://github.com/storybooks/storybook/issues/3346#issuecomment-459439438
   const jsRule = baseConfig.module.rules.find((rule) => rule.test.test('.jsx'))

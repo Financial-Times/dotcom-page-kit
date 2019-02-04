@@ -1,0 +1,22 @@
+{
+  "name": "@financial-times/anvil-ui-bower-test",
+  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/cjs/index.js",
+  "types": "src/index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "../../node_modules/.bin/tsc",
+    "clean": "npm run clean:dist && npm run clean:node_modules",
+    "clean:dist": "rm -rf dist",
+    "clean:node_modules": "rm -rf node_modules",
+    "clean:install": "npm run clean && npm i"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16.7.0"
+  }
+}
