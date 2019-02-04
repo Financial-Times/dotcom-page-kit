@@ -68,7 +68,17 @@ const ChooseNavListRight = ({ props }) => {
   // Serve the signed-in or anonymous user experience
   const right = props['navbar-right'].items
   const rightanon = props['navbar-right-anon'].items
-  return props.userNav && !props.userIsAnonymous ? NavListRight(right) : NavListRightAnon(rightanon)
+  let navListRight
+  if (props.userNav) {
+    if (props.userIsAnonymous) {
+      navListRight = NavListRightAnon(rightanon)
+    } else {
+      navListRight = NavListRight(right)
+    }
+  } else {
+    navListRight = null
+  }
+  return navListRight
 }
 
 const NavListRight = (navbarOptionsRight) => {
@@ -87,33 +97,42 @@ const NavListRight = (navbarOptionsRight) => {
   )
 }
 
-const NavListRightAnonFirst = (navItem) => {
-  return (
-    <li className="o-header__nav-item">
-      <a className="o-header__nav-link" href={navItem.url} data-trackable={navItem.label}>
-        {navItem.label}
-      </a>
-    </li>
-  )
-}
-
-const NavListRightAnonSecond = (navItem) => {
-  return (
-    <li className="o-header__nav-item">
-      <a className="o-header__nav-button" href={navItem.url} data-trackable={navItem.label}>
-        {navItem.label}
-      </a>
-    </li>
-  )
-}
-
 const NavListRightAnon = (navbarOptionsRight) => {
+  // If user is anonymous the second list item is styled as a button
+  const [first, second] = navbarOptionsRight
   return (
     <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
-      <NavListRightAnonFirst navItem={navbarOptionsRight[0]} />
-      <NavListRightAnonSecond navItem={navbarOptionsRight[1]} />
+      <li className="o-header__nav-item">
+        <a className="o-header__nav-link" href={first.url} data-trackable={first.label}>
+          {first.label}
+        </a>
+      </li>
+      <li className="o-header__nav-item">
+        <a className="o-header__nav-button" href={second.url} data-trackable={second.label}>
+          {second.label}
+        </a>
+      </li>
     </ul>
   )
 }
 
-export { Nav, NavSimple, NavListLeft, ChooseNavListRight }
+const UserNav = ({ props }) => {
+  const userNavItems = props['navbar-right-anon'].items
+  return props.userIsAnonymous ? ( // level above
+    <div className="o-header__row o-header__anon" data-trackable="header-anon">
+      <ul className="o-header__anon-list">
+        {userNavItems.map((item, index) => {
+          return (
+            <li className="o-header__anon-item" key={`link-${index}`}>
+              <a className="o-header__anon-link" href={item.url} data-trackable={item.label}>
+                {item.label}
+              </a>
+            </li>
+          )
+        })}
+      </ul>
+    </div>
+  ) : null
+}
+
+export { Nav, NavSimple, NavListLeft, ChooseNavListRight, UserNav }
