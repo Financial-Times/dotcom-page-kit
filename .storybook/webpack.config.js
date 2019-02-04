@@ -37,5 +37,24 @@ module.exports = (baseConfig) => {
 
   baseConfig.resolve.extensions.push('.ts', '.tsx')
 
+  // Add support for styles written with Sass
+  baseConfig.module.rules.push({
+    test: /\.(scss|sass)$/,
+    use: [
+      {
+        loader: require.resolve('style-loader')
+      },
+      {
+        loader: require.resolve('css-loader')
+      },
+      {
+        loader: require.resolve('sass-loader'),
+        options: {
+          includePaths: ['bower_components', 'node_modules/@financial-times']
+        }
+      }
+    ]
+  })
+
   return baseConfig
 }

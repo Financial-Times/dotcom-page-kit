@@ -2,7 +2,7 @@ import { createElement } from 'react'
 import { renderToString, renderToStaticMarkup } from 'react-dom/server'
 import interopRequire from './interopRequire'
 import { Request, Response, NextFunction } from 'express'
-import { Renderable, RenderCallback } from './types';
+import { Renderable, RenderCallback } from './types'
 
 export interface Options {
   useStaticRendering: boolean

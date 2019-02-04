@@ -1,8 +1,8 @@
 import React from 'react'
 import { Expander } from './Expander'
 import { storiesOf } from '@storybook/react'
-import { withKnobs, text } from '@storybook/addon-knobs'
 import { init } from './clientside'
+import './styles.scss'
 
 class ExpanderWithLifecycle extends React.Component {
   componentDidMount() {
@@ -17,15 +17,10 @@ class ExpanderWithLifecycle extends React.Component {
   }
 
   render() {
-    const buttonText = text('Toggle button text', 'Expand')
-    const textContent = text('Text content', 'Lorem ipsum doler sit amet.')
-
-    return <Expander buttonText={buttonText} textContent={textContent} />
+    return <Expander />
   }
 }
 
-storiesOf('Bower Test', module)
-  .addDecorator(withKnobs)
-  .add('footer', () => {
-    return <ExpanderWithLifecycle />
-  })
+storiesOf('Bower Test', module).add('Origami JS and SCSS', () => {
+  return <ExpanderWithLifecycle />
+})

@@ -1,9 +1,10 @@
 import React from 'react'
 
-export const Expander = ({ buttonText, textContent }) => (
+export const Expander = () => (
   <div className="Expander">
-    <style dangerouslySetInnerHTML={{ __html: '[aria-hidden="true"] { display: none }' }} />
-    <button className="Expander-toggle">{buttonText}</button>
-    <div className="Expander-content">{textContent}</div>
+    <button className="Expander-toggle">Show loading indicator</button>
+    <div className="Expander-content">
+      <div class="o-loading o-loading--dark o-loading--small" />
+    </div>
   </div>
 )
