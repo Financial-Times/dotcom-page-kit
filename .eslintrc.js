@@ -1,7 +1,5 @@
-const path = require('path')
-
 module.exports = {
-  parser: 'typescript-eslint-parser',
+  parser: '@typescript-eslint/parser',
   env: {
     node: true,
     browser: true,
@@ -27,7 +25,17 @@ module.exports = {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts', '.mjs']
       },
       webpack: {
-        config: path.resolve('.storybook/webpack.config.js')
+        // Because we configure Storybook in "full control" mode we have to manually extend a
+        // configuration object. Rather than mock all that here I've chosen to copy the resolve
+        // rules so that the two files do not need to know about one other and their structure.
+        config: {
+          resolve: {
+            modules: ['bower_components', 'node_modules'],
+            descriptionFiles: ['bower.json', 'package.json'],
+            mainFields: ['browser', 'module', 'main'],
+            mainFiles: ['index', 'main']
+          }
+        }
       }
     }
   },
