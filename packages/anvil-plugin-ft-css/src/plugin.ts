@@ -14,7 +14,7 @@ function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
   const autoprefixerOptions = getAutoPrefixerOptions()
   const postcssLoaderOptions = getPostCssLoaderOptions(autoprefixerOptions, cssnanoOptions)
   const stylesOnlyPluginOptions = getStylesOnlyPluginOptions()
-  const cssExtractPluginOptions = getCssExtractPluginOptions(cli)
+  const miniCssExtractPluginOptions = getMiniCssExtractPluginOptions(cli)
 
   publish(hooks.CSSNANO_OPTIONS, cssnanoOptions)
   publish(hooks.CSS_LOADER_OPTIONS, cssLoaderOptions)
@@ -22,7 +22,7 @@ function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
   publish(hooks.AUTOPREFIXER_OPTIONS, autoprefixerOptions)
   publish(hooks.POSTCSS_LOADER_OPTIONS, postcssLoaderOptions)
   publish(hooks.STYLES_ONLY_PLUGIN_OPTIONS, stylesOnlyPluginOptions)
-  publish(hooks.CSS_EXTRACT_PLUGIN_OPTIONS, cssExtractPluginOptions)
+  publish(hooks.MINI_CSS_EXTRACT_PLUGIN_OPTIONS, miniCssExtractPluginOptions)
 
   return {
     module: {
@@ -61,7 +61,7 @@ function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
     },
     plugins: [
       new StylesOnlyPlugin(stylesOnlyPluginOptions),
-      new MiniCssExtractPlugin(cssExtractPluginOptions)
+      new MiniCssExtractPlugin(miniCssExtractPluginOptions)
     ]
   }
 }
@@ -124,7 +124,7 @@ function getStylesOnlyPluginOptions() {
   }
 }
 
-function getCssExtractPluginOptions(cli: CliContext) {
+function getMiniCssExtractPluginOptions(cli: CliContext) {
   return {
     // only include content hash in filename when compiling production assets
     filename: cli.options.development ? '[name].css' : '[name].[contenthash:12].css'
