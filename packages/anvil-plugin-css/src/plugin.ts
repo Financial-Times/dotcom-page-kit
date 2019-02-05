@@ -41,8 +41,10 @@ function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
 }
 
 function getCssExtractPluginOptions(cli: CliContext) {
-  const filename = cli.options.development ? '[name].css' : '[name].[contenthash:12].css'
-  return { filename }
+  return {
+    // only include content hash in filename when compiling production assets
+    filename: cli.options.development ? '[name].css' : '[name].[contenthash:12].css'
+  }
 }
 
 function getStylesOnlyPluginOptions() {
