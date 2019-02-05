@@ -27,7 +27,17 @@ module.exports = {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts', '.mjs']
       },
       webpack: {
-        config: path.resolve('.storybook/webpack.config.js')
+        // Because we configure Storybook in "full control" mode we have to manually extend a
+        // configuration object. Rather than mock that all here I've chosen to copy the resolve
+        // rules over so they don't need to know about each other.
+        config: {
+          resolve: {
+            modules: ['bower_components', 'node_modules'],
+            descriptionFiles: ['bower.json', 'package.json'],
+            mainFields: ['browser', 'module', 'main'],
+            mainFiles: ['index', 'main']
+          }
+        }
       }
     }
   },
