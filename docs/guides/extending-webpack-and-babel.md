@@ -88,3 +88,100 @@ destArray.push(...srcArray)
 This is intentional as we don't want plugins to be dependent on private details such as where exactly an item is located within the array. This way, if the position of the item is changed, plugins don't break. In situations where there is a need to amend something that is in an array (like a webpack rule for instance), the plugin should instead subscribe to amend that particular item (instead of subscribing to amend the entire webpack config for instance).
 
 The third thing to note is that if `undefined` is returned from the handler, then nothing happens. The system treats an `undefined` handler result as meaning that nothing was returned from the handler, which means that the original resource should then be passed to the next handler in the list. Note, however, that the behavior is different when `null` is returned from a handler. The system treats a `null` handler result as being an intention request to overwrite the resource with `null`, so that null becomes the resource that is passed to subsequent handlers in the chain.
+
+## No need for `webpack-merge`
+
+[`webpack-merge`](https://github.com/survivejs/webpack-merge) is a library that is commonly used for merging webpack configuration objects. Those that are aware of it may feel the need to make use of it when amending the webpack config. It is, however, not necessary. By default, when a webpack configuration object is returned from a handler function, that configuration function will be merged back into the original webpack config using the same strategy that `webpack-merge` uses by default. In other words, it will merge the objects and concatenate the arrays (which is what `webpack-merge` does by default). The only time that `webpack-merge` will be needed, is when the intention is to do what is referred to as a [smart merge](https://github.com/survivejs/webpack-merge#mergesmartconfiguration-configuration). A smart merge involves merging matching array items as objects, instead of concatenating the arrays. For illustration purposes let's say that we are dealing with the following webpack configuration objects:
+
+```js
+const webpackConfigOne = {
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx|mjs)$/,
+        foo: 'foo'
+      }
+    ]
+  }
+}
+
+const webpackConfigTwo = {
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx|mjs)$/,
+        bar: 'bar'
+      }
+    ]
+  }
+}
+```
+
+A smart merge would assume that because the first defined rule of both webpack configuration objects have matching `test` values, then it must mean that both rules are referring to the same thing, and so they should both be merged so that we end up with the following webpack config:
+
+```js
+const webpackConfigAfterMerge = {
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx|mjs)$/,
+        foo: 'foo',
+        bar: 'bar'
+      }
+    ]
+  }
+}
+```
+
+This, however, is not ideal because it involves having to know beforehand, what the value of the `test` property is on the original webpack configuration object, which is a thing that cannot be known because it is possible that another plugin may have changed that value. So in order for plugins to harmoniously coexist, arrays should only be concatenated (instead of being smartly merged) when merging. So if the desire is to add a new rule to the original webpack config for instance, then it is fine to return from the handler function, a webpack config that contains just that new rule.
+
+```js
+const originalWebpackConfig = {
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx|mjs)$/,
+        foo: 'foo'
+      }
+    ]
+  }
+}
+
+const webpackConfigReturnedByHandler = {
+  module: {
+    rules: [
+      {
+        test: /\.(css)$/,
+        bar: 'bar'
+      }
+    ]
+  }
+}
+
+const originalWebpackConfigAfterMerge = {
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx|mjs)$/,
+        foo: 'foo'
+      },
+      {
+        test: /\.(css)$/,
+        bar: 'bar'
+      }
+    ]
+  }
+}
+```
+
+But if the intention is to amend an existing rule, then the plugin should subscribe to receive that particular rule as a resource and amend it directly. As an example, the `webpackConfig::jsRule` resource is published during the life cycle of executing the `anvil build` cli command. A plugin that amends this rule may look like the following:
+
+```js
+export default ({on} => {
+  on('webpackConfig::jsRule', ({ resource: jsRule }) => {
+    amendTheJsRule(jsRule)
+  })
+})
+```
+
+In summary, it is not at all necessary to use `webpack-merge`. This is because its default behavior has already been accommodated for in `anvil`, and where its smart merging capabilities are concerned, we consider it bad practice for them to be used.
