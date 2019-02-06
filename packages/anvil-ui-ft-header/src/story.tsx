@@ -1,34 +1,36 @@
 import React from 'react'
 import { HeaderDefault, HeaderWithCrumbtrail, LogoOnly } from '.'
 import { storiesOf } from '@storybook/react'
-import { withKnobs, boolean, radios } from '@storybook/addon-knobs'
+import { withKnobs, radios } from '@storybook/addon-knobs'
 import { OrigamiBuildService } from '@financial-times/anvil-ui-origami-build-service'
 import storyData from './story-data/storyData'
 
-const userStateOptions = ['UserNav option is true', true]
-const showSignOutOptions = ['Show myFT crumbtrail sign out link', false]
-const viewStyleOptions = ['Enable compact variant', { on: 'compact', off: '' }, '']
-const userAnonymousOptions = ['User is anonymous', false]
+// false values are empty string because string coercion in storybook
+const toggleUserStateOptions = () => radios('Enable user nav actions', { true: true, false: '' }, true)
+const toggleSignOutOptions = () => radios('Show myFT sign out link', { true: true, false: '' }, '')
+const toggelViewStyleOptions = () => radios('Enable compact variant', { on: 'compact', off: '' }, '')
+const toggleAnonymous = () => radios('userIsAnonymous', { true: 'true', false: '' }, '')
+
+const OrigamiDependecies = {
+  'o-header': '^7.7.0',
+  'o-fonts': '^3.2.0',
+  'o-normalise': '^1.6.2'
+}
 
 storiesOf('FT / Header', module)
   .addDecorator(withKnobs)
   .add('Default header', () => {
-    const toggleUserStateOptions = boolean(...userStateOptions)
-    const toggleAnonymous = boolean(...userAnonymousOptions)
     return (
-      <OrigamiBuildService
-        dependencies={{
-          'o-header': '^7.7.0',
-          'o-fonts': '^3.2.0',
-          'o-normalise': '^1.6.2'
-        }}>
-        <HeaderDefault {...storyData} userNav={toggleUserStateOptions} userIsAnonymous={toggleAnonymous} />
+      <OrigamiBuildService dependencies={OrigamiDependecies}>
+        <HeaderDefault
+          {...storyData}
+          userNav={toggleUserStateOptions()}
+          userIsAnonymous={toggleAnonymous()}
+        />
       </OrigamiBuildService>
     )
   })
   .add('Logo only', () => {
-    const toggelViewStyleOptions = radios(...viewStyleOptions)
-    const PropsViewStyle = { viewStyle: 'compact' }
     return (
       <OrigamiBuildService
         dependencies={{
@@ -36,12 +38,11 @@ storiesOf('FT / Header', module)
           'o-fonts': '^3.2.0',
           'o-normalise': '^1.6.2'
         }}>
-        <LogoOnly {...PropsViewStyle} viewStyle={toggelViewStyleOptions} />
+        <LogoOnly viewStyle={toggelViewStyleOptions()} />
       </OrigamiBuildService>
     )
   })
   .add('With crumbtrail component', () => {
-    const toggleSignOutOptions = boolean(...showSignOutOptions)
     return (
       <OrigamiBuildService
         dependencies={{
@@ -49,7 +50,7 @@ storiesOf('FT / Header', module)
           'o-fonts': '^3.2.0',
           'o-normalise': '^1.6.2'
         }}>
-        <HeaderWithCrumbtrail {...storyData} showSignOut={toggleSignOutOptions} />
+        <HeaderWithCrumbtrail {...storyData} showSignOut={toggleSignOutOptions()} />
       </OrigamiBuildService>
     )
   })
