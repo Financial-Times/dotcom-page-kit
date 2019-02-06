@@ -6,5 +6,5 @@ export const hooks = {
   AUTOPREFIXER_OPTIONS: 'webpackConfig::ftCssPlugin::autoprefixerOptions',
   POSTCSS_LOADER_OPTIONS: 'webpackConfig::ftCssPlugin::postcssLoaderOptions',
   STYLES_ONLY_PLUGIN_OPTIONS: 'webpackConfig::ftCssPlugin::stylesOnlyPluginOptions',
-  MINI_CSS_EXTRACT_PLUGIN_OPTIONS: 'webpackConfig::ftCssPlugin::cssExtractPluginOptions'
+  MINI_CSS_EXTRACT_PLUGIN_OPTIONS: 'webpackConfig::ftCssPlugin::miniCssExtractPluginOptions'
 }

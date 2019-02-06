@@ -49,6 +49,8 @@ function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
             },
             // Enable use of Sass for CSS preprocessing
             // https://github.com/webpack-contrib/sass-loader
+            // NOTE: we're using ^6.0.0 as this avoids a bug with resolving .js files
+            // https://github.com/Financial-Times/anvil/issues/127
             {
               loader: require.resolve('sass-loader'),
               options: sassLoaderOptions
@@ -125,6 +127,6 @@ function getStylesOnlyPluginOptions() {
 function getMiniCssExtractPluginOptions(cli: CliContext) {
   return {
     // only include content hash in filename when compiling production assets
-    filename: cli.options.isDevMode ? '[name].css' : '[name].[contenthash:12].css'
+    filename: cli.options.development ? '[name].css' : '[name].[contenthash:12].css'
   }
 }

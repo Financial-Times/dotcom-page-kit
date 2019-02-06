@@ -10,10 +10,10 @@ export const plugin = ({ on }) => {
 function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
   const cssLoaderOptions = {}
   const stylesOnlyPluginOptions = getStylesOnlyPluginOptions()
-  const cssExtractPluginOptions = getCssExtractPluginOptions(cli)
+  const miniCssExtractPluginOptions = getMiniCssExtractPluginOptions(cli)
 
   publish(hooks.CSS_LOADER_OPTIONS, cssLoaderOptions)
-  publish(hooks.CSS_EXTRACT_PLUGIN_OPTIONS, cssExtractPluginOptions)
+  publish(hooks.MINI_CSS_EXTRACT_PLUGIN_OPTIONS, miniCssExtractPluginOptions)
   publish(hooks.STYLES_ONLY_PLUGIN_OPTIONS, stylesOnlyPluginOptions)
 
   return {
@@ -35,14 +35,16 @@ function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
     },
     plugins: [
       new StylesOnlyPlugin(stylesOnlyPluginOptions),
-      new MiniCssExtractPlugin(cssExtractPluginOptions)
+      new MiniCssExtractPlugin(miniCssExtractPluginOptions)
     ]
   }
 }
 
-function getCssExtractPluginOptions(cli: CliContext) {
-  const filename = cli.options.isDevMode ? '[name].css' : '[name].[contenthash:12].css'
-  return { filename }
+function getMiniCssExtractPluginOptions(cli: CliContext) {
+  return {
+    // only include content hash in filename when compiling production assets
+    filename: cli.options.development ? '[name].css' : '[name].[contenthash:12].css'
+  }
 }
 
 function getStylesOnlyPluginOptions() {

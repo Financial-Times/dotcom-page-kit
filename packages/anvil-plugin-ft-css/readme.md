@@ -92,6 +92,6 @@ A synchronous hook which receives the entire [rule] to be appended by this plugi
 
 A synchronous hook which receives the configuration object to be used for the [webpack-fix-style-only-entries]. You may directly mutate this object.
 
-### `webpackConfig::ftCssPlugin::cssExtractPluginOptions`
+### `webpackConfig::ftCssPlugin::miniCssExtractPluginOptions`
 
 A synchronous hook which receives the configuration object to be used for the [mini-css-extract-plugin]. You may directly mutate this object.
