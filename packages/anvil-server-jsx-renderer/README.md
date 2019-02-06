@@ -73,7 +73,7 @@ Returns a function that can be used to create and [express](https://expressjs.co
 
 ```js
 import express from 'express' 
-import { createRenderController } from '@financial-times/anvil-server-jsx-renderer/expess'
+import { createRenderController } from '@financial-times/anvil-server-jsx-renderer/express'
 
 const app = express()
 const render = createRenderController({
@@ -99,7 +99,7 @@ Returns an [express](https://expressjs.com/) compatible middleware that assigns 
 
 ```js
 import express from 'express' 
-import { createRendererMiddleware } from '@financial-times/anvil-server-jsx-renderer/expess'
+import { createRendererMiddleware } from '@financial-times/anvil-server-jsx-renderer/express'
 
 const app = express()
 const renderer = createRendererMiddleware({
