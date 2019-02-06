@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NavSimple = ({ navbarSimple }) => {
+const NavMobile = ({ navbarSimple }) => {
   return (
     <nav
       id="o-header-nav-mobile"
@@ -27,7 +27,7 @@ const NavSimple = ({ navbarSimple }) => {
   )
 }
 
-const Nav = (props) => {
+const NavDesktop = (props) => {
   return (
     <nav
       id="o-header-nav-desktop"
@@ -116,7 +116,7 @@ const NavListRightAnon = (navbarOptionsRight) => {
   )
 }
 
-const UserNav = ({ props }) => {
+const UserActionsNav = ({ props }) => {
   const userNavItems = props['navbar-right-anon'].items
   return props.userIsAnonymous ? ( // level above
     <div className="o-header__row o-header__anon" data-trackable="header-anon">
@@ -135,4 +135,4 @@ const UserNav = ({ props }) => {
   ) : null
 }
 
-export { Nav, NavSimple, NavListLeft, ChooseNavListRight, UserNav }
+export { NavDesktop, NavMobile, NavListLeft, ChooseNavListRight, UserActionsNav }

@@ -1,37 +1,31 @@
 import React from 'react'
 import { Header, TopWrapper, TopColumnLeft, TopColumnCenter, TopColumnRight } from './components/top/partials'
-import { NavListLeft, ChooseNavListRight, Nav, NavSimple, UserNav } from './components/navigation/partials'
+import {
+  NavListLeft,
+  ChooseNavListRight,
+  NavDesktop,
+  NavMobile,
+  UserActionsNav
+} from './components/navigation/partials'
 import { IncludeCrumbtrail } from './components/crumbtrail/partials'
 import { Props } from './interfaces'
 
-export function HeaderMain(props: Props) {
-  const navbarOptionsLeft = props['navbar'].items
+export function HeaderDefault(props: Props) {
+  const navbarOptionsLeft = props.navbar.items
+  const includeNavbar = props.userNav ? UserActionsNav({ props }) : null
   return (
     <Header data={props}>
+      {...includeNavbar}
       <TopWrapper>
         <TopColumnLeft />
         <TopColumnCenter props={props} />
         <TopColumnRight />
       </TopWrapper>
-      <Nav>
+      <NavMobile navbarSimple={props['navbar-simple'].items} />
+      <NavDesktop>
         <NavListLeft navbarOptionsLeft={navbarOptionsLeft} />
         <ChooseNavListRight props={props} />
-      </Nav>
-    </Header>
-  )
-}
-
-// TODO Check logic for showing the simpleNav
-export function HeaderMobileNav(props) {
-  const navbarSimple = props['navbar-simple'].items
-  return (
-    <Header data={props}>
-      <TopWrapper>
-        <TopColumnLeft />
-        <TopColumnCenter props={props} />
-        <TopColumnRight />
-      </TopWrapper>
-      <NavSimple navbarSimple={navbarSimple} />
+      </NavDesktop>
     </Header>
   )
 }
@@ -47,7 +41,7 @@ export function LogoOnly(props?) {
 }
 
 export function HeaderWithCrumbtrail(props: Props) {
-  const navbarOptionsLeft = props['navbar'].items
+  const navbarOptionsLeft = props.navbar.items
   const incudeCrumbtrail = props.breadcrumb && props.subsections ? IncludeCrumbtrail({ props }) : null
   return (
     <Header data={props}>
@@ -56,18 +50,19 @@ export function HeaderWithCrumbtrail(props: Props) {
         <TopColumnCenter props={props} />
         <TopColumnRight />
       </TopWrapper>
-      <Nav>
+      <NavMobile navbarSimple={props['navbar-simple'].items} />
+      <NavDesktop>
         <NavListLeft navbarOptionsLeft={navbarOptionsLeft} />
         <ChooseNavListRight props={props} />
-      </Nav>
+      </NavDesktop>
       {incudeCrumbtrail}
     </Header>
   )
 }
 
-export function HeaderWithUserNav(props: Props) {
+export function HeaderWithUserActionsNav(props: Props) {
   const navbarOptionsLeft = props.navbar.items
-  const includeNavbar = props.userNav ? UserNav({ props }) : null
+  const includeNavbar = props.userNav ? UserActionsNav({ props }) : null
   return (
     <Header data={props}>
       {...includeNavbar}
@@ -76,10 +71,11 @@ export function HeaderWithUserNav(props: Props) {
         <TopColumnCenter props={props} />
         <TopColumnRight />
       </TopWrapper>
-      <Nav>
+      <NavMobile navbarSimple={props['navbar-simple'].items} />
+      <NavDesktop>
         <NavListLeft navbarOptionsLeft={navbarOptionsLeft} />
         <ChooseNavListRight props={props} />
-      </Nav>
+      </NavDesktop>
     </Header>
   )
 }
