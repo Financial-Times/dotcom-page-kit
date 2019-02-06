@@ -12,7 +12,7 @@ const userAnonymousOptions = ['User is anonymous', false]
 
 storiesOf('FT / Header', module)
   .addDecorator(withKnobs)
-  .add('header', () => {
+  .add('Default header', () => {
     return (
       <OrigamiBuildService
         dependencies={{
@@ -36,7 +36,7 @@ storiesOf('FT / Header', module)
       </OrigamiBuildService>
     )
   })
-  .add('logo-only', () => {
+  .add('Logo only', () => {
     const toggelViewStyleOptions = radios(...viewStyleOptions)
     const PropsViewStyle = { viewStyle: 'compact' }
     return (
@@ -50,7 +50,7 @@ storiesOf('FT / Header', module)
       </OrigamiBuildService>
     )
   })
-  .add('with-crumbtrail', () => {
+  .add('With crumbtrail component', () => {
     const toggleSignOutOptions = boolean(...showSignOutOptions)
     return (
       <OrigamiBuildService
@@ -63,7 +63,7 @@ storiesOf('FT / Header', module)
       </OrigamiBuildService>
     )
   })
-  .add('with-userNav', () => {
+  .add('With user actions navigation', () => {
     const toggleUserStateOptions = boolean(...userStateOptions)
     const toggleAnonymous = boolean(...userAnonymousOptions)
     return (
