@@ -36,6 +36,7 @@ export default (cli?: CliContext) => {
       [require.resolve('@babel/preset-typescript'), options.presetTypescript]
     ],
     plugins: [
+      // This is required by @babel/preset-typescript
       // https://github.com/tc39/proposal-class-fields
       [require.resolve('@babel/plugin-proposal-class-properties'), options.pluginClassProperties],
       // This enables Babel's built-in 'dynamicImport' flag which defines import() function usage
