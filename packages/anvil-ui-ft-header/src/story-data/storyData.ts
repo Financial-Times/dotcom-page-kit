@@ -10,7 +10,7 @@ const subsections = crumbtrail.children
 export default {
   // Options
   userNav: false,
-  disableStick: false,
+  disableSticky: false,
   variant: '',
   hideOutboundLinks: false,
   viewStyle: 'compact',

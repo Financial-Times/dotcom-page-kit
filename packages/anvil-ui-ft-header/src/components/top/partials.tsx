@@ -14,7 +14,7 @@ const Header = (props) => {
     </header>
   )
 }
-const Drawer = () => (
+const DrawerIcon = () => (
   <a
     href="#o-header-drawer"
     className="o-header__top-link o-header__top-link--menu"
@@ -26,7 +26,7 @@ const Drawer = () => (
   </a>
 )
 
-const Search = () => (
+const SearchIcon = () => (
   <a
     href="#o-header-search-primary"
     className="o-header__top-link o-header__top-link--search"
@@ -49,8 +49,8 @@ const TopWrapper = (props) => (
 const TopColumnLeft = () => {
   return (
     <div className="o-header__top-column o-header__top-column--left">
-      <Drawer />
-      <Search />
+      <DrawerIcon />
+      <SearchIcon />
     </div>
   )
 }
