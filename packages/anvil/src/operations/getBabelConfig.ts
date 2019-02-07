@@ -12,13 +12,14 @@ export function getBabelConfig(cli?: CliContext) {
   const defaultTargets = '> 1%, ie 11, bb 10, ff ESR'
   const presetEnvOpts = {
     targets: cli.config.settings.targets || defaultTargets,
-    useBuiltIns: false,
     // Exclude transforms that make all code slower
     // See https://github.com/facebook/create-react-app/pull/5278
     exclude: ['transform-typeof-symbol']
   }
 
   const babelConfig = {
+    // By default Babel assumes all source code is ESM so force it to check for CJS
+    sourceType: 'unambiguous',
     presets: [[require.resolve('@babel/preset-env'), presetEnvOpts]],
     plugins: [],
     babelrc: true
