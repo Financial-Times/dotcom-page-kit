@@ -26,7 +26,6 @@ export default (cli?: CliContext) => {
     },
     pluginDynamicImport: {},
     pluginClassProperties: {},
-    pluginObjectRestSpread: {},
     pluginTransformRuntime: {}
   }
 
@@ -39,8 +38,6 @@ export default (cli?: CliContext) => {
     plugins: [
       // https://github.com/tc39/proposal-class-fields
       [require.resolve('@babel/plugin-proposal-class-properties'), options.pluginClassProperties],
-      // TODO: remove when part of babel core
-      [require.resolve('@babel/plugin-proposal-object-rest-spread'), options.pluginObjectRestSpread],
       // This enables Babel's built-in 'dynamicImport' flag which defines import() function usage
       [require.resolve('@babel/plugin-syntax-dynamic-import'), options.pluginDynamicImport],
       [require.resolve('@babel/plugin-transform-runtime'), options.pluginTransformRuntime]
@@ -51,7 +48,6 @@ export default (cli?: CliContext) => {
     cli.publish('babelConfig::preset::react::options', options.presetReact)
     cli.publish('babelConfig::preset::typescript::options', options.presetTypescript)
     cli.publish('babelConfig::plugin::proposalClassProperties::options', options.pluginClassProperties)
-    cli.publish('babelConfig::plugin::proposalObjectRestSpread::options', options.pluginObjectRestSpread)
     cli.publish('babelConfig::plugin::syntaxDynamicImport::options', options.pluginDynamicImport)
     cli.publish('babelConfig::plugin::transformRuntime::options', options.pluginTransformRuntime)
   }
