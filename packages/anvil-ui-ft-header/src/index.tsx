@@ -8,6 +8,7 @@ import {
   UserActionsNav
 } from './components/navigation/partials'
 import { IncludeCrumbtrail } from './components/crumbtrail/partials'
+import { Search } from './components/search/partials'
 import { Props } from './interfaces'
 
 export function HeaderDefault(props: Props) {
@@ -15,12 +16,13 @@ export function HeaderDefault(props: Props) {
   const includeNavbar = props.userNav ? UserActionsNav({ props }) : null
   return (
     <Header data={props}>
-      {...includeNavbar}
+      {includeNavbar}
       <TopWrapper>
         <TopColumnLeft />
         <TopColumnCenter props={props} />
         <TopColumnRight />
       </TopWrapper>
+      <Search context={'primary'} />
       <NavMobile navbarSimple={props['navbar-simple'].items} />
       <NavDesktop>
         <NavListLeft navbarOptionsLeft={navbarOptionsLeft} />
@@ -50,6 +52,7 @@ export function HeaderWithCrumbtrail(props: Props) {
         <TopColumnCenter props={props} />
         <TopColumnRight />
       </TopWrapper>
+      <Search context={'primary'} />
       <NavMobile navbarSimple={props['navbar-simple'].items} />
       <NavDesktop>
         <NavListLeft navbarOptionsLeft={navbarOptionsLeft} />
@@ -65,12 +68,13 @@ export function HeaderWithUserActionsNav(props: Props) {
   const includeNavbar = props.userNav ? UserActionsNav({ props }) : null
   return (
     <Header data={props}>
-      {...includeNavbar}
+      {includeNavbar}
       <TopWrapper>
         <TopColumnLeft />
         <TopColumnCenter props={props} />
         <TopColumnRight />
       </TopWrapper>
+      <Search context={'primary'} />
       <NavMobile navbarSimple={props['navbar-simple'].items} />
       <NavDesktop>
         <NavListLeft navbarOptionsLeft={navbarOptionsLeft} />
