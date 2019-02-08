@@ -42,7 +42,8 @@ export default (cli?: CliContext) => {
       // This enables Babel's built-in 'dynamicImport' flag which defines import() function usage
       [require.resolve('@babel/plugin-syntax-dynamic-import'), options.pluginDynamicImport],
       [require.resolve('@babel/plugin-transform-runtime'), options.pluginTransformRuntime],
-      // Allow CommonJS require() of ESM files without .default
+      // HACK: Allow CommonJS require() of ESM files without .default
+      // This is here because we have a large amount of source code which still needs it.
       require.resolve('babel-plugin-transform-require-default')
     ]
   }

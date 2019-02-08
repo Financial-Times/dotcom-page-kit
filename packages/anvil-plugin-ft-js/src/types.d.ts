@@ -3,6 +3,4 @@ export interface PluginSettings {
   jsxPragma?: string
   /** Replace the component used when compiling JSX fragments */
   jsxPragmaFrag?: string
-  /** You can test your browserslist string at https://browserl.ist/ */
-  presetEnvTargets?: any
 }
