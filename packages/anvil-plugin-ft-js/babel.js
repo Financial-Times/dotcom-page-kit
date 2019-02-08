@@ -8,5 +8,4 @@
  *
  */
 
-// NOTE: `./dist/cjs/babel` will be present in the distributed package
 module.exports = require('./dist/cjs/babel') // eslint-disable-line import/no-unresolved

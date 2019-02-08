@@ -11,11 +11,7 @@ import { CliContext } from '@financial-times/anvil'
 export default (cli?: CliContext) => {
   const classPropertiesPluginOptions = {}
   const syntaxDynamicImportPluginOptions = {}
-  const transformRuntimePluginOptions = {
-    corejs: false,
-    helpers: true,
-    regenerator: true
-  }
+  const transformRuntimePluginOptions = {}
 
   const config = {
     presets: [],
