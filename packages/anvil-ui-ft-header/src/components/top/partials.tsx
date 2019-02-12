@@ -67,8 +67,8 @@ const FTLogoNoOutbound = () => (
   </div>
 )
 
-const TopColumnCenter = ({ props = null }) => {
-  const chooseFTLogo = props && props.hideOutboundLinks ? FTLogoNoOutbound() : FTLogo()
+const TopColumnCenter = (props = null) => {
+  const chooseFTLogo = props.hideOutboundLinks ? FTLogoNoOutbound() : FTLogo()
   return <div className="o-header__top-column o-header__top-column--center">{chooseFTLogo}</div>
 }
 
