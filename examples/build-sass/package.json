@@ -1,0 +1,13 @@
+{
+  "name": "build-sass",
+  "private": true,
+  "scripts": {
+    "build": "anvil build -d",
+    "pretest": "npm run build",
+    "test": "../../node_modules/.bin/jest"
+  },
+  "devDependencies": {
+    "@financial-times/anvil": "file:../../packages/anvil",
+    "@financial-times/anvil-plugin-ft-css": "file:../../packages/anvil-plugin-ft-css"
+  }
+}

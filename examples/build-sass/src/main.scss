@@ -1,0 +1,15 @@
+@import 'reset';
+
+$text-color: #990f3d;
+$bg-color: #fff1e5;
+
+.selector {
+  color: $text-color;
+  background: $bg-color;
+}
+
+// This should be de-duplicated
+.selector {
+  color: $text-color;
+  background: $bg-color;
+}

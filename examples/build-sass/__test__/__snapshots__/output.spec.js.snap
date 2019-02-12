@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`examples/build-sass compiles Sass files to CSS file 1`] = `
+"body{margin:0}img{display:block;max-width:100%}p{-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto}.selector{color:#990f3d;background:#fff1e5}
+"
+`;
