@@ -1,5 +1,5 @@
 {
-  "name": "build-sass",
+  "name": "example-build-sass",
   "private": true,
   "scripts": {
     "build": "anvil build -d",
