@@ -16,10 +16,6 @@ function addAbilityToResolveBower() {
       // package description files
       descriptionFiles: ['bower.json', 'package.json'],
 
-      // package.json / bower.json
-      // fields for package resolution
-      mainFields: ['browser', 'module', 'main'],
-
       // file names for directory resolution
       mainFiles: ['index', 'main']
     }
