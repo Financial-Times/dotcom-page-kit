@@ -74,7 +74,7 @@ jobs:
           command: npm run prettier -- --list-different
       - run:
           name: Run build
-          command: npm run build
+          command: npm run build && npm run build:examples
       - run:
           name: Run tests
           command: npm run test
