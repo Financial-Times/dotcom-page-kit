@@ -150,10 +150,11 @@ module.exports = function (karma) {
 				os: 'Windows',
 				os_version: '10'
 			},
+			// TODO - unpin firefox version once browserstack bug is fixed
 			firefoxLatest: {
 				base: 'BrowserStack',
 				browser: 'firefox',
-				browser_version: 'latest',
+				browser_version: '64',
 				os: 'Windows',
 				os_version: '10'
 			},
