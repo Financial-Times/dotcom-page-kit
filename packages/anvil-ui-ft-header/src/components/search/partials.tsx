@@ -16,7 +16,7 @@ const Search = ({ context }) => {
           data-n-topic-search
           data-n-topic-search-categories="concepts,equities"
           data-n-topic-search-view-all>
-          <label className="o-header__visually-hidden" for="o-header-search-term-{{context}}">
+          <label className="o-header__visually-hidden" for={`"o-header-search-term-${context}`}>
             Search the <abbr title="Financial Times">FT</abbr>
           </label>
           <input
@@ -38,7 +38,7 @@ const Search = ({ context }) => {
           <button
             className="o-header__search-close o--if-js"
             type="button"
-            aria-controls="o-header-search-{{context}}"
+            aria-controls={`"o-header-search-${context}`}
             title="Close search bar"
             data-trackable="close">
             <span className="o-header__visually-hidden">Close</span>

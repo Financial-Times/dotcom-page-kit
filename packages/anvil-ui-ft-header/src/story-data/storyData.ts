@@ -8,22 +8,23 @@ const breadcrumb = crumbtrail.ancestors.concat(crumbtrail.item)
 const subsections = crumbtrail.children
 
 export default {
-  // Options
-  userNav: false,
-  disableSticky: false,
-  variant: '',
-  hideOutboundLinks: false,
-  viewStyle: 'compact',
-  userIsAnonymous: false,
-  userIsLoggedIn: true,
-  showSubNav: true,
-  showSignOut: true,
-
-  // Data
-  navbar: navbarUk,
-  'navbar-right': navbarRight,
-  'navbar-right-anon': navbarRightAnon,
-  'navbar-simple': navbarSimple,
-  breadcrumb: breadcrumb,
-  subsections: subsections
+  options: {
+    userNav: false,
+    disableSticky: false,
+    variant: '',
+    hideOutboundLinks: false,
+    viewStyle: 'compact',
+    userIsAnonymous: false,
+    userIsLoggedIn: true,
+    showSubNav: true,
+    showSignOut: true
+  },
+  data: {
+    navbar: navbarUk,
+    'navbar-right': navbarRight,
+    'navbar-right-anon': navbarRightAnon,
+    'navbar-simple': navbarSimple,
+    breadcrumb: breadcrumb,
+    subsections: subsections
+  }
 }
