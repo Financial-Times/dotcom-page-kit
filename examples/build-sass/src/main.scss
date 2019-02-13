@@ -1,4 +1,4 @@
-@import 'reset';
+@import 'normalize';
 
 $text-color: #990f3d;
 $bg-color: #fff1e5;
@@ -8,8 +8,15 @@ $bg-color: #fff1e5;
   background: $bg-color;
 }
 
-// This should be de-duplicated
+// This ruleset should be de-duplicated by PostCSS minification
 .selector {
   color: $text-color;
   background: $bg-color;
+}
+
+.title {
+  font-size: 2em;
+  margin: 0 0 0.2em;
+  // This property should have vendor prefixes applied by PostCSS autoprefixing
+  hyphens: auto;
 }
