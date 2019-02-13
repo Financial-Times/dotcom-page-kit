@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "athloi run build --filter 'anvil*' --concurrency 10",
-    "build:examples": "athloi run build --filter 'example*' -- concurrency 10",
+    "build:examples": "athloi run build --filter 'example*' --concurrency 10",
     "checktypes": "tsc --noEmit",
     "clean": "git clean -fxd -e .vscode",
     "clean:dist": "athloi run clean:dist --filter 'anvil*' --concurrency 10",
