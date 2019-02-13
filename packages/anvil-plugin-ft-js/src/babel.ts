@@ -26,7 +26,6 @@ export default (cli?: CliContext) => {
     },
     pluginDynamicImport: {},
     pluginClassProperties: {},
-    pluginObjectRestSpread: {},
     pluginTransformRuntime: {}
   }
 
@@ -37,13 +36,15 @@ export default (cli?: CliContext) => {
       [require.resolve('@babel/preset-typescript'), options.presetTypescript]
     ],
     plugins: [
+      // This is required by @babel/preset-typescript
       // https://github.com/tc39/proposal-class-fields
       [require.resolve('@babel/plugin-proposal-class-properties'), options.pluginClassProperties],
-      // TODO: remove when part of babel core
-      [require.resolve('@babel/plugin-proposal-object-rest-spread'), options.pluginObjectRestSpread],
       // This enables Babel's built-in 'dynamicImport' flag which defines import() function usage
       [require.resolve('@babel/plugin-syntax-dynamic-import'), options.pluginDynamicImport],
-      [require.resolve('@babel/plugin-transform-runtime'), options.pluginTransformRuntime]
+      [require.resolve('@babel/plugin-transform-runtime'), options.pluginTransformRuntime],
+      // HACK: Allow CommonJS require() of ESM files without .default
+      // This is here because we have a large amount of source code which still needs it.
+      require.resolve('babel-plugin-transform-require-default')
     ]
   }
 
@@ -51,7 +52,6 @@ export default (cli?: CliContext) => {
     cli.publish('babelConfig::preset::react::options', options.presetReact)
     cli.publish('babelConfig::preset::typescript::options', options.presetTypescript)
     cli.publish('babelConfig::plugin::proposalClassProperties::options', options.pluginClassProperties)
-    cli.publish('babelConfig::plugin::proposalObjectRestSpread::options', options.pluginObjectRestSpread)
     cli.publish('babelConfig::plugin::syntaxDynamicImport::options', options.pluginDynamicImport)
     cli.publish('babelConfig::plugin::transformRuntime::options', options.pluginTransformRuntime)
   }

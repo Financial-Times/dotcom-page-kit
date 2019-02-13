@@ -21,13 +21,12 @@
     "@financial-times/anvil": "file:../anvil"
   },
   "dependencies": {
-    "@babel/core": "^7.1.5",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
-    "@babel/preset-typescript": "^7.1.0"
+    "@babel/preset-typescript": "^7.1.0",
+    "babel-plugin-transform-require-default": "^0.1.4"
   },
   "devDependencies": {
     "@financial-times/anvil": "file:../anvil"
