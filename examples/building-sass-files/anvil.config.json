@@ -1,0 +1,10 @@
+{
+  "plugins": [
+    "@financial-times/anvil-plugin-ft-css"
+  ],
+  "settings": {
+    "entry": {
+      "styles": "./src/main.scss"
+    }
+  }
+}
