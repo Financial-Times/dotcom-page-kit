@@ -43,7 +43,7 @@
   "homepage": "https://github.com/Financial-Times/anvil#readme",
   "devDependencies": {
     "@babel/core": "^7.1.6",
-    "@financial-times/athloi": "^1.0.0-beta.14",
+    "@financial-times/athloi": "^1.0.0-beta.17",
     "@storybook/addon-knobs": "^4.0.9",
     "@storybook/addon-options": "^4.0.8",
     "@storybook/react": "^4.0.9",
