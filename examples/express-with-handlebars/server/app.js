@@ -2,7 +2,6 @@ const express = require('express')
 const { engine } = require('@financial-times/anvil-server-ft-handlebars')
 
 const app = express()
-const PORT = process.env.PORT || 3456
 
 app.locals.siteName = 'Good Dogs'
 
@@ -15,6 +14,4 @@ app.engine('.hbs', engine({ extname: '.hbs' }))
 
 app.get('/', require('./controllers/home'))
 
-app.listen(PORT, () => {
-  console.log(`Listening on http://localhost:${PORT}`) // eslint-disable-line no-console
-})
+module.exports = app

@@ -5,9 +5,10 @@
   "main": "server/app.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon server/app.js --ext js,hbs",
-    "start": "node server/app.js",
-    "build": "anvil build -d"
+    "dev": "nodemon server/listen.js --ext js,hbs",
+    "start": "node server/listen.js",
+    "build": "anvil build -d",
+    "test": "../../node_modules/.bin/jest"
   },
   "dependencies": {
     "@financial-times/anvil-server-ft-handlebars": "file:../../packages/anvil-server-ft-handlebars",
