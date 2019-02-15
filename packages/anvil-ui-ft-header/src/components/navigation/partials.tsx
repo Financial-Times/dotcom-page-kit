@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NavMobile = ({ items }) => {
+const NavMobile = ({ data }) => {
   return (
     <nav
       id="o-header-nav-mobile"
@@ -8,8 +8,8 @@ const NavMobile = ({ items }) => {
       aria-hidden="true"
       data-trackable="header-nav:mobile">
       <ul className="o-header__nav-list">
-        {items.map((navItem, index) => {
-          const ariaAttributes = navItem.ariaAttributes
+        {data.map((navItem, index) => {
+          const ariaAttributes = navItem.selected
             ? { 'aria-label': 'Current page', 'aria-current': true }
             : {}
           return (
@@ -66,24 +66,22 @@ const NavListLeft = ({ navItems }) => {
   )
 }
 
-const ChooseNavListRight = (props) => {
+const NavListRight = (props) => {
   // Serve the signed-in or anonymous user experience
   const navRightLoggedIn = props.data['navbar-right'].items
   const navRightAnon = props.data['navbar-right-anon'].items
-  let navListRight
-  if (props.userNav) {
-    if (props.userIsAnonymous) {
+  let navListRight = null
+  if (props.options.userNav) {
+    if (props.options.userIsAnonymous) {
       navListRight = NavListRightAnon(navRightAnon)
     } else {
-      navListRight = NavListRight(navRightLoggedIn)
+      navListRight = NavListRightLoggedIn(navRightLoggedIn)
     }
-  } else {
-    navListRight = null
   }
   return navListRight
 }
 
-const NavListRight = (navbarOptionsRight) => {
+const NavListRightLoggedIn = (navbarOptionsRight) => {
   return (
     <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
       {navbarOptionsRight.map((navItem, index) => {
@@ -137,4 +135,4 @@ const UserActionsNav = (props) => {
   )
 }
 
-export { NavDesktop, NavMobile, NavListLeft, ChooseNavListRight, UserActionsNav }
+export { NavDesktop, NavMobile, NavListLeft, NavListRight, UserActionsNav }

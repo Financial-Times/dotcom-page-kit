@@ -8,7 +8,6 @@ interface Options {
   disableSticky: boolean
   variant: string
   hideOutboundLinks?: boolean
-  viewStyle?: string
   userIsAnonymous: boolean
   userIsLoggedIn: boolean
   showSubNav: boolean

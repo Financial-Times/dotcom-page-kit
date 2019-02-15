@@ -4,7 +4,8 @@
     {
       "label": "Home",
       "url": "/",
-      "submenu": null
+      "submenu": null,
+      "selected": true
     },
     {
       "label": "fastFT",

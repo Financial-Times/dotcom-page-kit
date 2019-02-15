@@ -1,12 +1,11 @@
 import React from 'react'
 
 const Header = (props) => {
-  // `headerSimple` checks for the presence/absence of o-header--simple class which indicates a mobile viewport
-  const headerSimple = props.data && props.data.viewStyle === 'compact' ? 'o-header--simple' : null
+  // const headerCompact = props && props.options.variant === 'compact' ? 'o-header--simple' : null
   return (
     <header
       id="site-navigation"
-      className={`o-header ${headerSimple}`}
+      className={`o-header o-header--${props.options.variant}`}
       data-o-component="o-header"
       data-o-header--no-js={true}
       tabIndex={-1}>

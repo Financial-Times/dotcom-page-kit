@@ -16,7 +16,7 @@ const Search = ({ context }) => {
           data-n-topic-search
           data-n-topic-search-categories="concepts,equities"
           data-n-topic-search-view-all>
-          <label className="o-header__visually-hidden" for={`"o-header-search-term-${context}`}>
+          <label className="o-header__visually-hidden" for={`o-header-search-term-${context}`}>
             Search the <abbr title="Financial Times">FT</abbr>
           </label>
           <input

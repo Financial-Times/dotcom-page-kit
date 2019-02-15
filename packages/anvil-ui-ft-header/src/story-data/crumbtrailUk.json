@@ -28,7 +28,8 @@
     {
       "label": "UK Business & Economy",
       "url": "/uk-business-economy",
-      "submenu": null
+      "submenu": null,
+      "selected": true
     },
     {
       "label": "UK Politics & Policy",

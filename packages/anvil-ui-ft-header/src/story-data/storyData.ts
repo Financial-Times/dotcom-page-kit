@@ -8,12 +8,12 @@ const breadcrumb = crumbtrail.ancestors.concat(crumbtrail.item)
 const subsections = crumbtrail.children
 
 export default {
+  // property names are consistent with the navigation service data
   options: {
     userNav: false,
     disableSticky: false,
-    variant: '',
+    variant: 'simple',
     hideOutboundLinks: false,
-    viewStyle: 'compact',
     userIsAnonymous: false,
     userIsLoggedIn: true,
     showSubNav: true,
