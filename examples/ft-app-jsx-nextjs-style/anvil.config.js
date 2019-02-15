@@ -11,9 +11,11 @@ module.exports = {
       jsxPragmaFrag: 'React.Fragment'
     })
   ],
-  buildSettings: {
-    entry: {
-      client: './src/client.js'
+  settings: {
+    build: {
+      entry: {
+        client: './src/client.js'
+      }
     }
   }
 }

@@ -28,5 +28,5 @@ export class CliContext extends Pluggable {
 }
 
 function normaliseConfig(config?: AnvilConfig) {
-  return { plugins: [], buildSettings: {}, ...(config || {}) }
+  return { plugins: [], settings: {}, ...(config || {}) }
 }

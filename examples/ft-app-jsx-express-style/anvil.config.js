@@ -13,11 +13,13 @@ module.exports = {
       jsxPragmaFrag: 'React.Fragment'
     })
   ],
-  buildSettings: {
-    entry: {
-      styles: './client/styles/main.css',
-      sass: './client/sass/main.scss',
-      client: './client/index.js'
+  settings: {
+    build: {
+      entry: {
+        styles: './client/styles/main.css',
+        sass: './client/sass/main.scss',
+        client: './client/index.js'
+      }
     }
   }
 }
