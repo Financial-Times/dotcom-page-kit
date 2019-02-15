@@ -8,9 +8,7 @@ import { CliContext } from '@financial-times/anvil'
  * When used in such a manner, there will be no args supplied to the function,
  * hence why the arg is optional.
  */
-export default (cli?: CliContext) => {
-  const settings: PluginSettings = cli ? cli.config.settings['ft-js'] : {}
-
+export default (settings: PluginSettings = {}, cli?: CliContext) => {
   const jsx = {
     pragma: settings.jsxPragma || 'h',
     fragment: settings.jsxPragmaFrag || 'Fragment'
