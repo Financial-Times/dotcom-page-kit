@@ -2,7 +2,7 @@ import React from 'react'
 import { Header, TopWrapper, TopColumnLeft, TopColumnCenter, TopColumnRight } from './components/top/partials'
 import {
   NavListLeft,
-  ChooseNavListRight,
+  NavListRight,
   NavDesktop,
   NavMobile,
   UserActionsNav
@@ -16,7 +16,7 @@ export function HeaderDefault(props: Props) {
   const includeUserActionsNav =
     props.options.userNav && props.options.userIsAnonymous ? UserActionsNav(props) : null
   return (
-    <Header data={props}>
+    <Header {...props}>
       {includeUserActionsNav}
       <TopWrapper>
         <TopColumnLeft />
@@ -24,10 +24,10 @@ export function HeaderDefault(props: Props) {
         <TopColumnRight />
       </TopWrapper>
       <Search context="mobile" />
-      <NavMobile items={props.data['navbar-simple'].items} />
+      <NavMobile data={props.data['navbar-simple'].items} />
       <NavDesktop>
         <NavListLeft navItems={navItems} />
-        <ChooseNavListRight {...props} />
+        <NavListRight {...props} />
       </NavDesktop>
     </Header>
   )
@@ -35,7 +35,7 @@ export function HeaderDefault(props: Props) {
 
 export function LogoOnly(props?) {
   return (
-    <Header data={props}>
+    <Header {...props}>
       <TopWrapper>
         <TopColumnCenter />
       </TopWrapper>
@@ -45,20 +45,19 @@ export function LogoOnly(props?) {
 
 export function HeaderWithCrumbtrail(props: Props) {
   const navItems = props.data.navbar.items
-  const incudeCrumbtrail =
-    props.data.breadcrumb && props.data.subsections ? IncludeCrumbtrail({ props }) : null
+  const incudeCrumbtrail = props.data.breadcrumb && props.data.subsections ? IncludeCrumbtrail(props) : null
   return (
-    <Header data={props}>
+    <Header {...props}>
       <TopWrapper>
         <TopColumnLeft />
         <TopColumnCenter {...props} />
         <TopColumnRight />
       </TopWrapper>
       <Search context="primary" />
-      <NavMobile items={props.data['navbar-simple'].items} />
+      <NavMobile data={props.data['navbar-simple'].items} />
       <NavDesktop>
         <NavListLeft navItems={navItems} />
-        <ChooseNavListRight {...props} />
+        <NavListRight {...props} />
       </NavDesktop>
       {incudeCrumbtrail}
     </Header>

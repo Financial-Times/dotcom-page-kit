@@ -8,7 +8,7 @@ import storyData from './story-data/storyData'
 // falsey values are empty string because string coercion in storybook
 const toggleUserStateOptions = () => radios('Enable user nav actions', { enable: true, disable: '' }, true)
 const toggleSignOutOptions = () => radios('Show myFT sign out link', { show: true, hide: '' }, '')
-const toggleViewStyleOptions = () => radios('Enable compact variant', { enable: 'compact', disable: '' }, '')
+const toggleVariantOptions = () => radios('Choose variant', { simple: 'simple', normal: 'normal' }, 'simple')
 const toggleAnonymous = () => radios('userIsAnonymous', { true: 'true', false: '' }, '')
 
 const OrigamiDependecies = {
@@ -24,15 +24,12 @@ storiesOf('FT / Header', module)
     storyData.options.userIsAnonymous = toggleAnonymous()
     return (
       <OrigamiBuildService dependencies={OrigamiDependecies}>
-        <HeaderDefault
-          {...storyData}
-          // userNav={toggleUserStateOptions()}
-          // userIsAnonymous={toggleAnonymous()}
-        />
+        <HeaderDefault {...storyData} />
       </OrigamiBuildService>
     )
   })
   .add('Logo only', () => {
+    let optionalProps = { options: { variant: toggleVariantOptions() } }
     return (
       <OrigamiBuildService
         dependencies={{
@@ -40,7 +37,7 @@ storiesOf('FT / Header', module)
           'o-fonts': '^3.2.0',
           'o-normalise': '^1.6.2'
         }}>
-        <LogoOnly viewStyle={toggleViewStyleOptions()} />
+        <LogoOnly {...optionalProps} />
       </OrigamiBuildService>
     )
   })
@@ -57,5 +54,3 @@ storiesOf('FT / Header', module)
       </OrigamiBuildService>
     )
   })
-
-//showSignOut={toggleSignOutOptions()

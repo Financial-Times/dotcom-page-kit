@@ -1,10 +1,10 @@
 import React from 'react'
 
-const IncludeCrumbtrail = ({ props }) => (
+const IncludeCrumbtrail = (props) => (
   <Crumbtrail>
     <BreadCrumb breadcrumb={props.data.breadcrumb} />
     <SubSections subsections={props.data.subsections} />
-    <ShowSignOut showSignOut={props.data.showSignOut} />
+    <ShowSignOut showSignOut={props.options.showSignOut} />
   </Crumbtrail>
 )
 
