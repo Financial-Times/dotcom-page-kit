@@ -11,7 +11,7 @@ This module is compatible with Node 10+ and is distributed on npm.
 npm install --save-dev @financial-times/anvil
 ```
 
-Configuration is provided to the CLI by a `anvil.config.json` file placed in your project root (next to `package.json`). Create this file now, including the fields defined below:
+Configuration is provided to the CLI by a `anvil.config.js` file placed in your project root (next to `package.json`). Create this file now, including the fields defined below:
 
 ```json
 {

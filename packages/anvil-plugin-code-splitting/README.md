@@ -10,7 +10,7 @@ npm install --save-dev @financial-times/anvil-plugin-code-splitting
 
 ## Usage
 
-anvil.config.json
+anvil.config.js
 
 ```json
 {

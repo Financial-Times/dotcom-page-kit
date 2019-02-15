@@ -8,7 +8,7 @@ npm install --save-dev @financial-times/anvil-plugin-ft-js
 
 ## Usage
 
-anvil.config.json
+anvil.config.js
 
 ```json
 {

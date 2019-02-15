@@ -1,6 +1,7 @@
 import { CliPrompt } from './CliPrompt'
+import { AnyObject } from '@financial-times/anvil-types-generic'
+import { AnvilConfig } from '../types/AnvilConfig'
 import { Pluggable, Plugin } from '@financial-times/anvil-pluggable'
-import { AnyObject, AnvilConfig } from '@financial-times/anvil-types-generic'
 
 interface ConstructorArgs {
   config: AnvilConfig
@@ -27,5 +28,5 @@ export class CliContext extends Pluggable {
 }
 
 function normaliseConfig(config?: AnvilConfig) {
-  return { plugins: [], settings: {}, ...config }
+  return { plugins: [], buildSettings: {}, ...(config || {}) }
 }

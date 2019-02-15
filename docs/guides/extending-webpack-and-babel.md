@@ -28,7 +28,7 @@ webpackConfig.resolve.symlinks = true
 
 ## Loading plugins
 
-Once the plugin has been authored, it will have to be loaded. To do so, the path to it (relative to the project root) has to be added to the `avil.config.json` file. The `anvil.config.json` file is the file that plugins and their related settings are declared in. This file is located in the project root. So if the plugin is located in `<ProjectRoot>/plugins/extendWebpack.js` for instance, then an `anvil.config.json` that looks like the following will be needed for the plugin to be picked up, the next time that the `anvil build` cli command is run:
+Once the plugin has been authored, it will have to be loaded. To do so, the path to it (relative to the project root) has to be added to the `avil.config.json` file. The `anvil.config.js` file is the file that plugins and their related settings are declared in. This file is located in the project root. So if the plugin is located in `<ProjectRoot>/plugins/extendWebpack.js` for instance, then an `anvil.config.js` that looks like the following will be needed for the plugin to be picked up, the next time that the `anvil build` cli command is run:
 
 ```json
 {
