@@ -1,8 +1,8 @@
 import babelPreset from './babel'
 import { HandlerArgs } from '@financial-times/anvil'
-import { PluginSettings } from './types'
+import { PluginOptions } from './types'
 
-export default (settings: PluginSettings = {}) => {
+export default (options: PluginOptions = {}) => {
   return ({ on }) => {
     on('babelConfig', addBabelPreset)
     on('webpackConfig::scriptsRule', amendWebpackConfigScriptsRule)
@@ -19,6 +19,6 @@ export default (settings: PluginSettings = {}) => {
   }
 
   function addBabelPreset({ cli, resource: babelConfig }: HandlerArgs) {
-    babelConfig.presets.push(babelPreset(settings, cli))
+    babelConfig.presets.push(babelPreset(options, cli))
   }
 }
