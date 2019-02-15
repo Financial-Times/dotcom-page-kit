@@ -16,9 +16,11 @@ npm install --save-dev @financial-times/anvil-plugin-ft-css
 After installing the module you must add it to the list of plugins in your project's `anvil.config.js` configuration file:
 
 ```diff
-{
+const ftCssPlugin = require('@financial-times/anvil-plugin-ft-css').default
+
+module.exports = {
   "plugins": [
-+    "@financial-times/anvil-plugin-ft-css"
++    ftCssPlugin
   ]
 }
 ```
@@ -55,9 +57,9 @@ Several [hooks](#extending) are provided in order to access and modify the confi
 [cssnano]: https://cssnano.co/
 
 
-## Settings
+## Options
 
-There are currently no additional settings for this plugin.
+There are currently no additional options for this plugin.
 
 
 ## Extending

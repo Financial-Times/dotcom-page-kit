@@ -10,15 +10,17 @@ npm install --save-dev @financial-times/anvil-plugin-ft-js
 
 anvil.config.js
 
-```json
-{
-  "plugins": [
-    "@financial-times/anvil-plugin-ft-js"
+```js
+const ftJsPlugin = require('@financial-times/anvil-plugin-ft-js').default
+
+module.export = {
+  plugins: [
+    ftJsPlugin({ ...options })
   ]
 }
 ```
 
-## Settings
+## Options
 
 - **jsxPragma**: (Defaults to `h`) See https://babeljs.io/docs/en/babel-preset-react#pragma
 - **jsxPragmaFrag**: (Defaults to `Fragment`) See https://babeljs.io/docs/en/babel-preset-react#pragmafrag

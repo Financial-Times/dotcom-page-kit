@@ -44,9 +44,9 @@ Several [hooks](#extending) are provided in order to access and modify the confi
 [webpack-fix-style-only-entries]: https://github.com/fqborges/webpack-fix-style-only-entries
 
 
-## Settings
+## Options
 
-There are currently no additional settings for this plugin.
+There are currently no additional options for this plugin.
 
 
 ## Extending

@@ -12,10 +12,12 @@ npm install --save-dev @financial-times/anvil-plugin-code-splitting
 
 anvil.config.js
 
-```json
-{
-  "plugins": [
-    "@financial-times/anvil-plugin-code-splitting"
+```js
+const codeSplittingPlugin = require('@financial-times/anvil-plugin-code-splitting').default
+
+module.exports = {
+  plugins: [
+    codeSplittingPlugin
   ]
 }
 ```
