@@ -1,9 +1,3 @@
-// TODO: fetch real data
-const navbarUK = require('@financial-times/anvil-ui-ft-header/src/story-data/navbarUk.json')
-const navbarSimple = require('@financial-times/anvil-ui-ft-header/src/story-data/navbarSimple.json')
-const navbarRight = require('@financial-times/anvil-ui-ft-header/src/story-data/navbarRight.json')
-const navbarRightAnon = require('@financial-times/anvil-ui-ft-header/src/story-data/navbarRightAnon.json')
-
 const ReactDOMServer = require('react-dom/server')
 const { HeaderDefault } = require('@financial-times/anvil-ui-ft-header')
 const document = require('../lib/document')
@@ -19,15 +13,18 @@ const headerProps = {
     showSubNav: true,
     showSignOut: true
   },
-  data: {
-    navbar: navbarUK,
-    'navbar-simple': navbarSimple,
-    'navbar-right': navbarRight,
-    'navbar-right-anon': navbarRightAnon
-  }
+  editions: {},
+  data: {}
 }
 
 module.exports = (_, response, next) => {
+  headerProps.editions = response.locals.editions
+  // TODO Set data to response.locals.navigation.main once editions are fixed
+  headerProps.data.navbar = response.locals.navigation.main['navbar-uk']
+  headerProps.data['navbar-simple'] = response.locals.navigation.main['navbar-simple']
+  headerProps.data['navbar-right'] = response.locals.navigation.main['navbar-right']
+  headerProps.data['navbar-right-anon'] = response.locals.navigation.main['navbar-right-anon']
+
   try {
     const html = ReactDOMServer.renderToStaticMarkup(HeaderDefault(headerProps))
     const page = document(html)
