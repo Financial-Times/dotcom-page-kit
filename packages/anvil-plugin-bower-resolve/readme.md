@@ -17,7 +17,7 @@ npm install --save-dev @financial-times/anvil-plugin-bower-resolve
 After installing the module you must add it to the list of plugins in your project's `anvil.config.js` configuration file:
 
 ```diff
-const bowerResolvePlugin = require('@financial-times/anvil-plugin-bower-resolve').default
++ const bowerResolvePlugin = require('@financial-times/anvil-plugin-bower-resolve').default
 
 module.exports {
   "plugins": [

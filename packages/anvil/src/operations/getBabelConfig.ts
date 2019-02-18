@@ -1,3 +1,4 @@
+import get from 'lodash.get'
 import { CliContext } from '../entities/CliContext'
 
 /**
@@ -11,7 +12,7 @@ import { CliContext } from '../entities/CliContext'
 export function getBabelConfig(cli?: CliContext) {
   const defaultTargets = '> 1%, ie 11, bb 10, ff ESR'
   const presetEnvOpts = {
-    targets: cli.config.settings.build.targets || defaultTargets,
+    targets: get(cli, 'config.settings.build.targets') || defaultTargets,
     // Exclude transforms that make all code slower
     // See https://github.com/facebook/create-react-app/pull/5278
     exclude: ['transform-typeof-symbol']
