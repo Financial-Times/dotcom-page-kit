@@ -19,7 +19,7 @@ npm install --save @financial-times/anvil-middleware-ft-navigation
 ```
 const navigationMiddleware = require('@financial-times/anvil-middleware-ft-navigation')
 
-const instance = navigationMiddleware.default({ enableCrumbtrail: true })
+const instance = navigationMiddleware.init({ enableCrumbtrail: true })
 
 app.use(instance)
 ```
