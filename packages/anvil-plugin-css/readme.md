@@ -13,7 +13,7 @@ This module is compatible with Node 10+ and is distributed on npm.
 npm install --save-dev @financial-times/anvil-plugin-css
 ```
 
-After installing the module you must add it to the list of plugins in your project's `anvil.config.json` configuration file:
+After installing the module you must add it to the list of plugins in your project's `anvil.config.js` configuration file:
 
 ```diff
 {
@@ -44,9 +44,9 @@ Several [hooks](#extending) are provided in order to access and modify the confi
 [webpack-fix-style-only-entries]: https://github.com/fqborges/webpack-fix-style-only-entries
 
 
-## Settings
+## Options
 
-There are currently no additional settings for this plugin.
+There are currently no additional options for this plugin.
 
 
 ## Extending

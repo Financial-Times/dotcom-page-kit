@@ -8,7 +8,7 @@ export function getWebpackConfig({ options, workingDir, config, publish, cli }: 
   let jsRule
 
   const isDevMode = options.development
-  const entryOptions = get(config, 'settings.entry') || options.entryFile
+  const entryOptions = get(config, 'settings.build.entry') || options.entryFile
   const outputFilename = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
   const manifestPluginOptions = {}
   const cleanWebpackPluginPaths = [options.outputPath]

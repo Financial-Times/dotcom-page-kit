@@ -14,12 +14,14 @@ This module is compatible with Node 10+ and is distributed on npm.
 npm install --save-dev @financial-times/anvil-plugin-bower-resolve
 ```
 
-After installing the module you must add it to the list of plugins in your project's `anvil.config.json` configuration file:
+After installing the module you must add it to the list of plugins in your project's `anvil.config.js` configuration file:
 
 ```diff
-{
++ const bowerResolvePlugin = require('@financial-times/anvil-plugin-bower-resolve').default
+
+module.exports {
   "plugins": [
-+    "@financial-times/anvil-plugin-bower-resolve"
++    bowerResolvePlugin
   ]
 }
 ```
@@ -39,9 +41,9 @@ _Please note: Bower dependencies will be favoured over dependencies installed wi
 [bower-resolve-webpack-plugin]: https://www.npmjs.com/package/bower-resolve-webpack-plugin
 
 
-## Settings
+## Options
 
-There are currently no additional settings for this plugin.
+There are currently no additional options for this plugin.
 
 
 ## Extending
