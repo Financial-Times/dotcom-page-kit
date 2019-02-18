@@ -25,11 +25,11 @@ const DrawerIcon = () => (
   </a>
 )
 
-const SearchIcon = () => (
+const SearchIcon = ({ context }) => (
   <a
-    href="#o-header-search-primary"
+    href={`o-header-search-${context}`}
     className="o-header__top-link o-header__top-link--search"
-    aria-controls="o-header-search-primary"
+    aria-controls={`o-header-search-${context}`}
     title="Search"
     aria-label="Search"
     data-trackable="search-toggle">
@@ -45,11 +45,11 @@ const TopWrapper = (props) => (
   </div>
 )
 
-const TopColumnLeft = () => {
+const TopColumnLeft = (props) => {
   return (
     <div className="o-header__top-column o-header__top-column--left">
       <DrawerIcon />
-      <SearchIcon />
+      <SearchIcon {...props} />
     </div>
   )
 }
