@@ -1,12 +1,12 @@
-const ftJsPlugin = require('@financial-times/anvil-plugin-ft-js').default
-const ftCssPlugin = require('@financial-times/anvil-plugin-ft-css').default
-const codeSplittingPlugin = require('@financial-times/anvil-plugin-code-splitting').default
+const ftJs = require('@financial-times/anvil-plugin-ft-js')
+const ftCss = require('@financial-times/anvil-plugin-ft-css')
+const codeSplitting = require('@financial-times/anvil-plugin-code-splitting')
 
 module.exports = {
   plugins: [
-    codeSplittingPlugin,
-    ftCssPlugin,
-    ftJsPlugin({
+    codeSplitting.plugin(),
+    ftCss.plugin(),
+    ftJs.plugin({
       jsxPragma: 'React.createElement',
       jsxPragmaFrag: 'React.Fragment'
     })

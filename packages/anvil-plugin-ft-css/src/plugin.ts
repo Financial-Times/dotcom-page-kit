@@ -3,8 +3,10 @@ import StylesOnlyPlugin from 'webpack-fix-style-only-entries'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { HandlerArgs, CliContext } from '@financial-times/anvil'
 
-export const plugin = ({ on }) => {
-  on('webpackConfig', getWebpackConfigToMerge)
+export function plugin() {
+  return ({ on }) => {
+    on('webpackConfig', getWebpackConfigToMerge)
+  }
 }
 
 function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {

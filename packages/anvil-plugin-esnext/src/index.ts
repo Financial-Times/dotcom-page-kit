@@ -1,10 +1,4 @@
-import babelPreset from './babel'
-import { HandlerArgs } from '@financial-times/anvil'
+import { plugin } from './plugin'
 
-export default ({ on }) => {
-  on('babelConfig', amendBabelConfig)
-}
-
-function amendBabelConfig({ cli, resource: babelConfig }: HandlerArgs) {
-  babelConfig.presets.push(babelPreset(cli))
-}
+export { plugin }
+export default plugin
