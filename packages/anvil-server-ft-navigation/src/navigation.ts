@@ -3,26 +3,26 @@ import httpError from 'http-errors'
 import deepFreeze from 'deep-freeze'
 import fetch from 'node-fetch'
 
-const parseData = (data: object) => {
+const parseData = (data: TNavMenu) => {
   // Makes the navigation data completely immutable,
   // To modify the data, clone the parts you need to change then modify in your app
   return deepFreeze(data)
 }
 
-const removeLeadingForwardSlash = (pagePath) => {
+const removeLeadingForwardSlash = (pagePath: string) => {
   return pagePath.charAt(0) === '/' ? pagePath.substring(1) : pagePath
 }
 
-const defaults = {
+const defaults: TOptions = {
   menuUrl: 'http://next-navigation.ft.com/v2/menus',
   crumbtrailUrl: 'http://next-navigation.ft.com/v2/hierarchy',
   interval: 15 * 60 * 1000 // poll every 15 minutes
 }
 
 export class Navigation {
-  public options
-  public poller
-  public initialPromise
+  public options: TOptions
+  public poller: Poller<TPollerOptions>
+  public initialPromise: Promise<any>
 
   constructor(options = {}) {
     this.options = { ...defaults, ...options }
@@ -36,21 +36,11 @@ export class Navigation {
     this.initialPromise = this.poller.start({ initialRequest: true })
   }
 
-  async getNavigation() {
+  async getNavigationData() {
     // initialPromise does not resolve any data
     // but it must resolve before `.data` is available to read.
     await this.initialPromise
     return this.poller.getData()
-  }
-
-  async getMenu(menuItem: string) {
-    const data = await this.getNavigation()
-
-    if (data.hasOwnProperty(menuItem)) {
-      return data[menuItem]
-    } else {
-      throw Error(`Navigation menu "${menuItem}" does not exist. Available options: ${Object.keys(data)}.`)
-    }
   }
 
   async getCrumbtrail(currentPath: string) {
@@ -67,5 +57,11 @@ export class Navigation {
     } else {
       throw httpError(response.status, `Navigation crumbtrail for ${currentPage} could not be found.`)
     }
+  }
+
+  async getSelected(currentPath: string) {
+    const currentPage = removeLeadingForwardSlash(currentPath)
+    console.log('currentPage', currentPage)
+    console.log('currentPath', currentPath)
   }
 }
