@@ -1,5 +1,8 @@
-import { Navigation } from '../'
 import nock from 'nock'
+
+import { Navigation } from '../'
+import { decorateSelected } from '../decorate-selected'
+import drawerUK from '../__fixtures__/menus'
 
 const navigationData = {
   testData: 'some-navigation-data',
@@ -44,9 +47,9 @@ describe('anvil-server-ft-navigation', () => {
     expect(FakePoller.start).toHaveBeenCalled()
   })
 
-  describe('.getNavigation()', () => {
+  describe('.getNavigationData()', () => {
     it('returns the navigation data', async () => {
-      const result = await navigationInstance.getNavigation()
+      const result = await navigationInstance.getNavigationData()
       expect(result).toEqual(navigationData)
     })
   })
@@ -83,5 +86,21 @@ describe('anvil-server-ft-navigation', () => {
         message: 'Navigation crumbtrail for streamPage could not be found.'
       })
     })
+  })
+
+  describe('decorateSelected', () => {
+    it('it marks active url components as `selected`', () => {
+      expect(drawerUK.items[0].submenu.items[1].submenu.items[1].selected).toBe(undefined)
+      expect(drawerUK.items[0].submenu.items[2].selected).toBe(undefined)
+
+      decorateSelected(drawerUK, '/world/uk')
+      expect(drawerUK.items[0].submenu.items[1].submenu.items[1].selected).toBe(true)
+      expect(drawerUK.items[0].submenu.items[2].selected).toBe(true)
+    })
+
+    // it('redirects URLs with including a ${currentPath} query string param', () => {
+    //   ${currentPath}
+    //   expect()
+    // })
   })
 })
