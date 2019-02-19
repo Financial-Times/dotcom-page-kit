@@ -3,7 +3,7 @@ module.exports = (placeholder) => `<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hi</title>
+  <title>FT Header Demo</title>
   <style>
     .core .o--if-js, .enhanced .o--if-no-js { display: none !important; }
     body {background-color:#fff1e5; color:#33302e;}

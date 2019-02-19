@@ -19,7 +19,7 @@ const headerProps = {
 
 module.exports = (_, response, next) => {
   headerProps.editions = response.locals.editions
-  // TODO Set data to response.locals.navigation.main once editions are fixed
+  // TODO Tidy up: Set data to response.locals.navigation.main once editions are fixed
   headerProps.data.navbar = response.locals.navigation.main['navbar-uk']
   headerProps.data['navbar-simple'] = response.locals.navigation.main['navbar-simple']
   headerProps.data['navbar-right'] = response.locals.navigation.main['navbar-right']
@@ -28,7 +28,6 @@ module.exports = (_, response, next) => {
   try {
     const html = ReactDOMServer.renderToStaticMarkup(HeaderDefault(headerProps))
     const page = document(html)
-
     response.send(page)
   } catch (error) {
     next(error)

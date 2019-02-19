@@ -5,8 +5,9 @@
   "main": "server/app.js",
   "license": "MIT",
   "scripts": {
-    "start": "node server/app.js",
-    "dev": "nodemon server/app.js"
+    "dev": "nodemon server/listen.js",
+    "start": "node server/listen.js",
+    "test": "../../node_modules/.bin/jest"
   },
   "dependencies": {
     "@financial-times/anvil-ui-ft-header": "file:../../packages/anvil-ui-ft-header",
