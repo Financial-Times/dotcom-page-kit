@@ -7,7 +7,8 @@ import storyData from './story-data/storyData'
 
 // falsey values are empty string because string coercion in storybook
 const toggleUserStateOptions = () => boolean('Enable user nav actions', true)
-const toggleSignOutOptions = () => radios('Show myFT sign out link', { show: true, hide: '' }, '')
+// TODO: can we remove this?
+const toggleMyFTSignOutOptions = () => boolean('Show myFT sign out link', false)
 const toggleVariantOptions = () => radios('Choose variant', { simple: 'simple', normal: 'normal' }, 'simple')
 const toggleAnonymous = () => boolean('User is anonymous', true)
 
@@ -42,8 +43,8 @@ storiesOf('FT / Header', module)
     )
   })
   .add('With crumbtrail component', () => {
-    // TODO: can we delete this?! It's weird.
-    storyData.options.showSignOut = toggleSignOutOptions()
+    // TODO: can we remove this?
+    storyData.options.showSignOut = toggleMyFTSignOutOptions()
     return (
       <OrigamiBuildService
         dependencies={{
