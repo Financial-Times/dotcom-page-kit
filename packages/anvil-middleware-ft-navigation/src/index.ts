@@ -19,7 +19,7 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
       response.locals.navigation.crumbtrail = {}
 
       const [navigation, crumbtrail] = await Promise.all([
-        poller.getNavigation(),
+        poller.getNavigationData(),
         options.enableCrumbtrail ? poller.getCrumbtrail(request.path) : null
       ])
       // TODO Revisit these names

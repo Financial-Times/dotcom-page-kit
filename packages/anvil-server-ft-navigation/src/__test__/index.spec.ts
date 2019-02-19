@@ -54,19 +54,6 @@ describe('anvil-server-ft-navigation', () => {
     })
   })
 
-  describe('.getMenu()', () => {
-    it('returns the requested menu data', async () => {
-      const result = await navigationInstance.getMenu('testMenu')
-      expect(result).toEqual(navigationData.testMenu)
-    })
-
-    it('rejects if the requested menu does not exist', async () => {
-      await expect(navigationInstance.getMenu('invalidMenu')).rejects.toThrowError(
-        'Navigation menu "invalidMenu" does not exist'
-      )
-    })
-  })
-
   describe('.getCrumbtrail()', () => {
     it('fetches the crumbtrail data', async () => {
       nock('http://next-navigation.ft.com')

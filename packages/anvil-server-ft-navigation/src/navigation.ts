@@ -3,6 +3,8 @@ import httpError from 'http-errors'
 import deepFreeze from 'deep-freeze'
 import fetch from 'node-fetch'
 
+import { TNavMenu, TOptions, TPollerOptions } from './types'
+
 const parseData = (data: TNavMenu) => {
   // Makes the navigation data completely immutable,
   // To modify the data, clone the parts you need to change then modify in your app
@@ -59,9 +61,11 @@ export class Navigation {
     }
   }
 
+  /*
   async getSelected(currentPath: string) {
     const currentPage = removeLeadingForwardSlash(currentPath)
     console.log('currentPage', currentPage)
     console.log('currentPath', currentPath)
   }
+  */
 }

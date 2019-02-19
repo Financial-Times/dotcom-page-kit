@@ -1,25 +1,25 @@
-type TOptions = {
+export type TOptions = {
   menuUrl: string
   crumbtrailUrl: string
   interval: number
 }
 
-type TPollerOptions = {
+export type TPollerOptions = {
   url: string
   refreshInterval: number
   parseData: object
 }
 
-type TNavMenus = {
+export type TNavMenus = {
   [menuId: string]: TNavMenu
 }
 
-type TNavMenu = {
+export type TNavMenu = {
   label: string
   items: TNavMenuItem[]
 }
 
-type TNavMenuItem = {
+export type TNavMenuItem = {
   label: string
   url: string
   submenu: TNavMenu | null
