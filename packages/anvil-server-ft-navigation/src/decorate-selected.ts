@@ -1,5 +1,7 @@
 import url from 'url'
 
+import { TNavMenu } from './types'
+
 /**
  * Add a `selected` attribute to `item`s whose url matches `currentUrl`
  *
@@ -7,7 +9,7 @@ import url from 'url'
  * @param currentUrl
  */
 export const decorateSelected = (navMenu: TNavMenu, currentUrl: string) => {
-  // const clone = 
+  // const clone =
   const currentPathName = url.parse(currentUrl).pathname
 
   for (let item of navMenu.items) {
