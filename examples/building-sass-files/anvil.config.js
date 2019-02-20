@@ -1,7 +1,9 @@
-const ftCssPlugin = require('@financial-times/anvil-plugin-ft-css').default
+const ftCss = require('@financial-times/anvil-plugin-ft-css')
 
 module.exports = {
-  plugins: [ftCssPlugin],
+  plugins: [
+    ftCss.plugin()
+  ],
   settings: {
     build: {
       entry: {
