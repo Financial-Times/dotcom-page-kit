@@ -17,7 +17,7 @@
     "postinstall": "athloi exec npm i -- --no-package-lock && bower install",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
     "storybook": "npm run storybook:generate && npm run storybook:concurrently",
-    "storybook:start": "start-storybook -p 9001 -c .storybook -h local.ft.com",
+    "storybook:start": "start-storybook -p 9001 -c .storybook",
     "storybook:generate": "node ./.storybook/scripts/generateConfig",
     "storybook:generate:watch": "nodemon -e tsx --watch packages --exec \"npm run storybook:generate\"",
     "storybook:concurrently": "concurrently \"npm run storybook:generate:watch\" \"npm run storybook:start\""
