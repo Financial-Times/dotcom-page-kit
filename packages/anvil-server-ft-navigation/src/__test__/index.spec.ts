@@ -88,7 +88,7 @@ describe('anvil-server-ft-navigation', () => {
       )
     })
 
-    it('replaces the ${currentPath} query string param with currentUrl', () => {
+    it('replaces the ${currentPath} query string param with the value of currentUrl', () => {
       const menu = decorateMenu(menus['drawer-uk'], '/world/us/politics')
       expect(menu.items[0].submenu.items[1].url).toBe('/fake-item?location=/world/us/politics')
       expect(menu.items[0].submenu.items[2].submenu.items[1].submenu.items[3].url).toBe(
@@ -96,12 +96,18 @@ describe('anvil-server-ft-navigation', () => {
       )
     })
 
-    // it('replaces the ${currentPath} query string param with "/" if `currentUrl` is omitted', () => {
-    //   const menu = decorateMenu(menus['drawer-uk'])
-    //   expect(menu.items[0].submenu.items[1].url).toBe('/fake-item?location=/')
-    //   expect(menu.items[0].submenu.items[2].submenu.items[1].submenu.items[3].url).toBe(
-    //     '/fake-item-nested?location=/'
-    //   )
-    // })
+    it('replaces URLs containing keywords with %2F', () => {
+      const testKeyword = (itemUrl: string) => {
+        const menu = decorateMenu(menus['drawer-uk'], itemUrl)
+        expect(menu.items[0].submenu.items[1].url).toBe('/fake-item?location=%2F')
+        expect(menu.items[0].submenu.items[2].submenu.items[1].submenu.items[3].url).toBe(
+          '/fake-item-nested?location=%2F'
+        )
+      }
+
+      testKeyword('/uk/products/bar')
+      testKeyword('/world/barriers')
+      testKeyword('/world/us/errors')
+    })
   })
 })
