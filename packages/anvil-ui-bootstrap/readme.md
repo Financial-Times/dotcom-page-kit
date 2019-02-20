@@ -61,39 +61,9 @@ Returns a JSON formatted string representing the configuration for the bootstrap
 
     An array of JavaScript file URLs which are required by the page if the browser successfully [cuts the mustard](#cutting-the-mustard) and should deliver an [enhanced experience](#core-enhanced).
 
-```js
-const configJSON = bootstrap.getConfigJSON(['core.js'], ['enhanced.js'])
-
-const configHTML = `
-  <script type="application/json" id="bootstrap-config">
-    ${configJSON}
-  </script>
-`
-```
-
 ### `.getSnippetJS()`
 
 Returns the JavaScript code as a string. This should be inserted into a `<script>` element.
-
-```js
-const bootstrapJS = bootstrap.getSnippetJS({ core: [], enhanced: [] })
-const bootstrapHTML = `
-  <script>
-    ${bootstrapJS}
-  </script>
-`
-```
-
-
-## Options
-
-### `coreScripts`
-
-An array of JavaScript file URLs which are required by the page if the browser fails to [cut the mustard](#cutting-the-mustard) and should deliver a [core experience](#core-enhanced).
-
-### `enhancedScripts`
-
-An array of JavaScript file URLs which are required by the page if the browser successfully [cuts the mustard](#cutting-the-mustard) and should deliver an [enhanced experience](#core-enhanced).
 
 
 ## Scope
