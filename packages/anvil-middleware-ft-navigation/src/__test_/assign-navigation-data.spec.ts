@@ -49,9 +49,10 @@ describe('anvil-middleware-ft-navigation/assign-navigation-data', () => {
   })
 
   describe('when the edition is empty or invalid', () => {
-    it('defaults to the UK edition if the edition is invalis', () => {
+    it('defaults to the UK edition if the edition is invalid', () => {
       expect(instanceInvalid).toEqual(responseUk)
     })
+
     it('defaults to the UK edition if the edition is missing', () => {
       expect(instanceEmpty).toEqual(responseUk)
     })
