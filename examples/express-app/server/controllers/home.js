@@ -13,6 +13,8 @@ module.exports = async (request, response) => {
   })
 
   try {
+    /* eslint-disable no-console */
+    console.log('hello')
     response.render('home.hbs', options)
   } catch (error) {
     console.error(error) // eslint-disable-line no-console

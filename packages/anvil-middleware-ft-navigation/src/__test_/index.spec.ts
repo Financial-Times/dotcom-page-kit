@@ -1,7 +1,10 @@
 import { init as subject } from '../index'
 import httpMocks from 'node-mocks-http'
 
-const fakeNavigation = { 'some-navigation-data': true }
+const fakeNavigation = {
+  navbar: 'navbar-uk',
+  drawer: 'drawer-uk'
+}
 
 const fakeCrumbtrail = {
   breadcrumb: 'some-breadcrumb',
@@ -24,7 +27,13 @@ jest.mock(
   { virtual: true }
 )
 
-describe('anvil-middleware-ft-navigation', () => {
+jest.mock('../assign-navigation-data', () => {
+  return {
+    assignNavigation: jest.fn().mockImplementation(() => fakeNavigation)
+  }
+})
+
+describe('anvil-middleware-ft-navigation/index', () => {
   let instance
   let instanceWithCrumbtrail
   let requestMock
@@ -35,7 +44,9 @@ describe('anvil-middleware-ft-navigation', () => {
     instance = subject()
     instanceWithCrumbtrail = subject({ enableCrumbtrail: true })
     requestMock = httpMocks.createRequest()
-    responseMock = httpMocks.createResponse()
+    responseMock = httpMocks.createResponse({
+      locals: { editions: { current: { id: 'some-edition-id' } } }
+    })
     next = jest.fn()
   })
 
@@ -55,6 +66,7 @@ describe('anvil-middleware-ft-navigation', () => {
       await instance(requestMock, responseMock, next)
       expect(responseMock.locals.navigation.main).toEqual(fakeNavigation)
     })
+
     it('does not set the crumbtrail properties on response.locals', async () => {
       await instance(requestMock, responseMock, next)
       expect(responseMock.locals.navigation.crumbtrail.breadcrumb).toBeNull()

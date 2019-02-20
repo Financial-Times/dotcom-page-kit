@@ -1,6 +1,7 @@
 import deepFreeze from 'deep-freeze'
 
 const addEditionBasedProperties = (navigation, currentEdition) => {
+  console.log('\x1b[35m', 'addEditionBasedProperties called', '\x1b[0m')
   // Navigation data from the anvil-ft-server-navigation package is frozen
   // and must be cloned before modification
   const clonedNavigation = JSON.parse(JSON.stringify(navigation))
@@ -18,6 +19,5 @@ export const assignNavigation = (navigation, editions) => {
     // Re-freezes the navigation data making it completely immutable
     return deepFreeze(response)
   }
-
   return navigation
 }
