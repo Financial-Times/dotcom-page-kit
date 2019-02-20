@@ -10,7 +10,7 @@ const fakeCrumbtrail = {
 
 const FakePoller = {
   start: jest.fn(),
-  getNavigation: jest.fn().mockImplementation(() => fakeNavigation),
+  getNavigationData: jest.fn().mockImplementation(() => fakeNavigation),
   getCrumbtrail: jest.fn().mockImplementation(() => fakeCrumbtrail)
 }
 
