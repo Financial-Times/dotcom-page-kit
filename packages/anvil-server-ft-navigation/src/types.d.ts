@@ -23,5 +23,5 @@ export type TNavMenuItem = {
   label: string
   url: string
   submenu: TNavMenu | null
-  selected: boolean
+  selected?: boolean
 }
