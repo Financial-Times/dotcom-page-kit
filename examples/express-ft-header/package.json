@@ -1,5 +1,5 @@
 {
-  "name": "express-ft-header",
+  "name": "example-express-ft-header",
   "private": true,
   "version": "0.0.0",
   "main": "server/app.js",
@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@financial-times/anvil-ui-ft-header": "file:../../packages/anvil-ui-ft-header",
+    "@financial-times/anvil-middleware-ft-edition": "file:../../packages/anvil-middleware-ft-edition",
+    "@financial-times/anvil-middleware-ft-navigation": "file:../../packages/anvil-middleware-ft-navigation",
     "express": "^4.16.2",
     "react-dom": "^16.8.2"
   },
