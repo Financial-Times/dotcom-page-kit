@@ -50,7 +50,7 @@
       try {
         scriptsConfig = JSON.parse(scriptsConfigEl.innerHTML)
       } catch (error) {
-        console.error('Scripts configuration error', error) // eslint-disable-line no-console
+        console.error('Bootstrap configuration error', error) // eslint-disable-line no-console
       }
     }
 

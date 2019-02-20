@@ -1,6 +1,6 @@
 # @financial-times/anvil-ui-bootstrap
 
-This module provides a client-side bootstrap to be embedded in your HTML pages. The bootstrap implements feature detection ([cuts the mustard](#cutting-the-mustard)) to determine if a browser should receive a core or enhanced experience, and the capability to load script files as appropriate.
+This module provides a JavaScript bootstrap for your client-side code which can be embedded in your HTML pages. The bootstrap implements feature detection ([cuts the mustard](#cutting-the-mustard)) to determine if the browser should receive a core or enhanced experience, and the capability to load script files as appropriate.
 
 
 ## Getting started
@@ -19,25 +19,28 @@ After installing the module you should add `no-js` and `core` class names to you
 + <html class="no-js core">
 ```
 
-This module provides three methods which each return a piece of the bootstrap code: the configuration JSON, the JavaScript snippet, or both as a complete HTML string. To start, include the module in your server-side code:
+This module provides two methods which each return a piece of the bootstrap code: the configuration JSON and the JavaScript snippet.
+
+The bootstrap code should be embedded in the `<head>` section of your pages to ensure scripts begin downloading as soon as possible.
 
 ```js
 const bootstrap = require('@financial-times/anvil-ui-bootstrap')
-```
 
-The bootstrap code should be embedded in the `<head>` of your pages to ensure scripts begin downloading as soon as possible.
-
-```js
-function view() {
+function page() {
   return `<!DOCTYPE html>
-    <html>
+    <html class="no-js core">
     <head>
       <meta charSet="utf-8">
       <title>My Amazing Website</title>
-      ${bootstrap.getHTML()}
+      <script type="application/json" id="bootstrap-config">
+        ${bootstrap.getConfigJSON(options)}
+      </script>
+      <script>
+        ${bootstrap.getSnippetJS()}
+      </script>
     </head>
     <body>
-      <p>Hello World</p>
+      ...
     </body>
   </html>`
 }
@@ -46,16 +49,21 @@ function view() {
 
 ## API
 
-### `.getHTML(options)`
+### `.getConfigJSON(coreScripts, enhancedScripts)`
 
-Returns a string of HTML containing two script tags; one for the configuration JSON and one for the bootstrap script. This method requires [options](#options) to be provided.
+Returns a JSON formatted string representing the configuration for the bootstrap snippet. This must be inserted into a `<script>` element with an ID of `bootstrap-config`. This method requires two arguments:
 
-### `.getConfigJSON(options)`
+1. `coreScripts`
 
-Returns a JSON formatted string containing configuration for the bootstrap script. This should be inserted into a `<script>` element with an ID of `bootstrap-config`. This method requires [options](#options) to be provided.
+    An array of JavaScript file URLs which are required by the page if the browser fails to [cut the mustard](#cutting-the-mustard) and should deliver a [core experience](#core-enhanced).
+
+2. `enhancedScripts`
+
+    An array of JavaScript file URLs which are required by the page if the browser successfully [cuts the mustard](#cutting-the-mustard) and should deliver an [enhanced experience](#core-enhanced).
 
 ```js
-const configJSON = bootstrap.getConfigJSON({ core: [], enhanced: [] })
+const configJSON = bootstrap.getConfigJSON(['core.js'], ['enhanced.js'])
+
 const configHTML = `
   <script type="application/json" id="bootstrap-config">
     ${configJSON}
