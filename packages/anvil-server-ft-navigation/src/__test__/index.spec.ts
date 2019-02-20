@@ -1,7 +1,7 @@
 import nock from 'nock'
 
 import { Navigation } from '../'
-import { decorateMenu } from '../decorate-selected'
+import { decorateMenu } from '../decorate-menu'
 import menus from '../__fixtures__/menus'
 
 const navigationData = {
