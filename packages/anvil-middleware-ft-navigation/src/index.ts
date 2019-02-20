@@ -17,24 +17,14 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
       response.locals.navigation = {}
       response.locals.navigation.crumbtrail = {}
 
-      console.log('\x1b[35m', 'response.locals.navigation 1 = ', response.locals.navigation, '\x1b[0m')
-
       const [navigation, crumbtrail] = await Promise.all([
         poller.getNavigation(),
         options.enableCrumbtrail ? poller.getCrumbtrail(request.path) : null
       ])
       // TODO Revisit these names
-      console.log('\x1b[35m', 'response.locals.navigation 2 = ', response.locals.navigation, '\x1b[0m')
-      console.log('\x1b[35m', 'assignNavigation = ', assignNavigation, '\x1b[0m')
-
       response.locals.navigation.main = assignNavigation(navigation, response.locals.editions)
-      // response.locals.navigation.main = navigation
-
       response.locals.navigation.crumbtrail.breadcrumb = crumbtrail && crumbtrail.breadcrumb
       response.locals.navigation.crumbtrail.subsections = crumbtrail && crumbtrail.subsections
-
-      console.log('\x1b[35m', 'response.locals.navigation 3 = ', response.locals.navigation, '\x1b[0m')
-      // console.log('response.locals \n', response.locals)
 
       next()
     } catch (error) {
