@@ -1,8 +1,8 @@
 import nock from 'nock'
 
 import { Navigation } from '../'
-import { decorateSelected } from '../decorate-selected'
-import drawerUK from '../__fixtures__/menus'
+import { decorateMenu } from '../decorate-selected'
+import menus from '../__fixtures__/menus'
 
 const navigationData = {
   testData: 'some-navigation-data',
@@ -75,19 +75,33 @@ describe('anvil-server-ft-navigation', () => {
     })
   })
 
-  describe('decorateSelected', () => {
-    it('it marks active url components as `selected`', () => {
-      expect(drawerUK.items[0].submenu.items[1].submenu.items[1].selected).toBe(undefined)
-      expect(drawerUK.items[0].submenu.items[2].selected).toBe(undefined)
+  describe('decorateMenu', () => {
+    it('it marks items whose `url` property matches `currentUrl` as `selected`', () => {
+      const menu = decorateMenu(menus['drawer-uk'], '/world/uk')
 
-      decorateSelected(drawerUK, '/world/uk')
-      expect(drawerUK.items[0].submenu.items[1].submenu.items[1].selected).toBe(true)
-      expect(drawerUK.items[0].submenu.items[2].selected).toBe(true)
+      expect(menu.items[0].submenu.items[2].submenu.items[1].selected).toBe(true)
+      expect(menu.items[0].submenu.items[3].selected).toBe(true)
+
+      expect(menu.items[0].submenu.items[1].url).toBe('/fake-item?location=/world/uk')
+      expect(menu.items[0].submenu.items[2].submenu.items[1].submenu.items[3].url).toBe(
+        '/fake-item-nested?location=/world/uk'
+      )
     })
 
-    // it('redirects URLs with including a ${currentPath} query string param', () => {
-    //   ${currentPath}
-    //   expect()
+    it('replaces the ${currentPath} query string param with currentUrl', () => {
+      const menu = decorateMenu(menus['drawer-uk'], '/world/us/politics')
+      expect(menu.items[0].submenu.items[1].url).toBe('/fake-item?location=/world/us/politics')
+      expect(menu.items[0].submenu.items[2].submenu.items[1].submenu.items[3].url).toBe(
+        '/fake-item-nested?location=/world/us/politics'
+      )
+    })
+
+    // it('replaces the ${currentPath} query string param with "/" if `currentUrl` is omitted', () => {
+    //   const menu = decorateMenu(menus['drawer-uk'])
+    //   expect(menu.items[0].submenu.items[1].url).toBe('/fake-item?location=/')
+    //   expect(menu.items[0].submenu.items[2].submenu.items[1].submenu.items[3].url).toBe(
+    //     '/fake-item-nested?location=/'
+    //   )
     // })
   })
 })
