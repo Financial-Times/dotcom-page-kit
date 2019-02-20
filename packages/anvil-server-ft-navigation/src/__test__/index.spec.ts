@@ -1,8 +1,6 @@
 import nock from 'nock'
 
 import { Navigation } from '../'
-import { decorateMenu } from '../decorate-menu'
-import menus from '../__fixtures__/menus'
 
 const navigationData = {
   testData: 'some-navigation-data',
@@ -72,42 +70,6 @@ describe('anvil-server-ft-navigation', () => {
       await expect(navigationInstance.getCrumbtrail('streamPage')).rejects.toMatchObject({
         message: 'Navigation crumbtrail for streamPage could not be found.'
       })
-    })
-  })
-
-  describe('decorateMenu', () => {
-    it('it marks items whose `url` property matches `currentUrl` as `selected`', () => {
-      const menu = decorateMenu(menus['drawer-uk'], '/world/uk')
-
-      expect(menu.items[0].submenu.items[2].submenu.items[1].selected).toBe(true)
-      expect(menu.items[0].submenu.items[3].selected).toBe(true)
-
-      expect(menu.items[0].submenu.items[1].url).toBe('/fake-item?location=/world/uk')
-      expect(menu.items[0].submenu.items[2].submenu.items[1].submenu.items[3].url).toBe(
-        '/fake-item-nested?location=/world/uk'
-      )
-    })
-
-    it('replaces the ${currentPath} query string param with the value of currentUrl', () => {
-      const menu = decorateMenu(menus['drawer-uk'], '/world/us/politics')
-      expect(menu.items[0].submenu.items[1].url).toBe('/fake-item?location=/world/us/politics')
-      expect(menu.items[0].submenu.items[2].submenu.items[1].submenu.items[3].url).toBe(
-        '/fake-item-nested?location=/world/us/politics'
-      )
-    })
-
-    it('replaces URLs containing keywords with %2F', () => {
-      const testKeyword = (itemUrl: string) => {
-        const menu = decorateMenu(menus['drawer-uk'], itemUrl)
-        expect(menu.items[0].submenu.items[1].url).toBe('/fake-item?location=%2F')
-        expect(menu.items[0].submenu.items[2].submenu.items[1].submenu.items[3].url).toBe(
-          '/fake-item-nested?location=%2F'
-        )
-      }
-
-      testKeyword('/uk/products/bar')
-      testKeyword('/world/barriers')
-      testKeyword('/world/us/errors')
     })
   })
 })
