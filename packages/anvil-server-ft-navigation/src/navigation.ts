@@ -3,7 +3,7 @@ import httpError from 'http-errors'
 import deepFreeze from 'deep-freeze'
 import fetch from 'node-fetch'
 
-import { TNavMenu, TOptions, TPollerOptions } from './types'
+import { TNavMenu, TOptions } from './types'
 
 const parseData = (data: TNavMenu) => {
   // Makes the navigation data completely immutable,
@@ -22,9 +22,9 @@ const defaults: TOptions = {
 }
 
 export class Navigation {
-  public options: TOptions
-  public poller: Poller<TPollerOptions>
-  public initialPromise: Promise<any>
+  public options
+  public poller
+  public initialPromise: Promise<void>
 
   constructor(options = {}) {
     this.options = { ...defaults, ...options }
@@ -60,12 +60,4 @@ export class Navigation {
       throw httpError(response.status, `Navigation crumbtrail for ${currentPage} could not be found.`)
     }
   }
-
-  /*
-  async getSelected(currentPath: string) {
-    const currentPage = removeLeadingForwardSlash(currentPath)
-    console.log('currentPage', currentPage)
-    console.log('currentPath', currentPath)
-  }
-  */
 }

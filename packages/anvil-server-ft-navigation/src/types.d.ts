@@ -4,12 +4,6 @@ export type TOptions = {
   interval: number
 }
 
-export type TPollerOptions = {
-  url: string
-  refreshInterval: number
-  parseData: object
-}
-
 export type TNavMenus = {
   [menuId: string]: TNavMenu
 }
