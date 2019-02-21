@@ -4,6 +4,8 @@
   - [Loading plugins](#loading-plugins)
 - [Existing anvil plugins](#existing-anvil-plugins)
 - [Returning values from handlers](#returning-values-from-handlers)
+- [Best practices for creating plugins](#best-practices-for-creating-plugins)
+  - [Array items of note should be published for amendment](#Array-items-of-note-should-be-published-for-amendment)
 
 ## Getting Started
 
@@ -217,3 +219,106 @@ export default ({on} => {
 ```
 
 In summary, it is not at all necessary to use `webpack-merge`. This is because its default behavior has already been accommodated for in `anvil`, and where its smart merging capabilities are concerned, we consider it bad practice for them to be used.
+
+## Best practices for creating plugins
+
+### Array items of note should be published for amendment
+
+> _RULE: In order to ensure that the system as a whole remains resilient to change, array items that other plugins may be interested in amending, should be published for amendment, as this prevents private details (such as the exact location of the item within the array, for example,) from leaking into the public interface._
+
+When creating plugins (especially plugins that will be publicly shared), there are situations when it is necessary to make available a particular piece of data to be amended. Array items like [webpack rules], for example, are items that should always be published for amendment. This is because if they are not published, other plugins that need to amend a rule will have to know exactly where that rule resides within the `module.rules` array, and this is not ideal. Take the example of adding an option to the webpack scripts rule. It's not ideal for plugins to have to do the following in order to add the option:
+
+```js
+function somePlugin({ on }) {
+  on('webpackConfig', ({ resource: webpackConfig }) => {
+    webpackConfig.module.rules[3].use.options.cacheDirectory = false
+  })
+}
+```
+
+It's not ideal because there are no guarantees that the scripts rule will always be the third rule of the `webpackConfig.module.rules` array. A future refactor could result in the scripts rule becoming the first rule in the array, at which point all plugins that are banking on the scripts rule being in the third position, will now no longer work. Details like where an item is in a particular array, are the sort of details that should be considered private in order to ensure that plugins remain loosely coupled to both the core system and each other, so that the system overall remains resilient to change. So rather than explicitly binding to the position of the rule in order to amend the rule, it is instead better / healthier to bind to the rule directly, by do the following:
+
+```js
+function somePlugin({ on }) {
+  on('webpackScriptsRule', ({ resource: scriptsRule }) => {
+    scriptsRule.use.options.cacheDirectory = false
+  })
+}
+```
+
+Or even better,...
+
+```js
+function somePlugin({ on }) {
+  on('webpackScriptsRule', () => {
+    return {
+      use: {
+        options: {
+          cacheDirectory: false
+        }
+      }
+    }
+  })
+}
+```
+
+> See the section on [Returning values from handlers] for why this is better
+
+This way, the plugin no longer needs to know where exactly in the `module.rules` array that the scripts rule is located, in order to amend it. Now it's possible to search the array for the scripts rule as follows:
+
+```js
+function somePlugin({ on }) {
+  on('webpackConfig', ({ resource: webpackConfig }) => {
+    const scriptsRule = webpackConfig.module.rules.find((rule) => rule.test.test('.js'))
+    scriptsRule.use.options.cacheDirectory = false
+  })
+}
+```
+
+This, however, is still not ideal for the same reasons (and also because it is much harder to grok at first glance). It is not guaranteed that the `test` property of the scripts rule will contain a regex that has been configured to match the `.js` string because another plugin, for example, could have amended it to only match typescript files. For this reason, the safest and cleanest option is for array items to be published for amendment so that plugins can subscribe to amend them directly.
+
+Now in order to publish a resource from within a plugin, the handler function can make use of the `Publisher` instance that is supplied to it as follows:
+
+```js
+function pluginThatAddsCssRule({ on }) {
+  on('webpackConfig', ({ publisher }) => {
+    const cssRule = {...}
+
+    publisher.publish('webpackCssRule', cssRule)
+
+    return {
+      module: {
+        rules: [
+          cssRule
+        ]
+      }
+    }
+
+  })
+}
+```
+
+The `publish` function is also passed to the handler function for convenience, thus making it possible to also do the following:
+
+```js
+function pluginThatAddsCssRule({ on }) {
+  on('webpackConfig', ({ publish }) => {
+    const cssRule = {...}
+
+    publish('webpackCssRule', cssRule)
+
+    return {
+      module: {
+        rules: [
+          cssRule
+        ]
+      }
+    }
+  })
+}
+```
+
+So in summary, as a best practice, array items that other plugins may be interested in amending should always be published for amendment in order to prevent private details such as the the exact location of the item within the array, for example, from leaking into the public interface. Not only does doing this ensure that the system as a whole remains resilient to change, but it also helps to ensure that the code remains easy to reason about.
+
+[webpack rules]: https://webpack.js.org/configuration/module/#modulerules
+[returning values from handlers]: #returning-values-from-handlers
