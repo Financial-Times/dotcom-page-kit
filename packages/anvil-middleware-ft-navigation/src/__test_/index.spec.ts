@@ -38,6 +38,7 @@ describe('anvil-middleware-ft-navigation/index', () => {
   let instanceWithCrumbtrail
   let requestMock
   let responseMock
+  let responseMockNoEditions
   let next
 
   beforeEach(() => {
@@ -46,6 +47,9 @@ describe('anvil-middleware-ft-navigation/index', () => {
     requestMock = httpMocks.createRequest()
     responseMock = httpMocks.createResponse({
       locals: { editions: { current: { id: 'some-edition-id' } } }
+    })
+    responseMockNoEditions = httpMocks.createResponse({
+      locals: {}
     })
     next = jest.fn()
   })
@@ -66,7 +70,6 @@ describe('anvil-middleware-ft-navigation/index', () => {
       await instance(requestMock, responseMock, next)
       expect(responseMock.locals.navigation.main).toEqual(fakeNavigation)
     })
-
     it('does not set the crumbtrail properties on response.locals', async () => {
       await instance(requestMock, responseMock, next)
       expect(responseMock.locals.navigation.crumbtrail.breadcrumb).toBeNull()
@@ -95,6 +98,13 @@ describe('anvil-middleware-ft-navigation/index', () => {
     it('catches the error', async () => {
       await instance(requestMock, invalidResponseMock, next)
       expect(next).toHaveBeenCalledWith(expect.any(Error))
+    })
+  })
+
+  describe('without editions data', () => {
+    it('can handle an empty response.locals', async () => {
+      await instance(requestMock, responseMockNoEditions, next)
+      expect(responseMockNoEditions.locals.navigation.main).toEqual(fakeNavigation)
     })
   })
 })
