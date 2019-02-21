@@ -27,9 +27,9 @@ jest.mock(
   { virtual: true }
 )
 
-jest.mock('../assign-navigation-data', () => {
+jest.mock('../assignNavigationData', () => {
   return {
-    navigationWithEditionsBasedFields: jest.fn().mockImplementation(() => fakeNavigation)
+    getNavigationForEdition: jest.fn().mockImplementation(() => fakeNavigation)
   }
 })
 

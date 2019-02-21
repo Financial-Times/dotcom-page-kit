@@ -1,4 +1,4 @@
-import { navigationWithEditionsBasedFields as subject } from '../assign-navigation-data'
+import { getNavigationForEdition as subject } from '../assignNavigationData'
 
 const fakeNavigation = { someKey: 'someValue' }
 const fakeEditionsUk = { current: { id: 'uk' } }

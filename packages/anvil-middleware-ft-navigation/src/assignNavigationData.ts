@@ -1,6 +1,6 @@
 import deepFreeze from 'deep-freeze'
 
-export const navigationWithEditionsBasedFields = (navigation, editions) => {
+export const getNavigationForEdition = (navigation, editions) => {
   // Navigation data from the anvil-ft-server-navigation package is frozen
   // and must be cloned before modification
   const clonedNavigation = JSON.parse(JSON.stringify(navigation))
