@@ -1,17 +1,18 @@
 import React from 'react'
-import OpenGraph from './OpenGraph'
-import JsonLD from './JsonLD'
-import StyleSheets from './StyleSheets'
-import Scripts from './Scripts'
+import OpenGraph from './Head/OpenGraph'
+import JsonLD from './Head/JsonLD'
+import StyleSheets from './Head/StyleSheets'
+import Scripts from './Head/Scripts'
+import { TDocumentHeadProps } from './Head/props'
 
-const HtmlHead = (props) => (
+const DocumentHead = (props: TDocumentHeadProps) => (
   <React.Fragment>
     <meta charSet="utf-8" />
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>{props.pageTitle ? `${props.pageTitle} | ${props.siteTitle}` : props.siteTitle}</title>
-    <meta name="description" content={props.description || props.summary} />
+    <meta name="description" content={props.description} />
     <link rel="canonical" href={props.url} />
 
     {/* resource hints */}
@@ -34,7 +35,7 @@ const HtmlHead = (props) => (
   </React.Fragment>
 )
 
-HtmlHead.defaultProps = {
+DocumentHead.defaultProps = {
   description:
     'News, analysis and comment from the Financial Times, the worldʼs leading global business publication',
   robots: 'index,follow',
@@ -42,4 +43,4 @@ HtmlHead.defaultProps = {
   googleSiteVerification: '4-t8sFaPvpO5FH_Gnw1dkM28CQepjzo8UjjAkdDflTw'
 }
 
-export default HtmlHead
+export default DocumentHead

@@ -1,6 +1,7 @@
 import React from 'react'
+import { TDocumentHeadProps } from './props'
 
-const Stylesheets = ({ stylesheets, criticalStyles }) => (
+const Stylesheets = ({ stylesheets, criticalStyles }: TDocumentHeadProps) => (
   <React.Fragment>
     <style dangerouslySetInnerHTML={{ __html: criticalStyles }} />
     {stylesheets && stylesheets.map((stylesheet) => <link rel="stylesheet" href={stylesheet} />)}

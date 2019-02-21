@@ -1,4 +1,5 @@
 import React from 'react'
+import { TDocumentHeadProps } from './props'
 
 const OpenGraph = ({
   description,
@@ -12,14 +13,13 @@ const OpenGraph = ({
   socialDescription,
   socialHeadline,
   socialImage,
-  summary,
   twitterCard,
   twitterDescription,
   twitterHeadline,
   twitterImage,
   twitterSite,
   url
-}) => (
+}: TDocumentHeadProps) => (
   <React.Fragment>
     <meta property="og:locale" content="en_GB" />
     <meta property="og:site_name" content={siteTitle} />
@@ -29,11 +29,11 @@ const OpenGraph = ({
 
     <meta
       name="twitter:description"
-      content={twitterDescription || socialDescription || summary || description}
+      content={twitterDescription || socialDescription || description}
     />
     <meta
       property="og:description"
-      content={facebookDescription || socialDescription || summary || description}
+      content={facebookDescription || socialDescription || description}
     />
 
     <meta name="twitter:url" content={url} />
