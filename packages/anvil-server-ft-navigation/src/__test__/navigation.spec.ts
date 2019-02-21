@@ -1,12 +1,7 @@
 import nock from 'nock'
 
-import { Navigation } from '../'
-
-const navigationData = {
-  testData: 'some-navigation-data',
-  testMenu: 'some-menu-data',
-  streamPage: 'some-stream-id'
-}
+import { Navigation } from '..'
+import { menus as navigationData } from '../__fixtures__/menus'
 
 const crumbtrailData = {
   testData: 'some-crumbtrail-data',
@@ -52,6 +47,18 @@ describe('anvil-server-ft-navigation', () => {
     })
   })
 
+  describe('getPathMenu', () => {
+    it('returns a decorated object', async () => {
+      const pathMenu = await navigationInstance.getPathMenu('drawer-uk', '/world/uk')
+
+      expect(pathMenu.items[0].selected).toBe(true)
+      expect(pathMenu.items[1].submenu.items[0].selected).toBe(true)
+      expect(pathMenu.items[1].url).toBe('/fake-item?location=/world/uk')
+      expect(pathMenu.items[1].submenu.items[1].url).toBe('/fake-item-nested?location=/world/uk')
+    })
+  })
+
+  // nock used here because Crumbtrail fetches its data directly rather than pulling from Poller
   describe('.getCrumbtrail()', () => {
     it('fetches the crumbtrail data', async () => {
       nock('http://next-navigation.ft.com')

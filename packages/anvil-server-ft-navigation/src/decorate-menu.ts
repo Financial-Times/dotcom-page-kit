@@ -8,7 +8,7 @@ import { TNavMenu, TNavMenuItem } from './types'
  * @param menu
  * @param currentUrl
  */
-export const decorateMenu = ({ label, items }: TNavMenu, currentUrl: string) => {
+export const decorateMenu = ({ label, items }: TNavMenu, currentUrl: string): TNavMenu => {
   const currentPathName = url.parse(currentUrl).pathname
 
   return {
