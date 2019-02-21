@@ -3,7 +3,9 @@ import httpError from 'http-errors'
 import deepFreeze from 'deep-freeze'
 import fetch from 'node-fetch'
 
-import { TNavMenu, TOptions } from './types'
+import { decorateMenu } from '.'
+
+import { TNavMenus, TNavMenu, TOptions } from './types'
 
 const parseData = (data: TNavMenu) => {
   // Makes the navigation data completely immutable,
@@ -38,11 +40,16 @@ export class Navigation {
     this.initialPromise = this.poller.start({ initialRequest: true })
   }
 
-  async getNavigationData() {
+  async getNavigationData(): Promise<TNavMenus> {
     // initialPromise does not resolve any data
     // but it must resolve before `.data` is available to read.
     await this.initialPromise
     return this.poller.getData()
+  }
+
+  async getPathMenu(menuId: string, path: string) {
+    const data = await this.getNavigationData()
+    return decorateMenu(data[menuId], path)
   }
 
   async getCrumbtrail(currentPath: string) {
