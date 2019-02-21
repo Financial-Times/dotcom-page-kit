@@ -1,6 +1,8 @@
 import React from 'react'
 import OpenGraph from './OpenGraph'
 import JsonLD from './JsonLD'
+import StyleSheets from './StyleSheets'
+import Scripts from './Scripts'
 
 const HtmlHead = (props) => (
   <React.Fragment>
@@ -17,6 +19,10 @@ const HtmlHead = (props) => (
     <link rel="preconnect" href="https://session-next.ft.com" crossorigin="use-credentials" />
     <link rel="preconnect" href="https://ads-api.ft.com" />
     <link rel="preconnect" href="https://www.googletagservices.com" />
+
+    {/* assets */}
+    <StyleSheets {...props} />
+    <Scripts {...props} />
 
     {/* SEO */}
     <meta name="robots" content={props.robots} />
