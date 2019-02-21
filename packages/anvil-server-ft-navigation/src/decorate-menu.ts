@@ -17,8 +17,8 @@ export const decorateMenu = ({ label, items }: TNavMenu, currentUrl: string) => 
       let selected = false
 
       if (typeof url === 'string' && url.includes('${currentPath}')) {
-        const shouldRedirect = !currentPathName || !/\/(products|barriers|errors)/.test(currentPathName)
-        const redirectPath = shouldRedirect ? currentUrl : '%2F'
+        const shouldReplace = !currentPathName || !/\/(products|barriers|errors)/.test(currentPathName)
+        const redirectPath = shouldReplace ? currentUrl : '%2F'
         url = url.replace('${currentPath}', redirectPath)
       }
 
@@ -30,8 +30,9 @@ export const decorateMenu = ({ label, items }: TNavMenu, currentUrl: string) => 
         submenu = decorateMenu(submenu, currentUrl)
       }
 
-      // Only add the selected property if true
-      return [...acc, selected ? { label, url, submenu, selected } : { label, url, submenu }]
+      acc.push({ label, url, submenu, selected })
+
+      return acc
     }, [])
   }
 }
