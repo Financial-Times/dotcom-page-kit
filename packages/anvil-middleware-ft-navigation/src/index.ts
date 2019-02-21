@@ -1,5 +1,5 @@
 import { Navigation } from '@financial-times/anvil-server-ft-navigation'
-import { assignNavigation } from './assign-navigation-data'
+import { navigationWithEditionsBasedFields } from './assign-navigation-data'
 
 interface MiddlewareOptions {
   enableCrumbtrail?: boolean
@@ -22,7 +22,7 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
         poller.getNavigation(),
         options.enableCrumbtrail ? poller.getCrumbtrail(request.path) : null
       ])
-      response.locals.navigation.main = assignNavigation(navigation, response.locals.editions)
+      response.locals.navigation.main = navigationWithEditionsBasedFields(navigation, response.locals.editions)
       response.locals.navigation.crumbtrail.breadcrumb = crumbtrail && crumbtrail.breadcrumb
       response.locals.navigation.crumbtrail.subsections = crumbtrail && crumbtrail.subsections
 

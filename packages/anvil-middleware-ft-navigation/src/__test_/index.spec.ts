@@ -29,7 +29,7 @@ jest.mock(
 
 jest.mock('../assign-navigation-data', () => {
   return {
-    assignNavigation: jest.fn().mockImplementation(() => fakeNavigation)
+    navigationWithEditionsBasedFields: jest.fn().mockImplementation(() => fakeNavigation)
   }
 })
 
