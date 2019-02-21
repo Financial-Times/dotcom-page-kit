@@ -19,3 +19,8 @@ export type TNavMenuItem = {
   submenu: TNavMenu | null
   selected?: boolean
 }
+
+export type TNavCrumbtrail = {
+  breadcrumb: {}
+  subsections: {}
+}
