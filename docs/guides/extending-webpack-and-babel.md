@@ -1,40 +1,72 @@
 # Extending the Core Webpack and Babel Config
 
-In order to extend the core webpack or babel config, a plugin will have to be authored. Plugins are functions that subscribe to be notified when a resource is published, so that they can have a chance to amend the resource in some way. During the life cycle of invoking the `anvil build` cli command, multiple resources will be published for possible amendment, and these include the webpack and babel config. So in order to extend the webpack config for instance, a plugin that subscribes to be notified when the `webpackConfig` resource is published for amendment, will be required. The following is an example of a plugin that [enables symlink resolves](https://webpack.js.org/configuration/resolve/#resolve-symlinks) on the webpack config:
+- [Getting started](#getting-started)
+  - [Loading plugins](#loading-plugins)
+- [Existing anvil plugins](#existing-anvil-plugins)
+- [Returning values from handlers](#returning-values-from-handlers)
+
+## Getting Started
+
+In order to extend the core webpack or babel config, a plugin will have to be authored. Plugins are functions that subscribe to be notified when a resource is published, so that they can have a chance to amend the resource in some way. During the life cycle of invoking the `anvil build` cli command, multiple resources will be published for possible amendment, and these include the webpack and babel config. The following is an example of a plugin that [enables symlink resolves](https://webpack.js.org/configuration/resolve/#resolve-symlinks) on the webpack config:
 
 ```js
-export default ({ on }) => {
-  on('webpackConfig', ({ resource: webpackConfig }) => {
+function webpackPlugin(publisher) {
+  publisher.on('webpackConfig', ({ resource: webpackConfig }) => {
     webpackConfig.resolve.symlinks = true
   })
 }
 ```
 
-The first thing to note is that the plugin is being declared as a default export. The system expects plugins to be declared as the default export. The second thing to note is that the webpack config is being passed to the handler function as the property `resource`. This is how the resource that the plugin is subscribing to amend will be passed to the resource handler. So to extend the babel config, for instance, the plugin will be declared as follows:
+The first thing to note is that the plugin accepts a [`Publisher`] instance. The plugin then subscribes on the `Publisher` instance to handle / amend the resource named `webpackConfig`, which is in turn passed to the handler function as the argument property named `resource`. The resource handler function then amends the webpack config object directly to enable symlinks. The pattern is the same when creating any plugin. A plugin that extends the `babelConfig` for example, would look like the following:
 
 ```js
-export default ({ on }) => {
+function babelPlugin({ on }) {
   on('babelConfig', ({ resource: babelConfig }) => {
     doSomethingToTheBabelConfig(babelConfig)
   })
 }
 ```
 
-The third thing to note is that the system expects the resource to be directly amended, as in...
+### Loading plugins
+
+Once the plugin has been authored, it will have to be loaded. To do so, the plugin should be added to the `anvil.config.js` file. The `anvil.config.js` file is the file that plugins and Anvil CLI settings are declared in. This file is expected to be in the project root. The following is an example of an `anvil.config.js` file that specifies two plugins:
 
 ```js
-webpackConfig.resolve.symlinks = true
-```
+module.exports = {
+  plugins: [
+    webpackPlugin,
+    babelPlugin
+  ]
+}
 
-## Loading plugins
+function webpackPlugin ({ on }) {
+  on('webpackConfig', ({ resource: webpackConfig }) => {
+    ...
+  })
+}
 
-Once the plugin has been authored, it will have to be loaded. To do so, the path to it (relative to the project root) has to be added to the `avil.config.js` file. The `anvil.config.js` file is the file that plugins and their related settings are declared in. This file is located in the project root. So if the plugin is located in `<ProjectRoot>/plugins/extendWebpack.js` for instance, then an `anvil.config.js` that looks like the following will be needed for the plugin to be picked up, the next time that the `anvil build` cli command is run:
-
-```json
-{
-  "plugins": ["./plugins/extendWebpack"]
+function babelPlugin ({ on }) => {
+  on('babelConfig', ({ resource: babelConfig }) => {
+    ...
+  })
 }
 ```
+
+See the [`anvil` package readme] for more information on the `anvil.config.js` file
+
+## Existing anvil plugins
+
+Below is a list of the existing anvil plugins that are available for use
+
+- [@financial-time/anvil-plugin-bower-resolve](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-bower-resolve)
+- [@financial-time/anvil-plugin-code-splitting](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-code-splitting)
+- [@financial-time/anvil-plugin-css](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-css)
+- [@financial-time/anvil-plugin-esnext](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-esnext)
+- [@financial-time/anvil-plugin-ft-css](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-ft-css)
+- [@financial-time/anvil-plugin-ft-js](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-ft-js)
+
+[`publisher`]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-pluggable
+[`anvil` package readme]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil
 
 ## Returning values from handlers
 
