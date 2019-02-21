@@ -1,5 +1,6 @@
 import React from 'react'
 import OpenGraph from './OpenGraph'
+import JsonLD from './JsonLD'
 
 const HtmlHead = (props) => (
   <React.Fragment>
@@ -20,6 +21,7 @@ const HtmlHead = (props) => (
     {/* SEO */}
     <meta name="robots" content={props.robots} />
     <meta name="google-site-verification" content={props.googleSiteVerification} />
+    {props.enableJsonLD && <JsonLD {...props} />}
     {props.enableOpenGraph && <OpenGraph {...props} />}
 
     {props.children}
