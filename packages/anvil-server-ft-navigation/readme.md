@@ -11,16 +11,16 @@ import Navigation from '@financial-times/anvil-server-ft-navigation'
 
 const navigation = new Navigation()
 
-navigation.getNavigationData() // Promise<TNavMenus>
-navigation.getPathMenu(menuId: string) // Promise<TNavMenu>
-navigation.getCrumbtrail(pathName) // Promise<object>
+navigation.getNavigationData(): Promise<TNavMenus>
+navigation.getPathMenu(menuId: string, path: string): Promise<TNavMenu>
+navigation.getCrumbtrail(path: string): Promise<object>
 ```
 
 ## API
 
 ### `constructor(options?: TNavOptions)`
 
-Options will be merged with defaults: 
+Options will be merged with the following defaults: 
 
 ```js
 {
@@ -32,14 +32,29 @@ Options will be merged with defaults:
 
 ### `getNavigationData()`
 
-Returns the full navigation data, refreshed every 15 minutes.
+Returns the full, raw, undecorated navigation data, refreshed every 15 minutes.
+
+Data is keyed by menuId: 
+
+- "account"
+- "drawer-uk"
+- "drawer-international"
+- "user"
+- "anon"
+- "footer"
+- "navbar-simple"
+- "navbar-right"
+- "navbar-right-anon"
+- "navbar-uk"
+- "navbar-international"
 
 ### `getPathMenu(menuId: string, path: string): Promise<TNavMenu>` 
 
-Returns the navigation data for the supplied menu item, customised to be relevant to the supplied path:
-- Add `selected: true` to items whose `url` property matches "/world/uk" 
-- Replace url values matching `url?location=${currentPath}` with `url?location=/world/uk`
+Returns the navigation data for the supplied `menuId` (see above), decorated per `path`:
+- A `selected` property is added to all items; value is `true` or `false` depending on whether the `url` property matches `path`
+- Redirect urls are set to value of the `path` parameter (e.g. allowing `/login?location=<path>` to redirect back to the referring page)
 
+Calling
 ```js
 navigation.getPathMenu('drawer-uk', '/world/uk')
 ```
@@ -49,12 +64,17 @@ Returns:
 {
   label: 'Drawer',
   items: [
-    { label: 'Foo', url: '/world/uk', submenu: null, selected: true },
+    { 
+      label: 'Foo', 
+      url: '/world/uk', 
+      submenu: null, 
+      selected: true  // property added; value is true because it matches `path`
+    },
     {
       label: 'Bar', 
-      url: '/fake-item?location=/world/uk', 
+      url: '/fake-item?location=/world/uk', // location set to 
       submenu: null, 
-      selected: false
+      selected: false // property added;
     }
   ]
 }
