@@ -24,8 +24,8 @@ Options will be merged with the following defaults:
 
 ```js
 {
-  menuUrl: 'http://next-navigation.ft.com/v2/menus',
   crumbtrailUrl: 'http://next-navigation.ft.com/v2/hierarchy',
+  menuUrl: 'http://next-navigation.ft.com/v2/menus',
   interval: 15 * 60 * 1000 // poll every 15 minutes
 }
 ```
