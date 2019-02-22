@@ -33,10 +33,10 @@ function page() {
       <meta charSet="utf-8">
       <title>My Amazing Website</title>
       <script type="application/json" id="bootstrap-config">
-        ${bootstrap.getConfigJSON(options)}
+        ${bootstrap.formatConfigJSON(options)}
       </script>
       <script>
-        ${bootstrap.getSnippetJS()}
+        ${bootstrap.getBootstrapJS()}
       </script>
     </head>
     <body>
@@ -49,7 +49,7 @@ function page() {
 
 ## API
 
-### `.getConfigJSON(coreScripts, enhancedScripts)`
+### `.formatConfigJSON(coreScripts, enhancedScripts)`
 
 Returns a JSON formatted string representing the configuration for the bootstrap snippet. This must be inserted into a `<script>` element with an ID of `bootstrap-config`. This method requires two arguments:
 
@@ -61,7 +61,7 @@ Returns a JSON formatted string representing the configuration for the bootstrap
 
     An array of JavaScript file URLs which are required by the page if the browser successfully [cuts the mustard](#cutting-the-mustard) and should deliver an [enhanced experience](#core-enhanced).
 
-### `.getSnippetJS()`
+### `.getBootstrapJS()`
 
 Returns the JavaScript code as a string. This should be inserted into a `<script>` element.
 
