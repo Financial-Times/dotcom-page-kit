@@ -1,5 +1,5 @@
 import React from 'react'
-import { TDocumentHeadProps } from './props'
+import { TDocumentHeadProps } from './types'
 
 const JsonLD = ({ metadata }: TDocumentHeadProps) => (
   <React.Fragment>

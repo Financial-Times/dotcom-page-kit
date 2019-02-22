@@ -1,9 +1,9 @@
 import React from 'react'
-import OpenGraph from './Head/OpenGraph'
-import JsonLD from './Head/JsonLD'
-import StyleSheets from './Head/StyleSheets'
-import Scripts from './Head/Scripts'
-import { TDocumentHeadProps } from './Head/props'
+import OpenGraph from './OpenGraph'
+import JsonLD from './JsonLD'
+import StyleSheets from './StyleSheets'
+import Scripts from './Scripts'
+import { TDocumentHeadProps } from './types'
 
 const DocumentHead = (props: TDocumentHeadProps) => (
   <React.Fragment>

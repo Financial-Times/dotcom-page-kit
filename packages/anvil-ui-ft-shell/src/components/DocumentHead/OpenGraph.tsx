@@ -1,5 +1,5 @@
 import React from 'react'
-import { TDocumentHeadProps } from './props'
+import { TDocumentHeadProps } from './types'
 
 const OpenGraph = ({
   description,
@@ -27,14 +27,8 @@ const OpenGraph = ({
     <meta name="twitter:title" content={twitterHeadline || socialHeadline || pageTitle || siteTitle} />
     <meta property="og:title" content={facebookHeadline || socialHeadline || pageTitle || siteTitle} />
 
-    <meta
-      name="twitter:description"
-      content={twitterDescription || socialDescription || description}
-    />
-    <meta
-      property="og:description"
-      content={facebookDescription || socialDescription || description}
-    />
+    <meta name="twitter:description" content={twitterDescription || socialDescription || description} />
+    <meta property="og:description" content={facebookDescription || socialDescription || description} />
 
     <meta name="twitter:url" content={url} />
     <meta property="og:url" content={url} />
