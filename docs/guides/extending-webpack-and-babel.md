@@ -2,16 +2,17 @@
 
 - [Authoring plugins](#authoring-plugins)
 - [Loading plugins](#loading-plugins)
-- [The resources that can be amended via plugins](#the-resources-that-can-be-amended-via-plugins)
+- [Amending supplementary resources](#amending-supplementary-resources)
 - [Publishing resources from plugins](#publishing-resources-from-plugins)
 - [Returning values from handlers](#returning-values-from-handlers)
 - [Existing anvil plugins](#existing-anvil-plugins)
 - [Best practices for creating plugins](#best-practices-for-creating-plugins)
+  - [Don't use `webpack-merge`](#dont-use-webpack-merge)
   - [Array items of note should be published for amendment](#array-items-of-note-should-be-published-for-amendment)
 
 ## Authoring plugins
 
-In order to extend the core webpack or babel config, a plugin will have to be authored. Plugins are functions that subscribe to be notified when a resource is published, so that they can have a chance to amend the resource in some way. During the life cycle of invoking the `anvil build` cli command, multiple resources will be published for possible amendment, and these include the webpack and babel config. The following is an example of a plugin that [enables symlink resolves](https://webpack.js.org/configuration/resolve/#resolve-symlinks) on the webpack config:
+In order to extend the core webpack or babel config, a plugin will have to be authored. Plugins are functions that subscribe to be notified when a resource is published, so that they can have a chance to amend the resource in some way. During the life cycle of invoking the `anvil build` CLI command, multiple resources will be published for possible amendment, and these include the webpack and babel config. The following is an example of a plugin that [enables symlink resolves](https://webpack.js.org/configuration/resolve/#resolve-symlinks) on the webpack config:
 
 ```js
 function webpackPlugin(publisher) {
@@ -58,7 +59,7 @@ function babelPlugin ({ on }) => {
 
 See the [`anvil` package readme] for more information on the `anvil.config.js` file
 
-## The resources that can be amended via plugins
+## Amending supplementary resources
 
 While the `webpackConfig` and the `babelConfig` are the main resources that are published for amendment, they are not the only resources that are published during the life cycle of the `anvil build` CLI command. Other supplementary resources are also published with an aim of making it easy to extend the main resources. Supplementary resources are pieces of data on the main resource that are either hard, [unsafe] or impossible to access from the main resource. Take the options of a webpack plugin like the [clean-webpack-plugin], for example.
 
@@ -146,7 +147,7 @@ Because strings are immutable in JavaScript, it's not possible to mutate the str
 
 > See the [anvil-pluggable] package documentation for more information on the `publish` method as well as the `Publisher`
 
-[hard to reach]: #the-resources-that-can-be-amended-via-plugins
+[hard to reach]: #amending-supplementary-resources
 [anvil-pluggable]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-pluggable
 
 ## Returning values from handlers
@@ -202,9 +203,27 @@ This is intentional as we don't want plugins to be dependent on private details 
 
 The third thing to note is that if `undefined` is returned from the handler, then nothing happens. The system treats an `undefined` handler result as meaning that nothing was returned from the handler, which means that the original resource should then be passed to the next handler in the list. Note, however, that the behavior is different when `null` is returned from a handler. The system treats a `null` handler result as being an intention request to overwrite the resource with `null`, so that null becomes the resource that is passed to subsequent handlers in the chain.
 
-## No need for `webpack-merge`
+## Existing anvil plugins
 
-[`webpack-merge`](https://github.com/survivejs/webpack-merge) is a library that is commonly used for merging webpack configuration objects. Those that are aware of it may feel the need to make use of it when amending the webpack config. It is, however, not necessary. By default, when a webpack configuration object is returned from a handler function, that configuration function will be merged back into the original webpack config using the same strategy that `webpack-merge` uses by default. In other words, it will merge the objects and concatenate the arrays (which is what `webpack-merge` does by default). The only time that `webpack-merge` will be needed, is when the intention is to do what is referred to as a [smart merge](https://github.com/survivejs/webpack-merge#mergesmartconfiguration-configuration). A smart merge involves merging matching array items as objects, instead of concatenating the arrays. For illustration purposes let's say that we are dealing with the following webpack configuration objects:
+Below is a list of the existing anvil plugins that are available for use
+
+- [@financial-time/anvil-plugin-bower-resolve](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-bower-resolve)
+- [@financial-time/anvil-plugin-code-splitting](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-code-splitting)
+- [@financial-time/anvil-plugin-css](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-css)
+- [@financial-time/anvil-plugin-esnext](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-esnext)
+- [@financial-time/anvil-plugin-ft-css](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-ft-css)
+- [@financial-time/anvil-plugin-ft-js](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-ft-js)
+
+[`publisher`]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-pluggable
+[`anvil` package readme]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil
+
+## Best practices for creating plugins
+
+### Don't use `webpack-merge`
+
+[`webpack-merge`](https://github.com/survivejs/webpack-merge) is a library that is commonly used for merging webpack configuration objects. Those that are aware of it may feel the need to make use of it when amending the webpack config. It is, however, not necessary. By default, when a webpack configuration object is [returned from a handler function], that configuration function will be merged back into the original webpack config using the same strategy that `webpack-merge` uses by default, which is to merge the objects and concatenate the arrays.
+
+It's only when the intention is to do what is referred to as a [smart merge](https://github.com/survivejs/webpack-merge#mergesmartconfiguration-configuration), that `webpack-merge` becomes necessary. Smart merging, however, is considered an unhealthy practice within a plugin ecosystem such as this, and here's why. A smart merge involves merging matching array items as objects, instead of concatenating the arrays. Merging items in this manner, however, introduces fragility into the system. For illustration purposes let's say that we are dealing with the following webpack configuration objects:
 
 ```js
 const webpackConfigOne = {
@@ -246,7 +265,7 @@ const webpackConfigAfterMerge = {
 }
 ```
 
-This, however, is not ideal because it involves having to know beforehand, what the value of the `test` property is on the original webpack configuration object, which is a thing that cannot be known because it is possible that another plugin may have changed that value. So in order for plugins to harmoniously coexist, arrays should only be concatenated (instead of being smartly merged) when merging. So if the desire is to add a new rule to the original webpack config for instance, then it is fine to return from the handler function, a webpack config that contains just that new rule.
+This, however, is not ideal because it involves having to know beforehand, what the value of the `test` property is on the original webpack configuration object, which is a thing that cannot be known beforehand. It is very possible that another plugin may have changed that value. In order for plugins to harmoniously coexist, arrays should only be concatenated (instead of being smartly merged) when merging them. So if the desire is to add a new rule to the original webpack config for instance, then it is fine to simply return from the handler function, a webpack config that contains just that new rule.
 
 ```js
 const originalWebpackConfig = {
@@ -287,7 +306,7 @@ const originalWebpackConfigAfterMerge = {
 }
 ```
 
-But if the intention is to amend an existing rule, then the plugin should subscribe to receive that particular rule as a resource and amend it directly. As an example, the `webpackConfig::jsRule` resource is published during the life cycle of executing the `anvil build` cli command. A plugin that amends this rule may look like the following:
+But if the intention is to amend an existing rule, then the plugin should subscribe to receive that particular rule as a resource and amend it directly. As an example, the `webpackConfig::jsRule` resource is published during the life cycle of executing the `anvil build` CLI command. A plugin that amends this rule may look like the following:
 
 ```js
 export default ({on} => {
@@ -297,23 +316,9 @@ export default ({on} => {
 })
 ```
 
-In summary, it is not at all necessary to use `webpack-merge`. This is because its default behavior has already been accommodated for in `anvil`, and where its smart merging capabilities are concerned, we consider it bad practice for them to be used.
+In summary, it is not at all necessary to use `webpack-merge`. This is because its default behavior has already been accommodated for in `anvil`, and where its smart merging capabilities are concerned, it is considered an unhealthy practice within a plugin ecosystem such as this.
 
-## Existing anvil plugins
-
-Below is a list of the existing anvil plugins that are available for use
-
-- [@financial-time/anvil-plugin-bower-resolve](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-bower-resolve)
-- [@financial-time/anvil-plugin-code-splitting](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-code-splitting)
-- [@financial-time/anvil-plugin-css](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-css)
-- [@financial-time/anvil-plugin-esnext](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-esnext)
-- [@financial-time/anvil-plugin-ft-css](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-ft-css)
-- [@financial-time/anvil-plugin-ft-js](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-ft-js)
-
-[`publisher`]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-pluggable
-[`anvil` package readme]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil
-
-## Best practices for creating plugins
+[returned from a handler function]: #returning-values-from-handlers
 
 ### Array items of note should be published for amendment
 
