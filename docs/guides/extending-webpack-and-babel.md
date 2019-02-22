@@ -1,14 +1,15 @@
 # Extending the Core Webpack and Babel Config
 
-- [Getting started](#getting-started)
-  - [Loading plugins](#loading-plugins)
+- [Authoring plugins](#authoring-plugins)
+- [Loading plugins](#loading-plugins)
 - [The resources that can be amended via plugins](#the-resources-that-can-be-amended-via-plugins)
-- [Existing anvil plugins](#existing-anvil-plugins)
+- [Publishing resources from plugins](#publishing-resources-from-plugins)
 - [Returning values from handlers](#returning-values-from-handlers)
+- [Existing anvil plugins](#existing-anvil-plugins)
 - [Best practices for creating plugins](#best-practices-for-creating-plugins)
   - [Array items of note should be published for amendment](#array-items-of-note-should-be-published-for-amendment)
 
-## Getting Started
+## Authoring plugins
 
 In order to extend the core webpack or babel config, a plugin will have to be authored. Plugins are functions that subscribe to be notified when a resource is published, so that they can have a chance to amend the resource in some way. During the life cycle of invoking the `anvil build` cli command, multiple resources will be published for possible amendment, and these include the webpack and babel config. The following is an example of a plugin that [enables symlink resolves](https://webpack.js.org/configuration/resolve/#resolve-symlinks) on the webpack config:
 
@@ -30,7 +31,7 @@ function babelPlugin({ on }) {
 }
 ```
 
-### Loading plugins
+## Loading plugins
 
 Once the plugin has been authored, it will have to be loaded. To do so, the plugin should be added to the `anvil.config.js` file. The `anvil.config.js` file is the file that plugins and Anvil CLI settings are declared in. This file is expected to be in the project root. The following is an example of an `anvil.config.js` file that specifies two plugins:
 
@@ -59,7 +60,7 @@ See the [`anvil` package readme] for more information on the `anvil.config.js` f
 
 ## The resources that can be amended via plugins
 
-While the `webpackConfig` and the `babelConfig` are the main resources that are published for amendment, they are not the only resources that are published during the life cycle of the `anvil build` CLI command. Other supplementary resources are also published with an aim of making it easy to extend the main resources. Supplementary resources are pieces of data on the main resource that are either hard, [unsafe] or impossible to access from the main resource. Take the options for a webpack plugin like the [clean-webpack-plugin], for example.
+While the `webpackConfig` and the `babelConfig` are the main resources that are published for amendment, they are not the only resources that are published during the life cycle of the `anvil build` CLI command. Other supplementary resources are also published with an aim of making it easy to extend the main resources. Supplementary resources are pieces of data on the main resource that are either hard, [unsafe] or impossible to access from the main resource. Take the options of a webpack plugin like the [clean-webpack-plugin], for example.
 
 ```js
 const cleanWebpackPluginOptions = {...}
@@ -91,19 +92,62 @@ Webpack [rules] and [plugin] options are the supplementary resources that are co
 [clean-webpack-plugin]: https://github.com/johnagan/clean-webpack-plugin
 [individual anvil plugins]: #existing-anvil-plugins
 
-## Existing anvil plugins
+## Publishing resources from plugins
 
-Below is a list of the existing anvil plugins that are available for use
+When authoring plugins that will be shared publicly, it is recommended that [hard to reach] data that can potentially be of interest to other plugins, be published for possibly amendment. This can be achieved by making use of the `Publisher` instance that is available on the handler argument object, as follows.
 
-- [@financial-time/anvil-plugin-bower-resolve](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-bower-resolve)
-- [@financial-time/anvil-plugin-code-splitting](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-code-splitting)
-- [@financial-time/anvil-plugin-css](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-css)
-- [@financial-time/anvil-plugin-esnext](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-esnext)
-- [@financial-time/anvil-plugin-ft-css](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-ft-css)
-- [@financial-time/anvil-plugin-ft-js](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-ft-js)
+```js
+function plugin({ on }) {
+  on('webpackConfig', ({ resource: webpackConfig, publisher }) => {
+    const bannerPluginOptions = { ... }
+    publisher.publish('bannerPluginOptions', bannerPluginOptions)
+    webpackConfig.plugins.push(new BannerPlugin(bannerPluginOptions))
+  })
+}
+```
 
-[`publisher`]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-pluggable
-[`anvil` package readme]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil
+For convenience, the `publish` method of the publisher instance is also passed to the handler function directly, thus making it possible to also do the following:
+
+```js
+import { BannerPlugin } from 'webpack';
+
+function plugin({ on }) {
+  on('webpackConfig', ({ resource: webpackConfig, publish }) => {
+    const bannerPluginOptions = { ... }
+    publish('bannerPluginOptions', bannerPluginOptions)
+    webpackConfig.plugins.push(new BannerPlugin(bannerPluginOptions))
+  })
+}
+```
+
+In both examples, the `publish` method of the `Publisher` instance is being used to publish the `bannerPluginOptions` object before it is supplied to the `BannerPlugin` constructor. This allows other plugins to be able to amend it by doing something like the following:
+
+```js
+function anotherPlugin({ on }) {
+  on('bannerPluginOptions', ({ resource: bannerPluginOptions }) => {
+    bannerPluginOptions.raw = true
+  })
+}
+```
+
+**The `publish` method result**
+
+As can be seen in the previous examples, the `publish` method of the `Publisher` instance accepts the name of the resource as the first argument and the resource being published, as the second argument. What is not being shown, however, is that the `publish` method will also return the final version of the resource after it has been amended by all the handlers in the queue. This is useful when the resource is not an object or an array. When it is an object or an array, it will be mutated in place This means that the result of the `publish` method can then be ignored (like in the previous examples). If the resource is not an object or array, however, or if the resource gets transformed into a value that is not an object or array, then it will be necessary to capture the result of the `publish` method, as at that point, it will now be a value that is different from the original resource in terms of memory location. The following is an example of publishing a resource which cannot be mutated in place.
+
+```js
+function plugin({ on }) {
+  on('foo', ({ resource: foo, publish }) => {
+    foo.bar = publish('bar', 'bar...')
+  })
+}
+```
+
+Because strings are immutable in JavaScript, it's not possible to mutate the string `bar...` in place, hence why the result of the `publish` function is being captured.
+
+> See the [anvil-pluggable] package documentation for more information on the `publish` method as well as the `Publisher`
+
+[hard to reach]: #the-resources-that-can-be-amended-via-plugins
+[anvil-pluggable]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-pluggable
 
 ## Returning values from handlers
 
@@ -117,7 +161,7 @@ export default ({ on }) => {
 }
 ```
 
-The problem is that it is possible that the `resolve` property does not actually exist on the core webpack config. To accommodate for this, the plugin could be declared as follow:
+The problem is that it is possible that the `resolve` property does not actually exist on the webpack config that is supplied to the handler function. To accommodate for this, the plugin could be declared as follow:
 
 ```js
 export default ({ on }) => {
@@ -255,6 +299,20 @@ export default ({on} => {
 
 In summary, it is not at all necessary to use `webpack-merge`. This is because its default behavior has already been accommodated for in `anvil`, and where its smart merging capabilities are concerned, we consider it bad practice for them to be used.
 
+## Existing anvil plugins
+
+Below is a list of the existing anvil plugins that are available for use
+
+- [@financial-time/anvil-plugin-bower-resolve](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-bower-resolve)
+- [@financial-time/anvil-plugin-code-splitting](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-code-splitting)
+- [@financial-time/anvil-plugin-css](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-css)
+- [@financial-time/anvil-plugin-esnext](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-esnext)
+- [@financial-time/anvil-plugin-ft-css](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-ft-css)
+- [@financial-time/anvil-plugin-ft-js](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-ft-js)
+
+[`publisher`]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-pluggable
+[`anvil` package readme]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil
+
 ## Best practices for creating plugins
 
 ### Array items of note should be published for amendment
@@ -310,50 +368,12 @@ function somePlugin({ on }) {
 }
 ```
 
-This, however, is still not ideal for the same reasons (and also because it is much harder to grok at first glance). It is not guaranteed that the `test` property of the scripts rule will contain a regex that has been configured to match the `.js` string because another plugin, for example, could have amended it to only match typescript files. For this reason, the safest and cleanest option is for array items to be published for amendment so that plugins can subscribe to amend them directly.
+This, however, is still not ideal for the same reasons (and also because it is much harder to grok at first glance). It is not guaranteed that the `test` property of the scripts rule will contain a regex that has been configured to match the `.js` string. Another plugin, for example, could have amended it to only match typescript files. For this reason, the safest and cleanest option is for array items to be published for amendment so that plugins can subscribe to amend them directly.
 
-Now in order to publish a resource from within a plugin, the handler function can make use of the `Publisher` instance that is supplied to it as follows:
-
-```js
-function pluginThatAddsCssRule({ on }) {
-  on('webpackConfig', ({ publisher }) => {
-    const cssRule = {...}
-
-    publisher.publish('webpackCssRule', cssRule)
-
-    return {
-      module: {
-        rules: [
-          cssRule
-        ]
-      }
-    }
-
-  })
-}
-```
-
-The `publish` function is also passed to the handler function for convenience, thus making it possible to also do the following:
-
-```js
-function pluginThatAddsCssRule({ on }) {
-  on('webpackConfig', ({ publish }) => {
-    const cssRule = {...}
-
-    publish('webpackCssRule', cssRule)
-
-    return {
-      module: {
-        rules: [
-          cssRule
-        ]
-      }
-    }
-  })
-}
-```
+> See the section on [Publishing resources from plugins] for information on how to publish resources from plugins
 
 So in summary, as a best practice, array items that other plugins may be interested in amending should always be published for amendment in order to prevent private details such as the the exact location of the item within the array, for example, from leaking into the public interface. Not only does doing this ensure that the system as a whole remains resilient to change, but it also helps to ensure that the code remains easy to reason about.
 
 [webpack rules]: https://webpack.js.org/configuration/module/#modulerules
 [returning values from handlers]: #returning-values-from-handlers
+[publishing resources from plugins]: #publishing-resources-from-plugins
