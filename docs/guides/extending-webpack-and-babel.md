@@ -2,10 +2,11 @@
 
 - [Getting started](#getting-started)
   - [Loading plugins](#loading-plugins)
+- [The resources that can be amended via plugins](#the-resources-that-can-be-amended-via-plugins)
 - [Existing anvil plugins](#existing-anvil-plugins)
 - [Returning values from handlers](#returning-values-from-handlers)
 - [Best practices for creating plugins](#best-practices-for-creating-plugins)
-  - [Array items of note should be published for amendment](#Array-items-of-note-should-be-published-for-amendment)
+  - [Array items of note should be published for amendment](#array-items-of-note-should-be-published-for-amendment)
 
 ## Getting Started
 
@@ -55,6 +56,40 @@ function babelPlugin ({ on }) => {
 ```
 
 See the [`anvil` package readme] for more information on the `anvil.config.js` file
+
+## The resources that can be amended via plugins
+
+While the `webpackConfig` and the `babelConfig` are the main resources that are published for amendment, they are not the only resources that are published during the life cycle of the `anvil build` CLI command. Other supplementary resources are also published with an aim of making it easy to extend the main resources. Supplementary resources are pieces of data on the main resource that are either hard, [unsafe] or impossible to access from the main resource. Take the options for a webpack plugin like the [clean-webpack-plugin], for example.
+
+```js
+const cleanWebpackPluginOptions = {...}
+
+const webpackConfig {
+  plugins: [
+    new CleanWebpackPlugin(cleanWebpackPluginOptions)
+  ]
+}
+```
+
+Such options are unreachable from the webpack config itself, due to them being encapsulated within class instances, as seen in the above example. As such, there is no other option but to publish them separately, in order to make them available for amendment by plugins. The following is an example of a plugin that subscribes to amend the `cleanWebpackPluginOptions` resource of the previous example:
+
+```js
+function plugin({ on }) {
+  on('cleanWebpackPluginOptions', ({ resource: options }) => {
+    options.dry = false
+    options.verbose = true
+  })
+}
+```
+
+Webpack [rules] and [plugin] options are the supplementary resources that are commonly published, and they are published from both [anvil core] and [individual anvil plugins]. So for a list of all the resources that will be published during the life cycle of invoking the `anvil build` CLI command, see the README documentation of both [anvil core] and the [individual anvil plugins] that will be used.
+
+[rules]: https://webpack.js.org/configuration/module/#modulerules
+[plugin]: https://webpack.js.org/plugins/
+[unsafe]: #array-items-of-note-should-be-published-for-amendment
+[anvil core]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil
+[clean-webpack-plugin]: https://github.com/johnagan/clean-webpack-plugin
+[individual anvil plugins]: #existing-anvil-plugins
 
 ## Existing anvil plugins
 
