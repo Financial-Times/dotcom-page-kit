@@ -44,15 +44,23 @@ export class Navigation {
     this.initialPromise = this.poller.start({ initialRequest: true })
   }
 
-  async getNavigationData(): Promise<TNavMenus> {
+  private async _getNavigationData(): Promise<TNavMenus> {
     // initialPromise does not return data but must resolve before `getData` can be called
     await this.initialPromise
     return this.poller.getData()
   }
 
+  async getMenuData(path: string): Promise<TNavMenus> {
+    const data = await this._getNavigationData()
+    return Object.entries(data).reduce((acc, [menuId, menu]) => {
+      acc[menuId] = decorateMenu(menu, path)
+      return acc
+    }, {})
+  }
+
   async getPathMenu(menuId: string, path: string = '/'): Promise<TNavMenu> {
-    const data = await this.getNavigationData()
-    return parseData(decorateMenu(data[menuId], path))
+    const data = await this._getNavigationData()
+    return decorateMenu(data[menuId], path)
   }
 
   async getCrumbtrail(path: string) {

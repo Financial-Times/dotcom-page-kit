@@ -11,7 +11,7 @@ const defaultOptions = {
 
 export const init = (userOptions: MiddlewareOptions = {}) => {
   const options = { ...defaultOptions, ...userOptions }
-  const poller = new Navigation(options)
+  const navigator = new Navigation(options)
 
   return async (request: Request, response: Response, next: NextFunction) => {
     try {
@@ -19,9 +19,10 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
       response.locals.navigation.crumbtrail = {}
 
       const [navigation, crumbtrail] = await Promise.all([
-        poller.getNavigationData(),
-        options.enableCrumbtrail ? poller.getCrumbtrail(request.path) : null
+        navigator.getMenuData(request.path),
+        options.enableCrumbtrail ? navigator.getCrumbtrail(request.path) : null
       ])
+
       // TODO Revisit these names
       response.locals.navigation.main = navigation
       response.locals.navigation.crumbtrail.breadcrumb = crumbtrail && crumbtrail.breadcrumb
