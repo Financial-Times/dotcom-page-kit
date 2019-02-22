@@ -5,7 +5,7 @@ import fetch from 'node-fetch'
 
 import { decorateMenu } from '.'
 
-import { TNavMenus, TNavMenu, TOptions as TNavOptions } from './types'
+import { TNavMenus, TNavMenu, TNavOptions } from './types'
 
 /**
  * Makes the navigation data completely immutable,

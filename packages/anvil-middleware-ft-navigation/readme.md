@@ -1,10 +1,8 @@
 # FT Navigation Middleware
 
-The FT Navigation middleware for express appends an instance of the navigation package to app.locals on app startup.
+The FT Navigation Express Middleware adds FT navigation data required to render the navigation components for the page to `app.locals`.
 
-The navigation data must be present in order to render the navigation components for the page.
-
-Pages which should render a navigation crumbtrail, which includes most Stream pages, should call the middleware with { `enableCrumbtrail: ture }` to tell the middleware to include crumbtrail data in the response.
+Pages which should render a navigation crumbtrail (i.e. most Stream pages) should call the middleware with { `enableCrumbtrail: true }` to tell the middleware to include crumbtrail data in the response.
 
 This middleware should be consumed by your application's server file.
 
@@ -23,3 +21,7 @@ const instance = navigationMiddleware.default({ enableCrumbtrail: true })
 
 app.use(instance)
 ```
+
+### Further options
+
+In addition to enabling 
