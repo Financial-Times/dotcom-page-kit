@@ -30,6 +30,7 @@
   }
 
   // "Cut the mustard" test
+  // by Maggie Allen and Matt Hinchliffe November 2018
   function isEnhancedBrowser() {
     var script = document.createElement('script')
     var input = document.createElement('input')
