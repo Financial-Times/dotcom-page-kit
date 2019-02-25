@@ -1,15 +1,5 @@
 import React from 'react'
-import {
-  Header,
-  TopWrapper,
-  TopColumnLeft,
-  TopColumnCenter,
-  TopColumnRight,
-  TopWrapperSticky,
-  TopColumnCenterSticky,
-  TopColumnLeftSticky,
-  TopColumnRightSticky
-} from './components/top/partials'
+import { Header, TopWrapper, TopColumnLeft, TopColumnCenter, TopColumnRight } from './components/top/partials'
 import {
   NavListLeft,
   NavListRight,
@@ -17,6 +7,12 @@ import {
   NavMobile,
   UserActionsNav
 } from './components/navigation/partials'
+import {
+  TopWrapperSticky,
+  TopColumnCenterSticky,
+  TopColumnLeftSticky,
+  TopColumnRightSticky
+} from './components/sticky/partials'
 import { IncludeCrumbtrail } from './components/crumbtrail/partials'
 import { Search } from './components/search/partials'
 import { Props } from './interfaces'
@@ -45,6 +41,18 @@ export function HeaderDefault(props: Props) {
 
 export function HeaderSticky(props) {
   return (
+    <Header {...props}>
+      <TopWrapperSticky>
+        <TopColumnLeftSticky context="primary" />
+        <TopColumnCenterSticky {...props} />
+        <TopColumnRightSticky {...props} />
+      </TopWrapperSticky>
+    </Header>
+  )
+}
+
+export function HeaderStickyDemo(props) {
+  return (
     <React.Fragment>
       <Header {...props}>
         <TopWrapperSticky>
@@ -53,7 +61,7 @@ export function HeaderSticky(props) {
           <TopColumnRightSticky {...props} />
         </TopWrapperSticky>
       </Header>
-      <p class="demo-sticky-message demo-sticky-message--scroll">Scroll down</p>
+      <p className="demo-sticky-message demo-sticky-message--scroll">Scroll down</p>
     </React.Fragment>
   )
 }
