@@ -1,17 +1,18 @@
 import React from 'react'
 
-const SearchIconSticky = ({ context }) => (
-  <a
-    href={`o-header-search-${context}`}
-    className="o-header__top-link o-header__top-link--search"
-    aria-controls={`o-header-search-${context}`}
-    title="Search"
-    aria-label="Search"
-    data-trackable="search-toggle"
-    tabindex="-1">
-    <span className="o-header__top-link-label">Search</span>
-  </a>
-)
+const StickyHeader = (props) => {
+  return (
+    <header
+      id="site-navigation"
+      className={`o-header o-header--${props.options.variant} o-header--sticky`}
+      data-o-component="o-header"
+      data-o-header--no-js={true}
+      data-o-header--sticky
+      tabIndex={-1}>
+      {props.children}
+    </header>
+  )
+}
 
 const DrawerIconSticky = () => (
   <a
@@ -23,6 +24,19 @@ const DrawerIconSticky = () => (
     data-trackable="drawer-toggle"
     tabindex="-1">
     <span className="o-header__top-link-label">Menu</span>
+  </a>
+)
+
+const SearchIconSticky = ({ context }) => (
+  <a
+    href={`o-header-search-${context}`}
+    className="o-header__top-link o-header__top-link--search"
+    aria-controls={`o-header-search-${context}`}
+    title="Search"
+    aria-label="Search"
+    data-trackable="search-toggle"
+    tabindex="-1">
+    <span className="o-header__top-link-label">Search</span>
   </a>
 )
 
@@ -139,4 +153,4 @@ const TopColumnRightSticky = (props) => {
   return <div className="o-header__top-column o-header__top-column--right">{ChooseNavRight}</div>
 }
 
-export { TopWrapperSticky, TopColumnLeftSticky, TopColumnCenterSticky, TopColumnRightSticky }
+export { StickyHeader, TopWrapperSticky, TopColumnLeftSticky, TopColumnCenterSticky, TopColumnRightSticky }

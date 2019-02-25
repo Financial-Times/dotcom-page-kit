@@ -1,0 +1,25 @@
+.demo-sticky {
+	height: 240px;
+	overflow: auto;
+}
+
+.demo-sticky-message {
+	margin: 50px 0;
+	text-align: center;
+	font-size: 24px;
+
+	&:before,
+	&:after {
+		padding: 0 1em;
+		font-size: 75%;
+	}
+}
+
+.demo-sticky-message--scroll {
+	margin-bottom: 1999px;
+
+	&:before,
+	&:after {
+		content: '▼';
+	}
+}
