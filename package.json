@@ -43,7 +43,7 @@
   "homepage": "https://github.com/Financial-Times/anvil#readme",
   "devDependencies": {
     "@babel/core": "^7.1.6",
-    "@financial-times/athloi": "^1.0.0-beta.17",
+    "@financial-times/athloi": "^1.0.0-beta.18",
     "@storybook/addon-knobs": "^4.0.9",
     "@storybook/addon-options": "^4.0.8",
     "@storybook/react": "^4.0.9",
@@ -82,5 +82,5 @@
       "pre-commit": "npm run checktypes && lint-staged"
     }
   },
-  "dependencies": {}
+  "workspaces": ["packages/*", "examples/*"]
 }
