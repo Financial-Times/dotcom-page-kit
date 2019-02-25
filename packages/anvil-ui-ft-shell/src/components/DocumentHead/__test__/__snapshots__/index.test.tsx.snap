@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`anvil-ui-ft-shell/src/components/DocumentHead renders the document head 1`] = `
+Array [
+  <meta
+    charSet="utf-8"
+  />,
+  <meta
+    content="IE=edge"
+    httpEquiv="X-UA-Compatible"
+  />,
+  <meta
+    content="width=device-width, initial-scale=1"
+    name="viewport"
+  />,
+  <title>
+    Page title | Website title!
+  </title>,
+  <meta
+    content="Website description."
+    name="description"
+  />,
+  <link
+    href="https://my.site"
+    rel="canonical"
+  />,
+  <link
+    href="https://spoor-api.ft.com"
+    rel="preconnect"
+  />,
+  <link
+    crossorigin="use-credentials"
+    href="https://session-next.ft.com"
+    rel="preconnect"
+  />,
+  <link
+    href="https://ads-api.ft.com"
+    rel="preconnect"
+  />,
+  <link
+    href="https://www.googletagservices.com"
+    rel="preconnect"
+  />,
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "background-color: #fff1e5;",
+      }
+    }
+  />,
+  <meta
+    content="index,follow"
+    name="robots"
+  />,
+  <meta
+    content="4-t8sFaPvpO5FH_Gnw1dkM28CQepjzo8UjjAkdDflTw"
+    name="google-site-verification"
+  />,
+  <script
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "{\\"@type\\":\\"article\\",\\"headline\\":\\"JSON+LD headline\\"}",
+      }
+    }
+    type="application/ld+json"
+  />,
+  <script
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"name\\":\\"Financial Times\\",\\"alternateName\\":\\"FT.com\\",\\"url\\":\\"http://www.ft.com\\"}",
+      }
+    }
+    type="application/ld+json"
+  />,
+  <meta
+    content="en_GB"
+    property="og:locale"
+  />,
+  <meta
+    content="Website title!"
+    property="og:site_name"
+  />,
+  <meta
+    content="Twitter headline"
+    name="twitter:title"
+  />,
+  <meta
+    content="Facebook headline"
+    property="og:title"
+  />,
+  <meta
+    content="Twitter description."
+    name="twitter:description"
+  />,
+  <meta
+    content="Facebook description."
+    property="og:description"
+  />,
+  <meta
+    content="https://my.site"
+    name="twitter:url"
+  />,
+  <meta
+    content="https://my.site"
+    property="og:url"
+  />,
+  <meta
+    content="twitter.jpg"
+    name="twitter:image"
+  />,
+  <meta
+    content="facebook.jpg"
+    property="og:image"
+  />,
+  <meta
+    content="facebook-page-id"
+    property="fb:pages"
+  />,
+  <meta
+    content="summary_large_image"
+    name="twitter:card"
+  />,
+  <meta
+    content="@twitter_page"
+    name="twitter:site"
+  />,
+]
+`;

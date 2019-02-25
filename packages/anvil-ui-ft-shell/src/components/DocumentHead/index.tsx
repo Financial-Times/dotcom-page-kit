@@ -13,7 +13,7 @@ export interface TDocumentHeadProps {
   facebookHeadline?: string
   facebookImage?: string
   facebookPage?: string
-  googleSiteVerification: string
+  googleSiteVerification?: string
   mainImage?: string
   metadata?: { [key: string]: string }
   pageTitle?: string
