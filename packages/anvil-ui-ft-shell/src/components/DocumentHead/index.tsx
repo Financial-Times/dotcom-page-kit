@@ -28,7 +28,7 @@ export interface TDocumentHeadProps {
   twitterHeadline?: string
   twitterImage?: string
   twitterSite?: string
-  url: string
+  url?: string
 }
 
 const DocumentHead = (props: TDocumentHeadProps) => (
@@ -39,7 +39,7 @@ const DocumentHead = (props: TDocumentHeadProps) => (
 
     <title>{props.pageTitle ? `${props.pageTitle} | ${props.siteTitle}` : props.siteTitle}</title>
     <meta name="description" content={props.description} />
-    <link rel="canonical" href={props.url} />
+    {props.url && <link rel="canonical" href={props.url} />}
 
     {/* resource hints */}
     <link rel="preconnect" href="https://spoor-api.ft.com" />
