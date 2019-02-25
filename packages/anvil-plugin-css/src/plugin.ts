@@ -22,7 +22,7 @@ function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
     module: {
       rules: [
         publish(hooks.CSS_RULE, {
-          test: /\.css$/,
+          test: [/\.css$/],
           use: [
             {
               loader: MiniCssExtractPlugin.loader
