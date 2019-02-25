@@ -47,7 +47,6 @@
     "@storybook/addon-knobs": "4.1.12",
     "@storybook/addon-options": "4.1.12",
     "@storybook/react": "4.1.12",
-    "@types/dlv": "1.1.0",
     "@types/jest": "23.3.14",
     "@types/node": "10.12.26",
     "@types/ora": "^3.0.0",
@@ -86,8 +85,5 @@
   "workspaces": [
     "packages/*",
     "examples/*"
-  ],
-  "dependencies": {
-    "dlv": "1.1.2"
-  }
+  ]
 }

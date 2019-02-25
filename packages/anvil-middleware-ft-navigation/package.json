@@ -20,7 +20,9 @@
   "dependencies": {
     "@financial-times/anvil-server-ft-navigation": "file:../../packages/anvil-server-ft-navigation",
     "@types/deep-freeze": "^0.1.1",
-    "deep-freeze": "0.0.1"
+    "@types/dlv": "1.1.0",
+    "deep-freeze": "0.0.1",
+    "dlv": "1.1.2"
   },
   "devDependencies": {
     "node-mocks-http": "^1.7.3"
