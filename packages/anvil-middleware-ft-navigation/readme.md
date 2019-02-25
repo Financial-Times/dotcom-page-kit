@@ -11,18 +11,20 @@ const data = {
   "crumbtrails": null || {
     "breadcrumb": {},  
     "subsections": {}  
-  },                    
-  "account": {},
+  },
+  "drawer": "uk" | "international",
+  "navbar": "uk" | "international",
   "drawer-uk": {},
   "drawer-international": {},
+  "navbar-uk": {},
+  "navbar-international": {}
+  "account": {},
   "user": {},
   "anon": {},
   "footer": {},
   "navbar-simple": {},
   "navbar-right": {},
   "navbar-right-anon": {},
-  "navbar-uk": {},
-  "navbar-international": {}
 }
 ```
 
