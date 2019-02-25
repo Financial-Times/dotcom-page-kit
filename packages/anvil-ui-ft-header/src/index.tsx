@@ -1,5 +1,15 @@
 import React from 'react'
-import { Header, TopWrapper, TopColumnLeft, TopColumnCenter, TopColumnRight } from './components/top/partials'
+import {
+  Header,
+  TopWrapper,
+  TopColumnLeft,
+  TopColumnCenter,
+  TopColumnRight,
+  TopWrapperSticky,
+  TopColumnCenterSticky,
+  TopColumnLeftSticky,
+  TopColumnRightSticky
+} from './components/top/partials'
 import {
   NavListLeft,
   NavListRight,
@@ -33,13 +43,18 @@ export function HeaderDefault(props: Props) {
   )
 }
 
-export function LogoOnly(props?) {
+export function HeaderSticky(props) {
   return (
-    <Header {...props}>
-      <TopWrapper>
-        <TopColumnCenter />
-      </TopWrapper>
-    </Header>
+    <React.Fragment>
+      <Header {...props}>
+        <TopWrapperSticky>
+          <TopColumnLeftSticky context="primary" />
+          <TopColumnCenterSticky {...props} />
+          <TopColumnRightSticky {...props} />
+        </TopWrapperSticky>
+      </Header>
+      <p class="demo-sticky-message demo-sticky-message--scroll">Scroll down</p>
+    </React.Fragment>
   )
 }
 
@@ -60,6 +75,16 @@ export function HeaderWithCrumbtrail(props: Props) {
         <NavListRight {...props} />
       </NavDesktop>
       {incudeCrumbtrail}
+    </Header>
+  )
+}
+
+export function LogoOnly(props?) {
+  return (
+    <Header {...props}>
+      <TopWrapper>
+        <TopColumnCenter />
+      </TopWrapper>
     </Header>
   )
 }
