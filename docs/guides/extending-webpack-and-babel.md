@@ -211,7 +211,7 @@ Below is a list of the existing anvil plugins that are available for use
 - [@financial-time/anvil-plugin-code-splitting](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-code-splitting)
 - [@financial-time/anvil-plugin-css](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-css)
 - [@financial-time/anvil-plugin-esnext](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-esnext)
-- [@financial-time/anvil-plugin-ft-css](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-ft-css)
+- [@financial-time/anvil-plugin-sass](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-sass)
 - [@financial-time/anvil-plugin-ft-js](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-ft-js)
 
 [`publisher`]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-pluggable

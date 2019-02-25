@@ -14,7 +14,7 @@
     "@financial-times/anvil": "file:../../packages/anvil",
     "@financial-times/anvil-plugin-code-splitting": "file:../../packages/anvil-plugin-code-splitting",
     "@financial-times/anvil-plugin-css": "file:../../packages/anvil-plugin-css",
-    "@financial-times/anvil-plugin-ft-css": "file:../../packages/anvil-plugin-ft-css",
+    "@financial-times/anvil-plugin-sass": "file:../../packages/anvil-plugin-sass",
     "@financial-times/anvil-plugin-ft-js": "file:../../packages/anvil-plugin-ft-js",
     "dotenv": "^6.1.0",
     "nodemon": "^1.18.7",
