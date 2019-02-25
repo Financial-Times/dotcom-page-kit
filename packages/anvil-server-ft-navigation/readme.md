@@ -24,8 +24,8 @@ Options will be merged with the following defaults:
 
 ```js
 {
-  crumbtrailUrl: 'http://next-navigation.ft.com/v2/hierarchy',
   menuUrl: 'http://next-navigation.ft.com/v2/menus',
+  crumbtrailUrl: 'http://next-navigation.ft.com/v2/hierarchy',
   interval: 15 * 60 * 1000 // poll every 15 minutes
 }
 ```
@@ -82,16 +82,16 @@ Returns:
 
 ### `getCrumbtrail(path: string)`
 
-Returns the crumbtrail data for path. The crumbtrail is the data which populates the header-subnav element:
+Returns the crumbtrail data for `path`. The crumbtrail is the data which populates the header-subnav element:
 
 ![alt text](./screenshots/screenshot-markets-nav-item.png)
 
 
-## Modifying the data
+## Modifying Crumbtrail data
 
-The data from `getNavigationData`, `getPathMenu` and `getCrumbtrail`  methods is frozen to prevent mutation as it is passed around. If you need to modify any part of the data, you should first clone the parts you need and then work with your cloned object.
+The data from `getCrumbtrail`  methods is frozen to prevent accidental mutation of the `Poller` instance's data as it is passed around. If you need to modify any part of the data, you should first clone the parts you need and then work with your cloned object.
 
 ```js
-const menuItem = getPathMenu('drawer-uk', '/world/uk')
+const menuItem = getCrumbtrail('/world/uk')
 const clone = menuItem => JSON.parse(JSON.stringify(menuItem));
 ```
