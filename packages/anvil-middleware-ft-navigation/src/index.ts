@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
 import { Navigation, TNavOptions } from '@financial-times/anvil-server-ft-navigation'
+import { getNavigationForEdition } from './assignNavigationData'
 
 type MiddlewareOptions = TNavOptions & {
   enableCrumbtrail?: boolean
@@ -15,12 +16,13 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
 
   return async (request: Request, response: Response, next: NextFunction) => {
     try {
+      const { navbar, drawer } = getNavigationForEdition(response.locals.editions)
       const [menuData, crumbtrail] = await Promise.all([
         navigator.getMenuData(request.path),
         enableCrumbtrail ? navigator.getCrumbtrail(request.path) : null
       ])
 
-      response.locals.navigation = { crumbtrail, ...menuData }
+      response.locals.navigation = { crumbtrail, navbar, drawer, ...menuData }
 
       next()
     } catch (error) {

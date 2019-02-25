@@ -12,6 +12,11 @@ const fakeMenuResponse = {
   }
 }
 
+const fakeEditions = {
+  navbar: 'navbar-uk',
+  drawer: 'drawer-uk'
+}
+
 const fakeCrumbtrailResponse = {
   breadcrumb: 'some-breadcrumb',
   subsections: 'some-subsections'
@@ -19,10 +24,12 @@ const fakeCrumbtrailResponse = {
 
 const fakeMenuData = {
   crumbtrail: null,
+  ...fakeEditions,
   ...fakeMenuResponse
 }
-const fakeCrumbtrailData = {
+const fakeMenuDataWithCrumbtrail = {
   crumbtrail: fakeCrumbtrailResponse,
+  ...fakeEditions,
   ...fakeMenuResponse
 }
 
@@ -42,18 +49,30 @@ jest.mock(
   { virtual: true }
 )
 
-describe('anvil-middleware-ft-navigation', () => {
+jest.mock('../assignNavigationData', () => {
+  return {
+    getNavigationForEdition: jest.fn().mockImplementation(() => fakeEditions)
+  }
+})
+
+describe('anvil-middleware-ft-navigation/index', () => {
   let instance
   let instanceWithCrumbtrail
   let requestMock
   let responseMock
+  let responseMockNoEditions
   let next
 
   beforeEach(() => {
     instance = subject()
     instanceWithCrumbtrail = subject({ enableCrumbtrail: true })
     requestMock = httpMocks.createRequest()
-    responseMock = httpMocks.createResponse()
+    responseMock = httpMocks.createResponse({
+      locals: { editions: { current: { id: 'some-edition-id' } } }
+    })
+    responseMockNoEditions = httpMocks.createResponse({
+      locals: {}
+    })
     next = jest.fn()
   })
 
@@ -82,7 +101,7 @@ describe('anvil-middleware-ft-navigation', () => {
   describe('with the enableCrumbtrail option', () => {
     it('sets the crumbtrail properties on response.locals', async () => {
       await instanceWithCrumbtrail(requestMock, responseMock, next)
-      expect(responseMock.locals.navigation).toEqual(fakeCrumbtrailData)
+      expect(responseMock.locals.navigation).toEqual(fakeMenuDataWithCrumbtrail)
     })
     it('calls the fallthrough function', async () => {
       await instanceWithCrumbtrail(requestMock, responseMock, next)
@@ -95,6 +114,13 @@ describe('anvil-middleware-ft-navigation', () => {
     it('catches the error', async () => {
       await instance(requestMock, invalidResponseMock, next)
       expect(next).toHaveBeenCalledWith(expect.any(Error))
+    })
+  })
+
+  describe('without editions data', () => {
+    it('can handle an empty response.locals', async () => {
+      await instance(requestMock, responseMockNoEditions, next)
+      expect(responseMockNoEditions.locals.navigation).toEqual(fakeMenuData)
     })
   })
 })
