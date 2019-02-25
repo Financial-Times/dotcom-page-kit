@@ -8,6 +8,7 @@ import {
   UserActionsNav
 } from './components/navigation/partials'
 import {
+  StickyHeader,
   TopWrapperSticky,
   TopColumnCenterSticky,
   TopColumnLeftSticky,
@@ -41,26 +42,20 @@ export function HeaderDefault(props: Props) {
 
 export function HeaderSticky(props) {
   return (
-    <Header {...props}>
+    <StickyHeader {...props}>
       <TopWrapperSticky>
-        <TopColumnLeftSticky context="primary" />
+        <TopColumnLeftSticky context="sticky" />
         <TopColumnCenterSticky {...props} />
         <TopColumnRightSticky {...props} />
       </TopWrapperSticky>
-    </Header>
+    </StickyHeader>
   )
 }
 
 export function HeaderStickyDemo(props) {
   return (
     <React.Fragment>
-      <Header {...props}>
-        <TopWrapperSticky>
-          <TopColumnLeftSticky context="primary" />
-          <TopColumnCenterSticky {...props} />
-          <TopColumnRightSticky {...props} />
-        </TopWrapperSticky>
-      </Header>
+      <HeaderSticky {...props} />
       <p className="demo-sticky-message demo-sticky-message--scroll">Scroll down</p>
     </React.Fragment>
   )
