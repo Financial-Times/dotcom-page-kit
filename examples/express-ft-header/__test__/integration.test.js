@@ -27,5 +27,4 @@ describe('examples/express-ft-header', () => {
     expect(response.text).toContain('data-trackable="World"')
     expect(response.text).toContain('data-trackable="Markets"')
   })
-
 })
