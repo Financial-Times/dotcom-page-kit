@@ -3,7 +3,33 @@ import OpenGraph from './OpenGraph'
 import JsonLD from './JsonLD'
 import StyleSheets from './StyleSheets'
 import Scripts from './Scripts'
-import { TDocumentHeadProps } from './types'
+
+export interface TDocumentHeadProps {
+  criticalStyles?: string
+  description: string
+  enableJsonLD?: boolean
+  enableOpenGraph?: boolean
+  facebookDescription?: string
+  facebookHeadline?: string
+  facebookImage?: string
+  facebookPage?: string
+  googleSiteVerification: string
+  mainImage?: string
+  metadata?: { [key: string]: string }
+  pageTitle?: string
+  robots?: string
+  siteTitle: string
+  socialDescription?: string
+  socialHeadline?: string
+  socialImage?: string
+  stylesheets: string[]
+  twitterCard?: string
+  twitterDescription?: string
+  twitterHeadline?: string
+  twitterImage?: string
+  twitterSite?: string
+  url: string
+}
 
 const DocumentHead = (props: TDocumentHeadProps) => (
   <React.Fragment>
@@ -30,8 +56,6 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     <meta name="google-site-verification" content={props.googleSiteVerification} />
     {props.enableJsonLD && <JsonLD {...props} />}
     {props.enableOpenGraph && <OpenGraph {...props} />}
-
-    {props.children}
   </React.Fragment>
 )
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { TDocumentHeadProps } from './types'
+import { TDocumentHeadProps } from './'
 
 const OpenGraph = ({
   description,
