@@ -5,7 +5,7 @@ import { PluginOptions } from './types'
 export function plugin(options: PluginOptions = {}) {
   return ({ on }) => {
     on('babelConfig', addBabelPreset)
-    on('webpackConfig::scriptsRule', amendWebpackConfigScriptsRule)
+    on('webpackConfig::jsRule', amendWebpackConfigScriptsRule)
     on('webpackConfig', addTypeScriptFileTypesToResolvers)
   }
 
@@ -15,7 +15,7 @@ export function plugin(options: PluginOptions = {}) {
 
   function amendWebpackConfigScriptsRule({ resource: scriptsRule }) {
     // Replace default JS test with a RegExp including TypeScript file extensions
-    scriptsRule.test = /\.(js|jsx|mjs|ts|tsx)$/
+    scriptsRule.test.push(/\.(ts|tsx)$/)
   }
 
   function addBabelPreset({ cli, resource: babelConfig }: HandlerArgs) {

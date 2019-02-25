@@ -33,7 +33,7 @@ export function getWebpackConfig({ options, workingDir, config, publish, cli }: 
     module: {
       rules: [
         (jsRule = {
-          test: /\.(js|jsx|mjs)$/,
+          test: [/\.(js|jsx|mjs)$/],
           // NOTE: Do not exclude bower_components directory because Origami components
           // installed with Bower are ES6/source code
           exclude: [/node_modules/],
