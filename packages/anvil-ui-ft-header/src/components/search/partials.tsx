@@ -16,7 +16,7 @@ const Search = ({ context }) => {
           data-n-topic-search
           data-n-topic-search-categories="concepts,equities"
           data-n-topic-search-view-all>
-          <label className="o-header__visually-hidden" for={`o-header-search-term-${context}`}>
+          <label className="o-header__visually-hidden" htmlFor={`o-header-search-term-${context}`}>
             Search the <abbr title="Financial Times">FT</abbr>
           </label>
           <input
@@ -24,10 +24,10 @@ const Search = ({ context }) => {
             id={`o-header-search-term-${context}`}
             name="q"
             type="text"
-            autocomplete="off"
-            autocorrect="off"
-            autocapitalize="off"
-            spellcheck="false"
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck="false"
             data-trackable="search-term"
             placeholder="Search the FT"
             data-n-topic-search-input

@@ -17,7 +17,7 @@ npm install --save @financial-times/anvil-middleware-ft-edition
 ```
 const editionMiddleware = require('@financial-times/anvil-middleware-ft-edition')
 
-const instance = editionMiddleware.default()
+const instance = editionMiddleware.init()
 
 app.use(instance)
 ```

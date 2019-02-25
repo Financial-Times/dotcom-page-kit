@@ -1,15 +1,16 @@
 import React from 'react'
 import { HeaderDefault, HeaderWithCrumbtrail, LogoOnly } from '.'
 import { storiesOf } from '@storybook/react'
-import { withKnobs, radios } from '@storybook/addon-knobs'
+import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
 import { OrigamiBuildService } from '@financial-times/anvil-ui-origami-build-service'
 import storyData from './story-data/storyData'
 
 // falsey values are empty string because string coercion in storybook
-const toggleUserStateOptions = () => radios('Enable user nav actions', { enable: true, disable: '' }, true)
-const toggleSignOutOptions = () => radios('Show myFT sign out link', { show: true, hide: '' }, '')
+const toggleUserStateOptions = () => boolean('Enable user nav actions', true)
+// TODO: can we remove this?
+const toggleMyFTSignOutOptions = () => boolean('Show myFT sign out link', false)
 const toggleVariantOptions = () => radios('Choose variant', { simple: 'simple', normal: 'normal' }, 'simple')
-const toggleAnonymous = () => radios('userIsAnonymous', { true: 'true', false: '' }, '')
+const toggleAnonymous = () => boolean('User is anonymous', true)
 
 const OrigamiDependecies = {
   'o-header': '^7.7.0',
@@ -42,7 +43,8 @@ storiesOf('FT / Header', module)
     )
   })
   .add('With crumbtrail component', () => {
-    storyData.options.showSignOut = toggleSignOutOptions()
+    // TODO: can we remove this?
+    storyData.options.showSignOut = toggleMyFTSignOutOptions()
     return (
       <OrigamiBuildService
         dependencies={{

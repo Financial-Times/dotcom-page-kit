@@ -19,11 +19,11 @@ export function HeaderDefault(props: Props) {
     <Header {...props}>
       {includeUserActionsNav}
       <TopWrapper>
-        <TopColumnLeft />
+        <TopColumnLeft context="primary" />
         <TopColumnCenter {...props} />
         <TopColumnRight />
       </TopWrapper>
-      <Search context="mobile" />
+      <Search context="primary" />
       <NavMobile data={props.data['navbar-simple'].items} />
       <NavDesktop>
         <NavListLeft navItems={navItems} />
@@ -49,7 +49,7 @@ export function HeaderWithCrumbtrail(props: Props) {
   return (
     <Header {...props}>
       <TopWrapper>
-        <TopColumnLeft />
+        <TopColumnLeft context="primary" />
         <TopColumnCenter {...props} />
         <TopColumnRight />
       </TopWrapper>

@@ -6,7 +6,7 @@ It is intended to be consumed by a Navigation middleware such as [`anvil-middlew
 
 Instances of Navigation will periodically fetch navigation data from the [Origami navigation service](https://registry.origami.ft.com/components/origami-navigation-service@71.0.0) via [ft-poller](https://github.com/Financial-Times/ft-poller). This data is managed by editorial staff and is used to render the navigation components on FT.com including the header, drop-down menus, drawer and footer.
 
-```js
+```ts
 import Navigation from '@financial-times/anvil-server-ft-navigation'
 
 const navigation = new Navigation()
