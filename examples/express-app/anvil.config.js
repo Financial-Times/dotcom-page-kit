@@ -1,10 +1,10 @@
 const ftJs = require('@financial-times/anvil-plugin-ft-js')
-const ftCss = require('@financial-times/anvil-plugin-ft-css')
+const sass = require('@financial-times/anvil-plugin-sass')
 
 module.exports = {
   plugins: [
     ftJs.plugin(),
-    ftCss.plugin()
+    sass.plugin()
   ],
   settings: {
     build: {

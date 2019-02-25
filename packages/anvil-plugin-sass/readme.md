@@ -1,4 +1,4 @@
-# Anvil Plugin FT CSS
+# Anvil Plugin Sass
 
 This module extends the [Anvil CLI build action][cli] (`anvil build`) with a way to generate optimised CSS files from [Sass] source code for FT.com.
 
@@ -10,17 +10,17 @@ This module extends the [Anvil CLI build action][cli] (`anvil build`) with a way
 This module is compatible with Node 10+ and is distributed on npm.
 
 ```sh
-npm install --save-dev @financial-times/anvil-plugin-ft-css
+npm install --save-dev @financial-times/anvil-plugin-sass
 ```
 
 After installing the module you must add it to the list of plugins in your project's `anvil.config.js` configuration file:
 
 ```diff
-+ const ftCssPlugin = require('@financial-times/anvil-plugin-ft-css').default
++ const sassPlugin = require('@financial-times/anvil-plugin-sass').default
 
 module.exports = {
   plugins: [
-+    ftCssPlugin
++    sassPlugin
   ]
 }
 ```
@@ -66,34 +66,34 @@ There are currently no additional options for this plugin.
 
 _Please note: The hooks below are listed in the order they will be executed._
 
-### `webpackConfig::ftCssPlugin::sassLoaderOptions`
+### `webpackConfig::sassPlugin::sassLoaderOptions`
 
 A synchronous hook which receives the configuration object to be used for the [sass-loader]. You may directly mutate this object.
 
-### `webpackConfig::ftCssPlugin::autoprefixerOptions`
+### `webpackConfig::sassPlugin::autoprefixerOptions`
 
 A synchronous hook which receives the configuration object to be used for the [Autoprefixer] PostCSS plugin. You may directly mutate this object.
 
-### `webpackConfig::ftCssPlugin::cssnanoOptions`
+### `webpackConfig::sassPlugin::cssnanoOptions`
 
 A synchronous hook which receives the configuration object to be used for the [cssnano] PostCSS plugin. You may directly mutate this object.
 
-### `webpackConfig::ftCssPlugin::postcssLoaderOptions`
+### `webpackConfig::sassPlugin::postcssLoaderOptions`
 
 A synchronous hook which receives the configuration object to be used for the [postcss-loader]. You may directly mutate this object.
 
-### `webpackConfig::ftCssPlugin::cssLoaderOptions`
+### `webpackConfig::sassPlugin::cssLoaderOptions`
 
 A synchronous hook which receives the configuration object to be used for the [css-loader]. You may directly mutate this object.
 
-### `webpackConfig::ftCssPlugin::rule`
+### `webpackConfig::sassPlugin::rule`
 
 A synchronous hook which receives the entire [rule] to be appended by this plugin. You may directly mutate this object.
 
-### `webpackConfig::ftCssPlugin::stylesOnlyPluginOptions`
+### `webpackConfig::sassPlugin::stylesOnlyPluginOptions`
 
 A synchronous hook which receives the configuration object to be used for the [webpack-fix-style-only-entries]. You may directly mutate this object.
 
-### `webpackConfig::ftCssPlugin::miniCssExtractPluginOptions`
+### `webpackConfig::sassPlugin::miniCssExtractPluginOptions`
 
 A synchronous hook which receives the configuration object to be used for the [mini-css-extract-plugin]. You may directly mutate this object.

@@ -8,6 +8,6 @@
   },
   "devDependencies": {
     "@financial-times/anvil": "file:../../packages/anvil",
-    "@financial-times/anvil-plugin-ft-css": "file:../../packages/anvil-plugin-ft-css"
+    "@financial-times/anvil-plugin-sass": "file:../../packages/anvil-plugin-sass"
   }
 }
