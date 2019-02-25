@@ -6,7 +6,7 @@ It is intended to be consumed by a Navigation middleware such as [`anvil-middlew
 
 Instances of Navigation will periodically fetch navigation data from the [Origami navigation service](https://registry.origami.ft.com/components/origami-navigation-service@71.0.0) via [ft-poller](https://github.com/Financial-Times/ft-poller). This data is managed by editorial staff and is used to render the navigation components on FT.com including the header, drop-down menus, drawer and footer.
 
-```js
+```ts
 import Navigation from '@financial-times/anvil-server-ft-navigation'
 
 const navigation = new Navigation()
@@ -82,16 +82,16 @@ Returns:
 
 ### `getCrumbtrail(path: string)`
 
-Returns the crumbtrail data for path. The crumbtrail is the data which populates the header-subnav element:
+Returns the crumbtrail data for `path`. The crumbtrail is the data which populates the header-subnav element:
 
 ![alt text](./screenshots/screenshot-markets-nav-item.png)
 
 
-## Modifying the data
+## Modifying Crumbtrail data
 
-The data from `getNavigationData`, `getPathMenu` and `getCrumbtrail`  methods is frozen to prevent mutation as it is passed around. If you need to modify any part of the data, you should first clone the parts you need and then work with your cloned object.
+The data from `getCrumbtrail`  methods is frozen to prevent accidantal mutation of the `Poller` instance's data as it is passed around. If you need to modify any part of the data, you should first clone the parts you need and then work with your cloned object.
 
 ```js
-const menuItem = getPathMenu('drawer-uk', '/world/uk')
+const menuItem = getCrumbtrail('/world/uk')
 const clone = menuItem => JSON.parse(JSON.stringify(menuItem));
 ```

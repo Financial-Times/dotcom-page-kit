@@ -52,7 +52,7 @@ export class Navigation {
 
   async getPathMenu(menuId: string, path: string = '/'): Promise<TNavMenu> {
     const data = await this.getNavigationData()
-    return parseData(decorateMenu(data[menuId], path))
+    return decorateMenu(data[menuId], path)
   }
 
   async getCrumbtrail(path: string) {
