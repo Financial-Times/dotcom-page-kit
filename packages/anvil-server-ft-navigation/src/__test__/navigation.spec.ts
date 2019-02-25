@@ -1,11 +1,7 @@
-import { Navigation } from '../'
 import nock from 'nock'
 
-const navigationData = {
-  testData: 'some-navigation-data',
-  testMenu: 'some-menu-data',
-  streamPage: 'some-stream-id'
-}
+import { Navigation } from '..'
+import { menus as navigationData } from '../__fixtures__/menus'
 
 const crumbtrailData = {
   testData: 'some-crumbtrail-data',
@@ -44,26 +40,25 @@ describe('anvil-server-ft-navigation', () => {
     expect(FakePoller.start).toHaveBeenCalled()
   })
 
-  describe('.getNavigation()', () => {
+  describe('.getNavigationData()', () => {
     it('returns the navigation data', async () => {
-      const result = await navigationInstance.getNavigation()
+      const result = await navigationInstance.getNavigationData()
       expect(result).toEqual(navigationData)
     })
   })
 
-  describe('.getMenu()', () => {
-    it('returns the requested menu data', async () => {
-      const result = await navigationInstance.getMenu('testMenu')
-      expect(result).toEqual(navigationData.testMenu)
-    })
+  describe('getPathMenu', () => {
+    it('returns a decorated object', async () => {
+      const pathMenu = await navigationInstance.getPathMenu('drawer-uk', '/world/uk')
 
-    it('rejects if the requested menu does not exist', async () => {
-      await expect(navigationInstance.getMenu('invalidMenu')).rejects.toThrowError(
-        'Navigation menu "invalidMenu" does not exist'
-      )
+      expect(pathMenu.items[0].selected).toBe(true)
+      expect(pathMenu.items[1].submenu.items[0].selected).toBe(true)
+      expect(pathMenu.items[1].url).toBe('/fake-item?location=/world/uk')
+      expect(pathMenu.items[1].submenu.items[1].url).toBe('/fake-item-nested?location=/world/uk')
     })
   })
 
+  // nock used here because Crumbtrail fetches its data directly rather than pulling from Poller
   describe('.getCrumbtrail()', () => {
     it('fetches the crumbtrail data', async () => {
       nock('http://next-navigation.ft.com')

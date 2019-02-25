@@ -1,3 +1,4 @@
+import { Request, Response, NextFunction } from 'express'
 import { Navigation } from '@financial-times/anvil-server-ft-navigation'
 
 interface MiddlewareOptions {
@@ -12,13 +13,13 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
   const options = { ...defaultOptions, ...userOptions }
   const poller = new Navigation(options)
 
-  return async (request, response, next) => {
+  return async (request: Request, response: Response, next: NextFunction) => {
     try {
       response.locals.navigation = {}
       response.locals.navigation.crumbtrail = {}
 
       const [navigation, crumbtrail] = await Promise.all([
-        poller.getNavigation(),
+        poller.getNavigationData(),
         options.enableCrumbtrail ? poller.getCrumbtrail(request.path) : null
       ])
       // TODO Revisit these names

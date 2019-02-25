@@ -1,50 +1,97 @@
 # anvil-server-ft-navigation
 
-The FT Navigation package exposes a Navigation class with some methods for accessing navigation data for ft.com. This package should be consumed by a Navigation middleware such as [Navigation Middleware] which can handle the responses. // TODO: Fill in a location for our default navigation middleware
+This module exposes a Navigation class with some methods for accessing navigation data for ft.com. 
+
+It is intended to be consumed by a Navigation middleware such as [`anvil-middleware-ft-navigation`](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-middleware-ft-navigation) which can handle the responses.
 
 Instances of Navigation will periodically fetch navigation data from the [Origami navigation service](https://registry.origami.ft.com/components/origami-navigation-service@71.0.0) via [ft-poller](https://github.com/Financial-Times/ft-poller). This data is managed by editorial staff and is used to render the navigation components on FT.com including the header, drop-down menus, drawer and footer.
 
-
-### How it works
-
-Create an instance of Navigation.
-
-```js
+```ts
 import Navigation from '@financial-times/anvil-server-ft-navigation'
+
 const navigation = new Navigation()
 
-navigation.getNavigation() // Promise<object>
-navigation.getMenu(menuItem) // Promise<object>
-navigation.getCrumbtrail(pathName) // Promise<object>
+navigation.getNavigationData(): Promise<TNavMenus>
+navigation.getPathMenu(menuId: string, path: string): Promise<TNavMenu>
+navigation.getCrumbtrail(path: string): Promise<object>
 ```
 
-The constructor method inside Navigation sets up some default properties and creates an `initialPromise` which initialises the poller so that it begins requesting navigation data immediately.
+## API
+
+### `constructor(options?: TNavOptions)`
+
+Options will be merged with the following defaults: 
+
 ```js
-this.initialPromise = this.poller.start({ initialRequest: true })
+{
+  menuUrl: 'http://next-navigation.ft.com/v2/menus',
+  crumbtrailUrl: 'http://next-navigation.ft.com/v2/hierarchy',
+  interval: 15 * 60 * 1000 // poll every 15 minutes
+}
 ```
 
+### `getNavigationData()`
 
-### Available methods
+Returns the full, raw, undecorated navigation data, refreshed every 15 minutes.
 
-Navigation methods are intended to be utilised by the middleware.
+Data is keyed by menuId: 
 
-`navigation.getNavigation()` will return the full navigation data. The data is automatically refreshed every 15 minutes.
+- "account"
+- "drawer-uk"
+- "drawer-international"
+- "user"
+- "anon"
+- "footer"
+- "navbar-simple"
+- "navbar-right"
+- "navbar-right-anon"
+- "navbar-uk"
+- "navbar-international"
 
-`navigation.getMenu('drawer-uk')` will return the navigation data for only the menu item requested read from the `data` property on the instance of Navigation. In this case, it will return the data related to the `drawer-uk` element.
+### `getPathMenu(menuId: string, path: string): Promise<TNavMenu>` 
 
-`navigation.getCrumbtrail('markets')` will return the crumbtrail data for the requested path. The crumbtrail is the data which populates the header-subnav element.
+Returns the navigation data for the supplied `menuId` (see above), decorated per `path`:
+- A `selected` property is added to all items; value is `true` or `false` depending on whether the `url` property matches `path`
+- Redirect urls are set to value of the `path` parameter (e.g. allowing `/login?location=<path>` to redirect back to the referring page)
+
+Calling
+```js
+navigation.getPathMenu('drawer-uk', '/world/uk')
+```
+
+Returns:
+```js
+{
+  label: 'Drawer',
+  items: [
+    { 
+      label: 'Foo', 
+      url: '/world/uk', 
+      submenu: null, 
+      selected: true  // property added; value is true because it matches `path`
+    },
+    {
+      label: 'Bar', 
+      url: '/fake-item?location=/world/uk', // location set to 
+      submenu: null, 
+      selected: false // property added;
+    }
+  ]
+}
+```
+
+### `getCrumbtrail(path: string)`
+
+Returns the crumbtrail data for `path`. The crumbtrail is the data which populates the header-subnav element:
 
 ![alt text](./screenshots/screenshot-markets-nav-item.png)
 
 
-### Modifying the data
+## Modifying Crumbtrail data
 
-The data from `getNavigation`, `getMenu` and `getCrumbtrail`  methods is frozen to prevent mutation as it is passed around. If you need to modify any part of the data, you should first clone the parts you need and then work with your cloned object.
+The data from `getCrumbtrail`  methods is frozen to prevent accidantal mutation of the `Poller` instance's data as it is passed around. If you need to modify any part of the data, you should first clone the parts you need and then work with your cloned object.
 
 ```js
-const menuItem = getMenu('drawer-uk')
+const menuItem = getCrumbtrail('/world/uk')
 const clone = menuItem => JSON.parse(JSON.stringify(menuItem));
 ```
-
-
-// TODO: Expand on usage once we have more of the Navigation middleware in in place.

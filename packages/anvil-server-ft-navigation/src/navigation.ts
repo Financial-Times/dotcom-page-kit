@@ -3,17 +3,25 @@ import httpError from 'http-errors'
 import deepFreeze from 'deep-freeze'
 import fetch from 'node-fetch'
 
-const parseData = (data: object) => {
-  // Makes the navigation data completely immutable,
-  // To modify the data, clone the parts you need to change then modify in your app
+import { decorateMenu } from '.'
+
+import { TNavMenus, TNavMenu, TOptions as TNavOptions } from './types'
+
+/**
+ * Makes the navigation data completely immutable,
+ * To modify the data, clone the parts you need to change then modify in your app
+ *
+ * @param data
+ */
+const parseData = (data: any) => {
   return deepFreeze(data)
 }
 
-const removeLeadingForwardSlash = (pagePath) => {
+const removeLeadingForwardSlash = (pagePath: string) => {
   return pagePath.charAt(0) === '/' ? pagePath.substring(1) : pagePath
 }
 
-const defaults = {
+const defaults: TNavOptions = {
   menuUrl: 'http://next-navigation.ft.com/v2/menus',
   crumbtrailUrl: 'http://next-navigation.ft.com/v2/hierarchy',
   interval: 15 * 60 * 1000 // poll every 15 minutes
@@ -22,7 +30,7 @@ const defaults = {
 export class Navigation {
   public options
   public poller
-  public initialPromise
+  public initialPromise: Promise<void>
 
   constructor(options = {}) {
     this.options = { ...defaults, ...options }
@@ -36,25 +44,19 @@ export class Navigation {
     this.initialPromise = this.poller.start({ initialRequest: true })
   }
 
-  async getNavigation() {
-    // initialPromise does not resolve any data
-    // but it must resolve before `.data` is available to read.
+  async getNavigationData(): Promise<TNavMenus> {
+    // initialPromise does not return data but must resolve before `getData` can be called
     await this.initialPromise
     return this.poller.getData()
   }
 
-  async getMenu(menuItem: string) {
-    const data = await this.getNavigation()
-
-    if (data.hasOwnProperty(menuItem)) {
-      return data[menuItem]
-    } else {
-      throw Error(`Navigation menu "${menuItem}" does not exist. Available options: ${Object.keys(data)}.`)
-    }
+  async getPathMenu(menuId: string, path: string = '/'): Promise<TNavMenu> {
+    const data = await this.getNavigationData()
+    return decorateMenu(data[menuId], path)
   }
 
-  async getCrumbtrail(currentPath: string) {
-    const currentPage = removeLeadingForwardSlash(currentPath)
+  async getCrumbtrail(path: string) {
+    const currentPage = removeLeadingForwardSlash(path)
     const crumbtrail = `${this.options.crumbtrailUrl}/${currentPage}`
     const response = await fetch(crumbtrail)
 
