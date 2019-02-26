@@ -30,11 +30,11 @@ Options will be merged with the following defaults:
 }
 ```
 
-### `getNavigationData()`
+### `getMenuData(path: string): Promise<TNavMenus>`
 
-Returns the full, raw, undecorated navigation data, refreshed every 15 minutes.
+Returns the full navigation data, refreshed every 15 minutes.
 
-Data is keyed by menuId: 
+Data is keyed by menuId, values match the output of `getPathMenu(menuId, path)`
 
 - "account"
 - "drawer-uk"

@@ -8,12 +8,12 @@ The response is a path-specific navigation object comprising:
 
 ```ts
 const data = {
-  "crumbtrails": null || {
+  "crumbtrail": null || {
     "breadcrumb": {},  
     "subsections": {}  
   },
-  "drawer": "uk" | "international",
-  "navbar": "uk" | "international",
+  "drawer": "drawer-uk" | "drawer-international",
+  "navbar": "navbar-uk" | "navbar-international",
   "drawer-uk": {},
   "drawer-international": {},
   "navbar-uk": {},
@@ -38,14 +38,14 @@ npm install --save @financial-times/anvil-middleware-ft-navigation
 
 ## Configuration
 
-The following options are available to customise (comments are default values)
+The following options are available to customise (default values in comments)
 
-```ts
+```js
 { 
-  enableCrumbtrail?: boolean // false
-  crumbtrailUrl?: string     // http://next-navigation.ft.com/v2/hierarchy
-  menuUrl?: string           // http://next-navigation.ft.com/v2/menus
-  interval?: number          // 15 minutes
+  enableCrumbtrail: // false
+  crumbtrailUrl:    // http://next-navigation.ft.com/v2/hierarchy
+  menuUrl:          // http://next-navigation.ft.com/v2/menus
+  interval:         // 15 * 60 * 1000 (i.e. 15 minutes)
 }
 ```
 
