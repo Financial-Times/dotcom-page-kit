@@ -72,17 +72,13 @@ const Logo = () => (
 )
 
 const LoggedInState = () => (
-  <span className="o-header__top-link--myft__container">
-    <a
-      className="o-header__top-link o-header__top-link--myft"
-      href="/myft"
-      data-trackable="my-ft"
-      data-tour-stage="myFt"
-      aria-label="My F T"
-      tabindex="-1">
-      <span className="o-header__visually-hidden">myFT</span>
-    </a>
-  </span>
+  <a
+    className="o-header__top-link o-header__top-link--myft"
+    href="/myft"
+    data-trackable="my-ft"
+    tabindex="-1">
+    <span className="o-header__visually-hidden">myFT</span>
+  </a>
 )
 
 const AnonymousUserState = (props) => {
@@ -139,7 +135,7 @@ const TopColumnCenterSticky = (props) => {
 }
 
 const TopColumnRightSticky = (props) => {
-  const ChooseNavRight = props.options.userIsAnonymous ? AnonymousUserState(props) : LoggedInState
+  const ChooseNavRight = props.options.userIsAnonymous ? AnonymousUserState(props) : LoggedInState()
   return <div className="o-header__top-column o-header__top-column--right">{ChooseNavRight}</div>
 }
 
