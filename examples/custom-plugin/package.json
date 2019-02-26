@@ -1,0 +1,11 @@
+{
+  "name": "example-custom-plugin",
+  "private": true,
+  "scripts": {
+    "build": "anvil build -d"
+  },
+  "devDependencies": {
+    "@financial-times/anvil": "file:../../packages/anvil",
+    "@financial-times/anvil-plugin-sass": "file:../../packages/anvil-plugin-sass"
+  }
+}
