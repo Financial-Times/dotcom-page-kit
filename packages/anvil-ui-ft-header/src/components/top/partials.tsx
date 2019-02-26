@@ -85,9 +85,7 @@ const MyFt = () => (
 const TopColumnRight = () => {
   return (
     <div className="o-header__top-column o-header__top-column--right">
-      <span className="o-header__top-link--myft__container">
-        <MyFt />
-      </span>
+      <MyFt />
     </div>
   )
 }
