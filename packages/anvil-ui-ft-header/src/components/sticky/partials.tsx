@@ -2,6 +2,7 @@
 /* This is the sticky header variant */
 
 import React from 'react'
+import { NavListRightAnon } from '../navigation/partials'
 
 const StickyHeader = (props) => {
   return (
@@ -74,7 +75,16 @@ const Logo = () => (
   </a>
 )
 
-const LoggedInState = () => (
+const NavListRightAnonSticky = (props) => {
+  const navItems = props.data['navbar-right-anon'].items
+  return (
+    <div className="o-header__nav">
+      <NavListRightAnon {...navItems} variant={'sticky'} />
+    </div>
+  )
+}
+
+const MyFtSticky = () => (
   <a
     className="o-header__top-link o-header__top-link--myft"
     href="/myft"
@@ -83,31 +93,6 @@ const LoggedInState = () => (
     <span className="o-header__visually-hidden">myFT</span>
   </a>
 )
-
-const AnonymousUserState = (props) => {
-  const navItems = props.data['navbar-right-anon'].items
-  return (
-    <div className="o-header__nav">
-      <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
-        {navItems.map((navItem, index) => {
-          const linkType = navItem.label === 'Subscribe' ? 'button' : 'link'
-          return (
-            <li className={`o-header__nav-item`} key={`link-${index}`}>
-              <a
-                className={`o-header__nav-${linkType}`}
-                href={navItem.url}
-                id={`o-header-link-${index}`}
-                data-trackable={navItem.label}
-                tabindex="-1">
-                {navItem.label}
-              </a>
-            </li>
-          )
-        })}
-      </ul>
-    </div>
-  )
-}
 
 const TopWrapperSticky = (props) => (
   <div className="o-header__row o-header__top" data-trackable="header-sticky">
@@ -137,7 +122,7 @@ const TopColumnCenterSticky = (props) => {
 }
 
 const TopColumnRightSticky = (props) => {
-  const ChooseNavRight = props.options.userIsAnonymous ? AnonymousUserState(props) : LoggedInState()
+  const ChooseNavRight = props.options.userIsAnonymous ? NavListRightAnonSticky(props) : MyFtSticky()
   return <div className="o-header__top-column o-header__top-column--right">{ChooseNavRight}</div>
 }
 

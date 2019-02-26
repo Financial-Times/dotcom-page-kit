@@ -97,18 +97,19 @@ const NavListRightLoggedIn = (navbarOptionsRight) => {
   )
 }
 
-const NavListRightAnon = (navbarOptionsRight) => {
+const NavListRightAnon = (props, variant?) => {
   // If user is anonymous the second list item is styled as a button
-  const [first, second] = navbarOptionsRight
+  const [first, second] = props
+  const setTabIndex = variant === 'sticky' ? 'tabindex="-1"' : null
   return (
     <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
       <li className="o-header__nav-item">
-        <a className="o-header__nav-link" href={first.url} data-trackable={first.label}>
+        <a className="o-header__nav-link" href={first.url} data-trackable={first.label} {...setTabIndex}>
           {first.label}
         </a>
       </li>
       <li className="o-header__nav-item">
-        <a className="o-header__nav-button" href={second.url} data-trackable={second.label}>
+        <a className="o-header__nav-button" href={second.url} data-trackable={second.label} {...setTabIndex}>
           {second.label}
         </a>
       </li>
@@ -135,4 +136,4 @@ const UserActionsNav = (props) => {
   )
 }
 
-export { NavDesktop, NavMobile, NavListLeft, NavListRight, UserActionsNav }
+export { NavDesktop, NavMobile, NavListLeft, NavListRight, NavListRightAnon, UserActionsNav }
