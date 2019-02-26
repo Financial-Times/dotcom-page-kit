@@ -56,6 +56,25 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     <meta name="google-site-verification" content={props.googleSiteVerification} />
     {props.enableJsonLD && <JsonLD {...props} />}
     {props.enableOpenGraph && <OpenGraph {...props} />}
+
+    {/* packaging */}
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=32&height=32&format=png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=194&height=194&format=png"
+      sizes="194x194"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=180&height=180&format=png"
+    />
   </React.Fragment>
 )
 
