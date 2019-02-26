@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Header = (props) => {
-  // const headerCompact = props && props.options.variant === 'compact' ? 'o-header--simple' : null
   return (
     <header
       id="site-navigation"
