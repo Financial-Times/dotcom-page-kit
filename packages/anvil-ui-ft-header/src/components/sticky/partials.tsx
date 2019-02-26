@@ -121,6 +121,9 @@ const TopColumnCenterSticky = (props) => {
   )
 }
 
+/* This behaviour is similar to `NavListRight` in '../navigation/partials */
+/* The sticky header renders either the `navbar-right-anon` data or the myFT component */
+/* Other header variants render either the `navbar-right-anon` or the `navbar-right` data */
 const TopColumnRightSticky = (props) => {
   const ChooseNavRight = props.options.userIsAnonymous ? NavListRightAnonSticky(props) : MyFtSticky()
   return <div className="o-header__top-column o-header__top-column--right">{ChooseNavRight}</div>
