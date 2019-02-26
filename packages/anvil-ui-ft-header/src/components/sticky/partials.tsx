@@ -79,7 +79,7 @@ const NavListRightAnonSticky = (props) => {
   const navItems = props.data['navbar-right-anon'].items
   return (
     <div className="o-header__nav">
-      <NavListRightAnon {...navItems} variant={'sticky'} />
+      <NavListRightAnon navbarOptions={navItems} variant={'sticky'} />
     </div>
   )
 }
