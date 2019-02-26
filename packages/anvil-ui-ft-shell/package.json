@@ -18,6 +18,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@financial-times/anvil-ui-bootstrap": "file:../anvil-ui-bootstrap"
+  },
   "devDependencies": {
     "@financial-times/anvil-types-generic": "file:../anvil-types-generic"
   },
