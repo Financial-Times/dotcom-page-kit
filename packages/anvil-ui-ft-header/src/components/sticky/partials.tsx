@@ -1,3 +1,6 @@
+/* WARN: This file looks similar to '../top/partials */
+/* This is the sticky header variant */
+
 import React from 'react'
 
 const StickyHeader = (props) => {
@@ -5,7 +8,7 @@ const StickyHeader = (props) => {
     <header
       className={`o-header o-header--${props.options.variant} o-header--sticky o--if-js`}
       data-o-component="o-header"
-      data-o-header--no-js={true}
+      data-o-header--no-js="true"
       data-o-header--sticky
       aria-hidden="true">
       {props.children}
@@ -87,12 +90,11 @@ const AnonymousUserState = (props) => {
     <div className="o-header__nav">
       <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
         {navItems.map((navItem, index) => {
-          const includeExpanded = navItem.label === 'Subscribe' ? 'o-header__nav-item--expanded' : null
-          const includeLinkType = navItem.label === 'Subscribe' ? 'button' : 'link'
+          const linkType = navItem.label === 'Subscribe' ? 'button' : 'link'
           return (
-            <li className={`o-header__nav-item ${includeExpanded}`} key={`link-${index}`}>
+            <li className={`o-header__nav-item`} key={`link-${index}`}>
               <a
-                className={`o-header__nav-${includeLinkType}`}
+                className={`o-header__nav-${linkType}`}
                 href={navItem.url}
                 id={`o-header-link-${index}`}
                 data-trackable={navItem.label}
