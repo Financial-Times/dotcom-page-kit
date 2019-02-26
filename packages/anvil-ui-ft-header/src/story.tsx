@@ -48,6 +48,7 @@ storiesOf('FT / Header', module)
     )
   })
   .add('Sticky header', () => {
+    storyData.options.userIsAnonymous = toggleAnonymous()
     return (
       <OrigamiBuildService dependencies={OrigamiDependecies}>
         <HeaderStickyDemo {...storyData} />
