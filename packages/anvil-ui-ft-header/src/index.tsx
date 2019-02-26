@@ -48,6 +48,7 @@ export function HeaderSticky(props) {
         <TopColumnCenterSticky {...props} />
         <TopColumnRightSticky {...props} />
       </TopWrapperSticky>
+      <Search context="sticky" />
     </StickyHeader>
   )
 }
