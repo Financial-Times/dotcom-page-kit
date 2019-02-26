@@ -47,7 +47,7 @@
     "@storybook/addon-knobs": "4.1.12",
     "@storybook/addon-options": "4.1.12",
     "@storybook/react": "4.1.12",
-    "@types/jest": "23.3.14",
+    "@types/jest": "^24.0.0",
     "@types/node": "10.12.26",
     "@types/ora": "^3.0.0",
     "@typescript-eslint/parser": "^1.2.0",
@@ -59,7 +59,7 @@
     "eslint": "5.14.0",
     "eslint-import-resolver-webpack": "^0.11.0",
     "eslint-plugin-import": "2.16.0",
-    "eslint-plugin-jest": "^21.26.1",
+    "eslint-plugin-jest": "^22.3.0",
     "husky": "^1.1.2",
     "jest": "^24.1.0",
     "lint-staged": "^7.3.0",
@@ -71,7 +71,7 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "supertest": "^3.4.2",
-    "ts-jest": "^23.10.4",
+    "ts-jest": "^24.0.0",
     "typescript": "3.3.3"
   },
   "engines": {
