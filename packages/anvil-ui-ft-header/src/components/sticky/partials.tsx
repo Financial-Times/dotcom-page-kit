@@ -3,12 +3,11 @@ import React from 'react'
 const StickyHeader = (props) => {
   return (
     <header
-      id="site-navigation"
-      className={`o-header o-header--${props.options.variant} o-header--sticky`}
+      className={`o-header o-header--${props.options.variant} o-header--sticky o--if-js`}
       data-o-component="o-header"
       data-o-header--no-js={true}
       data-o-header--sticky
-      tabIndex={-1}>
+      aria-hidden="true">
       {props.children}
     </header>
   )
@@ -16,11 +15,9 @@ const StickyHeader = (props) => {
 
 const DrawerIconSticky = () => (
   <a
-    href="#o-header-drawer"
+    href="#"
     className="o-header__top-link o-header__top-link--menu"
     aria-controls="o-header-drawer"
-    title="Open drawer menu"
-    aria-label="Open drawer menu"
     data-trackable="drawer-toggle"
     tabindex="-1">
     <span className="o-header__top-link-label">Menu</span>
@@ -29,11 +26,9 @@ const DrawerIconSticky = () => (
 
 const SearchIconSticky = ({ context }) => (
   <a
-    href={`o-header-search-${context}`}
+    href="#"
     className="o-header__top-link o-header__top-link--search"
     aria-controls={`o-header-search-${context}`}
-    title="Search"
-    aria-label="Search"
     data-trackable="search-toggle"
     tabindex="-1">
     <span className="o-header__top-link-label">Search</span>
@@ -43,20 +38,15 @@ const SearchIconSticky = ({ context }) => (
 const Navigation = (props) => {
   const navItems = props.data.navbar.items
   return (
-    <div class="o-header__top-takeover">
-      <div class="o-header__nav">
-        <ul class="o-header__nav-list o-header__nav-list--left" data-trackable="primary-nav">
+    <div className="o-header__top-takeover">
+      <div className="o-header__nav">
+        <ul className="o-header__nav-list o-header__nav-list--left" data-trackable="primary-nav">
           {navItems.map((navItem, index) => {
-            const ariaAttributes = navItem.selected
-              ? { 'aria-label': 'Current page', 'aria-current': true }
-              : null
             return (
               <li className="o-header__nav-item" key={`link-${index}`}>
                 <a
                   className="o-header__nav-link o-header__nav-link--primary"
                   href={navItem.url}
-                  id={`o-header-link-${index}`}
-                  {...ariaAttributes}
                   data-trackable={navItem.label}
                   tabindex="-1">
                   {navItem.label}
@@ -72,12 +62,12 @@ const Navigation = (props) => {
 
 const Logo = () => (
   <a
-    class="o-header__top-logo o-header__hide--L"
+    className="o-header__top-logo o-header__hide--L"
     data-trackable="logo"
     href="/"
     title="Go to Financial Times homepage"
     tabindex="-1">
-    <span class="o-header__visually-hidden">Financial Times</span>
+    <span className="o-header__visually-hidden">Financial Times</span>
   </a>
 )
 
@@ -98,8 +88,8 @@ const LoggedInState = () => (
 const AnonymousUserState = (props) => {
   const navItems = props.data['navbar-right-anon'].items
   return (
-    <div class="o-header__nav">
-      <ul class="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
+    <div className="o-header__nav">
+      <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
         {navItems.map((navItem, index) => {
           const includeExpanded = navItem.label === 'Subscribe' ? 'o-header__nav-item--expanded' : null
           const includeLinkType = navItem.label === 'Subscribe' ? 'button' : 'link'

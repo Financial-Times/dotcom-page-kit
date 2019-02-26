@@ -14,7 +14,7 @@ export default {
     disableSticky: false,
     variant: 'simple',
     hideOutboundLinks: false,
-    userIsAnonymous: true,
+    userIsAnonymous: false,
     userIsLoggedIn: true,
     showSubNav: true,
     showSignOut: true
