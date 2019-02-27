@@ -1,7 +1,7 @@
 import fs from 'fs'
-import path from 'path'
+import findUp from 'find-up'
 
-const bootstrapJS = String(fs.readFileSync(path.join(__dirname, '../lib/bootstrap.js')))
+const bootstrapJS = String(fs.readFileSync(findUp.sync('lib/bootstrap.js', { cwd: __dirname })))
 
 export function formatConfigJSON(coreScripts: string[], enhancedScripts: string[]): string {
   return JSON.stringify({
