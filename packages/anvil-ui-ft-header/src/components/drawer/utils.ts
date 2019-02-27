@@ -11,6 +11,5 @@ export const menuToggleClasses = (isSelected: boolean) => {
   return `o-header__drawer-menu-toggle o-header__drawer-menu-toggle--${selectedModifier(isSelected)}`
 }
 
-export const isCurrentUrl = (currentUrl: string) => (url: string) => {
-  return url === currentUrl
-}
+export const aria = (isSelected: boolean) =>
+  isSelected ? `aria-label="Current page" aria-current="true"` : null

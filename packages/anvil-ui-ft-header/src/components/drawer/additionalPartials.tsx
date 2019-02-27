@@ -1,17 +1,19 @@
 import React from 'react'
 import * as utils from './utils'
 
-export const DrawerParentItem = ({ label, url, submenu, index, isSelected }) => {
-  // TODO add aria
+export const DrawerParentItem = ({ label, url, submenu, index, equalsCurrentUrl }) => {
   // TODO adds types to classes dynamically
   return (
     <React.Fragment>
       <div key={url} className="o-header__drawer-menu-toggle-wrapper">
-        <a className={utils.menuLinkClasses(isSelected(url), 'parent')} href={url} data-trackable={label}>
+        <a
+          className={utils.menuLinkClasses(equalsCurrentUrl(url), 'parent')}
+          href={url}
+          data-trackable={label}>
           {label}
         </a>
         <button
-          className={utils.menuToggleClasses(isSelected(url))}
+          className={utils.menuToggleClasses(equalsCurrentUrl(url))}
           aria-controls={`o-header-drawer-child-${index}`}
           data-trackable={`sub-level-toggle | ${label}`}>
           {`Show more ${label} links`}
@@ -25,7 +27,7 @@ export const DrawerParentItem = ({ label, url, submenu, index, isSelected }) => 
           return (
             <li key={item.url} className="o-header__drawer-menu-item">
               <a
-                className={utils.menuLinkClasses(isSelected(url), 'child')}
+                className={utils.menuLinkClasses(equalsCurrentUrl(url), 'child')}
                 href={item.url}
                 data-trackable={item.label}>
                 {item.label}
@@ -38,9 +40,9 @@ export const DrawerParentItem = ({ label, url, submenu, index, isSelected }) => 
   )
 }
 
-export const DrawerSingleItem = ({ label, url, isSelected }) => {
+export const DrawerSingleItem = ({ label, url, equalsCurrentUrl }) => {
   return (
-    <a className={utils.menuLinkClasses(isSelected(url))} href={url} data-trackable={label}>
+    <a className={utils.menuLinkClasses(equalsCurrentUrl(url))} href={url} data-trackable={label}>
       {label}
     </a>
   )

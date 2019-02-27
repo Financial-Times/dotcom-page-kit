@@ -1,13 +1,9 @@
 import React from 'react'
 import { DrawerParentItem, DrawerSingleItem } from './additionalPartials'
-import { isCurrentUrl } from './utils'
 const IncludeDrawer = (props) => <Drawer {...props} />
 
 const Drawer = (props) => {
-  /* Note: isSelected is a function that is passed as a prop though the stack */
-  /* It stores the currentUrl and can be called with any url string  */
-  /* Returns true if the value passed in matches the currentUrl it was initialised with */
-  const isSelected = isCurrentUrl(props.options.currentUrl)
+  const equalsCurrentUrl = (url) => props.options.currentUrl === url
   const sections = props.data.drawer.items
   return (
     <div
@@ -21,14 +17,14 @@ const Drawer = (props) => {
       data-trackable-terminate>
       <div className="o-header__drawer-inner">
         <ul className="o-header__drawer-menu-list">
-          <SectionPrimary {...sections[0]} isSelected={isSelected} />
+          <SectionPrimary {...sections[0]} equalsCurrentUrl={equalsCurrentUrl} />
         </ul>
       </div>
     </div>
   )
 }
 
-const SectionPrimary = ({ label, submenu, isSelected }) => {
+const SectionPrimary = ({ label, submenu, equalsCurrentUrl }) => {
   return (
     <React.Fragment>
       <li className="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{label}</li>
@@ -36,9 +32,9 @@ const SectionPrimary = ({ label, submenu, isSelected }) => {
         return (
           <li key={item.url} className="o-header__drawer-menu-item">
             {item.submenu ? (
-              <DrawerParentItem {...item} index={index} isSelected={isSelected} />
+              <DrawerParentItem {...item} index={index} equalsCurrentUrl={equalsCurrentUrl} />
             ) : (
-              <DrawerSingleItem {...item} isSelected={isSelected} />
+              <DrawerSingleItem {...item} equalsCurrentUrl={equalsCurrentUrl} />
             )}
           </li>
         )
