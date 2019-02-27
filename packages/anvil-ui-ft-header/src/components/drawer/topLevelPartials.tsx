@@ -1,11 +1,7 @@
 import React from 'react'
 import { DrawerParentItem, DrawerSingleItem } from './additionalPartials'
-
+import { isCurrentUrl } from './utils'
 const IncludeDrawer = (props) => <Drawer {...props} />
-
-const isCurrentUrl = (currentUrl: string) => (url: string) => {
-  return url === currentUrl
-}
 
 const Drawer = (props) => {
   /* Note: isSelected is a function that is passed as a prop though the stack */
