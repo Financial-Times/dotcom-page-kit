@@ -1,27 +1,17 @@
 import React from 'react'
+import * as utils from './utils'
 
 export const DrawerParentItem = ({ label, url, submenu, index, isSelected }) => {
-  const selectedModifier = (isSelected: boolean) => (isSelected ? 'selected' : 'unselected')
   // TODO add aria
   // TODO adds types to classes dynamically
   return (
     <React.Fragment>
       <div key={url} className="o-header__drawer-menu-toggle-wrapper">
-        <a
-          className={`
-            o-header__drawer-menu-link
-            o-header__drawer-menu-link--${selectedModifier(isSelected(url))}
-            o-header__drawer-menu-link--parent
-          `}
-          href={url}
-          data-trackable={label}>
+        <a className={utils.menuLinkClasses(isSelected(url), 'parent')} href={url} data-trackable={label}>
           {label}
         </a>
         <button
-          className={`
-            o-header__drawer-menu-toggle
-            o-header__drawer-menu-toggle--${selectedModifier(isSelected(url))}
-          `}
+          className={utils.menuToggleClasses(isSelected(url))}
           aria-controls={`o-header-drawer-child-${index}`}
           data-trackable={`sub-level-toggle | ${label}`}>
           {`Show more ${label} links`}
@@ -35,11 +25,7 @@ export const DrawerParentItem = ({ label, url, submenu, index, isSelected }) => 
           return (
             <li key={item.url} className="o-header__drawer-menu-item">
               <a
-                className={`
-                  o-header__drawer-menu-link
-                  o-header__drawer-menu-link--${selectedModifier(isSelected(url))}
-                  o-header__drawer-menu-link--child
-                `}
+                className={utils.menuLinkClasses(isSelected(url), 'child')}
                 href={item.url}
                 data-trackable={item.label}>
                 {item.label}
@@ -53,15 +39,8 @@ export const DrawerParentItem = ({ label, url, submenu, index, isSelected }) => 
 }
 
 export const DrawerSingleItem = ({ label, url, isSelected }) => {
-  const selectedModifier = (isSelected: boolean) => (isSelected ? 'selected' : 'unselected')
   return (
-    <a
-      className={`
-    o-header__drawer-menu-link
-    o-header__drawer-menu-link--${selectedModifier(isSelected(url))}
-    `}
-      href={url}
-      data-trackable={label}>
+    <a className={utils.menuLinkClasses(isSelected(url))} href={url} data-trackable={label}>
       {label}
     </a>
   )
