@@ -8,19 +8,25 @@ describe('anvil-ui-ft-shell/src/components/DocumentHead', () => {
     const props = {
       description: 'Website description.',
       enableJsonLD: true,
-      enableOpenGraph: true,
-      facebookDescription: 'Facebook description.',
-      facebookHeadline: 'Facebook headline',
-      facebookImage: 'facebook.jpg',
       facebookPage: 'facebook-page-id',
-      mainImage: 'main-image.jpg',
       metadata: { '@type': 'article', headline: 'JSON+LD headline' },
+      openGraph: {
+        og: {
+          title: 'Open Graph title',
+          video: 'https://my.site/video.mp4',
+          'video:type': 'video/mp4',
+          'video:width': 640,
+          'video:height': 360
+        },
+        article: {
+          published_time: '2019-02-27T06:59:35.000Z',
+          modified_time: '2019-02-27T16:01:21.000Z',
+          author: ['Joe Bloggs', 'Jane Doe']
+        }
+      },
       pageTitle: 'Page title',
-      siteTitle: 'Website title!',
+      siteTitle: 'Website title',
       stylesheets: [],
-      twitterDescription: 'Twitter description.',
-      twitterHeadline: 'Twitter headline',
-      twitterImage: 'twitter.jpg',
       twitterSite: '@twitter_page',
       url: 'https://my.site'
     }

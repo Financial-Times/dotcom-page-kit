@@ -1,55 +1,37 @@
 import React from 'react'
-import { TDocumentHeadProps } from './'
 
-const OpenGraph = ({
-  description,
-  facebookDescription,
-  facebookHeadline,
-  facebookImage,
-  facebookPage,
-  mainImage,
-  pageTitle,
-  siteTitle,
-  socialDescription,
-  socialHeadline,
-  socialImage,
-  twitterCard,
-  twitterDescription,
-  twitterHeadline,
-  twitterImage,
-  twitterSite,
-  url
-}: TDocumentHeadProps) => (
+export interface TOpenGraphObject {
+  [key: string]: any | any[] | TOpenGraphObject
+}
+
+export interface TOpenGraphProps {
+  openGraph: TOpenGraphObject
+}
+
+export default ({ openGraph }: TOpenGraphProps) => (
   <React.Fragment>
-    <meta property="og:locale" content="en_GB" />
-    <meta property="og:site_name" content={siteTitle} />
-
-    <meta name="twitter:title" content={twitterHeadline || socialHeadline || pageTitle || siteTitle} />
-    <meta property="og:title" content={facebookHeadline || socialHeadline || pageTitle || siteTitle} />
-
-    <meta name="twitter:description" content={twitterDescription || socialDescription || description} />
-    <meta property="og:description" content={facebookDescription || socialDescription || description} />
-
-    <meta name="twitter:url" content={url} />
-    <meta property="og:url" content={url} />
-
-    {(twitterImage || socialImage || mainImage) && (
-      <meta name="twitter:image" content={twitterImage || socialImage || mainImage} />
-    )}
-    {(facebookImage || socialImage || mainImage) && (
-      <meta property="og:image" content={facebookImage || socialImage || mainImage} />
-    )}
-
-    <meta property="fb:pages" content={facebookPage} />
-    <meta name="twitter:card" content={twitterCard} />
-    <meta name="twitter:site" content={twitterSite} />
+    {flattenData(openGraph).map(([property, content], i) => (
+      <meta key={`og-${i}`} property={property} content={content} />
+    ))}
   </React.Fragment>
 )
 
-OpenGraph.defaultProps = {
-  facebookPage: '8860325749',
-  twitterSite: '@FinancialTimes',
-  twitterCard: 'summary_large_image'
-}
+// Flattens a nested object into an array of key/value pairs
+// { foo: { bar: { baz: 123 } } } => [['foo:bar:baz', 123]]
+function flattenData(data, prefix?): Array<string[]> {
+  const output = []
 
-export default OpenGraph
+  for (const [key, value] of Object.entries(data)) {
+    const property = prefix ? `${prefix}:${key}` : key
+
+    if (value && value.constructor === Object) {
+      output.push(...flattenData(value, property))
+    } else if (Array.isArray(value)) {
+      output.push(...value.map((value) => [property, value]))
+    } else {
+      output.push([property, value])
+    }
+  }
+
+  return output
+}

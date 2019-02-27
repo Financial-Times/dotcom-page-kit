@@ -1,5 +1,5 @@
 import React from 'react'
-import OpenGraph from './OpenGraph'
+import OpenGraph, { TOpenGraphObject } from './OpenGraph'
 import JsonLD from './JsonLD'
 import StyleSheets from './StyleSheets'
 import Scripts from './Scripts'
@@ -8,25 +8,14 @@ export interface TDocumentHeadProps {
   criticalStyles?: string
   description: string
   enableJsonLD?: boolean
-  enableOpenGraph?: boolean
-  facebookDescription?: string
-  facebookHeadline?: string
-  facebookImage?: string
   facebookPage?: string
   googleSiteVerification?: string
-  mainImage?: string
   metadata?: { [key: string]: string }
+  openGraph?: TOpenGraphObject
   pageTitle?: string
   robots?: string
   siteTitle: string
-  socialDescription?: string
-  socialHeadline?: string
-  socialImage?: string
   stylesheets: string[]
-  twitterCard?: string
-  twitterDescription?: string
-  twitterHeadline?: string
-  twitterImage?: string
   twitterSite?: string
   url?: string
 }
@@ -54,8 +43,12 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     {/* SEO */}
     <meta name="robots" content={props.robots} />
     <meta name="google-site-verification" content={props.googleSiteVerification} />
-    {props.enableJsonLD && <JsonLD {...props} />}
-    {props.enableOpenGraph && <OpenGraph {...props} />}
+    {props.metadata && <JsonLD {...props} />}
+
+    {/* social media */}
+    {props.openGraph && <OpenGraph openGraph={props.openGraph} />}
+    <meta property="fb:pages" content={props.facebookPage} />
+    <meta property="twitter:site" content={props.twitterSite} />
 
     {/* packaging */}
     <link
@@ -81,9 +74,11 @@ const DocumentHead = (props: TDocumentHeadProps) => (
 DocumentHead.defaultProps = {
   description:
     'News, analysis and comment from the Financial Times, the worldʼs leading global business publication',
+  facebookPage: '8860325749',
+  googleSiteVerification: '4-t8sFaPvpO5FH_Gnw1dkM28CQepjzo8UjjAkdDflTw',
   robots: 'index,follow',
   siteTitle: 'Financial Times',
-  googleSiteVerification: '4-t8sFaPvpO5FH_Gnw1dkM28CQepjzo8UjjAkdDflTw'
+  twitterSite: '@FinancialTimes'
 }
 
 export default DocumentHead

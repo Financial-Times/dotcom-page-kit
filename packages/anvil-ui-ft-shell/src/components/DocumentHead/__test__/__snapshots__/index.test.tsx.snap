@@ -14,7 +14,7 @@ Array [
     name="viewport"
   />,
   <title>
-    Page title | Website title!
+    Page title | Website title
   </title>,
   <meta
     content="Website description."
@@ -73,56 +73,48 @@ Array [
     type="application/ld+json"
   />,
   <meta
-    content="en_GB"
-    property="og:locale"
-  />,
-  <meta
-    content="Website title!"
-    property="og:site_name"
-  />,
-  <meta
-    content="Twitter headline"
-    name="twitter:title"
-  />,
-  <meta
-    content="Facebook headline"
+    content="Open Graph title"
     property="og:title"
   />,
   <meta
-    content="Twitter description."
-    name="twitter:description"
+    content="https://my.site/video.mp4"
+    property="og:video"
   />,
   <meta
-    content="Facebook description."
-    property="og:description"
+    content="video/mp4"
+    property="og:video:type"
   />,
   <meta
-    content="https://my.site"
-    name="twitter:url"
+    content={640}
+    property="og:video:width"
   />,
   <meta
-    content="https://my.site"
-    property="og:url"
+    content={360}
+    property="og:video:height"
   />,
   <meta
-    content="twitter.jpg"
-    name="twitter:image"
+    content="2019-02-27T06:59:35.000Z"
+    property="article:published_time"
   />,
   <meta
-    content="facebook.jpg"
-    property="og:image"
+    content="2019-02-27T16:01:21.000Z"
+    property="article:modified_time"
+  />,
+  <meta
+    content="Joe Bloggs"
+    property="article:author"
+  />,
+  <meta
+    content="Jane Doe"
+    property="article:author"
   />,
   <meta
     content="facebook-page-id"
     property="fb:pages"
   />,
   <meta
-    content="summary_large_image"
-    name="twitter:card"
-  />,
-  <meta
     content="@twitter_page"
-    name="twitter:site"
+    property="twitter:site"
   />,
   <link
     href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=32&height=32&format=png"
