@@ -1,3 +1,4 @@
+import drawerUk from './drawerUk.json'
 import navbarUk from './navbarUk.json'
 import navbarSimple from './navbarSimple.json'
 import navbarRight from './navbarRight.json'
@@ -20,6 +21,7 @@ export default {
     showSignOut: true
   },
   data: {
+    drawer: drawerUk,
     navbar: navbarUk,
     'navbar-right': navbarRight,
     'navbar-right-anon': navbarRightAnon,
