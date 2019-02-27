@@ -7,9 +7,8 @@ describe('anvil-ui-ft-shell/src/components/DocumentHead', () => {
   it('renders the document head', () => {
     const props = {
       description: 'Website description.',
-      enableJsonLD: true,
       facebookPage: 'facebook-page-id',
-      metadata: { '@type': 'article', headline: 'JSON+LD headline' },
+      jsonLd: { '@type': 'article', headline: 'JSON+LD headline' },
       openGraph: {
         og: {
           title: 'Open Graph title',

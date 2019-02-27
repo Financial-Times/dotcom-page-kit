@@ -1,16 +1,15 @@
 import React from 'react'
 import OpenGraph, { TOpenGraphObject } from './OpenGraph'
-import JsonLD from './JsonLD'
+import LinkedData, { TLinkedDataObject } from './LinkedData'
 import StyleSheets from './StyleSheets'
 import Scripts from './Scripts'
 
 export interface TDocumentHeadProps {
   criticalStyles?: string
   description: string
-  enableJsonLD?: boolean
   facebookPage?: string
   googleSiteVerification?: string
-  metadata?: { [key: string]: string }
+  jsonLd?: TLinkedDataObject
   openGraph?: TOpenGraphObject
   pageTitle?: string
   robots?: string
@@ -43,7 +42,7 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     {/* SEO */}
     <meta name="robots" content={props.robots} />
     <meta name="google-site-verification" content={props.googleSiteVerification} />
-    {props.metadata && <JsonLD {...props} />}
+    <LinkedData jsonLd={props.jsonLd} />
 
     {/* social media */}
     {props.openGraph && <OpenGraph openGraph={props.openGraph} />}

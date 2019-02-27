@@ -1,16 +1,21 @@
 import React from 'react'
-import { TDocumentHeadProps } from './'
 
-const JsonLD = ({ metadata }: TDocumentHeadProps) => (
+export interface TLinkedDataObject {
+  [key: string]: any
+}
+
+export interface TLinkedDataProps {
+  jsonLd: TLinkedDataObject
+}
+
+export default ({ jsonLd }: TLinkedDataProps) => (
   <React.Fragment>
-    {metadata && (
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(metadata)
-        }}
-      />
-    )}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(jsonLd)
+      }}
+    />
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{
@@ -25,5 +30,3 @@ const JsonLD = ({ metadata }: TDocumentHeadProps) => (
     />
   </React.Fragment>
 )
-
-export default JsonLD
