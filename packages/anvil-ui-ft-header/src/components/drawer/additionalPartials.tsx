@@ -9,6 +9,7 @@ export const DrawerParentItem = ({ label, url, submenu, index, equalsCurrentUrl 
         <a
           className={utils.menuLinkClasses(equalsCurrentUrl(url), 'parent')}
           href={url}
+          {...utils.ariaCurrent(equalsCurrentUrl(url))}
           data-trackable={label}>
           {label}
         </a>
@@ -29,6 +30,7 @@ export const DrawerParentItem = ({ label, url, submenu, index, equalsCurrentUrl 
               <a
                 className={utils.menuLinkClasses(equalsCurrentUrl(url), 'child')}
                 href={item.url}
+                {...utils.ariaCurrent(equalsCurrentUrl(url))}
                 data-trackable={item.label}>
                 {item.label}
               </a>
