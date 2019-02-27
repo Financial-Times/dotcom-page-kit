@@ -11,6 +11,7 @@ const subsections = crumbtrail.children
 export default {
   // property names are consistent with the navigation service data
   options: {
+    currentUrl: '/',
     userNav: false,
     disableSticky: false,
     variant: 'simple',

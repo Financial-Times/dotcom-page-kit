@@ -15,6 +15,7 @@ import {
   TopColumnRightSticky
 } from './components/sticky/partials'
 import { IncludeCrumbtrail } from './components/crumbtrail/partials'
+import { IncludeDrawer } from './components/drawer/topLevelPartials'
 import { Search } from './components/search/partials'
 import { Props } from './interfaces'
 
@@ -89,6 +90,27 @@ export function LogoOnly(props?) {
       <TopWrapper>
         <TopColumnCenter />
       </TopWrapper>
+    </Header>
+  )
+}
+
+export function HeaderWithDrawer(props: Props) {
+  const navItems = props.data.navbar.items
+  const incudeDrawer = props.data.drawer ? IncludeDrawer(props) : null
+  return (
+    <Header {...props}>
+      <TopWrapper>
+        <TopColumnLeft context="primary" />
+        <TopColumnCenter {...props} />
+        <TopColumnRight />
+      </TopWrapper>
+      <Search context="primary" />
+      <NavMobile data={props.data['navbar-simple'].items} />
+      <NavDesktop>
+        <NavListLeft navItems={navItems} />
+        <NavListRight {...props} />
+      </NavDesktop>
+      {incudeDrawer}
     </Header>
   )
 }

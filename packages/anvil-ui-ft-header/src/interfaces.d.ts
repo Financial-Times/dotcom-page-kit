@@ -15,6 +15,7 @@ interface Options {
 }
 
 interface Data {
+  drawer: any
   navbar: any
   'navbar-right': any
   'navbar-right-anon': any
