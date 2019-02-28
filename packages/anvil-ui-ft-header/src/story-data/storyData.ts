@@ -4,6 +4,7 @@ import navbarSimple from './navbarSimple.json'
 import navbarRight from './navbarRight.json'
 import navbarRightAnon from './navbarRightAnon.json'
 import crumbtrail from './crumbtrailUk.json'
+import user from './user.json'
 
 const breadcrumb = crumbtrail.ancestors.concat(crumbtrail.item)
 const subsections = crumbtrail.children
@@ -27,7 +28,8 @@ export default {
     'navbar-right': navbarRight,
     'navbar-right-anon': navbarRightAnon,
     'navbar-simple': navbarSimple,
-    breadcrumb: breadcrumb,
-    subsections: subsections
+    breadcrumb,
+    subsections,
+    user
   }
 }
