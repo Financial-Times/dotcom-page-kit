@@ -5,6 +5,8 @@ import navbarRight from './navbarRight.json'
 import navbarRightAnon from './navbarRightAnon.json'
 import crumbtrail from './crumbtrailUk.json'
 import user from './user.json'
+import editionsUk from './editionsUk.json'
+import editionsInternational from './editionsInternational.json'
 
 const breadcrumb = crumbtrail.ancestors.concat(crumbtrail.item)
 const subsections = crumbtrail.children
@@ -23,6 +25,8 @@ export default {
     showSignOut: true
   },
   data: {
+    editionsUk,
+    editionsInternational,
     drawer: drawerUk,
     navbar: navbarUk,
     'navbar-right': navbarRight,
