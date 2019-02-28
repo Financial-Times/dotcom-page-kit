@@ -60,3 +60,18 @@ export const DrawerSpecialItem = ({ label, url, equalsCurrentUrl }) => {
     </a>
   )
 }
+
+export const EditionsSwitcher = ({ otherEditions }) => (
+  <ul className="o-header__drawer-menu-list">
+    {otherEditions.map(({ id, name, url }) => {
+      const href = `${url}?edition=${id}`
+      return (
+        <li key={id} className="o-header__drawer-menu-item" data-trackable="edition-switcher">
+          <a className="o-header__drawer-menu-link" href={href} data-trackable={id}>
+            Switch to {name}
+          </a>
+        </li>
+      )
+    })}
+  </ul>
+)

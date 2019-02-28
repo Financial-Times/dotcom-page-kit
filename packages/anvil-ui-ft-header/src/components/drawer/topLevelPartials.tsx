@@ -1,13 +1,13 @@
 import React from 'react'
-import { DrawerParentItem, DrawerSingleItem, DrawerSpecialItem } from './additionalPartials'
+import { DrawerParentItem, DrawerSingleItem, DrawerSpecialItem, EditionsSwitcher } from './additionalPartials'
 const IncludeDrawer = (props) => <Drawer {...props} />
 
-// TODO refactor editions data from improved navigation model
-// TODO refactor section data by edition
 // TODO add custom ft-header styles
+// TODO refactor section data by edition
 
 const Drawer = (props) => {
   const equalsCurrentUrl = (url) => props.options.currentUrl === url
+  // TODO refactor editions data from improved navigation model
   const editions = props.data.editionsUk
   const sections = props.data.drawer.items
   const userMenu = props.data.user
@@ -24,11 +24,16 @@ const Drawer = (props) => {
       <div className="o-header__drawer-inner">
         <DrawerTools editions={editions} />
         <Search />
-        <ul className="o-header__drawer-menu-list">
-          <SectionPrimary {...sections[0]} equalsCurrentUrl={equalsCurrentUrl} />
-          <SectionSecondary {...sections[1]} equalsCurrentUrl={equalsCurrentUrl} />
-          <SectionTertiary {...sections[2]} equalsCurrentUrl={equalsCurrentUrl} />
-        </ul>
+
+        <nav className="o-header__drawer-menu o-header__drawer-menu--primary o-header__drawer-homepage">
+          {editions && <EditionsSwitcher otherEditions={editions.others} />}
+          <ul className="o-header__drawer-menu-list">
+            <SectionPrimary {...sections[0]} equalsCurrentUrl={equalsCurrentUrl} />
+            <SectionSecondary {...sections[1]} equalsCurrentUrl={equalsCurrentUrl} />
+            <SectionTertiary {...sections[2]} equalsCurrentUrl={equalsCurrentUrl} />
+          </ul>
+        </nav>
+
         <UserMenu {...userMenu} />
       </div>
     </div>
