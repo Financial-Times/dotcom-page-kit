@@ -27,7 +27,7 @@ const Search = ({ context }) => {
             autoComplete="off"
             autoCorrect="off"
             autoCapitalize="off"
-            spellCheck="false"
+            spellCheck={false}
             data-trackable="search-term"
             placeholder="Search the FT"
             data-n-topic-search-input
