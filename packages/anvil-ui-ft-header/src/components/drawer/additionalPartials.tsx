@@ -48,3 +48,15 @@ export const DrawerSingleItem = ({ label, url, equalsCurrentUrl }) => {
     </a>
   )
 }
+
+export const DrawerSpecialItem = ({ label, url, equalsCurrentUrl }) => {
+  return (
+    <a
+      className={utils.menuLinkClasses(equalsCurrentUrl(url), 'secondary')}
+      href={url}
+      {...utils.ariaCurrent(equalsCurrentUrl(url))}
+      data-trackable={label}>
+      {label}
+    </a>
+  )
+}
