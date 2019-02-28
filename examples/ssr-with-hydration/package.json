@@ -1,0 +1,35 @@
+{
+  "name": "example-ssr-with-hydration",
+  "private": true,
+  "version": "0.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "anvil build -d",
+    "start": "node start.js",
+    "start:dev": "nodemon start.js --ext js",
+    "test": "../../node_modules/.bin/jest",
+    "pretest": "npm run build"
+  },
+  "dependencies": {
+    "@financial-times/anvil-middleware-assets": "file:../../packages/anvil-middleware-assets",
+    "@financial-times/anvil-plugin-code-splitting": "file:../../packages/anvil-plugin-code-splitting",
+    "@financial-times/anvil-server-asset-loader": "file:../../packages/anvil-server-asset-loader",
+    "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
+    "express": "^4.16.2",
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^16.8.3",
+    "react-dom": "^16.8.3",
+    "sucrase": "^3.8.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "@financial-times/anvil": "file:../../packages/anvil",
+    "@financial-times/anvil-plugin-esnext": "file:../../packages/anvil-plugin-esnext",
+    "@financial-times/anvil-ui-slots": "file:../../packages/anvil-ui-slots",
+    "nodemon": "^1.18.7"
+  },
+  "jest": {
+    "preset": "jest-puppeteer"
+  }
+}
