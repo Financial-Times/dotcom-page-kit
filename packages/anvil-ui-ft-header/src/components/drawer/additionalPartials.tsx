@@ -1,35 +1,37 @@
 import React from 'react'
-import * as utils from './utils'
 
-export const DrawerParentItem = ({ label, url, submenu, index, equalsCurrentUrl }) => {
+export const DrawerParentItem = ({ item, index }) => {
+  const ariaSelected = item.selected ? `aria-label="Current page" aria-current="true"` : null
+  const selected = item.selected ? 'selected' : 'unselected'
   return (
     <React.Fragment>
-      <div key={url} className="o-header__drawer-menu-toggle-wrapper">
+      <div key={item.url} className="o-header__drawer-menu-toggle-wrapper">
         <a
-          className={utils.menuLinkClasses(equalsCurrentUrl(url), 'parent')}
-          href={url}
-          {...utils.ariaCurrent(equalsCurrentUrl(url))}
-          data-trackable={label}>
-          {label}
+          className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--parent`}
+          href={item.url}
+          {...ariaSelected}
+          data-trackable={item.label}>
+          {item.label}
         </a>
         <button
-          className={utils.menuToggleClasses(equalsCurrentUrl(url))}
+          className={`o-header__drawer-menu-toggle o-header__drawer-menu-toggle--${selected}`}
           aria-controls={`o-header-drawer-child-${index}`}
-          data-trackable={`sub-level-toggle | ${label}`}>
-          {`Show more ${label} links`}
+          data-trackable={`sub-level-toggle | ${item.label}`}>
+          {`Show more ${item.label} links`}
         </button>
       </div>
       <ul
         className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
         id={`o-header-drawer-child-${index}`}
         data-trackable="sub-level">
-        {submenu.items.map((item) => {
+        {item.submenu.items.map((item) => {
+          const ariaSelected = item.selected ? `aria-label="Current page" aria-current="true"` : null
           return (
             <li key={item.url} className="o-header__drawer-menu-item">
               <a
-                className={utils.menuLinkClasses(equalsCurrentUrl(url), 'child')}
+                className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--child`}
                 href={item.url}
-                {...utils.ariaCurrent(equalsCurrentUrl(url))}
+                {...ariaSelected}
                 data-trackable={item.label}>
                 {item.label}
               </a>
@@ -41,22 +43,28 @@ export const DrawerParentItem = ({ label, url, submenu, index, equalsCurrentUrl 
   )
 }
 
-export const DrawerSingleItem = ({ label, url, equalsCurrentUrl }) => {
+export const DrawerSingleItem = (item) => {
+  const selected = item.selected ? 'selected' : 'unselected'
   return (
-    <a className={utils.menuLinkClasses(equalsCurrentUrl(url))} href={url} data-trackable={label}>
-      {label}
+    <a
+      className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected}`}
+      href={item.url}
+      data-trackable={item.label}>
+      {item.label}
     </a>
   )
 }
 
-export const DrawerSpecialItem = ({ label, url, equalsCurrentUrl }) => {
+export const DrawerSpecialItem = ({ item }) => {
+  const selected = item.selected ? 'selected' : 'unselected'
+  const ariaSelected = item.selected ? `aria-label="Current page" aria-current="true"` : null
   return (
     <a
-      className={utils.menuLinkClasses(equalsCurrentUrl(url), 'secondary')}
-      href={url}
-      {...utils.ariaCurrent(equalsCurrentUrl(url))}
-      data-trackable={label}>
-      {label}
+      className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--secondary`}
+      href={item.url}
+      {...ariaSelected}
+      data-trackable={item.label}>
+      {item.label}
     </a>
   )
 }
