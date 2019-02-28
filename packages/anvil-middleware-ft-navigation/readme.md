@@ -9,22 +9,18 @@ The response is a path-specific navigation object comprising:
 ```ts
 const data = {
   "crumbtrail": null || {
-    "breadcrumb": {},  
-    "subsections": {}  
+    "breadcrumb",  
+    "subsections"
   },
-  "drawer": "drawer-uk" | "drawer-international",
-  "navbar": "navbar-uk" | "navbar-international",
-  "drawer-uk": {},
-  "drawer-international": {},
-  "navbar-uk": {},
-  "navbar-international": {}
-  "account": {},
-  "user": {},
-  "anon": {},
-  "footer": {},
-  "navbar-simple": {},
-  "navbar-right": {},
-  "navbar-right-anon": {},
+  "drawer": {...editionSpecificDrawerData},
+  "navbar": {...editionSpecificNavbarData},
+  "account",
+  "user",
+  "anon",
+  "footer",
+  "navbar-simple",
+  "navbar-right",
+  "navbar-right-anon"
 }
 ```
 
