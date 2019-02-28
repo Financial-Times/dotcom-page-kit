@@ -1,6 +1,8 @@
 import { Request, Response, NextFunction } from 'express'
-import { Navigation, TNavOptions } from '@financial-times/anvil-server-ft-navigation'
-import { getNavigationForEdition } from './assignNavigationData'
+import delve from 'dlv'
+
+import { TNavigationLinks } from './types'
+import { Navigation, TNavOptions, TNavMenus } from '@financial-times/anvil-server-ft-navigation'
 
 type MiddlewareOptions = TNavOptions & {
   enableCrumbtrail?: boolean
@@ -10,19 +12,35 @@ const defaultOptions: MiddlewareOptions = {
   enableCrumbtrail: false
 }
 
+export const getNavigationLinks = (menuData: TNavMenus, edition: string): TNavigationLinks => {
+  const menuKeys = ['account', 'user', 'anon', 'footer', 'navbar-simple', 'navbar-right', 'navbar-right-anon']
+  const navbar = menuData[`navbar-${edition}`]
+  const drawer = menuData[`drawer-${edition}`]
+
+  return menuKeys.reduce(
+    (acc, menuId) => {
+      acc[menuId] = menuData[menuId]
+      return acc
+    },
+    { navbar, drawer }
+  )
+}
+
 export const init = (userOptions: MiddlewareOptions = {}) => {
   const { enableCrumbtrail, ...navOptions } = { ...defaultOptions, ...userOptions }
   const navigator = new Navigation(navOptions)
 
   return async (request: Request, response: Response, next: NextFunction) => {
     try {
-      const { navbar, drawer } = getNavigationForEdition(response.locals.editions)
       const [menuData, crumbtrail] = await Promise.all([
         navigator.getMenuData(request.path),
         enableCrumbtrail ? navigator.getCrumbtrail(request.path) : null
       ])
 
-      response.locals.navigation = { crumbtrail, navbar, drawer, ...menuData }
+      // response.locals.editions is set by cookie (on ft.com by visiting /?edition={edition})
+      // defaults to "uk"
+      const edition = delve(response.locals.editions, 'current.id', 'uk')
+      response.locals.navigation = { crumbtrail, ...getNavigationLinks(menuData, edition) }
 
       next()
     } catch (error) {

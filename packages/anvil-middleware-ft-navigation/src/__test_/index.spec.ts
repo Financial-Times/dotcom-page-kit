@@ -2,6 +2,18 @@ import { init as subject } from '..'
 import httpMocks from 'node-mocks-http'
 
 const fakeMenuResponse = {
+  'navbar-uk': {
+    label: 'Navbar UK',
+    items: [{ label: 'Foo', url: '/world/uk', submenu: null, selected: false }]
+  },
+  'navbar-international': {
+    label: 'Navbar International',
+    items: [{ label: 'Foo', url: '/world/uk', submenu: null, selected: false }]
+  },
+  'navbar-some-edition-id': {
+    label: 'Navbar Fake',
+    items: [{ label: 'Foo', url: '/world/uk', submenu: null, selected: false }]
+  },
   'drawer-uk': {
     label: 'Drawer UK',
     items: [{ label: 'Foo', url: '/world/uk', submenu: null, selected: false }]
@@ -9,12 +21,11 @@ const fakeMenuResponse = {
   'drawer-international': {
     label: 'Drawer International',
     items: [{ label: 'Bar', url: '/fake-item?location=/world/uk', submenu: null, selected: false }]
+  },
+  'drawer-some-edition-id': {
+    label: 'Drawer Fake',
+    items: [{ label: 'Foo', url: '/world/uk', submenu: null, selected: false }]
   }
-}
-
-const fakeEditions = {
-  navbar: 'navbar-uk',
-  drawer: 'drawer-uk'
 }
 
 const fakeCrumbtrailResponse = {
@@ -22,15 +33,35 @@ const fakeCrumbtrailResponse = {
   subsections: 'some-subsections'
 }
 
+const fakeMenu = {
+  'navbar-right': undefined,
+  'navbar-right-anon': undefined,
+  'navbar-simple': undefined,
+  account: undefined,
+  anon: undefined,
+  user: undefined,
+  footer: undefined
+}
+
 const fakeMenuData = {
   crumbtrail: null,
-  ...fakeEditions,
-  ...fakeMenuResponse
+  navbar: fakeMenuResponse['navbar-some-edition-id'],
+  drawer: fakeMenuResponse['drawer-some-edition-id'],
+  ...fakeMenu
 }
+
+const fakeMenuDataDefault = {
+  crumbtrail: null,
+  navbar: fakeMenuResponse['navbar-uk'],
+  drawer: fakeMenuResponse['drawer-uk'],
+  ...fakeMenu
+}
+
 const fakeMenuDataWithCrumbtrail = {
   crumbtrail: fakeCrumbtrailResponse,
-  ...fakeEditions,
-  ...fakeMenuResponse
+  navbar: fakeMenuResponse['navbar-some-edition-id'],
+  drawer: fakeMenuResponse['drawer-some-edition-id'],
+  ...fakeMenu
 }
 
 const FakePoller = {
@@ -48,12 +79,6 @@ jest.mock(
   },
   { virtual: true }
 )
-
-jest.mock('../assignNavigationData', () => {
-  return {
-    getNavigationForEdition: jest.fn().mockImplementation(() => fakeEditions)
-  }
-})
 
 describe('anvil-middleware-ft-navigation/index', () => {
   let instance
@@ -120,7 +145,7 @@ describe('anvil-middleware-ft-navigation/index', () => {
   describe('without editions data', () => {
     it('can handle an empty response.locals', async () => {
       await instance(requestMock, responseMockNoEditions, next)
-      expect(responseMockNoEditions.locals.navigation).toEqual(fakeMenuData)
+      expect(responseMockNoEditions.locals.navigation).toEqual(fakeMenuDataDefault)
     })
   })
 })
