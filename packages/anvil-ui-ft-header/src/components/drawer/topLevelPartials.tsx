@@ -4,6 +4,7 @@ const IncludeDrawer = (props) => <Drawer {...props} />
 
 // TODO refactor editions data from improved navigation model
 // TODO refactor section data by edition
+// TODO add custom ft-header styles
 
 const Drawer = (props) => {
   const equalsCurrentUrl = (url) => props.options.currentUrl === url
@@ -22,6 +23,7 @@ const Drawer = (props) => {
       data-trackable-terminate>
       <div className="o-header__drawer-inner">
         <DrawerTools editions={editions} />
+        <Search />
         <ul className="o-header__drawer-menu-list">
           <SectionPrimary {...sections[0]} equalsCurrentUrl={equalsCurrentUrl} />
           <SectionSecondary {...sections[1]} equalsCurrentUrl={equalsCurrentUrl} />
@@ -50,6 +52,32 @@ const DrawerTools = ({ editions }) => {
       </a>
 
       {editions && <p className="o-header__drawer-current-edition">{editions.current.name}</p>}
+    </div>
+  )
+}
+
+const Search = () => {
+  return (
+    <div className="o-header__drawer-search">
+      <form className="o-header__drawer-search-form" action="/search" role="search" aria-label="Site search">
+        <label className="o-header__visually-hidden" htmlFor="o-header-drawer-search-term">
+          Search the <abbr title="Financial Times">FT</abbr>
+        </label>
+        <input
+          className="o-header__drawer-search-term"
+          id="o-header-drawer-search-term"
+          name="q"
+          type="text"
+          autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="off"
+          spellCheck={false}
+          placeholder="Search the FT"
+        />
+        <button className="o-header__drawer-search-submit" type="submit">
+          <span className="o-header__visually-hidden">Search</span>
+        </button>
+      </form>
     </div>
   )
 }
