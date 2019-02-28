@@ -6,7 +6,6 @@ const IncludeDrawer = (props) => <Drawer {...props} />
 // TODO refactor section data by edition
 
 const Drawer = (props) => {
-  const equalsCurrentUrl = (url) => props.options.currentUrl === url
   // TODO refactor editions data from improved navigation model
   const editions = props.data.editionsUk
   const sections = props.data.drawer.items
@@ -28,9 +27,9 @@ const Drawer = (props) => {
         <nav className="o-header__drawer-menu o-header__drawer-menu--primary o-header__drawer-homepage">
           {editions && <EditionsSwitcher otherEditions={editions.others} />}
           <ul className="o-header__drawer-menu-list">
-            <SectionPrimary {...sections[0]} equalsCurrentUrl={equalsCurrentUrl} />
-            <SectionSecondary {...sections[1]} equalsCurrentUrl={equalsCurrentUrl} />
-            <SectionTertiary {...sections[2]} equalsCurrentUrl={equalsCurrentUrl} />
+            <SectionPrimary {...sections[0]} />
+            <SectionSecondary {...sections[1]} />
+            <SectionTertiary {...sections[2]} />
           </ul>
         </nav>
 
@@ -87,18 +86,14 @@ const Search = () => {
   )
 }
 
-const SectionPrimary = ({ label, submenu, equalsCurrentUrl }) => {
+const SectionPrimary = ({ label, submenu }) => {
   return (
     <React.Fragment>
       <li className="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{label}</li>
       {submenu.items.map((item, index) => {
         return (
           <li key={item.url} className="o-header__drawer-menu-item">
-            {item.submenu ? (
-              <DrawerParentItem {...item} index={index} equalsCurrentUrl={equalsCurrentUrl} />
-            ) : (
-              <DrawerSingleItem {...item} equalsCurrentUrl={equalsCurrentUrl} />
-            )}
+            {item.submenu ? <DrawerParentItem item={item} index={index} /> : <DrawerSingleItem {...item} />}
           </li>
         )
       })}
@@ -106,14 +101,14 @@ const SectionPrimary = ({ label, submenu, equalsCurrentUrl }) => {
   )
 }
 
-const SectionSecondary = ({ label, submenu, equalsCurrentUrl }) => {
+const SectionSecondary = ({ label, submenu }) => {
   return (
     <React.Fragment>
       <li className="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{label}</li>
       {submenu.items.map((item) => {
         return (
           <li key={item.url} className="o-header__drawer-menu-item">
-            <DrawerSingleItem {...item} equalsCurrentUrl={equalsCurrentUrl} />
+            <DrawerSingleItem {...item} />
           </li>
         )
       })}
@@ -121,14 +116,14 @@ const SectionSecondary = ({ label, submenu, equalsCurrentUrl }) => {
   )
 }
 
-const SectionTertiary = ({ submenu, equalsCurrentUrl }) => {
+const SectionTertiary = ({ submenu }) => {
   return (
     <React.Fragment>
       {submenu.items.map((item, index) => {
         const conditionalClass = index === 0 ? 'o-header__drawer-menu-item--divide' : null
         return (
           <li key={item.url} className={`o-header__drawer-menu-item, ${conditionalClass}`}>
-            <DrawerSpecialItem {...item} equalsCurrentUrl={equalsCurrentUrl} />
+            <DrawerSpecialItem item={item} />
           </li>
         )
       })}
