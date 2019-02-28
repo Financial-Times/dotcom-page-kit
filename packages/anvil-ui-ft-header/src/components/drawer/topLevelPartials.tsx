@@ -21,6 +21,7 @@ const Drawer = (props) => {
           <SectionSecondary {...sections[1]} equalsCurrentUrl={equalsCurrentUrl} />
           <SectionTertiary {...sections[2]} equalsCurrentUrl={equalsCurrentUrl} />
         </ul>
+        <UserMenu {...props.data.user} />
       </div>
     </div>
   )
@@ -72,6 +73,24 @@ const SectionTertiary = ({ submenu, equalsCurrentUrl }) => {
         )
       })}
     </React.Fragment>
+  )
+}
+
+const UserMenu = ({ items }) => {
+  return (
+    <nav className="o-header__drawer-menu o-header__drawer-menu--user" data-trackable="user-nav">
+      <ul className="o-header__drawer-menu-list">
+        {items.map(({ label, url }) => {
+          return (
+            <li key={url} className="o-header__drawer-menu-item">
+              <a className="o-header__drawer-menu-link" href={url} data-trackable={label}>
+                {label}
+              </a>
+            </li>
+          )
+        })}
+      </ul>
+    </nav>
   )
 }
 
