@@ -2,9 +2,14 @@ import React from 'react'
 import { DrawerParentItem, DrawerSingleItem, DrawerSpecialItem } from './additionalPartials'
 const IncludeDrawer = (props) => <Drawer {...props} />
 
+// TODO refactor editions data from improved navigation model
+// TODO refactor section data by edition
+
 const Drawer = (props) => {
   const equalsCurrentUrl = (url) => props.options.currentUrl === url
+  const editions = props.data.editionsUk
   const sections = props.data.drawer.items
+  const userMenu = props.data.user
   return (
     <div
       className="o-header__drawer"
@@ -16,13 +21,35 @@ const Drawer = (props) => {
       data-trackable="drawer"
       data-trackable-terminate>
       <div className="o-header__drawer-inner">
+        <DrawerTools editions={editions} />
         <ul className="o-header__drawer-menu-list">
           <SectionPrimary {...sections[0]} equalsCurrentUrl={equalsCurrentUrl} />
           <SectionSecondary {...sections[1]} equalsCurrentUrl={equalsCurrentUrl} />
           <SectionTertiary {...sections[2]} equalsCurrentUrl={equalsCurrentUrl} />
         </ul>
-        <UserMenu {...props.data.user} />
+        <UserMenu {...userMenu} />
       </div>
+    </div>
+  )
+}
+
+const DrawerTools = ({ editions }) => {
+  return (
+    <div className="o-header__drawer-tools">
+      <button
+        className="o-header__drawer-tools-close"
+        type="button"
+        title="Close drawer menu"
+        aria-controls="o-header-drawer"
+        data-trackable="close">
+        <span className="o-header__visually-hidden">Close</span>
+      </button>
+
+      <a className="o-header__drawer-tools-logo" href="/" data-trackable="logo">
+        <span className="o-header__visually-hidden">Financial Times</span>
+      </a>
+
+      {editions && <p className="o-header__drawer-current-edition">{editions.current.name}</p>}
     </div>
   )
 }
