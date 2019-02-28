@@ -1,4 +1,4 @@
 {
   "current": { "name": "UK Edition" },
-  "others": [{ "id": "edition2", "name": "International Edition", "url": "#" }]
+  "others": [{ "id": "international", "name": "International Edition", "url": "#" }]
 }
