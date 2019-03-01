@@ -5,17 +5,20 @@ export interface TLinkedDataObject {
 }
 
 export interface TLinkedDataProps {
-  jsonLd: TLinkedDataObject
+  jsonLd: TLinkedDataObject[]
 }
 
 export default ({ jsonLd }: TLinkedDataProps) => (
   <React.Fragment>
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify(jsonLd)
-      }}
-    />
+    {jsonLd.map((data, i) => (
+      <script
+        key={`jsonld-${i}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(data)
+        }}
+      />
+    ))}
     <script
       type="application/ld+json"
       dangerouslySetInnerHTML={{

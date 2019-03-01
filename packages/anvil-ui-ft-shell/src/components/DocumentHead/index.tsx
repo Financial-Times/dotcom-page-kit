@@ -9,7 +9,7 @@ export interface TDocumentHeadProps {
   description: string
   facebookPage?: string
   googleSiteVerification?: string
-  jsonLd?: TLinkedDataObject
+  jsonLd?: TLinkedDataObject[]
   openGraph?: TOpenGraphObject
   pageTitle?: string
   robots?: string
@@ -75,9 +75,10 @@ DocumentHead.defaultProps = {
     'News, analysis and comment from the Financial Times, the worldʼs leading global business publication',
   facebookPage: '8860325749',
   googleSiteVerification: '4-t8sFaPvpO5FH_Gnw1dkM28CQepjzo8UjjAkdDflTw',
+  jsonLd: [],
   robots: 'index,follow',
   siteTitle: 'Financial Times',
-  twitterSite: '@FinancialTimes'
+  twitterSite: '@FinancialTimes',
 }
 
 export default DocumentHead
