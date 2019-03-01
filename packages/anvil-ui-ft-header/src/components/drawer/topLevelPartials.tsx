@@ -1,15 +1,18 @@
 import React from 'react'
 import { DrawerParentItem, DrawerSingleItem, DrawerSpecialItem, EditionsSwitcher } from './additionalPartials'
+import { Props, TEditions, TUserMenu, TItem } from '../../interfaces'
+
 const IncludeDrawer = (props) => <Drawer {...props} />
 
 // TODO add custom ft-header styles
 // TODO refactor section data by edition
 
-const Drawer = (props) => {
+const Drawer = (props: Props) => {
   // TODO refactor editions data from improved navigation model
   const editions = props.data.editionsUk
   const sections = props.data.drawer.items
   const userMenu = props.data.user
+
   return (
     <div
       className="o-header__drawer"
@@ -21,11 +24,11 @@ const Drawer = (props) => {
       data-trackable="drawer"
       data-trackable-terminate>
       <div className="o-header__drawer-inner">
-        <DrawerTools editions={editions} />
+        <DrawerTools {...editions} />
         <Search />
 
         <nav className="o-header__drawer-menu o-header__drawer-menu--primary o-header__drawer-homepage">
-          {editions && <EditionsSwitcher otherEditions={editions.others} />}
+          {editions && <EditionsSwitcher {...editions} />}
           <ul className="o-header__drawer-menu-list">
             <SectionPrimary {...sections[0]} />
             <SectionSecondary {...sections[1]} />
@@ -39,7 +42,7 @@ const Drawer = (props) => {
   )
 }
 
-const DrawerTools = ({ editions }) => {
+const DrawerTools = (editions: TEditions) => {
   return (
     <div className="o-header__drawer-tools">
       <button
@@ -86,14 +89,14 @@ const Search = () => {
   )
 }
 
-const SectionPrimary = ({ label, submenu }) => {
+const SectionPrimary = ({ label, submenu }: TItem) => {
   return (
     <React.Fragment>
       <li className="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{label}</li>
       {submenu.items.map((item, index) => {
         return (
           <li key={item.url} className="o-header__drawer-menu-item">
-            {item.submenu ? <DrawerParentItem item={item} index={index} /> : <DrawerSingleItem {...item} />}
+            {item.submenu ? <DrawerParentItem props={item} index={index} /> : <DrawerSingleItem {...item} />}
           </li>
         )
       })}
@@ -101,7 +104,7 @@ const SectionPrimary = ({ label, submenu }) => {
   )
 }
 
-const SectionSecondary = ({ label, submenu }) => {
+const SectionSecondary = ({ label, submenu }: TItem) => {
   return (
     <React.Fragment>
       <li className="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{label}</li>
@@ -116,14 +119,14 @@ const SectionSecondary = ({ label, submenu }) => {
   )
 }
 
-const SectionTertiary = ({ submenu }) => {
+const SectionTertiary = ({ submenu }: TItem) => {
   return (
     <React.Fragment>
       {submenu.items.map((item, index) => {
-        const conditionalClass = index === 0 ? 'o-header__drawer-menu-item--divide' : null
+        const conditionalClass = index === 0 ? 'o-header__drawer-menu-item--divide' : ''
         return (
-          <li key={item.url} className={`o-header__drawer-menu-item, ${conditionalClass}`}>
-            <DrawerSpecialItem item={item} />
+          <li key={item.url} className={`o-header__drawer-menu-item ${conditionalClass}`}>
+            <DrawerSpecialItem {...item} />
           </li>
         )
       })}
@@ -131,15 +134,15 @@ const SectionTertiary = ({ submenu }) => {
   )
 }
 
-const UserMenu = ({ items }) => {
+const UserMenu = (userMenu: TUserMenu) => {
   return (
     <nav className="o-header__drawer-menu o-header__drawer-menu--user" data-trackable="user-nav">
       <ul className="o-header__drawer-menu-list">
-        {items.map(({ label, url }) => {
+        {userMenu.items.map((item) => {
           return (
-            <li key={url} className="o-header__drawer-menu-item">
-              <a className="o-header__drawer-menu-link" href={url} data-trackable={label}>
-                {label}
+            <li key={item.url} className="o-header__drawer-menu-item">
+              <a className="o-header__drawer-menu-link" href={item.url} data-trackable={item.label}>
+                {item.label}
               </a>
             </li>
           )
