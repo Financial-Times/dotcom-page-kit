@@ -5,9 +5,8 @@ import { Props, TEditions, TUserMenu, TItem } from '../../interfaces'
 const IncludeDrawer = (props) => <Drawer {...props} />
 
 const Drawer = (props: Props) => {
-  // TODO refactor editions data from improved navigation model
+  // TODO refactor editions and sections data from improved navigation model
   const editions = props.data.editionsUk
-  // TODO refactor section data by edition
   const sections = props.data.drawer.items
   const userMenu = props.data.user
 
@@ -130,9 +129,9 @@ const SectionTertiary = ({ submenu }: TItem) => {
   return (
     <React.Fragment>
       {submenu.items.map((item, index) => {
-        const conditionalClass = index === 0 ? 'o-header__drawer-menu-item--divide' : ''
+        const divideItem = index === 0 ? 'o-header__drawer-menu-item--divide' : ''
         return (
-          <li key={item.url} className={`o-header__drawer-menu-item ${conditionalClass}`}>
+          <li key={item.url} className={`o-header__drawer-menu-item ${divideItem}`}>
             <DrawerSpecialItem {...item} />
           </li>
         )

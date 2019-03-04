@@ -14,10 +14,10 @@ export interface Props {
     editionsUk: TEditions
     editionsInternational: TEditions
     drawer: TItemSubMenu
-    navbar: TNavbarProps
-    'navbar-right': TNavbarProps
-    'navbar-right-anon': TNavbarProps
-    'navbar-simple': TNavbarProps
+    navbar: TItemSubMenu
+    'navbar-right': TItemSubMenu
+    'navbar-right-anon': TItemSubMenu
+    'navbar-simple': TItemSubMenu
     breadcrumb: any
     subsections: any
     user: TUserMenu
@@ -33,11 +33,6 @@ export interface TItem {
   url: string | null
   submenu?: TItemSubMenu | null
   selected?: boolean
-}
-
-export type TNavbarProps = {
-  label: string
-  items: TItem[]
 }
 
 export type TUserMenu = {
