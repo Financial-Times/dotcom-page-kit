@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`anvil-ui-ft-shell/src/components/DocumentHead renders the document head 1`] = `
+Array [
+  <meta
+    charSet="utf-8"
+  />,
+  <meta
+    content="IE=edge"
+    httpEquiv="X-UA-Compatible"
+  />,
+  <meta
+    content="width=device-width, initial-scale=1"
+    name="viewport"
+  />,
+  <title>
+    Page title | Website title
+  </title>,
+  <meta
+    content="Website description."
+    name="description"
+  />,
+  <link
+    href="https://my.site"
+    rel="canonical"
+  />,
+  <link
+    href="https://spoor-api.ft.com"
+    rel="preconnect"
+  />,
+  <link
+    crossorigin="use-credentials"
+    href="https://session-next.ft.com"
+    rel="preconnect"
+  />,
+  <link
+    href="https://ads-api.ft.com"
+    rel="preconnect"
+  />,
+  <link
+    href="https://www.googletagservices.com"
+    rel="preconnect"
+  />,
+  <style
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "background-color: #fff1e5;",
+      }
+    }
+  />,
+  <meta
+    content="index,follow"
+    name="robots"
+  />,
+  <meta
+    content="4-t8sFaPvpO5FH_Gnw1dkM28CQepjzo8UjjAkdDflTw"
+    name="google-site-verification"
+  />,
+  <script
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "{\\"@type\\":\\"article\\",\\"headline\\":\\"JSON+LD headline\\"}",
+      }
+    }
+    type="application/ld+json"
+  />,
+  <script
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"name\\":\\"Financial Times\\",\\"alternateName\\":\\"FT.com\\",\\"url\\":\\"http://www.ft.com\\"}",
+      }
+    }
+    type="application/ld+json"
+  />,
+  <meta
+    content="Open Graph title"
+    property="og:title"
+  />,
+  <meta
+    content="https://my.site/video.mp4"
+    property="og:video"
+  />,
+  <meta
+    content="video/mp4"
+    property="og:video:type"
+  />,
+  <meta
+    content={640}
+    property="og:video:width"
+  />,
+  <meta
+    content={360}
+    property="og:video:height"
+  />,
+  <meta
+    content="2019-02-27T06:59:35.000Z"
+    property="article:published_time"
+  />,
+  <meta
+    content="2019-02-27T16:01:21.000Z"
+    property="article:modified_time"
+  />,
+  <meta
+    content="Joe Bloggs"
+    property="article:author"
+  />,
+  <meta
+    content="Jane Doe"
+    property="article:author"
+  />,
+  <meta
+    content="facebook-page-id"
+    property="fb:pages"
+  />,
+  <meta
+    content="@twitter_page"
+    property="twitter:site"
+  />,
+  <link
+    href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=32&height=32&format=png"
+    rel="icon"
+    sizes="32x32"
+    type="image/png"
+  />,
+  <link
+    href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=194&height=194&format=png"
+    rel="icon"
+    sizes="194x194"
+    type="image/png"
+  />,
+  <link
+    href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=180&height=180&format=png"
+    rel="apple-touch-icon"
+    sizes="180x180"
+  />,
+]
+`;
