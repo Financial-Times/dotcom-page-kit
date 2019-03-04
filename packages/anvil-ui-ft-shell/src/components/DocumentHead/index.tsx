@@ -2,7 +2,6 @@ import React from 'react'
 import OpenGraph, { TOpenGraphObject } from './OpenGraph'
 import LinkedData, { TLinkedDataObject } from './LinkedData'
 import StyleSheets from './StyleSheets'
-import Scripts from './Scripts'
 
 export interface TDocumentHeadProps {
   criticalStyles?: string
@@ -37,7 +36,6 @@ const DocumentHead = (props: TDocumentHeadProps) => (
 
     {/* assets */}
     <StyleSheets {...props} />
-    <Scripts {...props} />
 
     {/* SEO */}
     <meta name="robots" content={props.robots} />
