@@ -26,14 +26,14 @@ export const DrawerParentItem = ({ props, index }: IDrawerParent) => {
         id={`o-header-drawer-child-${index}`}
         data-trackable="sub-level">
         {props.submenu.items.map((item) => {
-          const ariaSelected = item.selected ? `aria-label="Current page" aria-current="true"` : null
+          const ariaSelected = item.selected ? { 'aria-label': 'Current page', 'aria-current': 'true' } : null
           return (
             <li key={item.url} className="o-header__drawer-menu-item">
               <a
                 className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--child`}
                 href={item.url}
-                {...ariaSelected}
-                data-trackable={item.label}>
+                data-trackable={item.label}
+                {...ariaSelected}>
                 {item.label}
               </a>
             </li>
