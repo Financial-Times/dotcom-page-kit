@@ -1,4 +1,4 @@
-import { init as subject } from '..'
+import { navigation } from '..'
 import httpMocks from 'node-mocks-http'
 
 const fakeMenuResponse = {
@@ -81,16 +81,16 @@ jest.mock(
 )
 
 describe('anvil-middleware-ft-navigation/index', () => {
-  let instance
-  let instanceWithCrumbtrail
+  let nav
+  let navWithCrumbtrail
   let requestMock
   let responseMock
   let responseMockNoEditions
   let next
 
   beforeEach(() => {
-    instance = subject()
-    instanceWithCrumbtrail = subject({ enableCrumbtrail: true })
+    nav = navigation()
+    navWithCrumbtrail = navigation({ enableCrumbtrail: true })
     requestMock = httpMocks.createRequest()
     responseMock = httpMocks.createResponse({
       locals: { editions: { current: { id: 'some-edition-id' } } }
@@ -102,34 +102,34 @@ describe('anvil-middleware-ft-navigation/index', () => {
   })
 
   afterEach(() => {
-    instance = null
-    instanceWithCrumbtrail = null
+    nav = null
+    navWithCrumbtrail = null
     jest.clearAllMocks()
   })
 
   it('returns a function', () => {
-    expect(instance).toBeInstanceOf(Function)
-    expect(instanceWithCrumbtrail).toBeInstanceOf(Function)
+    expect(nav).toBeInstanceOf(Function)
+    expect(navWithCrumbtrail).toBeInstanceOf(Function)
   })
 
   describe('without the enableCrumbtrail option', () => {
     it('sets the navigation properties on response.locals', async () => {
-      await instance(requestMock, responseMock, next)
+      await nav(requestMock, responseMock, next)
       expect(responseMock.locals.navigation).toEqual(fakeMenuData)
     })
     it('calls the fallthrough function', async () => {
-      await instance(requestMock, responseMock, next)
+      await nav(requestMock, responseMock, next)
       expect(next).toHaveBeenCalled()
     })
   })
 
   describe('with the enableCrumbtrail option', () => {
     it('sets the crumbtrail properties on response.locals', async () => {
-      await instanceWithCrumbtrail(requestMock, responseMock, next)
+      await navWithCrumbtrail(requestMock, responseMock, next)
       expect(responseMock.locals.navigation).toEqual(fakeMenuDataWithCrumbtrail)
     })
     it('calls the fallthrough function', async () => {
-      await instanceWithCrumbtrail(requestMock, responseMock, next)
+      await navWithCrumbtrail(requestMock, responseMock, next)
       expect(next).toHaveBeenCalled()
     })
   })
@@ -137,14 +137,14 @@ describe('anvil-middleware-ft-navigation/index', () => {
   describe('on error', () => {
     const invalidResponseMock = null
     it('catches the error', async () => {
-      await instance(requestMock, invalidResponseMock, next)
+      await nav(requestMock, invalidResponseMock, next)
       expect(next).toHaveBeenCalledWith(expect.any(Error))
     })
   })
 
   describe('without editions data', () => {
     it('can handle an empty response.locals', async () => {
-      await instance(requestMock, responseMockNoEditions, next)
+      await nav(requestMock, responseMockNoEditions, next)
       expect(responseMockNoEditions.locals.navigation).toEqual(fakeMenuDataDefault)
     })
   })

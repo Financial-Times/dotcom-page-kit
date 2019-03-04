@@ -32,7 +32,7 @@ Options will be merged with the following defaults:
 
 ### `getMenuData(path: string): Promise<TNavMenus>`
 
-Returns the full navigation data, refreshed every 15 minutes.
+Returns the full, decorated navigation data, refreshed every 15 minutes.
 
 Data is keyed by menuId, values match the output of `getPathMenu(menuId, path)`
 
