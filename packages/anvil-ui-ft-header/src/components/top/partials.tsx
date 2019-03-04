@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Header = (props) => {
-  // const headerCompact = props && props.options.variant === 'compact' ? 'o-header--simple' : null
   return (
     <header
       id="site-navigation"
@@ -13,6 +12,7 @@ const Header = (props) => {
     </header>
   )
 }
+
 const DrawerIcon = () => (
   <a
     href="#o-header-drawer"
@@ -37,6 +37,29 @@ const SearchIcon = ({ context }) => (
   </a>
 )
 
+const FTLogo = () => (
+  <a className="o-header__top-logo" data-trackable="logo" href="/" title="Go to Financial Times homepage">
+    <span className="o-header__visually-hidden">Financial Times</span>
+  </a>
+)
+
+const FTLogoNoOutbound = () => (
+  <div className="o-header__top-logo">
+    <span className="o-header__visually-hidden">Financial Times</span>
+  </div>
+)
+
+const MyFt = () => (
+  <a
+    className="o-header__top-link o-header__top-link--myft"
+    href="/myft"
+    data-trackable="my-ft"
+    data-tour-stage="myFt"
+    aria-label="My F T">
+    <span className="o-header__visually-hidden">myFT</span>
+  </a>
+)
+
 const TopWrapper = (props) => (
   <div className="o-header__row o-header__top" data-trackable="header-top">
     <div className="o-header__container">
@@ -54,40 +77,15 @@ const TopColumnLeft = (props) => {
   )
 }
 
-const FTLogo = () => (
-  <a className="o-header__top-logo" data-trackable="logo" href="/" title="Go to Financial Times homepage">
-    <span className="o-header__visually-hidden">Financial Times</span>
-  </a>
-)
-
-const FTLogoNoOutbound = () => (
-  <div className="o-header__top-logo">
-    <span className="o-header__visually-hidden">Financial Times</span>
-  </div>
-)
-
 const TopColumnCenter = (props = null) => {
   const chooseFTLogo = props.hideOutboundLinks ? FTLogoNoOutbound() : FTLogo()
   return <div className="o-header__top-column o-header__top-column--center">{chooseFTLogo}</div>
 }
 
-const MyFt = () => (
-  <a
-    className="o-header__top-link o-header__top-link--myft"
-    href="/myft"
-    data-trackable="my-ft"
-    data-tour-stage="myFt"
-    aria-label="My F T">
-    <span className="o-header__visually-hidden">myFT</span>
-  </a>
-)
-
 const TopColumnRight = () => {
   return (
     <div className="o-header__top-column o-header__top-column--right">
-      <span className="o-header__top-link--myft__container">
-        <MyFt />
-      </span>
+      <MyFt />
     </div>
   )
 }

@@ -1,9 +1,10 @@
 import React from 'react'
-import { HeaderDefault, HeaderWithCrumbtrail, LogoOnly } from '.'
+import { HeaderDefault, HeaderWithCrumbtrail, HeaderStickyDemo, LogoOnly } from '.'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
 import { OrigamiBuildService } from '@financial-times/anvil-ui-origami-build-service'
 import storyData from './story-data/storyData'
+import './demos.scss'
 
 // falsey values are empty string because string coercion in storybook
 const toggleUserStateOptions = () => boolean('Enable user nav actions', true)
@@ -32,12 +33,7 @@ storiesOf('FT / Header', module)
   .add('Logo only', () => {
     let optionalProps = { options: { variant: toggleVariantOptions() } }
     return (
-      <OrigamiBuildService
-        dependencies={{
-          'o-header': '^7.7.0',
-          'o-fonts': '^3.2.0',
-          'o-normalise': '^1.6.2'
-        }}>
+      <OrigamiBuildService dependencies={OrigamiDependecies}>
         <LogoOnly {...optionalProps} />
       </OrigamiBuildService>
     )
@@ -46,13 +42,16 @@ storiesOf('FT / Header', module)
     // TODO: can we remove this?
     storyData.options.showSignOut = toggleMyFTSignOutOptions()
     return (
-      <OrigamiBuildService
-        dependencies={{
-          'o-header': '^7.7.0',
-          'o-fonts': '^3.2.0',
-          'o-normalise': '^1.6.2'
-        }}>
+      <OrigamiBuildService dependencies={OrigamiDependecies}>
         <HeaderWithCrumbtrail {...storyData} />
+      </OrigamiBuildService>
+    )
+  })
+  .add('Sticky header', () => {
+    storyData.options.userIsAnonymous = toggleAnonymous()
+    return (
+      <OrigamiBuildService dependencies={OrigamiDependecies}>
+        <HeaderStickyDemo {...storyData} />
       </OrigamiBuildService>
     )
   })

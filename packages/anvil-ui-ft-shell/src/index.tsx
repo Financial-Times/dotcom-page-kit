@@ -1,52 +1,38 @@
 import React from 'react'
 import { AnyObject } from '@financial-times/anvil-types-generic'
-import fs from 'fs'
-import path from 'path'
+import { getBootstrapJS, formatConfigJSON } from '@financial-times/anvil-ui-bootstrap'
+import { corePolyfillServiceUrl, enhancedPolyfillServiceUrl } from './polyfill'
+import DocumentHead, { TDocumentHeadProps } from './components/DocumentHead'
 
-const bootstrap = fs.readFileSync(path.join(__dirname, 'bootstrap.js')).toString()
-
-interface Props {
-  children: any
-  initialProps: AnyObject
-  scriptsToLoad: string[]
-  siteTitle: string
-  pageTitle: string
+interface Props extends TDocumentHeadProps {
+  children?: any
+  initialProps?: AnyObject
+  coreScriptsToLoad: string[]
+  enhancedScriptsToLoad: string[]
 }
 
-function stringifyAttributes(attributes: AnyObject = {}): string {
-  return JSON.stringify(attributes)
-}
+export default function Shell(props: Props) {
+  const coreScripts = [corePolyfillServiceUrl, ...props.coreScriptsToLoad]
+  const enhancedScripts = [enhancedPolyfillServiceUrl, ...props.enhancedScriptsToLoad]
+  const bootstrapConfig = formatConfigJSON(coreScripts, enhancedScripts)
 
-export default function Shell({
-  children,
-  scriptsToLoad = [],
-  initialProps = {},
-  siteTitle = '',
-  pageTitle = ''
-}: Partial<Props>) {
   return (
     <html className="no-js core">
       <head>
-        <meta charSet="utf-8" />
-        <title>
-          ${pageTitle}${pageTitle ? ' | ' : ''}${siteTitle}
-        </title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {/* TODO: Metadata slot */}
+        <DocumentHead {...props} />
         <script
-          type="application/json"
           id="initial-props"
-          dangerouslySetInnerHTML={{ __html: stringifyAttributes(initialProps) }}
+          type="application/json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(props.initialProps) }}
         />
         <script
+          id="bootstrap-config"
           type="application/json"
-          id="scripts-config"
-          dangerouslySetInnerHTML={{ __html: stringifyAttributes(scriptsToLoad) }}
+          dangerouslySetInnerHTML={{ __html: bootstrapConfig }}
         />
-        <script dangerouslySetInnerHTML={{ __html: bootstrap }} />
-        {/* TODO: Critical CSS */}
+        <script dangerouslySetInnerHTML={{ __html: getBootstrapJS() }} />
       </head>
-      <body>{children}</body>
+      <body>{props.children}</body>
     </html>
   )
 }

@@ -1,6 +1,6 @@
-# Asset Loader Middleware
+# Assets Middleware
 
-This package provides an [Express] compatible middleware which adds the [asset loader] to your application and adds it to each response making it available to your application's controllers. The asset loader helps applications to locate their static assets from wherever they are stored.
+This package provides an [Express] compatible middleware which integrates the [asset loader] into your application and adds it to each response making it available to your application's route handlers. The asset loader helps applications to locate their static assets from wherever they are stored.
 
 In addition this package can also be used to send [resource hints] and [serve static files].
 

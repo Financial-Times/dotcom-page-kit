@@ -22,3 +22,8 @@ interface Data {
   breadcrumb: any
   subsections: any
 }
+
+export type NavListProps = {
+  navbarOptions: any[]
+  variant?: string
+}

@@ -7,6 +7,13 @@ import {
   NavMobile,
   UserActionsNav
 } from './components/navigation/partials'
+import {
+  StickyHeader,
+  TopWrapperSticky,
+  TopColumnCenterSticky,
+  TopColumnLeftSticky,
+  TopColumnRightSticky
+} from './components/sticky/partials'
 import { IncludeCrumbtrail } from './components/crumbtrail/partials'
 import { Search } from './components/search/partials'
 import { Props } from './interfaces'
@@ -33,13 +40,25 @@ export function HeaderDefault(props: Props) {
   )
 }
 
-export function LogoOnly(props?) {
+export function HeaderSticky(props) {
   return (
-    <Header {...props}>
-      <TopWrapper>
-        <TopColumnCenter />
-      </TopWrapper>
-    </Header>
+    <StickyHeader {...props}>
+      <TopWrapperSticky>
+        <TopColumnLeftSticky context="sticky" />
+        <TopColumnCenterSticky {...props} />
+        <TopColumnRightSticky {...props} />
+      </TopWrapperSticky>
+      <Search context="sticky" />
+    </StickyHeader>
+  )
+}
+
+export function HeaderStickyDemo(props) {
+  return (
+    <React.Fragment>
+      <HeaderSticky {...props} />
+      <p className="demo-sticky-message demo-sticky-message--scroll">Scroll down</p>
+    </React.Fragment>
   )
 }
 
@@ -60,6 +79,16 @@ export function HeaderWithCrumbtrail(props: Props) {
         <NavListRight {...props} />
       </NavDesktop>
       {incudeCrumbtrail}
+    </Header>
+  )
+}
+
+export function LogoOnly(props?) {
+  return (
+    <Header {...props}>
+      <TopWrapper>
+        <TopColumnCenter />
+      </TopWrapper>
     </Header>
   )
 }

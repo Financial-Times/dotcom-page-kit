@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavListProps } from '../../interfaces'
 
 const NavMobile = ({ data }) => {
   return (
@@ -68,23 +69,23 @@ const NavListLeft = ({ navItems }) => {
 
 const NavListRight = (props) => {
   // Serve the signed-in or anonymous user experience
-  const navRightLoggedIn = props.data['navbar-right'].items
-  const navRightAnon = props.data['navbar-right-anon'].items
+  const navbarKey = props.options.userNav ? 'navbar-right-anon' : 'navbar-right'
+  const navbarOptions = props.data[navbarKey].items
   let navListRight = null
   if (props.options.userNav) {
     if (props.options.userIsAnonymous) {
-      navListRight = NavListRightAnon(navRightAnon)
+      navListRight = NavListRightAnon({ navbarOptions })
     } else {
-      navListRight = NavListRightLoggedIn(navRightLoggedIn)
+      navListRight = NavListRightLoggedIn({ navbarOptions })
     }
   }
   return navListRight
 }
 
-const NavListRightLoggedIn = (navbarOptionsRight) => {
+const NavListRightLoggedIn = ({ navbarOptions }: NavListProps) => {
   return (
     <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
-      {navbarOptionsRight.map((navItem, index) => {
+      {navbarOptions.map((navItem, index) => {
         return (
           <li className="o-header__nav-item" key={`link-${index}`}>
             <a className="o-header__nav-link" href={navItem.url} data-trackable={navItem.label}>
@@ -97,18 +98,19 @@ const NavListRightLoggedIn = (navbarOptionsRight) => {
   )
 }
 
-const NavListRightAnon = (navbarOptionsRight) => {
+const NavListRightAnon = ({ navbarOptions, variant }: NavListProps) => {
   // If user is anonymous the second list item is styled as a button
-  const [first, second] = navbarOptionsRight
+  const [first, second] = navbarOptions
+  const setTabIndex = variant === 'sticky' ? 'tabindex="-1"' : null
   return (
     <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
       <li className="o-header__nav-item">
-        <a className="o-header__nav-link" href={first.url} data-trackable={first.label}>
+        <a className="o-header__nav-link" href={first.url} data-trackable={first.label} {...setTabIndex}>
           {first.label}
         </a>
       </li>
       <li className="o-header__nav-item">
-        <a className="o-header__nav-button" href={second.url} data-trackable={second.label}>
+        <a className="o-header__nav-button" href={second.url} data-trackable={second.label} {...setTabIndex}>
           {second.label}
         </a>
       </li>
@@ -135,4 +137,4 @@ const UserActionsNav = (props) => {
   )
 }
 
-export { NavDesktop, NavMobile, NavListLeft, NavListRight, UserActionsNav }
+export { NavDesktop, NavMobile, NavListLeft, NavListRight, NavListRightAnon, UserActionsNav }
