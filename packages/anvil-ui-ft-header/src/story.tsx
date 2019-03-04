@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeaderDefault, HeaderWithCrumbtrail, HeaderWithDrawer, HeaderStickyDemo, LogoOnly } from '.'
+import { HeaderDefault, HeaderWithCrumbtrail, HeaderStickyDemo, LogoOnly } from '.'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
 import { OrigamiBuildService } from '@financial-times/anvil-ui-origami-build-service'
@@ -55,13 +55,6 @@ storiesOf('FT / Header', module)
     return (
       <OrigamiBuildService dependencies={OrigamiDependecies}>
         <HeaderStickyDemo {...storyData} />
-      </OrigamiBuildService>
-    )
-  })
-  .add('With drawer component', () => {
-    return (
-      <OrigamiBuildService dependencies={OrigamiDependecies}>
-        <HeaderWithDrawer {...storyData} />
       </OrigamiBuildService>
     )
   })
