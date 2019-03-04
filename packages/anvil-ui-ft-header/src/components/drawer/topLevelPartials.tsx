@@ -4,12 +4,10 @@ import { Props, TEditions, TUserMenu, TItem } from '../../interfaces'
 
 const IncludeDrawer = (props) => <Drawer {...props} />
 
-// TODO add custom ft-header styles
-// TODO refactor section data by edition
-
 const Drawer = (props: Props) => {
   // TODO refactor editions data from improved navigation model
   const editions = props.data.editionsUk
+  // TODO refactor section data by edition
   const sections = props.data.drawer.items
   const userMenu = props.data.user
 
