@@ -44,8 +44,8 @@ const DrawerTools = (editions: TEditions) => {
   return (
     <div className="o-header__drawer-tools">
       <button
-        className="o-header__drawer-tools-close"
         type="button"
+        className="o-header__drawer-tools-close"
         title="Close drawer menu"
         aria-controls="o-header-drawer"
         data-trackable="close">
@@ -64,7 +64,14 @@ const DrawerTools = (editions: TEditions) => {
 const Search = () => {
   return (
     <div className="o-header__drawer-search">
-      <form className="o-header__drawer-search-form" action="/search" role="search" aria-label="Site search">
+      <form
+        className="o-header__drawer-search-form"
+        action="/search"
+        role="search"
+        aria-label="Site search"
+        data-n-topic-search
+        data-n-topic-search-categories="concepts,equities"
+        data-n-topic-search-view-all>
         <label className="o-header__visually-hidden" htmlFor="o-header-drawer-search-term">
           Search the <abbr title="Financial Times">FT</abbr>
         </label>
@@ -78,8 +85,10 @@ const Search = () => {
           autoCapitalize="off"
           spellCheck={false}
           placeholder="Search the FT"
+          data-trackable="search-term"
+          data-n-topic-search-input
         />
-        <button className="o-header__drawer-search-submit" type="submit">
+        <button className="o-header__drawer-search-submit" type="submit" data-trackable="search-submit">
           <span className="o-header__visually-hidden">Search</span>
         </button>
       </form>
