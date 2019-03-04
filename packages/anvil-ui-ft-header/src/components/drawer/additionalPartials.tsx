@@ -46,11 +46,13 @@ export const DrawerParentItem = ({ props, index }: IDrawerParent) => {
 
 export const DrawerSingleItem = (item: TItem) => {
   const selected = item.selected ? 'selected' : 'unselected'
+  const ariaSelected = item.selected ? { 'aria-label': 'Current page', 'aria-current': 'true' } : null
   return (
     <a
       className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected}`}
       href={item.url}
-      data-trackable={item.label}>
+      data-trackable={item.label}
+      {...ariaSelected}>
       {item.label}
     </a>
   )
@@ -58,13 +60,13 @@ export const DrawerSingleItem = (item: TItem) => {
 
 export const DrawerSpecialItem = (item: TItem) => {
   const selected = item.selected ? 'selected' : 'unselected'
-  const ariaSelected = item.selected ? `aria-label="Current page" aria-current="true"` : null
+  const ariaSelected = item.selected ? { 'aria-label': 'Current page', 'aria-current': 'true' } : null
   return (
     <a
       className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--secondary`}
       href={item.url}
-      {...ariaSelected}
-      data-trackable={item.label}>
+      data-trackable={item.label}
+      {...ariaSelected}>
       {item.label}
     </a>
   )
