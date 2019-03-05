@@ -24,7 +24,7 @@ const Drawer = (props: Props) => {
         <DrawerTools {...editions} />
         <Search />
 
-        <nav className="o-header__drawer-menu o-header__drawer-menu--primary o-header__drawer-homepage">
+        <nav className="o-header__drawer-menu o-header__drawer-menu--primary o-header__drawer-menu--border">
           {editions && <EditionsSwitcher {...editions} />}
           <ul className="o-header__drawer-menu-list">
             <SectionPrimary {...sections[0]} />
