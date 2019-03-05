@@ -2,7 +2,7 @@ import React from 'react'
 import { IDrawerParent, TItem, TEditions } from '../../interfaces'
 
 const ariaSelected = (item) => {
-  return item.selected ? { 'aria-label': 'Current page', 'aria-current': 'true', test: 'true' } : null
+  return item.selected ? { 'aria-label': 'Current page', 'aria-current': 'true' } : null
 }
 
 export const DrawerParentItem = ({ props, index }: IDrawerParent) => {
