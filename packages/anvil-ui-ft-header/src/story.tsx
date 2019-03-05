@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeaderDefault, HeaderWithCrumbtrail, HeaderStickyDemo, LogoOnly } from '.'
+import { HeaderDefault, Drawer, HeaderWithCrumbtrail, HeaderStickyDemo, LogoOnly } from '.'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
 import { OrigamiBuildService } from '@financial-times/anvil-ui-origami-build-service'
@@ -29,6 +29,15 @@ storiesOf('FT / Header', module)
     return (
       <OrigamiBuildService dependencies={OrigamiDependecies}>
         <HeaderDefault {...storyData} />
+      </OrigamiBuildService>
+    )
+  })
+  .add('With drawer component', () => {
+    storyData.options.showSignOut = toggleMyFTSignOutOptions()
+    return (
+      <OrigamiBuildService dependencies={OrigamiDependecies}>
+        <HeaderDefault {...storyData} />
+        <Drawer {...storyData} />
       </OrigamiBuildService>
     )
   })
