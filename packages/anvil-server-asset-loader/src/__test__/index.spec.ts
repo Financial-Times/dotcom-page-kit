@@ -21,14 +21,19 @@ jest.mock('../helpers/loadFile', () => {
   }
 })
 
+function createAssetLoader({
+  publicPath = 'public/assets',
+  fileSystemPath = '/internal/path/to/assets',
+  ...otherOptions
+} = {}) {
+  return new AssetLoader({ publicPath, fileSystemPath, ...otherOptions })
+}
+
 describe('anvil-server-asset-loader', () => {
   let loader
 
   beforeEach(() => {
-    loader = new AssetLoader({
-      publicPath: 'public/assets',
-      fileSystemPath: '/internal/path/to/assets'
-    })
+    loader = createAssetLoader()
   })
 
   afterEach(() => {
@@ -72,6 +77,12 @@ describe('anvil-server-asset-loader', () => {
     it('returns the public path for the requested file', () => {
       const result = loader.getPublicURL('styles.css')
       expect(result).toEqual('public/assets/styles.12345.bundle.css')
+    })
+
+    it('should correctly format the url when the public path has not been set', () => {
+      const loader = createAssetLoader({ publicPath: '' })
+      const result = loader.getPublicURL('styles.css')
+      expect(result).toEqual('styles.12345.bundle.css')
     })
   })
 

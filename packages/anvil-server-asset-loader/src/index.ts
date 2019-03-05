@@ -81,7 +81,7 @@ class AssetLoader {
   getPublicURL(asset: string): string {
     const hashedAsset = this.getHashedAsset(asset)
     // Do not use path.join() as separator is platform specific
-    return `${this.options.publicPath}/${hashedAsset}`
+    return this.options.publicPath ? `${this.options.publicPath}/${hashedAsset}` : hashedAsset
   }
 }
 
