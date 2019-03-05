@@ -2,6 +2,7 @@
   "item": {
     "label": "UK",
     "url": "/world/uk",
+    "selected": true,
     "submenu": {
       "label": null,
       "items": [
@@ -28,8 +29,7 @@
     {
       "label": "UK Business & Economy",
       "url": "/uk-business-economy",
-      "submenu": null,
-      "selected": true
+      "submenu": null
     },
     {
       "label": "UK Politics & Policy",

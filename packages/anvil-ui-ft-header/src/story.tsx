@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeaderDefault, Drawer, HeaderWithCrumbtrail, HeaderStickyDemo, LogoOnly } from '.'
+import { HeaderDefault, Drawer, HeaderSticky, LogoOnly } from '.'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
 import { OrigamiBuildService } from '@financial-times/anvil-ui-origami-build-service'
@@ -26,6 +26,7 @@ storiesOf('FT / Header', module)
   .add('Default header', () => {
     storyData.options.userNav = toggleUserStateOptions()
     storyData.options.userIsAnonymous = toggleAnonymous()
+    storyData.options.showSignOut = toggleMyFTSignOutOptions()
     return (
       <OrigamiBuildService dependencies={OrigamiDependecies}>
         <HeaderDefault {...storyData} />
@@ -33,11 +34,19 @@ storiesOf('FT / Header', module)
     )
   })
   .add('With drawer component', () => {
-    storyData.options.showSignOut = toggleMyFTSignOutOptions()
     return (
       <OrigamiBuildService dependencies={OrigamiDependecies}>
         <HeaderDefault {...storyData} />
         <Drawer {...storyData} />
+      </OrigamiBuildService>
+    )
+  })
+  .add('Sticky header', () => {
+    storyData.options.userIsAnonymous = toggleAnonymous()
+    return (
+      <OrigamiBuildService dependencies={OrigamiDependecies}>
+        <HeaderSticky {...storyData} />
+        <p className="demo-sticky-message demo-sticky-message--scroll">Scroll down</p>
       </OrigamiBuildService>
     )
   })
@@ -46,23 +55,6 @@ storiesOf('FT / Header', module)
     return (
       <OrigamiBuildService dependencies={OrigamiDependecies}>
         <LogoOnly {...optionalProps} />
-      </OrigamiBuildService>
-    )
-  })
-  .add('With crumbtrail component', () => {
-    // TODO: can we remove this?
-    storyData.options.showSignOut = toggleMyFTSignOutOptions()
-    return (
-      <OrigamiBuildService dependencies={OrigamiDependecies}>
-        <HeaderWithCrumbtrail {...storyData} />
-      </OrigamiBuildService>
-    )
-  })
-  .add('Sticky header', () => {
-    storyData.options.userIsAnonymous = toggleAnonymous()
-    return (
-      <OrigamiBuildService dependencies={OrigamiDependecies}>
-        <HeaderStickyDemo {...storyData} />
       </OrigamiBuildService>
     )
   })

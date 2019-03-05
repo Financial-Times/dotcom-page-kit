@@ -4,12 +4,12 @@
     {
       "label": "Home",
       "url": "/",
-      "submenu": null,
-      "selected": true
+      "submenu": null
     },
     {
       "label": "World",
-      "url": "/world"
+      "url": "/world",
+      "selected": true
     },
     {
       "label": "UK",

@@ -23,6 +23,7 @@ export function HeaderDefault(props: Props) {
   const navItems = props.data.navbar.items
   const includeUserActionsNav =
     props.options.userNav && props.options.userIsAnonymous ? UserActionsNav(props) : null
+  const incudeCrumbtrail = props.data.breadcrumb && props.data.subsections ? IncludeCrumbtrail(props) : null
   return (
     <Header {...props}>
       {includeUserActionsNav}
@@ -37,6 +38,7 @@ export function HeaderDefault(props: Props) {
         <NavListLeft navItems={navItems} />
         <NavListRight {...props} />
       </NavDesktop>
+      {incudeCrumbtrail}
     </Header>
   )
 }
@@ -55,36 +57,6 @@ export function HeaderSticky(props) {
       </TopWrapperSticky>
       <Search context="sticky" />
     </StickyHeader>
-  )
-}
-
-export function HeaderStickyDemo(props) {
-  return (
-    <React.Fragment>
-      <HeaderSticky {...props} />
-      <p className="demo-sticky-message demo-sticky-message--scroll">Scroll down</p>
-    </React.Fragment>
-  )
-}
-
-export function HeaderWithCrumbtrail(props: Props) {
-  const navItems = props.data.navbar.items
-  const incudeCrumbtrail = props.data.breadcrumb && props.data.subsections ? IncludeCrumbtrail(props) : null
-  return (
-    <Header {...props}>
-      <TopWrapper>
-        <TopColumnLeft context="primary" />
-        <TopColumnCenter {...props} />
-        <TopColumnRight />
-      </TopWrapper>
-      <Search context="primary" />
-      <NavMobile data={props.data['navbar-simple'].items} />
-      <NavDesktop>
-        <NavListLeft navItems={navItems} />
-        <NavListRight {...props} />
-      </NavDesktop>
-      {incudeCrumbtrail}
-    </Header>
   )
 }
 
