@@ -61,6 +61,10 @@ class AssetLoader {
     }, [])
   }
 
+  getHashedAssetsMatching(pattern: string | RegExp | Function): string[] {
+    return this.matchAssets(pattern).map((thing) => this.getHashedAsset(thing))
+  }
+
   getHashedAsset(asset: string): string {
     if (this.manifest.hasOwnProperty(asset)) {
       return this.manifest[asset]

@@ -54,6 +54,10 @@ Returns the absolute file system path to an output file for the given the source
 
 Loads the contents of an output file for the given the source file name.
 
+### `getHashedAssetsMatching(pattern: string | RegExp | Function)`
+
+Returns an array of output file names whose source file name matches the supplied pattern.
+
 ### `matchAssets(pattern: string | RegExp | Function)`
 
 Match source file names based on a pattern which may be useful when output is split into multiple files.
