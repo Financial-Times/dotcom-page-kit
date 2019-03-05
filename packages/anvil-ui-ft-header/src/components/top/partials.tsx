@@ -20,9 +20,7 @@ const DrawerIcon = () => (
     aria-controls="o-header-drawer"
     title="Open drawer menu"
     aria-label="Open drawer menu"
-    data-trackable="drawer-toggle"
-    role="button"
-    aria-expanded={false}>
+    data-trackable="drawer-toggle">
     <span className="o-header__top-link-label">Menu</span>
   </a>
 )
