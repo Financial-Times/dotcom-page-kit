@@ -11,7 +11,6 @@ export interface AssetLoaderOptions {
 
   /**
    * The public-facing URL for the static assets
-   * @default "/public"
    */
   publicPath?: string
 
@@ -29,8 +28,8 @@ export interface AssetLoaderOptions {
 }
 
 const defaultOptions: AssetLoaderOptions = {
+  publicPath: '',
   manifestFileName: 'manifest.json',
-  publicPath: '/public',
   fileSystemPath: path.resolve('./public'),
   cacheFileContents: false
 }
