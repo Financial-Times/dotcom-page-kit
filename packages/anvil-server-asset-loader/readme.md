@@ -69,7 +69,9 @@ The name of the asset manifest file. This will be resolved relative to the `file
 
 ### `publicPath`
 
-The public-facing URL for the static assets. This is used when formatting publicly accessible URLs to assets for the browser or user to download. This should begin with a slash or protocol (e.g. `https://`) but no trailing slash is necessary. Defaults to `"/public"`.
+The public-facing URL for the static assets. This is used when formatting publicly accessible URLs to assets for the browser or user to download. This should begin with a slash or protocol (e.g. `https://`) but no trailing slash is necessary. 
+
+> NOTE: Beware that this may clash with the [webpack `publicPath`](https://webpack.js.org/guides/public-path/) setting
 
 ### `cacheFileContents`
 
