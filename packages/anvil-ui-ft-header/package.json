@@ -15,6 +15,7 @@
     "build:cjs": "npm run tsc -- --outDir ./dist/cjs --module commonjs --target es5",
     "dev": "npm run clean:dist && npm run build:cjs -- --watch"
   },
+  "style": "./src/components/drawer/drawer.scss",
   "keywords": [],
   "author": "",
   "license": "ISC",

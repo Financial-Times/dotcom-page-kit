@@ -5,7 +5,6 @@ import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
 import { OrigamiBuildService } from '@financial-times/anvil-ui-origami-build-service'
 import storyData from './story-data/storyData'
 
-// TODO better solution for handling custom styles
 import './components/drawer/drawer.scss'
 import './demos.scss'
 
