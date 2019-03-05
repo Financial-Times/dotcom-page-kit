@@ -32,7 +32,15 @@ export default function Shell(props: Props) {
         />
         <script dangerouslySetInnerHTML={{ __html: getBootstrapJS() }} />
       </head>
-      <body>{props.children}</body>
+      <Body contents={props.children} />
     </html>
   )
+}
+
+function Body({ contents }) {
+  if (typeof contents === 'string') {
+    return <body dangerouslySetInnerHTML={{ __html: contents }} />
+  } else {
+    return <body>{contents}</body>
+  }
 }
