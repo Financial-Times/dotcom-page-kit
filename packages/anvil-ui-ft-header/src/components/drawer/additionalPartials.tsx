@@ -27,6 +27,7 @@ export const DrawerParentItem = ({ props, index }: IDrawerParent) => {
         data-trackable="sub-level">
         {props.submenu.items.map((item) => {
           const ariaSelected = item.selected ? { 'aria-label': 'Current page', 'aria-current': 'true' } : null
+          const selected = item.selected ? 'selected' : 'unselected'
           return (
             <li key={item.url} className="o-header__drawer-menu-item">
               <a
