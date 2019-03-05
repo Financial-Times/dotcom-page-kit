@@ -1,0 +1,823 @@
+{
+  "MQ==-U2VjdGlvbnM=": [
+    {
+      "component": "sectionlist",
+      "dataset": "subsections",
+      "title": "Sections",
+      "data": [
+        {
+          "name": "World Economy",
+          "id": "MTA3-U2VjdGlvbnM=",
+          "href": "/global-economy"
+        },
+        {
+          "name": "UK",
+          "id": "Ng==-U2VjdGlvbnM=",
+          "edition": "international",
+          "href": "/world/uk",
+          "children": [
+            {
+              "name": "UK Economy",
+              "id": "MTA5-U2VjdGlvbnM=",
+              "href": "/global-economy/uk"
+            },
+            {
+              "name": "UK Politics & Policy",
+              "id": "OA==-U2VjdGlvbnM=",
+              "href": "/world/uk/politics"
+            },
+            {
+              "name": "UK Companies",
+              "id": "NjM=-U2VjdGlvbnM=",
+              "href": "/companies/uk"
+            }
+          ]
+        },
+        {
+          "name": "US",
+          "id": "Mg==-U2VjdGlvbnM=",
+          "href": "/world/us",
+          "children": [
+            {
+              "name": "US Economy",
+              "id": "MTEw-U2VjdGlvbnM=",
+              "href": "/global-economy/us"
+            },
+            {
+              "name": "US Politics & Policy",
+              "id": "Mw==-U2VjdGlvbnM=",
+              "href": "/world/us/politics"
+            },
+            {
+              "name": "US Companies",
+              "id": "NjU=-U2VjdGlvbnM=",
+              "href": "/companies/us"
+            },
+            {
+              "name": "US Election 2016",
+              "id": "N2UxNTM3MzItNWNlZC00MDc5LWI3ODUtYWNmZDA2YjE0MWE2-U2VjdGlvbnM=",
+              "href": "/us-election-2016"
+            }
+          ]
+        },
+        {
+          "name": "China",
+          "id": "TnN0ZWluX0dMX0NO-R0w=",
+          "href": "/world/asia-pacific/china",
+          "children": [
+            {
+              "name": "Chinese Economy",
+              "id": "MTEx-U2VjdGlvbnM=",
+              "href": "/stream/sectionsId/MTEx-U2VjdGlvbnM="
+            },
+            {
+              "name": "China Politics & Policy",
+              "id": "ZTBkYTQyYjMtNjIzYi00NDhkLWIxMDYtOTYwNjdlZDgxZDAx-VG9waWNz",
+              "href": "/stream/topicsId/ZTBkYTQyYjMtNjIzYi00NDhkLWIxMDYtOTYwNjdlZDgxZDAx-VG9waWNz"
+            }
+          ]
+        },
+        {
+          "name": "Africa",
+          "id": "MjI=-U2VjdGlvbnM=",
+          "href": "/world/africa"
+        },
+        {
+          "name": "Asia Pacific",
+          "id": "MTE=-U2VjdGlvbnM=",
+          "href": "/world/asia-pacific"
+        },
+        {
+          "name": "Emerging Markets",
+          "id": "MTA2-U2VjdGlvbnM=",
+          "href": "/markets/emerging-markets"
+        },
+        {
+          "name": "Europe",
+          "id": "OQ==-U2VjdGlvbnM=",
+          "href": "/world/europe"
+        },
+        {
+          "name": "Latin America",
+          "id": "MjM=-U2VjdGlvbnM=",
+          "href": "/world/americas"
+        },
+        {
+          "name": "Middle East and North Africa",
+          "id": "MTY=-U2VjdGlvbnM=",
+          "href": "/world/mideast"
+        }
+      ]
+    },
+    {
+      "component": "articlelist",
+      "dataset": "popular",
+      "title": "Most Read"
+    }
+  ],
+  "Ng==-U2VjdGlvbnM=": [
+    {
+      "component": "sectionlist",
+      "dataset": "subsections",
+      "title": "Sections",
+      "data": [
+        {
+          "name": "UK Economy",
+          "id": "MTA5-U2VjdGlvbnM=",
+          "href": "/global-economy/uk"
+        },
+        {
+          "name": "UK Politics & Policy",
+          "id": "OA==-U2VjdGlvbnM=",
+          "href": "/world/uk/politics"
+        },
+        {
+          "name": "UK Companies",
+          "id": "NjM=-U2VjdGlvbnM=",
+          "href": "/companies/uk"
+        }
+      ]
+    },
+    {
+      "component": "articlelist",
+      "dataset": "popular",
+      "title": "Most Read"
+    }
+  ],
+  "Mg==-U2VjdGlvbnM=": [
+    {
+      "component": "sectionlist",
+      "dataset": "subsections",
+      "title": "Sections",
+      "data": [
+        {
+          "name": "US Economy",
+          "id": "MTEw-U2VjdGlvbnM=",
+          "href": "/global-economy/us"
+        },
+        {
+          "name": "US Politics & Policy",
+          "id": "Mw==-U2VjdGlvbnM=",
+          "href": "/world/us/politics"
+        },
+        {
+          "name": "US Companies",
+          "id": "NjU=-U2VjdGlvbnM=",
+          "href": "/companies/us"
+        },
+        {
+          "name": "US Election 2016",
+          "id": "N2UxNTM3MzItNWNlZC00MDc5LWI3ODUtYWNmZDA2YjE0MWE2-U2VjdGlvbnM=",
+          "href": "/us-election-2016"
+        }
+      ]
+    },
+    {
+      "component": "articlelist",
+      "dataset": "popular",
+      "title": "Most Read"
+    }
+  ],
+  "Mjk=-U2VjdGlvbnM=": [
+    {
+      "component": "sectionlist",
+      "dataset": "subsections",
+      "title": "Sections",
+      "data": [
+        {
+          "name": "Energy",
+          "id": "MzA=-U2VjdGlvbnM=",
+          "href": "/companies/energy",
+          "children": [
+            {
+              "name": "Mining",
+              "id": "MzE=-U2VjdGlvbnM=",
+              "href": "/companies/mining"
+            },
+            {
+              "name": "Oil & Gas",
+              "id": "MzI=-U2VjdGlvbnM=",
+              "href": "/companies/oil-gas"
+            },
+            {
+              "name": "Utilities",
+              "id": "MzM=-U2VjdGlvbnM=",
+              "href": "/companies/utilities"
+            }
+          ]
+        },
+        {
+          "name": "Financials",
+          "id": "NTc=-U2VjdGlvbnM=",
+          "href": "/companies/financials",
+          "children": [
+            {
+              "name": "Banks",
+              "id": "NTg=-U2VjdGlvbnM=",
+              "href": "/companies/banks"
+            },
+            {
+              "name": "Insurance",
+              "id": "NTk=-U2VjdGlvbnM=",
+              "href": "/companies/insurance"
+            },
+            {
+              "name": "Property",
+              "id": "NjA=-U2VjdGlvbnM=",
+              "href": "/companies/property"
+            },
+            {
+              "name": "Financial Services",
+              "id": "NjE=-U2VjdGlvbnM=",
+              "href": "/companies/financial-services"
+            }
+          ]
+        },
+        {
+          "name": "Health",
+          "id": "NTA=-U2VjdGlvbnM=",
+          "href": "/companies/health",
+          "children": [
+            {
+              "name": "Health Care",
+              "id": "NTE=-U2VjdGlvbnM=",
+              "href": "/companies/healthcare"
+            },
+            {
+              "name": "Pharmaceuticals",
+              "id": "NTI=-U2VjdGlvbnM=",
+              "href": "/companies/pharmaceuticals"
+            }
+          ]
+        },
+        {
+          "name": "Industrials",
+          "id": "MzQ=-U2VjdGlvbnM=",
+          "href": "/companies/industrials",
+          "children": [
+            {
+              "name": "Aerospace & Defence",
+              "id": "Mzk=-U2VjdGlvbnM=",
+              "href": "/companies/aerospace-defence"
+            },
+            {
+              "name": "Automobiles",
+              "id": "NDA=-U2VjdGlvbnM=",
+              "href": "/companies/automobiles"
+            },
+            {
+              "name": "Basic Resources",
+              "id": "MzY=-U2VjdGlvbnM=",
+              "href": "/companies/basic-resources"
+            },
+            {
+              "name": "Chemicals",
+              "id": "MzU=-U2VjdGlvbnM=",
+              "href": "/companies/chemicals"
+            },
+            {
+              "name": "Construction",
+              "id": "Mzc=-U2VjdGlvbnM=",
+              "href": "/companies/construction"
+            },
+            {
+              "name": "Industrial Goods",
+              "id": "Mzg=-U2VjdGlvbnM=",
+              "href": "/companies/industrial-goods"
+            },
+            {
+              "name": "Support Services",
+              "id": "ZjVlODEzMWYtNTA5ZC00NmZlLWFiMjYtNjA1ZmY2ZTdhOWNl-U2VjdGlvbnM=",
+              "href": "/companies/support-services"
+            }
+          ]
+        },
+        {
+          "name": "Media",
+          "id": "NTU=-U2VjdGlvbnM=",
+          "href": "/companies/media"
+        },
+        {
+          "name": "Retail & Consumer",
+          "id": "NDU=-U2VjdGlvbnM=",
+          "href": "/companies/retail-consumer",
+          "children": [
+            {
+              "name": "Food & Beverage",
+              "id": "NDY=-U2VjdGlvbnM=",
+              "href": "/companies/food-beverage"
+            },
+            {
+              "name": "Luxury Goods",
+              "id": "MWFkNTA2YmEtMTM4OC00MzA4LWExNzEtM2I5ODcxYjlmZThh-U2VjdGlvbnM=",
+              "href": "/stream/sectionsId/MWFkNTA2YmEtMTM4OC00MzA4LWExNzEtM2I5ODcxYjlmZThh-U2VjdGlvbnM="
+            },
+            {
+              "name": "Personal & Household Goods",
+              "id": "NDc=-U2VjdGlvbnM=",
+              "href": "/companies/personal-goods"
+            },
+            {
+              "name": "Retail",
+              "id": "NDg=-U2VjdGlvbnM=",
+              "href": "/companies/retail"
+            },
+            {
+              "name": "Tobacco",
+              "id": "ZjkxNzU1NTItYzUyNS00YmJlLTg5NzctNGM1OWQ4OGYyMDU1-U2VjdGlvbnM=",
+              "href": "/companies/tobacco"
+            },
+            {
+              "name": "Travel & Leisure",
+              "id": "NDk=-U2VjdGlvbnM=",
+              "href": "/companies/travel-leisure"
+            }
+          ]
+        },
+        {
+          "name": "Technology",
+          "id": "NTM=-U2VjdGlvbnM=",
+          "href": "/companies/technology"
+        },
+        {
+          "name": "Telecoms",
+          "id": "NTY=-U2VjdGlvbnM=",
+          "href": "/companies/telecoms"
+        },
+        {
+          "name": "Transport",
+          "id": "NDE=-U2VjdGlvbnM=",
+          "href": "/companies/transport",
+          "children": [
+            {
+              "name": "Airlines",
+              "id": "NDI=-U2VjdGlvbnM=",
+              "href": "/companies/airlines"
+            },
+            {
+              "name": "Shipping",
+              "id": "NDM=-U2VjdGlvbnM=",
+              "href": "/companies/shipping"
+            },
+            {
+              "name": "Rail",
+              "id": "NDQ=-U2VjdGlvbnM=",
+              "href": "/companies/rail"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "component": "articlelist",
+      "dataset": "popular",
+      "title": "Most Read"
+    }
+  ],
+  "NzE=-U2VjdGlvbnM=": [
+    {
+      "component": "sectionlist",
+      "dataset": "subsections",
+      "title": "Sections",
+      "data": [
+        {
+          "name": "Alphaville",
+          "href": "http://ftalphaville.ft.com"
+        },
+        {
+          "name": "Markets Data",
+          "href": "http://markets.ft.com/data"
+        },
+        {
+          "name": "Capital Markets",
+          "id": "MTA0-U2VjdGlvbnM=",
+          "href": "/markets/capital-markets"
+        },
+        {
+          "name": "Commodities",
+          "id": "MTA1-U2VjdGlvbnM=",
+          "href": "/markets/commodities",
+          "children": [
+            {
+              "name": "Oil",
+              "id": "ZmFmYTUxOTItMGZjZC00YmJkLWJlZTQtMmY3ZDZiOWZkYmYw-VG9waWNz",
+              "href": "/stream/topicsId/ZmFmYTUxOTItMGZjZC00YmJkLWJlZTQtMmY3ZDZiOWZkYmYw-VG9waWNz"
+            },
+            {
+              "name": "Gold",
+              "id": "MjA=-VG9waWNz",
+              "href": "/stream/topicsId/MjA=-VG9waWNz"
+            },
+            {
+              "name": "Copper",
+              "id": "MTNiODNhYmEtOTVjYi00ZDI2LTgyMjktMzE5NWM1OGIwMzRj-VG9waWN",
+              "href": "/stream/topicsId/MTNiODNhYmEtOTVjYi00ZDI2LTgyMjktMzE5NWM1OGIwMzRj-VG9waWNz"
+            }
+          ]
+        },
+        {
+          "name": "Currencies",
+          "id": "MTAz-U2VjdGlvbnM=",
+          "href": "/markets/currencies"
+        },
+        {
+          "name": "Equities",
+          "id": "OTg=-U2VjdGlvbnM=",
+          "href": "/markets/equities",
+          "children": [
+            {
+              "name": "US Equities",
+              "id": "OTk=-U2VjdGlvbnM=",
+              "href": "/markets/us"
+            },
+            {
+              "name": "UK Equities",
+              "id": "MTAw-U2VjdGlvbnM=",
+              "href": "/markets/uk"
+            },
+            {
+              "name": "European Equities",
+              "id": "MTAx-U2VjdGlvbnM=",
+              "href": "/markets/europe"
+            },
+            {
+              "name": "Asia-Pacific Equities",
+              "id": "MTAy-U2VjdGlvbnM=",
+              "href": "/markets/asia-pacific"
+            }
+          ]
+        },
+        {
+          "name": "Fund Management",
+          "id": "NzI=-U2VjdGlvbnM=",
+          "href": "/ftfm",
+          "children": [
+            {
+              "name": "Exchange Traded Funds",
+              "id": "NzU=-U2VjdGlvbnM=",
+              "href": "/ftfm/etfs"
+            },
+            {
+              "name": "Investment Strategy",
+              "id": "NzM=-U2VjdGlvbnM=",
+              "href": "/ftfm/investment-strategy"
+            },
+            {
+              "name": "Funds Regulation",
+              "id": "ODA=-U2VjdGlvbnM=",
+              "href": "/ftfm/regulation"
+            },
+            {
+              "name": "Pensions Industry",
+              "id": "NzY=-U2VjdGlvbnM=",
+              "href": "/ftfm/pensions"
+            }
+          ]
+        },
+        {
+          "name": "Trading",
+          "id": "OTM=-U2VjdGlvbnM=",
+          "href": "/markets/trading"
+        }
+      ]
+    },
+    {
+      "component": "articlelist",
+      "dataset": "popular",
+      "title": "Most Read"
+    }
+  ],
+  "MTE2-U2VjdGlvbnM=": [
+    {
+      "component": "sectionlist",
+      "dataset": "subsections",
+      "title": "Sections",
+      "data": [
+        {
+          "name": "Columnists",
+          "id": "MTE3-U2VjdGlvbnM=",
+          "href": "/comment/columnists",
+          "children": [
+            {
+              "name": "Anjana Ahuja",
+              "id": "Q0ItMDA0NzU4OQ==-QXV0aG9ycw==",
+              "href": "/stream/authorsId/Q0ItMDA0NzU4OQ==-QXV0aG9ycw=="
+            },
+            {
+              "name": "Janan Ganesh",
+              "id": "Q0ItMDAxNzEwNg==-QXV0aG9ycw==",
+              "href": "/comment/columnists/janan-ganesh"
+            },
+            {
+              "name": "John Gapper",
+              "id": "Q0ItMDAwMDc1Mw==-QXV0aG9ycw==",
+              "href": "/comment/columnists/john-gapper"
+            },
+            {
+              "name": "John Kay",
+              "id": "Q0ItMDAwMDMxOQ==-QXV0aG9ycw==",
+              "href": "/comment/columnists/john-kay"
+            },
+            {
+              "name": "Lucy Kellaway",
+              "id": "Q0ItMDAwMDkyNg==-QXV0aG9ycw==",
+              "href": "/comment/lucy-kellaway"
+            },
+            {
+              "name": "Roula Khalaf",
+              "id": "Q0ItMDAwMDc5NQ==-QXV0aG9ycw==",
+              "href": "/comment/columnists/roula-khalaf"
+            },
+            {
+              "name": "Edward Luce",
+              "id": "Q0ItMDAwMDgwNQ==-QXV0aG9ycw==",
+              "href": "/comment/columnists/edluce"
+            },
+            {
+              "name": "Wolfgang Münchau",
+              "id": "Q0ItMDAwMTMyMg==-QXV0aG9ycw==",
+              "href": "/comment/columnists/wolfgang-munchau"
+            },
+            {
+              "name": "David Pilling",
+              "id": "Q0ItMDAwMDgzNw==-QXV0aG9ycw==",
+              "href": "/comment/columnists/davidpilling"
+            },
+            {
+              "name": "Lisa Pollack",
+              "id": "Q0ItMDAwMTY5Nw==-QXV0aG9ycw==",
+              "href": "/comment/columnists/lisa-pollack"
+            },
+            {
+              "name": "Gideon Rachman",
+              "id": "Q0ItMDAwMDkyOA==-QXV0aG9ycw==",
+              "href": "/comment/columnists/gideonrachman"
+            },
+            {
+              "name": "Martin Sandbu",
+              "id": "Q0ItMDAwMTAzOA==-QXV0aG9ycw==",
+              "href": "/stream/authorsId/Q0ItMDAwMTAzOA==-QXV0aG9ycw=="
+            },
+            {
+              "name": "Robert Shrimsley",
+              "id": "Q0ItMDAwMDkyMQ==-QXV0aG9ycw==",
+              "href": "/comment/columnists/robert-shrimsley"
+            },
+            {
+              "name": "Philip Stephens",
+              "id": "Q0ItMDAwMDkyOQ==-QXV0aG9ycw==",
+              "href": "/comment/columnists/philip-stephens"
+            },
+            {
+              "name": "Lawrence Summers",
+              "id": "Q0ItMDAwNDQwNA==-QXV0aG9ycw==",
+              "href": "/comment/columnists/lawrence-summers"
+            },
+            {
+              "name": "Gillian Tett",
+              "id": "Q0ItMDAwMDg3NA==-QXV0aG9ycw==",
+              "href": "/comment/columnists/gillian-tett"
+            },
+            {
+              "name": "John Thornhill",
+              "id": "QQ0ItMDAwMDg3NQ==-QXV0aG9ycw==-",
+              "href": "/stream/authorsId/Q0ItMDAwMDg3NQ==-QXV0aG9ycw=="
+            },
+            {
+              "name": "Patti Waldmeir",
+              "id": "Q0ItMDAwMDg4Ng==-QXV0aG9ycw==",
+              "href": "/comment/columnists/patti-waldmeir"
+            },
+            {
+              "name": "Martin Wolf",
+              "id": "Q0ItMDAwMDkwMA==-QXV0aG9ycw==",
+              "href": "/comment/columnists/martin-wolf"
+            }
+          ]
+        },
+        {
+          "name": "FT View",
+          "id": "MDRkMzU4YjktMjA0OS00MWEzLWJiY2ItYmJkZWNhMmVmMzQ0-QnJhbmRz",
+          "href": "/comment/ft-view"
+        },
+        {
+          "name": "The Big Read",
+          "id": "MTE4-U2VjdGlvbnM=",
+          "href": "/comment/the-big-read"
+        },
+        {
+          "name": "Instant Insight",
+          "id": "N2Y2ZjFlMDgtNjY3OS00NTU5LThjNWMtNWNiYzcwNTQyNmFj-QnJhbmRz",
+          "href": "/instant-insight"
+        },
+        {
+          "name": "Lex",
+          "id": "YzhlNzZkYTctMDJiNy00NTViLTk3NmYtNmJjYTE5NDEyM2Yw-QnJhbmRz",
+          "href": "/lex"
+        },
+        {
+          "name": "Alphaville",
+          "href": "http://ftalphaville.ft.com"
+        },
+        {
+          "name": "Obituaries",
+          "id": "MTIz-U2VjdGlvbnM=",
+          "href": "/stream/sectionsId/MTIz-U2VjdGlvbnM="
+        },
+        {
+          "name": "Letters",
+          "id": "MNQ==-R2VucmVz",
+          "href": "/comment/letters"
+        }
+      ]
+    },
+    {
+      "component": "articlelist",
+      "dataset": "popular",
+      "title": "Most Read"
+    }
+  ],
+  "MTI1-U2VjdGlvbnM=": [
+    {
+      "component": "sectionlist",
+      "dataset": "subsections",
+      "title": "Sections",
+      "data": [
+        {
+          "name": "Business School Rankings",
+          "id": "MTI3-U2VjdGlvbnM=",
+          "href": "http://rankings.ft.com/businessschoolrankings/rankings"
+        },
+        {
+          "name": "Business Education",
+          "id": "MTI2-U2VjdGlvbnM=",
+          "href": "/business-education",
+          "children": [
+            {
+              "name": "Business School Rankings",
+              "id": "MTI3-U2VjdGlvbnM=",
+              "href": "http://rankings.ft.com/businessschoolrankings/rankings"
+            }
+          ]
+        },
+        {
+          "name": "Entrepreneurship",
+          "id": "MTM1-U2VjdGlvbnM=",
+          "href": "/management/entrepreneurship"
+        },
+        {
+          "name": "Recruitment",
+          "id": "ZjU2ZGIyNDMtNWYwOS00YzcwLWJmN2MtYjE1OGNiN2Y1OTVl-U2VjdGlvbnM=",
+          "href": "/management/recruitment"
+        },
+        {
+          "name": "Business Books",
+          "id": "MTM4-U2VjdGlvbnM=",
+          "href": "/management/business-books"
+        }
+      ]
+    },
+    {
+      "component": "articlelist",
+      "dataset": "popular",
+      "title": "Most Read"
+    }
+  ],
+  "MTQ4-U2VjdGlvbnM=": [
+    {
+      "component": "sectionlist",
+      "dataset": "subsections",
+      "title": "Sections",
+      "data": [
+        {
+          "name": "House & Home",
+          "id": "MTU3-U2VjdGlvbnM=",
+          "href": "/house-home"
+        },
+        {
+          "name": "Books",
+          "id": "MTU5-U2VjdGlvbnM=",
+          "href": "/books",
+          "children": [
+            {
+              "name": "Business Books",
+              "id": "MTM4-U2VjdGlvbnM=",
+              "href": "/management/business-books"
+            },
+            {
+              "name": "Fiction",
+              "id": "ODBkNzU0OGMtN2ZiMy00MDQwLWE4NGMtNTVkYmQ1OTliYzZk-U2VjdGlvbnM=",
+              "href": "/life-arts/books/fiction"
+            },
+            {
+              "name": "Non-Fiction",
+              "id": "MDM1ZmZmNjctYWNjNS00N2ZhLWEzODMtZGZkYjhkZWM5NWU2-U2VjdGlvbnM=",
+              "href": "/life-arts/books/non-fiction"
+            }
+          ]
+        },
+        {
+          "name": "Food & Drink",
+          "id": "MTU2-U2VjdGlvbnM=",
+          "href": "/life-arts/food-drink",
+          "children": [
+            {
+              "name": "Wine",
+              "id": "MjU0NjhiMTMtMWYyNS00OTUyLTg3YTItOTgyOWUxYTcxMTg1-U2VjdGlvbnM=",
+              "href": "/stream/sectionsId/MjU0NjhiMTMtMWYyNS00OTUyLTg3YTItOTgyOWUxYTcxMTg1-U2VjdGlvbnM="
+            },
+            {
+              "name": "Recipes",
+              "id": "ZGQ4MmVjY2EtZDlhYy00MWM4LTk4OWEtYzc4NWQ0N2U0MzRj-R2VucmVz",
+              "href": "/stream/genreId/ZGQ4MmVjY2EtZDlhYy00MWM4LTk4OWEtYzc4NWQ0N2U0MzRj-R2VucmVz"
+            },
+            {
+              "name": "Restaurants",
+              "id": "MDkxMTU4MDEtYmI0Yy00MWM5LWFjNmUtNGE5YWZlZTJmODI1-U2VjdGlvbnM=",
+              "href": "/stream/sectionsId/MDkxMTU4MDEtYmI0Yy00MWM5LWFjNmUtNGE5YWZlZTJmODI1-U2VjdGlvbnM="
+            }
+          ]
+        },
+        {
+          "name": "Travel",
+          "id": "MTY1-U2VjdGlvbnM=",
+          "href": "/travel",
+          "children": [
+            {
+              "name": "Adventures",
+              "id": "MjU2ODdhNDgtZjY4Yy00ZmI5LWFkYzctMWVmZTZhY2Y0ZjIz-U2VjdGlvbnM=",
+              "href": "/stream/sectionsId/MjU2ODdhNDgtZjY4Yy00ZmI5LWFkYzctMWVmZTZhY2Y0ZjIz-U2VjdGlvbnM="
+            },
+            {
+              "name": "Cycling Tours",
+              "id": "ZDhhOTgzMGEtMGNmZC00YmYwLTgwYTctNzEzMWJkMWZjZTE0-U2VjdGlvbnM",
+              "href": "/stream/sectionsId/ZDhhOTgzMGEtMGNmZC00YmYwLTgwYTctNzEzMWJkMWZjZTE0-U2VjdGlvbnM="
+            },
+            {
+              "name": "City Breaks",
+              "id": "NjI4MzFkNjgtNmRkNC00MTgxLWI4ZDktMmFiZGViOGRhOGM5-U2VjdGlvbnM=",
+              "href": "/stream/sectionsId/NjI4MzFkNjgtNmRkNC00MTgxLWI4ZDktMmFiZGViOGRhOGM5-U2VjdGlvbnM="
+            },
+            {
+              "name": "Winter Breaks",
+              "id": "N2MyN2VmMzUtZTE2My00NTI0LWIyMWEtNWM2NjU1MTRmNjU3-U2VjdGlvbnM=",
+              "href": "/stream/sectionsId/N2MyN2VmMzUtZTE2My00NTI0LWIyMWEtNWM2NjU1MTRmNjU3-U2VjdGlvbnM="
+            }
+          ]
+        },
+        {
+          "name": "Style",
+          "id": "MTU4-U2VjdGlvbnM=",
+          "href": "/life-arts/style"
+        },
+        {
+          "name": "Arts",
+          "id": "MTQ5-U2VjdGlvbnM=",
+          "href": "/arts",
+          "children": [
+            {
+              "name": "Design & Architecture",
+              "id": "MTUx-U2VjdGlvbnM=",
+              "href": "/stream/sectionsId/MTUx-U2VjdGlvbnM="
+            },
+            {
+              "name": "Visual Arts",
+              "id": "MTU1-U2VjdGlvbnM=",
+              "href": "/stream/sectionsId/MTU1-U2VjdGlvbnM="
+            },
+            {
+              "name": "Theatre",
+              "id": "ZTc4Y2QxMmUtZjVmOC00ODg5LTk2MzQtYzk3ZTdlNTdiYjUy-U2VjdGlvbnM=",
+              "href": "/stream/sectionsId/ZTc4Y2QxMmUtZjVmOC00ODg5LTk2MzQtYzk3ZTdlNTdiYjUy-U2VjdGlvbnM="
+            },
+            {
+              "name": "Dance",
+              "id": "YmQwN2RjMmQtNzliZS00NTdkLTkxOTctNmNiMjE5NTYwNDQx-U2VjdGlvbnM=",
+              "href": "/stream/sectionsId/YmQwN2RjMmQtNzliZS00NTdkLTkxOTctNmNiMjE5NTYwNDQx-U2VjdGlvbnM="
+            },
+            {
+              "name": "Music",
+              "id": "MTUz-U2VjdGlvbnM=",
+              "href": "/arts/music"
+            },
+            {
+              "name": "Film & Television",
+              "id": "MTUy-U2VjdGlvbnM=",
+              "href": "/life-arts/film-television"
+            }
+          ]
+        },
+        {
+          "name": "FT Magazine",
+          "id": "OTYxNmI3YWMtY2M1OS00N2RkLWJlNWEtOGZjOGQ3ODE5YmQx-U2VjdGlvbnM=",
+          "href": "/magazine"
+        }
+      ]
+    },
+    {
+      "component": "articlelist",
+      "dataset": "popular",
+      "title": "Most Read"
+    }
+  ]
+}

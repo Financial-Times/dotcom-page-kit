@@ -60,6 +60,7 @@ const NavListLeft = ({ navItems }) => {
               data-trackable={navItem.label}>
               {navItem.label}
             </a>
+            <MegaNav {...navItem} />
           </li>
         )
       })}
@@ -115,6 +116,81 @@ const NavListRightAnon = ({ navbarOptions, variant }: NavListProps) => {
         </a>
       </li>
     </ul>
+  )
+}
+
+const MegaNav = (navItem) => {
+  return navItem.meganav ? (
+    <div
+      className="o-header__mega"
+      id="o-header-mega-{{@index}}"
+      role="group"
+      aria-labelledby="o-header-link-{{@index}}"
+      data-o-header-mega
+      data-trackable="meganav | {{name}}">
+      <div className="o-header__container">
+        <div className="o-header__mega-wrapper">
+          {
+            <React.Fragment>
+              <SectionList sectionItem={navItem.meganav[0]} />
+              <ArticleList articleItem={navItem.meganav[1]} />
+            </React.Fragment>
+          }
+        </div>
+      </div>
+    </div>
+  ) : null
+}
+
+const SectionList = ({ sectionItem }) => {
+  return (
+    <div className="o-header__mega-column o-header__mega-column--subsections" data-trackable="sections">
+      <div className="o-header__mega-heading">{sectionItem.title}</div>
+      <div className="o-header__mega-content">
+        <ul className="o-header__mega-list">
+          {sectionItem.data.map((column) => {
+            return column.map((item) => {
+              return (
+                <li className="o-header__mega-item">
+                  <a
+                    className="o-header__mega-link"
+                    href={item.url}
+                    // {{#if selected}}aria-label="Current page" aria-current="true"{{/if}}
+                    data-trackable="link">
+                    {item.label}
+                  </a>
+                </li>
+              )
+            })
+          })}
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+const ArticleList = ({ articleItem }) => {
+  return (
+    <div className="o-header__mega-column o-header__mega-column--subsections" data-trackable="sections">
+      <div className="o-header__mega-heading">{articleItem.title}</div>
+      <div className="o-header__mega-content">
+        <ul className="o-header__mega-list">
+          {articleItem.data.map((item) => {
+            return (
+              <li className="o-header__mega-item">
+                <a
+                  className="o-header__mega-link"
+                  href={item.url}
+                  // {{#if selected}}aria-label="Current page" aria-current="true"{{/if}}
+                  data-trackable="link">
+                  {item.label}
+                </a>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    </div>
   )
 }
 
