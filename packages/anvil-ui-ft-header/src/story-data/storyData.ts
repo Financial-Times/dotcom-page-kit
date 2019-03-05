@@ -4,6 +4,7 @@ import navbarRight from './navbarRight.json'
 import navbarRightAnon from './navbarRightAnon.json'
 import drawerUk from './drawerUk.json'
 import crumbtrail from './crumbtrailUk.json'
+import meganav from './meganav.json'
 import editionsUk from './editionsUk.json'
 import editionsInternational from './editionsInternational.json'
 import user from './user.json'
@@ -32,6 +33,7 @@ export default {
     drawer: drawerUk,
     breadcrumb,
     subsections,
+    meganav,
     editionsUk,
     editionsInternational,
     user
