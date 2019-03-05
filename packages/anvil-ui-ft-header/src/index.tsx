@@ -23,7 +23,6 @@ export function HeaderDefault(props: Props) {
   const navItems = props.data.navbar.items
   const includeUserActionsNav =
     props.options.userNav && props.options.userIsAnonymous ? UserActionsNav(props) : null
-  const incudeDrawer = props.data.drawer ? IncludeDrawer(props) : null
   return (
     <Header {...props}>
       {includeUserActionsNav}
@@ -38,9 +37,12 @@ export function HeaderDefault(props: Props) {
         <NavListLeft navItems={navItems} />
         <NavListRight {...props} />
       </NavDesktop>
-      {incudeDrawer}
     </Header>
   )
+}
+
+export function Drawer(props: Props) {
+  return <IncludeDrawer {...props} />
 }
 
 export function HeaderSticky(props) {
