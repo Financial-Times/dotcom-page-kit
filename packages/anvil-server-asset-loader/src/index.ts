@@ -83,22 +83,6 @@ class AssetLoader {
     // Do not use path.join() as separator is platform specific
     return `${this.options.publicPath}/${hashedAsset}`
   }
-
-  getStylesheetInline(stylesheet: string): string {
-    return `<style>${this.getFileContents(stylesheet)}</style>`
-  }
-
-  getJavascriptInline(javascript: string): string {
-    return `<script>${this.getFileContents(javascript)}</script>`
-  }
-
-  createStylesheetLink(stylesheet: string): string {
-    return `<link rel="stylesheet" href="${this.getPublicURL(stylesheet)}">`
-  }
-
-  createJavascriptLink(javascript: string): string {
-    return `<script src="${this.getPublicURL(javascript)}"></script>`
-  }
 }
 
 export default AssetLoader
