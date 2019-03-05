@@ -26,7 +26,7 @@ export const getNavigationLinks = (menuData: TNavMenus, edition: string): TNavig
   )
 }
 
-export const navigation = (userOptions: MiddlewareOptions = {}) => {
+export const init = (userOptions: MiddlewareOptions = {}) => {
   const { enableCrumbtrail, ...navOptions } = { ...defaultOptions, ...userOptions }
   const navigator = new Navigation(navOptions)
 

@@ -76,7 +76,7 @@ DocumentHead.defaultProps = {
   jsonLd: [],
   robots: 'index,follow',
   siteTitle: 'Financial Times',
-  twitterSite: '@FinancialTimes',
+  twitterSite: '@FinancialTimes'
 }
 
 export default DocumentHead

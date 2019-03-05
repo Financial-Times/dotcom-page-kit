@@ -1,4 +1,4 @@
-import { navigation } from '..'
+import * as navigation from '..'
 import httpMocks from 'node-mocks-http'
 
 const fakeMenuResponse = {
@@ -89,8 +89,8 @@ describe('anvil-middleware-ft-navigation/index', () => {
   let next
 
   beforeEach(() => {
-    nav = navigation()
-    navWithCrumbtrail = navigation({ enableCrumbtrail: true })
+    nav = navigation.init()
+    navWithCrumbtrail = navigation.init({ enableCrumbtrail: true })
     requestMock = httpMocks.createRequest()
     responseMock = httpMocks.createResponse({
       locals: { editions: { current: { id: 'some-edition-id' } } }
