@@ -1,8 +1,11 @@
 import React from 'react'
 import { IDrawerParent, TItem, TEditions } from '../../interfaces'
 
+const ariaSelected = (item) => {
+  return item.selected ? { 'aria-label': 'Current page', 'aria-current': 'true', test: 'true' } : null
+}
+
 export const DrawerParentItem = ({ props, index }: IDrawerParent) => {
-  const ariaSelected = props.selected ? { 'aria-label': 'Current page', 'aria-current': 'true' } : null
   const selected = props.selected ? 'selected' : 'unselected'
   return (
     <React.Fragment>
@@ -10,7 +13,7 @@ export const DrawerParentItem = ({ props, index }: IDrawerParent) => {
         <a
           className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--parent`}
           href={props.url}
-          {...ariaSelected}
+          {...ariaSelected(props)}
           data-trackable={props.label}>
           {props.label}
         </a>
@@ -26,7 +29,6 @@ export const DrawerParentItem = ({ props, index }: IDrawerParent) => {
         id={`o-header-drawer-child-${index}`}
         data-trackable="sub-level">
         {props.submenu.items.map((item) => {
-          const ariaSelected = item.selected ? { 'aria-label': 'Current page', 'aria-current': 'true' } : null
           const selected = item.selected ? 'selected' : 'unselected'
           return (
             <li key={item.url} className="o-header__drawer-menu-item">
@@ -34,7 +36,7 @@ export const DrawerParentItem = ({ props, index }: IDrawerParent) => {
                 className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--child`}
                 href={item.url}
                 data-trackable={item.label}
-                {...ariaSelected}>
+                {...ariaSelected(item)}>
                 {item.label}
               </a>
             </li>
@@ -47,13 +49,12 @@ export const DrawerParentItem = ({ props, index }: IDrawerParent) => {
 
 export const DrawerSingleItem = (item: TItem) => {
   const selected = item.selected ? 'selected' : 'unselected'
-  const ariaSelected = item.selected ? { 'aria-label': 'Current page', 'aria-current': 'true' } : null
   return (
     <a
       className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected}`}
       href={item.url}
       data-trackable={item.label}
-      {...ariaSelected}>
+      {...ariaSelected(item)}>
       {item.label}
     </a>
   )
@@ -61,13 +62,12 @@ export const DrawerSingleItem = (item: TItem) => {
 
 export const DrawerSpecialItem = (item: TItem) => {
   const selected = item.selected ? 'selected' : 'unselected'
-  const ariaSelected = item.selected ? { 'aria-label': 'Current page', 'aria-current': 'true' } : null
   return (
     <a
       className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--secondary`}
       href={item.url}
       data-trackable={item.label}
-      {...ariaSelected}>
+      {...ariaSelected(item)}>
       {item.label}
     </a>
   )
