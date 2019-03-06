@@ -1,7 +1,7 @@
 import React from 'react'
 import { TDocumentHeadProps } from './'
 
-const Stylesheets = ({ stylesheets, criticalStyles }: TDocumentHeadProps) => (
+const Stylesheets = ({ stylesheets = [], criticalStyles }: TDocumentHeadProps) => (
   <React.Fragment>
     {criticalStyles && <style dangerouslySetInnerHTML={{ __html: criticalStyles }} />}
     {Array.isArray(stylesheets) &&
