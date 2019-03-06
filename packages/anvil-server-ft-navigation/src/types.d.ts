@@ -1,7 +1,7 @@
-export type TOptions = {
-  menuUrl: string
-  crumbtrailUrl: string
-  interval: number
+export type TNavOptions = {
+  menuUrl?: string
+  crumbtrailUrl?: string
+  interval?: number
 }
 
 export type TNavMenus = {

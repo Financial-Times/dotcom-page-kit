@@ -30,11 +30,11 @@ Options will be merged with the following defaults:
 }
 ```
 
-### `getNavigationData()`
+### `getMenuData(path: string): Promise<TNavMenus>`
 
-Returns the full, raw, undecorated navigation data, refreshed every 15 minutes.
+Returns the full, decorated navigation data, refreshed every 15 minutes.
 
-Data is keyed by menuId: 
+Data is keyed by menuId, values match the output of `getPathMenu(menuId, path)`
 
 - "account"
 - "drawer-uk"
@@ -89,7 +89,7 @@ Returns the crumbtrail data for `path`. The crumbtrail is the data which populat
 
 ## Modifying Crumbtrail data
 
-The data from `getCrumbtrail`  methods is frozen to prevent accidantal mutation of the `Poller` instance's data as it is passed around. If you need to modify any part of the data, you should first clone the parts you need and then work with your cloned object.
+The data from `getCrumbtrail`  methods is frozen to prevent accidental mutation of the `Poller` instance's data as it is passed around. If you need to modify any part of the data, you should first clone the parts you need and then work with your cloned object.
 
 ```js
 const menuItem = getCrumbtrail('/world/uk')

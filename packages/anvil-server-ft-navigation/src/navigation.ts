@@ -5,7 +5,7 @@ import fetch from 'node-fetch'
 
 import { decorateMenu } from '.'
 
-import { TNavMenus, TNavMenu, TOptions as TNavOptions } from './types'
+import { TNavMenus, TNavMenu, TNavOptions, TNavCrumbtrail } from './types'
 
 /**
  * Makes the navigation data completely immutable,
@@ -44,18 +44,26 @@ export class Navigation {
     this.initialPromise = this.poller.start({ initialRequest: true })
   }
 
-  async getNavigationData(): Promise<TNavMenus> {
+  private async _getNavigationData(): Promise<TNavMenus> {
     // initialPromise does not return data but must resolve before `getData` can be called
     await this.initialPromise
     return this.poller.getData()
   }
 
+  async getMenuData(path: string): Promise<TNavMenus> {
+    const data = await this._getNavigationData()
+    return Object.entries(data).reduce((acc, [menuId, menu]) => {
+      acc[menuId] = decorateMenu(menu, path)
+      return acc
+    }, {})
+  }
+
   async getPathMenu(menuId: string, path: string = '/'): Promise<TNavMenu> {
-    const data = await this.getNavigationData()
+    const data = await this._getNavigationData()
     return decorateMenu(data[menuId], path)
   }
 
-  async getCrumbtrail(path: string) {
+  async getCrumbtrail(path: string): Promise<TNavCrumbtrail> {
     const currentPage = removeLeadingForwardSlash(path)
     const crumbtrail = `${this.options.crumbtrailUrl}/${currentPage}`
     const response = await fetch(crumbtrail)

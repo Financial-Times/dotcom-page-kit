@@ -1,17 +1,73 @@
-import { init as subject } from '../index'
+import * as navigation from '..'
 import httpMocks from 'node-mocks-http'
 
-const fakeNavigation = { 'some-navigation-data': true }
+const fakeMenuResponse = {
+  'navbar-uk': {
+    label: 'Navbar UK',
+    items: [{ label: 'Foo', url: '/world/uk', submenu: null, selected: false }]
+  },
+  'navbar-international': {
+    label: 'Navbar International',
+    items: [{ label: 'Foo', url: '/world/uk', submenu: null, selected: false }]
+  },
+  'navbar-some-edition-id': {
+    label: 'Navbar Fake',
+    items: [{ label: 'Foo', url: '/world/uk', submenu: null, selected: false }]
+  },
+  'drawer-uk': {
+    label: 'Drawer UK',
+    items: [{ label: 'Foo', url: '/world/uk', submenu: null, selected: false }]
+  },
+  'drawer-international': {
+    label: 'Drawer International',
+    items: [{ label: 'Bar', url: '/fake-item?location=/world/uk', submenu: null, selected: false }]
+  },
+  'drawer-some-edition-id': {
+    label: 'Drawer Fake',
+    items: [{ label: 'Foo', url: '/world/uk', submenu: null, selected: false }]
+  }
+}
 
-const fakeCrumbtrail = {
+const fakeCrumbtrailResponse = {
   breadcrumb: 'some-breadcrumb',
   subsections: 'some-subsections'
 }
 
+const fakeMenu = {
+  'navbar-right': undefined,
+  'navbar-right-anon': undefined,
+  'navbar-simple': undefined,
+  account: undefined,
+  anon: undefined,
+  user: undefined,
+  footer: undefined
+}
+
+const fakeMenuData = {
+  crumbtrail: null,
+  navbar: fakeMenuResponse['navbar-some-edition-id'],
+  drawer: fakeMenuResponse['drawer-some-edition-id'],
+  ...fakeMenu
+}
+
+const fakeMenuDataDefault = {
+  crumbtrail: null,
+  navbar: fakeMenuResponse['navbar-uk'],
+  drawer: fakeMenuResponse['drawer-uk'],
+  ...fakeMenu
+}
+
+const fakeMenuDataWithCrumbtrail = {
+  crumbtrail: fakeCrumbtrailResponse,
+  navbar: fakeMenuResponse['navbar-some-edition-id'],
+  drawer: fakeMenuResponse['drawer-some-edition-id'],
+  ...fakeMenu
+}
+
 const FakePoller = {
   start: jest.fn(),
-  getNavigationData: jest.fn().mockImplementation(() => fakeNavigation),
-  getCrumbtrail: jest.fn().mockImplementation(() => fakeCrumbtrail)
+  getMenuData: jest.fn().mockImplementation(() => fakeMenuResponse),
+  getCrumbtrail: jest.fn().mockImplementation(() => fakeCrumbtrailResponse)
 }
 
 jest.mock(
@@ -24,56 +80,56 @@ jest.mock(
   { virtual: true }
 )
 
-describe('anvil-middleware-ft-navigation', () => {
-  let instance
-  let instanceWithCrumbtrail
+describe('anvil-middleware-ft-navigation/index', () => {
+  let nav
+  let navWithCrumbtrail
   let requestMock
   let responseMock
+  let responseMockNoEditions
   let next
 
   beforeEach(() => {
-    instance = subject()
-    instanceWithCrumbtrail = subject({ enableCrumbtrail: true })
+    nav = navigation.init()
+    navWithCrumbtrail = navigation.init({ enableCrumbtrail: true })
     requestMock = httpMocks.createRequest()
-    responseMock = httpMocks.createResponse()
+    responseMock = httpMocks.createResponse({
+      locals: { editions: { current: { id: 'some-edition-id' } } }
+    })
+    responseMockNoEditions = httpMocks.createResponse({
+      locals: {}
+    })
     next = jest.fn()
   })
 
   afterEach(() => {
-    instance = null
-    instanceWithCrumbtrail = null
+    nav = null
+    navWithCrumbtrail = null
     jest.clearAllMocks()
   })
 
   it('returns a function', () => {
-    expect(instance).toBeInstanceOf(Function)
-    expect(instanceWithCrumbtrail).toBeInstanceOf(Function)
+    expect(nav).toBeInstanceOf(Function)
+    expect(navWithCrumbtrail).toBeInstanceOf(Function)
   })
 
   describe('without the enableCrumbtrail option', () => {
     it('sets the navigation properties on response.locals', async () => {
-      await instance(requestMock, responseMock, next)
-      expect(responseMock.locals.navigation.main).toEqual(fakeNavigation)
-    })
-    it('does not set the crumbtrail properties on response.locals', async () => {
-      await instance(requestMock, responseMock, next)
-      expect(responseMock.locals.navigation.crumbtrail.breadcrumb).toBeNull()
-      expect(responseMock.locals.navigation.crumbtrail.subsections).toBeNull()
+      await nav(requestMock, responseMock, next)
+      expect(responseMock.locals.navigation).toEqual(fakeMenuData)
     })
     it('calls the fallthrough function', async () => {
-      await instance(requestMock, responseMock, next)
+      await nav(requestMock, responseMock, next)
       expect(next).toHaveBeenCalled()
     })
   })
 
   describe('with the enableCrumbtrail option', () => {
     it('sets the crumbtrail properties on response.locals', async () => {
-      await instanceWithCrumbtrail(requestMock, responseMock, next)
-      expect(responseMock.locals.navigation.crumbtrail.breadcrumb).toEqual(fakeCrumbtrail.breadcrumb)
-      expect(responseMock.locals.navigation.crumbtrail.subsections).toEqual(fakeCrumbtrail.subsections)
+      await navWithCrumbtrail(requestMock, responseMock, next)
+      expect(responseMock.locals.navigation).toEqual(fakeMenuDataWithCrumbtrail)
     })
     it('calls the fallthrough function', async () => {
-      await instanceWithCrumbtrail(requestMock, responseMock, next)
+      await navWithCrumbtrail(requestMock, responseMock, next)
       expect(next).toHaveBeenCalled()
     })
   })
@@ -81,8 +137,15 @@ describe('anvil-middleware-ft-navigation', () => {
   describe('on error', () => {
     const invalidResponseMock = null
     it('catches the error', async () => {
-      await instance(requestMock, invalidResponseMock, next)
+      await nav(requestMock, invalidResponseMock, next)
       expect(next).toHaveBeenCalledWith(expect.any(Error))
+    })
+  })
+
+  describe('without editions data', () => {
+    it('can handle an empty response.locals', async () => {
+      await nav(requestMock, responseMockNoEditions, next)
+      expect(responseMockNoEditions.locals.navigation).toEqual(fakeMenuDataDefault)
     })
   })
 })
