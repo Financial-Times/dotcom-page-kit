@@ -79,6 +79,25 @@ describe('anvil-server-asset-loader', () => {
     })
   })
 
+  describe('getPublicURLOfHashedAssetsMatching(pattern', () => {
+    it('returns the public urls of hashed assets whose entry file name matches the supplied pattern', () => {
+      const a = loader.getPublicURLOfHashedAssetsMatching(/main/)
+      expect(a).toEqual([
+        'public/assets/main.12345.bundle.js',
+        'public/assets/vendor~main~secondary.12345.bundle.js'
+      ])
+
+      const b = loader.getPublicURLOfHashedAssetsMatching('main')
+      expect(b).toEqual([
+        'public/assets/main.12345.bundle.js',
+        'public/assets/vendor~main~secondary.12345.bundle.js'
+      ])
+
+      const c = loader.getPublicURLOfHashedAssetsMatching((filename) => filename === 'main.js')
+      expect(c).toEqual(['public/assets/main.12345.bundle.js'])
+    })
+  })
+
   describe('.getFileSystemPath()', () => {
     it('returns the file system path for the requested file', () => {
       const result = loader.getFileSystemPath('styles.css')
