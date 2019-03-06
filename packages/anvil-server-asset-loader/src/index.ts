@@ -62,7 +62,7 @@ class AssetLoader {
   }
 
   getHashedAssetsMatching(pattern: string | RegExp | Function): string[] {
-    return this.matchAssets(pattern).map((thing) => this.getHashedAsset(thing))
+    return this.matchAssets(pattern).map((asset) => this.getHashedAsset(asset))
   }
 
   getHashedAsset(asset: string): string {
@@ -86,6 +86,10 @@ class AssetLoader {
     const hashedAsset = this.getHashedAsset(asset)
     // Do not use path.join() as separator is platform specific
     return this.options.publicPath ? `${this.options.publicPath}/${hashedAsset}` : hashedAsset
+  }
+
+  getPublicURLOfHashedAssetsMatching(pattern: string | RegExp | Function): string[] {
+    return this.matchAssets(pattern).map((asset) => this.getPublicURL(asset))
   }
 }
 
