@@ -7,11 +7,11 @@ import { corePolyfillServiceUrl, enhancedPolyfillServiceUrl } from '../../polyfi
 interface Props extends TDocumentHeadProps {
   children?: any
   initialProps?: AnyObject
-  coreScriptsToLoad: string[]
-  enhancedScriptsToLoad: string[]
+  coreScriptsToLoad?: string[]
+  enhancedScriptsToLoad?: string[]
 }
 
-export default function Shell(props: Props) {
+function Shell(props: Props) {
   const coreScripts = [corePolyfillServiceUrl, ...props.coreScriptsToLoad]
   const enhancedScripts = [enhancedPolyfillServiceUrl, ...props.enhancedScriptsToLoad]
   const bootstrapConfig = formatConfigJSON(coreScripts, enhancedScripts)
@@ -37,6 +37,11 @@ export default function Shell(props: Props) {
   )
 }
 
+Shell.defaultProps = {
+  coreScriptsToLoad: [],
+  enhancedScriptsToLoad: []
+}
+
 function Body({ contents }) {
   if (typeof contents === 'string') {
     return <body dangerouslySetInnerHTML={{ __html: contents }} />
@@ -44,3 +49,5 @@ function Body({ contents }) {
     return <body>{contents}</body>
   }
 }
+
+export default Shell

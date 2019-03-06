@@ -5,15 +5,15 @@ import StyleSheets from './StyleSheets'
 
 export interface TDocumentHeadProps {
   criticalStyles?: string
-  description: string
+  description?: string
   facebookPage?: string
   googleSiteVerification?: string
   jsonLd?: TLinkedDataObject[]
   openGraph?: TOpenGraphObject
-  pageTitle?: string
+  pageTitle: string
   robots?: string
-  siteTitle: string
-  stylesheets: string[]
+  siteTitle?: string
+  stylesheets?: string[]
   twitterSite?: string
   url?: string
 }
@@ -25,7 +25,9 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>{props.pageTitle ? `${props.pageTitle} | ${props.siteTitle}` : props.siteTitle}</title>
-    <meta name="description" content={props.description} />
+
+    {props.description && <meta name="description" content={props.description} />}
+
     {props.url && <link rel="canonical" href={props.url} />}
 
     {/* resource hints */}
