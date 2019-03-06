@@ -143,21 +143,23 @@ const SectionList = ({ sectionItem }) => {
       <div className="o-header__mega-heading">{sectionItem.title}</div>
       <div className="o-header__mega-content">
         <ul className="o-header__mega-list">
-          {sectionItem.data.map((column) => {
-            return column.map((item) => {
-              return (
-                <li className="o-header__mega-item">
-                  <a
-                    className="o-header__mega-link"
-                    href={item.url}
-                    {...ariaSelected(item)}
-                    data-trackable="link">
-                    {item.label}
-                  </a>
-                </li>
-              )
-            })
-          })}
+          {sectionItem.data
+            ? sectionItem.data.map((column) => {
+                return column.map((item, index) => {
+                  return (
+                    <li className="o-header__mega-item" key={`link-${index}`}>
+                      <a
+                        className="o-header__mega-link"
+                        href={item.url}
+                        {...ariaSelected(item)}
+                        data-trackable="link">
+                        {item.label}
+                      </a>
+                    </li>
+                  )
+                })
+              })
+            : null}
         </ul>
       </div>
     </div>
@@ -170,19 +172,21 @@ const ArticleList = ({ articleItem }) => {
       <div className="o-header__mega-heading">{articleItem.title}</div>
       <div className="o-header__mega-content">
         <ul className="o-header__mega-list">
-          {articleItem.data.map((item) => {
-            return (
-              <li className="o-header__mega-item">
-                <a
-                  className="o-header__mega-link"
-                  href={item.url}
-                  {...ariaSelected(item)}
-                  data-trackable="link">
-                  {item.label}
-                </a>
-              </li>
-            )
-          })}
+          {articleItem.data
+            ? articleItem.data.map((item, index) => {
+                return (
+                  <li className="o-header__mega-item" key={`link-${index}`}>
+                    <a
+                      className="o-header__mega-link"
+                      href={item.url}
+                      {...ariaSelected(item)}
+                      data-trackable="link">
+                      {item.label}
+                    </a>
+                  </li>
+                )
+              })
+            : null}
         </ul>
       </div>
     </div>
