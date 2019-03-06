@@ -55,7 +55,7 @@ const NavListLeft = ({ navItems }) => {
               data-trackable={navItem.label}>
               {navItem.label}
             </a>
-            <MegaNav {...navItem} />
+            <MegaNav navItem={navItem} index={navItems.indexOf(navItem)} />
           </li>
         )
       })}
@@ -114,15 +114,15 @@ const NavListRightAnon = ({ navbarOptions, variant }: NavListProps) => {
   )
 }
 
-const MegaNav = (navItem) => {
+const MegaNav = ({ navItem, index }) => {
   return navItem.meganav ? (
     <div
       className="o-header__mega"
-      id="o-header-mega-{{@index}}"
+      id={`o-header-mega-${index}`}
       role="group"
-      aria-labelledby="o-header-link-{{@index}}"
+      aria-labelledby={`o-header-link-${index}`}
       data-o-header-mega
-      data-trackable="meganav | {{name}}">
+      data-trackable={`meganav | ${navItem.label}`}>
       <div className="o-header__container">
         <div className="o-header__mega-wrapper">
           {
