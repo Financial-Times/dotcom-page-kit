@@ -1,9 +1,6 @@
 import React from 'react'
 import { IDrawerParent, TItem, TEditions } from '../../interfaces'
-
-const ariaSelected = (item) => {
-  return item.selected ? { 'aria-label': 'Current page', 'aria-current': 'true' } : null
-}
+import { ariaSelected } from '../../utils'
 
 export const DrawerParentItem = ({ props, index }: IDrawerParent) => {
   const selected = props.selected ? 'selected' : 'unselected'
