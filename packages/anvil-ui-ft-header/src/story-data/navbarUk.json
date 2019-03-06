@@ -5,6 +5,7 @@
     {
       "label": "World",
       "url": "/world",
+      "selected": true,
       "submenu": {
         "label": null,
         "items": [

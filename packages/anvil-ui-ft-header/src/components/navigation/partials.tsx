@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavListProps } from '../../interfaces'
+import { ariaSelected } from '../../utils'
 
 const NavMobile = ({ data }) => {
   return (
@@ -10,15 +11,12 @@ const NavMobile = ({ data }) => {
       data-trackable="header-nav:mobile">
       <ul className="o-header__nav-list">
         {data.map((navItem, index) => {
-          const ariaAttributes = navItem.selected
-            ? { 'aria-label': 'Current page', 'aria-current': true }
-            : {}
           return (
             <li className="o-header__nav-item" key={`link-${index}`}>
               <a
                 className="o-header__nav-link o-header__nav-link--primary"
                 href={navItem.url}
-                {...ariaAttributes}
+                {...ariaSelected(navItem)}
                 data-trackable={navItem.name}>
                 {navItem.label}
               </a>
@@ -47,16 +45,13 @@ const NavListLeft = ({ navItems }) => {
   return (
     <ul className="o-header__nav-list o-header__nav-list--left" data-trackable="primary-nav">
       {navItems.map((navItem, index) => {
-        const ariaAttributes = navItem.selected
-          ? { 'aria-label': 'Current page', 'aria-current': true }
-          : null
         return (
           <li className="o-header__nav-item" key={`link-${index}`}>
             <a
               className="o-header__nav-link o-header__nav-link--primary"
               href={navItem.url}
               id={`o-header-link-${index}`}
-              {...ariaAttributes}
+              {...ariaSelected(navItem)}
               data-trackable={navItem.label}>
               {navItem.label}
             </a>
@@ -155,7 +150,7 @@ const SectionList = ({ sectionItem }) => {
                   <a
                     className="o-header__mega-link"
                     href={item.url}
-                    // {{#if selected}}aria-label="Current page" aria-current="true"{{/if}}
+                    {...ariaSelected(item)}
                     data-trackable="link">
                     {item.label}
                   </a>
@@ -181,7 +176,7 @@ const ArticleList = ({ articleItem }) => {
                 <a
                   className="o-header__mega-link"
                   href={item.url}
-                  // {{#if selected}}aria-label="Current page" aria-current="true"{{/if}}
+                  {...ariaSelected(item)}
                   data-trackable="link">
                   {item.label}
                 </a>
