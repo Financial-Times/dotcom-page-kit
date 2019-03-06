@@ -115,7 +115,7 @@ const NavListRightAnon = ({ navbarOptions, variant }: NavListProps) => {
 }
 
 const MegaNav = ({ navItem, index }) => {
-  return navItem.meganav ? (
+  return Array.isArray(navItem.meganav) ? (
     <div
       className="o-header__mega"
       id={`o-header-mega-${index}`}
@@ -125,12 +125,8 @@ const MegaNav = ({ navItem, index }) => {
       data-trackable={`meganav | ${navItem.label}`}>
       <div className="o-header__container">
         <div className="o-header__mega-wrapper">
-          {
-            <React.Fragment>
-              <SectionList sectionItem={navItem.meganav[0]} />
-              <ArticleList articleItem={navItem.meganav[1]} />
-            </React.Fragment>
-          }
+          <SectionList sectionItem={navItem.meganav[0]} />
+          <ArticleList articleItem={navItem.meganav[1]} />
         </div>
       </div>
     </div>
@@ -143,7 +139,7 @@ const SectionList = ({ sectionItem }) => {
       <div className="o-header__mega-heading">{sectionItem.title}</div>
       <div className="o-header__mega-content">
         <ul className="o-header__mega-list">
-          {sectionItem.data
+          {Array.isArray(sectionItem.data)
             ? sectionItem.data.map((column) => {
                 return column.map((item, index) => {
                   return (
