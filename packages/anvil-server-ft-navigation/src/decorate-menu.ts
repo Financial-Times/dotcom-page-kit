@@ -1,6 +1,43 @@
-import url from 'url'
+import { parse } from 'url'
 
 import { TNavMenu, TNavMenuItem } from './types'
+
+const decorateUrl = (itemUrl, currentUrl, currentPathName) => {
+  if (typeof itemUrl === 'string' && itemUrl.includes('${currentPath}')) {
+    const shouldReplace = !currentPathName || !/\/(products|barriers|errors)/.test(currentPathName)
+    const redirectPath = shouldReplace ? currentUrl : '%2F'
+    return itemUrl.replace('${currentPath}', redirectPath)
+  }
+  return itemUrl
+}
+
+const isSelected = (url, currentPathName) => {
+  return url === currentPathName ? true : false
+}
+
+const decorateItem = (url, currentUrl) => {
+  const currentPathName = parse(currentUrl).pathname
+  const itemUrl = decorateUrl(url, currentUrl, currentPathName)
+  let selected = isSelected(url, currentPathName)
+  return { itemUrl, selected }
+}
+
+export const processDataItems = (dataItems, currentUrl) => {
+  return Array.isArray(dataItems)
+    ? dataItems.map((dataItem) => {
+        return decorateItem(dataItem.url, currentUrl)
+      })
+    : decorateItem(dataItems.url, currentUrl)
+}
+
+export const processMeganav = (meganav, currentUrl) => {
+  return meganav.map((component) => {
+    return {
+      title: component.title,
+      data: component.data.map((dataItems) => processDataItems(dataItems, currentUrl))
+    }
+  })
+}
 
 /**
  * Produce a decorated clone of the supplied menu
@@ -8,29 +45,22 @@ import { TNavMenu, TNavMenuItem } from './types'
  * @param menu
  * @param currentUrl
  */
-export const decorateMenu = ({ label, items }: TNavMenu, currentUrl: string): TNavMenu => {
-  const currentPathName = url.parse(currentUrl).pathname
 
+export const decorateMenu = ({ label, items }: TNavMenu, currentUrl: string): TNavMenu => {
   return {
     label,
-    items: items.reduce((acc, { label, url, submenu }: TNavMenuItem) => {
-      let selected = false
-
-      if (typeof url === 'string' && url.includes('${currentPath}')) {
-        const shouldReplace = !currentPathName || !/\/(products|barriers|errors)/.test(currentPathName)
-        const redirectPath = shouldReplace ? currentUrl : '%2F'
-        url = url.replace('${currentPath}', redirectPath)
-      }
-
-      if (url === currentPathName) {
-        selected = true
-      }
+    items: items.reduce((acc, { label, url, submenu, meganav }: TNavMenuItem) => {
+      const { itemUrl, selected } = decorateItem(url, currentUrl)
 
       if (submenu) {
         submenu = decorateMenu(submenu, currentUrl)
       }
 
-      acc.push({ label, url, submenu, selected })
+      if (meganav) {
+        meganav = processMeganav(meganav, currentUrl)
+      }
+
+      acc.push({ label, url: itemUrl, submenu, selected, meganav })
 
       return acc
     }, [])
