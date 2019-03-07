@@ -29,7 +29,7 @@ Array [
     rel="preconnect"
   />,
   <link
-    crossorigin="use-credentials"
+    crossOrigin="use-credentials"
     href="https://session-next.ft.com"
     rel="preconnect"
   />,
