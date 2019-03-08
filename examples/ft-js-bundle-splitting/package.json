@@ -1,0 +1,22 @@
+{
+  "name": "ft-js-bundle-splitting",
+  "private": true,
+  "version": "0.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "anvil build",
+    "build:dev": "anvil build -d",
+    "postinstall": "bower install"
+  },
+  "dependencies": {
+    "@financial-times/anvil-ui-ft-header": "file:../../packages/anvil-ui-ft-header",
+    "@financial-times/anvil-ui-ft-footer": "file:../../packages/anvil-ui-ft-footer"
+  },
+  "devDependencies": {
+    "@financial-times/anvil": "file:../../packages/anvil",
+    "@financial-times/anvil-plugin-bower-resolve": "file:../../packages/anvil-plugin-bower-resolve",
+    "@financial-times/anvil-plugin-ft-js": "file:../../packages/anvil-plugin-ft-js",
+    "@financial-times/anvil-plugin-ft-js-bundle-splitting": "file:../../packages/anvil-plugin-ft-js-bundle-splitting"
+  }
+}
