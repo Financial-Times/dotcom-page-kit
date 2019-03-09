@@ -2,8 +2,10 @@
   "name": "@financial-times/anvil-ui-ft-layout",
   "version": "0.0.0",
   "description": "",
-  "main": "dist/cjs/index.js",
+  "main": "component.js",
+  "browser": "browser.js",
   "types": "src/index.tsx",
+  "styles": "styles.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "../../node_modules/.bin/tsc",
