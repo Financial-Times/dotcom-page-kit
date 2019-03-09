@@ -1,0 +1,7 @@
+{
+  "name": "anvil-ui-ft-footer",
+  "dependencies": {
+    "o-footer": "^6.0.10"
+  },
+  "main": ["browser.js", "styles.scss"]
+}
