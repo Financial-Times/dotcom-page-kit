@@ -36,6 +36,9 @@ module.exports = (baseConfig) => {
   // Add support for styles written with Sass
   baseConfig.module.rules.push({
     test: /\.(scss|sass)$/,
+    resolve: {
+      extensions: ['.scss', '.sass']
+    },
     use: [
       {
         loader: require.resolve('style-loader')
