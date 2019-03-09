@@ -2,7 +2,9 @@
   "name": "@financial-times/anvil-ui-ft-footer",
   "version": "0.0.0",
   "description": "",
-  "main": "dist/cjs/index.js",
+  "main": "component.js",
+  "styles": "styles.scss",
+  "browser": "browser.js",
   "types": "src/index.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
