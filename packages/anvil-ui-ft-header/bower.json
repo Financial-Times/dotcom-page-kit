@@ -1,0 +1,7 @@
+{
+  "name": "anvil-ui-ft-header",
+  "dependencies": {
+    "o-header": "^7.7.0"
+  },
+  "main": ["browser.js", "styles.scss"]
+}
