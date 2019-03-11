@@ -1,6 +1,6 @@
 import React from 'react'
-import { Footer } from '@financial-times/anvil-ui-ft-footer'
-import { HeaderDefault } from '@financial-times/anvil-ui-ft-header'
+import { Footer } from '@financial-times/anvil-ui-ft-footer/component'
+import { HeaderDefault } from '@financial-times/anvil-ui-ft-header/component'
 import { placeholder, createSlotterFor, Renderable } from '@financial-times/anvil-ui-slots'
 
 interface Props {
