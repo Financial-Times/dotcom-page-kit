@@ -47,6 +47,7 @@
     "@financial-times/athloi": "^1.0.0-beta.17",
     "@storybook/addon-knobs": "^4.1.12",
     "@storybook/addon-options": "^4.1.12",
+    "@storybook/addon-viewport": "^4.1.12",
     "@storybook/react": "^4.1.12",
     "@types/jest": "^24.0.0",
     "@types/node": "^10.12.26",
