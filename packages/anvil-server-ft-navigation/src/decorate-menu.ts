@@ -19,9 +19,7 @@ const decorateItem = (url, currentUrl, label) => {
   const currentPathName = parse(currentUrl).pathname
   const itemUrl = decorateUrl(url, currentUrl, currentPathName)
   let selected = isSelected(url, currentPathName)
-  return label
-    ? { itemUrl, selected, label }
-    : { itemUrl, selected }
+  return label ? { label, url: itemUrl, selected } : { itemUrl, selected }
 }
 
 export const processDataItems = (dataItems, currentUrl) => {

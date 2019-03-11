@@ -25,7 +25,6 @@ describe('decorateMenu', () => {
 
   it('replaces URLs containing keywords with %2F', () => {
     const testKeyword = (itemUrl: string) => {
-
       const decorated = decorateMenu(menus['navbar-uk'], itemUrl)
       expect(decorated.items[1].url).toBe('/fake-item?location=%2F')
       expect(decorated.items[1].submenu.items[1].url).toBe('/fake-item-nested?location=%2F')
@@ -53,7 +52,7 @@ describe('processMeganav', () => {
   it('contains the expected meganav data', () => {
     const decorated = decorateMenu(menus['navbar-uk'], '/world/uk')
 
-    expect(Object.keys(decorated.items[1].meganav[0].data[0][0])).toEqual(['itemUrl', 'selected', 'label'])
-    expect(Object.keys(decorated.items[1].meganav[1].data[0])).toEqual(['itemUrl', 'selected', 'label'])
+    expect(Object.keys(decorated.items[1].meganav[0].data[0][0])).toEqual(['label', 'url', 'selected'])
+    expect(Object.keys(decorated.items[1].meganav[1].data[0])).toEqual(['label', 'url', 'selected'])
   })
 })
