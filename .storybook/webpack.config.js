@@ -37,6 +37,8 @@ module.exports = (baseConfig) => {
   baseConfig.module.rules.push({
     test: /\.(scss|sass)$/,
     resolve: {
+      // Required for sass-loader 7.0+ because of a webpack resolution bug
+      // https://github.com/webpack-contrib/sass-loader/issues/556
       extensions: ['.scss', '.sass']
     },
     use: [
