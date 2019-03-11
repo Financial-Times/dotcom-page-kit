@@ -1,3 +1,18 @@
+const meganav = [
+  {
+    component: 'sectionlist',
+    dataset: 'subsections',
+    title: 'Sections',
+    data: [[{ label: 'Mega Foo', url: '/world' }], [{ label: 'Mega Bar', url: '/world/uk', submenu: null }]]
+  },
+  {
+    component: 'articlelist',
+    dataset: 'popular',
+    title: 'Most Read',
+    data: [{ label: 'Mega Baz', url: '/content/baz' }, { label: 'Mega Qux', url: '/content/qux' }]
+  }
+]
+
 const submenu = {
   label: 'submenu',
   items: [
@@ -7,11 +22,11 @@ const submenu = {
 }
 
 const menus = {
-  'drawer-uk': {
-    label: 'Drawer',
+  'navbar-uk': {
+    label: 'Navigation',
     items: [
       { label: 'Foo', url: '/world/uk', submenu: null },
-      { label: 'Bar', url: '/fake-item?location=${currentPath}', submenu }
+      { label: 'Bar', url: '/fake-item?location=${currentPath}', submenu, meganav }
     ]
   }
 }
