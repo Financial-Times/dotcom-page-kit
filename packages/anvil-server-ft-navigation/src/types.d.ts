@@ -16,9 +16,9 @@ export type TNavMenu = {
 export type TNavMenuItem = {
   label: string
   url: string
-  submenu: TNavMenu | null
+  submenu?: TNavMenu | null
   selected?: boolean
-  meganav?: TNavMeganv
+  meganav?: TNavMeganav
   items?: TNavMenuItem[]
 }
 
@@ -27,9 +27,9 @@ export type TNavCrumbtrail = {
   subsections: {}
 }
 
-export type TNavMeganv = {
+export type TNavMeganav = {
   component: string
   dataset: string
   title: string
-  data: []
+  data: TNavMenuItem[] | Array<TNavMenuItem[]>
 }

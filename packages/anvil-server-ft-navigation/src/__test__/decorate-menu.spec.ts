@@ -1,11 +1,11 @@
-import { decorateMenu } from '../decorate-menu'
+import { decorateMenu, processMeganav } from '../decorate-menu'
 import { menus } from '../__fixtures__/menus'
 
-describe('decorateMenu', () => {
+describe('.decorateMenu()', () => {
   it('returns a decorated object rather than mutating in place', () => {
     const decorated = decorateMenu(menus['navbar-uk'], '/world/uk')
 
-    expect(decorated).not.toEqual(menus)
+    expect(decorated).not.toBe(menus)
   })
 
   it('it marks items whose `url` property matches `currentUrl` as `selected`', () => {
@@ -36,23 +36,23 @@ describe('decorateMenu', () => {
   })
 })
 
-describe('processMeganav', () => {
+describe('.processMeganav()', () => {
   it('contains the expected meganav properties', () => {
-    const decorated = decorateMenu(menus['navbar-uk'], '/world/uk')
+    const decorated = processMeganav(menus['navbar-uk'].items[1].meganav, '/world/uk')
 
-    expect(decorated.items[1].meganav[0]).toHaveProperty('component', 'sectionlist')
-    expect(decorated.items[1].meganav[0]).toHaveProperty('title', 'Sections')
-    expect(decorated.items[1].meganav[0]).toHaveProperty('data')
+    expect(decorated[0]).toHaveProperty('component', 'sectionlist')
+    expect(decorated[0]).toHaveProperty('title', 'Sections')
+    expect(decorated[0]).toHaveProperty('data')
 
-    expect(decorated.items[1].meganav[1]).toHaveProperty('component', 'articlelist')
-    expect(decorated.items[1].meganav[1]).toHaveProperty('title', 'Most Read')
-    expect(decorated.items[1].meganav[1]).toHaveProperty('data')
+    expect(decorated[1]).toHaveProperty('component', 'articlelist')
+    expect(decorated[1]).toHaveProperty('title', 'Most Read')
+    expect(decorated[1]).toHaveProperty('data')
   })
 
   it('contains the expected meganav data', () => {
-    const decorated = decorateMenu(menus['navbar-uk'], '/world/uk')
+    const decorated = processMeganav(menus['navbar-uk'].items[1].meganav, '/world/uk')
 
-    expect(Object.keys(decorated.items[1].meganav[0].data[0][0])).toEqual(['label', 'url', 'selected'])
-    expect(Object.keys(decorated.items[1].meganav[1].data[0])).toEqual(['label', 'url', 'selected'])
+    expect(Object.keys(decorated[0].data[0][0])).toEqual(['label', 'url', 'selected'])
+    expect(Object.keys(decorated[1].data[0])).toEqual(['label', 'url', 'selected'])
   })
 })
