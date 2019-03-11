@@ -21,8 +21,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@financial-times/anvil-types-generic": "file:../anvil-types-generic",
-    "@financial-times/anvil-ui-origami-build-service": "file:../anvil-ui-origami-build-service"
+    "@financial-times/anvil-types-generic": "file:../anvil-types-generic"
   },
   "peerDependencies": {
     "react": "^16.7.0-alpha.0"

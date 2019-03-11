@@ -2,30 +2,24 @@ import React from 'react'
 import { Footer, LegalFooter } from '.'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, radios } from '@storybook/addon-knobs'
-import { OrigamiBuildService } from '@financial-times/anvil-ui-origami-build-service'
 import sampleData from './storyData'
+import '../styles.scss'
 
-const toggleTheme = () => radios('Theme', { dark: 'dark', light: 'light' }, 'dark')
-
-const OrigamiDependecies = {
-  'o-footer': '^6.0.10',
-  'o-fonts': '^3.2.0',
-  'o-normalise': '^1.6.2'
-}
+const toggleTheme = () =>
+  radios(
+    'Theme',
+    {
+      dark: 'dark',
+      light: 'light'
+    },
+    'dark'
+  )
 
 storiesOf('FT / Footer', module)
   .addDecorator(withKnobs)
   .add('footer', () => {
-    return (
-      <OrigamiBuildService dependencies={OrigamiDependecies}>
-        <Footer {...sampleData} theme={toggleTheme()} />
-      </OrigamiBuildService>
-    )
+    return <Footer {...sampleData} theme={toggleTheme()} />
   })
   .add('legal footer', () => {
-    return (
-      <OrigamiBuildService dependencies={OrigamiDependecies}>
-        <LegalFooter {...sampleData} theme={toggleTheme()} />
-      </OrigamiBuildService>
-    )
+    return <LegalFooter {...sampleData} theme={toggleTheme()} />
   })
