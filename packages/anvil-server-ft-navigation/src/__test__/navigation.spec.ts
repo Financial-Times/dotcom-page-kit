@@ -49,7 +49,7 @@ describe('anvil-server-ft-navigation', () => {
 
   describe('getPathMenu', () => {
     it('returns a decorated object', async () => {
-      const pathMenu = await navigationInstance.getPathMenu('drawer-uk', '/world/uk')
+      const pathMenu = await navigationInstance.getPathMenu('navbar-uk', '/world/uk')
 
       expect(pathMenu.items[0].selected).toBe(true)
       expect(pathMenu.items[1].submenu.items[0].selected).toBe(true)

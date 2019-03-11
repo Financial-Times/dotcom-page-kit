@@ -13,13 +13,6 @@ export type TNavMenu = {
   items: TNavMenuItem[]
 }
 
-export type TNavMenuExtra = {
-  label: string
-  items: TNavMenuItem[]
-  url: string
-  submenu: TNavMenu | null
-}
-
 export type TNavMenuItem = {
   label: string
   url: string
@@ -38,5 +31,5 @@ export type TNavMeganv = {
   component: string
   dataset: string
   title: string
-  data: any
+  data: []
 }
