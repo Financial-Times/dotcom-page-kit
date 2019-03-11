@@ -1,5 +1,5 @@
 const ReactDOMServer = require('react-dom/server')
-const { HeaderDefault } = require('@financial-times/anvil-ui-ft-header')
+const { HeaderDefault, Drawer } = require('@financial-times/anvil-ui-ft-header')
 const document = require('../lib/document')
 
 const headerProps = {
@@ -17,17 +17,15 @@ const headerProps = {
   data: {}
 }
 
-module.exports = (_, response, next) => {
-  headerProps.editions = response.locals.editions
+const render = (component) => ReactDOMServer.renderToStaticMarkup(component)
 
-  // TODO Tidy up: Set data to response.locals.navigation.main once editions are fixed
-  headerProps.data.navbar = response.locals.navigation['navbar']
-  headerProps.data['navbar-simple'] = response.locals.navigation['navbar-simple']
-  headerProps.data['navbar-right'] = response.locals.navigation['navbar-right']
-  headerProps.data['navbar-right-anon'] = response.locals.navigation['navbar-right-anon']
+module.exports = (_, response, next) => {
+  headerProps.data = response.locals.navigation
+  // TODO - This should not be editionsUk
+  headerProps.data.editionsUk = response.locals.editions
 
   try {
-    const html = ReactDOMServer.renderToStaticMarkup(HeaderDefault(headerProps))
+    const html = [render(HeaderDefault(headerProps)), render(Drawer(headerProps))].join()
     const page = document(html)
     response.send(page)
   } catch (error) {
