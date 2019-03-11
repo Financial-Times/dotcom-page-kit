@@ -15,24 +15,27 @@ const isSelected = (url, currentPathName) => {
   return url === currentPathName ? true : false
 }
 
-const decorateItem = (url, currentUrl) => {
+const decorateItem = (url, currentUrl, label) => {
   const currentPathName = parse(currentUrl).pathname
   const itemUrl = decorateUrl(url, currentUrl, currentPathName)
   let selected = isSelected(url, currentPathName)
-  return { itemUrl, selected }
+  return label
+    ? { itemUrl, selected, label }
+    : { itemUrl, selected }
 }
 
 export const processDataItems = (dataItems, currentUrl) => {
   return Array.isArray(dataItems)
     ? dataItems.map((dataItem) => {
-        return decorateItem(dataItem.url, currentUrl)
+        return decorateItem(dataItem.url, currentUrl, dataItem.label)
       })
-    : decorateItem(dataItems.url, currentUrl)
+    : decorateItem(dataItems.url, currentUrl, dataItems.label)
 }
 
 export const processMeganav = (meganav, currentUrl) => {
   return meganav.map((component) => {
     return {
+      component: component.component,
       title: component.title,
       data: component.data.map((dataItems) => processDataItems(dataItems, currentUrl))
     }
@@ -50,7 +53,7 @@ export const decorateMenu = ({ label, items }: TNavMenu, currentUrl: string): TN
   return {
     label,
     items: items.reduce((acc, { label, url, submenu, meganav }: TNavMenuItem) => {
-      const { itemUrl, selected } = decorateItem(url, currentUrl)
+      const { itemUrl, selected } = decorateItem(url, currentUrl, null)
 
       if (submenu) {
         submenu = decorateMenu(submenu, currentUrl)
