@@ -1,13 +1,10 @@
 import React from 'react'
 
 const Header = (props) => {
-  props = !props.options.variant
-    ? Object.assign({}, props, { options: { ...props.options, variant: 'simple' } })
-    : props
   return (
     <header
       id="site-navigation"
-      className={`o-header o-header--${props.options.variant}`}
+      className={`o-header o-header--${props.options.variant || 'simple'}`}
       data-o-component="o-header"
       data-o-header--no-js={true}
       tabIndex={-1}>
