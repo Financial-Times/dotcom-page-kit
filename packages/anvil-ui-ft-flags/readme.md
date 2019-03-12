@@ -1,11 +1,11 @@
 # @financial-times/anvil-ui-ft-flags
 
-This module provides a library for formatting flags data on the server and safely retrieving it in the browser.
+This module provides methods for formatting flags data on the server and safely retrieving it again in the browser.
 
 
 ## Getting started
 
-This module is compatible with Node 10+ and is distributed on npm.
+This module is compatible with Node 8+ and is distributed on npm.
 
 ```sh
 npm install --save @financial-times/anvil-ui-ft-flags
@@ -33,7 +33,7 @@ function page() {
 }
 ```
 
-Once you are delivering the flags data with your page you can add the flags module to your client-side code which will find the data, parse it, and provide a method for checking
+Once you are delivering the flags data with your page you can add the flags module to your client-side code which will find the data, parse it, and provide a method for retrieving the status of a flag.
 
 ```js
 import { createFlagsClient } from '@financial-times/anvil-ui-ft-flags'
@@ -50,10 +50,10 @@ if (flags.get('myAmazingFeature')) {
 
 ### `.formatFlagsData(flags)`
 
-Returns a JSON formatted string representing the given data. This will filter out any properties with a falsey value to reduce the amount of data to send and parse.
+Returns a JSON formatted string representing the given data. This will filter out any properties with a falsey value to reduce the amount of data to send and parse. The flags data must be inserted into a `<script>` element with an ID of `flags-data`.
 
 ### `.createFlagsClient()`
 
-Finds and parses the flags data and returns . This data must be inserted into a `<script>` element with an ID of `flags-data`.
+Finds and parses the flags data embedded in the page and returns a client which can access the status of individual flags. The flags data must be present in a `<script>` element with an ID of `flags-data`.
 
 _Please note_ that this method can only be used on the client-side (in the browser.)
