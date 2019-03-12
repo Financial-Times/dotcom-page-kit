@@ -1,5 +1,9 @@
-import Flags from './Flags'
+import FlagsClient from './FlagsClient'
 import loadFlags from './loadFlags'
 import formatFlagsData from './formatFlagsData'
 
-export { Flags, formatFlagsData, loadFlags }
+function createFlagsClient() {
+  return new FlagsClient(loadFlags())
+}
+
+export { formatFlagsData, createFlagsClient }

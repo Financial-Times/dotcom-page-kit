@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import { loadFlags as subject } from '..'
+import subject from '../loadFlags'
 
 describe('anvil-ui-ft-flags/src/loadFlags', () => {
   describe('when there is a configuration object', () => {
@@ -12,20 +12,24 @@ describe('anvil-ui-ft-flags/src/loadFlags', () => {
       `
     })
 
-    it('returns an object', () => {
+    it('returns a frozen object', () => {
       const result = subject()
+
       expect(result).toEqual({ foo: 1, bar: true, baz: 'qux' })
+      expect(Object.isFrozen(result)).toBe(true)
     })
   })
 
-  describe('when there is not a configuration object', () => {
+  describe('when there is no a configuration object', () => {
     beforeEach(() => {
       document.body.innerHTML = ''
     })
 
-    it('returns an empty object', () => {
+    it('returns a frozen empty object', () => {
       const result = subject()
+
       expect(result).toEqual({})
+      expect(Object.isFrozen(result)).toBe(true)
     })
   })
 })

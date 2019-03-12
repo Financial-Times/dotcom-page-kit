@@ -3,13 +3,15 @@ import { TFlagsData } from './types'
 export default function loadFlags(): TFlagsData {
   const flagsConfigEl = document.getElementById('flags-data')
 
+  let data = {}
+
   if (flagsConfigEl) {
     try {
-      return JSON.parse(flagsConfigEl.innerHTML)
+      data = JSON.parse(flagsConfigEl.innerHTML)
     } catch (error) {
       console.error('Flags configuration error', error) // eslint-disable-line no-console
     }
   }
 
-  return {}
+  return Object.freeze(data)
 }
