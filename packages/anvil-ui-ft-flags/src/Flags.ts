@@ -1,10 +1,10 @@
-import { TFlags, TFlag } from './types'
+import { TFlagsData, TFlag } from './types'
 import loadFlags from './loadFlags'
 
 export default class Flags {
-  public flags: TFlags
+  public flags: TFlagsData
 
-  constructor(flags?: TFlags) {
+  constructor(flags?: TFlagsData) {
     this.flags = flags || loadFlags()
   }
 

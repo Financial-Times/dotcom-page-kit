@@ -8,7 +8,7 @@ describe('anvil-ui-ft-flags/src/loadFlags', () => {
   describe('when there is a configuration object', () => {
     beforeEach(() => {
       document.body.innerHTML = `
-        <script id="flags-config">{"foo":1,"bar":true,"baz":"qux"}</script>
+        <script id="flags-data">{"foo":1,"bar":true,"baz":"qux"}</script>
       `
     })
 
@@ -23,9 +23,9 @@ describe('anvil-ui-ft-flags/src/loadFlags', () => {
       document.body.innerHTML = ''
     })
 
-    it('returns undefined', () => {
+    it('returns an empty object', () => {
       const result = subject()
-      expect(result).toBeUndefined()
+      expect(result).toEqual({})
     })
   })
 })

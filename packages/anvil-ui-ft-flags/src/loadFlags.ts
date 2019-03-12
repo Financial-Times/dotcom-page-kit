@@ -1,7 +1,7 @@
-import { TFlags } from './types'
+import { TFlagsData } from './types'
 
-export default function loadFlags(): TFlags {
-  const flagsConfigEl = document.getElementById('flags-config')
+export default function loadFlags(): TFlagsData {
+  const flagsConfigEl = document.getElementById('flags-data')
 
   if (flagsConfigEl) {
     try {
@@ -10,4 +10,6 @@ export default function loadFlags(): TFlags {
       console.error('Flags configuration error', error) // eslint-disable-line no-console
     }
   }
+
+  return {}
 }
