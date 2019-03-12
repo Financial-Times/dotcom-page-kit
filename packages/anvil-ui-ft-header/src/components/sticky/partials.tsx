@@ -9,7 +9,6 @@ const StickyHeader = (props) => {
     <header
       className={`o-header o-header--${props.options.variant || 'simple'} o-header--sticky o--if-js`}
       data-o-component="o-header"
-      data-o-header--no-js="true"
       data-o-header--sticky
       aria-hidden="true">
       {props.children}
