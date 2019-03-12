@@ -5,12 +5,9 @@ import React from 'react'
 import { NavListRightAnon } from '../navigation/partials'
 
 const StickyHeader = (props) => {
-  props = !props.options.variant
-    ? Object.assign({}, props, { options: { ...props.options, variant: 'simple' } })
-    : props
   return (
     <header
-      className={`o-header o-header--${props.options.variant} o-header--sticky o--if-js`}
+      className={`o-header o-header--${props.options.variant || 'simple'} o-header--sticky o--if-js`}
       data-o-component="o-header"
       data-o-header--no-js="true"
       data-o-header--sticky
