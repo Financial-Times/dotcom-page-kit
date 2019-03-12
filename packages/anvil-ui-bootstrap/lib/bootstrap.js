@@ -24,9 +24,9 @@
   function loadScript(src) {
     var script = document.createElement('script')
     script.onerror = scriptLoadError
-    script.async = false
+    script.async = true
     script.src = src
-    document.head.appendChild(script)
+    document.head.insertBefore(script, document.currentScript)
   }
 
   // "Cut the mustard" test
