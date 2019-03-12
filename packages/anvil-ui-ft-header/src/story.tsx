@@ -3,6 +3,7 @@ import { HeaderDefault, Drawer, HeaderSticky, LogoOnly } from '.'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
 import storyData from './story-data/storyData'
+import * as header from '../browser.js'
 import '../styles.scss'
 import './demos.scss'
 
@@ -22,10 +23,16 @@ storiesOf('FT / Header', module)
     return <HeaderDefault {...storyData} />
   })
   .add('With drawer component', () => {
+    // header needs to be initialized after the component has rendered
+    // to pull in JavaScript from o-header
+    setImmediate(header.init)
     return [<HeaderDefault {...storyData} />, <Drawer {...storyData} />]
   })
   .add('Sticky header', () => {
     storyData.options.userIsAnonymous = toggleAnonymous()
+    // header needs to be initialized after the component has rendered
+    // to pull in JavaScript from o-header
+    setImmediate(header.init)
     return [
       <HeaderSticky {...storyData} />,
       <p className="demo-sticky-message demo-sticky-message--scroll">Scroll down</p>
