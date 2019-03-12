@@ -3,7 +3,7 @@ export interface Props {
     currentUrl: string
     userNav: boolean
     disableSticky: boolean
-    variant: string
+    variant?: string
     hideOutboundLinks: boolean
     userIsAnonymous: boolean
     userIsLoggedIn: boolean
