@@ -1,1 +1,1 @@
-module.exports = require('./dist/cjs/components/Flags')
+module.exports = require('./dist/cjs/index')
