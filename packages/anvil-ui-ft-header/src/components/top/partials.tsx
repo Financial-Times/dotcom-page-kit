@@ -1,6 +1,9 @@
 import React from 'react'
 
 const Header = (props) => {
+  props = !props.options.variant
+    ? Object.assign({}, props, { options: { ...props.options, variant: 'simple' } })
+    : props
   return (
     <header
       id="site-navigation"

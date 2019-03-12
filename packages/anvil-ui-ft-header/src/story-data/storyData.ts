@@ -17,7 +17,6 @@ export default {
     currentUrl: '/',
     userNav: false,
     disableSticky: false,
-    variant: 'simple',
     hideOutboundLinks: false,
     userIsAnonymous: false,
     userIsLoggedIn: true,
