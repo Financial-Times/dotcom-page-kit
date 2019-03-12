@@ -1,1 +1,1 @@
-export default './dist/browser/index'
+export default './dist/esm/index'
