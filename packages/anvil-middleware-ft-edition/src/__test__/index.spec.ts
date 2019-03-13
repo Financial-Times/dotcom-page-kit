@@ -1,7 +1,7 @@
 import { init as subject } from '../index'
 import httpMocks from 'node-mocks-http'
 
-const editionsUk = {
+const editions = {
   current: expect.objectContaining({ id: 'uk' }),
   others: [expect.objectContaining({ id: 'international' })]
 }
@@ -42,7 +42,7 @@ describe('anvil-middleware-ft-edition', () => {
     })
     it('sets the edition to uk as default', () => {
       instance(requestMock, responseMock, next)
-      expect(responseMock.locals.editions).toEqual(expect.objectContaining(editionsUk))
+      expect(responseMock.locals.editions).toEqual(expect.objectContaining(editions))
     })
     it('sets the edition to international if passed a valid query string', () => {
       requestMock.query.edition = 'international'

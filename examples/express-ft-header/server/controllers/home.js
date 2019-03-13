@@ -21,8 +21,7 @@ const render = (component) => ReactDOMServer.renderToStaticMarkup(component)
 
 module.exports = (_, response, next) => {
   headerProps.data = response.locals.navigation
-  // TODO - This should not be editionsUk
-  headerProps.data.editionsUk = response.locals.editions
+  headerProps.data.editions = response.locals.editions
 
   try {
     const html = [render(HeaderDefault(headerProps)), render(Drawer(headerProps))].join()
