@@ -54,6 +54,6 @@ Returns a JSON formatted string representing the given data. This will filter ou
 
 ### `.createFlagsClient()`
 
-Finds and parses the flags data embedded in the page and returns a client which can access the status of individual flags. The flags data must be present in a `<script>` element with an ID of `flags-data`.
+Finds and parses the formatted flags data embedded in the page and returns a client which can access the status of individual flags. The formatted flags data must be present in a `<script>` element with an ID of `flags-data`.
 
 _Please note_ that this method can only be used on the client-side (in the browser.)

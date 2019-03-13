@@ -2,8 +2,8 @@
   "name": "@financial-times/anvil-ui-ft-flags",
   "version": "0.0.0",
   "description": "",
-  "main": "dist/node",
-  "browser": "dist/browser",
+  "main": "node.js",
+  "browser": "browser.js",
   "types": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

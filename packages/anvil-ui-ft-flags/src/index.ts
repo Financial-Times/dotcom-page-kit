@@ -3,7 +3,8 @@ import loadFlags from './loadFlags'
 import formatFlagsData from './formatFlagsData'
 
 function createFlagsClient() {
-  return new FlagsClient(loadFlags())
+  const flagsData = loadFlags()
+  return new FlagsClient(flagsData)
 }
 
 export { formatFlagsData, createFlagsClient }
