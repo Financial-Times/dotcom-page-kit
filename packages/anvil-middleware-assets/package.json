@@ -26,5 +26,7 @@
   "devDependencies": {
     "node-mocks-http": "^1.7.3"
   },
-  "peerDependencies": {}
+  "engines": {
+    "node": ">= 8.0.0"
+  }
 }

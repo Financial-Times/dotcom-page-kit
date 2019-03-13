@@ -1,18 +1,18 @@
 # Assets Middleware
 
-This package provides an [Express] compatible middleware which integrates the [asset loader] into your application and adds it to each response making it available to your application's route handlers. The asset loader helps applications to locate their static assets from wherever they are stored.
+This package provides an [Express] compatible middleware which integrates the [asset loader] and [resource hints] packages into your application and adds it to each response making it available to your application's route handlers. The asset loader helps applications to locate their static assets from wherever they are stored.
 
 In addition this package can also be used to send [resource hints] and [serve static files].
 
 [Express]: https://expressjs.com/
 [asset loader]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-asset-loader
-[resource hints]: https://w3c.github.io/resource-hints/
+[resource hints]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-resource-hints
 [serve static files]: https://expressjs.com/en/starter/static-files.html
 
 
 ### Getting started
 
-This package is compatible with Node 10+ and is distributed on npm.
+This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
 npm install --save @financial-times/anvil-middleware-assets
@@ -28,7 +28,7 @@ const app = express()
 + app.use(assetLoader.init())
 ```
 
-Once registered an `assets` property will be added to the [response locals] object which provides a copy of the asset loader (used to locate your static assets) and methods to add [resource hints] to the response data.
+Once registered an `assets` property will be added to the [response locals] object which provides a copy of the asset loader (used to locate your static assets) and methods to add resource hints to the response data.
 
 ```js
 app.get('/', (request, response) => {
@@ -41,31 +41,23 @@ app.get('/', (request, response) => {
   // Add a resource hint to the response
   response.locals.assets.resourceHints.add(publicURL)
 
-  response.send('A resource hint will be added to this response for main.css')
+  response.send('A resource hint will be automatically added to this response for main.css')
 })
 ```
 
-See the [asset loader] documentation for a complete list of available methods.
+See the [asset loader] and [resource hints] package documentation for a complete list of available methods.
 
 [response locals]: https://expressjs.com/en/api.html#res.locals
 
 
 ## Loader API
 
-A copy of the asset loader will be added to each response and made available at `response.locals.assets.loader`. See the [asset loader] documentation for a list of available methods and their usage.
+A global instance of the asset loader will be added to each response and made available at `response.locals.assets.loader`. See the [asset loader] documentation for a list of available methods and their usage.
 
 
 ## Resource Hints API
 
-Methods to add and use resource hints will be added to each response and made available at `response.locals.assets.resourceHints`. The available methods are listed below.
-
-### `.add(url: string)`
-
-Adds a resource hint to the response for the given URL or path. The resource type (style, script, image, or font) will be inferred from the file extension.
-
-### `.toString(filename: string)`
-
-Formats all resource hints added to the response into a valid `link` header string. This is intended to only be used internally but may be useful for debugging purposes.
+A new instance of the resource hints loader will be added to each response and made available at `response.locals.assets.resourceHints`. See the [resource hints] documentation for a list of available methods and their usage.
 
 
 ## Options
