@@ -1,5 +1,5 @@
 import AssetLoader from '@financial-times/anvil-server-asset-loader'
-import ResourceHints from './ResourceHints'
+import ResourceHints from '@financial-times/anvil-server-resource-hints'
 import { MiddlewareOptions } from './options'
 import { Handler, Request, Response, NextFunction } from 'express'
 
@@ -12,6 +12,7 @@ export default (options: MiddlewareOptions): Handler => {
 
     response.locals.assets = { loader, resourceHints }
 
+    // TODO: remove this monkey patching and instruct consumers to do this themselves
     response.send = (chunk) => {
       // Assume the content type is HTML if the chunk is a string
       // <https://github.com/expressjs/express/blob/master/lib/response.js#L141-L147>
