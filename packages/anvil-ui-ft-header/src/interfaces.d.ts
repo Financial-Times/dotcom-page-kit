@@ -11,8 +11,7 @@ export interface Props {
     showSignOut: boolean
   }
   data: {
-    editionsUk: TEditions
-    editionsInternational: TEditions
+    editions: TEditions
     drawer: TItemSubMenu
     navbar: TItemSubMenu
     'navbar-right': TItemSubMenu

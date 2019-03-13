@@ -5,7 +5,6 @@ import navbarRightAnon from './navbarRightAnon.json'
 import drawerUk from './drawerUk.json'
 import crumbtrail from './crumbtrailUk.json'
 import editionsUk from './editionsUk.json'
-import editionsInternational from './editionsInternational.json'
 import user from './user.json'
 
 const breadcrumb = crumbtrail.ancestors.concat(crumbtrail.item)
@@ -31,8 +30,7 @@ export default {
     drawer: drawerUk,
     breadcrumb,
     subsections,
-    editionsUk,
-    editionsInternational,
+    editions: editionsUk,
     user
   }
 }

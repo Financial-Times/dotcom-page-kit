@@ -6,7 +6,7 @@ const IncludeDrawer = (props) => <Drawer {...props} />
 
 const Drawer = (props: Props) => {
   // TODO refactor editions and sections data from improved navigation model
-  const editions = props.data.editionsUk
+  const editions = props.data.editions
   const sections = props.data.drawer.items
   const userMenu = props.data.user
 
