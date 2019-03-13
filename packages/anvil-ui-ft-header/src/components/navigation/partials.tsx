@@ -65,7 +65,7 @@ const NavListLeft = ({ navItems }) => {
 
 const NavListRight = (props) => {
   // Serve the signed-in or anonymous user experience
-  const navbarKey = props.options.userNav ? 'navbar-right-anon' : 'navbar-right'
+  const navbarKey = props.options.userIsAnonymous ? 'navbar-right-anon' : 'navbar-right'
   const navbarOptions = props.data[navbarKey].items
   let navListRight = null
   if (props.options.userNav) {
