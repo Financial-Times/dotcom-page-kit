@@ -28,7 +28,7 @@ function Shell(props: Props) {
           type="application/json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(props.initialProps) }}
         />
-        <script id="flags-config" type="application/json" dangerouslySetInnerHTML={{ __html: flagsData }} />
+        <script id="flags-data" type="application/json" dangerouslySetInnerHTML={{ __html: flagsData }} />
         <script
           id="bootstrap-config"
           type="application/json"
