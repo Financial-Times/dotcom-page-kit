@@ -1,11 +1,9 @@
 export interface Props {
   options: {
-    currentUrl: string
-    userNav: boolean
-    disableSticky: boolean
+    userNav?: boolean
     variant?: string
-    hideOutboundLinks: boolean
-    userIsAnonymous: boolean
+    hideOutboundLinks?: boolean
+    userIsAnonymous?: boolean
     userIsLoggedIn: boolean
     showSubNav: boolean
     showSignOut: boolean
