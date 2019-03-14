@@ -1,10 +1,10 @@
 import React from 'react'
 import { DrawerParentItem, DrawerSingleItem, DrawerSpecialItem, EditionsSwitcher } from './additionalPartials'
-import { Props, TEditions, TUserMenu, TItem } from '../../interfaces'
+import { THeaderProps, TEditions, TUserMenu, TItem } from '../../interfaces'
 
 const IncludeDrawer = (props) => <Drawer {...props} />
 
-const Drawer = (props: Props) => {
+const Drawer = (props: THeaderProps) => {
   // TODO refactor editions and sections data from improved navigation model
   const editions = props.data.editions
   const sections = props.data.drawer.items

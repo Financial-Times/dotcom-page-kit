@@ -1,4 +1,4 @@
-export interface Props {
+export interface THeaderProps {
   options: {
     userNav?: boolean
     variant?: string

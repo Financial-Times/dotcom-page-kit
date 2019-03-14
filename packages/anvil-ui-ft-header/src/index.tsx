@@ -17,9 +17,9 @@ import {
 import { IncludeCrumbtrail } from './components/crumbtrail/partials'
 import { IncludeDrawer } from './components/drawer/topLevelPartials'
 import { Search } from './components/search/partials'
-import { Props } from './interfaces'
+import { THeaderProps } from './interfaces'
 
-export function HeaderDefault(props: Props) {
+export function HeaderDefault(props: THeaderProps) {
   const navItems = props.data.navbar.items
   const includeUserActionsNav =
     props.options.userNav && props.options.userIsAnonymous ? UserActionsNav(props) : null
@@ -43,11 +43,11 @@ export function HeaderDefault(props: Props) {
   )
 }
 
-export function Drawer(props: Props) {
+export function Drawer(props: THeaderProps) {
   return <IncludeDrawer {...props} />
 }
 
-export function HeaderSticky(props) {
+export function HeaderSticky(props: THeaderProps) {
   return (
     <StickyHeader {...props}>
       <TopWrapperSticky>
