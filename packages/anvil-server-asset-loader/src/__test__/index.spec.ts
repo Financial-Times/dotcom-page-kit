@@ -1,4 +1,4 @@
-import AssetLoader from '../'
+import AssetLoader, { AssetLoaderOptions } from '../'
 
 const manifest = {
   'styles.css': 'styles.12345.bundle.css',
@@ -25,7 +25,7 @@ function createAssetLoader({
   publicPath = 'public/assets',
   fileSystemPath = '/internal/path/to/assets',
   ...otherOptions
-} = {}) {
+}: AssetLoaderOptions = {}) {
   return new AssetLoader({ publicPath, fileSystemPath, ...otherOptions })
 }
 
@@ -38,6 +38,15 @@ describe('anvil-server-asset-loader', () => {
 
   afterEach(() => {
     jest.restoreAllMocks()
+  })
+
+  describe('constructor', () => {
+    it('uses the supplied manifest instead of looking it up', () => {
+      const manifest = { foo: 'bar' }
+      const loader = createAssetLoader({ manifest })
+      const result = loader.getHashedAsset('foo')
+      expect(result).toBe(manifest.foo)
+    })
   })
 
   describe('.getHashedAsset()', () => {

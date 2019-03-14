@@ -25,6 +25,11 @@ export interface AssetLoaderOptions {
    * @default false
    */
   cacheFileContents?: boolean
+
+  /**
+   * The asset manifest
+   */
+  manifest?: { [asset: string]: string }
 }
 
 const defaultOptions: AssetLoaderOptions = {
@@ -40,7 +45,9 @@ class AssetLoader {
 
   constructor(userOptions: AssetLoaderOptions) {
     this.options = { ...defaultOptions, ...userOptions }
-    this.manifest = loadManifest(path.resolve(this.options.fileSystemPath, this.options.manifestFileName))
+    this.manifest =
+      userOptions.manifest ||
+      loadManifest(path.resolve(this.options.fileSystemPath, this.options.manifestFileName))
   }
 
   matchAssets(pattern: string | RegExp | Function): string[] {

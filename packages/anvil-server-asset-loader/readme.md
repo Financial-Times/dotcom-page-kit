@@ -71,6 +71,10 @@ The `AssetLoader` class accepts the following parameters. All parameters are opt
 
 The name of the asset manifest file. This will be resolved relative to the `fileSystemPath`. Defaults to `"manifest.json"`.
 
+### `manifest`
+
+An object mapping file names to hashed file name, to be used as the [manifest](#creating-a-manifest-file). If specified, the manifest will not be looked up using the `fileSystemPath`  and `manifestFileName`. 
+
 ### `publicPath`
 
 The public-facing URL for the static assets. This is used when formatting publicly accessible URLs to assets for the browser or user to download. This should begin with a slash or protocol (e.g. `https://`) but no trailing slash is necessary. 
