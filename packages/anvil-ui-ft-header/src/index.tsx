@@ -21,8 +21,7 @@ import { THeaderProps } from './interfaces'
 
 export function HeaderDefault(props: THeaderProps) {
   const navItems = props.data.navbar.items
-  const includeUserActionsNav =
-    props.options.userNav && props.options.userIsAnonymous ? UserActionsNav(props) : null
+  const includeUserActionsNav = props.userNav && props.userIsAnonymous ? UserActionsNav(props) : null
   const incudeCrumbtrail = props.data.breadcrumb && props.data.subsections ? IncludeCrumbtrail(props) : null
   return (
     <Header {...props}>

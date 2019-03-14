@@ -18,12 +18,20 @@ const toggleAnonymous = () => boolean('User is anonymous', true)
 storiesOf('FT / Header', module)
   .addDecorator(withKnobs)
   .add('Default header', () => {
-    storyData.options.userNav = toggleUserStateOptions()
-    storyData.options.userIsAnonymous = toggleAnonymous()
-    storyData.options.showSignOut = toggleMyFTSignOutOptions()
-    return <HeaderDefault {...storyData} />
+    storyData.showUserNav = toggleUserStateOptions()
+    storyData.userIsAnonymous = toggleAnonymous()
+    storyData.showSignOut = toggleMyFTSignOutOptions()
+
+    return (
+      <OnReady callback={() => header.init()}>
+        <HeaderDefault {...storyData} />
+      </OnReady>
+    )
   })
   .add('With drawer component', () => {
+    storyData.showUserNav = toggleUserStateOptions()
+    storyData.userIsAnonymous = toggleAnonymous()
+
     return (
       <OnReady callback={() => header.init()}>
         <HeaderDefault {...storyData} />
@@ -32,7 +40,8 @@ storiesOf('FT / Header', module)
     )
   })
   .add('Sticky header', () => {
-    storyData.options.userIsAnonymous = toggleAnonymous()
+    storyData.userIsAnonymous = toggleAnonymous()
+
     return (
       <OnReady callback={() => header.init()}>
         <HeaderSticky {...storyData} />
@@ -41,6 +50,6 @@ storiesOf('FT / Header', module)
     )
   })
   .add('Logo only', () => {
-    const optionalProps = { options: { variant: toggleVariantOptions() } }
-    return <LogoOnly {...optionalProps} />
+    const props = { variant: toggleVariantOptions() }
+    return <LogoOnly {...props} />
   })

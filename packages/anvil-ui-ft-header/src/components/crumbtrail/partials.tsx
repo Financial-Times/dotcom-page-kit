@@ -1,10 +1,11 @@
 import React from 'react'
+import { THeaderProps } from '../../interfaces'
 
-const IncludeCrumbtrail = (props) => (
+const IncludeCrumbtrail = (props: THeaderProps) => (
   <Crumbtrail>
     <BreadCrumb breadcrumb={props.data.breadcrumb} />
     <SubSections subsections={props.data.subsections} />
-    <ShowSignOut showSignOut={props.options.showSignOut} />
+    <ShowSignOut showSignOut={props.showSignOut} />
   </Crumbtrail>
 )
 

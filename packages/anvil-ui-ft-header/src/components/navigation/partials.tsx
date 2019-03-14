@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavListProps } from '../../interfaces'
+import { NavListProps, THeaderProps } from '../../interfaces'
 import { ariaSelected } from '../../utils'
 
 const NavMobile = ({ data }) => {
@@ -63,13 +63,13 @@ const NavListLeft = ({ navItems }) => {
   )
 }
 
-const NavListRight = (props) => {
+const NavListRight = (props: THeaderProps) => {
   // Serve the signed-in or anonymous user experience
-  const navbarKey = props.options.userIsAnonymous ? 'navbar-right-anon' : 'navbar-right'
+  const navbarKey = props.userIsAnonymous ? 'navbar-right-anon' : 'navbar-right'
   const navbarOptions = props.data[navbarKey].items
   let navListRight = null
-  if (props.options.userNav) {
-    if (props.options.userIsAnonymous) {
+  if (props.userNav) {
+    if (props.userIsAnonymous) {
       navListRight = NavListRightAnon({ navbarOptions })
     } else {
       navListRight = NavListRightLoggedIn({ navbarOptions })
