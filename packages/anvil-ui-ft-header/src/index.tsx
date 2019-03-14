@@ -28,7 +28,7 @@ const defaultProps: Partial<THeaderProps> = {
   showSignOut: false
 }
 
-export function HeaderDefault(props: THeaderProps) {
+function HeaderDefault(props: THeaderProps) {
   const navItems = props.data.navbar.items
   const includeUserActionsNav = props.userNav && props.userIsAnonymous ? UserActionsNav(props) : null
   const incudeCrumbtrail = props.data.breadcrumb && props.data.subsections ? IncludeCrumbtrail(props) : null
@@ -53,13 +53,13 @@ export function HeaderDefault(props: THeaderProps) {
 
 HeaderDefault.defaultProps = defaultProps
 
-export function Drawer(props: THeaderProps) {
+function Drawer(props: THeaderProps) {
   return <IncludeDrawer {...props} />
 }
 
 Drawer.defaultProps = defaultProps
 
-export function HeaderSticky(props: THeaderProps) {
+function HeaderSticky(props: THeaderProps) {
   return (
     <StickyHeader {...props}>
       <TopWrapperSticky>
@@ -74,7 +74,7 @@ export function HeaderSticky(props: THeaderProps) {
 
 HeaderSticky.defaultProps = defaultProps
 
-export function LogoOnly(props?) {
+function LogoOnly(props?) {
   return (
     <Header {...props}>
       <TopWrapper>
@@ -85,3 +85,5 @@ export function LogoOnly(props?) {
 }
 
 LogoOnly.defaultProps = defaultProps
+
+export { THeaderProps, HeaderDefault, Drawer, HeaderSticky, LogoOnly }
