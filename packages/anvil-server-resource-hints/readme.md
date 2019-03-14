@@ -1,6 +1,6 @@
 # anvil-server-resource-hints
 
-This package provides functions to help applications track and send [resource hints] for the assets they use.
+This package provides functions to help applications track and send [resource hints] for the assets they use. Resource hints enable developers to optimise the delivery of certain resources.
 
 [resource hints]: https://www.w3.org/TR/resource-hints/
 
@@ -20,7 +20,7 @@ import ResourceHints from '@financial-times/anvil-server-resource-hints'
 const resourceHints = new ResourceHints()
 ```
 
-The resource hints instance provides methods to track the assets used for the lifecycle of a request and format this list into a string suitable for use as a `Link` header:
+The resource hints instance provides methods to maintain a list of assets used for the lifecycle of a request and then format this list into a string suitable for use as a `Link` header:
 
 ```js
 resourceHints.add('styles.css')
@@ -40,7 +40,7 @@ app.use('/', (request, response) => {
   resourceHints.add('styles.css')
   resourceHints.add('scripts.js')
 
-  response.header('Link', resourceHints.toString())
+  response.set('Link', resourceHints.toString())
 
   response.send('<p>My awesome page</p>')
 })

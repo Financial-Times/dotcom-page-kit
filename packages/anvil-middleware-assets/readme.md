@@ -1,8 +1,8 @@
 # Assets Middleware
 
-This package provides an [Express] compatible middleware which integrates the [asset loader] and [resource hints] packages into your application and adds it to each response making it available to your application's route handlers. The asset loader helps applications to locate their static assets from wherever they are stored.
+This package provides an [Express] compatible middleware which integrates the [asset loader] and [resource hints] packages into your application and adds it to each response making it available to your application's route handlers. The asset loader helps applications to locate their static assets from wherever they are stored and resource hints enable developers to optimise the delivery of certain resources.
 
-In addition this package can also be used to send [resource hints] and [serve static files].
+In addition this package can also be used to [serve static files].
 
 [Express]: https://expressjs.com/
 [asset loader]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-asset-loader
@@ -28,20 +28,24 @@ const app = express()
 + app.use(assetLoader.init())
 ```
 
-Once registered an `assets` property will be added to the [response locals] object which provides a copy of the asset loader (used to locate your static assets) and methods to add resource hints to the response data.
+Once registered an `assets` property will be added to the [response locals] object which provides a copy of the asset loader (used to locate your static assets) and methods to create resource hints which can be added to the response data.
 
 ```js
 app.get('/', (request, response) => {
+  const { assets } = response.locals
+
   // Get the absolute file system path to an asset
-  const filePath = response.locals.assets.loader.getFileSystemPath('main.css')
+  const filePath = assets.loader.getFileSystemPath('main.css')
 
   // Get the public URL to an asset
-  const publicURL = response.locals.assets.loader.getPublicURL('main.css')
+  const publicURL = assets.loader.getPublicURL('main.css')
 
   // Add a resource hint to the response
-  response.locals.assets.resourceHints.add(publicURL)
+  assets.resourceHints.add(publicURL)
 
-  response.send('A resource hint will be automatically added to this response for main.css')
+  response.set('Link', assets.resourceHints.toString())
+
+  response.send('<p>My awesome page</p>')
 })
 ```
 
