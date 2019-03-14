@@ -1,6 +1,6 @@
 import { TFlagsData } from './types'
 
-export default function formatFlagsData(flags: TFlagsData = {}): string {
+export default function formatFlagsJSON(flags: TFlagsData = {}): string {
   const output = {}
 
   Object.keys(flags).forEach((key) => {

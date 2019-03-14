@@ -11,10 +11,10 @@ This module is compatible with Node 8+ and is distributed on npm.
 npm install --save @financial-times/anvil-ui-ft-flags
 ```
 
-After installing the module you must you embed the flags data into your pages. This must be JSON formatted string inserted into a `<script>` element with an ID of `flags-data`. You may optionally use the `.formatFlagsData()` method to help with this.
+After installing the module you must you embed the flags data into your pages. This must be JSON formatted string inserted into a `<script>` element with an ID of `flags-data`. You may optionally use the `.formatFlagsJSON()` method to help with this.
 
 ```js
-const { formatFlagsData } = require('@financial-times/anvil-ui-ft-flags')
+const { formatFlagsJSON } = require('@financial-times/anvil-ui-ft-flags')
 
 function page() {
   return `<!DOCTYPE html>
@@ -23,7 +23,7 @@ function page() {
       <meta charSet="utf-8">
       <title>My Amazing Website</title>
       <script type="application/json" id="flags-data">
-        ${formatFlagsData(flags)}
+        ${formatFlagsJSON(flags)}
       </script>
     </head>
     <body>
@@ -48,7 +48,7 @@ if (flags.get('myAmazingFeature')) {
 
 ## API
 
-### `.formatFlagsData(flags)`
+### `.formatFlagsJSON(flags)`
 
 Returns a JSON formatted string representing the given data. This will filter out any properties with a falsey value to reduce the amount of data to send and parse. The flags data must be inserted into a `<script>` element with an ID of `flags-data`.
 

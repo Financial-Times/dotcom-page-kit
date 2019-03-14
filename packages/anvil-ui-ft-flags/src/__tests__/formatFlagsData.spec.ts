@@ -1,8 +1,8 @@
-import { formatFlagsData as subject } from '..'
+import { formatFlagsJSON as subject } from '..'
 
 const fixture = Object.freeze({ foo: 1, bar: false, baz: 'qux' })
 
-describe('anvil-ui-ft-flags/src/formatFlagsData', () => {
+describe('anvil-ui-ft-flags/src/formatFlagsJSON', () => {
   it('returns a stringified object', () => {
     const result = subject(fixture)
     // NOTE: '' !== String('')
