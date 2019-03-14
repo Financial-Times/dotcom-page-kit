@@ -55,10 +55,10 @@ describe('anvil-server-asset-loader', () => {
       expect(result).toEqual('styles.12345.bundle.css')
     })
 
-    it("does not error if the file can't be found in the manifest", () => {
+    it("errors if the file can't be found in the manifest", () => {
       expect(() => {
         loader.getHashedAsset('test')
-      }).not.toThrow()
+      }).toThrow(Error('Couldn\'t find asset "test" in manifest'))
     })
   })
 
