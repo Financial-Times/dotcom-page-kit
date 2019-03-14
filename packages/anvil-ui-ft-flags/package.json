@@ -1,0 +1,26 @@
+{
+  "name": "@financial-times/anvil-ui-ft-flags",
+  "version": "0.0.0",
+  "description": "",
+  "main": "node.js",
+  "browser": "browser.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "../../node_modules/.bin/tsc",
+    "clean": "npm run clean:dist && npm run clean:node_modules",
+    "clean:dist": "rm -rf dist",
+    "clean:node_modules": "rm -rf node_modules",
+    "clean:install": "npm run clean && npm i",
+    "build:node": "npm run tsc -- --outDir ./dist/node",
+    "build:browser": "npm run tsc -- --outDir ./dist/browser --module es2015 --target ES5",
+    "build": "npm run clean:dist && npm run build:node && npm run build:browser",
+    "dev": "npm run clean:dist && npm run build -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">= 8.15.0"
+  }
+}

@@ -19,7 +19,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@financial-times/anvil-ui-bootstrap": "file:../anvil-ui-bootstrap"
+    "@financial-times/anvil-ui-bootstrap": "file:../anvil-ui-bootstrap",
+    "@financial-times/anvil-ui-ft-flags": "file:../anvil-ui-ft-flags"
   },
   "devDependencies": {
     "@financial-times/anvil-types-generic": "file:../anvil-types-generic"

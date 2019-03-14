@@ -2,10 +2,12 @@ import React from 'react'
 import { AnyObject } from '@financial-times/anvil-types-generic'
 import DocumentHead, { TDocumentHeadProps } from '../DocumentHead'
 import { getBootstrapJS, formatConfigJSON } from '@financial-times/anvil-ui-bootstrap'
+import { formatFlagsJSON } from '@financial-times/anvil-ui-ft-flags'
 import { corePolyfillServiceUrl, enhancedPolyfillServiceUrl } from '../../polyfill'
 
 interface Props extends TDocumentHeadProps {
   children?: any
+  flags?: AnyObject
   initialProps?: AnyObject
   coreScriptsToLoad?: string[]
   enhancedScriptsToLoad?: string[]
@@ -24,6 +26,11 @@ function Shell(props: Props) {
           id="initial-props"
           type="application/json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(props.initialProps) }}
+        />
+        <script
+          id="flags-data"
+          type="application/json"
+          dangerouslySetInnerHTML={{ __html: formatFlagsJSON(props.flags) }}
         />
         <script
           id="bootstrap-config"
