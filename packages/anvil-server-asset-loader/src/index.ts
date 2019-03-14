@@ -73,7 +73,11 @@ class AssetLoader {
   }
 
   getHashedAsset(asset: string): string {
-    return this.manifest.hasOwnProperty(asset) ? this.manifest[asset] : undefined
+    if (this.manifest.hasOwnProperty(asset)) {
+      return this.manifest[asset]
+    } else {
+      throw Error(`Couldn't find asset "${asset}" in manifest`)
+    }
   }
 
   getFileContents(asset: string): string {
