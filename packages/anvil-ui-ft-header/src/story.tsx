@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react'
 import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
 import storyData from './story-data/storyData'
 import * as header from '../browser.js'
+import { OnReady } from '../../anvil-ui-ft-on-ready'
 import '../styles.scss'
 import './demos.scss'
 
@@ -23,22 +24,23 @@ storiesOf('FT / Header', module)
     return <HeaderDefault {...storyData} />
   })
   .add('With drawer component', () => {
-    // header needs to be initialized after the component has rendered
-    // to pull in JavaScript from o-header
-    setImmediate(header.init)
-    return [<HeaderDefault {...storyData} />, <Drawer {...storyData} />]
+    return (
+      <OnReady callback={() => header.init()}>
+        <HeaderDefault {...storyData} />
+        <Drawer {...storyData} />
+      </OnReady>
+    )
   })
   .add('Sticky header', () => {
     storyData.options.userIsAnonymous = toggleAnonymous()
-    // header needs to be initialized after the component has rendered
-    // to pull in JavaScript from o-header
-    setImmediate(header.init)
-    return [
-      <HeaderSticky {...storyData} />,
-      <p className="demo-sticky-message demo-sticky-message--scroll">Scroll down</p>
-    ]
+    return (
+      <OnReady callback={() => header.init()}>
+        <HeaderSticky {...storyData} />
+        <p className="demo-sticky-message demo-sticky-message--scroll">Scroll down</p>
+      </OnReady>
+    )
   })
   .add('Logo only', () => {
-    let optionalProps = { options: { variant: toggleVariantOptions() } }
+    const optionalProps = { options: { variant: toggleVariantOptions() } }
     return <LogoOnly {...optionalProps} />
   })

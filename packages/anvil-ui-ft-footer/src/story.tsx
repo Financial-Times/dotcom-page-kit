@@ -3,6 +3,8 @@ import { Footer, LegalFooter } from '.'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, radios } from '@storybook/addon-knobs'
 import sampleData from './storyData'
+import * as footer from '../browser.js'
+import { OnReady } from '../../anvil-ui-ft-on-ready'
 import '../styles.scss'
 
 const toggleTheme = () =>
@@ -18,8 +20,16 @@ const toggleTheme = () =>
 storiesOf('FT / Footer', module)
   .addDecorator(withKnobs)
   .add('footer', () => {
-    return <Footer {...sampleData} theme={toggleTheme()} />
+    return (
+      <OnReady callback={() => footer.init()}>
+        <Footer {...sampleData} theme={toggleTheme()} />
+      </OnReady>
+    )
   })
   .add('legal footer', () => {
-    return <LegalFooter {...sampleData} theme={toggleTheme()} />
+    return (
+      <OnReady callback={() => footer.init()}>
+        <LegalFooter {...sampleData} theme={toggleTheme()} />
+      </OnReady>
+    )
   })
