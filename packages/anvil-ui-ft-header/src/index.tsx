@@ -19,6 +19,15 @@ import { IncludeDrawer } from './components/drawer/topLevelPartials'
 import { Search } from './components/search/partials'
 import { THeaderProps } from './interfaces'
 
+const defaultProps: Partial<THeaderProps> = {
+  userNav: false,
+  hideOutboundLinks: false,
+  userIsAnonymous: true,
+  userIsLoggedIn: false,
+  showSubNav: true,
+  showSignOut: false
+}
+
 export function HeaderDefault(props: THeaderProps) {
   const navItems = props.data.navbar.items
   const includeUserActionsNav = props.userNav && props.userIsAnonymous ? UserActionsNav(props) : null
@@ -42,9 +51,13 @@ export function HeaderDefault(props: THeaderProps) {
   )
 }
 
+HeaderDefault.defaultProps = defaultProps
+
 export function Drawer(props: THeaderProps) {
   return <IncludeDrawer {...props} />
 }
+
+Drawer.defaultProps = defaultProps
 
 export function HeaderSticky(props: THeaderProps) {
   return (
@@ -59,6 +72,8 @@ export function HeaderSticky(props: THeaderProps) {
   )
 }
 
+HeaderSticky.defaultProps = defaultProps
+
 export function LogoOnly(props?) {
   return (
     <Header {...props}>
@@ -68,3 +83,5 @@ export function LogoOnly(props?) {
     </Header>
   )
 }
+
+LogoOnly.defaultProps = defaultProps
