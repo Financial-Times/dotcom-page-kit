@@ -39,7 +39,7 @@ const defaultOptions: AssetLoaderOptions = {
   cacheFileContents: false
 }
 
-class AssetLoader {
+export class AssetLoader {
   public options: AssetLoaderOptions
   public manifest: object
 
