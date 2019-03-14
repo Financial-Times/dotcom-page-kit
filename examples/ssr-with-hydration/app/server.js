@@ -1,6 +1,6 @@
 import path from 'path'
 import React from 'react'
-import Shell from '@financial-times/anvil-ui-ft-shell'
+import { Shell } from '@financial-times/anvil-ui-ft-shell'
 import routes from './routes'
 import express from 'express'
 import AssetLoader from '@financial-times/anvil-server-asset-loader'
