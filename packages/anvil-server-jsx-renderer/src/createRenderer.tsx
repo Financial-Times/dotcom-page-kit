@@ -1,5 +1,5 @@
 import React from 'react'
-import FTShell from '@financial-times/anvil-ui-ft-shell'
+import { Shell } from '@financial-times/anvil-ui-ft-shell'
 import { AnyObject } from '@financial-times/anvil-types-generic'
 import { renderToStaticMarkup } from 'react-dom/server'
 
@@ -44,7 +44,7 @@ export interface RenderOptions {
 const defaultOptions: Options = {
   scriptsToLoad: [],
   renderFn: renderToStaticMarkup,
-  shellComponent: FTShell
+  shellComponent: Shell
 }
 
 /**
