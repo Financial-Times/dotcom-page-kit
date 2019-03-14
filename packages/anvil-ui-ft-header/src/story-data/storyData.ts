@@ -13,7 +13,7 @@ const subsections = crumbtrail.children
 
 const data: THeaderProps = {
   // property names are consistent with the navigation service data
-  userNav: false,
+  showUserNav: false,
   hideOutboundLinks: false,
   userIsAnonymous: false,
   userIsLoggedIn: true,

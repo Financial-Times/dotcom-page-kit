@@ -20,7 +20,7 @@ import { Search } from './components/search/partials'
 import { THeaderProps } from './interfaces'
 
 const defaultProps: Partial<THeaderProps> = {
-  userNav: false,
+  showUserNav: true,
   hideOutboundLinks: false,
   userIsAnonymous: true,
   userIsLoggedIn: false,
@@ -30,7 +30,7 @@ const defaultProps: Partial<THeaderProps> = {
 
 function HeaderDefault(props: THeaderProps) {
   const navItems = props.data.navbar.items
-  const includeUserActionsNav = props.userNav && props.userIsAnonymous ? UserActionsNav(props) : null
+  const includeUserActionsNav = props.showUserNav && props.userIsAnonymous ? UserActionsNav(props) : null
   const incudeCrumbtrail = props.data.breadcrumb && props.data.subsections ? IncludeCrumbtrail(props) : null
   return (
     <Header {...props}>

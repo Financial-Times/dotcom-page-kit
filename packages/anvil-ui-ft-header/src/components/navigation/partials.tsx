@@ -68,7 +68,7 @@ const NavListRight = (props: THeaderProps) => {
   const navbarKey = props.userIsAnonymous ? 'navbar-right-anon' : 'navbar-right'
   const navbarOptions = props.data[navbarKey].items
   let navListRight = null
-  if (props.userNav) {
+  if (props.showUserNav) {
     if (props.userIsAnonymous) {
       navListRight = NavListRightAnon({ navbarOptions })
     } else {

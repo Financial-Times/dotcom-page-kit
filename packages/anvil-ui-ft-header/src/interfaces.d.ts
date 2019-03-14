@@ -1,9 +1,9 @@
 export interface THeaderProps {
-  userNav?: boolean
   variant?: string
   hideOutboundLinks?: boolean
   userIsAnonymous?: boolean
   userIsLoggedIn?: boolean
+  showUserNav?: boolean
   showSubNav?: boolean
   showSignOut?: boolean
   data: {
