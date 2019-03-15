@@ -4,10 +4,10 @@ import { storiesOf } from '@storybook/react'
 import { HeaderDefault, Drawer, HeaderSticky, LogoOnly } from '@financial-times/anvil-ui-ft-header/component'
 import { Footer, LegalFooter } from '@financial-times/anvil-ui-ft-footer/component'
 
-import headerProps from '@financial-times/anvil-ui-ft-header/__stories__/story-data/storyData'
-import footerProps from '@financial-times/anvil-ui-ft-footer/__stories__/storyData'
+import headerProps from '@financial-times/anvil-ui-ft-header/__stories__/story-data'
+import footerProps from '@financial-times/anvil-ui-ft-footer/__stories__/story-data'
 
-import Layout from '..'
+import Layout from '../src'
 
 const fakeHandlebars = (n = 2) => {
   return Array.from(
