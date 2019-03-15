@@ -1,7 +1,8 @@
 import React from 'react'
-import { Footer, LegalFooter } from '.'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, radios } from '@storybook/addon-knobs'
+
+import { Footer, LegalFooter } from '../src'
 import sampleData from './storyData'
 import '../styles.scss'
 

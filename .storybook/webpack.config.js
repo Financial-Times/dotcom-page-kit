@@ -3,7 +3,7 @@
 
 const excludePaths = [/node_modules/, /dist/]
 
-module.exports = (baseConfig) => {
+module.exports = ({ config: baseConfig }) => {
   // Use real file paths for symlinked dependencies do avoid including them multiple times
   baseConfig.resolve.symlinks = true
 
