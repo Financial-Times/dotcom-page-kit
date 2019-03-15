@@ -21,11 +21,10 @@ import { THeaderProps } from './interfaces'
 
 const defaultProps: Partial<THeaderProps> = {
   showUserNav: true,
+  showSubNav: true,
   hideOutboundLinks: false,
   userIsAnonymous: true,
   userIsLoggedIn: false,
-  showSubNav: true,
-  showSignOut: false
 }
 
 function HeaderDefault(props: THeaderProps) {

@@ -5,7 +5,6 @@ const document = require('../lib/document')
 const headerProps = {
   userIsAnonymous: false,
   userIsLoggedIn: true,
-  showSignOut: true,
   data: {}
 }
 
