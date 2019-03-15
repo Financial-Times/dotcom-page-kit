@@ -59,6 +59,9 @@ jobs:
       - run:
           name: Install project dependencies
           command: npm install
+      - run:
+          name: Run build
+          command: npm run build
       - *create_cache
       - persist_to_workspace:
           root: *workspace_root
@@ -73,13 +76,10 @@ jobs:
           name: Check code style
           command: npm run prettier -- --list-different
       - run:
-          name: Run build
-          command: npm run build
-      - run:
           name: Run package tests
           command: npm run test
       - run:
-          name: Run example tests
+          name: Run example app integration tests
           command: npm run test:examples
 
 workflows:
