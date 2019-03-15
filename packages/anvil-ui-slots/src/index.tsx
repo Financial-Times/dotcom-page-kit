@@ -1,5 +1,4 @@
 import React from 'react'
-import { AnyObject } from '@financial-times/anvil-types-generic'
 
 export type Renderable = string | Function | React.ReactNode
 
@@ -12,7 +11,7 @@ export function placeholder() {
   return () => null
 }
 
-export function createSlotterFor(Constructor: Function, props: AnyObject) {
+export function createSlotterFor(Constructor: Function, props: any) {
   return ({ name, Default }: SlotProps) => {
     const slot = props[`${name}Slot`] || getChildrenOfType(Constructor[name], props.children)
     if (!slot && Default) {
