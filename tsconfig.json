@@ -63,6 +63,8 @@
   },
   "exclude": [
     "**/__test__",
-    "**/*.spec.ts"
+    "**/__stories__",
+    "**/*.spec.ts",
+    "**/*.test.ts"
   ]
 }
