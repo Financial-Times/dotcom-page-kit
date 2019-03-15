@@ -3,12 +3,12 @@
 
 const excludePaths = [/node_modules/, /dist/]
 
-module.exports = (baseConfig) => {
+module.exports = ({ config }) => {
   // Use real file paths for symlinked dependencies do avoid including them multiple times
-  baseConfig.resolve.symlinks = true
+  config.resolve.symlinks = true
 
   // Resolve packages installed using Bower
-  Object.assign(baseConfig.resolve, {
+  Object.assign(config.resolve, {
     modules: ['bower_components', 'node_modules'],
     descriptionFiles: ['bower.json', 'package.json'],
     mainFields: ['browser', 'module', 'main'],
@@ -17,7 +17,7 @@ module.exports = (baseConfig) => {
 
   // HACK: extend existing JS rule to ensure all dependencies are correctly ignored
   // https://github.com/storybooks/storybook/issues/3346#issuecomment-459439438
-  const jsRule = baseConfig.module.rules.find((rule) => rule.test.test('.jsx'))
+  const jsRule = config.module.rules.find((rule) => rule.test.test('.jsx'))
   jsRule.exclude = excludePaths
 
   // HACK: Instruct Babel to check module type before injecting Core JS polyfills
@@ -27,7 +27,7 @@ module.exports = (baseConfig) => {
 
   // Add support for TypeScript source code
   // https://storybook.js.org/configurations/typescript-config/
-  baseConfig.module.rules.push({
+  config.module.rules.push({
     test: /\.(ts|tsx)$/,
     loader: require.resolve('babel-loader'),
     options: {
@@ -36,10 +36,10 @@ module.exports = (baseConfig) => {
     exclude: excludePaths
   })
 
-  baseConfig.resolve.extensions.push('.ts', '.tsx')
+  config.resolve.extensions.push('.ts', '.tsx')
 
   // Add support for styles written with Sass
-  baseConfig.module.rules.push({
+  config.module.rules.push({
     test: /\.(scss|sass)$/,
     resolve: {
       // Required for sass-loader 7.0+ because of a webpack resolution bug
@@ -62,5 +62,5 @@ module.exports = (baseConfig) => {
     ]
   })
 
-  return baseConfig
+  return config
 }
