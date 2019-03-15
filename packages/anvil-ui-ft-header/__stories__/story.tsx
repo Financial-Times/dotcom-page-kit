@@ -1,8 +1,9 @@
 import React from 'react'
-import { HeaderDefault, Drawer, HeaderSticky, LogoOnly } from '.'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
-import storyData from './story-data/storyData'
+
+import { HeaderDefault, Drawer, HeaderSticky, LogoOnly } from '../src'
+import storyData from './story-data'
 import '../styles.scss'
 import './demos.scss'
 
