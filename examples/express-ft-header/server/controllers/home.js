@@ -3,17 +3,9 @@ const { HeaderDefault, Drawer } = require('@financial-times/anvil-ui-ft-header')
 const document = require('../lib/document')
 
 const headerProps = {
-  options: {
-    userNav: false,
-    disableSticky: false,
-    variant: 'simple',
-    hideOutboundLinks: false,
-    userIsAnonymous: false,
-    userIsLoggedIn: true,
-    showSubNav: true,
-    showSignOut: true
-  },
-  editions: {},
+  userIsAnonymous: false,
+  userIsLoggedIn: true,
+  showSignOut: true,
   data: {}
 }
 

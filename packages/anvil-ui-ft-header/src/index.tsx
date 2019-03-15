@@ -17,12 +17,20 @@ import {
 import { IncludeCrumbtrail } from './components/crumbtrail/partials'
 import { IncludeDrawer } from './components/drawer/topLevelPartials'
 import { Search } from './components/search/partials'
-import { Props } from './interfaces'
+import { THeaderProps } from './interfaces'
 
-export function HeaderDefault(props: Props) {
+const defaultProps: Partial<THeaderProps> = {
+  showUserNav: true,
+  hideOutboundLinks: false,
+  userIsAnonymous: true,
+  userIsLoggedIn: false,
+  showSubNav: true,
+  showSignOut: false
+}
+
+function HeaderDefault(props: THeaderProps) {
   const navItems = props.data.navbar.items
-  const includeUserActionsNav =
-    props.options.userNav && props.options.userIsAnonymous ? UserActionsNav(props) : null
+  const includeUserActionsNav = props.showUserNav && props.userIsAnonymous ? UserActionsNav(props) : null
   const incudeCrumbtrail = props.data.breadcrumb && props.data.subsections ? IncludeCrumbtrail(props) : null
   return (
     <Header {...props}>
@@ -43,11 +51,15 @@ export function HeaderDefault(props: Props) {
   )
 }
 
-export function Drawer(props: Props) {
+HeaderDefault.defaultProps = defaultProps
+
+function Drawer(props: THeaderProps) {
   return <IncludeDrawer {...props} />
 }
 
-export function HeaderSticky(props) {
+Drawer.defaultProps = defaultProps
+
+function HeaderSticky(props: THeaderProps) {
   return (
     <StickyHeader {...props}>
       <TopWrapperSticky>
@@ -60,7 +72,9 @@ export function HeaderSticky(props) {
   )
 }
 
-export function LogoOnly(props?) {
+HeaderSticky.defaultProps = defaultProps
+
+function LogoOnly(props?) {
   return (
     <Header {...props}>
       <TopWrapper>
@@ -69,3 +83,7 @@ export function LogoOnly(props?) {
     </Header>
   )
 }
+
+LogoOnly.defaultProps = defaultProps
+
+export { THeaderProps, HeaderDefault, Drawer, HeaderSticky, LogoOnly }

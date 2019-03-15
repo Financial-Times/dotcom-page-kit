@@ -18,29 +18,45 @@ const toggleAnonymous = () => boolean('User is anonymous', true)
 storiesOf('FT / Header', module)
   .addDecorator(withKnobs)
   .add('Default header', () => {
-    storyData.options.userNav = toggleUserStateOptions()
-    storyData.options.userIsAnonymous = toggleAnonymous()
-    storyData.options.showSignOut = toggleMyFTSignOutOptions()
-    return <HeaderDefault {...storyData} />
-  })
-  .add('With drawer component', () => {
+    const knobs = {
+      showUserNav: toggleUserStateOptions(),
+      userIsAnonymous: toggleAnonymous(),
+      showSignOut: toggleMyFTSignOutOptions()
+    }
+
     return (
       <OnReady callback={() => header.init()}>
-        <HeaderDefault {...storyData} />
-        <Drawer {...storyData} />
+        <HeaderDefault {...storyData} {...knobs} />
+      </OnReady>
+    )
+  })
+  .add('With drawer component', () => {
+    const knobs = {
+      showUserNav: toggleUserStateOptions(),
+      userIsAnonymous: toggleAnonymous()
+    }
+
+    return (
+      <OnReady callback={() => header.init()}>
+        <HeaderDefault {...storyData} {...knobs} />
+        <Drawer {...storyData} {...knobs} />
       </OnReady>
     )
   })
   .add('Sticky header', () => {
-    storyData.options.userIsAnonymous = toggleAnonymous()
+    const knobs = {
+      showUserNav: toggleUserStateOptions(),
+      userIsAnonymous: toggleAnonymous()
+    }
+
     return (
       <OnReady callback={() => header.init()}>
-        <HeaderSticky {...storyData} />
+        <HeaderSticky {...storyData} {...knobs} />
         <p className="demo-sticky-message demo-sticky-message--scroll">Scroll down</p>
       </OnReady>
     )
   })
   .add('Logo only', () => {
-    const optionalProps = { options: { variant: toggleVariantOptions() } }
-    return <LogoOnly {...optionalProps} />
+    const knobs = { variant: toggleVariantOptions() }
+    return <LogoOnly {...knobs} />
   })

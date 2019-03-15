@@ -1,10 +1,11 @@
 import React from 'react'
+import { THeaderProps } from '../../interfaces'
 
-const IncludeCrumbtrail = (props) => (
+const IncludeCrumbtrail = (props: THeaderProps) => (
   <Crumbtrail>
     <BreadCrumb breadcrumb={props.data.breadcrumb} />
     <SubSections subsections={props.data.subsections} />
-    <ShowSignOut showSignOut={props.options.showSignOut} />
+    {props.showSignOut ? <ShowSignOut /> : null}
   </Crumbtrail>
 )
 
@@ -92,14 +93,12 @@ const SubSections = ({ subsections }) => {
   )
 }
 
-const ShowSignOut = ({ showSignOut }) => {
-  return showSignOut ? (
-    <div className="o-header__subnav-link--right">
-      <a className="o-header__subnav-link" href="/logout" data-trackable="Sign Out">
-        Sign out
-      </a>
-    </div>
-  ) : null
-}
+const ShowSignOut = () => (
+  <div className="o-header__subnav-link--right">
+    <a className="o-header__subnav-link" href="/logout" data-trackable="Sign Out">
+      Sign out
+    </a>
+  </div>
+)
 
 export { IncludeCrumbtrail }

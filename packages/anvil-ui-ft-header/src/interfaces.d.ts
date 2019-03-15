@@ -1,15 +1,11 @@
-export interface Props {
-  options: {
-    currentUrl: string
-    userNav: boolean
-    disableSticky: boolean
-    variant?: string
-    hideOutboundLinks: boolean
-    userIsAnonymous: boolean
-    userIsLoggedIn: boolean
-    showSubNav: boolean
-    showSignOut: boolean
-  }
+export interface THeaderProps {
+  variant?: string
+  hideOutboundLinks?: boolean
+  userIsAnonymous?: boolean
+  userIsLoggedIn?: boolean
+  showUserNav?: boolean
+  showSubNav?: boolean
+  showSignOut?: boolean
   data: {
     editions: TEditions
     drawer: TItemSubMenu
@@ -21,6 +17,7 @@ export interface Props {
     subsections: any
     user: TUserMenu
   }
+  children?: any
 }
 
 export interface TItemSubMenu {
