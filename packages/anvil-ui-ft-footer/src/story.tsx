@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react'
 import { withKnobs, radios } from '@storybook/addon-knobs'
 import sampleData from './storyData'
 import * as footer from '../browser.js'
-import { OnReady } from '../../anvil-ui-ft-on-ready'
+import { OnReady } from '@financial-times/anvil-ui-ft-on-ready'
 import '../styles.scss'
 
 const toggleTheme = () =>

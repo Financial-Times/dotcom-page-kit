@@ -21,7 +21,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "@financial-times/anvil-ui-ft-on-ready": "file:../anvil-ui-ft-on-ready"
+  },
   "peerDependencies": {
-    "react": "^16.7.0-alpha.0"
+    "react": "^16.8.4"
   }
 }

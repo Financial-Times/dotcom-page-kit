@@ -4,7 +4,7 @@ import { storiesOf } from '@storybook/react'
 import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
 import storyData from './story-data/storyData'
 import * as header from '../browser.js'
-import { OnReady } from '../../anvil-ui-ft-on-ready'
+import { OnReady } from '@financial-times/anvil-ui-ft-on-ready'
 import '../styles.scss'
 import './demos.scss'
 
