@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { withKnobs, radios } from '@storybook/addon-knobs'
 
 import { Footer, LegalFooter } from '../src'
-import sampleData from './storyData'
+import sampleData from './story-data'
 import '../styles.scss'
 
 const toggleTheme = () =>

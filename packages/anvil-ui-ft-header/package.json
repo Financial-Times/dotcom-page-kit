@@ -14,7 +14,7 @@
     "clean:node_modules": "rm -rf node_modules",
     "clean:install": "npm run clean && npm i",
     "build": "npm run clean:dist && npm run build:cjs",
-    "build:cjs": "npm run tsc -- --outDir ./dist/cjs --module commonjs --target es5",
+    "build:cjs": "npm run tsc -- --rootDir ./src --outDir ./dist/cjs --module commonjs --target es5",
     "dev": "npm run clean:dist && npm run build:cjs -- --watch"
   },
   "style": "./src/components/drawer/drawer.scss",
