@@ -10,8 +10,6 @@ import './demos.scss'
 
 // falsey values are empty string because string coercion in storybook
 const toggleUserStateOptions = () => boolean('Enable user nav actions', true)
-// TODO: can we remove this?
-const toggleMyFTSignOutOptions = () => boolean('Show myFT sign out link', false)
 const toggleVariantOptions = () => radios('Choose variant', { simple: 'simple', normal: 'normal' }, 'simple')
 const toggleAnonymous = () => boolean('User is anonymous', true)
 
@@ -21,7 +19,6 @@ storiesOf('FT / Header', module)
     const knobs = {
       showUserNav: toggleUserStateOptions(),
       userIsAnonymous: toggleAnonymous(),
-      showSignOut: toggleMyFTSignOutOptions()
     }
 
     return (
