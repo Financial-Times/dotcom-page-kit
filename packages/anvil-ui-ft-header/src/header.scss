@@ -1,0 +1,57 @@
+
+// Drawer
+.o-header__drawer-current-edition {
+	color: #66605a;
+	margin: 0.5em 0;
+}
+
+.o-header__drawer-menu--border {
+  border-top: 2px solid #E6D9CE;
+}
+
+.o-header__drawer-search {
+  border-top: 2px solid #E6D9CE;
+}
+
+// Sticky header
+.o-header--sticky {
+  display: none;
+}
+
+// Search
+.core [data-o-header-search] {
+  display: block;
+}
+
+// z-indexes
+.o-header__mega {
+  z-index:  102 !important;
+}
+
+.o-header__drawer {
+  z-index: 104 !important;
+  display: block;
+}
+
+.o-header--sticky {
+  z-index: 103 !important;
+	display: block;
+}
+
+// myFT
+.o-header__top-link--myft {
+  position: relative;
+}
+
+// Print view
+@media print {
+  .o-header--sticky {
+    display: none;
+  }
+}
+
+// TODO The below styles will be required for search typeahead
+// .n-typeahead {
+//   display: none;
+// }
+

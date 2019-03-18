@@ -1,2 +1,1 @@
-import Shell from './components/Shell'
-export { Shell }
+export { Shell, TShellProps } from './components/Shell'
