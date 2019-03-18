@@ -21,6 +21,7 @@ app.use('/assets', express.static(path.resolve('./dist')))
 routes.forEach(async (route) => {
   app.get(route.path, async (req, res) => {
     const Page = (await route.component()).default
+
     const initialProps = await getInitialProps(Page, req)
     const dependencies = await getDependencies(Page)
 

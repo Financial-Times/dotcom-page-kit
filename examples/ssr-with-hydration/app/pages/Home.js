@@ -1,29 +1,28 @@
 import React from 'react'
+import Layout from '@financial-times/anvil-ui-ft-layout'
+
+function handleBtnClick() {
+  alert('This is the home page...')
+}
+
+function Home({ PageNavigation }) {
+  return (
+    <Layout header={<PageNavigation />}>
+      <div>
+        <h1>Home</h1>
+        <button id="btn" onClick={handleBtnClick}>
+          Click me
+        </button>
+      </div>
+    </Layout>
+  )
+}
 
 export default {
   title: 'Home',
   description: 'The homepage',
-  component: Homepage,
+  component: Home,
   getDependencies: async () => ({
-    Page: (await import('../components/Page')).default
+    PageNavigation: (await import('../components/PageNavigation')).default
   })
-}
-
-function Homepage({ Page }) {
-  return (
-    <Page>
-      <Page.Header>
-        <h1>Home</h1>
-      </Page.Header>
-      <Page.Body>
-        <button id="btn" onClick={handleBtnClick}>
-          Click me
-        </button>
-      </Page.Body>
-    </Page>
-  )
-}
-
-function handleBtnClick() {
-  alert('This is the home page...')
 }

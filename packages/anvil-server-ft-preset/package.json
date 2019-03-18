@@ -18,6 +18,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@financial-times/anvil-server-asset-loader": "file:../../packages/anvil-server-asset-loader"
+    "@financial-times/anvil-server-asset-loader": "file:../anvil-server-asset-loader"
   }
 }

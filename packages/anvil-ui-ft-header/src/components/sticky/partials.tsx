@@ -3,7 +3,7 @@
 
 import React from 'react'
 import { NavListRightAnon } from '../navigation/partials'
-import { THeaderProps } from '../../interfaces';
+import { THeaderProps } from '../../interfaces'
 
 const StickyHeader = (props: THeaderProps) => {
   return (

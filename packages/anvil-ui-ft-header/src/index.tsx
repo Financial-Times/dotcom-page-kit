@@ -24,7 +24,7 @@ const defaultProps: Partial<THeaderProps> = {
   showSubNav: true,
   hideOutboundLinks: false,
   userIsAnonymous: true,
-  userIsLoggedIn: false,
+  userIsLoggedIn: false
 }
 
 function HeaderDefault(props: THeaderProps) {

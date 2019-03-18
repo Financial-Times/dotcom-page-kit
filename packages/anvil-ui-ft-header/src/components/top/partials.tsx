@@ -1,5 +1,5 @@
 import React from 'react'
-import { THeaderProps } from '../../interfaces';
+import { THeaderProps } from '../../interfaces'
 
 const Header = (props: THeaderProps) => {
   return (

@@ -16,6 +16,7 @@
     "@financial-times/anvil-plugin-code-splitting": "file:../../packages/anvil-plugin-code-splitting",
     "@financial-times/anvil-server-asset-loader": "file:../../packages/anvil-server-asset-loader",
     "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
+    "@financial-times/anvil-ui-ft-layout": "file:../../packages/anvil-ui-ft-layout",
     "express": "^4.16.2",
     "isomorphic-fetch": "^2.2.1",
     "react": "^16.8.3",
@@ -26,7 +27,6 @@
     "@babel/preset-react": "^7.0.0",
     "@financial-times/anvil": "file:../../packages/anvil",
     "@financial-times/anvil-plugin-esnext": "file:../../packages/anvil-plugin-esnext",
-    "@financial-times/anvil-ui-slots": "file:../../packages/anvil-ui-slots",
     "nodemon": "^1.18.7"
   },
   "jest": {

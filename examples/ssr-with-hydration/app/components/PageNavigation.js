@@ -1,5 +1,6 @@
 import React from 'react'
-export function PageNavigation() {
+
+function PageNavigation() {
   return (
     <nav>
       <ul>
@@ -22,3 +23,5 @@ export function PageNavigation() {
     </nav>
   )
 }
+
+export default PageNavigation

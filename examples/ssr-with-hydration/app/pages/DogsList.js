@@ -1,4 +1,32 @@
 import React from 'react'
+import Layout from '@financial-times/anvil-ui-ft-layout'
+
+function fetchDogBreeds() {
+  return fetch('https://dog.ceo/api/breeds/list/all')
+    .then((response) => response.json())
+    .then((result) => Object.keys(result.message))
+}
+
+function DogsListPage({ breeds, PageNavigation }) {
+  return (
+    <Layout header={<PageNavigation />} headerAfter={<h1>Dog Breeds</h1>}>
+      <p>A list of dog breeds:</p>
+      <ul>
+        {breeds.map((breed) => (
+          <li key={breed}>
+            <a id={`${breed}Link`} href={`/dogs/${breed}`}>
+              {breed}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </Layout>
+  )
+}
+
+DogsListPage.defaultProps = {
+  breeds: []
+}
 
 export default {
   title: 'Dogs',
@@ -8,38 +36,6 @@ export default {
     breeds: await fetchDogBreeds()
   }),
   getDependencies: async () => ({
-    Page: (await import('../components/Page')).default
+    PageNavigation: (await import('../components/PageNavigation')).default
   })
-}
-
-function DogsListPage({ breeds, Page }) {
-  return (
-    <Page>
-      <Page.Header>
-        <h1>Dog Breeds</h1>
-      </Page.Header>
-      <Page.Body>
-        <p>A list of dog breeds:</p>
-        <ul>
-          {breeds.map((breed) => (
-            <li key={breed}>
-              <a id={`${breed}Link`} href={`/dogs/${breed}`}>
-                {breed}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </Page.Body>
-    </Page>
-  )
-}
-
-DogsListPage.defaultProps = {
-  breeds: []
-}
-
-function fetchDogBreeds() {
-  return fetch('https://dog.ceo/api/breeds/list/all')
-    .then((response) => response.json())
-    .then((result) => Object.keys(result.message))
 }
