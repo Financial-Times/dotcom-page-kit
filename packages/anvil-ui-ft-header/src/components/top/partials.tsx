@@ -1,10 +1,11 @@
 import React from 'react'
+import { THeaderProps } from '../../interfaces';
 
-const Header = (props) => {
+const Header = (props: THeaderProps) => {
   return (
     <header
       id="site-navigation"
-      className={`o-header o-header--${props.options.variant || 'simple'}`}
+      className={`o-header o-header--${props.variant || 'simple'}`}
       data-o-component="o-header"
       data-o-header--no-js={true}
       tabIndex={-1}>

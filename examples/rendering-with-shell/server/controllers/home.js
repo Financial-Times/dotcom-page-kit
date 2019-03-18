@@ -1,5 +1,5 @@
 import React from 'react'
-import Shell from '@financial-times/anvil-ui-ft-shell'
+import { Shell } from '@financial-times/anvil-ui-ft-shell'
 import { renderToStaticMarkup } from 'react-dom/server'
 
 export function homepageController(req, res) {

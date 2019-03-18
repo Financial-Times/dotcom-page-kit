@@ -2,16 +2,16 @@ import getResourceType from './getResourceType'
 import formatResourceHint from './formatResourceHint'
 
 export default class ResourceHinting {
-  private hints: Set<string> = new Set()
+  public files: Set<string> = new Set()
 
-  add(url: string): void {
-    this.hints.add(url)
+  add(file: string): void {
+    this.files.add(file)
   }
 
   toString(): string {
     const hints = []
 
-    for (const filename of this.hints) {
+    for (const filename of this.files) {
       const type = getResourceType(filename)
       hints.push(formatResourceHint(filename, { as: type }))
     }

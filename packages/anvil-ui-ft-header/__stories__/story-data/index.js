@@ -6,22 +6,18 @@ import drawerUk from './drawerUk.json'
 import crumbtrail from './crumbtrailUk.json'
 import editionsUk from './editionsUk.json'
 import user from './user.json'
+import { THeaderProps } from '../interfaces'
 
 const breadcrumb = crumbtrail.ancestors.concat(crumbtrail.item)
 const subsections = crumbtrail.children
 
-export default {
+const data: THeaderProps = {
   // property names are consistent with the navigation service data
-  options: {
-    currentUrl: '/',
-    userNav: false,
-    disableSticky: false,
-    hideOutboundLinks: false,
-    userIsAnonymous: false,
-    userIsLoggedIn: true,
-    showSubNav: true,
-    showSignOut: true
-  },
+  showUserNav: false,
+  hideOutboundLinks: false,
+  userIsAnonymous: false,
+  userIsLoggedIn: true,
+  showSubNav: true,
   data: {
     navbar: navbarUk,
     'navbar-right': navbarRight,
@@ -34,3 +30,5 @@ export default {
     user
   }
 }
+
+export default data

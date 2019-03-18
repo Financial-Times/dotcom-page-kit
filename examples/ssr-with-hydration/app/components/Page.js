@@ -1,6 +1,8 @@
 import React from 'react'
-import { PageNavigation } from './PageNavigation'
+
 import { placeholder, createSlotterFor } from '@financial-times/anvil-ui-slots'
+
+import { PageNavigation } from './PageNavigation'
 
 Page.Body = placeholder()
 Page.Header = placeholder()

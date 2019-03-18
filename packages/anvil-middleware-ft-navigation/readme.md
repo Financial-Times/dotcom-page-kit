@@ -1,60 +1,60 @@
-# FT Navigation Middleware
+# @financial-times/anvil-middleware-ft-navigation
 
-The FT Navigation Express Middleware adds FT navigation data required to render the navigation components for the page to `app.locals`.
+This package provides an [Express] compatible middleware which integrates the [FT Navigation] package into your application and adds the navigation data to each response making it available to your application's route handlers. This data is required to render the navigation components [header] and [footer].
 
-Pages which should render a navigation crumbtrail (i.e. most Stream pages) should call the middleware with `{ enableCrumbtrail: true }` to tell the middleware to include crumbtrail data in the response.
-
-The response is a path-specific navigation object comprising:
-
-```ts
-const data = {
-  "crumbtrail": null || {
-    "breadcrumb",  
-    "subsections"
-  },
-  "drawer": {...editionSpecificDrawerData},
-  "navbar": {...editionSpecificNavbarData},
-  "account",
-  "user",
-  "anon",
-  "footer",
-  "navbar-simple",
-  "navbar-right",
-  "navbar-right-anon"
-}
-```
-
-This middleware should be consumed by your application's server file.
+[Express]: https://expressjs.com/
+[FT Navigation]: ../anvil-server-ft-navigation/readme.md
+[header]: ../anvil-ui-ft-header/readme.md
+[footer]: ../anvil-ui-ft-footer/readme.md
 
 
-## Installation
-```bash
+## Getting started
+
+This package is compatible with Node 8+ and is distributed on npm.
+
+```sh
 npm install --save @financial-times/anvil-middleware-ft-navigation
 ```
 
-## Configuration
+After installing the package create a new instance of the middleware and register it with your application. The middleware can be configured with several [options](#options):
 
-The following options are available to customise (default values in comments)
+```diff
+const express = require('express')
+const app = express()
 
-```js
-{ 
-  enableCrumbtrail: // false
-  crumbtrailUrl:    // http://next-navigation.ft.com/v2/hierarchy
-  menuUrl:          // http://next-navigation.ft.com/v2/menus
-  interval:         // 15 * 60 * 1000 (i.e. 15 minutes)
-}
++ const navigation = require('@financial-times/anvil-middleware-ft-navigation')
++ app.use(navigation.init())
 ```
 
-## Example usage:
+Once registered a `navigation` property will be added to the [response locals] object containing the navigation data.
+
 ```js
-const navigationMiddleware = require('@financial-times/anvil-middleware-ft-navigation')
-
-const instance = navigationMiddleware.init({ enableCrumbtrail: true })
-
-app.use(instance)
-
 app.get('/', (request, response) => {
-  Object.keys(response.locals.navigation)
-  // => {crumbtrails: {...}, "drawer-uk": {...}, "drawer-international": {...}, ...}
+  console.log(response.locals.navigation) // { ... }
 })
 ```
+
+[response locals]: https://expressjs.com/en/api.html#res.locals
+
+
+## Options
+
+The middleware accepts the following parameters. All options will be passed along to the [FT Navigation] package:
+
+### `enableCrumbtrail`
+
+Enables fetching hierarchical navigation data for the current path including any parent and child pages. Defaults to `false`.
+
+### `interval`
+
+See the [FT navigation documentation] for more details.
+
+### `crumbtrailUrl`
+
+See the [FT navigation documentation] for more details.
+
+### `menuUrl`
+
+See the [FT navigation documentation] for more details.
+
+[FT navigation documentation]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-ft-navigation#options

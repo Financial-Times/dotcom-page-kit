@@ -1,11 +1,14 @@
+const { getFTBundleAssetUrls } = require('@financial-times/anvil-server-ft-preset')
+
 module.exports = async (request, response) => {
+  const assetLoader = response.locals.assets.loader
   const options = {
     pageTitle: 'Home',
     foo: 'foo',
     bar: 'bar',
     baz: 'baz',
     layout: 'main',
-    scripts: [response.locals.assets.loader.getPublicURL('main.js')]
+    scripts: [getFTBundleAssetUrls(assetLoader), assetLoader.getPublicURL('main.js')]
   }
 
   options.scripts.forEach((script) => {

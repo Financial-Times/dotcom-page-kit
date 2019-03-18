@@ -3,13 +3,13 @@
 
 import React from 'react'
 import { NavListRightAnon } from '../navigation/partials'
+import { THeaderProps } from '../../interfaces';
 
-const StickyHeader = (props) => {
+const StickyHeader = (props: THeaderProps) => {
   return (
     <header
-      className={`o-header o-header--${props.options.variant || 'simple'} o-header--sticky o--if-js`}
+      className={`o-header o-header--${props.variant || 'simple'} o-header--sticky o--if-js`}
       data-o-component="o-header"
-      data-o-header--no-js="true"
       data-o-header--sticky
       aria-hidden="true">
       {props.children}
@@ -39,7 +39,7 @@ const SearchIconSticky = ({ context }) => (
   </a>
 )
 
-const Navigation = (props) => {
+const Navigation = (props: THeaderProps) => {
   const navItems = props.data.navbar.items
   return (
     <div className="o-header__top-takeover">
@@ -75,7 +75,7 @@ const Logo = () => (
   </a>
 )
 
-const NavListRightAnonSticky = (props) => {
+const NavListRightAnonSticky = (props: THeaderProps) => {
   const navItems = props.data['navbar-right-anon'].items
   return (
     <div className="o-header__nav">
@@ -124,8 +124,8 @@ const TopColumnCenterSticky = (props) => {
 /* This behaviour is similar to `NavListRight` in '../navigation/partials */
 /* The sticky header renders either the `navbar-right-anon` data or the myFT component */
 /* Other header variants render either the `navbar-right-anon` or the `navbar-right` data */
-const TopColumnRightSticky = (props) => {
-  const ChooseNavRight = props.options.userIsAnonymous ? NavListRightAnonSticky(props) : MyFtSticky()
+const TopColumnRightSticky = (props: THeaderProps) => {
+  const ChooseNavRight = props.userIsAnonymous ? NavListRightAnonSticky(props) : MyFtSticky()
   return <div className="o-header__top-column o-header__top-column--right">{ChooseNavRight}</div>
 }
 
