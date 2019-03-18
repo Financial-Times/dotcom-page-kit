@@ -5,7 +5,7 @@ import { getBootstrapJS, formatConfigJSON } from '@financial-times/anvil-ui-boot
 import { formatFlagsJSON } from '@financial-times/anvil-ui-ft-flags'
 import { corePolyfillServiceUrl, enhancedPolyfillServiceUrl } from '../../polyfill'
 
-interface Props extends TDocumentHeadProps {
+interface TShellProps extends TDocumentHeadProps {
   children?: any
   flags?: AnyObject
   initialProps?: AnyObject
@@ -13,7 +13,7 @@ interface Props extends TDocumentHeadProps {
   enhancedScriptsToLoad?: string[]
 }
 
-function Shell(props: Props) {
+function Shell(props: TShellProps) {
   const coreScripts = [corePolyfillServiceUrl, ...props.coreScriptsToLoad]
   const enhancedScripts = [enhancedPolyfillServiceUrl, ...props.enhancedScriptsToLoad]
   const bootstrapConfig = formatConfigJSON(coreScripts, enhancedScripts)
@@ -57,4 +57,4 @@ function Body({ contents }) {
   }
 }
 
-export default Shell
+export { Shell, TShellProps }

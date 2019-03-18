@@ -1,5 +1,5 @@
-import Shell from '..'
 import React from 'react'
+import { Shell } from '..'
 import ShallowRenderer from 'react-test-renderer/shallow'
 
 describe('<Shell />', () => {
