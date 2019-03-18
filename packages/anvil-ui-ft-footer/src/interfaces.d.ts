@@ -1,4 +1,4 @@
-export interface Props {
+export interface TFooterProps {
   data: Array<FooterSection>
   theme?: 'dark' | 'light' | string
 }
