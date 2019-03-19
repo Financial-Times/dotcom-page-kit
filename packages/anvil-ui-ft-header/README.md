@@ -115,7 +115,20 @@ The `breadcrumb` and `subsections` properties are required to render the crumbtr
 
 ### Drawer
 
-The drawer element is rendered separately to the other header components and is not included in the default header. See [anvil-ui-ft-footer] for more information.
+The drawer menu is a separate component and is not included in the default header. It will need to be rendered separately.
+
+To support core experience the drawer component should be included in the html template *below the footer component*.
+
+```jsx
+import { Footer } from 'anvil-ui-ft-footer'
+import { Drawer } from 'anvil-ui-ft-header'
+let navigationProps
+
+navigationProps.data = response.locals.navigation
+
+<Footer {...navigationProps.footer} />
+<Drawer {...navigationProps} />
+```
 
 
 ## Storybook
