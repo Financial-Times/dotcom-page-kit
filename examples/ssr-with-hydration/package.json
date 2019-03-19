@@ -8,7 +8,7 @@
     "build": "anvil build -d",
     "start": "node start.js",
     "start:dev": "nodemon start.js --ext js",
-    "test": "../../node_modules/.bin/jest",
+    "test:app": "../../node_modules/.bin/jest",
     "pretest": "npm run build"
   },
   "dependencies": {
