@@ -8,6 +8,7 @@ type Props = {
   footerBefore?: string | React.Element
   footer?: string | React.Element
   footerAfter?: string | React.Element
+  hideOutboundLinks?: boolean
 }
 
 function renderBlock(contents?: string | React.Element) {

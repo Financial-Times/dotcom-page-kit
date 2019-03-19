@@ -1,37 +1,55 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { withKnobs, boolean } from '@storybook/addon-knobs'
 
-import Layout from '../src'
+import { HeaderDefault, Drawer, HeaderSticky, LogoOnly } from '@financial-times/anvil-ui-ft-header/component'
+import { Footer, LegalFooter } from '@financial-times/anvil-ui-ft-footer/component'
+
+import headerProps from '../../anvil-ui-ft-header/__stories__/story-data'
+import footerProps from '../../anvil-ui-ft-footer/__stories__/story-data'
+
+import Layout from '..'
+
+const fakeHandlebars = (n = 2) => {
+  return Array.from(
+    { length: n },
+    () =>
+      `<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem laudantium nihil pariatur. Totam, rem beatae laborum reprehenderit sequi consectetur nam officiis. Veritatis nulla soluta quas dolores, placeat repudiandae modi debitis!<p>`
+  ).join('')
+}
+
+const showFooter = () => boolean('Show footer', true)
 
 storiesOf('FT / Layout', module)
-  .add('by default', () => {
+  .addDecorator(withKnobs)
+  .add('default components', () => {
     return (
-      <Layout>
-        <Layout.body>body...</Layout.body>
+      <Layout
+        header={<HeaderDefault {...headerProps} />}
+        footer={showFooter() && <Footer {...footerProps} />}
+        footerAfter={<Drawer {...headerProps} />}>
+        <main>
+          <p>Children</p>
+        </main>
       </Layout>
     )
   })
-  .add('with custom slots', () => {
+  .add('header & footer variants', () => {
     return (
-      <Layout>
-        <Layout.header>custom header...</Layout.header>
-        <Layout.body>body...</Layout.body>
-        <Layout.footer>custom footer...</Layout.footer>
+      <Layout header={<HeaderSticky {...headerProps} />} footer={<LegalFooter {...footerProps} />}>
+        <main dangerouslySetInnerHTML={{ __html: fakeHandlebars(10) }} />
       </Layout>
     )
   })
-  .add('with slots as string props', () => {
-    return <Layout headerSlot="string header..." footerSlot="string footer..." bodySlot="string body..." />
-  })
-  .add('with slots as component function props', () => {
-    const Header = () => 'header...'
-    const Footer = () => 'footer...'
-    const Body = () => 'body...'
-    return <Layout headerSlot={Header} footerSlot={Footer} bodySlot={Body} />
-  })
-  .add('with slots as rendered component props', () => {
-    const Header = () => 'header...'
-    const Footer = () => 'footer...'
-    const Body = () => 'body...'
-    return <Layout headerSlot={<Header />} footerSlot={<Footer />} bodySlot={<Body />} />
+  .add('logo variant', () => {
+    return (
+      <Layout
+        header={<LogoOnly options={{ variant: 'simple' }} />}
+        footerBefore={fakeHandlebars()}
+        footer={<LegalFooter {...footerProps} />}>
+        <main>
+          <p>Children</p>
+        </main>
+      </Layout>
+    )
   })

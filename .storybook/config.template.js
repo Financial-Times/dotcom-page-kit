@@ -9,8 +9,10 @@ addDecorator(
   })
 )
 
-configure(loadStories, module)
-
 function loadStories() {
-  //__PLACEHOLDER:STORIES__//
+  // automatically import all files under __stories__
+  const req = require.context('../packages', true, /\/__stories__\/[\w\.\-]+\.(j|t)sx?$/)
+  req.keys().forEach((filename) => req(filename))
 }
+
+configure(loadStories, module)
