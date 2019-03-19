@@ -15,26 +15,6 @@ const element = {
   }
 }
 
-async function assertButtonOpensAlertBox() {
-  return new Promise((resolve) => {
-    page.on('dialog', async (dialog) => {
-      await dialog.dismiss()
-      resolve()
-    })
-    page.click(element.homepage.button)
-  })
-}
-
-async function getTotalDogImages() {
-  return page.evaluate(async (element) => {
-    return document.querySelectorAll(element.dogImagesPage.dogImage).length
-  }, element)
-}
-
-function pageDescription() {
-  return page.$eval("head > meta[name='description']", (element) => element.content)
-}
-
 describe('examples/ssr-with-hydration', () => {
   beforeEach(async () => {
     await page.goto('http://localhost:3000', { waitUntil: 'load' })
@@ -61,3 +41,23 @@ describe('examples/ssr-with-hydration', () => {
     expect(totalImages).toBeGreaterThan(0)
   })
 })
+
+async function assertButtonOpensAlertBox() {
+  return new Promise((resolve) => {
+    page.on('dialog', async (dialog) => {
+      await dialog.dismiss()
+      resolve()
+    })
+    page.click(element.homepage.button)
+  })
+}
+
+async function getTotalDogImages() {
+  return page.evaluate(async (element) => {
+    return document.querySelectorAll(element.dogImagesPage.dogImage).length
+  }, element)
+}
+
+function pageDescription() {
+  return page.$eval("head > meta[name='description']", (element) => element.content)
+}

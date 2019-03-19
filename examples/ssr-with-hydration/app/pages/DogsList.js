@@ -1,6 +1,22 @@
 import React from 'react'
 import Layout from '@financial-times/anvil-ui-ft-layout'
 
+export default {
+  title: 'Dogs',
+  description: 'The dogs list page',
+  component: DogsListPage,
+  getInitialProps: async () => ({
+    breeds: await fetchDogBreeds()
+  }),
+  getDependencies: async () => ({
+    PageNavigation: (await import('../components/PageNavigation')).default
+  })
+}
+
+DogsListPage.defaultProps = {
+  breeds: []
+}
+
 function fetchDogBreeds() {
   return fetch('https://dog.ceo/api/breeds/list/all')
     .then((response) => response.json())
@@ -22,20 +38,4 @@ function DogsListPage({ breeds, PageNavigation }) {
       </ul>
     </Layout>
   )
-}
-
-DogsListPage.defaultProps = {
-  breeds: []
-}
-
-export default {
-  title: 'Dogs',
-  description: 'The dogs list page',
-  component: DogsListPage,
-  getInitialProps: async () => ({
-    breeds: await fetchDogBreeds()
-  }),
-  getDependencies: async () => ({
-    PageNavigation: (await import('../components/PageNavigation')).default
-  })
 }

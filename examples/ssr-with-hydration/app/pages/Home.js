@@ -1,8 +1,13 @@
 import React from 'react'
 import Layout from '@financial-times/anvil-ui-ft-layout'
 
-function handleBtnClick() {
-  alert('This is the home page...')
+export default {
+  title: 'Home',
+  description: 'The homepage',
+  component: Home,
+  getDependencies: async () => ({
+    PageNavigation: (await import('../components/PageNavigation')).default
+  })
 }
 
 function Home({ PageNavigation }) {
@@ -18,11 +23,6 @@ function Home({ PageNavigation }) {
   )
 }
 
-export default {
-  title: 'Home',
-  description: 'The homepage',
-  component: Home,
-  getDependencies: async () => ({
-    PageNavigation: (await import('../components/PageNavigation')).default
-  })
+function handleBtnClick() {
+  alert('This is the home page...')
 }

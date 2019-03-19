@@ -1,9 +1,11 @@
 import React from 'react'
+import { OnReady } from '@financial-times/anvil-ui-ft-on-ready'
+
 import { storiesOf } from '@storybook/react'
 import { withKnobs, radios } from '@storybook/addon-knobs'
 
 import { Footer, LegalFooter } from '../src'
-import sampleData from './story-data'
+import storyData from './story-data'
 import '../styles.scss'
 
 const toggleTheme = () =>
@@ -19,8 +21,16 @@ const toggleTheme = () =>
 storiesOf('FT / Footer', module)
   .addDecorator(withKnobs)
   .add('footer', () => {
-    return <Footer {...sampleData} theme={toggleTheme()} />
+    return (
+      <OnReady>
+        <Footer {...storyData} theme={toggleTheme()} />
+      </OnReady>
+    )
   })
   .add('legal footer', () => {
-    return <LegalFooter {...sampleData} theme={toggleTheme()} />
+    return (
+      <OnReady>
+        <LegalFooter {...storyData} theme={toggleTheme()} />
+      </OnReady>
+    )
   })

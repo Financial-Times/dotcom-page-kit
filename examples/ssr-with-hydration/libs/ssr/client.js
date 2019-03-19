@@ -1,15 +1,6 @@
 import React from 'react'
 import { hydrate } from 'react-dom'
 
-function getInitialPropsFromDom({ initialPropsElementId = 'initial-props' }) {
-  return JSON.parse(document.getElementById(initialPropsElementId).innerHTML)
-}
-
-async function getDependencies(page) {
-  if (!page.getDependencies) return {}
-  return await page.getDependencies()
-}
-
 export async function mount(options) {
   const { routes, elementId = 'app' } = options
   const { $$page, ...initialProps } = getInitialPropsFromDom(options)
@@ -23,4 +14,13 @@ export async function mount(options) {
       break
     }
   }
+}
+
+function getInitialPropsFromDom({ initialPropsElementId = 'initial-props' }) {
+  return JSON.parse(document.getElementById(initialPropsElementId).innerHTML)
+}
+
+async function getDependencies(page) {
+  if (!page.getDependencies) return {}
+  return await page.getDependencies()
 }
