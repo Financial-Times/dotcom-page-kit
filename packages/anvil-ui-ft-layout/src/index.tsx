@@ -1,33 +1,44 @@
 import React from 'react'
-import { Footer } from '@financial-times/anvil-ui-ft-footer/component'
-import { HeaderDefault } from '@financial-times/anvil-ui-ft-header/component'
-import { placeholder, createSlotterFor, Renderable } from '@financial-times/anvil-ui-slots'
 
-interface Props {
-  children?: any
-  bodySlot?: Renderable
-  headerSlot?: Renderable
-  footerSlot?: Renderable
+type Props = {
+  headerBefore?: string | React.Element
+  header?: string | React.Element
+  headerAfter?: string | React.Element
+  children?: React.Element
+  footerBefore?: string | React.Element
+  footer?: string | React.Element
+  footerAfter?: string | React.Element
+  hideOutboundLinks?: boolean
 }
 
-FTLayout.body = placeholder()
-FTLayout.header = placeholder()
-FTLayout.footer = placeholder()
+function renderBlock(contents?: string | React.Element) {
+  if (!contents) return null
+
+  if (typeof contents === 'string') {
+    return <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: contents }} />
+  } else {
+    return <div style={{ display: 'contents' }}>{contents}</div>
+  }
+}
 
 export default function FTLayout(props: Props) {
-  const Slot = createSlotterFor(FTLayout, props)
-
   return (
-    <React.Fragment>
-      <header>
-        <Slot name="header" Default={HeaderDefault} />
-      </header>
-      <main id="root">
-        <Slot name="body" />
-      </main>
-      <footer>
-        <Slot name="footer" Default={Footer} />
-      </footer>
-    </React.Fragment>
+    <div className="n-layout">
+      <div className="n-layout__row n-layout__row--header">
+        {renderBlock(props.headerBefore)}
+        {renderBlock(props.header)}
+        {renderBlock(props.headerAfter)}
+      </div>
+
+      <div className="n-layout__row n-layout__row--content">{props.children}</div>
+
+      {!props.hideOutboundLinks && (
+        <div className="n-layout__row n-layout__row--content">
+          {renderBlock(props.footerBefore)}
+          {renderBlock(props.footer)}
+          {renderBlock(props.footerAfter)}
+        </div>
+      )}
+    </div>
   )
 }

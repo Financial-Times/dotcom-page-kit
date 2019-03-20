@@ -36,7 +36,7 @@ module.exports = ({ config }) => {
     exclude: excludePaths
   })
 
-  config.resolve.extensions.push('.ts', '.tsx')
+  config.resolve.extensions.push('.d.ts', '.ts', '.tsx')
 
   // Add support for styles written with Sass
   config.module.rules.push({

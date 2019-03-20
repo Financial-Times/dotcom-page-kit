@@ -1,11 +1,11 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
-import * as header from '../browser.js'
+import * as header from '../../browser.js'
 import { OnReady } from '@financial-times/anvil-ui-ft-on-ready'
-import { HeaderDefault, Drawer, HeaderSticky, LogoOnly } from '../src'
+import { HeaderDefault, Drawer, HeaderSticky, LogoOnly } from '../../src'
 import storyData from './story-data'
-import '../styles.scss'
+import '../../styles.scss'
 import './demos.scss'
 
 // falsey values are empty string because string coercion in storybook
@@ -18,7 +18,7 @@ storiesOf('FT / Header', module)
   .add('Default header', () => {
     const knobs = {
       showUserNav: toggleUserStateOptions(),
-      userIsAnonymous: toggleAnonymous(),
+      userIsAnonymous: toggleAnonymous()
     }
 
     return (
