@@ -7,10 +7,6 @@ This package provides components which return variations on the footer component
 
 This module is compatible with Node 10+ and is distributed on npm.
 
-The footer component expects data from the [navigation API]. The [anvil-server-ft-navigation] package or its middleware, [anvil-middleware-ft-navigation], can be used to make data from this API available on `response.locals.navigation`.
-
-Install the footer package.
-
 ```bash
 npm install --save @financial-times/anvil-ui-ft-footer
 ```
@@ -35,19 +31,24 @@ import { Footer } from 'anvil-ui-ft-footer'
 let footerProps
 
 footerProps.data = response.locals.navigation.footer
+
 <Footer {...footerProps} />
 ```
 
 
 ## Props
 
-To serve an alternative variant of the footer set valid properties at the top level of the footerData or pass the property directly into the component: `<Footer {...footerData} theme="light"/>`.
+All variants require a props object to be passed to the footer component. The component can be configured by setting properties on this object or by passing the desired property directly into the component: `<Footer {...footerData} theme="light"/>`.
 
-| PROP | TYPE | DEFAULT | DESCRIPTION |
-| --- | --- | --- | --- |
-| theme | string | 'dark' | Serve the specified variant of the footer - the `light` theme is a valid alternative. |
-| legal-only | boolean | false | Serve the shorter, 'legal-only' variant of the footer |
-| data | object |  | Props from the navigation service |
+|    PROP    |  TYPE   | DEFAULT |                                      DESCRIPTION                                      |
+| ---------- | ------- | ------- | ------------------------------------------------------------------------------------- |
+| theme      | string  | 'dark'  | Serve the specified variant of the footer - the `light` theme is a valid alternative. |
+| legal-only | boolean | false   | Serve the shorter, 'legal-only' variant of the footer                                 |
+| data       | object  |         | Props from the navigation service                                                     |
+
+## Navigation data
+
+The props object passed to the footer component must have a `data` property. The [anvil-server-ft-navigation] package or its middleware, [anvil-middleware-ft-navigation], can be used to make data from the [navigation API] available on `response.locals.navigation`.
 
 
 ## Storybook
