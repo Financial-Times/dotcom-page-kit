@@ -17,6 +17,7 @@ import {
 import { IncludeCrumbtrail } from './components/crumbtrail/partials'
 import { IncludeDrawer } from './components/drawer/topLevelPartials'
 import { Search } from './components/search/partials'
+
 import { THeaderProps } from './interfaces'
 
 const defaultProps: Partial<THeaderProps> = {
@@ -24,7 +25,7 @@ const defaultProps: Partial<THeaderProps> = {
   showSubNav: true,
   hideOutboundLinks: false,
   userIsAnonymous: true,
-  userIsLoggedIn: false,
+  userIsLoggedIn: false
 }
 
 function HeaderDefault(props: THeaderProps) {

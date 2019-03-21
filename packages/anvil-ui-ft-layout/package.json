@@ -5,7 +5,6 @@
   "main": "component.js",
   "browser": "browser.js",
   "types": "src/index.tsx",
-  "styles": "styles.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "../../node_modules/.bin/tsc",
@@ -13,17 +12,17 @@
     "clean:dist": "rm -rf dist",
     "clean:node_modules": "rm -rf node_modules",
     "clean:install": "npm run clean && npm i",
-    "build:cjs": "npm run tsc -- --outDir ./dist/cjs --module commonjs --target es5",
-    "build": "npm run clean:dist && npm run build:cjs",
-    "dev": "npm run clean:dist && npm run build:cjs -- --watch"
+    "build:node": "npm run tsc -- --outDir ./dist/node --module commonjs --target es5",
+    "build:browser": "npm run tsc -- --outDir ./dist/browser --module esNext --target es5",
+    "build": "npm run clean:dist && npm run build:node && npm run build:browser",
+    "dev": "npm run build -- --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "@financial-times/anvil-ui-ft-header": "file:../anvil-ui-ft-header",
+  "devDependencies": {
     "@financial-times/anvil-ui-ft-footer": "file:../anvil-ui-ft-footer",
-    "@financial-times/anvil-ui-slots": "file:../anvil-ui-slots"
+    "@financial-times/anvil-ui-ft-header": "file:../anvil-ui-ft-header"
   },
   "peerDependencies": {
     "react": "^16.7.0-alpha.0"

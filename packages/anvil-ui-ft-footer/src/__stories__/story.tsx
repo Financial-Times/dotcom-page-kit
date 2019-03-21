@@ -1,11 +1,13 @@
 import React from 'react'
+import { OnReady } from '@financial-times/anvil-ui-ft-on-ready'
+
 import { storiesOf } from '@storybook/react'
 import { withKnobs, radios } from '@storybook/addon-knobs'
-import * as footer from '../browser.js'
-import { OnReady } from '@financial-times/anvil-ui-ft-on-ready'
-import { Footer, LegalFooter } from '../src'
 import storyData from './story-data'
-import '../styles.scss'
+
+import * as footer from '../../browser.js'
+import { Footer, LegalFooter } from '../../src'
+import '../../styles.scss'
 
 const toggleTheme = () =>
   radios(

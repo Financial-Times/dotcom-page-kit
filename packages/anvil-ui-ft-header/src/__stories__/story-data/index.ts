@@ -6,7 +6,8 @@ import drawerUk from './drawerUk.json'
 import crumbtrail from './crumbtrailUk.json'
 import editionsUk from './editionsUk.json'
 import user from './user.json'
-import { THeaderProps } from '../interfaces'
+
+import { THeaderProps } from '../../interfaces'
 
 const breadcrumb = crumbtrail.ancestors.concat(crumbtrail.item)
 const subsections = crumbtrail.children
