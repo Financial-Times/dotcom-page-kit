@@ -42,7 +42,7 @@ headerProps.data.editions = response.locals.editions
 
 ## Props
 
-The header can be configured by setting props on the data object.
+All variants with the exception of `LogoOnly` require a props object to be passed to the header component. The component can be configured by setting properties on this object.
 
 |       PROP        |  TYPE   | OPTIONAL | DEFAULT  |                                                    DESCRIPTION                                                    |
 | ----------------- | ------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -55,9 +55,9 @@ The header can be configured by setting props on the data object.
 | data              | object  | false    |          | Navigation data for rendering the header components - takes the shape of [Data Props](#data-props)                |
 
 
-## Data Props
+## Navigation data
 
-Unless the `logo-only` variant is specified the header expects a data object from the [navigation API] to be passed in with the following properties.
+The props object passed to the header component must have a `data` property. The data is expected to come from the [navigation API] and should have the following properties.
 
 |       PROP        |                                                         DESCRIPTION                                                         |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -73,13 +73,14 @@ Unless the `logo-only` variant is specified the header expects a data object fro
 
 ## Variants
 
-The default variant is 'simple' which relates to the compact masthead. The alternative variants are:
+A variant property can be configured on the data object which is passed to the header component. The available variants are:
 
-|  VARIANT  |                                                            DESCRIPTION                                                            |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| home      | Use the taller, 'masthead' variant - this overrides the default `simple` style and is used on the ft.com homepage and stream pages |
-| sticky    | Render the sticky header after a predetermined scroll-depth                                                                       |
-| logo-only | Render without the drawer, search or myFT elements - this pattern is used in several conversion apps                               |
+|  VARIANT  |                                                                           DESCRIPTION                                                                           |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| simple    | The default variant of the header top element which is used on most ft.com pages including article pages - it is narrower than the homepage masthead            |
+| home      | Use the taller, 'masthead' variant of the header top element - this overrides the default `simple` style and is used on the ft.com homepage and on stream pages |
+| sticky    | Render the sticky header after a predetermined scroll-depth                                                                                                     |
+| logo-only | Render without the drawer, search or myFT elements - this pattern is used in several conversion apps                                                            |
 
 
 ## Header Elements
