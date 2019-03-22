@@ -52,6 +52,7 @@ All variants with the exception of `LogoOnly` require a props object to be passe
 | userIsLoggedIn    | boolean | true     | false    | Marks a user as logged in - set in n-express                                                                      |
 | showUserNav       | boolean | true     | true     | Show user navigation options - `Portfolio` and `Account Settings` or `Sign in` and `Subscribe`                    |
 | showSubNav        | boolean | true     | true     | Show the crumbtrail element or the myFT subnav element                                                            |
+| disableSticky     | boolean | true     | false    | Prevents the HeaderSticky component from rendering                                                                |
 | data              | object  | false    |          | Navigation data for rendering the header components - takes the shape of [Data Props](#data-props)                |
 
 
