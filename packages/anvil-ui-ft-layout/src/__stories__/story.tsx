@@ -7,11 +7,11 @@ import { withKnobs, boolean } from '@storybook/addon-knobs'
 import { HeaderDefault, Drawer, HeaderSticky, LogoOnly } from '@financial-times/anvil-ui-ft-header/component'
 import { Footer, LegalFooter } from '@financial-times/anvil-ui-ft-footer/component'
 
-import * as header from '../../../anvil-ui-ft-header/browser.js'
-import * as footer from '../../../anvil-ui-ft-footer/browser.js'
+import * as header from '@financial-times/anvil-ui-ft-header/browser.js'
+import * as footer from '@financial-times/anvil-ui-ft-footer/browser.js'
 
-import headerProps from '../../../anvil-ui-ft-header/src/__stories__/story-data'
-import footerProps from '../../../anvil-ui-ft-footer/src/__stories__/story-data'
+import headerProps from '@financial-times/anvil-ui-ft-header/src/__stories__/story-data'
+import footerProps from '@financial-times/anvil-ui-ft-footer/src/__stories__/story-data'
 
 import Layout from '..'
 
