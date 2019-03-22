@@ -8,15 +8,16 @@ import storyData from './story-data'
 import '../../styles.scss'
 import './demos.scss'
 
-// falsey values are empty string because string coercion in storybook
 const toggleUserStateOptions = () => boolean('Enable user nav actions', true)
 const toggleVariantOptions = () => radios('Choose variant', { simple: 'simple', normal: 'normal' }, 'simple')
 const toggleAnonymous = () => boolean('User is anonymous', true)
+const toggleShowSubNav = () => boolean('Show the crumbtrail component', true)
 
 storiesOf('FT / Header', module)
   .addDecorator(withKnobs)
   .add('Default header', () => {
     const knobs = {
+      showSubNav: toggleShowSubNav(),
       showUserNav: toggleUserStateOptions(),
       userIsAnonymous: toggleAnonymous()
     }
