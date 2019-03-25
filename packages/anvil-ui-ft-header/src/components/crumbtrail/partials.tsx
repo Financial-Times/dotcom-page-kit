@@ -1,12 +1,14 @@
 import React from 'react'
 import { THeaderProps } from '../../interfaces'
 
-const IncludeCrumbtrail = (props: THeaderProps) => (
-  <Crumbtrail>
-    <BreadCrumb breadcrumb={props.data.breadcrumb} />
-    <SubSections subsections={props.data.subsections} />
-  </Crumbtrail>
-)
+const IncludeCrumbtrail = (props: THeaderProps) => {
+  return props.showSubNav ? (
+    <Crumbtrail>
+      <BreadCrumb breadcrumb={props.data.breadcrumb} />
+      <SubSections subsections={props.data.subsections} />
+    </Crumbtrail>
+  ) : null
+}
 
 const Crumbtrail = (props) => (
   <div

@@ -11,12 +11,14 @@ import './demos.scss'
 const toggleUserStateOptions = () => boolean('Enable user nav actions', true)
 const toggleVariantOptions = () => radios('Choose variant', { simple: 'simple', normal: 'normal' }, 'simple')
 const toggleAnonymous = () => boolean('User is anonymous', true)
+const toggleShowSubNav = () => boolean('Show the crumbtrail component', true)
 const toggleDisableSticky = () => boolean('Disable sticky header', false)
 
 storiesOf('FT / Header', module)
   .addDecorator(withKnobs)
   .add('Default header', () => {
     const knobs = {
+      showSubNav: toggleShowSubNav(),
       showUserNav: toggleUserStateOptions(),
       userIsAnonymous: toggleAnonymous()
     }
