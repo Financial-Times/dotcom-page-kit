@@ -19,6 +19,7 @@ const data: THeaderProps = {
   userIsAnonymous: false,
   userIsLoggedIn: true,
   showSubNav: true,
+  disableSticky: true,
   data: {
     navbar: navbarUk,
     'navbar-right': navbarRight,

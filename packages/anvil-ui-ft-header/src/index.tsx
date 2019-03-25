@@ -25,7 +25,8 @@ const defaultProps: Partial<THeaderProps> = {
   showSubNav: true,
   hideOutboundLinks: false,
   userIsAnonymous: true,
-  userIsLoggedIn: false
+  userIsLoggedIn: false,
+  disableSticky: false
 }
 
 function HeaderDefault(props: THeaderProps) {
@@ -60,7 +61,7 @@ function Drawer(props: THeaderProps) {
 Drawer.defaultProps = defaultProps
 
 function HeaderSticky(props: THeaderProps) {
-  return (
+  return props.disableSticky ? null : (
     <StickyHeader {...props}>
       <TopWrapperSticky>
         <TopColumnLeftSticky context="sticky" />
