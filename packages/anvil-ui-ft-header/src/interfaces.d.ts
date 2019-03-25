@@ -1,5 +1,5 @@
 export interface THeaderProps {
-  variant?: string
+  variant?: THeaderVariant
   hideOutboundLinks?: boolean
   userIsAnonymous?: boolean
   userIsLoggedIn?: boolean
@@ -18,6 +18,8 @@ export interface THeaderProps {
   }
   children?: any
 }
+
+export type THeaderVariant = 'simple' | 'home' | 'sticky' | 'logo-only'
 
 export interface TItemSubMenu {
   label: string | null

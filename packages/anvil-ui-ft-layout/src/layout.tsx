@@ -1,18 +1,22 @@
 import React from 'react'
 
+import { THeaderVariant } from '@financial-times/anvil-ui-ft-header'
+
 type TLayoutProps = {
-  headerBefore?: string | React.Element
-  header?: string | React.Element
-  headerAfter?: string | React.Element
-  children?: React.Element
-  footerBefore?: string | React.Element
-  footer?: string | React.Element
-  footerAfter?: string | React.Element
-  hideOutboundLinks?: boolean
+  headerBefore?: string | React.ReactNode
+  header?: THeaderVariant | React.ReactNode
+  headerAfter?: string | React.ReactNode
+  children?: React.ReactNode
+  footerBefore?: string | React.ReactNode
+  footer?: string | React.ReactNode
+  footerAfter?: string | React.ReactNode
+
+  // @TODO: read from new `data` prop
+  hideOutboundLinks: boolean
 }
 
 type TTemplateProps = {
-  contents?: string | React.Element
+  contents?: string | React.ReactNode
 }
 
 export function Template({ contents }: TTemplateProps) {
