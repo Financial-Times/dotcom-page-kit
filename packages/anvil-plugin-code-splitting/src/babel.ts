@@ -1,4 +1,4 @@
-import { CliContext } from '@financial-times/anvil'
+import { CliContext } from '@financial-times/anvil-cli'
 
 /**
  * Returns the babel config.

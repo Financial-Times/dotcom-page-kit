@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "peerDependencies": {
-    "@financial-times/anvil": "file:../anvil"
+    "@financial-times/anvil-cli": "file:../anvil-cli"
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.1.0",
@@ -26,6 +26,6 @@
     "@babel/plugin-transform-runtime": "^7.1.0"
   },
   "devDependencies": {
-    "@financial-times/anvil": "file:../anvil"
+    "@financial-times/anvil-cli": "file:../anvil-cli"
   }
 }

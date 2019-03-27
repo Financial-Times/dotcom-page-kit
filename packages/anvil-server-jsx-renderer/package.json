@@ -18,14 +18,14 @@
   "author": "",
   "license": "ISC",
   "peerDependencies": {
-    "@financial-times/anvil": "file:../anvil",
+    "@financial-times/anvil-cli": "file:../anvil-cli",
     "react": "^16.7.0-alpha.0"
   },
   "dependencies": {
     "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell"
   },
   "devDependencies": {
-    "@financial-times/anvil": "file:../anvil",
+    "@financial-times/anvil-cli": "file:../anvil-cli",
     "@financial-times/anvil-types-generic": "file:../anvil-types-generic",
     "react": "^16.7.0-alpha.0",
     "react-dom": "^16.7.0-alpha.0"

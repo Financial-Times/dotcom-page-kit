@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil",
+  "name": "@financial-times/anvil-cli",
   "version": "0.0.0",
   "description": "The anvil CLI",
   "main": "dist/cjs/index.js",

@@ -17,12 +17,12 @@
     "@financial-times/anvil-middleware-ft-navigation": "file:../../packages/anvil-middleware-ft-navigation",
     "@financial-times/anvil-server-ft-handlebars": "file:../../packages/anvil-server-ft-handlebars",
     "@financial-times/anvil-server-ft-preset": "file:../../packages/anvil-server-ft-preset",
-    "@financial-times/anvil-plugin-sass": "file:../../packages/anvil-plugin-sass",
-    "@financial-times/anvil-plugin-ft-js": "file:../../packages/anvil-plugin-ft-js",
     "express": "^4.16.2"
   },
   "devDependencies": {
     "nodemon": "^1.18.9",
-    "@financial-times/anvil": "file:../../packages/anvil"
+    "@financial-times/anvil-cli": "file:../../packages/anvil-cli",
+    "@financial-times/anvil-plugin-sass": "file:../../packages/anvil-plugin-sass",
+    "@financial-times/anvil-plugin-ft-js": "file:../../packages/anvil-plugin-ft-js"
   }
 }
