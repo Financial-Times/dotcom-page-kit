@@ -1,6 +1,6 @@
 import { parse } from 'url'
 
-import { TNavMenu, TNavMenuItem } from './types'
+import { TNavMenu, TNavMenuItems, TNavMenuItem } from './types'
 
 const decorateUrl = (itemUrl, currentUrl, currentPathName) => {
   if (typeof itemUrl === 'string' && itemUrl.includes('${currentPath}')) {
@@ -41,38 +41,44 @@ export const processMeganav = (meganav, currentUrl) => {
   })
 }
 
+const processItems = (items: TNavMenuItems, currentUrl: string) => {
+  return items.reduce((acc: TNavMenuItem[], { label, url, submenu, meganav }: TNavMenuItem) => {
+    const { itemUrl, selected } = decorateItem(url, currentUrl)
+
+    if (submenu) {
+      submenu = decorateMenu(submenu, currentUrl)
+    }
+
+    /**
+     * Meganav data is appended to the navigation object by next-api
+     * and present in the response from anvil-server-ft-navigation.
+     *
+     * It can't be processed by decorateMenu() as it has an atypical structure.
+     * Note also that the nesting is variable and the .data property may contain
+     * dataItems or a nested array of dataItems.
+     */
+    if (meganav) {
+      meganav = processMeganav(meganav, currentUrl)
+    }
+
+    acc.push({ label, url: itemUrl, submenu, selected, meganav })
+
+    return acc
+  }, [])
+}
+
 /**
  * Produce a decorated clone of the supplied menu
+ * The `items.every` handles menu['footer']: a array of TNavMenuItems arrays
  *
  * @param menu
  * @param currentUrl
  */
-
-export const decorateMenu = ({ label, items }: TNavMenu, currentUrl: string): TNavMenu => {
+export const decorateMenu = ({ label, items }, currentUrl: string): TNavMenu => {
   return {
     label,
-    items: items.reduce((acc, { label, url, submenu, meganav }: TNavMenuItem) => {
-      const { itemUrl, selected } = decorateItem(url, currentUrl)
-
-      if (submenu) {
-        submenu = decorateMenu(submenu, currentUrl)
-      }
-
-      /**
-       * Meganav data is appended to the navigation object by next-api
-       * and present in the response from anvil-server-ft-navigation.
-       *
-       * It can't be processed by decorateMenu() as it has an atypical structure.
-       * Note also that the nesting is variable and the .data property may contain
-       * dataItems or a nested array of dataItems.
-       */
-      if (meganav) {
-        meganav = processMeganav(meganav, currentUrl)
-      }
-
-      acc.push({ label, url: itemUrl, submenu, selected, meganav })
-
-      return acc
-    }, [])
+    items: items.every(Array.isArray)
+      ? items.map((itemArr: TNavMenuItems) => processItems(itemArr, currentUrl))
+      : processItems(items, currentUrl)
   }
 }
