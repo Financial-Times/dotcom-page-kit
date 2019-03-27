@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "peerDependencies": {
-    "@financial-times/anvil": "file:../anvil"
+    "@financial-times/anvil-cli": "file:../anvil-cli"
   },
   "dependencies": {
     "autoprefixer": "^9.3.1",
@@ -31,6 +31,6 @@
     "webpack-fix-style-only-entries": "0.0.5"
   },
   "devDependencies": {
-    "@financial-times/anvil": "file:../anvil"
+    "@financial-times/anvil-cli": "file:../anvil-cli"
   }
 }

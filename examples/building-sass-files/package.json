@@ -7,7 +7,7 @@
     "test": "../../node_modules/.bin/jest"
   },
   "devDependencies": {
-    "@financial-times/anvil": "file:../../packages/anvil",
+    "@financial-times/anvil-cli": "file:../../packages/anvil-cli",
     "@financial-times/anvil-plugin-sass": "file:../../packages/anvil-plugin-sass"
   }
 }
