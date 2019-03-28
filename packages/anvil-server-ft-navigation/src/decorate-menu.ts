@@ -42,7 +42,7 @@ export const processMeganav = (meganav, currentUrl) => {
 }
 
 const processItems = (items: TNavMenuItems, currentUrl: string) => {
-  return items.reduce((acc: TNavMenuItem[], { label, url, submenu, meganav }: TNavMenuItem) => {
+  return items.reduce((acc: TNavMenuItems, { label, url, submenu, meganav }: TNavMenuItem) => {
     const { itemUrl, selected } = decorateItem(url, currentUrl)
 
     if (submenu) {

@@ -17,7 +17,7 @@ export type TNavMenu = {
 
 export type TNavMenuItem = {
   label: string
-  url: string | null
+  url: string
   submenu: TNavMenu
   selected?: boolean
   meganav?: TNavMeganav
