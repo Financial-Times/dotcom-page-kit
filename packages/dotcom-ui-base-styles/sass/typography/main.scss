@@ -11,6 +11,7 @@
 	@include oFontsInclude(FinancierDisplayWeb, $weight: bold);
 	@include oFontsInclude(MetricWeb);
 	@include oFontsInclude(MetricWeb, $weight: semibold);
+	@include oFontsInclude(MetricWeb, $weight: medium);
 
 	html {
 		//TODO - move elsewhere??
