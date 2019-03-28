@@ -6,7 +6,7 @@ export type TBootstrapProps = {
   enhancedScripts: string[]
 }
 
-export function Flags(props: TBootstrapProps) {
+export function Bootstrap(props: TBootstrapProps) {
   return (
     <React.Fragment>
       <script
