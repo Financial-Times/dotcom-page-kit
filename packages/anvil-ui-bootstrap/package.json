@@ -2,7 +2,7 @@
   "name": "@financial-times/anvil-ui-bootstrap",
   "version": "0.0.0",
   "description": "",
-  "main": "dist/cjs/index.js",
+  "main": "node.js",
   "types": "src/index.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -20,5 +20,8 @@
   "license": "ISC",
   "dependencies": {
     "find-up": "^3.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
   }
 }

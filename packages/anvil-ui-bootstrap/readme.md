@@ -19,9 +19,28 @@ After installing the module you should add `no-js` and `core` class names to you
 + <html class="no-js core">
 ```
 
-This module provides two methods which each return a piece of the bootstrap code: the configuration JSON and the JavaScript snippet.
-
 The bootstrap code should be embedded in the `<head>` section of your pages to ensure scripts begin downloading as soon as possible.
+
+If you are building a React or you can use the `Bootstrap` component:
+
+```jsx
+import { Bootstrap } from '@financial-times/anvil-ui-bootstrap/component'
+
+export default (props) => {
+  <html class="no-js core">
+    <head>
+      <meta charSet="utf-8" />
+      <title>My Amazing Website</title>
+      <Bootstrap core={coreScripts} enhanced={enhancedScripts} />
+    </head>
+    <body>
+      ...
+    </body>
+  </html>
+}
+```
+
+Otherwise this module provides two methods to integrate the bootstrap code. First you must insert a JSON formatted string of configuration into a `<script>` element with an ID of `bootstrap-config`. Secondly you must embed the bootstrap script itself:
 
 ```js
 const bootstrap = require('@financial-times/anvil-ui-bootstrap')
@@ -30,7 +49,7 @@ function page() {
   return `<!DOCTYPE html>
     <html class="no-js core">
     <head>
-      <meta charSet="utf-8">
+      <meta charset="utf-8">
       <title>My Amazing Website</title>
       <script type="application/json" id="bootstrap-config">
         ${bootstrap.formatConfigJSON(options)}
