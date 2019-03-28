@@ -8,8 +8,10 @@ export type TFlagsProps = {
 
 export function Flags(props: TFlagsProps) {
   return (
-    <script type="application/json" id="flags-data">
-      {formatFlagsJSON(props.data)}
-    </script>
+    <script
+      type="application/json"
+      id="flags-data"
+      dangerouslySetInnerHTML={{ __html: formatFlagsJSON(props.data) }}
+    />
   )
 }
