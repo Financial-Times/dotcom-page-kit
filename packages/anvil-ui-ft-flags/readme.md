@@ -11,14 +11,35 @@ This module is compatible with Node 8+ and is distributed on npm.
 npm install --save @financial-times/anvil-ui-ft-flags
 ```
 
-After installing the module you must you embed the flags data into your pages. This must be JSON formatted string inserted into a `<script>` element with an ID of `flags-data`. You may optionally use the `.formatFlagsJSON()` method to help with this.
+After installing the module you must you embed the flags data into your pages.
+
+If you are building a React or you can use the `Flags` component:
+
+```jsx
+import { Flags } from '@financial-times/anvil-ui-ft-flags/component'
+
+export default (props) => {
+  <html>
+    <head>
+      <meta charSet="utf-8" />
+      <title>My Amazing Website</title>
+      <Flags data={props.flags} />
+    </head>
+    <body>
+      ...
+    </body>
+  </html>
+}
+```
+
+Otherwise you must can insert a JSON formatted string into a `<script>` element with an ID of `flags-data`. You can use add the `.formatFlagsJSON()` method to help with this.
 
 ```js
 const { formatFlagsJSON } = require('@financial-times/anvil-ui-ft-flags')
 
 function page() {
   return `<!DOCTYPE html>
-    <html class="no-js core">
+    <html>
     <head>
       <meta charSet="utf-8">
       <title>My Amazing Website</title>
