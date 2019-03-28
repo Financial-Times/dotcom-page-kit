@@ -68,10 +68,25 @@ module.exports = {
 
 ##### Output path
 
-The generated output can be directed to a destination directory using the `--outputPath` CLI flag. The default destination is `./dist`.
+The generated output can be directed to a destination directory using the `--outputPath` CLI flag or via the configuration file. The default destination is `./dist`. The configuration file will take precedence over the CLI flag.
+
+Usage via CLI flag:
 
 ```sh
 anvil build --outputPath ./path/to/dist
+```
+
+Usage via configuration file:
+
+```js
+module.exports = {
+  plugins: [...],
+  settings: {
+    build: {
+      outputPath: './path/to/dist'
+    }
+  }
+}
 ```
 
 Files will be created using the pattern `[name].js` in development mode and `[name].[contenthash].js` in production mode.
