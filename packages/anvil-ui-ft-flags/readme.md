@@ -32,7 +32,7 @@ export default (props) => {
 }
 ```
 
-Otherwise you must can insert a JSON formatted string into a `<script>` element with an ID of `flags-data`. You can use add the `.formatFlagsJSON()` method to help with this.
+Otherwise you must can insert a JSON formatted string into a `<script>` element with an ID of `flags-data`. You can use the `.formatFlagsJSON()` method to help with this.
 
 ```js
 const { formatFlagsJSON } = require('@financial-times/anvil-ui-ft-flags')
