@@ -9,9 +9,11 @@ export function getWebpackConfig({ options, workingDir, config, publish, cli }: 
 
   const isDevMode = options.development
   const entryOptions = get(config, 'settings.build.entry') || options.entryFile
-  const outputFilename = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
-  const manifestPluginOptions = {}
-  const cleanWebpackPluginPaths = [options.outputPath]
+  const outputPath = get(config, 'settings.build.outputPath') || options.outputPath
+  const outputFileName = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
+  const manifestFileName = get(config, 'settings.build.manifestFileName') || 'manifest.json'
+  const manifestPluginOptions = { fileName: manifestFileName }
+  const cleanWebpackPluginPaths = [outputPath]
   const cleanWebpackPluginOptions = { root: workingDir, verbose: false }
 
   publish('webpackConfig::entry', entryOptions)
@@ -23,9 +25,9 @@ export function getWebpackConfig({ options, workingDir, config, publish, cli }: 
     mode: isDevMode ? 'development' : 'production',
     entry: entryOptions,
     output: {
-      filename: outputFilename,
-      chunkFilename: outputFilename,
-      path: options.outputPath
+      filename: outputFileName,
+      chunkFilename: outputFileName,
+      path: outputPath
     },
     resolve: {
       extensions: ['.js', '.jsx', '.mjs', '.json']
