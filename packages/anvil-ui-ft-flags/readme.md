@@ -15,12 +15,12 @@ After installing the module you can use it to embed flags data into your pages o
 
 ### Server-side
 
-If you are building a React or you can use the `Flags` component:
+If you are using React to render your app you can use the `Flags` component:
 
 ```jsx
 import { Flags } from '@financial-times/anvil-ui-ft-flags/component'
 
-export default (props) => {
+export default (props) => (
   <html>
     <head>
       <meta charSet="utf-8" />
@@ -31,10 +31,10 @@ export default (props) => {
       ...
     </body>
   </html>
-}
+)
 ```
 
-Otherwise you must can insert a JSON formatted string into a `<script>` element with an ID of `anvil-flags-data`. You can use the `.formatFlagsJSON()` method to help with this.
+Otherwise you can insert a JSON formatted string into a `<script>` element with an ID of `anvil-flags-data`. You can use the `.formatFlagsJSON()` method to help with this.
 
 ```js
 const { formatFlagsJSON } = require('@financial-times/anvil-ui-ft-flags')
