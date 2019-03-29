@@ -1,7 +1,7 @@
 import { hooks } from './hooks'
 import StylesOnlyPlugin from 'webpack-fix-style-only-entries'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import { HandlerArgs, CliContext } from '@financial-times/anvil'
+import { HandlerArgs, CliContext } from '@financial-times/anvil-cli'
 
 export function plugin() {
   return ({ on }) => {

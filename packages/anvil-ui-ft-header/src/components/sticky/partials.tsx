@@ -1,4 +1,4 @@
-/* WARN: This file looks similar to '../top/partials */
+/* WARN: This file looks similar to ../top/partials */
 /* This is the sticky header variant */
 
 import React from 'react'

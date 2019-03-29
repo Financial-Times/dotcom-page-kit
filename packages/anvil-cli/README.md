@@ -41,7 +41,7 @@ This action can be used to assemble the static assets for your application using
 
 ##### Entry points
 
-The path for the entry point into your source code can be provided via the `--entryFile` CLI flag or via the configuration file. The default entry point is `src/index.js`. Multiple entry points can only be defined using the configuration file. See the [Webpack entry documentation] for more information about entry points. The configuration file will take precedence over the CLI flag.
+The path for the entry point into your source code can be provided via the `--entryFile` CLI flag or via the configuration file. The default entry point is `"src/index.js"`. Multiple entry points can only be defined using the configuration file. See the [Webpack entry documentation] for more information about entry points. The configuration file will take precedence over the CLI flag.
 
 [Webpack entry documentation]: https://webpack.js.org/concepts/entry-points/
 
@@ -68,14 +68,45 @@ module.exports = {
 
 ##### Output path
 
-The generated output can be directed to a destination directory using the `--outputPath` CLI flag. The default destination is `./dist`.
+The generated output can be directed to a destination directory using the `--outputPath` CLI flag or via the configuration file. The default destination is `"./dist"`. The configuration file will take precedence over the CLI flag.
+
+Usage via CLI flag:
 
 ```sh
 anvil build --outputPath ./path/to/dist
 ```
 
+Usage via configuration file:
+
+```js
+module.exports = {
+  plugins: [...],
+  settings: {
+    build: {
+      outputPath: './path/to/dist'
+    }
+  }
+}
+```
+
 Files will be created using the pattern `[name].js` in development mode and `[name].[contenthash].js` in production mode.
 
+##### Manifest file name
+
+The name of the generated manifest file can be changed via the configuration file. The default file name is `"manifest.json"`.
+
+Usage via configuration file:
+
+```js
+module.exports = {
+  plugins: [...],
+  settings: {
+    build: {
+      manifestFileName: 'asset-hashes.json'
+    }
+  }
+}
+```
 
 ##### Targets
 

@@ -25,6 +25,10 @@ const fakeMenuResponse = {
   'drawer-some-edition-id': {
     label: 'Drawer Fake',
     items: [{ label: 'Foo', url: '/world/uk', submenu: null, selected: false }]
+  },
+  footer: {
+    label: 'Footer',
+    items: [{ label: 'Support', url: null, submenu: { label: null, items: [] } }]
   }
 }
 
@@ -44,24 +48,27 @@ const fakeMenu = {
 }
 
 const fakeMenuData = {
+  ...fakeMenu,
   crumbtrail: null,
   navbar: fakeMenuResponse['navbar-some-edition-id'],
   drawer: fakeMenuResponse['drawer-some-edition-id'],
-  ...fakeMenu
+  footer: fakeMenuResponse['footer']
 }
 
 const fakeMenuDataDefault = {
+  ...fakeMenu,
   crumbtrail: null,
   navbar: fakeMenuResponse['navbar-uk'],
   drawer: fakeMenuResponse['drawer-uk'],
-  ...fakeMenu
+  footer: fakeMenuResponse['footer']
 }
 
 const fakeMenuDataWithCrumbtrail = {
+  ...fakeMenu,
   crumbtrail: fakeCrumbtrailResponse,
   navbar: fakeMenuResponse['navbar-some-edition-id'],
   drawer: fakeMenuResponse['drawer-some-edition-id'],
-  ...fakeMenu
+  footer: fakeMenuResponse['footer']
 }
 
 const FakePoller = {

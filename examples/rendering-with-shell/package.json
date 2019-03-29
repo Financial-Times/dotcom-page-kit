@@ -17,7 +17,7 @@
     "sucrase": "^3.8.0"
   },
   "devDependencies": {
-    "@financial-times/anvil": "file:../../packages/anvil",
+    "@financial-times/anvil-cli": "file:../../packages/anvil-cli",
     "@financial-times/anvil-plugin-esnext": "file:../../packages/anvil-plugin-esnext",
     "nodemon": "^1.18.7"
   }

@@ -1,4 +1,4 @@
-import { decorateMenu, processMeganav } from '../decorate-menu'
+import { decorateMenu, processMeganav } from '..'
 import { menus } from '../__fixtures__/menus'
 
 describe('.decorateMenu()', () => {

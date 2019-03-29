@@ -5,6 +5,7 @@ export interface THeaderProps {
   userIsLoggedIn?: boolean
   showUserNav?: boolean
   showSubNav?: boolean
+  disableSticky?: boolean
   data: {
     editions: TEditions
     drawer: TItemSubMenu
