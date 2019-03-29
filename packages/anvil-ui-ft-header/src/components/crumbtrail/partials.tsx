@@ -20,25 +20,24 @@ const Crumbtrail = (props) => (
     <div className="o-header__container">
       <div className="o-header__subnav-wrap-outside">
         <div className="o-header__subnav-wrap-inside" data-o-header-subnav-wrapper>
-          <div className="o-header__subnav-content" />
-          {props.children}
+          <div className="o-header__subnav-content">{props.children}</div>
         </div>
+        {/* Implements crumbtrail scrolling at smaller viewports */}
+        <button
+          className="o-header__subnav-button o-header__subnav-button--left"
+          title="scroll left"
+          aria-label="scroll left"
+          aria-hidden="true"
+          disabled
+        />
+        <button
+          className="o-header__subnav-button o-header__subnav-button--right"
+          title="scroll right"
+          aria-label="scroll right"
+          aria-hidden="true"
+          disabled
+        />
       </div>
-      {/* Implements crumbtrail scrolling at smaller viewports */}
-      <button
-        className="o-header__subnav-button o-header__subnav-button--left"
-        title="scroll left"
-        aria-label="scroll left"
-        aria-hidden="true"
-        disabled
-      />
-      <button
-        className="o-header__subnav-button o-header__subnav-button--right"
-        title="scroll right"
-        aria-label="scroll right"
-        aria-hidden="true"
-        disabled
-      />
     </div>
   </div>
 )
