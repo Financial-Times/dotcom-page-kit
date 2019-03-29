@@ -1,7 +1,7 @@
 import { TFlagsData } from '../types'
 
 export default function loadFlags(): TFlagsData {
-  const flagsConfigEl = document.getElementById('flags-data')
+  const flagsConfigEl = document.getElementById('anvil-flags-data')
 
   let data = {}
 

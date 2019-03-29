@@ -10,7 +10,7 @@ export function Flags(props: TFlagsProps) {
   return (
     <script
       type="application/json"
-      id="flags-data"
+      id="anvil-flags-data"
       dangerouslySetInnerHTML={{ __html: formatFlagsJSON(props.data) }}
     />
   )

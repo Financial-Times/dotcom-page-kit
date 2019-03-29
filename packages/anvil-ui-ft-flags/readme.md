@@ -34,7 +34,7 @@ export default (props) => {
 }
 ```
 
-Otherwise you must can insert a JSON formatted string into a `<script>` element with an ID of `flags-data`. You can use the `.formatFlagsJSON()` method to help with this.
+Otherwise you must can insert a JSON formatted string into a `<script>` element with an ID of `anvil-flags-data`. You can use the `.formatFlagsJSON()` method to help with this.
 
 ```js
 const { formatFlagsJSON } = require('@financial-times/anvil-ui-ft-flags')
@@ -45,7 +45,7 @@ function page() {
     <head>
       <meta charset="utf-8">
       <title>My Amazing Website</title>
-      <script type="application/json" id="flags-data">
+      <script type="application/json" id="anvil-flags-data">
         ${formatFlagsJSON(flags)}
       </script>
     </head>
@@ -75,10 +75,10 @@ if (flags.get('myAmazingFeature')) {
 
 ### `.formatFlagsJSON(flags)`
 
-Returns a JSON formatted string representing the given data. This will filter out any properties with a falsey value to reduce the amount of data to send and parse. The data returned by this method must be inserted into a `<script>` element with an ID of `flags-data`.
+Returns a JSON formatted string representing the given data. This will filter out any properties with a falsey value to reduce the amount of data to send and parse. The data returned by this method must be inserted into a `<script>` element with an ID of `anvil-flags-data`.
 
 ### `.createFlagsClient()`
 
-Finds and parses the formatted flags data embedded in the page and returns a client which can access the status of individual flags. The formatted flags data must be present in a `<script>` element with an ID of `flags-data`.
+Finds and parses the formatted flags data embedded in the page and returns a client which can access the status of individual flags. The formatted flags data must be present in a `<script>` element with an ID of `anvil-flags-data`.
 
 _Please note_ that this method can only be used on the client-side (in the browser.)
