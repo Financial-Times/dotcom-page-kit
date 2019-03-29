@@ -28,6 +28,29 @@ const menus = {
       { label: 'Foo', url: '/world/uk', submenu: null },
       { label: 'Bar', url: '/fake-item?location=${currentPath}', submenu, meganav }
     ]
+  },
+
+  footer: {
+    label: 'Footer',
+    items: [
+      {
+        label: 'Tools',
+        url: null,
+        submenu: {
+          label: null,
+          items: [
+            [
+              { label: 'Alerts Hub', url: 'http://markets.ft.com/data/alerts/', submenu: null },
+              { label: 'Lexicon', url: 'http://lexicon.ft.com/', submenu: null }
+            ],
+            [
+              { label: 'News feed', url: '/news-feed', submenu: null },
+              { label: 'Newsletters', url: '/newsletters', submenu: null }
+            ]
+          ]
+        }
+      }
+    ]
   }
 }
 

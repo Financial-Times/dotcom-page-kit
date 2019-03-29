@@ -2,6 +2,7 @@ import nock from 'nock'
 
 import { Navigation } from '..'
 import { menus as navigationData } from '../__fixtures__/menus'
+import * as expected from '../__fixtures__/expected'
 
 const crumbtrailData = {
   testData: 'some-crumbtrail-data',
@@ -38,6 +39,16 @@ describe('anvil-server-ft-navigation', () => {
 
   it('initialises the poller', () => {
     expect(FakePoller.start).toHaveBeenCalled()
+  })
+
+  describe('.getMenuData()', () => {
+    // Verifiy that
+    // - Additional props - meganav, selected, etc - are injected
+    // - Items whose url prop matches "/newsletters" have a selected: true
+    it('recursively processes menus to produces an expected foter', async () => {
+      const result = await navigationInstance.getMenuData('/newsletters')
+      expect(result.footer).toEqual(expected.footer)
+    })
   })
 
   describe('.getNavigationData()', () => {
