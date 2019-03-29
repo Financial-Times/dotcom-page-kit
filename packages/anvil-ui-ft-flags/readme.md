@@ -11,7 +11,9 @@ This module is compatible with Node 8+ and is distributed on npm.
 npm install --save @financial-times/anvil-ui-ft-flags
 ```
 
-After installing the module you must you embed the flags data into your pages.
+After installing the module you can use it to embed flags data into your pages on the server-side. This data can then be retrieved and used in your client-side code using the included flags client.
+
+### Server-side
 
 If you are building a React or you can use the `Flags` component:
 
@@ -41,7 +43,7 @@ function page() {
   return `<!DOCTYPE html>
     <html>
     <head>
-      <meta charSet="utf-8">
+      <meta charset="utf-8">
       <title>My Amazing Website</title>
       <script type="application/json" id="flags-data">
         ${formatFlagsJSON(flags)}
@@ -54,7 +56,9 @@ function page() {
 }
 ```
 
-Once you are delivering the flags data with your page you can add the flags module to your client-side code which will find the data, parse it, and provide a method for retrieving the status of a flag.
+### Client-side
+
+Once you are delivering the flags data with your pages you can use the flags client in your client-side code. This client will find the embedded data, parse it, and provide a method for retrieving the status of a flag.
 
 ```js
 import { createFlagsClient } from '@financial-times/anvil-ui-ft-flags'
@@ -71,7 +75,7 @@ if (flags.get('myAmazingFeature')) {
 
 ### `.formatFlagsJSON(flags)`
 
-Returns a JSON formatted string representing the given data. This will filter out any properties with a falsey value to reduce the amount of data to send and parse. The flags data must be inserted into a `<script>` element with an ID of `flags-data`.
+Returns a JSON formatted string representing the given data. This will filter out any properties with a falsey value to reduce the amount of data to send and parse. The data returned by this method must be inserted into a `<script>` element with an ID of `flags-data`.
 
 ### `.createFlagsClient()`
 
