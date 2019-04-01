@@ -28,18 +28,18 @@ If you are using React to render your app you can use the `Bootstrap` component:
 ```jsx
 import { Bootstrap } from '@financial-times/anvil-ui-bootstrap/component'
 
-export default (props) => {
+export default (props) => (
   <html class="no-js core">
     <head>
       <meta charSet="utf-8" />
       <title>My Amazing Website</title>
-      <Bootstrap core={coreScripts} enhanced={enhancedScripts} />
+      <Bootstrap coreScripts={coreScripts} enhancedScripts={enhancedScripts} />
     </head>
     <body>
       ...
     </body>
   </html>
-}
+)
 ```
 
 Otherwise this module provides two methods to integrate the bootstrap code into your templates. First you must insert a JSON formatted string of configuration into a `<script>` element with an ID of `anvil-bootstrap-config` and secondly you must embed the bootstrap script itself:
