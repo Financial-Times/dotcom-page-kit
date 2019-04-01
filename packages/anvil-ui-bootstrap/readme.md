@@ -5,13 +5,13 @@ This module provides a JavaScript bootstrap for your client-side code which can 
 
 ## Getting started
 
-This module is compatible with Node 10+ and is distributed on npm.
+This module is compatible with Node 8+ and is distributed on npm.
 
 ```sh
 npm install --save @financial-times/anvil-ui-bootstrap
 ```
 
-After installing the module you should add `no-js` and `core` class names to your document element (`<html>`).
+After installing the module you should add `no-js` and `core` class names to your document element (`<html>`). These can be used as hooks for styling elements when providing a non-enhanced, core experience. They will be swapped with `js` and `enhanced` class names if the bootstrap runs successfully.
 
 ```diff
 <!DOCTYPE html>
@@ -19,9 +19,11 @@ After installing the module you should add `no-js` and `core` class names to you
 + <html class="no-js core">
 ```
 
-The bootstrap code should be embedded in the `<head>` section of your pages to ensure scripts begin downloading as soon as possible.
+### Server-side
 
-If you are building a React or you can use the `Bootstrap` component:
+_Please note_ that the bootstrap code should be embedded in the `<head>` section of your pages to ensure scripts begin downloading as soon as possible.
+
+If you are using React to render your app you can use the `Bootstrap` component:
 
 ```jsx
 import { Bootstrap } from '@financial-times/anvil-ui-bootstrap/component'
@@ -40,7 +42,7 @@ export default (props) => {
 }
 ```
 
-Otherwise this module provides two methods to integrate the bootstrap code. First you must insert a JSON formatted string of configuration into a `<script>` element with an ID of `bootstrap-config`. Secondly you must embed the bootstrap script itself:
+Otherwise this module provides two methods to integrate the bootstrap code into your templates. First you must insert a JSON formatted string of configuration into a `<script>` element with an ID of `anvil-bootstrap-config` and secondly you must embed the bootstrap script itself:
 
 ```js
 const bootstrap = require('@financial-times/anvil-ui-bootstrap')
@@ -51,8 +53,8 @@ function page() {
     <head>
       <meta charset="utf-8">
       <title>My Amazing Website</title>
-      <script type="application/json" id="bootstrap-config">
-        ${bootstrap.formatConfigJSON(options)}
+      <script type="application/json" id="anvil-bootstrap-config">
+        ${bootstrap.formatConfigJSON(coreScripts, enhancedScripts)}
       </script>
       <script>
         ${bootstrap.getBootstrapJS()}
@@ -70,7 +72,7 @@ function page() {
 
 ### `.formatConfigJSON(coreScripts, enhancedScripts)`
 
-Returns a JSON formatted string representing the configuration for the bootstrap snippet. This must be inserted into a `<script>` element with an ID of `bootstrap-config`. This method requires two arguments:
+Returns a JSON formatted string representing the configuration for the bootstrap snippet. This must be inserted into a `<script>` element with an ID of `anvil-bootstrap-config`. This method requires two arguments:
 
 1. `coreScripts`
 

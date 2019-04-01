@@ -11,7 +11,7 @@ export function Bootstrap(props: TBootstrapProps) {
     <React.Fragment>
       <script
         type="application/json"
-        id="bootstrap-config"
+        id="anvil-bootstrap-config"
         dangerouslySetInnerHTML={{ __html: formatConfigJSON(props.coreScripts, props.enhancedScripts) }}
       />
       <script dangerouslySetInnerHTML={{ __html: getBootstrapJS() }} />
