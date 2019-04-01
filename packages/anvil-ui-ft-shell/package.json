@@ -12,7 +12,7 @@
     "clean:node_modules": "rm -rf node_modules",
     "clean:install": "npm run clean && npm i",
     "build:cjs": "npm run tsc -- --outDir ./dist/cjs",
-    "build": "npm run clean:dist && npm run build:cjs",
+    "build": "npm run build:cjs",
     "dev": "npm run clean:dist && npm run build:cjs -- --watch"
   },
   "keywords": [],

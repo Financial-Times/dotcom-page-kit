@@ -14,7 +14,7 @@
     "clean:install": "npm run clean && npm i",
     "build:node": "npm run tsc -- --outDir ./dist/node --module commonjs --target es5",
     "build:browser": "npm run tsc -- --outDir ./dist/browser --module esNext --target es5",
-    "build": "npm run clean:dist && npm run build:node && npm run build:browser",
+    "build": "npm run build:node && npm run build:browser",
     "dev": "npm run build -- --watch"
   },
   "keywords": [],
