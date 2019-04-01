@@ -1,4 +1,4 @@
-import { formatFlagsJSON as subject } from '..'
+import subject from '../formatFlagsJSON'
 
 const fixture = Object.freeze({ foo: 1, bar: false, baz: 'qux' })
 

@@ -1,4 +1,4 @@
-import { TFlagsData, TFlag } from './types'
+import { TFlagsData, TFlag } from '../types'
 
 export default class Flags {
   private flags: TFlagsData

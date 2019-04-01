@@ -22,5 +22,8 @@
   "license": "ISC",
   "engines": {
     "node": ">= 8.15.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
   }
 }
