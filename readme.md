@@ -138,3 +138,11 @@ npm run storybook
 The Storybook interface should then automatically open in your default browser. Storybook has been configured to automatically find stories in files ending with `*story.tsx` inside packages prefixed with `anvil-ui-`.
 
 _Please note_ that the Storybook configuration file at `./.storybook/config.js` is automatically generated from the template located at `./.storybook/config.template.js`. Anything that needs to be added to the Storybook configuration file should be added to `./.storybook/config.template.js`. You do not need to manually add stories to the Storybook configuration file as these will be automatically discovered.
+
+### Updating a dependency across the repo
+
+To upgrade to the latest version of a particular prod, dev and peer dependency across the entire repo, use the `npm run script:update <dependency>` command. For instance, to upgrade to the latest version of `react`, you would run the following:
+
+```
+npm run script:update react
+```
