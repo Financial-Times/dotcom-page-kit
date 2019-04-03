@@ -2,7 +2,8 @@
   "name": "anvil-ui-ft-header",
   "dependencies": {
     "o-header": "^7.7.0",
-    "n-topic-search": "^1.0.4"
+    "n-topic-search": "^1.0.4",
+    "n-ui-foundations": "^3.0.2"
   },
   "main": ["browser.js", "styles.scss"]
 }
