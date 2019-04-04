@@ -1,15 +1,7 @@
 import menuData from './menus.json'
 import middlewareData from './middleware.json'
 
-const {
-  'drawer-uk': drawer,
-  'navbar-uk': navbar,
-  'navbar-right': navbarRight,
-  'navbar-right-anon': navbarRightAnon,
-  'navbar-simple': navbarSimple
-} = menuData
-
-const { editions, breadcrumb, subsections } = middlewareData
+const { 'drawer-uk': drawer, 'navbar-uk': navbar } = menuData
 
 export const data = {
   showUserNav: false,
@@ -18,13 +10,9 @@ export const data = {
   userIsLoggedIn: true,
   showSubNav: true,
   data: {
-    navbar,
-    navbarRight,
-    navbarRightAnon,
-    navbarSimple,
+    ...menuData,
+    ...middlewareData,
     drawer,
-    editions,
-    breadcrumb,
-    subsections
+    navbar
   }
 }
