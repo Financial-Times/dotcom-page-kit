@@ -5,7 +5,6 @@ import * as header from '../../browser.js'
 import { OnReady } from '@financial-times/anvil-ui-ft-on-ready'
 import { HeaderDefault, Drawer, HeaderSticky, LogoOnly } from '../../src'
 import storyData from './story-data'
-import topicSearch from 'n-topic-search'
 import '../../styles.scss'
 import './demos.scss'
 
@@ -16,16 +15,7 @@ const toggleShowSubNav = () => boolean('Show the crumbtrail component', true)
 const toggleDisableSticky = () => boolean('Disable sticky header', false)
 
 const onReadyCallback = () => {
-  const topicSearchElements = document.querySelectorAll(
-    '.o-header [data-n-topic-search], .o-header__drawer [data-n-topic-search]'
-  )
-  for (const element of topicSearchElements) {
-    // Passing a cors-anywhere hostname to n-topic-search
-    // An 'origin' request header will be set on the subsequent fetch request to next-search-api
-    // This satisfies the api's cors rules allowing a response to be sent and rendered on localhost
-    new topicSearch(element, { hostName: 'cors-anywhere.herokuapp.com/www.ft.com' })
-  }
-  header.init()
+  header.init({ hostName: 'cors-anywhere.herokuapp.com/www.ft.com' })
 }
 
 storiesOf('FT / Header', module)
@@ -50,7 +40,7 @@ storiesOf('FT / Header', module)
     }
 
     return (
-      <OnReady callback={() => header.init()}>
+      <OnReady callback={onReadyCallback}>
         <HeaderDefault {...storyData} {...knobs} />
         <Drawer {...storyData} {...knobs} />
       </OnReady>
