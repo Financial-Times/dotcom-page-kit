@@ -44,7 +44,7 @@
   }
 
   function getScriptsConfig() {
-    var scriptsConfigEl = document.getElementById('bootstrap-config')
+    var scriptsConfigEl = document.getElementById('anvil-bootstrap-config')
     var scriptsConfig = { core: [], enhanced: [] }
 
     if (scriptsConfigEl) {

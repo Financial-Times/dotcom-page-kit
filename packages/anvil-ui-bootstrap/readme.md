@@ -5,13 +5,13 @@ This module provides a JavaScript bootstrap for your client-side code which can 
 
 ## Getting started
 
-This module is compatible with Node 10+ and is distributed on npm.
+This module is compatible with Node 8+ and is distributed on npm.
 
 ```sh
 npm install --save @financial-times/anvil-ui-bootstrap
 ```
 
-After installing the module you should add `no-js` and `core` class names to your document element (`<html>`).
+After installing the module you should add `no-js` and `core` class names to your document element (`<html>`). These can be used as hooks for styling elements when providing a non-enhanced, core experience. They will be swapped with `js` and `enhanced` class names if the bootstrap runs successfully.
 
 ```diff
 <!DOCTYPE html>
@@ -19,21 +19,43 @@ After installing the module you should add `no-js` and `core` class names to you
 + <html class="no-js core">
 ```
 
-This module provides two methods which each return a piece of the bootstrap code: the configuration JSON and the JavaScript snippet.
+### Server-side
 
-The bootstrap code should be embedded in the `<head>` section of your pages to ensure scripts begin downloading as soon as possible.
+_Please note_ that the bootstrap code should be embedded in the `<head>` section of your pages to ensure scripts begin downloading as soon as possible.
+
+If you are using React to render your app you can use the `Bootstrap` component:
+
+```jsx
+// NOTE: Explicit import from /component
+import { Bootstrap } from '@financial-times/anvil-ui-bootstrap/component'
+
+export default (props) => (
+  <html class="no-js core">
+    <head>
+      <meta charSet="utf-8" />
+      <title>My Amazing Website</title>
+      <Bootstrap coreScripts={coreScripts} enhancedScripts={enhancedScripts} />
+    </head>
+    <body>
+      ...
+    </body>
+  </html>
+)
+```
+
+Otherwise this module provides two methods to integrate the bootstrap code into your templates. First you must insert a JSON formatted string of configuration into a `<script>` element with an ID of `anvil-bootstrap-config` and secondly you must embed the bootstrap script itself:
 
 ```js
-const bootstrap = require('@financial-times/anvil-ui-bootstrap')
+const bootstrap = require('@financial-times/anvil-ui-bootstrap/node')
 
 function page() {
   return `<!DOCTYPE html>
     <html class="no-js core">
     <head>
-      <meta charSet="utf-8">
+      <meta charset="utf-8">
       <title>My Amazing Website</title>
-      <script type="application/json" id="bootstrap-config">
-        ${bootstrap.formatConfigJSON(options)}
+      <script type="application/json" id="anvil-bootstrap-config">
+        ${bootstrap.formatConfigJSON(coreScripts, enhancedScripts)}
       </script>
       <script>
         ${bootstrap.getBootstrapJS()}
@@ -46,12 +68,16 @@ function page() {
 }
 ```
 
+### Client-side
+
+There is no client-side integration required. The bootstrap script should be embedded into your pages on the server-side.
+
 
 ## API
 
 ### `.formatConfigJSON(coreScripts, enhancedScripts)`
 
-Returns a JSON formatted string representing the configuration for the bootstrap snippet. This must be inserted into a `<script>` element with an ID of `bootstrap-config`. This method requires two arguments:
+Returns a JSON formatted string representing the configuration for the bootstrap snippet. This must be inserted into a `<script>` element with an ID of `anvil-bootstrap-config`. This method requires two arguments:
 
 1. `coreScripts`
 
@@ -86,4 +112,4 @@ If the browser passes the [cuts the mustard](#cutting-the-mustard) test then the
 
 ### Script loading
 
-The configured script files will be asynchronously loaded (non-blocking) and executed in order.
+The configured script files will be asynchronously loaded and executed when ready. There is no guarantee that they will be downloaded and executed in the order specified.
