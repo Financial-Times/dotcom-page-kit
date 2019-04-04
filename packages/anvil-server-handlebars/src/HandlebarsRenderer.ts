@@ -1,7 +1,8 @@
 import mixinDeep from 'mixin-deep'
-import Handlebars, { Template, HelperDelegate } from 'handlebars'
-import loadPartialFiles, { TFilePaths } from './loadPartialFiles'
+import Handlebars, { HelperDelegate, TemplateDelegate } from 'handlebars'
+import loadPartialFiles, { TFileGlobs } from './loadPartialFiles'
 import loadFileContents from './loadFileContents'
+import { RenderCallback } from './types'
 
 export type TOptions = {
   /** Template file extension, defaults to .html */
@@ -14,11 +15,11 @@ export type TOptions = {
 
   /** Preloaded partial templates to register */
   partials: {
-    [key: string]: Template
+    [key: string]: TemplateDelegate
   }
 
   /** Folders containing partial files to dynamically find and load */
-  partialDirGlobs: TFilePaths
+  partialDirGlobs: TFileGlobs
 }
 
 const defaultOptions: TOptions = {
@@ -34,25 +35,42 @@ const defaultOptions: TOptions = {
 
 class HandlebarsRenderer {
   public options: TOptions
-  private cache = new Map()
+  private cache: Map<string, TemplateDelegate> = new Map()
 
   constructor(userOptions?: Partial<TOptions>) {
     this.options = mixinDeep({}, defaultOptions, userOptions)
 
-    Object.entries(this.options.helpers).forEach(([name, helper]) => {
-      Handlebars.registerHelper(name, helper)
-    })
+    Handlebars.registerHelper(this.options.helpers)
 
-    Object.entries(this.options.partials).forEach(([name, partial]) => {
-      Handlebars.registerPartial(name, partial)
-    })
+    Handlebars.registerPartial(this.options.partials)
 
-    const partials = loadPartialFiles(this.options.partialDirGlobs, this.options.extension)
+    // Load all partial templates and cache them ahead of time.
+    // This is synchronous but should only happen once on app startup.
+    // They will be lazily compiled by Handlebars when used.
+    const partialFiles = loadPartialFiles(this.options.partialDirGlobs, this.options.extension)
 
-    Object.entries(partials).forEach(([name, filePath]) => {
-      const contents = loadFileContents(filePath)
-      Handlebars.registerPartial(name, contents)
+    Object.entries(partialFiles).forEach(([name, filePath]) => {
+      const template = loadFileContents(filePath)
+      Handlebars.registerPartial(name, template)
     })
+  }
+
+  renderView(viewPath: string, context: any, callback: RenderCallback): void {
+    try {
+      if (!this.cache.has(viewPath)) {
+        const contents = loadFileContents(viewPath)
+        const template = Handlebars.compile(contents)
+
+        this.cache.set(viewPath, template)
+      }
+
+      const view = this.cache.get(viewPath)
+      const html = view(context)
+
+      callback(null, html)
+    } catch (error) {
+      callback(error)
+    }
   }
 }
 

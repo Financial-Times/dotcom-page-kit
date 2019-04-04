@@ -2,7 +2,7 @@ import formatGlobPattern from './formatGlobPattern'
 import formatPartialName from './formatPartialName'
 import findPartialFiles from './findPartialFiles'
 
-export type TFilePaths = {
+export type TFileGlobs = {
   [key: string]: string
 }
 
@@ -10,7 +10,7 @@ export type TFileContents = {
   [key: string]: string
 }
 
-export default function loadPartialFiles(filePaths: TFilePaths, extension: string): TFileContents {
+export default function loadPartialFiles(filePaths: TFileGlobs, extension: string): TFileContents {
   const partialFiles = {}
 
   Object.entries(filePaths).forEach(([relativePath, globPattern]) => {
