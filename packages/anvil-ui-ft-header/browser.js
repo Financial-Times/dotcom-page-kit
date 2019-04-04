@@ -16,9 +16,6 @@ export const init = (headerOptions = {}) => {
     '.o-header [data-n-topic-search], .o-header__drawer [data-n-topic-search]'
   )
   topicSearchElements.forEach((element) => {
-    // Passing a cors-anywhere hostname to n-topic-search
-    // An 'origin' request header will be set on the subsequent fetch request to next-search-api
-    // This satisfies the api's cors rules allowing a response to be sent and rendered on localhost
     new TopicSearch(element, headerOptions)
   })
 

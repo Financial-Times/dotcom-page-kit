@@ -15,6 +15,9 @@ const toggleShowSubNav = () => boolean('Show the crumbtrail component', true)
 const toggleDisableSticky = () => boolean('Disable sticky header', false)
 
 const onReadyCallback = () => {
+  // Passing a cors-anywhere hostname to n-topic-search
+  // An 'origin' request header will be set on the subsequent fetch request to next-search-api
+  // This satisfies the api's cors rules allowing a response to be sent and rendered on localhost
   header.init({ hostName: 'cors-anywhere.herokuapp.com/www.ft.com' })
 }
 
