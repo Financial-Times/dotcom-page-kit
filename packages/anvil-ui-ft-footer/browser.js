@@ -2,7 +2,7 @@ import Footer from 'o-footer'
 
 /**
  * @typedef FooterOptions
- * @property { HTMLElement } [rootElement] the root element passed to o-footer
+ * @property { HTMLElement } [rootElement] - the root element passed to o-footer
  */
 
 /**

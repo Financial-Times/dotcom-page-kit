@@ -1,9 +1,11 @@
 # @financial-times/anvil-ui-ft-header
 
-This package provides components which return variants of the header components for ft.com; the standard ft.com `HeaderDefault`, a `HeaderSticky`, and a `LogoOnly` variant as well as the `Drawer` component which is rendered separately.
+This package provides templates which return variants of the page header and navigation drawer for ft.com.
 
 
-### Getting started
+## Getting started
+
+### Instalation
 
 This module is compatible with Node 10+ and is distributed on npm.
 
@@ -13,30 +15,26 @@ npm install --save @financial-times/anvil-ui-ft-header
 
 Create an [Express] server using the [anvil-middleware-ft-edition] and [anvil-middleware-ft-navigation] middlewares.
 
-```js
-const express = require('express')
+### Server-side
 
-const editionMiddleware = require('@financial-times/anvil-middleware-ft-edition')
-const navigationMiddleware = require('@financial-times/anvil-middleware-ft-navigation')
-
-const app = express()
-
-app.use(editionMiddleware.init())
-app.use(navigationMiddleware.init())
-
-module.exports = app
-```
-
-Include a header component in your html template and pass in a data object:
+To render header components include them in your template code and pass in a data object.
 
 ```jsx
-import { HeaderDefault } from 'anvil-ui-ft-header'
-let headerProps
+import { HeaderDefault, Drawer } from 'anvil-ui-ft-header'
+const header = () => {
+  <HeaderDefault {...headerProps} />
+  <Drawer {...headerProps}/>
+}
+```
 
-headerProps.data = response.locals.navigation
-headerProps.data.editions = response.locals.editions
+### Client-side
 
-<HeaderDefault {...headerProps} />
+Once you are rendering the header components in your page you will need to initialise the client-side code to add interactive behaviour including search typeahead and toggling the drawer menu and sticky header.
+
+```js
+import * as header from '@financial-times/anvil-ui-ft-header'
+
+header.init()
 ```
 
 
