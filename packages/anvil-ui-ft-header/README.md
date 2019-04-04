@@ -1,11 +1,11 @@
 # @financial-times/anvil-ui-ft-header
 
-This package provides templates which return variants of the page header and navigation drawer for ft.com.
+This package provides templates which render variants of the page header and navigation drawer for ft.com.
 
 
 ## Getting started
 
-### Instalation
+### Installation
 
 This module is compatible with Node 10+ and is distributed on npm.
 
@@ -17,7 +17,7 @@ Create an [Express] server using the [anvil-middleware-ft-edition] and [anvil-mi
 
 ### Server-side
 
-To render header components include them in your template code and pass in a data object.
+To render header components include them in your template code and pass in a data object. The data can be fetched using the [anvil-server-ft-navigation] package or it's middleware.
 
 ```jsx
 import { HeaderDefault, Drawer } from 'anvil-ui-ft-header'
