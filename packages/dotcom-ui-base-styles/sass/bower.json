@@ -10,7 +10,7 @@
     "tests"
   ],
   "dependencies": {
-    "ftdomdelegate": "^2.0.0",
+    "ftdomdelegate": "^3.0.0",
     "o-buttons": ">=4.0.0 <6",
     "o-colors": "^4.0.1",
     "o-date": "^2.8.0",
