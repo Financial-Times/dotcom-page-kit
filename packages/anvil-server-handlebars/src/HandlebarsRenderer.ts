@@ -1,55 +1,57 @@
 import mixinDeep from 'mixin-deep'
 import Handlebars, { Template, HelperDelegate } from 'handlebars'
 import loadPartialFiles, { TFilePaths } from './loadPartialFiles'
+import loadFileContents from './loadFileContents'
 
-export type TRendererOptions = {
+export type TOptions = {
   /** Template file extension, defaults to .html */
   extension: string
 
-  /** Extra Handlebars helper functions to register */
+  /** Handlebars helper functions to register */
   helpers: {
     [key: string]: HelperDelegate
   }
 
-  /** Preloaded partial templates */
+  /** Preloaded partial templates to register */
   partials: {
     [key: string]: Template
   }
 
-  partialFilePaths: TFilePaths
+  /** Folders containing partial files to dynamically find and load */
+  partialDirGlobs: TFilePaths
 }
 
-const defaultPartialFilePaths = {
-  'views/partials': ['**/*'],
-  bower_components: ['n-*/templates/**/*', 'n-*/components/**/*'],
-  'node_modules/@financial-times': ['*/templates/**/*', '*/components/**/*']
-}
-
-const defaultOptions: TRendererOptions = {
+const defaultOptions: TOptions = {
   extension: '.html',
   helpers: {},
   partials: {},
-  partialFilePaths: defaultPartialFilePaths
+  partialDirGlobs: {
+    './views/partials': '**/*',
+    './bower_components': 'n-*/{templates,components}/**/*',
+    './node_modules/@financial-times': '*/{templates,components}/**/*'
+  }
 }
 
 class HandlebarsRenderer {
-  public options: TRendererOptions
+  public options: TOptions
+  private cache = new Map()
 
-  constructor(userOptions?: Partial<TRendererOptions>) {
+  constructor(userOptions?: Partial<TOptions>) {
     this.options = mixinDeep({}, defaultOptions, userOptions)
 
-    const loadedPartials = loadPartialFiles(this.options.partialFilePaths, this.options.extension)
-
-    Object.entries(loadedPartials).forEach(([name, partial]) => {
-      Handlebars.registerPartial(name, partial)
+    Object.entries(this.options.helpers).forEach(([name, helper]) => {
+      Handlebars.registerHelper(name, helper)
     })
 
     Object.entries(this.options.partials).forEach(([name, partial]) => {
       Handlebars.registerPartial(name, partial)
     })
 
-    Object.entries(this.options.helpers).forEach(([name, helper]) => {
-      Handlebars.registerHelper(name, helper)
+    const partials = loadPartialFiles(this.options.partialDirGlobs, this.options.extension)
+
+    Object.entries(partials).forEach(([name, filePath]) => {
+      const contents = loadFileContents(filePath)
+      Handlebars.registerPartial(name, contents)
     })
   }
 }

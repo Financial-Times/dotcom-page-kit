@@ -1,10 +1,9 @@
-import findPartialFiles from './findPartialFiles'
 import formatGlobPattern from './formatGlobPattern'
-import loadFileContents from './loadFileContents'
 import formatPartialName from './formatPartialName'
+import findPartialFiles from './findPartialFiles'
 
 export type TFilePaths = {
-  [key: string]: string[]
+  [key: string]: string
 }
 
 export type TFileContents = {
@@ -14,15 +13,13 @@ export type TFileContents = {
 export default function loadPartialFiles(filePaths: TFilePaths, extension: string): TFileContents {
   const partialFiles = {}
 
-  Object.entries(filePaths).forEach(([relativePath, globPatterns]) => {
-    const globPattern = formatGlobPattern(globPatterns, extension)
-    const filePaths = findPartialFiles(relativePath, globPattern)
+  Object.entries(filePaths).forEach(([relativePath, globPattern]) => {
+    const pattern = formatGlobPattern(globPattern, extension)
+    const filePaths = findPartialFiles(relativePath, pattern)
 
     filePaths.forEach((filePath) => {
       const name = formatPartialName(relativePath, filePath)
-      const contents = loadFileContents(filePath)
-
-      partialFiles[name] = contents
+      partialFiles[name] = filePath
     })
   })
 
