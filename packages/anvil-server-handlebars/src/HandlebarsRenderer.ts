@@ -5,8 +5,11 @@ import loadFileContents from './loadFileContents'
 import { RenderCallback } from './types'
 
 export type TOptions = {
-  /** Template file extension, defaults to .html */
-  extension: string
+  /** Current working directory - defaults to process.cwd() */
+  rootDirectory: string
+
+  /** Template file extension, defaults to ".html" */
+  fileExtension: string
 
   /** Handlebars helper functions to register */
   helpers: {
@@ -23,7 +26,8 @@ export type TOptions = {
 }
 
 const defaultOptions: TOptions = {
-  extension: '.html',
+  rootDirectory: process.cwd(),
+  fileExtension: '.html',
   helpers: {},
   partials: {},
   partialDirGlobs: {
@@ -47,7 +51,11 @@ class HandlebarsRenderer {
     // Load all partial templates and cache them ahead of time.
     // This is synchronous but should only happen once on app startup.
     // They will be lazily compiled by Handlebars when used.
-    const partialFiles = loadPartialFiles(this.options.partialDirGlobs, this.options.extension)
+    const partialFiles = loadPartialFiles(
+      this.options.rootDirectory,
+      this.options.partialDirGlobs,
+      this.options.fileExtension
+    )
 
     Object.entries(partialFiles).forEach(([name, filePath]) => {
       const template = loadFileContents(filePath)
@@ -55,18 +63,21 @@ class HandlebarsRenderer {
     })
   }
 
-  renderView(viewPath: string, context: any, callback: RenderCallback): void {
+  render(viewPath: string, context: any): string {
+    if (!this.cache.has(viewPath)) {
+      const contents = loadFileContents(viewPath)
+      const template = Handlebars.compile(contents)
+
+      this.cache.set(viewPath, template)
+    }
+
+    const view = this.cache.get(viewPath)
+    return view(context)
+  }
+
+  renderView(viewPath: string, context: any, callback?: RenderCallback): void {
     try {
-      if (!this.cache.has(viewPath)) {
-        const contents = loadFileContents(viewPath)
-        const template = Handlebars.compile(contents)
-
-        this.cache.set(viewPath, template)
-      }
-
-      const view = this.cache.get(viewPath)
-      const html = view(context)
-
+      const html = this.render(viewPath, context)
       callback(null, html)
     } catch (error) {
       callback(error)
