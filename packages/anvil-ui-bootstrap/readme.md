@@ -67,6 +67,10 @@ function page() {
 }
 ```
 
+### Client-side
+
+There is no client-side integration required. The bootstrap script should be embedded into your pages on the server-side.
+
 
 ## API
 
@@ -107,4 +111,4 @@ If the browser passes the [cuts the mustard](#cutting-the-mustard) test then the
 
 ### Script loading
 
-The configured script files will be asynchronously loaded (non-blocking) and executed in order.
+The configured script files will be asynchronously loaded and executed when ready. There is no guarantee that they will be downloaded and executed in the order specified.
