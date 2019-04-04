@@ -26,6 +26,7 @@ _Please note_ that the bootstrap code should be embedded in the `<head>` section
 If you are using React to render your app you can use the `Bootstrap` component:
 
 ```jsx
+// NOTE: Explicit import from /component
 import { Bootstrap } from '@financial-times/anvil-ui-bootstrap/component'
 
 export default (props) => (
@@ -45,7 +46,7 @@ export default (props) => (
 Otherwise this module provides two methods to integrate the bootstrap code into your templates. First you must insert a JSON formatted string of configuration into a `<script>` element with an ID of `anvil-bootstrap-config` and secondly you must embed the bootstrap script itself:
 
 ```js
-const bootstrap = require('@financial-times/anvil-ui-bootstrap')
+const bootstrap = require('@financial-times/anvil-ui-bootstrap/node')
 
 function page() {
   return `<!DOCTYPE html>
