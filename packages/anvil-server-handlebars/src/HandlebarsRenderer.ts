@@ -6,7 +6,7 @@ import { RenderCallback } from './types'
 
 export type TOptions = {
   /**
-   * Provide an instance of Handlebars to extend
+   * An instance of Handlebars to extend. This option is required.
    */
   handlebars: typeof Handlebars
 
@@ -17,7 +17,7 @@ export type TOptions = {
   rootDirectory?: string
 
   /**
-   * Additional helper functions to register with Handlebars
+   * Additional helper functions to register with Handlebars.
    * @default {}
    */
   helpers?: {
@@ -25,7 +25,7 @@ export type TOptions = {
   }
 
   /**
-   * Preloaded partial templates to register. Defaults to {}.
+   * Partial templates to register with Handlebars.
    * @default {}
    */
   partials?: {
@@ -33,7 +33,7 @@ export type TOptions = {
   }
 
   /**
-   * Folders containing partial files to dynamically find and load.
+   * A list of directories and patterns used to dynamically find and load partial template files.
    * @default { './views/partials': '**\/*.{hbs,html}' }
    */
   partialPaths?: TFilePaths
@@ -72,23 +72,23 @@ class HandlebarsRenderer {
     })
   }
 
-  render(viewPath: string, context: any): string {
-    if (!this.cache.has(viewPath)) {
-      const contents = loadFileContents(viewPath)
+  render(templatePath: string, context: any): string {
+    if (!this.cache.has(templatePath)) {
+      const contents = loadFileContents(templatePath)
       const template = this.options.handlebars.compile(contents)
 
-      this.cache.set(viewPath, template)
+      this.cache.set(templatePath, template)
     }
 
-    const view = this.cache.get(viewPath)
+    const view = this.cache.get(templatePath)
     const html = view(context)
 
     return html.trim()
   }
 
-  renderView(viewPath: string, context: any, callback: RenderCallback): void {
+  renderView(templatePath: string, context: any, callback: RenderCallback): void {
     try {
-      const html = this.render(viewPath, context)
+      const html = this.render(templatePath, context)
       callback(null, html)
     } catch (error) {
       callback(error)
