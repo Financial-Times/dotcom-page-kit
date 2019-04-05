@@ -1,3 +1,4 @@
+import path from 'path'
 import mixinDeep from 'mixin-deep'
 import Handlebars, { HelperDelegate, TemplateDelegate } from 'handlebars'
 import loadPartialFiles, { TFileGlobs } from './loadPartialFiles'
@@ -9,10 +10,10 @@ export type TOptions = {
   /** Current working directory - defaults to process.cwd() */
   rootDirectory: string
 
-  /** Template file extension, defaults to ".html" */
+  /** Template file name extension. Defaults to ".html" */
   fileExtension: string
 
-  /** Handlebars helper functions to register */
+  /** Additional helper functions to register with Handlebars. Defaults to {}. */
   helpers: {
     [key: string]: HelperDelegate
   }
@@ -22,8 +23,11 @@ export type TOptions = {
     [key: string]: TemplateDelegate
   }
 
+  /** Path to a directory containing view template files. Defaults to "./views/" */
+  viewDirectory: string
+
   /** Folders containing partial files to dynamically find and load */
-  partialDirGlobs: TFileGlobs
+  partialDirectories: TFileGlobs
 }
 
 const defaultOptions: TOptions = {
@@ -31,7 +35,8 @@ const defaultOptions: TOptions = {
   fileExtension: '.html',
   helpers: {},
   partials: {},
-  partialDirGlobs: {
+  viewDirectory: './views',
+  partialDirectories: {
     './views/partials': '**/*',
     './bower_components': 'n-*/{templates,components}/**/*',
     './node_modules/@financial-times': '*/{templates,components}/**/*'
@@ -54,19 +59,28 @@ class HandlebarsRenderer {
     // Partials will be lazily compiled by Handlebars when used.
     const partialFiles = loadPartialFiles(
       this.options.rootDirectory,
-      this.options.partialDirGlobs,
+      this.options.partialDirectories,
       this.options.fileExtension
     )
 
-    partialFiles.forEach((partialFile) => {
-      const name = getPartialName(this.options.rootDirectory, partialFile)
-      const contents = loadFileContents(partialFile)
+    Object.keys(partialFiles).forEach((relativePath) => {
+      const partialPath = partialFiles[relativePath]
+      const contents = loadFileContents(partialPath)
+      const name = getPartialName(relativePath)
 
       Handlebars.registerPartial(name, contents)
     })
   }
 
   render(viewPath: string, context: any): string {
+    if (!path.isAbsolute(viewPath)) {
+      viewPath = path.resolve(this.options.rootDirectory, this.options.viewDirectory, viewPath)
+    }
+
+    if (!path.extname(viewPath)) {
+      viewPath = viewPath + this.options.fileExtension
+    }
+
     if (!this.cache.has(viewPath)) {
       const contents = loadFileContents(viewPath)
       const template = Handlebars.compile(contents)
@@ -75,7 +89,9 @@ class HandlebarsRenderer {
     }
 
     const view = this.cache.get(viewPath)
-    return view(context)
+    const html = view(context)
+
+    return html.trim()
   }
 
   renderView(viewPath: string, context: any, callback: RenderCallback): void {

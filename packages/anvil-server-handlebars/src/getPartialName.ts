@@ -1,8 +1,6 @@
 import path from 'path'
 
-export default function formatPartialName(baseDirectory: string, filePath: string) {
+export default function formatPartialName(filePath: string) {
   const extname = path.extname(filePath)
-  const relativePath = path.relative(baseDirectory, filePath)
-
-  return relativePath.replace(extname, '');
+  return filePath.replace(extname, '')
 }
