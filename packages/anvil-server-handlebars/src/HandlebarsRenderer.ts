@@ -5,23 +5,38 @@ import loadFileContents from './loadFileContents'
 import { RenderCallback } from './types'
 
 export type TOptions = {
-  /** Current working directory - defaults to process.cwd() */
+  /**
+   * Current working directory.
+   * @default process.cwd()
+   */
   rootDirectory: string
 
-  /** Template file name extension. Defaults to ".html" */
+  /**
+   * Template file name extension.
+   * @default ".html"
+   */
   fileExtension: string
 
-  /** Additional helper functions to register with Handlebars. Defaults to {}. */
+  /**
+   * Additional helper functions to register with Handlebars
+   * @default {}
+   */
   helpers: {
     [key: string]: HelperDelegate
   }
 
-  /** Preloaded partial templates to register */
+  /**
+   * Preloaded partial templates to register. Defaults to {}.
+   * @default {}
+   */
   partials: {
     [key: string]: TemplateDelegate
   }
 
-  /** Folders containing partial files to dynamically find and load */
+  /**
+   * Folders containing partial files to dynamically find and load.
+   * @default { './views/partials': '**\/*' }
+   */
   partialDirectories: TFilePaths
 }
 
