@@ -12,12 +12,6 @@ export type TOptions = {
   rootDirectory: string
 
   /**
-   * Template file name extension.
-   * @default ".html"
-   */
-  fileExtension: string
-
-  /**
    * Additional helper functions to register with Handlebars
    * @default {}
    */
@@ -37,18 +31,17 @@ export type TOptions = {
    * Folders containing partial files to dynamically find and load.
    * @default { './views/partials': '**\/*' }
    */
-  partialDirectories: TFilePaths
+  partialPaths: TFilePaths
 }
 
 const defaultOptions: TOptions = {
   rootDirectory: process.cwd(),
-  fileExtension: '.html',
   helpers: {},
   partials: {},
-  partialDirectories: {
-    './views/partials': '**/*',
-    './bower_components': 'n-*/{templates,components}/**/*',
-    './node_modules/@financial-times': '*/{templates,components}/**/*'
+  partialPaths: {
+    './views/partials': '**/*.{hbs,html}',
+    './bower_components': '*/{templates,components}/**/*{hbs,html}',
+    './node_modules/@financial-times': '*/{templates,components}/**/*{hbs,html}'
   }
 }
 
@@ -66,11 +59,7 @@ class HandlebarsRenderer {
     // Load all partial templates and register them ahead of time.
     // This is synchronous but should only happen once and take < 100ms.
     // Partials will be lazily compiled by Handlebars when used.
-    const partialFiles = findPartialFiles(
-      this.options.rootDirectory,
-      this.options.partialDirectories,
-      this.options.fileExtension
-    )
+    const partialFiles = findPartialFiles(this.options.rootDirectory, this.options.partialPaths)
 
     Object.keys(partialFiles).forEach((partialName) => {
       const contents = loadFileContents(partialFiles[partialName])
