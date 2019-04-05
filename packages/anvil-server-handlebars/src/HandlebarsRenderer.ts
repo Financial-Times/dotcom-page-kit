@@ -1,6 +1,6 @@
 import mixinDeep from 'mixin-deep'
 import Handlebars, { HelperDelegate, TemplateDelegate } from 'handlebars'
-import findPartialFiles, { TFileGlobs } from './findPartialFiles'
+import findPartialFiles, { TFilePaths } from './findPartialFiles'
 import loadFileContents from './loadFileContents'
 import { RenderCallback } from './types'
 
@@ -22,7 +22,7 @@ export type TOptions = {
   }
 
   /** Folders containing partial files to dynamically find and load */
-  partialDirectories: TFileGlobs
+  partialDirectories: TFilePaths
 }
 
 const defaultOptions: TOptions = {

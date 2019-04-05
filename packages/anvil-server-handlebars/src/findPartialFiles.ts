@@ -1,19 +1,15 @@
 import path from 'path'
 import glob from 'glob'
 
-export type TFileGlobs = {
-  [key: string]: string
-}
-
 export type TFilePaths = {
   [key: string]: string
 }
 
-export default function loadPartialFiles(cwd: string, filePaths: TFileGlobs, extension: string): TFilePaths {
+export default function loadPartialFiles(cwd: string, partials: TFilePaths, extension: string): TFilePaths {
   const partialFiles = {}
 
-  Object.keys(filePaths).forEach((relativePath) => {
-    const globPattern = filePaths[relativePath]
+  Object.keys(partials).forEach((relativePath) => {
+    const globPattern = partials[relativePath]
     const baseDirectory = path.resolve(cwd, relativePath)
 
     const matchingFiles = glob.sync(`${globPattern}${extension}`, {
