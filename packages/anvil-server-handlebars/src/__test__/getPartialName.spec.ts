@@ -1,7 +1,7 @@
 import path from 'path'
-import subject from '../formatPartialName'
+import subject from '../getPartialName'
 
-describe('anvil-server-handlebars/src/formatPartialName', () => {
+describe('anvil-server-handlebars/src/getPartialName', () => {
   it('returns the path relative to the base directory', () => {
     const baseDirectory = './views/partials'
     const absolutePath = path.resolve(baseDirectory)

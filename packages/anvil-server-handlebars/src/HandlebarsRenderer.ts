@@ -2,6 +2,7 @@ import mixinDeep from 'mixin-deep'
 import Handlebars, { HelperDelegate, TemplateDelegate } from 'handlebars'
 import loadPartialFiles, { TFileGlobs } from './loadPartialFiles'
 import loadFileContents from './loadFileContents'
+import getPartialName from './getPartialName'
 import { RenderCallback } from './types'
 
 export type TOptions = {
@@ -48,18 +49,20 @@ class HandlebarsRenderer {
 
     Handlebars.registerPartial(this.options.partials)
 
-    // Load all partial templates and cache them ahead of time.
-    // This is synchronous but should only happen once on app startup.
-    // They will be lazily compiled by Handlebars when used.
+    // Load all partial templates and register them ahead of time.
+    // This is synchronous but should only happen once and take < 100ms.
+    // Partials will be lazily compiled by Handlebars when used.
     const partialFiles = loadPartialFiles(
       this.options.rootDirectory,
       this.options.partialDirGlobs,
       this.options.fileExtension
     )
 
-    Object.entries(partialFiles).forEach(([name, filePath]) => {
-      const template = loadFileContents(filePath)
-      Handlebars.registerPartial(name, template)
+    partialFiles.forEach((partialFile) => {
+      const name = getPartialName(this.options.rootDirectory, partialFile)
+      const contents = loadFileContents(partialFile)
+
+      Handlebars.registerPartial(name, contents)
     })
   }
 
@@ -75,7 +78,7 @@ class HandlebarsRenderer {
     return view(context)
   }
 
-  renderView(viewPath: string, context: any, callback?: RenderCallback): void {
+  renderView(viewPath: string, context: any, callback: RenderCallback): void {
     try {
       const html = this.render(viewPath, context)
       callback(null, html)
