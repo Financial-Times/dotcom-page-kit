@@ -1,4 +1,5 @@
 import path from 'path'
+import Handlebars from 'handlebars'
 import Subject from '../HandlebarsRenderer'
 
 // NOTE: Tests are run from the repository root directory so we need to set the CWD
@@ -10,6 +11,7 @@ describe('anvil-server-handlebars/src/HandlebarsRenderer', () => {
 
   beforeEach(() => {
     instance = new Subject({
+      handlebars: Handlebars,
       rootDirectory: root
     })
   })

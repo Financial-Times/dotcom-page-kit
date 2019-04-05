@@ -9,19 +9,19 @@ export type TOptions = {
    * Provide an instance of Handlebars to extend
    * @default require('handlebars')
    */
-  handlebars?: typeof Handlebars
+  handlebars: typeof Handlebars | null
 
   /**
    * Current working directory.
    * @default process.cwd()
    */
-  rootDirectory: string
+  rootDirectory?: string
 
   /**
    * Additional helper functions to register with Handlebars
    * @default {}
    */
-  helpers: {
+  helpers?: {
     [key: string]: HelperDelegate
   }
 
@@ -29,7 +29,7 @@ export type TOptions = {
    * Preloaded partial templates to register. Defaults to {}.
    * @default {}
    */
-  partials: {
+  partials?: {
     [key: string]: TemplateDelegate
   }
 
@@ -37,10 +37,11 @@ export type TOptions = {
    * Folders containing partial files to dynamically find and load.
    * @default { './views/partials': '**\/*' }
    */
-  partialPaths: TFilePaths
+  partialPaths?: TFilePaths
 }
 
 const defaultOptions: TOptions = {
+  handlebars: null,
   rootDirectory: process.cwd(),
   helpers: {},
   partials: {},
@@ -56,14 +57,12 @@ class HandlebarsRenderer {
   public hbs: typeof Handlebars
   private cache: Map<string, TemplateDelegate> = new Map()
 
-  constructor(userOptions?: Partial<TOptions>) {
+  constructor(userOptions?: TOptions) {
     this.options = mixinDeep({}, defaultOptions, userOptions)
 
-    this.hbs = this.options.handlebars || Handlebars
+    this.options.handlebars.registerHelper(this.options.helpers)
 
-    this.hbs.registerHelper(this.options.helpers)
-
-    this.hbs.registerPartial(this.options.partials)
+    this.options.handlebars.registerPartial(this.options.partials)
 
     // Load all partial templates and register them ahead of time.
     // This is synchronous but should only happen once and take < 100ms.
@@ -72,14 +71,14 @@ class HandlebarsRenderer {
 
     Object.keys(partialFiles).forEach((partialName) => {
       const contents = loadFileContents(partialFiles[partialName])
-      this.hbs.registerPartial(partialName, contents)
+      this.options.handlebars.registerPartial(partialName, contents)
     })
   }
 
   render(viewPath: string, context: any): string {
     if (!this.cache.has(viewPath)) {
       const contents = loadFileContents(viewPath)
-      const template = this.hbs.compile(contents)
+      const template = this.options.handlebars.compile(contents)
 
       this.cache.set(viewPath, template)
     }
