@@ -16,11 +16,26 @@ describe('anvil-server-handlebars/src/HandlebarsRenderer', () => {
     })
   })
 
-  it('can render a template with partials', () => {
-    const context = { title: 'Hello World', aside: 'Lorem ipsum' }
-    const result = instance.render(view, context)
+  describe('.render()', () => {
+    it('can render a template', () => {
+      const context = { title: 'Hello World', aside: 'Lorem ipsum' }
+      const result = instance.render(view, context)
 
-    expect(result).toContain('<h1>Hello World</h1>')
-    expect(result).toContain('<aside>Lorem ipsum</aside>')
+      expect(result).toContain('<h1>Hello World</h1>')
+      expect(result).toContain('<aside>Lorem ipsum</aside>')
+    })
+  })
+
+  describe('.renderView()', () => {
+    it('can render a template callback when done', (done) => {
+      const context = { title: 'Hello World', aside: 'Lorem ipsum' }
+
+      instance.renderView(view, context, (_, result) => {
+        expect(result).toContain('<h1>Hello World</h1>')
+        expect(result).toContain('<aside>Lorem ipsum</aside>')
+
+        done()
+      })
+    })
   })
 })

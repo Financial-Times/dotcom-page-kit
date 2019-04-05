@@ -7,9 +7,8 @@ import { RenderCallback } from './types'
 export type TOptions = {
   /**
    * Provide an instance of Handlebars to extend
-   * @default require('handlebars')
    */
-  handlebars: typeof Handlebars | null
+  handlebars: typeof Handlebars
 
   /**
    * Current working directory.
@@ -35,13 +34,12 @@ export type TOptions = {
 
   /**
    * Folders containing partial files to dynamically find and load.
-   * @default { './views/partials': '**\/*' }
+   * @default { './views/partials': '**\/*.{hbs,html}' }
    */
   partialPaths?: TFilePaths
 }
 
-const defaultOptions: TOptions = {
-  handlebars: null,
+const defaultOptions: Partial<TOptions> = {
   rootDirectory: process.cwd(),
   helpers: {},
   partials: {},
@@ -54,10 +52,9 @@ const defaultOptions: TOptions = {
 
 class HandlebarsRenderer {
   public options: TOptions
-  public hbs: typeof Handlebars
   private cache: Map<string, TemplateDelegate> = new Map()
 
-  constructor(userOptions?: TOptions) {
+  constructor(userOptions: TOptions) {
     this.options = mixinDeep({}, defaultOptions, userOptions)
 
     this.options.handlebars.registerHelper(this.options.helpers)
