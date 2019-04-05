@@ -1,4 +1,3 @@
-import path from 'path'
 import mixinDeep from 'mixin-deep'
 import Handlebars, { HelperDelegate, TemplateDelegate } from 'handlebars'
 import findPartialFiles, { TFileGlobs } from './findPartialFiles'
@@ -22,9 +21,6 @@ export type TOptions = {
     [key: string]: TemplateDelegate
   }
 
-  /** Path to a directory containing view template files. Defaults to "./views/" */
-  viewDirectory: string
-
   /** Folders containing partial files to dynamically find and load */
   partialDirectories: TFileGlobs
 }
@@ -34,7 +30,6 @@ const defaultOptions: TOptions = {
   fileExtension: '.html',
   helpers: {},
   partials: {},
-  viewDirectory: './views',
   partialDirectories: {
     './views/partials': '**/*',
     './bower_components': 'n-*/{templates,components}/**/*',
@@ -68,27 +63,7 @@ class HandlebarsRenderer {
     })
   }
 
-  resolveView(viewPath: string) {
-    if (!path.isAbsolute(viewPath)) {
-      viewPath = path.resolve(this.options.rootDirectory, this.options.viewDirectory, viewPath)
-    }
-
-    if (!path.extname(viewPath)) {
-      viewPath = viewPath + this.options.fileExtension
-    }
-
-    return viewPath
-  }
-
   render(viewPath: string, context: any): string {
-    if (!path.isAbsolute(viewPath)) {
-      viewPath = path.resolve(this.options.rootDirectory, this.options.viewDirectory, viewPath)
-    }
-
-    if (!path.extname(viewPath)) {
-      viewPath = viewPath + this.options.fileExtension
-    }
-
     if (!this.cache.has(viewPath)) {
       const contents = loadFileContents(viewPath)
       const template = Handlebars.compile(contents)
