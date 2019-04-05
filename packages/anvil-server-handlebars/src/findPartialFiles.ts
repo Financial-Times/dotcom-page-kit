@@ -22,7 +22,7 @@ export default function loadPartialFiles(cwd: string, filePaths: TFileGlobs, ext
     })
 
     matchingFiles.forEach((matchingFile) => {
-      const name = path.relative(baseDirectory, matchingFile)
+      const name = path.relative(baseDirectory, matchingFile).replace(extension, '')
       partialFiles[name] = matchingFile
     })
   })

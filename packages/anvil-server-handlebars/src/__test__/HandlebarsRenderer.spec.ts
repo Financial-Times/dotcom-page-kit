@@ -16,7 +16,7 @@ describe('anvil-server-handlebars/src/HandlebarsRenderer', () => {
 
   it('can render a template with partials', () => {
     const context = { title: 'Hello World', aside: 'Lorem ipsum' }
-    const result = instance.render('view.hbs', context)
+    const result = instance.render('view', context)
 
     expect(result).toContain('<h1>Hello World</h1>')
     expect(result).toContain('<aside>Lorem ipsum</aside>')
