@@ -6,6 +6,12 @@ import { RenderCallback } from './types'
 
 export type TOptions = {
   /**
+   * Provide an instance of Handlebars to extend
+   * @default require('handlebars')
+   */
+  handlebars?: typeof Handlebars
+
+  /**
    * Current working directory.
    * @default process.cwd()
    */
@@ -47,14 +53,17 @@ const defaultOptions: TOptions = {
 
 class HandlebarsRenderer {
   public options: TOptions
+  public hbs: typeof Handlebars
   private cache: Map<string, TemplateDelegate> = new Map()
 
   constructor(userOptions?: Partial<TOptions>) {
     this.options = mixinDeep({}, defaultOptions, userOptions)
 
-    Handlebars.registerHelper(this.options.helpers)
+    this.hbs = this.options.handlebars || Handlebars
 
-    Handlebars.registerPartial(this.options.partials)
+    this.hbs.registerHelper(this.options.helpers)
+
+    this.hbs.registerPartial(this.options.partials)
 
     // Load all partial templates and register them ahead of time.
     // This is synchronous but should only happen once and take < 100ms.
@@ -63,14 +72,14 @@ class HandlebarsRenderer {
 
     Object.keys(partialFiles).forEach((partialName) => {
       const contents = loadFileContents(partialFiles[partialName])
-      Handlebars.registerPartial(partialName, contents)
+      this.hbs.registerPartial(partialName, contents)
     })
   }
 
   render(viewPath: string, context: any): string {
     if (!this.cache.has(viewPath)) {
       const contents = loadFileContents(viewPath)
-      const template = Handlebars.compile(contents)
+      const template = this.hbs.compile(contents)
 
       this.cache.set(viewPath, template)
     }
