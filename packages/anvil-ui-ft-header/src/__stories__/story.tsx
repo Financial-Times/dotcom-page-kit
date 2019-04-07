@@ -13,6 +13,7 @@ const toggleVariantOptions = () => radios('Choose variant', { simple: 'simple', 
 const toggleAnonymous = () => boolean('User is anonymous', true)
 const toggleShowSubNav = () => boolean('Show the crumbtrail component', true)
 const toggleDisableSticky = () => boolean('Disable sticky header', false)
+const toggleMobileNav = () => radios('Show mobile nav', { show: '/', hide: '' }, '/')
 
 const onReadyCallback = () => {
   // Passing a cors-anywhere hostname to n-topic-search
@@ -29,6 +30,7 @@ storiesOf('FT / Header', module)
       showUserNav: toggleUserStateOptions(),
       userIsAnonymous: toggleAnonymous()
     }
+    storyData.data = {...storyData.data, currentUrl: toggleMobileNav() }
 
     return (
       <OnReady callback={onReadyCallback}>
@@ -41,6 +43,7 @@ storiesOf('FT / Header', module)
       showUserNav: toggleUserStateOptions(),
       userIsAnonymous: toggleAnonymous()
     }
+    storyData.data = {...storyData.data, currentUrl: toggleMobileNav() }
 
     return (
       <OnReady callback={onReadyCallback}>
