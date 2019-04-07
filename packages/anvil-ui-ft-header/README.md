@@ -60,6 +60,7 @@ The props object passed to the header component must have a `data` property. The
 
 |       PROP        |                                                         DESCRIPTION                                                         |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| currentUrl        | The url for which data has been requested - set in anvil-middleware-ft-navigation                                           |
 | editions          | Detailing the `current` and `other` available editions                                                                      |
 | drawer            | Populates the drawer menu elements                                                                                          |
 | navbar            | Populates the primary navigation links and any associated meganav components                                                |

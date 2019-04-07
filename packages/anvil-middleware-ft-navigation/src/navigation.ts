@@ -36,11 +36,12 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
         navigator.getMenuData(request.path),
         enableCrumbtrail ? navigator.getCrumbtrail(request.path) : null
       ])
+      const currentUrl = request.path
 
       // response.locals.editions is set by cookie (on ft.com by visiting /?edition={edition})
       // defaults to "uk"
       const edition = delve(response.locals.editions, 'current.id', 'uk')
-      response.locals.navigation = { crumbtrail, ...getNavigationLinks(menuData, edition) }
+      response.locals.navigation = { currentUrl, crumbtrail, ...getNavigationLinks(menuData, edition) }
 
       next()
     } catch (error) {
