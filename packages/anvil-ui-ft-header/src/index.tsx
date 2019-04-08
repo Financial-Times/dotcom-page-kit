@@ -14,7 +14,7 @@ import {
   MobileNav
 } from './components/navigation/partials'
 import {
-  StickyHeader,
+  StickyHeaderWrapper,
   TopWrapperSticky,
   TopColumnCenterSticky,
   TopColumnLeftSticky,
@@ -66,20 +66,20 @@ function Drawer(props: THeaderProps) {
 
 Drawer.defaultProps = defaultProps
 
-function HeaderSticky(props: THeaderProps) {
+function StickyHeader(props: THeaderProps) {
   return props.disableSticky ? null : (
-    <StickyHeader {...props}>
+    <StickyHeaderWrapper {...props}>
       <TopWrapperSticky>
         <TopColumnLeftSticky context="sticky" />
         <TopColumnCenterSticky {...props} />
         <TopColumnRightSticky {...props} />
       </TopWrapperSticky>
       <Search context="sticky" />
-    </StickyHeader>
+    </StickyHeaderWrapper>
   )
 }
 
-HeaderSticky.defaultProps = defaultProps
+StickyHeader.defaultProps = defaultProps
 
 function LogoOnly(props?) {
   return (
@@ -93,4 +93,4 @@ function LogoOnly(props?) {
 
 LogoOnly.defaultProps = defaultProps
 
-export { THeaderProps, Header, Drawer, HeaderSticky, LogoOnly }
+export { THeaderProps, Header, Drawer, StickyHeader, LogoOnly }

@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
 import * as header from '../../browser.js'
 import { OnReady } from '@financial-times/anvil-ui-ft-on-ready'
-import { Header, Drawer, HeaderSticky, LogoOnly } from '../../src'
+import { Header, Drawer, StickyHeader, LogoOnly } from '../../src'
 import storyData from './story-data'
 import '../../styles.scss'
 import './demos.scss'
@@ -61,7 +61,7 @@ storiesOf('FT / Header', module)
 
     return (
       <OnReady callback={() => header.init()}>
-        <HeaderSticky {...storyData} {...knobs} />
+        <StickyHeader {...storyData} {...knobs} />
         <p className="demo-sticky-message demo-sticky-message--scroll">Scroll down</p>
       </OnReady>
     )

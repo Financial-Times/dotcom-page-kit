@@ -4,7 +4,7 @@ import { OnReady } from '@financial-times/anvil-ui-ft-on-ready'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, boolean } from '@storybook/addon-knobs'
 
-import { Header, Drawer, HeaderSticky, LogoOnly } from '@financial-times/anvil-ui-ft-header/component'
+import { Header, Drawer, StickyHeader, LogoOnly } from '@financial-times/anvil-ui-ft-header/component'
 import { Footer, LegalFooter } from '@financial-times/anvil-ui-ft-footer/component'
 
 import * as header from '@financial-times/anvil-ui-ft-header/browser.js'
@@ -49,7 +49,7 @@ storiesOf('FT / Layout', module)
   .add('header & footer variants', () => {
     return (
       <OnReady callback={initUiComponents}>
-        <Layout header={<HeaderSticky {...headerProps} />} footer={<LegalFooter {...footerProps} />}>
+        <Layout header={<StickyHeader {...headerProps} />} footer={<LegalFooter {...footerProps} />}>
           <main dangerouslySetInnerHTML={{ __html: fakeHandlebars(10) }} />
         </Layout>
       </OnReady>
