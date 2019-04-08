@@ -57,6 +57,8 @@ const defaultOptions: Partial<TOptions> = {
 
 class HandlebarsRenderer {
   public options: TOptions
+  public engine: this['renderView']
+
   private partialsCache: TFilePaths
   private templateCache: Map<string, TemplateDelegate> = new Map()
 
@@ -66,6 +68,9 @@ class HandlebarsRenderer {
     // Looking up all partial templates is synchronous but should only happen once
     // on app startup and usually takes < 100ms. It avoids a heap of race-conditions.
     this.partialsCache = findPartialFiles(this.options.rootDirectory, this.options.partialPaths)
+
+    // Create a point for Express to mount as a view engine
+    this.engine = this.renderView.bind(this)
   }
 
   loadPartials(): TPartialTemplates {

@@ -25,10 +25,10 @@ _Please note_ the template file extension registered with your application shoul
 
 ```diff
 const express = require('express')
-+ const handlebars = require('@financial-times/anvil-server-handlebars')
++ const Handlebars = require('@financial-times/anvil-server-handlebars')
 
-+ const renderer = handlebars.engine()
-+ app.engine('.html', renderer)
++ const hbs = new Handlebars()
++ app.engine('.html', hbs.engine)
 ```
 
 When using this module as a view engine Express will find the template file, decorate any data passed to it with properties from `app.locals` and `response.locals`, and automatically send the rendered result. See the Express [render documentation] for more information.
@@ -58,8 +58,8 @@ Express view engines will also inherit some [settings] from the application whic
 This module can be used without integrating it fully into your application. This may be suitable for applications which are not built with Express or for ad-hoc template rendering needs.
 
 ```diff
-+ const handlebars = require('@financial-times/anvil-server-handlebars')
-+ const renderer = handlebars.create()
++ const Handlebars = require('@financial-times/anvil-server-handlebars')
++ const renderer = new Handlebars()
 ```
 
 When using this module as a standalone library you will need to find template files, provide all data, and handle the rendered output manually.
@@ -81,18 +81,16 @@ module.exports = (request, response, next) => {
 
 ## API
 
-### `.create(options)`
+### `.render(templatePath, data)`
 
-Creates a new `HandlebarsRenderer` instance.
+Loads the requested template and renders it with `data`. Partial templates and helper functions will also be made available to the render context.
 
-### `.engine(options)`
+### `.renderView(templatePath, data, callback)`
 
-Creates a new `HandlebarsRenderer` instance and returns a function to be used by Express as a [view engine].
+This method is intended to be used as a [view engine] for Express. If you need to use it directly then `templatePath` must be an absolute file system path to a template file.
 
 
 ## Options
-
-The methods provided by this module accept the following parameters:
 
 ### `handlebars`
 
@@ -104,7 +102,7 @@ An object containing additional [helper functions] to register with Handlebars. 
 
 ### `partials`
 
-An object containing [partial templates] to register with Handlebars. Defaults to `{}`.
+An object containing precompiled [partial templates] to register with Handlebars. Defaults to `{}`.
 
 ### `rootDirectory`
 
