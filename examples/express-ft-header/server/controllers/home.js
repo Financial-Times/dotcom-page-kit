@@ -1,5 +1,5 @@
 const ReactDOMServer = require('react-dom/server')
-const { HeaderDefault, Drawer } = require('@financial-times/anvil-ui-ft-header')
+const { Header, Drawer } = require('@financial-times/anvil-ui-ft-header')
 const document = require('../lib/document')
 
 const headerProps = {
@@ -15,7 +15,7 @@ module.exports = (_, response, next) => {
   headerProps.data.editions = response.locals.editions
 
   try {
-    const html = [render(HeaderDefault(headerProps)), render(Drawer(headerProps))].join()
+    const html = [render(Header(headerProps)), render(Drawer(headerProps))].join()
     const page = document(html)
     response.send(page)
   } catch (error) {

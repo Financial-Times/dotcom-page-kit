@@ -1,5 +1,11 @@
 import React from 'react'
-import { Header, TopWrapper, TopColumnLeft, TopColumnCenter, TopColumnRight } from './components/top/partials'
+import {
+  HeaderWrapper,
+  TopWrapper,
+  TopColumnLeft,
+  TopColumnCenter,
+  TopColumnRight
+} from './components/top/partials'
 import {
   NavListLeft,
   NavListRight,
@@ -29,12 +35,12 @@ const defaultProps: Partial<THeaderProps> = {
   disableSticky: false
 }
 
-function HeaderDefault(props: THeaderProps) {
+function Header(props: THeaderProps) {
   const navItems = props.data.navbar.items
   const includeUserActionsNav = props.showUserNav && props.userIsAnonymous ? UserActionsNav(props) : null
   const incudeCrumbtrail = props.data.breadcrumb && props.data.subsections ? IncludeCrumbtrail(props) : null
   return (
-    <Header {...props}>
+    <HeaderWrapper {...props}>
       {includeUserActionsNav}
       <TopWrapper>
         <TopColumnLeft context="primary" />
@@ -48,11 +54,11 @@ function HeaderDefault(props: THeaderProps) {
         <NavListRight {...props} />
       </NavDesktop>
       {incudeCrumbtrail}
-    </Header>
+    </HeaderWrapper>
   )
 }
 
-HeaderDefault.defaultProps = defaultProps
+Header.defaultProps = defaultProps
 
 function Drawer(props: THeaderProps) {
   return <IncludeDrawer {...props} />
@@ -77,14 +83,14 @@ HeaderSticky.defaultProps = defaultProps
 
 function LogoOnly(props?) {
   return (
-    <Header {...props}>
+    <HeaderWrapper {...props}>
       <TopWrapper>
         <TopColumnCenter />
       </TopWrapper>
-    </Header>
+    </HeaderWrapper>
   )
 }
 
 LogoOnly.defaultProps = defaultProps
 
-export { THeaderProps, HeaderDefault, Drawer, HeaderSticky, LogoOnly }
+export { THeaderProps, Header, Drawer, HeaderSticky, LogoOnly }

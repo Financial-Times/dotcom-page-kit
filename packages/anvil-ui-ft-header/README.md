@@ -20,9 +20,9 @@ Create an [Express] server using the [anvil-middleware-ft-edition] and [anvil-mi
 To render header components include them in your template code and pass in a data object. The data can be fetched using the [anvil-server-ft-navigation] package or it's middleware.
 
 ```jsx
-import { HeaderDefault, Drawer } from 'anvil-ui-ft-header'
+import { Header, Drawer } from 'anvil-ui-ft-header'
 const header = () => {
-  <HeaderDefault {...headerProps} />
+  <Header {...headerProps} />
   <Drawer {...headerProps}/>
 }
 ```
