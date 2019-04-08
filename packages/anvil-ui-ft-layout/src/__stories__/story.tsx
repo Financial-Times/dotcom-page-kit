@@ -10,12 +10,13 @@ import * as footer from '@financial-times/anvil-ui-ft-footer/browser.js'
 
 import { data as headerProps } from '../../../../__fixtures__/navigation'
 
-import { Layout } from '..'
+import { Layout, Template } from '..'
 
 const Extra = ({ children }) => <p className="extra">{children}</p>
 
 const hideFooter = () => boolean('Hide outbound links', false)
 const switchFooter = () => select('Switch footer', { Standard: 'simple', Legal: 'legal' })
+const switchDisplay = () => boolean('Switch display', false)
 
 const initUiComponents = () => {
   header.init()
@@ -86,5 +87,20 @@ storiesOf('FT / Layout', module)
           </main>
         </Layout>
       </OnReady>
+    )
+  })
+  .add('Template', () => {
+    const theCrocodile = `
+    <p>How doth the little crocodile </p>
+    <p>Improve his shining tail, </p>
+    <p>And pour the waters of the Nile</p>
+    <p>On every golden scale!</p>`
+
+    const cls = switchDisplay() ? 'demo__message--contents' : ''
+
+    return (
+      <main className="demo demo--flexed">
+        <Template className={`demo__message ${cls}`}>{theCrocodile}</Template>
+      </main>
     )
   })

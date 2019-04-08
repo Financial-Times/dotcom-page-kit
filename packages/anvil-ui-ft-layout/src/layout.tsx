@@ -26,16 +26,19 @@ type TLayoutProps = {
 }
 
 type TTemplateProps = {
-  contents?: string | React.ReactNode
+  children?: string | React.ReactNode
+  [rest: string]: any
 }
 
-export function Template({ contents }: TTemplateProps) {
-  if (!contents) return null
+export function Template(props: TTemplateProps) {
+  const { children, ...rest } = props
 
-  if (typeof contents === 'string') {
-    return <div style={{ display: 'contents' }} dangerouslySetInnerHTML={{ __html: contents }} />
+  if (!children) return null
+
+  if (typeof children === 'string') {
+    return <div {...rest} dangerouslySetInnerHTML={{ __html: children }} />
   } else {
-    return <div style={{ display: 'contents' }}>{contents}</div>
+    return <div {...rest}>{children}</div>
   }
 }
 
@@ -79,18 +82,20 @@ export function Layout({
   return (
     <div className="n-layout">
       <div className="n-layout__row n-layout__row--header">
-        <Template contents={headerBefore} />
+        <Template>{headerBefore}</Template>
         {Preset.header ? <Preset.header {...props} /> : header}
-        <Template contents={headerAfter} />
+        <Template>{headerAfter}</Template>
       </div>
 
       <main className="n-layout__row n-layout__row--content">{children}</main>
 
       {!props.hideOutboundLinks && (
         <div className="n-layout__row n-layout__row--content">
-          <Template contents={footerBefore} />
-          {Preset.footer ? <Preset.footer data={props.data.footer.items} /> : footer}
-          <Template contents={footerAfter} />
+          <Template>{footerBefore}</Template>
+          <div className="n-layout__row n-layout__row--footer">
+            {Preset.footer ? <Preset.footer data={props.data.footer.items} /> : footer}
+          </div>
+          <Template>{footerAfter}</Template>
         </div>
       )}
       {Preset.header && Preset.drawer && <Preset.drawer {...props} />}

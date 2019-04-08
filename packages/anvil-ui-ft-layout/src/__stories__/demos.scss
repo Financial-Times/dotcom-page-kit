@@ -39,3 +39,16 @@
 	background: cornflowerblue;
 	color: white;
 }
+
+.demo--flexed {
+	display: flex;
+	justify-content: center;
+}
+
+.demo--flexed p {
+	margin: 0 20px;
+}
+
+.demo__message--contents {
+	display: contents;
+}
