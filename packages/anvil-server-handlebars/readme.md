@@ -8,10 +8,10 @@ This module provides rendering for [Handlebars] templates with additional suppor
 
 ## Getting started
 
-This module is compatible with Node 8+ and is distributed on npm. You will also need to install Handlebars.
+This module is compatible with Node 8+ and is distributed on npm.
 
 ```sh
-npm install --save @financial-times/anvil-server-handlebars handlebars
+npm install --save @financial-times/anvil-server-handlebars
 ```
 
 It is best used [within an Express application](#usage-with-express) but can also be used as a [standalone library](#standalone-usage).
@@ -27,7 +27,7 @@ _Please note_ the template file extension registered with your application be `.
 const express = require('express')
 + const handlebars = require('@financial-times/anvil-server-handlebars')
 
-+ const engine = handlebars.engine({ handlebars: require('handlebars') })
++ const engine = handlebars.engine()
 + app.engine('.html', engine)
 ```
 
@@ -59,7 +59,7 @@ This module can be used without integrating it fully into your application. This
 
 ```diff
 + const handlebars = require('@financial-times/anvil-server-handlebars')
-+ const hbs = handlebars.create({ handlebars: require('handlebars') })
++ const renderer = handlebars.create()
 ```
 
 When using this module as a standalone library you will need to find template files, provide all data, and handle the rendered output manually.
@@ -72,7 +72,7 @@ module.exports = (request, response, next) => {
   }
 
   const view = path.resolve('./views/home.hbs')
-  const html = hbs.render(view, data)
+  const html = renderer.render(view, data)
 
   response.send(html)
 })
@@ -93,10 +93,6 @@ Creates a new `HandlebarsRenderer` instance and returns a function to be used by
 ## Options
 
 The methods provided by this module accept the following parameters:
-
-### `handlebars`
-
-An instance of Handlebars to extend. _This option is required_.
 
 ### `helpers`
 
@@ -121,6 +117,10 @@ An object listing directories and patterns used to dynamically find and load par
   './node_modules/@financial-times': '*/{templates,components}/**/*{hbs,html}'
 }
 ```
+
+### `caching`
+
+A boolean which enables caching of template files to reduce filesystem I/O. This should be enabled in production environments.
 
 [helper functions]: http://handlebarsjs.com/builtin_helpers.html
 [partial templates]: https://handlebarsjs.com/partials.html

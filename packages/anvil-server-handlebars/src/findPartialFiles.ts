@@ -1,9 +1,6 @@
 import path from 'path'
 import glob from 'glob'
-
-export type TFilePaths = {
-  [key: string]: string
-}
+import { TFilePaths } from './types'
 
 export default function loadPartialFiles(cwd: string, partialPaths: TFilePaths): TFilePaths {
   const partialFiles = {}
