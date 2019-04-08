@@ -5,7 +5,7 @@ import {
   NavListRight,
   NavDesktop,
   UserActionsNav,
-  includeNavMobile
+  MobileNav
 } from './components/navigation/partials'
 import {
   StickyHeader,
@@ -42,7 +42,7 @@ function HeaderDefault(props: THeaderProps) {
         <TopColumnRight />
       </TopWrapper>
       <Search context="primary" />
-      {includeNavMobile(props)}
+      {MobileNav(props)}
       <NavDesktop>
         <NavListLeft navItems={navItems} />
         <NavListRight {...props} />
