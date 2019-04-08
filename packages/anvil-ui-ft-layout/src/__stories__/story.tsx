@@ -16,7 +16,7 @@ const Extra = ({ children }) => <p className="extra">{children}</p>
 
 const hideFooter = () => boolean('Hide outbound links', false)
 const switchFooter = () => select('Switch footer', { Standard: 'simple', Legal: 'legal' })
-const switchDisplay = () => boolean('Switch display', false)
+const switchDisplay = () => boolean('Toggle {display: contents} on <Template />', false)
 
 const initUiComponents = () => {
   header.init()
@@ -92,9 +92,7 @@ storiesOf('FT / Layout', module)
   .add('Template', () => {
     const theCrocodile = `
     <p>How doth the little crocodile </p>
-    <p>Improve his shining tail, </p>
-    <p>And pour the waters of the Nile</p>
-    <p>On every golden scale!</p>`
+    <p>Improve his shining tail</p>`
 
     const cls = switchDisplay() ? 'demo__message--contents' : ''
 

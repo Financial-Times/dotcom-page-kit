@@ -41,14 +41,19 @@
 }
 
 .demo--flexed {
+	position: relative;
+
 	display: flex;
 	justify-content: center;
-}
+	align-items: center;
 
-.demo--flexed p {
-	margin: 0 20px;
-}
+	height: 100vh;
 
-.demo__message--contents {
-	display: contents;
+	& .demo__message--contents {
+		display: contents;
+
+		& p {
+			margin: 1rem;
+		}
+	}
 }
