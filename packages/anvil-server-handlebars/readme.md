@@ -113,8 +113,8 @@ An object listing directories and patterns used to dynamically find and load par
 ```js
 {
   './views/partials': '**/*.{hbs,html}',
-  './bower_components': '*/{templates,components}/**/*.{hbs,html}',
-  './node_modules/@financial-times': '*/{templates,components}/**/*.{hbs,html}'
+  './bower_components': '*/{templates,components,partials}/**/*.{hbs,html}',
+  './node_modules/@financial-times': '*/{templates,components,partials}/**/*.{hbs,html}'
 }
 ```
 
