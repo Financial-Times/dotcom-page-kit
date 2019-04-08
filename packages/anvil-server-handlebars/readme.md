@@ -21,14 +21,14 @@ It is best used [within an Express application](#usage-with-express) but can als
 
 After installing the module you must register it as a [view engine] for your Express application. This will enable you to render template files with the matching file extension and send the result as a response to requests.
 
-_Please note_ the template file extension registered with your application be `.html` or `.hbs`.
+_Please note_ the template file extension registered with your application should be `.html` or `.hbs`.
 
 ```diff
 const express = require('express')
 + const handlebars = require('@financial-times/anvil-server-handlebars')
 
-+ const engine = handlebars.engine()
-+ app.engine('.html', engine)
++ const renderer = handlebars.engine()
++ app.engine('.html', renderer)
 ```
 
 When using this module as a view engine Express will find the template file, decorate any data passed to it with properties from `app.locals` and `response.locals`, and automatically send the rendered result. See the Express [render documentation] for more information.
