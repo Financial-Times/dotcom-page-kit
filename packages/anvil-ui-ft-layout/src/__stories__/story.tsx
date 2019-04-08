@@ -4,7 +4,7 @@ import { OnReady } from '@financial-times/anvil-ui-ft-on-ready'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, boolean } from '@storybook/addon-knobs'
 
-import { HeaderDefault, Drawer, HeaderSticky, LogoOnly } from '@financial-times/anvil-ui-ft-header/component'
+import { Header, Drawer, HeaderSticky, LogoOnly } from '@financial-times/anvil-ui-ft-header/component'
 import { Footer, LegalFooter } from '@financial-times/anvil-ui-ft-footer/component'
 
 import * as header from '@financial-times/anvil-ui-ft-header/browser.js'
@@ -36,7 +36,7 @@ storiesOf('FT / Layout', module)
     return (
       <OnReady callback={initUiComponents}>
         <Layout
-          header={<HeaderDefault {...headerProps} />}
+          header={<Header {...headerProps} />}
           footer={showFooter() && <Footer {...footerProps} />}
           footerAfter={<Drawer {...headerProps} />}>
           <main>

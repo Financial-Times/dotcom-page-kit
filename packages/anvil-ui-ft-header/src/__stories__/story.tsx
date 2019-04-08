@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
 import * as header from '../../browser.js'
 import { OnReady } from '@financial-times/anvil-ui-ft-on-ready'
-import { HeaderDefault, Drawer, HeaderSticky, LogoOnly } from '../../src'
+import { Header, Drawer, HeaderSticky, LogoOnly } from '../../src'
 import storyData from './story-data'
 import '../../styles.scss'
 import './demos.scss'
@@ -34,7 +34,7 @@ storiesOf('FT / Header', module)
 
     return (
       <OnReady callback={onReadyCallback}>
-        <HeaderDefault {...storyData} {...knobs} />
+        <Header {...storyData} {...knobs} />
       </OnReady>
     )
   })
@@ -47,7 +47,7 @@ storiesOf('FT / Header', module)
 
     return (
       <OnReady callback={onReadyCallback}>
-        <HeaderDefault {...storyData} {...knobs} />
+        <Header {...storyData} {...knobs} />
         <Drawer {...storyData} {...knobs} />
       </OnReady>
     )
