@@ -6,6 +6,12 @@ import { TRenderCallback, TPartialTemplates, TFilePaths } from './types'
 
 export type TOptions = {
   /**
+   * An instance of Handlebars to use.
+   * @default require('handlebars')
+   */
+  handlebars?: typeof Handlebars
+
+  /**
    * Current working directory.
    * @default process.cwd()
    */
@@ -35,7 +41,7 @@ export type TOptions = {
    * Enable caching of template files to reduce filesystem I/O
    * @default false
    */
-  caching?: boolean
+  cache?: boolean
 }
 
 const defaultOptions: Partial<TOptions> = {
@@ -57,7 +63,7 @@ class HandlebarsRenderer {
   constructor(userOptions: TOptions) {
     this.options = mixinDeep({}, defaultOptions, userOptions)
 
-    // Loading all partial templates is synchronous but should only happen once
+    // Looking up all partial templates is synchronous but should only happen once
     // on app startup and usually takes < 100ms. It avoids a heap of race-conditions.
     this.partialsCache = findPartialFiles(this.options.rootDirectory, this.options.partialPaths)
   }
@@ -78,9 +84,11 @@ class HandlebarsRenderer {
 
     if (template === undefined) {
       const contents = loadFileContents(filePath)
-      template = Handlebars.compile(contents)
+      const hbs = this.options.handlebars || Handlebars
 
-      if (this.options.caching) {
+      template = hbs.compile(contents)
+
+      if (this.options.cache) {
         this.templateCache.set(filePath, template)
       }
     }
@@ -89,7 +97,9 @@ class HandlebarsRenderer {
   }
 
   render(template: string | TemplateDelegate, context: any): string {
-    template = typeof template === 'function' ? template : this.loadTemplate(template)
+    if (typeof template === 'string') {
+      template = this.loadTemplate(template)
+    }
 
     const html = template(context, {
       helpers: this.options.helpers,

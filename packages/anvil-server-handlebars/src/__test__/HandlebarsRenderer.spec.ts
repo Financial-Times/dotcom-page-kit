@@ -11,7 +11,7 @@ describe('anvil-server-handlebars/src/HandlebarsRenderer', () => {
   beforeEach(() => {
     instance = new Subject({
       rootDirectory: root,
-      caching: true
+      cache: true
     })
   })
 

@@ -94,6 +94,10 @@ Creates a new `HandlebarsRenderer` instance and returns a function to be used by
 
 The methods provided by this module accept the following parameters:
 
+### `handlebars`
+
+Provide an instance of Handlebars to use. Defaults to `require('handlebars')`.
+
 ### `helpers`
 
 An object containing additional [helper functions] to register with Handlebars. Defaults to `{}`.
@@ -118,9 +122,9 @@ An object listing directories and patterns used to dynamically find and load par
 }
 ```
 
-### `caching`
+### `cache`
 
-A boolean which enables caching of template files to reduce filesystem I/O. This should be enabled in production environments.
+A boolean which enables caching of template files to reduce filesystem I/O. This should be enabled in production environments. Defaults to `false`.
 
 [helper functions]: http://handlebarsjs.com/builtin_helpers.html
 [partial templates]: https://handlebarsjs.com/partials.html
