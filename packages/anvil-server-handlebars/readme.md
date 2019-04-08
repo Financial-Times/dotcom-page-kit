@@ -27,7 +27,7 @@ _Please note_ the template file extension registered with your application shoul
 const express = require('express')
 + const Handlebars = require('@financial-times/anvil-server-handlebars')
 
-+ const hbs = new Handlebars()
++ const hbs = new Handlebars(options)
 + app.engine('.html', hbs.engine)
 ```
 
@@ -44,9 +44,7 @@ app.get('/', (request, response) => {
 })
 ```
 
-Express view engines will also inherit some [settings] from the application which can override the [options](#options) provided to this module, these are:
-
-- The `views` setting will be used by Express to find your view template files. Partial template files are looked up independently of this setting.
+_Please note_ that where to lookup template files can be configured using Express's [options](#options).
 
 [view engine]: https://expressjs.com/en/guide/using-template-engines.html
 [render documentation]: https://expressjs.com/en/4x/api.html#res.render
@@ -59,7 +57,7 @@ This module can be used without integrating it fully into your application. This
 
 ```diff
 + const Handlebars = require('@financial-times/anvil-server-handlebars')
-+ const renderer = new Handlebars()
++ const renderer = new Handlebars(options)
 ```
 
 When using this module as a standalone library you will need to find template files, provide all data, and handle the rendered output manually.
