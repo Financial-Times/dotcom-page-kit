@@ -6,11 +6,6 @@ import { RenderCallback } from './types'
 
 export type TOptions = {
   /**
-   * An instance of Handlebars to extend. This option is required.
-   */
-  handlebars: typeof Handlebars
-
-  /**
    * Current working directory.
    * @default process.cwd()
    */
@@ -37,6 +32,12 @@ export type TOptions = {
    * @default { './views/partials': '**\/*.{hbs,html}' }
    */
   partialPaths?: TFilePaths
+
+  /**
+   * Enable caching of template files to reduce filesystem I/O
+   * @default false
+   */
+  cache?: boolean
 }
 
 const defaultOptions: Partial<TOptions> = {
@@ -67,20 +68,28 @@ class HandlebarsRenderer {
     const partialFiles = findPartialFiles(this.options.rootDirectory, this.options.partialPaths)
 
     Object.keys(partialFiles).forEach((partialName) => {
-      const contents = loadFileContents(partialFiles[partialName])
+      const contents = this.loadTemplateFile(partialFiles[partialName])
       this.options.handlebars.registerPartial(partialName, contents)
     })
   }
 
-  render(templatePath: string, context: any): string {
-    if (!this.cache.has(templatePath)) {
-      const contents = loadFileContents(templatePath)
-      const template = this.options.handlebars.compile(contents)
+  loadTemplateFile(templatePath: string): TemplateDelegate {
+    let template = this.cache.get(templatePath)
 
-      this.cache.set(templatePath, template)
+    if (template === undefined) {
+      const contents = loadFileContents(templatePath)
+      template = this.options.handlebars.compile(contents)
+
+      if (this.options.cache) {
+        this.cache.set(templatePath, template)
+      }
     }
 
-    const view = this.cache.get(templatePath)
+    return template
+  }
+
+  render(templatePath: string, context: any): string {
+    const view = this.loadTemplateFile(templatePath)
     const html = view(context)
 
     return html.trim()
