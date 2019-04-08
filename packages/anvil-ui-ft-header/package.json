@@ -25,6 +25,6 @@
     "@financial-times/anvil-ui-ft-on-ready": "file:../anvil-ui-ft-on-ready"
   },
   "peerDependencies": {
-    "react": "^16.8.4"
+    "react": "^16.8.6"
   }
 }
