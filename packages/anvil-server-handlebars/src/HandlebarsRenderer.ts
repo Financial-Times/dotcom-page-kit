@@ -35,7 +35,7 @@ export type TOptions = {
    * Enable caching of template files to reduce filesystem I/O
    * @default false
    */
-  cache?: boolean
+  caching?: boolean
 }
 
 const defaultOptions: Partial<TOptions> = {
@@ -51,54 +51,56 @@ const defaultOptions: Partial<TOptions> = {
 
 class HandlebarsRenderer {
   public options: TOptions
-  private partialFiles: TFilePaths
-  private cache: Map<string, TemplateDelegate> = new Map()
+  private partialsCache: TFilePaths
+  private templateCache: Map<string, TemplateDelegate> = new Map()
 
   constructor(userOptions: TOptions) {
     this.options = mixinDeep({}, defaultOptions, userOptions)
 
     // Loading all partial templates is synchronous but should only happen once
     // on app startup and usually takes < 100ms. It avoids a heap of race-conditions.
-    this.partialFiles = findPartialFiles(this.options.rootDirectory, this.options.partialPaths)
+    this.partialsCache = findPartialFiles(this.options.rootDirectory, this.options.partialPaths)
   }
 
-  loadTemplateFile(filePath: string): TemplateDelegate {
-    let template = this.cache.get(filePath)
+  loadPartials(): TPartialTemplates {
+    const partials = {}
+
+    Object.keys(this.partialsCache).forEach((name) => {
+      const filePath = this.partialsCache[name]
+      partials[name] = this.loadTemplate(filePath)
+    })
+
+    return partials
+  }
+
+  loadTemplate(filePath: string): TemplateDelegate {
+    let template = this.templateCache.get(filePath)
 
     if (template === undefined) {
       const contents = loadFileContents(filePath)
       template = Handlebars.compile(contents)
 
-      if (this.options.cache) {
-        this.cache.set(filePath, template)
+      if (this.options.caching) {
+        this.templateCache.set(filePath, template)
       }
     }
 
     return template
   }
 
-  loadPartialFiles(): TPartialTemplates {
-    const partials = {}
-
-    Object.keys(this.partialFiles).forEach((name) => {
-      const filePath = this.partialFiles[name]
-      partials[name] = this.loadTemplateFile(filePath)
-    })
-
-    return partials
-  }
-
   render(template: string | TemplateDelegate, context: any): string {
-    const view = typeof template === 'function' ? template : this.loadTemplateFile(template)
+    template = typeof template === 'function' ? template : this.loadTemplate(template)
 
-    const html = view(context, {
+    const html = template(context, {
       helpers: this.options.helpers,
-      partials: { ...this.options.partials, ...this.loadPartialFiles() }
+      partials: { ...this.options.partials, ...this.loadPartials() }
     })
 
     return html.trim()
   }
 
+  // This method is intended to be mounted by Express and used as a view engine.
+  // <https://expressjs.com/en/guide/using-template-engines.html>
   renderView(templatePath: string, context: any, callback: TRenderCallback): void {
     try {
       const html = this.render(templatePath, context)
