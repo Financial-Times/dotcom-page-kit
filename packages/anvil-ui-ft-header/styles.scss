@@ -2,6 +2,5 @@ $o-header-is-silent: false;
 @import "o-header";
 @import "src/header";
 @import "n-topic-search";
-@import "n-ui-foundations";
 
 @include nTopicSearch;
