@@ -7,7 +7,7 @@ export interface THeaderProps {
   showSubNav?: boolean
   disableSticky?: boolean
   data: {
-    currentUrl?: string
+    currentPath?: string
     editions: TEditions
     drawer: TItemSubMenu
     navbar: TItemSubMenu

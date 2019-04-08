@@ -30,7 +30,7 @@ storiesOf('FT / Header', module)
       showUserNav: toggleUserStateOptions(),
       userIsAnonymous: toggleAnonymous()
     }
-    storyData.data = {...storyData.data, currentUrl: toggleMobileNav() }
+    storyData.data = { ...storyData.data, currentPath: toggleMobileNav() }
 
     return (
       <OnReady callback={onReadyCallback}>
@@ -43,7 +43,7 @@ storiesOf('FT / Header', module)
       showUserNav: toggleUserStateOptions(),
       userIsAnonymous: toggleAnonymous()
     }
-    storyData.data = {...storyData.data, currentUrl: toggleMobileNav() }
+    storyData.data = { ...storyData.data, currentPath: toggleMobileNav() }
 
     return (
       <OnReady callback={onReadyCallback}>

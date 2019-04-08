@@ -41,7 +41,7 @@ const fakeMenu = {
   'navbar-right': undefined,
   'navbar-right-anon': undefined,
   'navbar-simple': undefined,
-  currentUrl: '',
+  currentPath: '',
   account: undefined,
   anon: undefined,
   user: undefined,
