@@ -5,7 +5,7 @@ import React from 'react'
 import { NavListRightAnon } from '../navigation/partials'
 import { THeaderProps } from '../../interfaces'
 
-const StickyHeader = (props: THeaderProps) => {
+const StickyHeaderWrapper = (props: THeaderProps) => {
   return (
     <header
       className={`o-header o-header--${props.variant || 'simple'} o-header--sticky o--if-js`}
@@ -129,4 +129,4 @@ const TopColumnRightSticky = (props: THeaderProps) => {
   return <div className="o-header__top-column o-header__top-column--right">{ChooseNavRight}</div>
 }
 
-export { StickyHeader, TopWrapperSticky, TopColumnLeftSticky, TopColumnCenterSticky, TopColumnRightSticky }
+export { StickyHeaderWrapper, TopWrapperSticky, TopColumnLeftSticky, TopColumnCenterSticky, TopColumnRightSticky }
