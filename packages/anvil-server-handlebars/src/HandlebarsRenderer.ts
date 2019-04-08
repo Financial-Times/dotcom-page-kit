@@ -44,8 +44,8 @@ const defaultOptions: Partial<TOptions> = {
   partials: {},
   partialPaths: {
     './views/partials': '**/*.{hbs,html}',
-    './bower_components': '*/{templates,components}/**/*{hbs,html}',
-    './node_modules/@financial-times': '*/{templates,components}/**/*{hbs,html}'
+    './bower_components': '*/{templates,components}/**/*.{hbs,html}',
+    './node_modules/@financial-times': '*/{templates,components}/**/*.{hbs,html}'
   }
 }
 
