@@ -90,7 +90,7 @@ jest.mock(
 
 describe('anvil-middleware-ft-navigation/index', () => {
   let nav
-  let navWithCrumbtrail
+  let navWithSubNavigation
   let requestMock
   let responseMock
   let responseMockNoEditions
@@ -98,7 +98,7 @@ describe('anvil-middleware-ft-navigation/index', () => {
 
   beforeEach(() => {
     nav = navigation.init()
-    navWithCrumbtrail = navigation.init({ enableSubNavigation: true })
+    navWithSubNavigation = navigation.init({ enableSubNavigation: true })
     requestMock = httpMocks.createRequest()
     responseMock = httpMocks.createResponse({
       locals: { editions: { current: { id: 'some-edition-id' } } }
@@ -111,13 +111,13 @@ describe('anvil-middleware-ft-navigation/index', () => {
 
   afterEach(() => {
     nav = null
-    navWithCrumbtrail = null
+    navWithSubNavigation = null
     jest.clearAllMocks()
   })
 
   it('returns a function', () => {
     expect(nav).toBeInstanceOf(Function)
-    expect(navWithCrumbtrail).toBeInstanceOf(Function)
+    expect(navWithSubNavigation).toBeInstanceOf(Function)
   })
 
   describe('without the enableSubNavigation option', () => {
@@ -133,11 +133,11 @@ describe('anvil-middleware-ft-navigation/index', () => {
 
   describe('with the enableSubNavigation option', () => {
     it('sets the crumbtrail properties on response.locals', async () => {
-      await navWithCrumbtrail(requestMock, responseMock, next)
+      await navWithSubNavigation(requestMock, responseMock, next)
       expect(responseMock.locals.navigation).toEqual(fakeMenuDataWithCrumbtrail)
     })
     it('calls the fallthrough function', async () => {
-      await navWithCrumbtrail(requestMock, responseMock, next)
+      await navWithSubNavigation(requestMock, responseMock, next)
       expect(next).toHaveBeenCalled()
     })
   })
