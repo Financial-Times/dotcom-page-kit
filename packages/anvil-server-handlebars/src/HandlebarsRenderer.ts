@@ -59,33 +59,38 @@ class HandlebarsRenderer {
   public options: TOptions
   public engine: this['renderView']
 
-  private partialsCache: TFilePaths
-  private templateCache: Map<string, TemplateDelegate> = new Map()
+  private cache: Map<string, any> = new Map()
 
   constructor(userOptions: TOptions) {
     this.options = mixinDeep({}, defaultOptions, userOptions)
-
-    // Looking up all partial templates is synchronous but should only happen once
-    // on app startup and usually takes < 100ms. It avoids a heap of race-conditions.
-    this.partialsCache = findPartialFiles(this.options.rootDirectory, this.options.partialPaths)
 
     // Create a point for Express to mount as a view engine
     this.engine = this.renderView.bind(this)
   }
 
   loadPartials(): TPartialTemplates {
-    const partials = {}
+    let partials: TFilePaths = this.cache.get('__partials__')
 
-    Object.keys(this.partialsCache).forEach((name) => {
-      const filePath = this.partialsCache[name]
-      partials[name] = this.loadTemplate(filePath)
+    if (partials === undefined) {
+      partials = findPartialFiles(this.options.rootDirectory, this.options.partialPaths)
+
+      if (this.options.cache) {
+        this.cache.set('__partials__', partials)
+      }
+    }
+
+    const templates = {}
+
+    Object.keys(partials).forEach((name) => {
+      const filePath = partials[name]
+      templates[name] = this.loadTemplate(filePath)
     })
 
-    return partials
+    return templates
   }
 
   loadTemplate(filePath: string): TemplateDelegate {
-    let template = this.templateCache.get(filePath)
+    let template: TemplateDelegate = this.cache.get(filePath)
 
     if (template === undefined) {
       const contents = loadFileContents(filePath)
@@ -94,7 +99,7 @@ class HandlebarsRenderer {
       template = hbs.compile(contents)
 
       if (this.options.cache) {
-        this.templateCache.set(filePath, template)
+        this.cache.set(filePath, template)
       }
     }
 

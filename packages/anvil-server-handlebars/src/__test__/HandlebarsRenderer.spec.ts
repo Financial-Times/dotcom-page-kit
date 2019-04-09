@@ -25,7 +25,7 @@ describe('anvil-server-handlebars', () => {
     it('loads and compiles partial templates from disk', () => {
       const values = Object.values(result)
 
-      expect(values.length).toEqual(2)
+      expect(values.length).toBe(2)
 
       values.forEach((template) => {
         expect(template).toEqual(expect.any(Function))
@@ -33,8 +33,12 @@ describe('anvil-server-handlebars', () => {
     })
 
     it('caches each compiled partial template', () => {
-      const keys = Object.keys(instance.partialsCache)
-      expect(keys.length).toEqual(2)
+      const keys = Object.keys(result)
+
+      keys.forEach((key) => {
+        const filename = path.join(root, `views/partials/${key}.hbs`)
+        expect(instance.cache.has(filename)).toBe(true)
+      })
     })
   })
 
@@ -50,7 +54,7 @@ describe('anvil-server-handlebars', () => {
     })
 
     it('caches the compiled template', () => {
-      expect(instance.templateCache.has(view)).toEqual(true)
+      expect(instance.cache.has(view)).toBe(true)
     })
   })
 
