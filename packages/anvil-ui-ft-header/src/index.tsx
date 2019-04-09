@@ -38,7 +38,7 @@ const defaultProps: Partial<THeaderProps> = {
 function Header(props: THeaderProps) {
   const navItems = props.data.navbar.items
   const includeUserActionsNav = props.showUserNav && props.userIsAnonymous ? UserActionsNav(props) : null
-  const incudeCrumbtrail = props.data.breadcrumb && props.data.subsections ? SubNavigation(props) : null
+  const incudeSubNavigation = props.data.breadcrumb && props.data.subsections ? SubNavigation(props) : null
   return (
     <HeaderWrapper {...props}>
       {includeUserActionsNav}
@@ -53,7 +53,7 @@ function Header(props: THeaderProps) {
         <NavListLeft navItems={navItems} />
         <NavListRight {...props} />
       </NavDesktop>
-      {incudeCrumbtrail}
+      {incudeSubNavigation}
     </HeaderWrapper>
   )
 }
