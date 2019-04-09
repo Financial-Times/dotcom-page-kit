@@ -89,7 +89,7 @@ storiesOf('FT / Layout', module)
       </OnReady>
     )
   })
-  .add('Template', () => {
+  .add('Template utility', () => {
     const theCrocodile = `
     <p>How doth the little crocodile </p>
     <p>Improve his shining tail</p>`
