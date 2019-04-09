@@ -5,7 +5,7 @@ import { menus as navigationData } from '../__fixtures__/menus'
 import * as expected from '../__fixtures__/expected'
 
 const subNavigationData = {
-  testData: 'some-crumbtrail-data',
+  testData: 'some-sub-navigation-data',
   ancestors: 'some-ancestors',
   children: 'some-children',
   item: 'some-data-item'
@@ -69,9 +69,9 @@ describe('anvil-server-ft-navigation', () => {
     })
   })
 
-  // nock used here because Crumbtrail fetches its data directly rather than pulling from Poller
+  // nock used here because SubNavigation fetches its data directly rather than pulling from Poller
   describe('.getSubNavigation()', () => {
-    it('fetches the crumbtrail data', async () => {
+    it('fetches the subNavigation data', async () => {
       nock('http://next-navigation.ft.com')
         .get('/v2/hierarchy/streamPage')
         .reply(200, clone(subNavigationData))
@@ -86,7 +86,7 @@ describe('anvil-server-ft-navigation', () => {
         .get('/v2/hierarchy/streamPage')
         .reply(500)
       await expect(navigationInstance.getSubNavigation('streamPage')).rejects.toMatchObject({
-        message: 'Navigation crumbtrail for streamPage could not be found.'
+        message: 'subNavigation for streamPage could not be found.'
       })
     })
   })

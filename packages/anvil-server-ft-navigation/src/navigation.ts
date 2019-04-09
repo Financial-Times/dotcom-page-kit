@@ -65,8 +65,8 @@ export class Navigation {
 
   async getSubNavigation(path: string): Promise<TNavSubNavigation> {
     const currentPage = removeLeadingForwardSlash(path)
-    const crumbtrail = `${this.options.subNavigationUrl}/${currentPage}`
-    const response = await fetch(crumbtrail)
+    const subNavigation = `${this.options.subNavigationUrl}/${currentPage}`
+    const response = await fetch(subNavigation)
 
     if (response.ok) {
       const data = await response.json()
@@ -75,7 +75,7 @@ export class Navigation {
         subsections: parseData(data.children)
       }
     } else {
-      throw httpError(response.status, `Navigation crumbtrail for ${currentPage} could not be found.`)
+      throw httpError(response.status, `subNavigation for ${currentPage} could not be found.`)
     }
   }
 }

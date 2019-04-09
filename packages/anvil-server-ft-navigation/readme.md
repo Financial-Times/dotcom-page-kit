@@ -82,12 +82,12 @@ Returns:
 
 ### `getSubNavigation(path: string)`
 
-Returns the crumbtrail data for `path`. The crumbtrail is the data which populates the header-subnav element:
+Returns the subNavigation data for `path`. The subNavigation is the data which populates the header-subnav element:
 
 ![alt text](./screenshots/screenshot-markets-nav-item.png)
 
 
-## Modifying Crumbtrail data
+## Modifying SubNavigation data
 
 The data from `getSubNavigation`  methods is frozen to prevent accidental mutation of the `Poller` instance's data as it is passed around. If you need to modify any part of the data, you should first clone the parts you need and then work with your cloned object.
 
