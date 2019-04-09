@@ -49,7 +49,7 @@ Enables fetching hierarchical navigation data for the current path including any
 
 See the [FT navigation documentation] for more details.
 
-### `crumbtrailUrl`
+### `subNavigationUrl`
 
 See the [FT navigation documentation] for more details.
 

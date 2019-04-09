@@ -1,6 +1,6 @@
 export type TNavOptions = {
   menuUrl?: string
-  crumbtrailUrl?: string
+  subNavigationUrl?: string
   interval?: number
 }
 

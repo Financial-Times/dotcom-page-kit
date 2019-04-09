@@ -1,6 +1,6 @@
 # anvil-server-ft-navigation
 
-This module exposes a Navigation class with some methods for accessing navigation data for ft.com. 
+This module exposes a Navigation class with some methods for accessing navigation data for ft.com.
 
 It is intended to be consumed by a Navigation middleware such as [`anvil-middleware-ft-navigation`](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-middleware-ft-navigation) which can handle the responses.
 
@@ -20,12 +20,12 @@ navigation.getCrumbtrail(path: string): Promise<object>
 
 ### `constructor(options?: TNavOptions)`
 
-Options will be merged with the following defaults: 
+Options will be merged with the following defaults:
 
 ```js
 {
   menuUrl: 'http://next-navigation.ft.com/v2/menus',
-  crumbtrailUrl: 'http://next-navigation.ft.com/v2/hierarchy',
+  subNavigationUrl: 'http://next-navigation.ft.com/v2/hierarchy',
   interval: 15 * 60 * 1000 // poll every 15 minutes
 }
 ```
@@ -48,7 +48,7 @@ Data is keyed by menuId, values match the output of `getPathMenu(menuId, path)`
 - "navbar-uk"
 - "navbar-international"
 
-### `getPathMenu(menuId: string, path: string): Promise<TNavMenu>` 
+### `getPathMenu(menuId: string, path: string): Promise<TNavMenu>`
 
 Returns the navigation data for the supplied `menuId` (see above), decorated per `path`:
 - A `selected` property is added to all items; value is `true` or `false` depending on whether the `url` property matches `path`
@@ -64,16 +64,16 @@ Returns:
 {
   label: 'Drawer',
   items: [
-    { 
-      label: 'Foo', 
-      url: '/world/uk', 
-      submenu: null, 
+    {
+      label: 'Foo',
+      url: '/world/uk',
+      submenu: null,
       selected: true  // property added; value is true because it matches `path`
     },
     {
-      label: 'Bar', 
-      url: '/fake-item?location=/world/uk', // location set to 
-      submenu: null, 
+      label: 'Bar',
+      url: '/fake-item?location=/world/uk', // location set to
+      submenu: null,
       selected: false // property added;
     }
   ]
