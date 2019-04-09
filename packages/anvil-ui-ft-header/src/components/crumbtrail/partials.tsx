@@ -1,7 +1,7 @@
 import React from 'react'
 import { THeaderProps } from '../../interfaces'
 
-const IncludeCrumbtrail = (props: THeaderProps) => {
+const SubNavigation = (props: THeaderProps) => {
   return props.showSubNav ? (
     <SubNavigationWrapper>
       <BreadCrumb breadcrumb={props.data.breadcrumb} />
@@ -93,4 +93,4 @@ const SubSections = ({ subsections }) => {
   )
 }
 
-export { IncludeCrumbtrail }
+export { SubNavigation }
