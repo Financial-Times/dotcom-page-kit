@@ -3,7 +3,7 @@ import Subject from '../HandlebarsRenderer'
 
 // NOTE: Tests are run from the repository root directory so we need to set the CWD
 const root = path.join(__dirname, '__fixtures__')
-const view = path.resolve(root, 'views', 'view.hbs')
+const view = path.resolve(root, 'views/view.hbs')
 
 describe('anvil-server-handlebars', () => {
   let instance
@@ -81,7 +81,9 @@ describe('anvil-server-handlebars', () => {
     it('can render a template and fire a callback with the result', (done) => {
       const context = { title: 'Hello World', aside: 'Lorem ipsum' }
 
-      instance.renderView(view, context, (_, result) => {
+      instance.renderView(view, context, (error, result) => {
+        expect(error).toBeNull()
+
         expect(result).toContain('<h1>Hello World</h1>')
         expect(result).toContain('<aside>Lorem ipsum</aside>')
 
