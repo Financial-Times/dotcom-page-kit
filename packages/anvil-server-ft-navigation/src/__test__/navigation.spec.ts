@@ -70,12 +70,12 @@ describe('anvil-server-ft-navigation', () => {
   })
 
   // nock used here because Crumbtrail fetches its data directly rather than pulling from Poller
-  describe('.getCrumbtrail()', () => {
+  describe('.getSubNavigation()', () => {
     it('fetches the crumbtrail data', async () => {
       nock('http://next-navigation.ft.com')
         .get('/v2/hierarchy/streamPage')
         .reply(200, clone(crumbtrailData))
-      const result = await navigationInstance.getCrumbtrail('streamPage')
+      const result = await navigationInstance.getSubNavigation('streamPage')
 
       expect(Object.isFrozen(result.breadcrumb)).toEqual(true)
       expect(Object.isFrozen(result.subsections)).toEqual(true)
@@ -85,7 +85,7 @@ describe('anvil-server-ft-navigation', () => {
       nock('http://next-navigation.ft.com')
         .get('/v2/hierarchy/streamPage')
         .reply(500)
-      await expect(navigationInstance.getCrumbtrail('streamPage')).rejects.toMatchObject({
+      await expect(navigationInstance.getSubNavigation('streamPage')).rejects.toMatchObject({
         message: 'Navigation crumbtrail for streamPage could not be found.'
       })
     })

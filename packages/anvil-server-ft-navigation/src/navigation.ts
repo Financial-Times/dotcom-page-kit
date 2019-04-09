@@ -63,7 +63,7 @@ export class Navigation {
     return decorateMenu(data[menuId], path)
   }
 
-  async getCrumbtrail(path: string): Promise<TNavCrumbtrail> {
+  async getSubNavigation(path: string): Promise<TNavCrumbtrail> {
     const currentPage = removeLeadingForwardSlash(path)
     const crumbtrail = `${this.options.subNavigationUrl}/${currentPage}`
     const response = await fetch(crumbtrail)

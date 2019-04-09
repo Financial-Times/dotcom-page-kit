@@ -13,7 +13,7 @@ const navigation = new Navigation()
 
 navigation.getNavigationData(): Promise<TNavMenus>
 navigation.getPathMenu(menuId: string, path: string): Promise<TNavMenu>
-navigation.getCrumbtrail(path: string): Promise<object>
+navigation.getSubNavigation(path: string): Promise<object>
 ```
 
 ## API
@@ -80,7 +80,7 @@ Returns:
 }
 ```
 
-### `getCrumbtrail(path: string)`
+### `getSubNavigation(path: string)`
 
 Returns the crumbtrail data for `path`. The crumbtrail is the data which populates the header-subnav element:
 
@@ -89,9 +89,9 @@ Returns the crumbtrail data for `path`. The crumbtrail is the data which populat
 
 ## Modifying Crumbtrail data
 
-The data from `getCrumbtrail`  methods is frozen to prevent accidental mutation of the `Poller` instance's data as it is passed around. If you need to modify any part of the data, you should first clone the parts you need and then work with your cloned object.
+The data from `getSubNavigation`  methods is frozen to prevent accidental mutation of the `Poller` instance's data as it is passed around. If you need to modify any part of the data, you should first clone the parts you need and then work with your cloned object.
 
 ```js
-const menuItem = getCrumbtrail('/world/uk')
+const menuItem = getSubNavigation('/world/uk')
 const clone = menuItem => JSON.parse(JSON.stringify(menuItem));
 ```
