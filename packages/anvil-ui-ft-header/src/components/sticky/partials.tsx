@@ -129,4 +129,10 @@ const TopColumnRightSticky = (props: THeaderProps) => {
   return <div className="o-header__top-column o-header__top-column--right">{ChooseNavRight}</div>
 }
 
-export { StickyHeaderWrapper, TopWrapperSticky, TopColumnLeftSticky, TopColumnCenterSticky, TopColumnRightSticky }
+export {
+  StickyHeaderWrapper,
+  TopWrapperSticky,
+  TopColumnLeftSticky,
+  TopColumnCenterSticky,
+  TopColumnRightSticky
+}

@@ -20,7 +20,7 @@ import {
   TopColumnLeftSticky,
   TopColumnRightSticky
 } from './components/sticky/partials'
-import { IncludeCrumbtrail } from './components/crumbtrail/partials'
+import { SubNavigation } from './components/crumbtrail/partials'
 import { IncludeDrawer } from './components/drawer/topLevelPartials'
 import { Search } from './components/search/partials'
 
@@ -38,7 +38,7 @@ const defaultProps: Partial<THeaderProps> = {
 function Header(props: THeaderProps) {
   const navItems = props.data.navbar.items
   const includeUserActionsNav = props.showUserNav && props.userIsAnonymous ? UserActionsNav(props) : null
-  const incudeCrumbtrail = props.data.breadcrumb && props.data.subsections ? IncludeCrumbtrail(props) : null
+  const incudeCrumbtrail = props.data.breadcrumb && props.data.subsections ? SubNavigation(props) : null
   return (
     <HeaderWrapper {...props}>
       {includeUserActionsNav}
