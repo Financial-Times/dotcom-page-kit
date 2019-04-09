@@ -23,7 +23,7 @@ const removeLeadingForwardSlash = (pagePath: string) => {
 
 const defaults: TNavOptions = {
   menuUrl: 'http://next-navigation.ft.com/v2/menus',
-  crumbtrailUrl: 'http://next-navigation.ft.com/v2/hierarchy',
+  subNavigationUrl: 'http://next-navigation.ft.com/v2/hierarchy',
   interval: 15 * 60 * 1000 // poll every 15 minutes
 }
 
@@ -65,7 +65,7 @@ export class Navigation {
 
   async getCrumbtrail(path: string): Promise<TNavCrumbtrail> {
     const currentPage = removeLeadingForwardSlash(path)
-    const crumbtrail = `${this.options.crumbtrailUrl}/${currentPage}`
+    const crumbtrail = `${this.options.subNavigationUrl}/${currentPage}`
     const response = await fetch(crumbtrail)
 
     if (response.ok) {
