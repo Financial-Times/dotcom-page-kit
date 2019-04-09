@@ -5,11 +5,11 @@ import { TNavigationLinks } from './types'
 import { Navigation, TNavOptions, TNavMenus } from '@financial-times/anvil-server-ft-navigation'
 
 type MiddlewareOptions = TNavOptions & {
-  enableCrumbtrail?: boolean
+  enableSubNavigation?: boolean
 }
 
 const defaultOptions: MiddlewareOptions = {
-  enableCrumbtrail: false
+  enableSubNavigation: false
 }
 
 export const getNavigationLinks = (menuData: TNavMenus, edition: string): TNavigationLinks => {
@@ -27,14 +27,14 @@ export const getNavigationLinks = (menuData: TNavMenus, edition: string): TNavig
 }
 
 export const init = (userOptions: MiddlewareOptions = {}) => {
-  const { enableCrumbtrail, ...navOptions } = { ...defaultOptions, ...userOptions }
+  const { enableSubNavigation, ...navOptions } = { ...defaultOptions, ...userOptions }
   const navigator = new Navigation(navOptions)
 
   return async (request: Request, response: Response, next: NextFunction) => {
     try {
       const [menuData, crumbtrail] = await Promise.all([
         navigator.getMenuData(request.path),
-        enableCrumbtrail ? navigator.getCrumbtrail(request.path) : null
+        enableSubNavigation ? navigator.getCrumbtrail(request.path) : null
       ])
       const currentPath = request.path
 
