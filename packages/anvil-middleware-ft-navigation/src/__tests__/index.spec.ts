@@ -32,7 +32,7 @@ const fakeMenuResponse = {
   }
 }
 
-const fakeCrumbtrailResponse = {
+const fakeSubNavigationResponse = {
   breadcrumb: 'some-breadcrumb',
   subsections: 'some-subsections'
 }
@@ -64,9 +64,9 @@ const fakeMenuDataDefault = {
   footer: fakeMenuResponse['footer']
 }
 
-const fakeMenuDataWithCrumbtrail = {
+const fakeMenuDataWithSubNavigation = {
   ...fakeMenu,
-  crumbtrail: fakeCrumbtrailResponse,
+  crumbtrail: fakeSubNavigationResponse,
   navbar: fakeMenuResponse['navbar-some-edition-id'],
   drawer: fakeMenuResponse['drawer-some-edition-id'],
   footer: fakeMenuResponse['footer']
@@ -75,7 +75,7 @@ const fakeMenuDataWithCrumbtrail = {
 const FakePoller = {
   start: jest.fn(),
   getMenuData: jest.fn().mockImplementation(() => fakeMenuResponse),
-  getSubNavigation: jest.fn().mockImplementation(() => fakeCrumbtrailResponse)
+  getSubNavigation: jest.fn().mockImplementation(() => fakeSubNavigationResponse)
 }
 
 jest.mock(
@@ -134,7 +134,7 @@ describe('anvil-middleware-ft-navigation/index', () => {
   describe('with the enableSubNavigation option', () => {
     it('sets the crumbtrail properties on response.locals', async () => {
       await navWithSubNavigation(requestMock, responseMock, next)
-      expect(responseMock.locals.navigation).toEqual(fakeMenuDataWithCrumbtrail)
+      expect(responseMock.locals.navigation).toEqual(fakeMenuDataWithSubNavigation)
     })
     it('calls the fallthrough function', async () => {
       await navWithSubNavigation(requestMock, responseMock, next)
