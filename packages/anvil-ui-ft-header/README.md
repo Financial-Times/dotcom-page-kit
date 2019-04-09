@@ -111,7 +111,7 @@ Unless `showSubNav` is set to `false` the subNavigation element will be rendered
 
 The `breadcrumb` and `subsections` properties are required to render the subNavigation. They are added to the navigation data by the [anvil-server-ft-navigation] package and the data is page-specific.
 
-![Example header subNavigation element](./screenshots/header-crumbtrail.png)
+![Example header subNavigation element](./screenshots/header-sub-navigation.png)
 
 
 ### Drawer

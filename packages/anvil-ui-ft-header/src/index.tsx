@@ -20,7 +20,7 @@ import {
   TopColumnLeftSticky,
   TopColumnRightSticky
 } from './components/sticky/partials'
-import { SubNavigation } from './components/crumbtrail/partials'
+import { SubNavigation } from './components/sub-navigation/partials'
 import { IncludeDrawer } from './components/drawer/topLevelPartials'
 import { Search } from './components/search/partials'
 
