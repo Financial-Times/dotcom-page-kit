@@ -34,7 +34,7 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
     try {
       const [menuData, crumbtrail] = await Promise.all([
         navigator.getMenuData(request.path),
-        enableSubNavigation ? navigator.getCrumbtrail(request.path) : null
+        enableSubNavigation ? navigator.getSubNavigation(request.path) : null
       ])
       const currentPath = request.path
 

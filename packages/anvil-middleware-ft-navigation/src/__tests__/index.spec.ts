@@ -75,7 +75,7 @@ const fakeMenuDataWithCrumbtrail = {
 const FakePoller = {
   start: jest.fn(),
   getMenuData: jest.fn().mockImplementation(() => fakeMenuResponse),
-  getCrumbtrail: jest.fn().mockImplementation(() => fakeCrumbtrailResponse)
+  getSubNavigation: jest.fn().mockImplementation(() => fakeCrumbtrailResponse)
 }
 
 jest.mock(
