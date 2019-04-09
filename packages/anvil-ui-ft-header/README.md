@@ -49,7 +49,7 @@ All variants with the exception of `LogoOnly` require a props object to be passe
 | userIsAnonymous   | boolean | true     | true     | Marks a user as anonymous - set in n-express                                                                      |
 | userIsLoggedIn    | boolean | true     | false    | Marks a user as logged in - set in n-express                                                                      |
 | showUserNav       | boolean | true     | true     | Show user navigation options - `Portfolio` and `Account Settings` or `Sign in` and `Subscribe`                    |
-| showSubNav        | boolean | true     | true     | Show the subNavigation element                                                           |
+| showSubNavigation        | boolean | true     | true     | Show the subNavigation element                                                           |
 | disableSticky     | boolean | true     | false    | Prevents the StickyHeader component from rendering                                                                |
 | data              | object  | false    |          | Navigation data for rendering the header components - takes the shape of [Data Props](#data-props)                |
 
@@ -107,7 +107,7 @@ The `editions` and `navbar` properties are added to the navigation data by the [
 
 ### Header subNavigation
 
-Unless `showSubNav` is set to `false` the subNavigation element will be rendered as part of the default header if subNavigation data exists for the requested page. Some stream pages on ft.com contain a subNavigation element and myFT pages contain a submenu which uses the subNavigation element as its base.
+Unless `showSubNavigation` is set to `false` the subNavigation element will be rendered as part of the default header if subNavigation data exists for the requested page. Some stream pages on ft.com contain a subNavigation element and myFT pages contain a submenu which uses the subNavigation element as its base.
 
 The `breadcrumb` and `subsections` properties are required to render the subNavigation. They are added to the navigation data by the [anvil-server-ft-navigation] package and the data is page-specific.
 

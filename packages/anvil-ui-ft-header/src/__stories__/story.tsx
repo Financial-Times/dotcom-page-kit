@@ -26,7 +26,7 @@ storiesOf('FT / Header', module)
   .addDecorator(withKnobs)
   .add('Default header', () => {
     const knobs = {
-      showSubNav: toggleShowSubNav(),
+      showSubNavigation: toggleShowSubNav(),
       showUserNav: toggleUserStateOptions(),
       userIsAnonymous: toggleAnonymous()
     }

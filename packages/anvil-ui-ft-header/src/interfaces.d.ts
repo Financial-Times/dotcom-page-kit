@@ -4,7 +4,7 @@ export interface THeaderProps {
   userIsAnonymous?: boolean
   userIsLoggedIn?: boolean
   showUserNav?: boolean
-  showSubNav?: boolean
+  showSubNavigation?: boolean
   disableSticky?: boolean
   data: {
     currentPath?: string

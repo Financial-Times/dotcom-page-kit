@@ -18,7 +18,7 @@ const data: THeaderProps = {
   hideOutboundLinks: false,
   userIsAnonymous: false,
   userIsLoggedIn: true,
-  showSubNav: true,
+  showSubNavigation: true,
   disableSticky: true,
   data: {
     navbar: navbarUk,
