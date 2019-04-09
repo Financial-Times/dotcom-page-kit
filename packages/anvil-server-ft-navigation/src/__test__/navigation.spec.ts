@@ -4,7 +4,7 @@ import { Navigation } from '..'
 import { menus as navigationData } from '../__fixtures__/menus'
 import * as expected from '../__fixtures__/expected'
 
-const crumbtrailData = {
+const subNavigationData = {
   testData: 'some-crumbtrail-data',
   ancestors: 'some-ancestors',
   children: 'some-children',
@@ -74,7 +74,7 @@ describe('anvil-server-ft-navigation', () => {
     it('fetches the crumbtrail data', async () => {
       nock('http://next-navigation.ft.com')
         .get('/v2/hierarchy/streamPage')
-        .reply(200, clone(crumbtrailData))
+        .reply(200, clone(subNavigationData))
       const result = await navigationInstance.getSubNavigation('streamPage')
 
       expect(Object.isFrozen(result.breadcrumb)).toEqual(true)
