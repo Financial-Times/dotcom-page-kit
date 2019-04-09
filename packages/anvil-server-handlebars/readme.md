@@ -1,6 +1,6 @@
 # @financial-times/anvil-server-handlebars
 
-This module provides rendering for [Handlebars] templates with additional support for dynamically loading partial templates and a [suite of helper functions]. It is designed to be used during the transition between [n-handlebars] and JSX rendering.
+This module provides rendering for [Handlebars] templates with additional support for dynamically loading partial templates and a suite of helper functions. It is primarily designed to be used during the transition between [n-handlebars] and JSX rendering and does not support layouts.
 
 [Handlebars]: https://handlebarsjs.com/
 [n-handlebars]: https://github.com/Financial-Times/n-handlebars
@@ -25,9 +25,9 @@ _Please note_ the template file extension registered with your application shoul
 
 ```diff
 const express = require('express')
-+ const Handlebars = require('@financial-times/anvil-server-handlebars')
++ const AnvilHandlebars = require('@financial-times/anvil-server-handlebars')
 
-+ const hbs = new Handlebars(options)
++ const hbs = new AnvilHandlebars(options)
 + app.engine('.html', hbs.engine)
 ```
 
@@ -56,8 +56,8 @@ _Please note_ that where to lookup template files can be configured using Expres
 This module can be used without integrating it fully into your application. This may be suitable for applications which are not built with Express or for ad-hoc template rendering needs.
 
 ```diff
-+ const Handlebars = require('@financial-times/anvil-server-handlebars')
-+ const renderer = new Handlebars(options)
++ const AnvilHandlebars = require('@financial-times/anvil-server-handlebars')
++ const renderer = new AnvilHandlebars(options)
 ```
 
 When using this module as a standalone library you will need to find template files, provide all data, and handle the rendered output manually.
@@ -79,11 +79,19 @@ module.exports = (request, response, next) => {
 
 ## API
 
-### `.render(templatePath, data)`
+### `.loadPartials()`
 
-Loads the requested template and renders it with `data`. Partial templates and helper functions will also be made available to the render context.
+Load and compile all partial templates found with the `partialPaths` option. The template files found will be cached if caching is enabled. Returns an object mapping partial names to template functions.
 
-### `.renderView(templatePath, data, callback)`
+### `.loadTemplate(templatePath)`
+
+Loads and compiles the requested template. The template will be cached if caching is enabled. Returns a template function.
+
+### `.render(template, context)`
+
+Renders the requested template file or provided template function with `context`. Partial templates and helper functions will be made available to the render context. Returns a string.
+
+### `.renderView(templatePath, context, callback)`
 
 This method is intended to be used as a [view engine] for Express. If you need to use it directly then `templatePath` must be an absolute file system path to a template file.
 
@@ -120,7 +128,7 @@ An object listing directories and patterns used to dynamically find and load par
 
 ### `cache`
 
-A boolean which enables caching of template files to reduce filesystem I/O. This should be enabled in production environments. Defaults to `false`.
+A boolean which enables the caching of partial file lookup and compiled templates to reduce filesystem I/O. This should be enabled in production environments. Defaults to `false`.
 
 [helper functions]: http://handlebarsjs.com/builtin_helpers.html
 [partial templates]: https://handlebarsjs.com/partials.html
