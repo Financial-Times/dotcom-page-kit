@@ -28,7 +28,7 @@ import { THeaderProps } from './interfaces'
 
 const defaultProps: Partial<THeaderProps> = {
   showUserNav: true,
-  showSubNav: true,
+  showSubNavigation: true,
   hideOutboundLinks: false,
   userIsAnonymous: true,
   userIsLoggedIn: false,

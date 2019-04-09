@@ -2,7 +2,7 @@ import React from 'react'
 import { THeaderProps } from '../../interfaces'
 
 const SubNavigation = (props: THeaderProps) => {
-  return props.showSubNav ? (
+  return props.showSubNavigation ? (
     <SubNavigationWrapper>
       <BreadCrumb breadcrumb={props.data.breadcrumb} />
       <SubSections subsections={props.data.subsections} />
