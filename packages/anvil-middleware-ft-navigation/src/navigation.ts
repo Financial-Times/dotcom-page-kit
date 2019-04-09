@@ -32,7 +32,7 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
 
   return async (request: Request, response: Response, next: NextFunction) => {
     try {
-      const [menuData, crumbtrail] = await Promise.all([
+      const [menuData, subNavigation] = await Promise.all([
         navigator.getMenuData(request.path),
         enableSubNavigation ? navigator.getSubNavigation(request.path) : null
       ])
@@ -41,7 +41,7 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
       // response.locals.editions is set by cookie (on ft.com by visiting /?edition={edition})
       // defaults to "uk"
       const edition = delve(response.locals.editions, 'current.id', 'uk')
-      response.locals.navigation = { currentPath, crumbtrail, ...getNavigationLinks(menuData, edition) }
+      response.locals.navigation = { currentPath, subNavigation, ...getNavigationLinks(menuData, edition) }
 
       next()
     } catch (error) {

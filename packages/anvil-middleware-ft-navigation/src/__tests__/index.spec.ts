@@ -50,7 +50,7 @@ const fakeMenu = {
 
 const fakeMenuData = {
   ...fakeMenu,
-  crumbtrail: null,
+  subNavigation: null,
   navbar: fakeMenuResponse['navbar-some-edition-id'],
   drawer: fakeMenuResponse['drawer-some-edition-id'],
   footer: fakeMenuResponse['footer']
@@ -58,7 +58,7 @@ const fakeMenuData = {
 
 const fakeMenuDataDefault = {
   ...fakeMenu,
-  crumbtrail: null,
+  subNavigation: null,
   navbar: fakeMenuResponse['navbar-uk'],
   drawer: fakeMenuResponse['drawer-uk'],
   footer: fakeMenuResponse['footer']
@@ -66,7 +66,7 @@ const fakeMenuDataDefault = {
 
 const fakeMenuDataWithSubNavigation = {
   ...fakeMenu,
-  crumbtrail: fakeSubNavigationResponse,
+  subNavigation: fakeSubNavigationResponse,
   navbar: fakeMenuResponse['navbar-some-edition-id'],
   drawer: fakeMenuResponse['drawer-some-edition-id'],
   footer: fakeMenuResponse['footer']
@@ -132,7 +132,7 @@ describe('anvil-middleware-ft-navigation/index', () => {
   })
 
   describe('with the enableSubNavigation option', () => {
-    it('sets the crumbtrail properties on response.locals', async () => {
+    it('sets the subNavigation properties on response.locals', async () => {
       await navWithSubNavigation(requestMock, responseMock, next)
       expect(responseMock.locals.navigation).toEqual(fakeMenuDataWithSubNavigation)
     })
