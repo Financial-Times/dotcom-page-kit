@@ -3,7 +3,7 @@ import navbarSimple from './navbarSimple.json'
 import navbarRight from './navbarRight.json'
 import navbarRightAnon from './navbarRightAnon.json'
 import drawerUk from './drawerUk.json'
-import subNavigation from './crumbtrailUk.json'
+import subNavigation from './subNavigationUk.json'
 import editionsUk from './editionsUk.json'
 import user from './user.json'
 
