@@ -3,14 +3,14 @@ import { THeaderProps } from '../../interfaces'
 
 const IncludeCrumbtrail = (props: THeaderProps) => {
   return props.showSubNav ? (
-    <Crumbtrail>
+    <SubNavigationWrapper>
       <BreadCrumb breadcrumb={props.data.breadcrumb} />
       <SubSections subsections={props.data.subsections} />
-    </Crumbtrail>
+    </SubNavigationWrapper>
   ) : null
 }
 
-const Crumbtrail = (props) => (
+const SubNavigationWrapper = (props) => (
   <div
     className="o-header__subnav"
     role="navigation"
