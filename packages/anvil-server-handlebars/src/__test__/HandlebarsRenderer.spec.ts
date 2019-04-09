@@ -25,7 +25,7 @@ describe('anvil-server-handlebars', () => {
     it('loads and compiles partial templates from disk', () => {
       const values = Object.values(result)
 
-      expect(values.length).toBe(2)
+      expect(values.length).toBe(3)
 
       values.forEach((template) => {
         expect(template).toEqual(expect.any(Function))
@@ -66,6 +66,7 @@ describe('anvil-server-handlebars', () => {
 
       expect(result).toContain('<h1>Hello World</h1>')
       expect(result).toContain('<aside>Lorem ipsum</aside>')
+      expect(result).toMatch(/<main>.+<\/main>/s)
     })
 
     it('can render a given template function', () => {
@@ -74,6 +75,7 @@ describe('anvil-server-handlebars', () => {
 
       expect(result).toContain('<h1>Hello World</h1>')
       expect(result).toContain('<aside>Lorem ipsum</aside>')
+      expect(result).toMatch(/<main>.+<\/main>/s)
     })
   })
 
@@ -86,6 +88,7 @@ describe('anvil-server-handlebars', () => {
 
         expect(result).toContain('<h1>Hello World</h1>')
         expect(result).toContain('<aside>Lorem ipsum</aside>')
+        expect(result).toMatch(/<main>.+<\/main>/s)
 
         done()
       })
