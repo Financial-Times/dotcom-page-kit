@@ -98,7 +98,7 @@ describe('anvil-middleware-ft-navigation/index', () => {
 
   beforeEach(() => {
     nav = navigation.init()
-    navWithCrumbtrail = navigation.init({ enableCrumbtrail: true })
+    navWithCrumbtrail = navigation.init({ enableSubNavigation: true })
     requestMock = httpMocks.createRequest()
     responseMock = httpMocks.createResponse({
       locals: { editions: { current: { id: 'some-edition-id' } } }
@@ -120,7 +120,7 @@ describe('anvil-middleware-ft-navigation/index', () => {
     expect(navWithCrumbtrail).toBeInstanceOf(Function)
   })
 
-  describe('without the enableCrumbtrail option', () => {
+  describe('without the enableSubNavigation option', () => {
     it('sets the navigation properties on response.locals', async () => {
       await nav(requestMock, responseMock, next)
       expect(responseMock.locals.navigation).toEqual(fakeMenuData)
@@ -131,7 +131,7 @@ describe('anvil-middleware-ft-navigation/index', () => {
     })
   })
 
-  describe('with the enableCrumbtrail option', () => {
+  describe('with the enableSubNavigation option', () => {
     it('sets the crumbtrail properties on response.locals', async () => {
       await navWithCrumbtrail(requestMock, responseMock, next)
       expect(responseMock.locals.navigation).toEqual(fakeMenuDataWithCrumbtrail)
