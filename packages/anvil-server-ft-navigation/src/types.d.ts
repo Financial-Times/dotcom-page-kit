@@ -24,7 +24,7 @@ export type TNavMenuItem = {
   items?: TNavMenuItems
 }
 
-export type TNavCrumbtrail = {
+export type TNavSubNavigation = {
   breadcrumb: {}
   subsections: {}
 }

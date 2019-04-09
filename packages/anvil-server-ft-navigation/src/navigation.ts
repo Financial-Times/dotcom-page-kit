@@ -5,7 +5,7 @@ import fetch from 'node-fetch'
 
 import { decorateMenu } from '.'
 
-import { TNavMenus, TNavMenu, TNavOptions, TNavCrumbtrail } from './types'
+import { TNavMenus, TNavMenu, TNavOptions, TNavSubNavigation } from './types'
 
 /**
  * Makes the navigation data completely immutable,
@@ -63,7 +63,7 @@ export class Navigation {
     return decorateMenu(data[menuId], path)
   }
 
-  async getSubNavigation(path: string): Promise<TNavCrumbtrail> {
+  async getSubNavigation(path: string): Promise<TNavSubNavigation> {
     const currentPage = removeLeadingForwardSlash(path)
     const crumbtrail = `${this.options.subNavigationUrl}/${currentPage}`
     const response = await fetch(crumbtrail)
