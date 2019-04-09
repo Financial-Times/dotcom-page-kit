@@ -49,7 +49,7 @@ All variants with the exception of `LogoOnly` require a props object to be passe
 | userIsAnonymous   | boolean | true     | true     | Marks a user as anonymous - set in n-express                                                                      |
 | userIsLoggedIn    | boolean | true     | false    | Marks a user as logged in - set in n-express                                                                      |
 | showUserNav       | boolean | true     | true     | Show user navigation options - `Portfolio` and `Account Settings` or `Sign in` and `Subscribe`                    |
-| showSubNav        | boolean | true     | true     | Show the crumbtrail element or the myFT subnav element                                                            |
+| showSubNav        | boolean | true     | true     | Show the subNavigation element                                                           |
 | disableSticky     | boolean | true     | false    | Prevents the StickyHeader component from rendering                                                                |
 | data              | object  | false    |          | Navigation data for rendering the header components - takes the shape of [Data Props](#data-props)                |
 
@@ -67,8 +67,8 @@ The props object passed to the header component must have a `data` property. The
 | navbar-right      | Logged in user navigation options - rendered if `showUserNav` is true                                                       |
 | navbar-right-anon | Anonymous user navigation options - rendered if `showUserNav` is true                                                       |
 | navbar-simple     | Minimal navigation links for displaying navigation on smaller viewports                                                     |
-| breadcrumb        | Populates the ancestors section of the crumbtrail                                                                           |
-| subsections       | Populates the children section of the crumbtrail                                                                            |
+| breadcrumb        | Populates the ancestors section of the subNavigation                                                                           |
+| subsections       | Populates the children section of the subNavigation                                                                            |
 | user              | Populates the last section of the drawer with `Help Centre`, `Account Settings`, `Contact Preferences` and `Sign out` links |
 
 ## Variants
@@ -105,13 +105,13 @@ The `editions` and `navbar` properties are added to the navigation data by the [
 ![Example header navigation element](./screenshots/header-navigation.png)
 
 
-### Header crumbtrail
+### Header subNavigation
 
-Unless `showSubNav` is set to `false` the crumbtrail element will be rendered as part of the default header if crumbtrail data exists for the requested page. Some stream pages on ft.com contain a crumbtrail element and myFT pages contain a subnav which uses the crumbtrail element as its base.
+Unless `showSubNav` is set to `false` the subNavigation element will be rendered as part of the default header if subNavigation data exists for the requested page. Some stream pages on ft.com contain a subNavigation element and myFT pages contain a submenu which uses the subNavigation element as its base.
 
-The `breadcrumb` and `subsections` properties are required to render the crumbtrail. They are added to the navigation data by the [anvil-server-ft-navigation] package and the data is page-specific.
+The `breadcrumb` and `subsections` properties are required to render the subNavigation. They are added to the navigation data by the [anvil-server-ft-navigation] package and the data is page-specific.
 
-![Example header crumbtrail element](./screenshots/header-crumbtrail.png)
+![Example header subNavigation element](./screenshots/header-crumbtrail.png)
 
 
 ### Drawer
