@@ -23,38 +23,28 @@ Usage is documented in [Storybook](http://localhost:9001/?path=/story/ft-layout-
 
 ```tsx
 import { Layout } from '@financial-times/anvil-ui-ft-layout'
-import { OnReady } from '@financial-times/anvil-ui-ft-on-ready'
 
 // Data is returned by anvil-middleware-ft-navigation
 const navData: THeaderProps = {...}
 
-// Required to bootstrap Origami components - e.g. activate Drawer etc
-// Called on componentDidMount
-const origamiInit = () => {
-  header.init()
-  footer.init()
-}
-
-<OnReady callback={origamiInit}>
-  <Layout props={navData}>
-    {/* Your app here */}
-  </Layout>
-</OnReady>
+<Layout props={navData}>
+  {/* Your app here */}
+</Layout>
 ```
 
 ## Customisation
 
 ### Props
 
-| PROP         |  TYPE                                                     | OPTIONAL | DEFAULT  | DESCRIPTION                                        |
-| ------------ | --------------------------------------------------------- | -------- | -------- | -------------------------------------------------- |
-| props        | THeaderProps                                              | true*    | {}       | Required _unless_ the `header` prop is `logo-only` |
-| header       | 'simple' \| 'sticky' \| 'logo-only' \| React.ReactElement | true     | 'simple' | The type of header to display                      |
-| headerBefore | string \| React.ReactElement                              | true     | undefined | A slot for content to appear before Header         |
-| headerAfter  | string \| React.ReactElement                              | true     | undefined | A slot for content to appear after Header          |
-| footer       | 'simple' \| 'legal' \| React.ReactElement                 | true     | 'simple' | The type of footer to display                      |
-| footerBefore | string \| React.ReactElement                              | true     | undefined | A slot for content to appear before Footer         |
-| footerAfter  | string \| React.ReactElement                              | true     | undefined | A slot for content to appear after Footer          |
+| PROP         |  TYPE                                                  | OPTIONAL | DEFAULT    | DESCRIPTION                                   |
+| ------------ | -------------------------------------------------------| -------- | ---------- | ----------------------------------------------|
+| props        | THeaderProps                                           | true*    | {}         | Required _unless_ the `header` prop is `logo` |
+| header       | 'standard' \| 'sticky' \| 'logo' \| React.ReactElement | true     | 'standard' | The type of header to display                 |
+| headerBefore | string \| React.ReactElement                           | true     | undefined   | A slot for content to appear before Header    |
+| headerAfter  | string \| React.ReactElement                           | true     | undefined   | A slot for content to appear after Header     |
+| footer       | 'standard' \| 'legal' \| React.ReactElement            | true     | 'standard' | The type of footer to display                 |
+| footerBefore | string \| React.ReactElement                           | true     | undefined   | A slot for content to appear before Footer    |
+| footerAfter  | string \| React.ReactElement                           | true     | undefined   | A slot for content to appear after Footer     |
 
 ### Custom components
 
@@ -62,19 +52,16 @@ All slots accept both custom React components and HTML
 
 ```tsx
 import { Layout } from '@financial-times/anvil-ui-ft-layout'
-import { OnReady } from '@financial-times/anvil-ui-ft-on-ready'
 
 const html = getAdsCode(id) // => <iframe>...<iframe>
 
-<OnReady callback={initUiComponents}>
-  <Layout
-    header={<CustomHeader />}
-    headerAfter={html}
-    footer={<CustomFooter />}
-  >
-    {/* Your app here */}
-  </Layout>
-</OnReady>
+<Layout
+  header={<CustomHeader />}
+  headerAfter={html}
+  footer={<CustomFooter />}
+>
+  {/* Your app here */}
+</Layout>
 ```
 
 ### Template utility
