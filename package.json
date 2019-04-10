@@ -52,7 +52,6 @@
     "@types/jest": "^24.0.0",
     "@types/node": "^10.12.26",
     "@types/ora": "^3.0.0",
-    "@types/react": "16.8.12",
     "@typescript-eslint/parser": "^1.2.0",
     "babel-loader": "^8.0.4",
     "bower": "^1.8.8",
