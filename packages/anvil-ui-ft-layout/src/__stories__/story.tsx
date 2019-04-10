@@ -41,7 +41,7 @@ storiesOf('FT / Layout', module)
 
     return (
       <OnReady callback={initUiComponents}>
-        <Layout props={props} header="logo-only" footer={switchFooter()}>
+        <Layout props={props} header="logo" footer={switchFooter()}>
           <main className="demo">
             <p className="demo__message">Logo only</p>
           </main>
@@ -57,6 +57,19 @@ storiesOf('FT / Layout', module)
         <Layout props={props} header="sticky" footer={switchFooter()}>
           <main className="demo">
             <p className="demo__message demo__message--scroll">Scroll down</p>
+          </main>
+        </Layout>
+      </OnReady>
+    )
+  })
+  .add('Turn off footer', () => {
+    const props = { ...headerProps, hideOutboundLinks: hideFooter() }
+
+    return (
+      <OnReady callback={initUiComponents}>
+        <Layout props={props} footer={false}>
+          <main className="demo">
+            <p className="demo__message">No footer</p>
           </main>
         </Layout>
       </OnReady>

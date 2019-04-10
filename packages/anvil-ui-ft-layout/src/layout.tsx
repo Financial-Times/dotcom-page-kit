@@ -5,23 +5,32 @@ import {
   HeaderSticky,
   LogoOnly,
   Drawer,
-  THeaderVariant,
-  TFooterVariant,
   THeaderProps
 } from '@financial-times/anvil-ui-ft-header/component'
 import { Footer, LegalFooter } from '@financial-times/anvil-ui-ft-footer/component'
+
+export enum AnvilHeader {
+  Standard = HeaderDefault,
+  Sticky = HeaderSticky,
+  Logo = LogoOnly
+}
+
+export enum AnvilFooter {
+  Standard = Footer,
+  Legal = LegalFooter
+}
 
 type TLayoutProps = {
   props: THeaderProps
 
   headerBefore?: string | React.ReactNode
-  header?: THeaderVariant | React.ReactNode
+  header?: AnvilHeader | React.ReactNode | string | false
   headerAfter?: string | React.ReactNode
 
   children?: React.ReactNode
 
   footerBefore?: string | React.ReactNode
-  footer?: TFooterVariant | React.ReactNode
+  footer?: AnvilFooter | React.ReactNode | false
   footerAfter?: string | React.ReactNode
 }
 
@@ -42,22 +51,20 @@ export function Template(props: TTemplateProps) {
   }
 }
 
-export const getPresetComponents = (header: THeaderVariant = 'simple', footer: TFooterVariant = 'simple') => {
-  const headers = {
-    simple: HeaderDefault,
-    home: HeaderDefault,
-    sticky: HeaderSticky,
-    'logo-only': LogoOnly
-  }
+const headers = {
+  standard: AnvilHeader.Standard,
+  sticky: AnvilHeader.Sticky,
+  logo: AnvilHeader.Logo
+}
 
-  const footers = {
-    simple: Footer,
-    legal: LegalFooter
-  }
+const footers = {
+  standard: AnvilFooter.Standard,
+  legal: AnvilFooter.Legal
+}
 
+const getPreset = (header: any = 'standard', footer: any = 'standard') => {
   return {
     header: headers[header],
-    drawer: Drawer,
     footer: footers[footer]
   }
 }
@@ -77,7 +84,7 @@ export function Layout({
    * a) Pass in custom components to render as Header or Footer
    * b) Pass false to component props to switch them off
    */
-  const Preset = getPresetComponents(header, footer)
+  const Preset = getPreset(header, footer)
 
   return (
     <div className="n-layout">
@@ -87,18 +94,16 @@ export function Layout({
         <Template>{headerAfter}</Template>
       </div>
 
-      <main className="n-layout__row n-layout__row--content">{children}</main>
+      <div className="n-layout__row n-layout__row--content">{children}</div>
 
       {!props.hideOutboundLinks && (
-        <div className="n-layout__row n-layout__row--content">
+        <div className="n-layout__row n-layout__row--footer">
           <Template>{footerBefore}</Template>
-          <div className="n-layout__row n-layout__row--footer">
-            {Preset.footer ? <Preset.footer data={props.data.footer.items} /> : footer}
-          </div>
+          {Preset.footer ? <Preset.footer data={props.data.footer.items} /> : footer}
           <Template>{footerAfter}</Template>
         </div>
       )}
-      {Preset.header && Preset.drawer && <Preset.drawer {...props} />}
+      {Preset.header && <Drawer {...props} />}
     </div>
   )
 }
