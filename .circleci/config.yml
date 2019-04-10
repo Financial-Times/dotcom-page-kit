@@ -77,7 +77,7 @@ jobs:
           command: npm run prettier -- --list-different
       - run:
           name: Run package tests
-          command: npm run test
+          command: npm run test -- --runInBand
       - run:
           name: Run example app integration tests
           command: npm run test:examples
