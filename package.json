@@ -78,7 +78,7 @@
     "react-test-renderer": "^16.8.3",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
-    "supertest": "^3.4.2",
+    "supertest": "^4.0.2",
     "ts-jest": "^24.0.0",
     "typescript": "^3.4.1"
   },
