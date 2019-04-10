@@ -50,6 +50,7 @@
     "@storybook/react": "5.0.1",
     "@types/jest": "^24.0.0",
     "@types/node": "^10.12.26",
+    "@types/react": "16.8.13",
     "@typescript-eslint/parser": "^1.2.0",
     "babel-loader": "^8.0.4",
     "bower": "^1.8.8",
@@ -89,8 +90,5 @@
   "workspaces": [
     "packages/*",
     "examples/*"
-  ],
-  "dependencies": {
-    "@types/react": "16.8.13"
-  }
+  ]
 }
