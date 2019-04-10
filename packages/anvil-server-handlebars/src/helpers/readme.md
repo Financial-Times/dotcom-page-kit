@@ -14,3 +14,16 @@ Example:
 
 [date object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 [dateformat]: https://www.npmjs.com/package/dateformat
+
+
+## ifAll
+
+Outputs the content if all of the given conditions are [truthy].
+
+Example:
+
+```hbs
+{{#ifAll foo bar baz}}All conditions are truthy{{else}}A condition is falsy{{/ifAll}}
+```
+
+[truthy]: https://developer.mozilla.org/en-US/docs/Glossary/Truthy
