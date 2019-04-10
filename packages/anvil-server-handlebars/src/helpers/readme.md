@@ -103,6 +103,16 @@ Example:
 {{#unlessEquals foo bar}}Parameters are not strictly equal{{else}}Parameters match{{/unlessEquals}}
 ```
 
+### unlessSome
+
+Outputs the content if any of the given parameters are [falsy].
+
+Example:
+
+```hbs
+{{#unlessSome foo bar baz}}Some parameters are false{{else}}All parameters are truthy{{/unlessSome}}
+```
+
 
 ## Inline helpers
 
