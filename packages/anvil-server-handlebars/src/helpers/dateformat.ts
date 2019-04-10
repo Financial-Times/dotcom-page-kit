@@ -1,11 +1,13 @@
 import formatter from 'dateformat'
 import { HelperOptions } from 'handlebars'
 
-export function dateformat(format: string, options: HelperOptions) {
-  if (arguments.length === 1) {
-    options = (format as unknown) as HelperOptions
-    format = 'isoUtcDateTime'
+export function dateformat(...args) {
+  if (args.length > 2) {
+    throw Error('Incorrect number of parameters provided')
   }
+
+  const options = args.pop() as HelperOptions
+  const format = args[0] || 'isoUtcDateTime'
 
   return formatter(options.fn(this), format)
 }

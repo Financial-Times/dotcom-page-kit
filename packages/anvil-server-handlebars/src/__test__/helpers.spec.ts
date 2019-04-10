@@ -19,6 +19,11 @@ describe('anvil-server-handlebars/src/helpers', () => {
 
         expect(result).toBe('Wednesday, April 10, 2019')
       })
+
+      it('throws if the incorrect number of parameters are provided', () => {
+        const template = Handlebars.compile('{{#dateformat "" ""}}{{date}}{{/dateformat}}')
+        expect(() => template({}, { helpers })).toThrow()
+      })
     })
 
     describe('#ifAll', () => {
