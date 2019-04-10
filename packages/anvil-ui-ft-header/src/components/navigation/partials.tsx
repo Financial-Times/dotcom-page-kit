@@ -2,6 +2,13 @@ import React from 'react'
 import { NavListProps, THeaderProps } from '../../interfaces'
 import { ariaSelected } from '../../utils'
 
+const MobileNav = (props) => {
+  const targetUrls = props.data['navbar-simple'].items.map((item) => item.url)
+  return targetUrls.includes(props.data.currentPath) ? (
+    <NavMobile data={props.data['navbar-simple'].items} />
+  ) : null
+}
+
 const NavMobile = ({ data }) => {
   return (
     <nav
@@ -208,4 +215,4 @@ const UserActionsNav = (props) => {
   )
 }
 
-export { NavDesktop, NavMobile, NavListLeft, NavListRight, NavListRightAnon, UserActionsNav }
+export { NavDesktop, NavListLeft, NavListRight, NavListRightAnon, UserActionsNav, MobileNav }

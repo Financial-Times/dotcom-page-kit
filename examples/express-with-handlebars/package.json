@@ -5,13 +5,13 @@
   "main": "server/app.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon server/listen.js --ext js,hbs",
+    "dev": "nodemon server/listen.js --ext js",
     "start": "node server/listen.js",
     "build": "anvil build -d",
     "test": "../../node_modules/.bin/jest"
   },
   "dependencies": {
-    "@financial-times/anvil-server-ft-handlebars": "file:../../packages/anvil-server-ft-handlebars",
+    "@financial-times/anvil-server-handlebars": "file:../../packages/anvil-server-handlebars",
     "express": "^4.16.2"
   },
   "devDependencies": {

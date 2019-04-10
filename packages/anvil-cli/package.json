@@ -14,7 +14,7 @@
     "clean:dist": "rm -rf dist",
     "clean:node_modules": "rm -rf node_modules",
     "build:cjs": "npm run tsc -- --outDir ./dist/cjs",
-    "build": "npm run clean:dist && npm run build:cjs",
+    "build": "npm run build:cjs",
     "dev": "npm run clean:dist && npm run build:cjs -- --watch"
   },
   "keywords": [],
@@ -37,6 +37,7 @@
     "webpack-manifest-plugin": "^2.0.4"
   },
   "devDependencies": {
+    "@types/ora": "^3.0.0",
     "@financial-times/anvil-types-generic": "file:../anvil-types-generic"
   },
   "engines": {

@@ -1,6 +1,6 @@
 export type TNavOptions = {
   menuUrl?: string
-  crumbtrailUrl?: string
+  subNavigationUrl?: string
   interval?: number
 }
 
@@ -24,7 +24,7 @@ export type TNavMenuItem = {
   items?: TNavMenuItems
 }
 
-export type TNavCrumbtrail = {
+export type TNavSubNavigation = {
   breadcrumb: {}
   subsections: {}
 }

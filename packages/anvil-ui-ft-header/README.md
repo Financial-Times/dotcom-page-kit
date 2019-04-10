@@ -1,9 +1,11 @@
 # @financial-times/anvil-ui-ft-header
 
-This package provides components which return variants of the header components for ft.com; the standard ft.com `HeaderDefault`, a `HeaderSticky`, and a `LogoOnly` variant as well as the `Drawer` component which is rendered separately.
+This package provides templates which render variants of the page header and navigation drawer for ft.com.
 
 
-### Getting started
+## Getting started
+
+### Installation
 
 This module is compatible with Node 10+ and is distributed on npm.
 
@@ -13,30 +15,26 @@ npm install --save @financial-times/anvil-ui-ft-header
 
 Create an [Express] server using the [anvil-middleware-ft-edition] and [anvil-middleware-ft-navigation] middlewares.
 
-```js
-const express = require('express')
+### Server-side
 
-const editionMiddleware = require('@financial-times/anvil-middleware-ft-edition')
-const navigationMiddleware = require('@financial-times/anvil-middleware-ft-navigation')
-
-const app = express()
-
-app.use(editionMiddleware.init())
-app.use(navigationMiddleware.init())
-
-module.exports = app
-```
-
-Include a header component in your html template and pass in a data object:
+To render header components include them in your template code and pass in a data object. The data can be fetched using the [anvil-server-ft-navigation] package or it's middleware.
 
 ```jsx
-import { HeaderDefault } from 'anvil-ui-ft-header'
-let headerProps
+import { Header, Drawer } from 'anvil-ui-ft-header'
+const header = () => {
+  <Header {...headerProps} />
+  <Drawer {...headerProps}/>
+}
+```
 
-headerProps.data = response.locals.navigation
-headerProps.data.editions = response.locals.editions
+### Client-side
 
-<HeaderDefault {...headerProps} />
+Once you are rendering the header components in your page you will need to initialise the client-side code to add interactive behaviour including search typeahead and toggling the drawer menu and sticky header.
+
+```js
+import * as header from '@financial-times/anvil-ui-ft-header'
+
+header.init()
 ```
 
 
@@ -51,8 +49,8 @@ All variants with the exception of `LogoOnly` require a props object to be passe
 | userIsAnonymous   | boolean | true     | true     | Marks a user as anonymous - set in n-express                                                                      |
 | userIsLoggedIn    | boolean | true     | false    | Marks a user as logged in - set in n-express                                                                      |
 | showUserNav       | boolean | true     | true     | Show user navigation options - `Portfolio` and `Account Settings` or `Sign in` and `Subscribe`                    |
-| showSubNav        | boolean | true     | true     | Show the crumbtrail element or the myFT subnav element                                                            |
-| disableSticky     | boolean | true     | false    | Prevents the HeaderSticky component from rendering                                                                |
+| showSubNavigation        | boolean | true     | true     | Show the subNavigation element                                                           |
+| disableSticky     | boolean | true     | false    | Prevents the StickyHeader component from rendering                                                                |
 | data              | object  | false    |          | Navigation data for rendering the header components - takes the shape of [Data Props](#data-props)                |
 
 
@@ -62,14 +60,15 @@ The props object passed to the header component must have a `data` property. The
 
 |       PROP        |                                                         DESCRIPTION                                                         |
 | ----------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| currentPath       | The url for which data has been requested                                                                                   |
 | editions          | Detailing the `current` and `other` available editions                                                                      |
 | drawer            | Populates the drawer menu elements                                                                                          |
 | navbar            | Populates the primary navigation links and any associated meganav components                                                |
 | navbar-right      | Logged in user navigation options - rendered if `showUserNav` is true                                                       |
 | navbar-right-anon | Anonymous user navigation options - rendered if `showUserNav` is true                                                       |
 | navbar-simple     | Minimal navigation links for displaying navigation on smaller viewports                                                     |
-| breadcrumb        | Populates the ancestors section of the crumbtrail                                                                           |
-| subsections       | Populates the children section of the crumbtrail                                                                            |
+| breadcrumb        | Populates the ancestors section of the subNavigation                                                                           |
+| subsections       | Populates the children section of the subNavigation                                                                            |
 | user              | Populates the last section of the drawer with `Help Centre`, `Account Settings`, `Contact Preferences` and `Sign out` links |
 
 ## Variants
@@ -106,13 +105,13 @@ The `editions` and `navbar` properties are added to the navigation data by the [
 ![Example header navigation element](./screenshots/header-navigation.png)
 
 
-### Header crumbtrail
+### Header subNavigation
 
-Unless `showSubNav` is set to `false` the crumbtrail element will be rendered as part of the default header if crumbtrail data exists for the requested page. Some stream pages on ft.com contain a crumbtrail element and myFT pages contain a subnav which uses the crumbtrail element as its base.
+Unless `showSubNavigation` is set to `false` the subNavigation element will be rendered as part of the default header if subNavigation data exists for the requested page. Some stream pages on ft.com contain a subNavigation element and myFT pages contain a submenu which uses the subNavigation element as its base.
 
-The `breadcrumb` and `subsections` properties are required to render the crumbtrail. They are added to the navigation data by the [anvil-server-ft-navigation] package and the data is page-specific.
+The `breadcrumb` and `subsections` properties are required to render the subNavigation. They are added to the navigation data by the [anvil-server-ft-navigation] package and the data is page-specific.
 
-![Example header crumbtrail element](./screenshots/header-crumbtrail.png)
+![Example header subNavigation element](./screenshots/header-sub-navigation.png)
 
 
 ### Drawer

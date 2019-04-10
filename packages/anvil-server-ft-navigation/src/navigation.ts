@@ -5,7 +5,7 @@ import fetch from 'node-fetch'
 
 import { decorateMenu } from '.'
 
-import { TNavMenus, TNavMenu, TNavOptions, TNavCrumbtrail } from './types'
+import { TNavMenus, TNavMenu, TNavOptions, TNavSubNavigation } from './types'
 
 /**
  * Makes the navigation data completely immutable,
@@ -23,7 +23,7 @@ const removeLeadingForwardSlash = (pagePath: string) => {
 
 const defaults: TNavOptions = {
   menuUrl: 'http://next-navigation.ft.com/v2/menus',
-  crumbtrailUrl: 'http://next-navigation.ft.com/v2/hierarchy',
+  subNavigationUrl: 'http://next-navigation.ft.com/v2/hierarchy',
   interval: 15 * 60 * 1000 // poll every 15 minutes
 }
 
@@ -63,10 +63,10 @@ export class Navigation {
     return decorateMenu(data[menuId], path)
   }
 
-  async getCrumbtrail(path: string): Promise<TNavCrumbtrail> {
+  async getSubNavigation(path: string): Promise<TNavSubNavigation> {
     const currentPage = removeLeadingForwardSlash(path)
-    const crumbtrail = `${this.options.crumbtrailUrl}/${currentPage}`
-    const response = await fetch(crumbtrail)
+    const subNavigation = `${this.options.subNavigationUrl}/${currentPage}`
+    const response = await fetch(subNavigation)
 
     if (response.ok) {
       const data = await response.json()
@@ -75,7 +75,7 @@ export class Navigation {
         subsections: parseData(data.children)
       }
     } else {
-      throw httpError(response.status, `Navigation crumbtrail for ${currentPage} could not be found.`)
+      throw httpError(response.status, `subNavigation for ${currentPage} could not be found.`)
     }
   }
 }

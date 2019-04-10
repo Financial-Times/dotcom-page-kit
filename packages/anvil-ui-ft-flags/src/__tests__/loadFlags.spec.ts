@@ -2,13 +2,13 @@
  * @jest-environment jsdom
  */
 
-import subject from '../loadFlags'
+import subject from '../lib/loadFlags'
 
-describe('anvil-ui-ft-flags/src/loadFlags', () => {
+describe('anvil-ui-ft-flags/src/lib/loadFlags', () => {
   describe('when there is a configuration object', () => {
     beforeEach(() => {
       document.body.innerHTML = `
-        <script id="flags-data">{"foo":1,"bar":true,"baz":"qux"}</script>
+        <script id="anvil-flags-data">{"foo":1,"bar":true,"baz":"qux"}</script>
       `
     })
 

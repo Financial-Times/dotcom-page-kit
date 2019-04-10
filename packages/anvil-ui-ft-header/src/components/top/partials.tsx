@@ -1,7 +1,7 @@
 import React from 'react'
 import { THeaderProps } from '../../interfaces'
 
-const Header = (props: THeaderProps) => {
+const HeaderWrapper = (props: THeaderProps) => {
   return (
     <header
       id="site-navigation"
@@ -91,4 +91,4 @@ const TopColumnRight = () => {
   )
 }
 
-export { Header, TopWrapper, TopColumnLeft, TopColumnCenter, TopColumnRight }
+export { HeaderWrapper, TopWrapper, TopColumnLeft, TopColumnCenter, TopColumnRight }

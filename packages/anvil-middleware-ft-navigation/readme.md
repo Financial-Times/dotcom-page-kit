@@ -41,7 +41,7 @@ app.get('/', (request, response) => {
 
 The middleware accepts the following parameters. All options will be passed along to the [FT Navigation] package:
 
-### `enableCrumbtrail`
+### `enableSubNavigation`
 
 Enables fetching hierarchical navigation data for the current path including any parent and child pages. Defaults to `false`.
 
@@ -49,7 +49,7 @@ Enables fetching hierarchical navigation data for the current path including any
 
 See the [FT navigation documentation] for more details.
 
-### `crumbtrailUrl`
+### `subNavigationUrl`
 
 See the [FT navigation documentation] for more details.
 
