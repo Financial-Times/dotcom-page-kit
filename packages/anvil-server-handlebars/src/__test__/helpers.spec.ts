@@ -76,4 +76,20 @@ describe('anvil-server-handlebars/src/helpers', () => {
       expect(() => template({}, { helpers })).toThrow()
     })
   })
+
+  describe('#resize', () => {
+    it('formats the image as an image service URL', () => {
+      const template = Handlebars.compile('{{#resize 640}}http://website.com/picture.jpg{{/resize}}')
+      const result = template({}, { helpers })
+
+      expect(result).toBe(
+        'https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fwebsite.com%2Fpicture.jpg?width=640&source=next&fit=scale-down'
+      )
+    })
+
+    it('throws if the incorrect number of parameters are provided', () => {
+      const template = Handlebars.compile('{{#resize}}http://website.com/picture.jpg{{/resize}}')
+      expect(() => template({}, { helpers })).toThrow()
+    })
+  })
 })
