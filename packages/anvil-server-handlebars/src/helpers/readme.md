@@ -40,3 +40,14 @@ Example:
 ```
 
 [strictly equal]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
+
+
+## ifSome
+
+Outputs the content if at least one of the given conditions is [truthy].
+
+Example:
+
+```hbs
+{{#ifSome foo bar baz}}All conditions are truthy{{else}}A condition is falsy{{/ifSome}}
+```

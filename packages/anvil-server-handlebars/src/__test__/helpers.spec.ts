@@ -29,7 +29,7 @@ describe('anvil-server-handlebars/src/helpers', () => {
     })
 
     it('does not output the contents if any condition is falsy', () => {
-      const result = template({ foo: 123, bar: 'abc', baz: null }, { helpers })
+      const result = template({ foo: 123, bar: 'abc', baz: false }, { helpers })
       expect(result).toBe('no')
     })
   })
@@ -44,6 +44,20 @@ describe('anvil-server-handlebars/src/helpers', () => {
 
     it('does not output the contents if any condition is falsy', () => {
       const result = template({ foo: true, bar: 1 }, { helpers })
+      expect(result).toBe('no')
+    })
+  })
+
+  describe('#ifSome', () => {
+    const template = Handlebars.compile('{{#ifSome foo bar baz}}yes{{else}}no{{/ifSome}}')
+
+    it('outputs the contents if at least one condition is truthy', () => {
+      const result = template({ foo: 123, bar: '', baz: false }, { helpers })
+      expect(result).toBe('yes')
+    })
+
+    it('does not output the contents if all conditions are falsy', () => {
+      const result = template({ foo: 0, bar: '', baz: false }, { helpers })
       expect(result).toBe('no')
     })
   })
