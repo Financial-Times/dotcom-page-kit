@@ -53,12 +53,13 @@ Example:
 
 ### resize
 
-Deliver an image via the [Origami Image Service] and resize it to the specified width.
+Deliver an image via the [Origami Image Service] and resize it to the specified width. Additional named parameters will be appended to the URL query string.
 
 Example:
 
 ```hbs
 <img src="{{#resize 640}}{{image}}{{/resize}}" />
+<img src="{{#resize 640 fit="contain"}}{{image}}{{/resize}}" />
 ```
 
 [Origami Image Service]: https://www.ft.com/__origami/service/image/v2/

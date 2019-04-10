@@ -93,6 +93,15 @@ describe('anvil-server-handlebars/src/helpers', () => {
         )
       })
 
+      it('accepts named parameters', () => {
+        const template = compile('{{#resize 640 fit="contain"}}http://website.com/picture.jpg{{/resize}}')
+        const result = template({}, { helpers })
+
+        expect(result).toBe(
+          'https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fwebsite.com%2Fpicture.jpg?width=640&source=next&fit=contain'
+        )
+      })
+
       it('throws if the incorrect number of parameters are provided', () => {
         const template = compile('{{#resize}}http://website.com/picture.jpg{{/resize}}')
         expect(() => template({}, { helpers })).toThrow()
