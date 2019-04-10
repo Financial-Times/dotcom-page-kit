@@ -14,8 +14,8 @@ export interface THeaderProps {
     'navbar-right': TItemSubMenu
     'navbar-right-anon': TItemSubMenu
     'navbar-simple': TItemSubMenu
-    breadcrumb: TBreadcrumb
-    subsections: TSubsections
+    breadcrumb: TItem[]
+    subsections: TItem[]
     user: TUserMenu
   }
   children?: any
@@ -56,12 +56,4 @@ export type TEdition = {
   name: string
   id: string
   url: string
-}
-
-export type TSubsections = {
-  subsections: TItem[]
-}
-
-export type TBreadcrumb = {
-  breadcrumb: TItem[]
 }
