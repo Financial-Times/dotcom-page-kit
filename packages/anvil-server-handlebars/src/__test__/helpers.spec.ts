@@ -23,42 +23,57 @@ describe('anvil-server-handlebars/src/helpers', () => {
   describe('#ifAll', () => {
     const template = Handlebars.compile('{{#ifAll foo bar baz}}yes{{else}}no{{/ifAll}}')
 
-    it('outputs the contents when all conditions are truthy', () => {
+    it('outputs the contents when all parameters are truthy', () => {
       const result = template({ foo: 123, bar: 'abc', baz: true }, { helpers })
       expect(result).toBe('yes')
     })
 
-    it('does not output the contents if any condition is falsy', () => {
+    it('does not output the contents if any parameters are falsy', () => {
       const result = template({ foo: 123, bar: 'abc', baz: false }, { helpers })
       expect(result).toBe('no')
+    })
+
+    it('throws if the incorrect number of parameters are provided', () => {
+      const template = Handlebars.compile('{{#ifSome}}yes{{/ifSome}}')
+      expect(() => template({}, { helpers })).toThrow()
     })
   })
 
   describe('#ifEquals', () => {
     const template = Handlebars.compile('{{#ifEquals foo bar}}yes{{else}}no{{/ifEquals}}')
 
-    it('outputs the contents conditions are strictly equal', () => {
+    it('outputs the contents parameters are strictly equal', () => {
       const result = template({ foo: true, bar: true }, { helpers })
       expect(result).toBe('yes')
     })
 
-    it('does not output the contents if any condition is falsy', () => {
-      const result = template({ foo: true, bar: 1 }, { helpers })
+    it('does not output the contents if any parameter is not strictly equal', () => {
+      const result = template({ foo: true, bar: null }, { helpers })
       expect(result).toBe('no')
+    })
+
+    it('throws if the incorrect number of parameters are provided', () => {
+      const template = Handlebars.compile('{{#ifEquals}}yes{{/ifEquals}}')
+      expect(() => template({}, { helpers })).toThrow()
     })
   })
 
   describe('#ifSome', () => {
     const template = Handlebars.compile('{{#ifSome foo bar baz}}yes{{else}}no{{/ifSome}}')
 
-    it('outputs the contents if at least one condition is truthy', () => {
+    it('outputs the contents if at least one parameter is truthy', () => {
       const result = template({ foo: 123, bar: '', baz: false }, { helpers })
       expect(result).toBe('yes')
     })
 
-    it('does not output the contents if all conditions are falsy', () => {
+    it('does not output the contents if all parameters are falsy', () => {
       const result = template({ foo: 0, bar: '', baz: false }, { helpers })
       expect(result).toBe('no')
+    })
+
+    it('throws if the incorrect number of parameters are provided', () => {
+      const template = Handlebars.compile('{{#ifSome}}yes{{/ifSome}}')
+      expect(() => template({}, { helpers })).toThrow()
     })
   })
 })
