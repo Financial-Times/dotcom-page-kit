@@ -1,7 +1,7 @@
 import { HelperOptions } from 'handlebars'
 
 export function ifAll(...args) {
-  if (args.length <= 1) {
+  if (args.length < 2) {
     throw Error('At least one parameter must be provided')
   }
 

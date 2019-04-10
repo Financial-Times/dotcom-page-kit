@@ -4,7 +4,7 @@ const host = 'https://www.ft.com/__origami/service/image/v2/images/raw'
 
 export function resize(...args) {
   if (args.length !== 2) {
-    throw new Error('Incorrect number of parameters provided')
+    throw Error('Incorrect number of parameters provided')
   }
 
   const options = args.pop() as HelperOptions
