@@ -94,6 +94,20 @@ describe('anvil-server-handlebars/src/helpers', () => {
       })
     })
 
+    describe('#slice', () => {
+      it('slices a given array and iterates over the new array', () => {
+        const template = Handlebars.compile('{{#slice items offset="2" limit="3"}}{{this}}{{/slice}}')
+        const result = template({ items: [1, 2, 3, 4, 5, 6] }, { helpers })
+
+        expect(result).toBe('345')
+      })
+
+      it('throws if the incorrect number of parameters are provided', () => {
+        const template = Handlebars.compile('{{#slice offset="2" limit="3"}}{{this}}{{/slice}}')
+        expect(() => template({}, { helpers })).toThrow()
+      })
+    })
+
     describe('#unlessAll', () => {
       const template = Handlebars.compile('{{#unlessAll foo bar baz}}yes{{else}}no{{/unlessAll}}')
 
@@ -135,14 +149,17 @@ describe('anvil-server-handlebars/src/helpers', () => {
 
   describe('inline helpers', () => {
     describe('concat', () => {
-      const template = Handlebars.compile('{{concat "Welcome to " place ", " name}}')
-      const result = template({ place: 'Hell', name: 'human' }, { helpers })
+      it('concatenates all parameters into one string', () => {
+        const template = Handlebars.compile('{{concat "Welcome to " place ", " name}}')
+        const result = template({ place: 'Hell', name: 'human' }, { helpers })
 
-      expect(result).toBe('Welcome to Hell, human')
-    })
-    describe('concat', () => {
-      const template = Handlebars.compile('{{concat}}')
-      expect(() => template({}, { helpers })).toThrow()
+        expect(result).toBe('Welcome to Hell, human')
+      })
+
+      it('throws if the incorrect number of parameters are provided', () => {
+        const template = Handlebars.compile('{{concat}}')
+        expect(() => template({}, { helpers })).toThrow()
+      })
     })
   })
 })

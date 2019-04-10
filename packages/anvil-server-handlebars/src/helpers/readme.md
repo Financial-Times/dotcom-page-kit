@@ -68,6 +68,18 @@ Example:
 [Origami Image Service]: https://www.ft.com/__origami/service/image/v2/
 
 
+### slice
+
+Iterate over a subset of items. Accepts an `offset` and `limit` parameter.
+
+Example:
+
+```hbs
+{{#slice iterable offset="2"}}{{this}}{{/slice}}
+{{#slice iterable offset="4" limit="2"}}{{this}}{{/slice}}
+```
+
+
 ### unlessAll
 
 Outputs the content if all of the given parameters are [falsy].
