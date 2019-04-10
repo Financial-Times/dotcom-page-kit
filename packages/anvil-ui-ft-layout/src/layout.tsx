@@ -1,8 +1,8 @@
 import React from 'react'
 
 import {
-  HeaderDefault,
-  HeaderSticky,
+  Header,
+  StickyHeader,
   LogoOnly,
   Drawer,
   THeaderProps
@@ -10,8 +10,8 @@ import {
 import { Footer, LegalFooter } from '@financial-times/anvil-ui-ft-footer/component'
 
 export enum AnvilHeader {
-  Standard = HeaderDefault,
-  Sticky = HeaderSticky,
+  Standard = Header,
+  Sticky = StickyHeader,
   Logo = LogoOnly
 }
 

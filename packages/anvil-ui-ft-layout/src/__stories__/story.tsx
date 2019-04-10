@@ -30,7 +30,7 @@ storiesOf('FT / Layout', module)
       <OnReady callback={initUiComponents}>
         <Layout props={headerProps}>
           <main className="demo">
-            <p className="demo__message">Defaults: only passing data</p>
+            <p className="demo__message demo__message--scroll">Defaults: only passing data</p>
           </main>
         </Layout>
       </OnReady>
@@ -69,7 +69,7 @@ storiesOf('FT / Layout', module)
       <OnReady callback={initUiComponents}>
         <Layout props={props} footer={false}>
           <main className="demo">
-            <p className="demo__message">No footer</p>
+            <p className="demo__message demo__message--scroll">No footer</p>
           </main>
         </Layout>
       </OnReady>
@@ -85,7 +85,7 @@ storiesOf('FT / Layout', module)
           headerAfter={<Extra>Header after</Extra>}
           footerAfter={<Extra>Footer after</Extra>}>
           <main className="demo">
-            <p className="demo__message">Custom content slots</p>
+            <p className="demo__message demo__message--scroll">Custom content slots</p>
           </main>
         </Layout>
       </OnReady>

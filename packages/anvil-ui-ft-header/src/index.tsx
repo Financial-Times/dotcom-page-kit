@@ -35,10 +35,11 @@ const defaultProps: Partial<THeaderProps> = {
   disableSticky: false
 }
 
-function Header(props: THeaderProps) {
+function MainHeader(props: THeaderProps) {
   const navItems = props.data.navbar.items
   const includeUserActionsNav = props.showUserNav && props.userIsAnonymous ? UserActionsNav(props) : null
   const includeSubNavigation = props.data.breadcrumb && props.data.subsections ? SubNavigation(props) : null
+
   return (
     <HeaderWrapper {...props}>
       {includeUserActionsNav}
@@ -58,13 +59,7 @@ function Header(props: THeaderProps) {
   )
 }
 
-Header.defaultProps = defaultProps
-
-function Drawer(props: THeaderProps) {
-  return <IncludeDrawer {...props} />
-}
-
-Drawer.defaultProps = defaultProps
+MainHeader.defaultProps = defaultProps
 
 function StickyHeader(props: THeaderProps) {
   return props.disableSticky ? null : (
@@ -81,6 +76,21 @@ function StickyHeader(props: THeaderProps) {
 
 StickyHeader.defaultProps = defaultProps
 
+/**
+ *
+ * @param props
+ */
+function Header(props: THeaderProps) {
+  return (
+    <React.Fragment>
+      <StickyHeader {...props} />
+      <MainHeader {...props} />
+    </React.Fragment>
+  )
+}
+
+Header.defaultProps = defaultProps
+
 function LogoOnly(props?) {
   return (
     <HeaderWrapper {...props}>
@@ -93,4 +103,10 @@ function LogoOnly(props?) {
 
 LogoOnly.defaultProps = defaultProps
 
-export { THeaderProps, Header, Drawer, StickyHeader, LogoOnly }
+function Drawer(props: THeaderProps) {
+  return <IncludeDrawer {...props} />
+}
+
+Drawer.defaultProps = defaultProps
+
+export { THeaderProps, Header, MainHeader, StickyHeader, LogoOnly, Drawer }
