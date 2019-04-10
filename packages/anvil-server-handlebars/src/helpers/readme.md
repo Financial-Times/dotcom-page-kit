@@ -64,3 +64,16 @@ Example:
 ```
 
 [Origami Image Service]: https://www.ft.com/__origami/service/image/v2/
+
+
+## unlessAll
+
+Outputs the content if all of the given parameters are [falsy].
+
+Example:
+
+```hbs
+{{#unlessAll foo bar baz}}All parameters are falsy{{else}}A parameter is truthy{{/unlessAll}}
+```
+
+[falsy]: https://developer.mozilla.org/en-US/docs/Glossary/Falsy
