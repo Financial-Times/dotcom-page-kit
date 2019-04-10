@@ -1,6 +1,8 @@
 # Helpers
 
-## dateformat
+## Block helpers
+
+### dateformat
 
 Formats a [date object] using the [dateformat] library. If no format is specified it will default to the built in `isoUtcDateTime` format.
 
@@ -16,7 +18,7 @@ Example:
 [dateformat]: https://www.npmjs.com/package/dateformat
 
 
-## ifAll
+### ifAll
 
 Outputs the content if all of the given parameters are [truthy].
 
@@ -29,7 +31,7 @@ Example:
 [truthy]: https://developer.mozilla.org/en-US/docs/Glossary/Truthy
 
 
-## ifEquals
+### ifEquals
 
 Outputs the content if all parameters are [strictly equal].
 
@@ -42,7 +44,7 @@ Example:
 [strictly equal]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
 
 
-## ifSome
+### ifSome
 
 Outputs the content if at least one of the given parameters is [truthy].
 
@@ -53,7 +55,7 @@ Example:
 ```
 
 
-## resize
+### resize
 
 Deliver an image via the [Origami Image Service] and resize it to the specified width.
 
@@ -66,7 +68,7 @@ Example:
 [Origami Image Service]: https://www.ft.com/__origami/service/image/v2/
 
 
-## unlessAll
+### unlessAll
 
 Outputs the content if all of the given parameters are [falsy].
 
@@ -79,7 +81,7 @@ Example:
 [falsy]: https://developer.mozilla.org/en-US/docs/Glossary/Falsy
 
 
-## unlessEquals
+### unlessEquals
 
 Outputs the content if any parameters are _not_ [strictly equal].
 
@@ -87,4 +89,18 @@ Example:
 
 ```hbs
 {{#unlessEquals foo bar}}Parameters are not strictly equal{{else}}Parameters match{{/unlessEquals}}
+```
+
+
+## Inline helpers
+
+### concat
+
+Concatenates multiple parameters into a single string.
+
+Example:
+
+```hbs
+{{concat "Welcome to " name}}
+{{>partial parameter=(concat "Welcome to " name)}}
 ```
