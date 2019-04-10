@@ -42,16 +42,16 @@ header.init()
 
 All variants with the exception of `LogoOnly` require a props object to be passed to the header component. The component can be configured by setting properties on this object.
 
-|       PROP        |  TYPE   | OPTIONAL | DEFAULT  |                                                    DESCRIPTION                                                    |
-| ----------------- | ------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| variant           | string  | true     | 'simple' | Serve a variant of the default header element                                                                     |
-| hideOutboundLinks | boolean | true     | false    | An iOS setting which removes link functionality from the header and hides the footer for Apple compliance reasons |
-| userIsAnonymous   | boolean | true     | true     | Marks a user as anonymous - set in n-express                                                                      |
-| userIsLoggedIn    | boolean | true     | false    | Marks a user as logged in - set in n-express                                                                      |
-| showUserNav       | boolean | true     | true     | Show user navigation options - `Portfolio` and `Account Settings` or `Sign in` and `Subscribe`                    |
-| showSubNavigation        | boolean | true     | true     | Show the subNavigation element                                                           |
-| disableSticky     | boolean | true     | false    | Prevents the StickyHeader component from rendering                                                                |
-| data              | object  | false    |          | Navigation data for rendering the header components - takes the shape of [Data Props](#data-props)                |
+|       PROP        |  TYPE   | OPTIONAL | DEFAULT  |                                            DESCRIPTION                                            |
+| ----------------- | ------- | -------- | -------- | ------------------------------------------------------------------------------------------------- |
+| variant           | string  | true     | 'simple' | Serve a variant of the default header element                                                     |
+| hideOutboundLinks | boolean | true     | false    | An iOS setting which removes the link tag around the ft logo element for Apple compliance reasons |
+| userIsAnonymous   | boolean | true     | true     | Marks a user as anonymous - can be set by middleware included with n-express                      |
+| userIsLoggedIn    | boolean | true     | false    | Marks a user as logged in - can be set by middleware included with n-express                      |
+| showUserNav       | boolean | true     | true     | Show user navigation options - `Portfolio` and `Account Settings` or `Sign in` and `Subscribe`    |
+| showSubNavigation | boolean | true     | true     | Show the sub-navigation element which may include the crumbtrail                                  |
+| disableSticky     | boolean | true     | false    | Prevents the StickyHeader component from rendering                                                |
+| data              | object  | false    |          | Navigation data for rendering the header links - takes the shape of [Data Props](#data-props)     |
 
 
 ## Navigation data
@@ -67,8 +67,8 @@ The props object passed to the header component must have a `data` property. The
 | navbar-right      | Logged in user navigation options - rendered if `showUserNav` is true                                                       |
 | navbar-right-anon | Anonymous user navigation options - rendered if `showUserNav` is true                                                       |
 | navbar-simple     | Minimal navigation links for displaying navigation on smaller viewports                                                     |
-| breadcrumb        | Populates the ancestors section of the subNavigation                                                                           |
-| subsections       | Populates the children section of the subNavigation                                                                            |
+| breadcrumb        | Populates the ancestors section of the subNavigation                                                                        |
+| subsections       | Populates the children section of the subNavigation                                                                         |
 | user              | Populates the last section of the drawer with `Help Centre`, `Account Settings`, `Contact Preferences` and `Sign out` links |
 
 ## Variants
