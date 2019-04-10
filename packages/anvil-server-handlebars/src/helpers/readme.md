@@ -130,3 +130,13 @@ Example:
 {{concat "Welcome to " name}}
 {{>partial parameter=(concat "Welcome to " name)}}
 ```
+
+### json
+
+JSON stringifies the given parameter. You cannot use this to output the `@root` context when used in an Express application as this may contain secret information.
+
+Example:
+
+```hbs
+{{{json data}}}
+```

@@ -194,5 +194,24 @@ describe('anvil-server-handlebars/src/helpers', () => {
         expect(() => template({}, { helpers })).toThrow()
       })
     })
+
+    describe('json', () => {
+      it('stringifies the parameter', () => {
+        const template = Handlebars.compile('{{{json data}}}')
+        const result = template({ data: { foo: 'bar', baz: 123, qux: true } }, { helpers })
+
+        expect(result).toBe('{"foo":"bar","baz":123,"qux":true}')
+      })
+
+      it('throws if the incorrect number of parameters are provided', () => {
+        const template = Handlebars.compile('{{json}}')
+        expect(() => template({}, { helpers })).toThrow()
+      })
+
+      it('throws if the user tries to output the @root context', () => {
+        const template = Handlebars.compile('{{json data}}')
+        expect(() => template({ data: { _locals: true } }, { helpers })).toThrow()
+      })
+    })
   })
 })
