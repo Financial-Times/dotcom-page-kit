@@ -17,7 +17,6 @@ Example:
 [date object]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 [dateformat]: https://www.npmjs.com/package/dateformat
 
-
 ### ifAll
 
 Outputs the content if all of the given parameters are [truthy].
@@ -29,7 +28,6 @@ Example:
 ```
 
 [truthy]: https://developer.mozilla.org/en-US/docs/Glossary/Truthy
-
 
 ### ifEquals
 
@@ -43,7 +41,6 @@ Example:
 
 [strictly equal]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
 
-
 ### ifSome
 
 Outputs the content if at least one of the given parameters is [truthy].
@@ -53,7 +50,6 @@ Example:
 ```hbs
 {{#ifSome foo bar baz}}Some parameters are truthy{{else}}A parameter is falsy{{/ifSome}}
 ```
-
 
 ### resize
 
@@ -67,7 +63,6 @@ Example:
 
 [Origami Image Service]: https://www.ft.com/__origami/service/image/v2/
 
-
 ### slice
 
 Iterate over a subset of items. Accepts an `offset` and `limit` parameter.
@@ -78,7 +73,6 @@ Example:
 {{#slice iterable offset="2"}}{{this}}{{/slice}}
 {{#slice iterable offset="4" limit="2"}}{{this}}{{/slice}}
 ```
-
 
 ### unlessAll
 
@@ -91,7 +85,6 @@ Example:
 ```
 
 [falsy]: https://developer.mozilla.org/en-US/docs/Glossary/Falsy
-
 
 ### unlessEquals
 
@@ -115,6 +108,17 @@ Example:
 
 
 ## Inline helpers
+
+### array
+
+Converts the given parameters into a single array.
+
+Example:
+
+```hbs
+{{array foo bar baz}}
+{{>partial parameter=(array foo bar baz)}}
+```
 
 ### concat
 

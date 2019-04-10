@@ -1,3 +1,4 @@
+export * from './helpers/array'
 export * from './helpers/concat'
 export * from './helpers/dateformat'
 export * from './helpers/ifAll'

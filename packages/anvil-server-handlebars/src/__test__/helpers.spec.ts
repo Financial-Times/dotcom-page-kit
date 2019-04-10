@@ -167,6 +167,20 @@ describe('anvil-server-handlebars/src/helpers', () => {
   })
 
   describe('inline helpers', () => {
+    describe('array', () => {
+      it('converts all parameters into one array', () => {
+        const template = Handlebars.compile('{{array foo bar baz}}')
+        const result = template({ foo: 1, bar: 2, baz: 3 }, { helpers })
+
+        expect(result).toBe('1,2,3')
+      })
+
+      it('throws if the incorrect number of parameters are provided', () => {
+        const template = Handlebars.compile('{{array}}')
+        expect(() => template({}, { helpers })).toThrow()
+      })
+    })
+
     describe('concat', () => {
       it('concatenates all parameters into one string', () => {
         const template = Handlebars.compile('{{concat "Welcome to " place ", " name}}')
