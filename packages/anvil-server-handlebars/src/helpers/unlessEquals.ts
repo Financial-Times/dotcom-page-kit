@@ -1,12 +1,12 @@
 import { HelperOptions } from 'handlebars'
 
-export function ifEquals(...args) {
+export function unlessEquals(...args) {
   if (args.length < 3) {
     throw Error('At least two parameters must be provided')
   }
 
   const options = args.pop() as HelperOptions
-  const ifEquals = args.every((item) => item === args[0])
+  const unlessEquals = !args.every((item) => item === args[0])
 
-  return ifEquals ? options.fn(this) : options.inverse(this)
+  return unlessEquals ? options.fn(this) : options.inverse(this)
 }

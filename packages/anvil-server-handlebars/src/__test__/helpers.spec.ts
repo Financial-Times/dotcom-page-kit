@@ -111,4 +111,23 @@ describe('anvil-server-handlebars/src/helpers', () => {
       expect(() => template({}, { helpers })).toThrow()
     })
   })
+
+  describe('#unlessEquals', () => {
+    const template = Handlebars.compile('{{#unlessEquals foo bar}}yes{{else}}no{{/unlessEquals}}')
+
+    it('outputs the contents if all parameters are falsy', () => {
+      const result = template({ foo: true, bar: false }, { helpers })
+      expect(result).toBe('yes')
+    })
+
+    it('does not output the contents if any parameters are truthy', () => {
+      const result = template({ foo: true, bar: true }, { helpers })
+      expect(result).toBe('no')
+    })
+
+    it('throws if the incorrect number of parameters are provided', () => {
+      const template = Handlebars.compile('{{#unlessEquals}}yes{{/unlessEquals}}')
+      expect(() => template({}, { helpers })).toThrow()
+    })
+  })
 })

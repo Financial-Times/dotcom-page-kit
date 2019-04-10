@@ -77,3 +77,14 @@ Example:
 ```
 
 [falsy]: https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+
+
+## unlessEquals
+
+Outputs the content if any parameters are _not_ [strictly equal].
+
+Example:
+
+```hbs
+{{#unlessEquals foo bar}}Parameters are not strictly equal{{else}}Parameters match{{/unlessEquals}}
+```
