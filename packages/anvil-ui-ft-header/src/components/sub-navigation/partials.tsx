@@ -68,7 +68,6 @@ const BreadCrumb = ({ breadcrumb }) => {
 }
 
 const SubSections = ({ subsections }) => {
-  const ariaCurrent = subsections && subsections.selected ? { 'aria-current': true } : null
   return (
     <ul
       className="o-header__subnav-list o-header__subnav-list--subsections"
@@ -77,6 +76,7 @@ const SubSections = ({ subsections }) => {
       {subsections.map((item, index) => {
         const id = item.id ? `data-id=subnav-${item.id}` : null
         const selected = item.selected ? 'o-header__subnav-link--highlight' : null
+        const ariaCurrent = item.selected ? { 'aria-current': true } : null
         return (
           <li className="o-header__subnav-item" {...id} key={`item-${index}`}>
             <a
