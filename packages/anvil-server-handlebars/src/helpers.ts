@@ -1,4 +1,3 @@
-import dateformat from './helpers/dateformat'
-import ifAll from './helpers/ifAll'
-
-export { dateformat, ifAll }
+export * from './helpers/dateformat'
+export * from './helpers/ifAll'
+export * from './helpers/ifEquals'

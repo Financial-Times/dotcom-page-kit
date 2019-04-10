@@ -27,3 +27,16 @@ Example:
 ```
 
 [truthy]: https://developer.mozilla.org/en-US/docs/Glossary/Truthy
+
+
+## ifEquals
+
+Outputs the content if the two conditions are [strictly equal].
+
+Example:
+
+```hbs
+{{#ifEquals foo bar}}Conditions are strictly equal{{else}}Conditions do not match{{/ifEquals}}
+```
+
+[strictly equal]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness

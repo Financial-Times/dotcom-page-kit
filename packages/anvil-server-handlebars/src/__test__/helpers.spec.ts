@@ -33,4 +33,18 @@ describe('anvil-server-handlebars/src/helpers', () => {
       expect(result).toBe('no')
     })
   })
+
+  describe('#ifEquals', () => {
+    const template = Handlebars.compile('{{#ifEquals foo bar}}yes{{else}}no{{/ifEquals}}')
+
+    it('outputs the contents conditions are strictly equal', () => {
+      const result = template({ foo: true, bar: true }, { helpers })
+      expect(result).toBe('yes')
+    })
+
+    it('does not output the contents if any condition is falsy', () => {
+      const result = template({ foo: true, bar: 1 }, { helpers })
+      expect(result).toBe('no')
+    })
+  })
 })
