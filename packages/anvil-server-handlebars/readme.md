@@ -1,9 +1,10 @@
 # @financial-times/anvil-server-handlebars
 
-This module provides rendering for [Handlebars] templates with additional support for dynamically loading partial templates and a suite of helper functions. It is primarily designed to be used during the transition between [n-handlebars] and JSX rendering and does not support layouts.
+This module provides rendering for [Handlebars] templates with additional support for dynamically loading partial templates and a suite of [helper functions]. It is primarily designed to be used during the transition between [n-handlebars] and JSX rendering and does not support layouts.
 
 [Handlebars]: https://handlebarsjs.com/
 [n-handlebars]: https://github.com/Financial-Times/n-handlebars
+[helper functions]: helpers/readme.md
 
 
 ## Getting started
