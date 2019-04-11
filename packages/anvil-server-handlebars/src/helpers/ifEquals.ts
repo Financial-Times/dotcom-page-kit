@@ -6,7 +6,7 @@ export function ifEquals(...args) {
   }
 
   const options = args.pop() as HelperOptions
-  const ifEquals = args.every((item) => item === args[0])
+  const condition = args.every((item) => item === args[0])
 
-  return ifEquals ? options.fn(this) : options.inverse(this)
+  return condition ? options.fn(this) : options.inverse(this)
 }

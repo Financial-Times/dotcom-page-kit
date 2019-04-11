@@ -6,7 +6,7 @@ export function unlessAll(...args) {
   }
 
   const options = args.pop() as HelperOptions
-  const unlessAll = !args.some(Boolean)
+  const condition = args.some(Boolean) === false
 
-  return unlessAll ? options.fn(this) : options.inverse(this)
+  return condition ? options.fn(this) : options.inverse(this)
 }

@@ -1,6 +1,6 @@
 # Helpers
 
-This package contains a suite of helpers to enable the migration of applications from [n-handlebars] to Anvil. Not every helper provided by n-handlebars has been ported over. Any helpers we could not find usage of, are only used within [n-ui], or have dependencies on other Handlebars packages have not been included.
+This package contains a suite of helpers to enable the migration of applications from [n-handlebars] to Anvil. Not every helper provided by n-handlebars has been ported over; any helpers we could not find usage of, are used only within [n-ui], or have dependencies on other Handlebars components have not been included.
 
 [n-ui]: https://github.com/Financial-Times/n-ui/]
 [n-handlebars]: https://github.com/Financial-Times/n-handlebars
@@ -11,16 +11,15 @@ This package contains a suite of helpers to enable the migration of applications
 If you are using the Anvil Handlebars package you can import the "helpers" and provide them as an option when creating a new `AnvilHandlebars` instance. Helpers will not be added to the global Handlebars instance.
 
 ```js
-import AnvilHandlebars, { helpers } from '@financial-times/anvil-server-handlebars'
-
-const hbs = new AnvilHandlebars({ helpers })
+const AnvilHandlebars = require('@financial-times/anvil-server-handlebars')
+const hbs = new AnvilHandlebars({ helpers: AnvilHandlebars.helpers })
 ```
 
 Alternatively if you only want the helpers you can register them with a Handlebars instance:
 
 ```js
-import Handlebars from 'handlebars'
-import { helpers } from '@financial-times/anvil-server-handlebars'
+const Handlebars = require('handlebars')
+const { helpers } = require('@financial-times/anvil-server-handlebars')
 
 Handlebars.registerHelper(helpers)
 ```
@@ -30,7 +29,7 @@ Handlebars.registerHelper(helpers)
 
 ### dateformat
 
-Formats a [date object] using the [dateformat] library. If no format is specified it will default to the built in `isoUtcDateTime` format.
+Formats a [date object] using the [dateformat] library. If no format is specified it will default to the `isoUtcDateTime` format.
 
 Example:
 
@@ -45,7 +44,7 @@ Example:
 
 ### ifAll
 
-Outputs the content if all of the given parameters are [truthy].
+Outputs the content if all of the parameters are [truthy].
 
 Example:
 
@@ -57,24 +56,24 @@ Example:
 
 ### ifEquals
 
-Outputs the content if all parameters are [strictly equal].
+Outputs the content if all of the parameters are [strictly equal].
 
 Example:
 
 ```hbs
-{{#ifEquals foo bar}}Parameters are strictly equal{{else}}Parameters do not match{{/ifEquals}}
+{{#ifEquals foo bar}}Parameters are all equal{{else}}A parameter does not match{{/ifEquals}}
 ```
 
 [strictly equal]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
 
 ### ifSome
 
-Outputs the content if at least one of the given parameters is [truthy].
+Outputs the content if at least one of the parameters is [truthy].
 
 Example:
 
 ```hbs
-{{#ifSome foo bar baz}}Some parameters are truthy{{else}}A parameter is falsy{{/ifSome}}
+{{#ifSome foo bar baz}}A parameter is truthy{{else}}All parameters are falsy{{/ifSome}}
 ```
 
 ### resize
@@ -103,7 +102,7 @@ Example:
 
 ### unlessAll
 
-Outputs the content if all of the given parameters are [falsy].
+Outputs the content if all of the parameters are [falsy].
 
 Example:
 
@@ -120,17 +119,17 @@ Outputs the content if any parameters are _not_ [strictly equal].
 Example:
 
 ```hbs
-{{#unlessEquals foo bar}}Parameters are not strictly equal{{else}}Parameters match{{/unlessEquals}}
+{{#unlessEquals foo bar}}Parameters are not equal{{else}}All parameters match{{/unlessEquals}}
 ```
 
 ### unlessSome
 
-Outputs the content if any of the given parameters are [falsy].
+Outputs the content if any of the parameters are [falsy].
 
 Example:
 
 ```hbs
-{{#unlessSome foo bar baz}}Some parameters are false{{else}}All parameters are truthy{{/unlessSome}}
+{{#unlessSome foo bar baz}}A parameter is falsy{{else}}All parameters are truthy{{/unlessSome}}
 ```
 
 
@@ -160,7 +159,7 @@ Example:
 
 ### json
 
-JSON stringifies the given parameter. You cannot use this to output the `@root` context when used in an Express application as this may contain secret information.
+JSON stringifies the given parameter. Please note that this will error if you try to output the `@root` context when used in an Express application as this may contain secret information.
 
 Example:
 

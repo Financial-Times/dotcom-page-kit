@@ -6,7 +6,7 @@ export function ifAll(...args) {
   }
 
   const options = args.pop() as HelperOptions
-  const ifAll = args.every(Boolean)
+  const condition = args.every(Boolean)
 
-  return ifAll ? options.fn(this) : options.inverse(this)
+  return condition ? options.fn(this) : options.inverse(this)
 }

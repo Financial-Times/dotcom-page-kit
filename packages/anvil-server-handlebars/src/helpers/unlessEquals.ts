@@ -6,7 +6,7 @@ export function unlessEquals(...args) {
   }
 
   const options = args.pop() as HelperOptions
-  const unlessEquals = !args.every((item) => item === args[0])
+  const condition = args.every((item) => item === args[0]) === false
 
-  return unlessEquals ? options.fn(this) : options.inverse(this)
+  return condition ? options.fn(this) : options.inverse(this)
 }

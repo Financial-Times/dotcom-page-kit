@@ -6,7 +6,7 @@ export function ifSome(...args) {
   }
 
   const options = args.pop() as HelperOptions
-  const ifSome = args.some(Boolean)
+  const condition = args.some(Boolean)
 
-  return ifSome ? options.fn(this) : options.inverse(this)
+  return condition ? options.fn(this) : options.inverse(this)
 }
