@@ -30,7 +30,20 @@ storiesOf('FT / Layout', module)
       <OnReady callback={initUiComponents}>
         <Layout props={headerProps}>
           <main className="demo">
-            <p className="demo__message demo__message--scroll">Defaults: only passing data</p>
+            <p className="demo__message demo__message--padded">Defaults: only passing data</p>
+          </main>
+        </Layout>
+      </OnReady>
+    )
+  })
+  .add('Home header', () => {
+    const props = { ...headerProps, variant: 'home', hideOutboundLinks: hideFooter() }
+
+    return (
+      <OnReady callback={initUiComponents}>
+        <Layout props={props} footer={switchFooter()}>
+          <main className="demo">
+            <p className="demo__message demo__message--padded">Home variant</p>
           </main>
         </Layout>
       </OnReady>
@@ -41,7 +54,7 @@ storiesOf('FT / Layout', module)
 
     return (
       <OnReady callback={initUiComponents}>
-        <Layout props={props} header="logo" footer={switchFooter()}>
+        <Layout props={props} header="logo-only" footer={switchFooter()}>
           <main className="demo">
             <p className="demo__message">Logo only</p>
           </main>
@@ -49,7 +62,7 @@ storiesOf('FT / Layout', module)
       </OnReady>
     )
   })
-  .add('Sticky header', () => {
+  .add('Sticky header only', () => {
     const props = { ...headerProps, hideOutboundLinks: hideFooter() }
 
     return (
@@ -69,7 +82,7 @@ storiesOf('FT / Layout', module)
       <OnReady callback={initUiComponents}>
         <Layout props={props} footer={false}>
           <main className="demo">
-            <p className="demo__message demo__message--scroll">No footer</p>
+            <p className="demo__message demo__message--padded">No footer</p>
           </main>
         </Layout>
       </OnReady>
@@ -85,7 +98,7 @@ storiesOf('FT / Layout', module)
           headerAfter={<Extra>Header after</Extra>}
           footerAfter={<Extra>Footer after</Extra>}>
           <main className="demo">
-            <p className="demo__message demo__message--scroll">Custom content slots</p>
+            <p className="demo__message demo__message--padded">Custom content slots</p>
           </main>
         </Layout>
       </OnReady>

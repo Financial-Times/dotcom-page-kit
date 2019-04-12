@@ -8,9 +8,6 @@ const headerProps = {
   data: {}
 }
 
-console.log("Header", Header);
-
-
 const render = (component) => ReactDOMServer.renderToStaticMarkup(component)
 
 module.exports = (_, response, next) => {

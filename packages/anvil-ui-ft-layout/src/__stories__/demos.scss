@@ -22,6 +22,10 @@
 	}
 }
 
+.demo__message--padded {
+	margin-bottom: 2000px;
+}
+
 .demo__message--scroll {
 	margin-bottom: 2000px;
 	border: none;
@@ -53,7 +57,7 @@
 		display: contents;
 
 		& p {
-			margin: 1rem;
+			margin: 1rem 0.5ch 1rem 0;
 		}
 	}
 }

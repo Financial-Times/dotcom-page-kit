@@ -5,9 +5,10 @@ import {
   StickyHeader,
   LogoOnly,
   Drawer,
-  THeaderProps
+  THeaderProps,
+  THeaderVariant
 } from '@financial-times/anvil-ui-ft-header/component'
-import { Footer, LegalFooter } from '@financial-times/anvil-ui-ft-footer/component'
+import { Footer, LegalFooter, TFooterVariant } from '@financial-times/anvil-ui-ft-footer/component'
 
 export enum AnvilHeader {
   Standard = Header,
@@ -24,13 +25,13 @@ type TLayoutProps = {
   props: THeaderProps
 
   headerBefore?: string | React.ReactNode
-  header?: AnvilHeader | React.ReactNode | string | false
+  header?: AnvilHeader | React.ReactNode | THeaderVariant | false
   headerAfter?: string | React.ReactNode
 
   children?: React.ReactNode
 
   footerBefore?: string | React.ReactNode
-  footer?: AnvilFooter | React.ReactNode | false
+  footer?: AnvilFooter | React.ReactNode | TFooterVariant | false
   footerAfter?: string | React.ReactNode
 }
 
@@ -52,22 +53,24 @@ export function Template(props: TTemplateProps) {
 }
 
 const headers = {
-  standard: AnvilHeader.Standard,
+  simple: AnvilHeader.Standard,
+  home: AnvilHeader.Standard,
   sticky: AnvilHeader.Sticky,
-  logo: AnvilHeader.Logo
+  'logo-only': AnvilHeader.Logo
 }
 
 const footers = {
-  standard: AnvilFooter.Standard,
+  simple: AnvilFooter.Standard,
   legal: AnvilFooter.Legal
 }
 
-const getPreset = (header: any = 'standard', footer: any = 'standard') => {
-  return {
-    header: headers[header],
-    footer: footers[footer]
-  }
-}
+const getLayoutPreset = (
+  header: TLayoutProps['header'] = 'simple',
+  footer: TLayoutProps['footer'] = 'simple'
+) => ({
+  header: headers[header],
+  footer: footers[footer]
+})
 
 export function Layout({
   props,
@@ -84,7 +87,14 @@ export function Layout({
    * a) Pass in custom components to render as Header or Footer
    * b) Pass false to component props to switch them off
    */
-  const Preset = getPreset(header, footer)
+  const headerType = typeof header
+  const headerId = headerType === 'undefined' ? 'simple' : header
+
+  if (headerType === 'string') {
+    props = { ...props, variant: headerId }
+  }
+
+  const Preset = getLayoutPreset(headerId, footer)
 
   return (
     <div className="n-layout">
