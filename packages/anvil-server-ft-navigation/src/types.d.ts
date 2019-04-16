@@ -8,7 +8,7 @@ export type TNavMenus = {
   [menuId: string]: TNavMenu
 }
 
-type TNavMenuItems = TNavMenuItem[]
+export type TNavMenuItems = TNavMenuItem[]
 
 export type TNavMenu = {
   label: string

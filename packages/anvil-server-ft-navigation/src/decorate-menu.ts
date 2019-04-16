@@ -1,5 +1,4 @@
 import { parse } from 'url'
-
 import { TNavMenu, TNavMenuItems, TNavMenuItem } from './types'
 
 const decorateUrl = (itemUrl, currentUrl, currentPathName) => {
