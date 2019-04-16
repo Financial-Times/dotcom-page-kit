@@ -1,3 +1,4 @@
+import path from 'path'
 import mixinDeep from 'mixin-deep'
 import Handlebars, { HelperDelegate, TemplateDelegate } from 'handlebars'
 import findPartialFiles from './findPartialFiles'
@@ -90,6 +91,10 @@ class HandlebarsRenderer {
   }
 
   loadTemplate(filePath: string): TemplateDelegate {
+    if (path.isAbsolute(filePath) === false) {
+      filePath = path.resolve(this.options.rootDirectory, filePath)
+    }
+
     let template: TemplateDelegate = this.cache.get(filePath)
 
     if (template === undefined) {

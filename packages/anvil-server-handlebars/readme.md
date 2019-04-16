@@ -84,15 +84,15 @@ module.exports = (request, response, next) => {
 
 Load and compile all partial templates found with the `partialPaths` option. The template files found will be cached if caching is enabled. Returns an object mapping partial names to template functions.
 
-### `.loadTemplate(templatePath)`
+### `.loadTemplate(templatePath: string)`
 
-Loads and compiles the requested template. The template path should be an absolute path or relative to the `rootDirectory` option. The template will be cached if caching is enabled. Returns a template function.
+Loads and compiles the requested template file. The provided path will be resolved relative to the `rootDirectory` option if it is not absolute (beginning `/`). The template will be cached if caching is enabled. Returns a template function.
 
-### `.render(template, context)`
+### `.render(template: string | function, context: any)`
 
-Renders the requested template file or provided template function with `context`. Partial templates and helper functions will be provided to the render context. Returns a string.
+Renders the requested template file or template function with `context`. Partial templates and helper functions will be provided to the render context. Returns a string.
 
-### `.renderView(templatePath, context, callback)`
+### `.renderView(templatePath: string, context: any, callback: (error, html) => void)`
 
 This method is intended to be used as a [view engine] for Express.
 
