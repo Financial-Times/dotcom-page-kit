@@ -23,7 +23,7 @@ export type TNavMenuItem = {
 
 // Items can be split into separate "columns" by the navigation service
 // so we'll receive an array of arrays for some submenus.
-export type TNavMenuItems = TNavMenuItem[] | TNavMenuItem[][]
+export type TNavMenuItems = TNavMenuItem[] | Array<TNavMenuItem[]>
 
 export type TNavMeganav = {
   component: 'sectionlist' | 'articlelist'

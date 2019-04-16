@@ -1,10 +1,10 @@
 # anvil-server-ft-navigation
 
-This module exposes a Navigation class with some methods for accessing navigation data for ft.com.
+This module provides a navigation data poller with methods for accessing the fetched data for FT.com.
 
-It is intended to be consumed by a Navigation middleware such as [`anvil-middleware-ft-navigation`](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-middleware-ft-navigation) which can handle the responses.
+It is primarily intended to be consumed via the [`anvil-middleware-ft-navigation`](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-middleware-ft-navigation) package which can be used by Express apps.
 
-Instances of Navigation will periodically fetch navigation data from the [Origami navigation service](https://registry.origami.ft.com/components/origami-navigation-service@71.0.0) via [ft-poller](https://github.com/Financial-Times/ft-poller). This data is managed by editorial staff and is used to render the navigation components on FT.com including the header, drop-down menus, drawer and footer.
+Data will be periodically fetched from the [Origami navigation service](https://registry.origami.ft.com/components/origami-navigation-service@71.0.0). This data is managed by editorial staff and is used to render the navigation components across FT.com including the header, drop-down menus, drawer and footer.
 
 ```ts
 import Navigation from '@financial-times/anvil-server-ft-navigation'
@@ -54,7 +54,7 @@ Returns the navigation data for the supplied `menuId` (see above), decorated per
 - A `selected` property is added to all items; value is `true` or `false` depending on whether the `url` property matches `path`
 - Redirect urls are set to value of the `path` parameter (e.g. allowing `/login?location=<path>` to redirect back to the referring page)
 
-Calling
+Calling:
 ```js
 navigation.getPathMenu('drawer-uk', '/world/uk')
 ```
