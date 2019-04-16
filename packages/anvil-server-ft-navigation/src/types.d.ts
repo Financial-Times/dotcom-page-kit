@@ -33,6 +33,6 @@ export type TNavMeganav = {
 }
 
 export type TNavSubNavigation = {
-  breadcrumb: {}
-  subsections: {}
+  breadcrumb: TNavMenuItem[]
+  subsections: TNavMenuItem[]
 }
