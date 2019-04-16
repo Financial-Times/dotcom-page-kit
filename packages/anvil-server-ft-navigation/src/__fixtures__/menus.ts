@@ -1,4 +1,6 @@
-const meganav = [
+import { TNavMenus, TNavMeganav, TNavMenu } from '../types'
+
+const meganav: TNavMeganav[] = [
   {
     component: 'sectionlist',
     dataset: 'subsections',
@@ -9,11 +11,14 @@ const meganav = [
     component: 'articlelist',
     dataset: 'popular',
     title: 'Most Read',
-    data: [{ label: 'Mega Baz', url: '/content/baz' }, { label: 'Mega Qux', url: '/content/qux' }]
+    data: [
+      { label: 'Mega Baz', url: '/content/baz' },
+      { label: 'Mega Qux', url: '/content/qux?location=${currentPath}' }
+    ]
   }
 ]
 
-const submenu = {
+const submenu: TNavMenu = {
   label: 'submenu',
   items: [
     { label: 'Baz', url: '/world/uk', submenu: null },
@@ -21,7 +26,7 @@ const submenu = {
   ]
 }
 
-const menus = {
+const menus: TNavMenus = {
   'navbar-uk': {
     label: 'Navigation',
     items: [
@@ -54,4 +59,4 @@ const menus = {
   }
 }
 
-module.exports = { menus }
+export { menus }

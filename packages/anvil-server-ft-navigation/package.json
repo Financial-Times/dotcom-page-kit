@@ -26,6 +26,7 @@
     "node-fetch": "^2.2.1"
   },
   "devDependencies": {
+    "dlv": "^1.1.2",
     "nock": "^10.0.2"
   }
 }

@@ -1,58 +1,83 @@
-import { decorateMenu, processMeganav } from '..'
+import { decorateMenu } from '..'
 import { menus } from '../__fixtures__/menus'
+import dlv from 'dlv'
 
-describe('.decorateMenu()', () => {
-  it('returns a decorated object rather than mutating in place', () => {
-    const decorated = decorateMenu(menus['navbar-uk'], '/world/uk')
+describe('anvil-server-ft-navigation/src/decorate-menu', () => {
+  describe('.decorateMenu()', () => {
+    it('returns a new deeply cloned object rather than mutating in place', () => {
+      const decorated = decorateMenu(menus['navbar-uk'], '/world/uk')
 
-    expect(decorated).not.toBe(menus)
-  })
+      expect(decorated).not.toBe(menus['navbar-uk'])
+      expect(decorated.items).not.toBe(menus['navbar-uk'].items)
+      expect(decorated.items[0]).not.toBe(menus['navbar-uk'].items[0])
+    })
 
-  it('it marks items whose `url` property matches `currentUrl` as `selected`', () => {
-    const decorated = decorateMenu(menus['navbar-uk'], '/world/uk')
+    it('marks menu items whose `url` property matches `currentPath` as `selected`', () => {
+      const decorated = decorateMenu(menus['navbar-uk'], '/world/uk')
 
-    expect(decorated.items[0].selected).toBe(true)
-    expect(decorated.items[1].submenu.items[0].selected).toBe(true)
-    expect(decorated.items[1].meganav[0].data[1][0].selected).toBe(true)
-  })
+      const a = dlv(decorated, ['items', 0])
+      const b = dlv(decorated, ['items', 1, 'submenu', 'items', 0])
+      const c = dlv(decorated, ['items', 1, 'meganav', 0, 'data', 1, 0])
+      const d = dlv(decorated, ['items', 1])
 
-  it('replaces the ${currentPath} query string param with the value of currentUrl', () => {
-    const decorated = decorateMenu(menus['navbar-uk'], '/world/us/politics')
+      expect(a.selected).toBe(true)
+      expect(b.selected).toBe(true)
+      expect(c.selected).toBe(true)
+      expect(d.selected).toBe(false)
+    })
 
-    expect(decorated.items[1].url).toBe('/fake-item?location=/world/us/politics')
-    expect(decorated.items[1].submenu.items[1].url).toBe('/fake-item-nested?location=/world/us/politics')
-  })
+    it('replaces the ${currentPath} placeholder with the value of `currentPath`', () => {
+      const decorated = decorateMenu(menus['navbar-uk'], '/world/us/politics')
 
-  it('replaces URLs containing keywords with %2F', () => {
-    const testKeyword = (itemUrl: string) => {
-      const decorated = decorateMenu(menus['navbar-uk'], itemUrl)
-      expect(decorated.items[1].url).toBe('/fake-item?location=%2F')
-      expect(decorated.items[1].submenu.items[1].url).toBe('/fake-item-nested?location=%2F')
-    }
+      const a = dlv(decorated, ['items', 1])
+      const b = dlv(decorated, ['items', 1, 'submenu', 'items', 1])
+      const c = dlv(decorated, ['items', 1, 'meganav', 1, 'data', 1])
 
-    testKeyword('/uk/products/bar')
-    testKeyword('/world/barriers')
-    testKeyword('/world/us/errors')
-  })
-})
+      expect(a.url).toBe('/fake-item?location=/world/us/politics')
+      expect(b.url).toBe('/fake-item-nested?location=/world/us/politics')
+      expect(c.url).toBe('/content/qux?location=/world/us/politics')
+    })
 
-describe('.processMeganav()', () => {
-  it('contains the expected meganav properties', () => {
-    const decorated = processMeganav(menus['navbar-uk'].items[1].meganav, '/world/uk')
+    it('replaces the ${currentPath} placeholder with %2F in URLs which contain keywords', () => {
+      const testKeyword = (itemUrl: string) => {
+        const decorated = decorateMenu(menus['navbar-uk'], itemUrl)
 
-    expect(decorated[0]).toHaveProperty('component', 'sectionlist')
-    expect(decorated[0]).toHaveProperty('title', 'Sections')
-    expect(decorated[0]).toHaveProperty('data')
+        const a = dlv(decorated, ['items', 1, 'url'])
+        const b = dlv(decorated, ['items', 1, 'submenu', 'items', 1, 'url'])
 
-    expect(decorated[1]).toHaveProperty('component', 'articlelist')
-    expect(decorated[1]).toHaveProperty('title', 'Most Read')
-    expect(decorated[1]).toHaveProperty('data')
-  })
+        expect(a).toBe('/fake-item?location=%2F')
+        expect(b).toBe('/fake-item-nested?location=%2F')
+      }
 
-  it('contains the expected meganav data', () => {
-    const decorated = processMeganav(menus['navbar-uk'].items[1].meganav, '/world/uk')
+      testKeyword('/uk/products/bar')
+      testKeyword('/world/barriers')
+      testKeyword('/world/us/errors')
+    })
 
-    expect(Object.keys(decorated[0].data[0][0])).toEqual(['label', 'url', 'selected'])
-    expect(Object.keys(decorated[1].data[0])).toEqual(['label', 'url', 'selected'])
+    it('can clone submenu properties', () => {
+      const decorated = decorateMenu(menus.footer, '/world/uk')
+      const submenu = dlv(decorated, ['items', 0, 'submenu', 'items'])
+
+      submenu.forEach((column) => {
+        column.forEach((menuItem) => {
+          expect(menuItem).toHaveProperty('label')
+          expect(menuItem).toHaveProperty('url')
+          expect(menuItem).toHaveProperty('selected')
+        })
+      })
+    })
+
+    it('can clone meganav properties', () => {
+      const decorated = decorateMenu(menus['navbar-uk'], '/world/uk')
+      const meganav = dlv(decorated, ['items', 1, 'meganav'])
+
+      expect(meganav[0]).toHaveProperty('component', 'sectionlist')
+      expect(meganav[0]).toHaveProperty('title', 'Sections')
+      expect(meganav[0]).toHaveProperty('data')
+
+      expect(meganav[1]).toHaveProperty('component', 'articlelist')
+      expect(meganav[1]).toHaveProperty('title', 'Most Read')
+      expect(meganav[1]).toHaveProperty('data')
+    })
   })
 })

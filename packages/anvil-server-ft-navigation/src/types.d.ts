@@ -5,33 +5,34 @@ export type TNavOptions = {
 }
 
 export type TNavMenus = {
-  [menuId: string]: TNavMenu
+  [id: string]: TNavMenu
 }
 
-type TNavMenuItems = TNavMenuItem[]
-
 export type TNavMenu = {
-  label: string
+  label: string | null
   items: TNavMenuItems
 }
 
 export type TNavMenuItem = {
   label: string
-  url: string
-  submenu: TNavMenu
+  url: string | null
+  submenu?: TNavMenu
   selected?: boolean
-  meganav?: TNavMeganav
-  items?: TNavMenuItems
+  meganav?: TNavMeganav[]
+}
+
+// Items can be split into separate "columns" by the navigation service
+// so we'll receive an array of arrays for some submenus.
+export type TNavMenuItems = TNavMenuItem[] | Array<TNavMenuItem[]>
+
+export type TNavMeganav = {
+  component: 'sectionlist' | 'articlelist'
+  dataset: 'subsections' | 'popular'
+  title: string
+  data: TNavMenuItems
 }
 
 export type TNavSubNavigation = {
-  breadcrumb: {}
-  subsections: {}
-}
-
-export type TNavMeganav = {
-  component: string
-  dataset: string
-  title: string
-  data: TNavMenuItems
+  breadcrumb: TNavMenuItem[]
+  subsections: TNavMenuItem[]
 }
