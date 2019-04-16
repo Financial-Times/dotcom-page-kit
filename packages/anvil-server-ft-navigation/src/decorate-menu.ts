@@ -1,83 +1,48 @@
-import { parse } from 'url'
-import { TNavMenu, TNavMenuItems, TNavMenuItem } from './types'
+import { TNavMenu, TNavMenuItem } from './types'
 
-const decorateUrl = (itemUrl, currentUrl, currentPathName) => {
-  if (typeof itemUrl === 'string' && itemUrl.includes('${currentPath}')) {
-    const shouldReplace = !currentPathName || !/\/(products|barriers|errors)/.test(currentPathName)
-    const redirectPath = shouldReplace ? currentUrl : '%2F'
-    return itemUrl.replace('${currentPath}', redirectPath)
+const decorateURL = (url: string, currentPath: string): string => {
+  if (url && url.includes('${currentPath}')) {
+    // Don't replace the URL placeholder with a barrier or error URL so that
+    // a user logging in is not redirected to a barrier or error!
+    const shouldReplace = !/\/(products|barriers|errors)/.test(currentPath)
+    const redirectPath = shouldReplace ? currentPath : '%2F'
+    return url.replace('${currentPath}', redirectPath)
   }
-  return itemUrl
+
+  return url
 }
 
-const isSelected = (url, currentPathName) => {
-  return url === currentPathName
+const isSelected = (url: string, currentPath: string): boolean => {
+  return url === currentPath
 }
 
-const decorateItem = (url, currentUrl) => {
-  const currentPathName = parse(currentUrl).pathname
-  const itemUrl = decorateUrl(url, currentUrl, currentPathName)
-  let selected = isSelected(url, currentPathName)
-  return { itemUrl, selected }
+function decorateMenuItem(item: TNavMenuItem, currentPath: string) {
+  item.url = decorateURL(item.url, currentPath)
+  item.selected = isSelected(item.url, currentPath)
 }
 
-export const processDataItems = (dataItem, currentUrl) => {
-  if (Array.isArray(dataItem)) {
-    return dataItem.map((item) => processDataItems(item, currentUrl))
-  } else {
-    const { itemUrl, selected } = decorateItem(dataItem.url, currentUrl)
-    return { ...dataItem, url: itemUrl, selected }
+function cloneMenu(value: any, currentPath: string): any {
+  if (Array.isArray(value)) {
+    return value.map((item) => cloneMenu(item, currentPath))
   }
-}
 
-export const processMeganav = (meganav, currentUrl) => {
-  return meganav.map((component) => {
-    return {
-      component: component.component,
-      title: component.title,
-      data: component.data.map((dataItems) => processDataItems(dataItems, currentUrl))
-    }
-  })
-}
+  if (Object(value) === value) {
+    const cloned = {}
 
-const processItems = (items: TNavMenuItems, currentUrl: string) => {
-  return items.reduce((acc: TNavMenuItems, { label, url, submenu, meganav }: TNavMenuItem) => {
-    const { itemUrl, selected } = decorateItem(url, currentUrl)
-
-    if (submenu) {
-      submenu = decorateMenu(submenu, currentUrl)
+    for (const key of Object.keys(value)) {
+      cloned[key] = cloneMenu(value[key], currentPath)
     }
 
-    /**
-     * Meganav data is appended to the navigation object by next-api
-     * and present in the response from anvil-server-ft-navigation.
-     *
-     * It can't be processed by decorateMenu() as it has an atypical structure.
-     * Note also that the nesting is variable and the .data property may contain
-     * dataItems or a nested array of dataItems.
-     */
-    if (meganav) {
-      meganav = processMeganav(meganav, currentUrl)
+    if (cloned.hasOwnProperty('url')) {
+      decorateMenuItem(cloned as TNavMenuItem, currentPath)
     }
 
-    acc.push({ label, url: itemUrl, submenu, selected, meganav })
+    return cloned
+  }
 
-    return acc
-  }, [])
+  return value
 }
 
-/**
- * Produce a decorated clone of the supplied menu
- * The `items.every` handles menu['footer']: a array of TNavMenuItems arrays
- *
- * @param menu
- * @param currentUrl
- */
-export const decorateMenu = ({ label, items }, currentUrl: string): TNavMenu => {
-  return {
-    label,
-    items: items.every(Array.isArray)
-      ? items.map((itemArr: TNavMenuItems) => processItems(itemArr, currentUrl))
-      : processItems(items, currentUrl)
-  }
+export const decorateMenu = (menu: TNavMenu, currentUrl: string): TNavMenu => {
+  return cloneMenu(menu, currentUrl)
 }
