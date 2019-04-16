@@ -1,5 +1,13 @@
 import { TNavMenu, TNavMenuItem } from './types'
 
+const isSelected = (url: string, currentPath: string): boolean => {
+  return url === currentPath
+}
+
+const isMenuItem = (item: any): boolean => {
+  return item.hasOwnProperty('label') && item.hasOwnProperty('url')
+}
+
 const decorateURL = (url: string, currentPath: string): string => {
   if (url && url.includes('${currentPath}')) {
     // Don't replace the URL placeholder with a barrier or error URL so that
@@ -12,11 +20,7 @@ const decorateURL = (url: string, currentPath: string): string => {
   return url
 }
 
-const isSelected = (url: string, currentPath: string): boolean => {
-  return url === currentPath
-}
-
-function decorateMenuItem(item: TNavMenuItem, currentPath: string) {
+const decorateMenuItem = (item: TNavMenuItem, currentPath: string): void => {
   item.url = decorateURL(item.url, currentPath)
   item.selected = isSelected(item.url, currentPath)
 }
@@ -33,7 +37,7 @@ function cloneMenu(value: any, currentPath: string): any {
       cloned[key] = cloneMenu(value[key], currentPath)
     }
 
-    if (cloned.hasOwnProperty('url')) {
+    if (isMenuItem(cloned)) {
       decorateMenuItem(cloned as TNavMenuItem, currentPath)
     }
 

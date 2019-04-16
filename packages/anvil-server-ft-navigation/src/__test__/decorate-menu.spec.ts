@@ -4,25 +4,29 @@ import dlv from 'dlv'
 
 describe('anvil-server-ft-navigation/src/decorate-menu', () => {
   describe('.decorateMenu()', () => {
-    it('returns a decorated object rather than mutating in place', () => {
+    it('returns a new deeply cloned object rather than mutating in place', () => {
       const decorated = decorateMenu(menus['navbar-uk'], '/world/uk')
 
-      expect(decorated).not.toBe(menus)
+      expect(decorated).not.toBe(menus['navbar-uk'])
+      expect(decorated.items).not.toBe(menus['navbar-uk'].items)
+      expect(decorated.items[0]).not.toBe(menus['navbar-uk'].items[0])
     })
 
-    it('it marks items whose `url` property matches `currentPath` as `selected`', () => {
+    it('marks menu items whose `url` property matches `currentPath` as `selected`', () => {
       const decorated = decorateMenu(menus['navbar-uk'], '/world/uk')
 
       const a = dlv(decorated, ['items', 0])
       const b = dlv(decorated, ['items', 1, 'submenu', 'items', 0])
       const c = dlv(decorated, ['items', 1, 'meganav', 0, 'data', 1, 0])
+      const d = dlv(decorated, ['items', 1])
 
       expect(a.selected).toBe(true)
       expect(b.selected).toBe(true)
       expect(c.selected).toBe(true)
+      expect(d.selected).toBe(false)
     })
 
-    it('replaces the ${currentPath} query string param with the value of currentPath', () => {
+    it('replaces the ${currentPath} placeholder with the value of `currentPath`', () => {
       const decorated = decorateMenu(menus['navbar-uk'], '/world/us/politics')
 
       const a = dlv(decorated, ['items', 1])
@@ -34,7 +38,7 @@ describe('anvil-server-ft-navigation/src/decorate-menu', () => {
       expect(c.url).toBe('/content/qux?location=/world/us/politics')
     })
 
-    it('replaces URLs containing keywords with %2F', () => {
+    it('replaces the ${currentPath} placeholder with %2F in URLs which contain keywords', () => {
       const testKeyword = (itemUrl: string) => {
         const decorated = decorateMenu(menus['navbar-uk'], itemUrl)
 
