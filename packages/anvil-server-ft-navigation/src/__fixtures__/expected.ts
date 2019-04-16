@@ -1,4 +1,6 @@
-const footer = {
+import { TNavMenu } from '../types'
+
+const footer: TNavMenu = {
   label: 'Footer',
   items: [
     {
@@ -47,6 +49,4 @@ const footer = {
   ]
 }
 
-module.exports = {
-  footer
-}
+export { footer }
