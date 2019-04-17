@@ -5,26 +5,23 @@ const buildService = require('../lib/buildService')
 
 const origamiComponents = ['o-header@^7.7.0', 'o-footer@^6.1.0', 'o-fonts@^3.2.0', 'o-normalise@^1.6.2']
 
-const defaultShellProps = {
+const shellProps = {
   coreScriptsToLoad: [],
   enhancedScriptsToLoad: [buildService.js(origamiComponents)],
   stylesheets: [buildService.css(origamiComponents)],
   criticalStyles: 'body {background-color:#fff1e5; color:#33302e;}'
 }
 
-const defaultLayoutProps = {
+const layoutProps = {
   header: 'simple',
   footer: 'simple'
 }
 
-function Document({ shellProps, layoutProps, headerProps, footerProps, children } = {}) {
-  // TODO: refactor this prop name
-  const props = { ...headerProps, ...footerProps }
-
+function Document({ navigationData, children }) {
   return React.createElement(
     Shell,
-    { ...defaultShellProps, ...shellProps },
-    React.createElement(Layout, { ...defaultLayoutProps, ...layoutProps, props }, children)
+    shellProps,
+    React.createElement(Layout, { ...layoutProps, props: { data: navigationData } }, children)
   )
 }
 
