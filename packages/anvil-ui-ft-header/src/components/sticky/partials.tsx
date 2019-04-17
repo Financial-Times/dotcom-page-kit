@@ -23,7 +23,7 @@ const DrawerIconSticky = () => (
     className="o-header__top-link o-header__top-link--menu"
     aria-controls="o-header-drawer"
     data-trackable="drawer-toggle"
-    tabIndex="-1">
+    tabIndex={-1}>
     <span className="o-header__top-link-label">Menu</span>
   </a>
 )
@@ -34,7 +34,7 @@ const SearchIconSticky = ({ context }) => (
     className="o-header__top-link o-header__top-link--search"
     aria-controls={`o-header-search-${context}`}
     data-trackable="search-toggle"
-    tabIndex="-1">
+    tabIndex={-1}>
     <span className="o-header__top-link-label">Search</span>
   </a>
 )
@@ -52,7 +52,7 @@ const Navigation = (props: THeaderProps) => {
                   className="o-header__nav-link o-header__nav-link--primary"
                   href={navItem.url}
                   data-trackable={navItem.label}
-                  tabIndex="-1">
+                  tabIndex={-1}>
                   {navItem.label}
                 </a>
               </li>
@@ -70,7 +70,7 @@ const Logo = () => (
     data-trackable="logo"
     href="/"
     title="Go to Financial Times homepage"
-    tabIndex="-1">
+    tabIndex={-1}>
     <span className="o-header__visually-hidden">Financial Times</span>
   </a>
 )
@@ -89,7 +89,7 @@ const MyFtSticky = () => (
     className="o-header__top-link o-header__top-link--myft"
     href="/myft"
     data-trackable="my-ft"
-    tabIndex="-1">
+    tabIndex={-1}>
     <span className="o-header__visually-hidden">myFT</span>
   </a>
 )

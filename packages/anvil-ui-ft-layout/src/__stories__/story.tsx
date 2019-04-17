@@ -2,28 +2,21 @@ import React from 'react'
 import { OnReady } from '@financial-times/anvil-ui-ft-on-ready'
 
 import { storiesOf } from '@storybook/react'
-import { withKnobs, boolean } from '@storybook/addon-knobs'
-
-import { Header, Drawer, StickyHeader, LogoOnly } from '@financial-times/anvil-ui-ft-header/component'
-import { Footer, LegalFooter } from '@financial-times/anvil-ui-ft-footer/component'
+import { withKnobs, boolean, select } from '@storybook/addon-knobs'
+import './demos.scss'
 
 import * as header from '@financial-times/anvil-ui-ft-header/browser.js'
 import * as footer from '@financial-times/anvil-ui-ft-footer/browser.js'
 
-import headerProps from '@financial-times/anvil-ui-ft-header/src/__stories__/story-data'
-import footerProps from '@financial-times/anvil-ui-ft-footer/src/__stories__/story-data'
+import { data as headerProps } from '../../../../__fixtures__/navigation'
 
-import Layout from '..'
+import { Layout, Template } from '..'
 
-const fakeHandlebars = (n = 2) => {
-  return Array.from(
-    { length: n },
-    () =>
-      `<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem laudantium nihil pariatur. Totam, rem beatae laborum reprehenderit sequi consectetur nam officiis. Veritatis nulla soluta quas dolores, placeat repudiandae modi debitis!<p>`
-  ).join('')
-}
+const Extra = ({ children }) => <p className="extra">{children}</p>
 
-const showFooter = () => boolean('Show footer', true)
+const hideFooter = () => boolean('Hide outbound links', false)
+const switchFooter = () => select('Switch footer', { Standard: 'simple', Legal: 'legal' })
+const switchDisplay = () => boolean('Toggle {display: contents} on <Template />', false)
 
 const initUiComponents = () => {
   header.init()
@@ -32,40 +25,106 @@ const initUiComponents = () => {
 
 storiesOf('FT / Layout', module)
   .addDecorator(withKnobs)
-  .add('default components', () => {
+  .add('Default components', () => {
     return (
       <OnReady callback={initUiComponents}>
-        <Layout
-          header={<Header {...headerProps} />}
-          footer={showFooter() && <Footer {...footerProps} />}
-          footerAfter={<Drawer {...headerProps} />}>
-          <main>
-            <p>Children</p>
+        <Layout props={headerProps}>
+          <main className="demo">
+            <p className="demo__message demo__message--padded">Defaults: only passing data</p>
           </main>
         </Layout>
       </OnReady>
     )
   })
-  .add('header & footer variants', () => {
+  .add('Home header', () => {
+    const props = { ...headerProps, variant: 'home', hideOutboundLinks: hideFooter() }
+
     return (
       <OnReady callback={initUiComponents}>
-        <Layout header={<StickyHeader {...headerProps} />} footer={<LegalFooter {...footerProps} />}>
-          <main dangerouslySetInnerHTML={{ __html: fakeHandlebars(10) }} />
+        <Layout props={props} footer={switchFooter()}>
+          <main className="demo">
+            <p className="demo__message demo__message--padded">Home variant</p>
+          </main>
         </Layout>
       </OnReady>
     )
   })
-  .add('logo variant', () => {
+  .add('Logo-only header', () => {
+    const props = { ...headerProps, hideOutboundLinks: hideFooter() }
+
     return (
       <OnReady callback={initUiComponents}>
-        <Layout
-          header={<LogoOnly options={{ variant: 'simple' }} />}
-          footerBefore={fakeHandlebars()}
-          footer={<LegalFooter {...footerProps} />}>
-          <main>
-            <p>Children</p>
+        <Layout props={props} header="logo-only" footer={switchFooter()}>
+          <main className="demo">
+            <p className="demo__message">Logo only</p>
           </main>
         </Layout>
       </OnReady>
+    )
+  })
+  .add('Sticky header only', () => {
+    const props = { ...headerProps, hideOutboundLinks: hideFooter() }
+
+    return (
+      <OnReady callback={initUiComponents}>
+        <Layout props={props} header="sticky" footer={switchFooter()}>
+          <main className="demo">
+            <p className="demo__message demo__message--scroll">Scroll down</p>
+          </main>
+        </Layout>
+      </OnReady>
+    )
+  })
+  .add('Turn off footer', () => {
+    const props = { ...headerProps, hideOutboundLinks: hideFooter() }
+
+    return (
+      <OnReady callback={initUiComponents}>
+        <Layout props={props} footer={false}>
+          <main className="demo">
+            <p className="demo__message demo__message--padded">No footer</p>
+          </main>
+        </Layout>
+      </OnReady>
+    )
+  })
+  .add('Custom slots', () => {
+    return (
+      <OnReady callback={initUiComponents}>
+        <Layout
+          props={headerProps}
+          footer="legal"
+          headerBefore={<Extra>Header before</Extra>}
+          headerAfter={<Extra>Header after</Extra>}
+          footerAfter={<Extra>Footer after</Extra>}>
+          <main className="demo">
+            <p className="demo__message demo__message--padded">Custom content slots</p>
+          </main>
+        </Layout>
+      </OnReady>
+    )
+  })
+  .add('Custom components', () => {
+    return (
+      <OnReady callback={initUiComponents}>
+        <Layout props={headerProps} footer={<Extra>Custom footer</Extra>}>
+          <main className="demo">
+            <p className="demo__message">Custom components</p>
+          </main>
+        </Layout>
+      </OnReady>
+    )
+  })
+  .add('Template utility', () => {
+    const theCrocodile = `
+    <p>How doth the little crocodile </p>
+    <p>Improve his shining tail</p>`
+
+    const cls = switchDisplay() ? 'demo__message--contents' : ''
+
+    return (
+      <main className="demo demo--flexed">
+        <Template className={`demo__message ${cls}`}>{theCrocodile}</Template>
+      </main>
     )
   })

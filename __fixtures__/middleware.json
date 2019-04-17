@@ -1,0 +1,54 @@
+{
+  "breadcrumb": [
+    {
+      "label": "World",
+      "url": "/world"
+    },
+    {
+      "label": "UK",
+      "url": "/world/uk",
+      "selected": true,
+      "submenu": {
+        "label": null,
+        "items": [
+          {
+            "label": "UK Business & Economy",
+            "url": "/uk-business-economy",
+            "submenu": null
+          },
+          {
+            "label": "UK Politics & Policy",
+            "url": "/world/uk/politics",
+            "submenu": null
+          },
+          {
+            "label": "UK Companies",
+            "url": "/companies/uk",
+            "submenu": null
+          }
+        ]
+      }
+    }
+  ],
+  "subsections": [
+    {
+      "label": "UK Business & Economy",
+      "url": "/uk-business-economy",
+      "submenu": null
+    },
+    {
+      "label": "UK Politics & Policy",
+      "url": "/world/uk/politics",
+      "submenu": null
+    },
+    {
+      "label": "UK Companies",
+      "url": "/companies/uk",
+      "submenu": null
+    }
+  ],
+  "editions": {
+    "current": { "name": "UK Edition" },
+    "others": [{ "id": "international", "name": "International Edition", "url": "#" }]
+  }
+}
