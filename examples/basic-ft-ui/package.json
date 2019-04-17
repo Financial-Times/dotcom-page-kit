@@ -1,5 +1,5 @@
 {
-  "name": "example-express-ft-header",
+  "name": "example-basic-ft-ui",
   "private": true,
   "version": "0.0.0",
   "main": "server/app.js",
