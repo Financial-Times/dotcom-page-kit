@@ -7,7 +7,7 @@ This module extends the [Anvil CLI build action][cli] (`anvil build`) with a way
 
 ## Getting started
 
-This module is compatible with Node 10+ and is distributed on npm.
+This module is compatible with Node 8+ and is distributed on npm.
 
 ```sh
 npm install --save-dev @financial-times/anvil-plugin-css
@@ -23,7 +23,7 @@ After installing the module you must add it to the list of plugins in your proje
 }
 ```
 
-Once setup, this plugin will enable you to use CSS files as [entry points] into your source code.
+Once setup, this plugin will enable you to use CSS files as [entry points] into your source code or as a dependency of your JavaScript.
 
 ```sh
 anvil build --entryFile path/to/styles.css
@@ -34,7 +34,7 @@ anvil build --entryFile path/to/styles.css
 
 ## Scope
 
-This plugin adds a [rule] to the Webpack configuration to handle `.css` files. It uses the [css-loader] to interpret `@import` rules. The [mini-css-extract-plugin] is added to generate `.css` files and the [webpack-fix-style-only-entries] to clean up any empty JavaScript bundles.
+This plugin adds a [rule] to the Webpack configuration to handle `.css` files. It uses the [css-loader] to interpret `@import` rules and `url()` functions. The [mini-css-extract-plugin] is added to generate `.css` files and the [webpack-fix-style-only-entries] to clean up any empty JavaScript bundles left after CSS extraction.
 
 Several [hooks](#extending) are provided in order to access and modify the configuration.
 

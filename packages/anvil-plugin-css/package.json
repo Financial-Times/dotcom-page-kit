@@ -29,6 +29,6 @@
     "@financial-times/anvil-cli": "file:../anvil-cli"
   },
   "engines": {
-    "node": ">= 10.0.0"
+    "node": ">= 8.15.0"
   }
 }
