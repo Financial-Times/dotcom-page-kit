@@ -1,23 +1,15 @@
+const React = require('react')
 const ReactDOMServer = require('react-dom/server')
-const { Header, Drawer } = require('@financial-times/anvil-ui-ft-header')
-const document = require('../lib/document')
-
-const headerProps = {
-  userIsAnonymous: false,
-  userIsLoggedIn: true,
-  data: {}
-}
-
-const render = (component) => ReactDOMServer.renderToStaticMarkup(component)
+const Document = require('../components/Document')
 
 module.exports = (_, response, next) => {
-  headerProps.data = response.locals.navigation
-  headerProps.data.editions = response.locals.editions
+  const headerProps = {
+    data: { ...response.locals.navigation, editions: response.locals.editions }
+  }
 
   try {
-    const html = [render(Header(headerProps)), render(Drawer(headerProps))].join()
-    const page = document(html)
-    response.send(page)
+    const page = React.createElement(Document, { headerProps })
+    response.send('<!DOCTYPE html>' + ReactDOMServer.renderToStaticMarkup(page))
   } catch (error) {
     next(error)
   }
