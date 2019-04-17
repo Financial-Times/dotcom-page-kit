@@ -30,7 +30,7 @@ function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
     module: {
       rules: [
         publish(hooks.SCSS_RULE, {
-          test: [/\.scss$/],
+          test: [/\.s(c|a)ss$/],
           use: [
             // Extracts CSS into separate, non-JS files
             // https://github.com/webpack-contrib/mini-css-extract-plugin
@@ -81,7 +81,13 @@ function getAutoPrefixerOptions() {
   return {
     // https://github.com/browserslist/browserslist
     // TODO: make configurable via browserslist setting
-    browsers: '> 1%, ie 11',
+    browsers: [
+      'last 2 Chrome versions',
+      'IE 11',
+      'Safari >= 9.1',
+      'Firefox ESR',
+      'last 2 Edge versions'
+    ],
     grid: true
   }
 }
