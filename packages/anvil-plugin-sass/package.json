@@ -21,14 +21,14 @@
     "@financial-times/anvil-cli": "file:../anvil-cli"
   },
   "dependencies": {
-    "autoprefixer": "^9.3.1",
-    "css-loader": "^1.0.1",
-    "cssnano": "^4.1.7",
-    "mini-css-extract-plugin": "^0.4.4",
-    "node-sass": "^4.10.0",
+    "autoprefixer": "^9.5.0",
+    "css-loader": "^2.1.0",
+    "cssnano": "^4.1.10",
+    "mini-css-extract-plugin": "^0.6.0",
+    "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^6.0.7",
-    "webpack-fix-style-only-entries": "0.0.5"
+    "webpack-fix-style-only-entries": "0.2.0"
   },
   "devDependencies": {
     "@financial-times/anvil-cli": "file:../anvil-cli"
