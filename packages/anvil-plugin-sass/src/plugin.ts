@@ -30,7 +30,7 @@ function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
     module: {
       rules: [
         publish(hooks.SCSS_RULE, {
-          test: [/\.scss$/, /\.sass$/],
+          test: [/\.s(c|a)ss$/],
           use: [
             // Extracts CSS into separate, non-JS files
             // https://github.com/webpack-contrib/mini-css-extract-plugin
