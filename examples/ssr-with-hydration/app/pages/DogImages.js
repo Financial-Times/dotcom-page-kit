@@ -15,16 +15,12 @@ export default {
 
 function DogImagesPage({ breed, breedImages, Page }) {
   return (
-    <Page>
-      <Page.Header>
-        <h1>Dog Breeds</h1>
-      </Page.Header>
-      <Page.Body>
-        <p>Images of {breed}:</p>
-        {breedImages.map((img) => (
-          <img id="dogImage" src={img} key={img} />
-        ))}
-      </Page.Body>
+    <Page title="Dog breeds">
+      <h1>Dog Breeds</h1>
+      <p>Images of {breed}:</p>
+      {breedImages.map((img) => (
+        <img id="dogImage" src={img} key={img} />
+      ))}
     </Page>
   )
 }

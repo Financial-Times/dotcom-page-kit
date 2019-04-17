@@ -3,14 +3,17 @@ import React from 'react'
 export default {
   title: 'Terms',
   description: 'The terms page',
-  component: TermsPage
+  component: TermsPage,
+  getDependencies: async () => ({
+    Page: (await import('../components/Page')).default
+  })
 }
 
-function TermsPage() {
+function TermsPage({ Page }) {
   return (
-    <React.Fragment>
+    <Page title="Terms">
       <h1>Terms</h1>
       <p>Some terms text...</p>
-    </React.Fragment>
+    </Page>
   )
 }

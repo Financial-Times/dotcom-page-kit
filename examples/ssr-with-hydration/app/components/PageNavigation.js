@@ -1,5 +1,6 @@
 import React from 'react'
-export function PageNavigation() {
+
+export default function PageNavigation() {
   return (
     <nav>
       <ul>
