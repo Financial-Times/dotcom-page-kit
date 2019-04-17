@@ -21,6 +21,14 @@ After installing the module you must add it to the list of plugins in your proje
 +    "@financial-times/anvil-plugin-css"
   ]
 }
+
++ const css = require('@financial-times/anvil-plugin-css')
+
+module.exports = {
+  plugins: [
++    css.plugin()
+  ]
+}
 ```
 
 Once setup, this plugin will enable you to use CSS files as [entry points] into your source code or as a dependency of your JavaScript.
