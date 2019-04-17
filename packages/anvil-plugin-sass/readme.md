@@ -1,13 +1,13 @@
 # Anvil Plugin Sass
 
-This module extends the [Anvil CLI build action][cli] (`anvil build`) with a way to generate optimised CSS files from [Sass] source code for FT.com.
+This module extends the [Anvil CLI build action][cli] (`anvil build`) with a way to load and generate CSS files from [Sass] source code.
 
 [cli]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil#build
 [Sass]: https://sass-lang.com/
 
 ## Getting started
 
-This module is compatible with Node 10+ and is distributed on npm.
+This module is compatible with Node 8+ and is distributed on npm.
 
 ```sh
 npm install --save-dev @financial-times/anvil-plugin-sass
@@ -16,16 +16,16 @@ npm install --save-dev @financial-times/anvil-plugin-sass
 After installing the module you must add it to the list of plugins in your project's `anvil.config.js` configuration file:
 
 ```diff
-+ const sassPlugin = require('@financial-times/anvil-plugin-sass').default
++ const sass = require('@financial-times/anvil-plugin-sass')
 
 module.exports = {
   plugins: [
-+    sassPlugin
++    sass.plugin()
   ]
 }
 ```
 
-Once setup, this plugin will enable you to use Sass files as [entry points] into your source code.
+Once setup, this plugin will enable you to use Sass files (`.scss` and `.sass`) as [entry points] into your source code.
 
 ```sh
 anvil build --entryFile path/to/styles.scss
