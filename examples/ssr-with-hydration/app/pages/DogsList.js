@@ -14,22 +14,18 @@ export default {
 
 function DogsListPage({ breeds, Page }) {
   return (
-    <Page>
-      <Page.Header>
-        <h1>Dog Breeds</h1>
-      </Page.Header>
-      <Page.Body>
-        <p>A list of dog breeds:</p>
-        <ul>
-          {breeds.map((breed) => (
-            <li key={breed}>
-              <a id={`${breed}Link`} href={`/dogs/${breed}`}>
-                {breed}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </Page.Body>
+    <Page title="Dog Breeds">
+      <h1>Dog Breeds</h1>
+      <p>A list of dog breeds:</p>
+      <ul>
+        {breeds.map((breed) => (
+          <li key={breed}>
+            <a id={`${breed}Link`} href={`/dogs/${breed}`}>
+              {breed}
+            </a>
+          </li>
+        ))}
+      </ul>
     </Page>
   )
 }
