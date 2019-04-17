@@ -7,8 +7,8 @@ const origamiComponents = ['o-header@^7.7.0', 'o-footer@^6.1.0', 'o-fonts@^3.2.0
 
 const defaultShellProps = {
   coreScriptsToLoad: [],
-  enhancedScriptsToLoad: [buildService(origamiComponents, 'js')],
-  stylesheets: [buildService(origamiComponents, 'css')],
+  enhancedScriptsToLoad: [buildService.js(origamiComponents)],
+  stylesheets: [buildService.css(origamiComponents)],
   criticalStyles: 'body {background-color:#fff1e5; color:#33302e;}'
 }
 

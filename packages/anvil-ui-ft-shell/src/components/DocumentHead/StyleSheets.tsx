@@ -5,7 +5,7 @@ const Stylesheets = ({ stylesheets = [], criticalStyles }: TDocumentHeadProps) =
   <React.Fragment>
     {criticalStyles && <style dangerouslySetInnerHTML={{ __html: criticalStyles }} />}
     {Array.isArray(stylesheets) &&
-      stylesheets.map((stylesheet) => <link rel="stylesheet" href={stylesheet} />)}
+      stylesheets.map((stylesheet, i) => <link rel="stylesheet" key={`stylesheet-${i}`} href={stylesheet} />)}
   </React.Fragment>
 )
 
