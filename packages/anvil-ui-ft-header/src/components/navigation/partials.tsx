@@ -74,15 +74,16 @@ const NavListRight = (props: THeaderProps) => {
   // Serve the signed-in or anonymous user experience
   const navbarKey = props.userIsAnonymous ? 'navbar-right-anon' : 'navbar-right'
   const navbarOptions = props.data[navbarKey].items
-  let navListRight = null
+
   if (props.showUserNav) {
     if (props.userIsAnonymous) {
-      navListRight = NavListRightAnon({ navbarOptions })
+      return NavListRightAnon({ navbarOptions })
     } else {
-      navListRight = NavListRightLoggedIn({ navbarOptions })
+      return NavListRightLoggedIn({ navbarOptions })
     }
+  } else {
+    return null
   }
-  return navListRight
 }
 
 const NavListRightLoggedIn = ({ navbarOptions }: NavListProps) => {
@@ -104,7 +105,7 @@ const NavListRightLoggedIn = ({ navbarOptions }: NavListProps) => {
 const NavListRightAnon = ({ navbarOptions, variant }: NavListProps) => {
   // If user is anonymous the second list item is styled as a button
   const [first, second] = navbarOptions
-  const setTabIndex = variant === 'sticky' ? 'tabindex="-1"' : null
+  const setTabIndex = variant === 'sticky' ? { tabIndex: -1 } : null
   return (
     <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
       <li className="o-header__nav-item">
