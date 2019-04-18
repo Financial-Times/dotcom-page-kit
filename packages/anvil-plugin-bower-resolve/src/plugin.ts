@@ -1,4 +1,6 @@
-import BowerResolvePlugin from 'bower-resolve-webpack-plugin'
+// HACK: This plugin is actually really useful, however it breaks
+// Sass partial resolution as it will always resolve .js files!
+// import BowerResolvePlugin from 'bower-resolve-webpack-plugin'
 
 export function plugin() {
   return ({ on }) => {
@@ -9,7 +11,7 @@ export function plugin() {
 function addAbilityToResolveBower() {
   return {
     resolve: {
-      plugins: [new BowerResolvePlugin()],
+      // plugins: [new BowerResolvePlugin()],
       // In which folders the resolver look for modules relative paths are
       // looked up in every parent folder (like node_modules) absolute
       // paths are looked up directly the order is respected

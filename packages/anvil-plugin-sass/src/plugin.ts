@@ -31,6 +31,11 @@ function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
       rules: [
         publish(hooks.SCSS_RULE, {
           test: [/\.s(c|a)ss$/],
+          resolve: {
+            // Required for sass-loader 7.0+ because of a webpack resolution bug
+            // https://github.com/webpack-contrib/sass-loader/issues/556
+            extensions: ['.scss', '.sass']
+          },
           use: [
             // Extracts CSS into separate, non-JS files
             // https://github.com/webpack-contrib/mini-css-extract-plugin
