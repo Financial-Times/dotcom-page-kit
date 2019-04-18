@@ -5,10 +5,14 @@ const buildService = require('../lib/buildService')
 
 const origamiComponents = ['o-header@^7.7.0', 'o-footer@^6.1.0', 'o-fonts@^3.2.0', 'o-normalise@^1.6.2']
 
+const scripts = ['/dist/client.bundle.js']
+
+const styles = [buildService.css(origamiComponents)]
+
 const shellProps = {
   coreScriptsToLoad: [],
-  enhancedScriptsToLoad: [buildService.js(origamiComponents)],
-  stylesheets: [buildService.css(origamiComponents)],
+  enhancedScriptsToLoad: scripts,
+  stylesheets: styles,
   criticalStyles: 'body {background-color:#fff1e5; color:#33302e;}'
 }
 

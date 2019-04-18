@@ -1,0 +1,7 @@
+// @import 'o-footer/main';
+// @import 'o-header/main';
+
+.core .o--if-js,
+.enhanced .o--if-no-js {
+  display: none !important;
+}
