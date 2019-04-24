@@ -1,0 +1,29 @@
+{
+  "name": "example-basic-ft-ui",
+  "private": true,
+  "version": "0.0.0",
+  "main": "server/app.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "anvil build -d",
+    "dev": "nodemon server/listen.js",
+    "start": "node server/listen.js",
+    "test": "../../node_modules/.bin/jest"
+  },
+  "dependencies": {
+    "@financial-times/anvil-middleware-ft-edition": "file:../../packages/anvil-middleware-ft-edition",
+    "@financial-times/anvil-middleware-ft-navigation": "file:../../packages/anvil-middleware-ft-navigation",
+    "@financial-times/anvil-ui-ft-layout": "file:../../packages/anvil-ui-ft-layout",
+    "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
+    "express": "^4.16.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.2"
+  },
+  "devDependencies": {
+    "@financial-times/anvil-cli": "file:../../packages/anvil-cli",
+    "@financial-times/anvil-plugin-bower-resolve": "file:../../packages/anvil-plugin-bower-resolve",
+    "@financial-times/anvil-plugin-sass": "file:../../packages/anvil-plugin-sass",
+    "@financial-times/anvil-plugin-ft-js": "file:../../packages/anvil-plugin-ft-js",
+    "nodemon": "^1.18.9"
+  }
+}

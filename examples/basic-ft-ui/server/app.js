@@ -8,6 +8,7 @@ const app = express()
 app.use(editionMiddleware.init())
 app.use(navigationMiddleware.init())
 
+app.use('/dist', express.static('./dist'))
 app.get('/', require('./controllers/home'))
 
 module.exports = app

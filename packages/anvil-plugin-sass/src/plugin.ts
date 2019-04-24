@@ -81,13 +81,7 @@ function getAutoPrefixerOptions() {
   return {
     // https://github.com/browserslist/browserslist
     // TODO: make configurable via browserslist setting
-    browsers: [
-      'last 2 Chrome versions',
-      'IE 11',
-      'Safari >= 9.1',
-      'Firefox ESR',
-      'last 2 Edge versions'
-    ],
+    browsers: ['last 2 Chrome versions', 'IE 11', 'Safari >= 9.1', 'Firefox ESR', 'last 2 Edge versions'],
     grid: true
   }
 }
