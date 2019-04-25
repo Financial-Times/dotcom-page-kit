@@ -1,6 +1,6 @@
 # @financial-times/anvil-ui-ft-shell
 
-This module provides a skeleton HTML document structure for FT.com user-facing applications. It includes all the things you can't see and can render metadata, output dehydrated data, load stylesheets, and bootstrap JavaScript.
+This module provides a skeleton HTML document structure for the user-facing applications which comprise FT.com. It includes all of the things you can't see and can render metadata, output dehydrated data, load stylesheets, and bootstrap client-side JavaScript.
 
 
 ## Getting started
@@ -15,7 +15,7 @@ After installing the package you can use it to wrap your application output. The
 
 ### Usage with React
 
-If you're using React already in your application you can use the `<Shell />` component wrap your existing components. Using JSX this might look like this:
+If you're using React you can use the `<Shell />` component to wrap your existing component tree.
 
 ```jsx
 import App from './components/App'
@@ -23,6 +23,8 @@ import { Shell } from '@financial-times/anvil-ui-ft-shell'
 
 const document = <Shell {...options}><App /></Shell>
 ```
+
+_Please note_ that the shell component is designed to be used on the server-side and cannot be rendered on the client-side. For this reason you should always consider `<App />` your application root and client-side mounting point.
 
 ### Usage without React
 
@@ -38,11 +40,10 @@ const document = Shell({ contents: prerenderedHTML, ...options })
 
 ### Rendering to a string
 
-However you are using the shell component you will need to convert the output to a string or stream of HTML to send to your application's users. You can use the `react-dom` package for this:
+However you are using the shell component you will need to convert the output to a string or stream of HTML to send to your application's users. You should use the `react-dom` package for this:
 
 ```js
 const ReactDOM = require('react-dom/server')
-
 const outputHTML = ReactDOM.renderToString(document)
 ```
 
@@ -56,6 +57,10 @@ For a full example for how to use this component please refer to the [FT UI exam
 ## Usage
 
 ## Options
+
+
+
+
 
 The Shell returns a a JSX component. It supports the following options:
 
