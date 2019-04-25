@@ -27,7 +27,7 @@ describe('anvil-ui-ft-shell/src/components/DocumentHead', () => {
       siteTitle: 'Website title',
       stylesheets: [],
       twitterSite: '@twitter_page',
-      url: 'https://my.site'
+      canonicalURL: 'https://my.site'
     }
 
     const tree = renderer.create(<Subject {...props} />).toJSON()

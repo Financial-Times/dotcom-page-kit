@@ -51,62 +51,83 @@ const outputHTML = ReactDOM.renderToString(document)
 
 For a full example for how to use this component please refer to the [FT UI example app][example].
 
-[example]: ../../examples/basic-ft-ui
+[example]: ../../examples/basic-ft-ui/readme.md
 
-
-## Usage
 
 ## Options
 
+### App bootstrapping
+
+#### `contents` (string)
+
+A optional string of HTML to insert into the document `<body>`. This should be used if you are not using JSX composition and have a prerendered string of HTML.
+
+#### `coreScripts` (string[])
+
+An array of script URLs which will be passed to the [JavaScript bootstrap](../anvil-ui-bootstrap/readme.md) and loaded if the visitor's browser fails the cut the mustard test. _Please note_ that a basic [Polyfill Service](https://polyfill.io/v3/) bundle URL will be automatically prepended to this list.
+
+#### `enhancedScripts` (string[])
+
+An array of script URLs which will be passed to the [JavaScript bootstrap](../anvil-ui-bootstrap/readme.md) and loaded if the visitor's browser succeeds in passing the cut the mustard test. _Please note_ that a complete [Polyfill Service](https://polyfill.io/v3/) bundle URL will be automatically prepended to this list.
+
+#### `stylesheets` (string[])
+
+An array of stylesheet URLs to be loaded using `<link rel="stylesheet" />` tags.
+
+#### `criticalStyles` (string)
+
+An optional string of CSS to embed into the page. Defaults to setting the background colour to FT pink.
+
+#### `flags` (object)
+
+A data object which will be passed to the [feature flags component](../anvil-ui-ft-flags/readme.md).
+
+#### `initialProps` (object)
+
+An optional data object to serialise and embed in the page which can be used to rehydrate your application on the client-side.
 
 
+### Metadata and SEO
+
+#### `siteTitle` (string)
+
+The global Website title. Defaults to "Financial Times".
+
+#### `pageTitle` (string)
+
+An optional title for the current page.
+
+#### `description` (string)
+
+An optional meta description for the current page. Defaults to: "News, analysis and comment from the Financial Times, the worldʼs leading global business publication".
+
+#### `canonicalURL` (string)
+
+An optional URL for the current page which will render a [`canonical` meta tag](https://en.wikipedia.org/wiki/Canonical_link_element).
+
+#### `robots` (string)
+
+An optional value for the [`robots` meta tag](https://en.wikipedia.org/wiki/Meta_element#The_robots_attribute). Defaults to "index,follow".
+
+#### `jsonLd` (object[])
+
+An optional array of [linked data](https://json-ld.org/) objects to be serialised and embedded in the page.
+
+#### `googleSiteVerification` (string)
+
+An optional key which can be added to the page to validate access to the [Google Search Console](https://search.google.com/search-console/about).
 
 
-The Shell returns a a JSX component. It supports the following options:
+### Social and Open Graph
 
-### body (string)
+#### `facebookPage` (string)
 
-The page <body> contents.
+Optional Facebook page ID to associate with the page. Defaults to "8860325749".
 
-### scriptsToLoad (array)
+#### `twitterSite` (string)
 
-An array of URLs to bundles of JavaScript which are required by the page.
+Optional Twitter handle to associate with the page. Defaults to "@FinancialTimes".
 
-### initialProps (object)
+#### `openGraph` (object[])
 
-// TODO
-
-### siteTitle (string)
-
-The main title for the site. The `siteTitle` will be included as a `<title>` of the document and shared across pages.
-
-### pageTitle (string)
-
-The title associated with the page to render.
-
-
-## How it works
-
-### Client-side bootstrap
-
-The bootstrap returns JavaScript code which will be executed immediately by the browser when it receives the html for the page. The execution of which delivers the JavaScript and styles required by the page.
-
-#### JS/No JS
-
-The shell HTML has the default class `no-js`. If JavaScript is available the class will be replaced with `js`.
-
-#### Enhanced/Core
-
-The shell HTML has the default class `core`. If the browser passes the cuts the mustard test the class will be replaced with `enhanced`.
-
-#### Cuts the mustard
-
-Cuts the mustard is a function which uses feature detection to determine if a browser is capable of supporting the JavaScript-enhanced experience.
-
-#### Script loading
-
-When serving an enhanced experience the configured script bundles will be asyncronously loaded and executed in order.
-
-#### Polyfill service
-
-The [Polyfill service](https://polyfill.io) is included on both core and enhanced experiences.
+An optional object describing the [Open Graph](http://ogp.me/) metadata to add to the page. The provided objects keys will be collated to create each property name, e.g. `{ og: { title: 'Hello, World' } }` will be rendered as `<meta property="og:title" content="Hello, World" />`.

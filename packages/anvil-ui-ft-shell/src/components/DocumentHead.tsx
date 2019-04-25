@@ -14,7 +14,7 @@ export type TDocumentHeadProps = TOpenGraphProps &
     robots?: string
     siteTitle?: string
     twitterSite?: string
-    url?: string
+    canonicalURL?: string
   }
 
 const DocumentHead = (props: TDocumentHeadProps) => (
@@ -27,7 +27,7 @@ const DocumentHead = (props: TDocumentHeadProps) => (
 
     {props.description && <meta name="description" content={props.description} />}
 
-    {props.url && <link rel="canonical" href={props.url} />}
+    {props.canonicalURL && <link rel="canonical" href={props.canonicalURL} />}
 
     {/* resource hints */}
     <link rel="preconnect" href="https://spoor-api.ft.com" />
