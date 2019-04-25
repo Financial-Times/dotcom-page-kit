@@ -1,14 +1,13 @@
 import React from 'react'
-import { AnyObject } from '@financial-times/anvil-types-generic'
-import DocumentHead, { TDocumentHeadProps } from '../DocumentHead'
+import DocumentHead, { TDocumentHeadProps } from './DocumentHead'
 import { Flags } from '@financial-times/anvil-ui-ft-flags/component'
 import { Bootstrap } from '@financial-times/anvil-ui-bootstrap/component'
-import { corePolyfillServiceUrl, enhancedPolyfillServiceUrl } from '../../polyfill'
+import { corePolyfillServiceUrl, enhancedPolyfillServiceUrl } from '../polyfill'
 
-interface TShellProps extends TDocumentHeadProps {
+type TShellProps = TDocumentHeadProps & {
   children?: any
-  flags?: AnyObject
-  initialProps?: AnyObject
+  flags?: { [key: string]: boolean | string }
+  initialProps?: any
   coreScriptsToLoad?: string[]
   enhancedScriptsToLoad?: string[]
 }
