@@ -1,19 +1,21 @@
 import React from 'react'
-import OpenGraph, { TOpenGraphProps } from '../OpenGraph'
-import LinkedData, { TLinkedDataObject } from './LinkedData'
-import StyleSheets, { TStylesheetProps } from '../StyleSheets'
+import imageServiceIconURL from '../lib/imageServiceIconURL'
+import OpenGraph, { TOpenGraphProps } from './OpenGraph'
+import LinkedData, { TLinkedDataProps } from './LinkedData'
+import StyleSheets, { TStylesheetProps } from './StyleSheets'
 
-export interface TDocumentHeadProps extends TStylesheetProps, TOpenGraphProps {
-  description?: string
-  facebookPage?: string
-  googleSiteVerification?: string
-  jsonLd?: TLinkedDataObject[]
-  pageTitle: string
-  robots?: string
-  siteTitle?: string
-  twitterSite?: string
-  url?: string
-}
+export type TDocumentHeadProps = TOpenGraphProps &
+  TLinkedDataProps &
+  TStylesheetProps & {
+    description?: string
+    facebookPage?: string
+    googleSiteVerification?: string
+    pageTitle: string
+    robots?: string
+    siteTitle?: string
+    twitterSite?: string
+    url?: string
+  }
 
 const DocumentHead = (props: TDocumentHeadProps) => (
   <React.Fragment>
@@ -42,27 +44,27 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     <LinkedData jsonLd={props.jsonLd} />
 
     {/* social media */}
-    {props.openGraph && <OpenGraph openGraph={props.openGraph} />}
     <meta property="fb:pages" content={props.facebookPage} />
     <meta property="twitter:site" content={props.twitterSite} />
+    <OpenGraph openGraph={props.openGraph} />
 
     {/* packaging */}
     <link
       rel="icon"
       type="image/png"
-      href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=32&height=32&format=png"
+      href={imageServiceIconURL('ftlogo-v1:brand-ft-logo-square-coloured', 32)}
       sizes="32x32"
     />
     <link
       rel="icon"
       type="image/png"
-      href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=194&height=194&format=png"
+      href={imageServiceIconURL('ftlogo-v1:brand-ft-logo-square-coloured', 194)}
       sizes="194x194"
     />
     <link
       rel="apple-touch-icon"
+      href={imageServiceIconURL('ftlogo-v1:brand-ft-logo-square-coloured', 180)}
       sizes="180x180"
-      href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=180&height=180&format=png"
     />
   </React.Fragment>
 )

@@ -73,6 +73,14 @@ Array [
     type="application/ld+json"
   />,
   <meta
+    content="facebook-page-id"
+    property="fb:pages"
+  />,
+  <meta
+    content="@twitter_page"
+    property="twitter:site"
+  />,
+  <meta
     content="Open Graph title"
     property="og:title"
   />,
@@ -107,14 +115,6 @@ Array [
   <meta
     content="Jane Doe"
     property="article:author"
-  />,
-  <meta
-    content="facebook-page-id"
-    property="fb:pages"
-  />,
-  <meta
-    content="@twitter_page"
-    property="twitter:site"
   />,
   <link
     href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=32&height=32&format=png"

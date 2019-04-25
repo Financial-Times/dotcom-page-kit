@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import Subject from '../'
+import Subject from '../../components/DocumentHead'
 
 describe('anvil-ui-ft-shell/src/components/DocumentHead', () => {
   // TODO: better tests
