@@ -2,7 +2,7 @@ import React from 'react'
 import DocumentHead, { TDocumentHeadProps } from './DocumentHead'
 import { Flags } from '@financial-times/anvil-ui-ft-flags/component'
 import { Bootstrap } from '@financial-times/anvil-ui-bootstrap/component'
-import { corePolyfillServiceUrl, enhancedPolyfillServiceUrl } from '../polyfill'
+import { corePolyfillServiceUrl, enhancedPolyfillServiceUrl } from '../lib/polyfillServiceURLs'
 
 type TShellProps = TDocumentHeadProps & {
   children?: any

@@ -1,6 +1,7 @@
 import querystring from 'querystring'
 
 export const corePolyfillServiceUrl = preparePolyfillServiceUrl(['default'])
+
 export const enhancedPolyfillServiceUrl = preparePolyfillServiceUrl([
   'default',
   'requestAnimationFrame',
@@ -26,7 +27,9 @@ export const enhancedPolyfillServiceUrl = preparePolyfillServiceUrl([
 ])
 
 function preparePolyfillServiceUrl(features: string[]) {
-  const polyfillRoot = 'https://www.ft.com/__origami/service/polyfill/v2/polyfill.min.js'
+  const serviceURL = 'https://www.ft.com/__origami/service/polyfill/v2/polyfill.min.js'
+
   const queryString = querystring.stringify({ features: features.join(','), source: 'next' })
-  return `${polyfillRoot}?${queryString}`
+
+  return `${serviceURL}?${queryString}`
 }
