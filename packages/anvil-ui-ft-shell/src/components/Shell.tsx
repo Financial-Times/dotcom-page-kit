@@ -1,16 +1,18 @@
 import React from 'react'
+import Body, { TBodyProps } from './Body'
 import DocumentHead, { TDocumentHeadProps } from './DocumentHead'
 import { Flags } from '@financial-times/anvil-ui-ft-flags/component'
 import { Bootstrap } from '@financial-times/anvil-ui-bootstrap/component'
 import { corePolyfillServiceUrl, enhancedPolyfillServiceUrl } from '../lib/polyfillServiceURLs'
 
-type TShellProps = TDocumentHeadProps & {
-  children?: any
-  flags?: { [key: string]: boolean | string }
-  initialProps?: any
-  coreScripts?: string[]
-  enhancedScripts?: string[]
-}
+type TShellProps = TDocumentHeadProps &
+  TBodyProps & {
+    children?: any
+    flags?: { [key: string]: boolean | string }
+    initialProps?: any
+    coreScripts?: string[]
+    enhancedScripts?: string[]
+  }
 
 function Shell(props: TShellProps) {
   const coreScripts = [corePolyfillServiceUrl, ...props.coreScripts]
@@ -28,7 +30,7 @@ function Shell(props: TShellProps) {
         <Flags data={props.flags} />
         <Bootstrap coreScripts={coreScripts} enhancedScripts={enhancedScripts} />
       </head>
-      <Body contents={props.children} />
+      <Body contents={props.contents || props.children} />
     </html>
   )
 }
@@ -36,14 +38,6 @@ function Shell(props: TShellProps) {
 Shell.defaultProps = {
   coreScripts: [],
   enhancedScripts: []
-}
-
-function Body({ contents }) {
-  if (typeof contents === 'string') {
-    return <body dangerouslySetInnerHTML={{ __html: contents }} />
-  } else {
-    return <body>{contents}</body>
-  }
 }
 
 export { Shell, TShellProps }
