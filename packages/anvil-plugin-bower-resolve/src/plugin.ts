@@ -9,6 +9,7 @@ export function plugin() {
 function addAbilityToResolveBower() {
   return {
     resolve: {
+      // This will find .js files if a bower.json specifies a list of "main" files
       plugins: [new BowerResolvePlugin()],
       // In which folders the resolver look for modules relative paths are
       // looked up in every parent folder (like node_modules) absolute
