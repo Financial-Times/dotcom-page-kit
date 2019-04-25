@@ -1,19 +1,16 @@
 import React from 'react'
-import OpenGraph from '../OpenGraph'
+import OpenGraph, { TOpenGraphProps } from '../OpenGraph'
 import LinkedData, { TLinkedDataObject } from './LinkedData'
-import StyleSheets from './StyleSheets'
+import StyleSheets, { TStylesheetProps } from '../StyleSheets'
 
-export interface TDocumentHeadProps {
-  criticalStyles?: string
+export interface TDocumentHeadProps extends TStylesheetProps, TOpenGraphProps {
   description?: string
   facebookPage?: string
   googleSiteVerification?: string
   jsonLd?: TLinkedDataObject[]
-  openGraph?: any
   pageTitle: string
   robots?: string
   siteTitle?: string
-  stylesheets?: string[]
   twitterSite?: string
   url?: string
 }
@@ -37,7 +34,7 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     <link rel="preconnect" href="https://www.googletagservices.com" />
 
     {/* assets */}
-    <StyleSheets {...props} />
+    <StyleSheets stylesheets={props.stylesheets} criticalStyles={props.criticalStyles} />
 
     {/* SEO */}
     <meta name="robots" content={props.robots} />

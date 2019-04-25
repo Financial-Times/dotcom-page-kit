@@ -44,7 +44,7 @@ Array [
   <style
     dangerouslySetInnerHTML={
       Object {
-        "__html": "background-color: #fff1e5;",
+        "__html": "body { background-color:#fff1e5; color:#33302e; }",
       }
     }
   />,
