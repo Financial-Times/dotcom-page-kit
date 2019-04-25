@@ -1,5 +1,5 @@
 import React from 'react'
-import OpenGraph, { TOpenGraphObject } from './OpenGraph'
+import OpenGraph from '../OpenGraph'
 import LinkedData, { TLinkedDataObject } from './LinkedData'
 import StyleSheets from './StyleSheets'
 
@@ -9,7 +9,7 @@ export interface TDocumentHeadProps {
   facebookPage?: string
   googleSiteVerification?: string
   jsonLd?: TLinkedDataObject[]
-  openGraph?: TOpenGraphObject
+  openGraph?: any
   pageTitle: string
   robots?: string
   siteTitle?: string
