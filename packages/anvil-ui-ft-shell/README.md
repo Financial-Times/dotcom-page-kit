@@ -1,19 +1,59 @@
 # @financial-times/anvil-ui-ft-shell
 
-This module provides a skeleton HTML document structure and client-side JavaScript bootstrap for ft.com apps.
+This module provides a skeleton HTML document structure for FT.com user-facing applications. It includes all the things you can't see and can render metadata, output dehydrated data, load stylesheets, and bootstrap JavaScript.
 
 
-## Installation
+## Getting started
 
-```
+This module is compatible with Node 8+ and is distributed on npm.
+
+```sh
 npm install --save @financial-times/anvil-ui-ft-shell
 ```
 
+After installing the package you can use it to wrap your application output. The shell includes the `<html>`, `<head>`, and `<body>` elements so you only need to worry about what's visible to your users.
+
+### Usage with React
+
+If you're using React already in your application you can use the `<Shell />` component wrap your existing components. Using JSX this might look like this:
+
+```jsx
+import App from './components/App'
+import { Shell } from '@financial-times/anvil-ui-ft-shell'
+
+const document = <Shell {...options}><App /></Shell>
+```
+
+### Usage without React
+
+If your application is not using React you can also use the `Shell()` component as a function. The `contents` option is used to provide a prerendered string of HTML.
+
+```js
+const app = require('./templates/app.html')
+const { Shell } = require('@financial-times/anvil-ui-ft-shell')
+
+const prerenderedHTML = app()
+const document = Shell({ contents: prerenderedHTML, ...options })
+```
+
+### Rendering to a string
+
+However you are using the shell component you will need to convert the output to a string or stream of HTML to send to your application's users. You can use the `react-dom` package for this:
+
+```js
+const ReactDOM = require('react-dom/server')
+
+const outputHTML = ReactDOM.renderToString(document)
+```
+
+---
+
+For a full example for how to use this component please refer to the [FT UI example app][example].
+
+[example]: ../../examples/basic-ft-ui
+
 
 ## Usage
-
-// TODO
-Usage TBD
 
 ## Options
 
