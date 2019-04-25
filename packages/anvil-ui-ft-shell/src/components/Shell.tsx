@@ -8,13 +8,13 @@ type TShellProps = TDocumentHeadProps & {
   children?: any
   flags?: { [key: string]: boolean | string }
   initialProps?: any
-  coreScriptsToLoad?: string[]
-  enhancedScriptsToLoad?: string[]
+  coreScripts?: string[]
+  enhancedScripts?: string[]
 }
 
 function Shell(props: TShellProps) {
-  const coreScripts = [corePolyfillServiceUrl, ...props.coreScriptsToLoad]
-  const enhancedScripts = [enhancedPolyfillServiceUrl, ...props.enhancedScriptsToLoad]
+  const coreScripts = [corePolyfillServiceUrl, ...props.coreScripts]
+  const enhancedScripts = [enhancedPolyfillServiceUrl, ...props.enhancedScripts]
 
   return (
     <html className="no-js core">
@@ -34,8 +34,8 @@ function Shell(props: TShellProps) {
 }
 
 Shell.defaultProps = {
-  coreScriptsToLoad: [],
-  enhancedScriptsToLoad: []
+  coreScripts: [],
+  enhancedScripts: []
 }
 
 function Body({ contents }) {
