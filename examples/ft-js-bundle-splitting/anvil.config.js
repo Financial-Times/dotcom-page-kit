@@ -11,7 +11,8 @@ module.exports = {
   settings: {
     build: {
       entry: {
-        main: './client/main.js'
+        a: './client/a.js',
+        b: './client/b.js'
       }
     }
   }
