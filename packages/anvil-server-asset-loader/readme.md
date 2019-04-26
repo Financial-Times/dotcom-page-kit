@@ -62,6 +62,18 @@ Returns an array of output file names whose source file name matches the supplie
 
 Match source file names based on a pattern which may be useful when output is split into multiple files.
 
+### `getChunksForEntrypoint(entrypoint: string)`
+
+If the manifest file supports listing chunks generated for each entrypoint (which is the case if you are using the [Anvil CLI](../anvil-cli/readme.md)) this method can be used to return a list of chunks organised by type.
+
+### `getScriptChunksForEntrypoint(entrypoint: string)`
+
+Returns the JavaScript chunks generated for an entrypoint.
+
+### `getStylesheetChunksForEntrypoint(entrypoint: string)`
+
+Returns the CSS chunks generated for an entrypoint.
+
 
 ## Options
 
@@ -73,11 +85,11 @@ The name of the asset manifest file. This will be resolved relative to the `file
 
 ### `manifest`
 
-An object mapping file names to hashed file name, to be used as the [manifest](#creating-a-manifest-file). If specified, the manifest will not be looked up using the `fileSystemPath`  and `manifestFileName`. 
+An object mapping file names to hashed file name, to be used as the [manifest](#creating-a-manifest-file). If specified, the manifest will not be looked up using the `fileSystemPath`  and `manifestFileName`.
 
 ### `publicPath`
 
-The public-facing URL for the static assets. This is used when formatting publicly accessible URLs to assets for the browser or user to download. This should begin with a slash or protocol (e.g. `https://`) but no trailing slash is necessary. 
+The public-facing URL for the static assets. This is used when formatting publicly accessible URLs to assets for the browser or user to download. This should begin with a slash or protocol (e.g. `https://`) but no trailing slash is necessary.
 
 > NOTE: Beware that this may clash with the [webpack `publicPath`](https://webpack.js.org/guides/public-path/) setting
 

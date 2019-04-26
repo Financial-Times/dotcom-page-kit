@@ -1,11 +1,5 @@
 import AssetLoader, { AssetLoaderOptions } from '../'
-
-const manifest = {
-  'styles.css': 'styles.12345.bundle.css',
-  'main.js': 'main.12345.bundle.js',
-  'secondary.js': 'secondary.12345.bundle.js',
-  'vendor~main~secondary.js': 'vendor~main~secondary.12345.bundle.js'
-}
+import manifest from './__fixtures__/manifest.json'
 
 jest.mock('../helpers/loadManifest', () => {
   return {
@@ -65,10 +59,10 @@ describe('anvil-server-asset-loader', () => {
   describe('.matchAssets()', () => {
     it('returns an array of matching file names from the manifest', () => {
       const a = loader.matchAssets(/main/)
-      expect(a).toEqual(['main.js', 'vendor~main~secondary.js'])
+      expect(a).toEqual(['main.js'])
 
       const b = loader.matchAssets('main')
-      expect(b).toEqual(['main.js', 'vendor~main~secondary.js'])
+      expect(b).toEqual(['main.js'])
 
       const c = loader.matchAssets((filename) => filename === 'main.js')
       expect(c).toEqual(['main.js'])
@@ -78,10 +72,10 @@ describe('anvil-server-asset-loader', () => {
   describe('.getHashedAssetsMatching(pattern)', () => {
     it('returns an array of matching hashed file names from the manifest', () => {
       const a = loader.getHashedAssetsMatching(/main/)
-      expect(a).toEqual(['main.12345.bundle.js', 'vendor~main~secondary.12345.bundle.js'])
+      expect(a).toEqual(['main.12345.bundle.js'])
 
       const b = loader.getHashedAssetsMatching('main')
-      expect(b).toEqual(['main.12345.bundle.js', 'vendor~main~secondary.12345.bundle.js'])
+      expect(b).toEqual(['main.12345.bundle.js'])
 
       const c = loader.getHashedAssetsMatching((filename) => filename === 'main.js')
       expect(c).toEqual(['main.12345.bundle.js'])
@@ -91,16 +85,10 @@ describe('anvil-server-asset-loader', () => {
   describe('getPublicURLOfHashedAssetsMatching(pattern', () => {
     it('returns the public urls of hashed assets whose entry file name matches the supplied pattern', () => {
       const a = loader.getPublicURLOfHashedAssetsMatching(/main/)
-      expect(a).toEqual([
-        'public/assets/main.12345.bundle.js',
-        'public/assets/vendor~main~secondary.12345.bundle.js'
-      ])
+      expect(a).toEqual(['public/assets/main.12345.bundle.js'])
 
       const b = loader.getPublicURLOfHashedAssetsMatching('main')
-      expect(b).toEqual([
-        'public/assets/main.12345.bundle.js',
-        'public/assets/vendor~main~secondary.12345.bundle.js'
-      ])
+      expect(b).toEqual(['public/assets/main.12345.bundle.js'])
 
       const c = loader.getPublicURLOfHashedAssetsMatching((filename) => filename === 'main.js')
       expect(c).toEqual(['public/assets/main.12345.bundle.js'])
@@ -131,6 +119,50 @@ describe('anvil-server-asset-loader', () => {
     it('returns the file contents for the requested file', () => {
       const result = loader.getFileContents('styles.css')
       expect(result).toEqual('FILE CONTENTS')
+    })
+  })
+
+  describe('.getChunksForEntrypoint()', () => {
+    it('returns all chunk types', () => {
+      const result = loader.getChunksForEntrypoint('main')
+
+      expect(Object.keys(result)).toEqual(['js', 'css'])
+      expect(result.js).toEqual(expect.any(Array))
+      expect(result.css).toEqual(expect.any(Array))
+    })
+
+    it('throws if the entrypoint cannot be found', () => {
+      expect(() => loader.getChunksForEntrypoint('third')).toThrow()
+    })
+  })
+
+  describe('.getScriptChunksForEntrypoint()', () => {
+    it('returns an array', () => {
+      const result = loader.getScriptChunksForEntrypoint('main')
+      expect(result).toEqual(expect.any(Array))
+    })
+
+    it('returns an of JS chunks', () => {
+      const result = loader.getScriptChunksForEntrypoint('main')
+
+      result.forEach((item) => {
+        expect(item).toMatch(/\.js$/)
+      })
+    })
+  })
+
+  describe('.getStylesheetChunksForEntrypoint()', () => {
+    it('returns an array', () => {
+      const result = loader.getStylesheetChunksForEntrypoint('main')
+      expect(result).toEqual(expect.any(Array))
+    })
+
+    it('returns an of CSS chunks', () => {
+      const result = loader.getStylesheetChunksForEntrypoint('main')
+
+      result.forEach((item) => {
+        expect(item).toMatch(/\.css$/)
+      })
     })
   })
 })
