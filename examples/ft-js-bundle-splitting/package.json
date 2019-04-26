@@ -17,6 +17,7 @@
     "@financial-times/anvil-cli": "file:../../packages/anvil-cli",
     "@financial-times/anvil-plugin-bower-resolve": "file:../../packages/anvil-plugin-bower-resolve",
     "@financial-times/anvil-plugin-ft-js": "file:../../packages/anvil-plugin-ft-js",
-    "@financial-times/anvil-plugin-ft-js-bundle-splitting": "file:../../packages/anvil-plugin-ft-js-bundle-splitting"
+    "@financial-times/anvil-plugin-ft-js-bundle-splitting": "file:../../packages/anvil-plugin-ft-js-bundle-splitting",
+    "webpack-assets-manifest": "^3.1.1"
   }
 }
