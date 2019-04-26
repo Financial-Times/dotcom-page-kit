@@ -1,5 +1,5 @@
 import get from 'lodash.get'
-import ManifestPlugin from 'webpack-manifest-plugin'
+import ManifestPlugin from 'webpack-assets-manifest'
 import { CliContext } from '../entities/CliContext'
 import { getBabelConfig } from './getBabelConfig'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
@@ -12,7 +12,7 @@ export function getWebpackConfig({ options, workingDir, config, publish, cli }: 
   const outputPath = get(config, 'settings.build.outputPath') || options.outputPath
   const outputFileName = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
   const manifestFileName = get(config, 'settings.build.manifestFileName') || 'manifest.json'
-  const manifestPluginOptions = { fileName: manifestFileName }
+  const manifestPluginOptions = { output: manifestFileName, entrypoints: true }
   const cleanWebpackPluginPaths = [outputPath]
   const cleanWebpackPluginOptions = { root: workingDir, verbose: false }
 
