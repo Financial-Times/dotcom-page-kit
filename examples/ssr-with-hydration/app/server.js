@@ -5,7 +5,7 @@ import routes from './routes'
 import express from 'express'
 import AssetLoader from '@financial-times/anvil-server-asset-loader'
 import { renderToString } from 'react-dom/server'
-import { getInitialProps, getDependencies, getScriptsToLoad } from '../libs/ssr/server'
+import { getInitialProps, getDependencies } from '../libs/ssr/server'
 
 const app = express()
 const port = 3000
@@ -14,7 +14,7 @@ const assets = new AssetLoader({
   manifestFileName: 'manifest.json'
 })
 
-const enhancedScriptsToLoad = getScriptsToLoad(assets)
+const enhancedScriptsToLoad = assets.getScriptChunksForEntrypoint('main')
 
 app.use('/assets', express.static(path.resolve('./dist')))
 
