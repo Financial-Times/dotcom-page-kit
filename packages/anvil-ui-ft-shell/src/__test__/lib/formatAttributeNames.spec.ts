@@ -10,7 +10,7 @@ const fixture = Object.freeze({
 describe('anvil-ui-open-graph/src/lib/formatAttributeNames', () => {
   it('returns a new object', () => {
     const result = subject(fixture)
-    expect(result).not.toEqual(fixture)
+    expect(result).not.toBe(fixture)
   })
 
   it('converts camelCase property names to kebab-case', () => {
