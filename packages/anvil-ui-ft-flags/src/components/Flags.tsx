@@ -1,9 +1,9 @@
 import React from 'react'
-import formatFlagsJSON from './formatFlagsJSON'
-import { TFlagsData } from './types'
+import { formatFlagsJSON } from '../server'
+import { TFlagsData } from '../types'
 
 export type TFlagsProps = {
-  data: TFlagsData
+  flags: TFlagsData
 }
 
 export function Flags(props: TFlagsProps) {
@@ -11,7 +11,7 @@ export function Flags(props: TFlagsProps) {
     <script
       type="application/json"
       id="anvil-flags-data"
-      dangerouslySetInnerHTML={{ __html: formatFlagsJSON(props.data) }}
+      dangerouslySetInnerHTML={{ __html: formatFlagsJSON(props.flags) }}
     />
   )
 }

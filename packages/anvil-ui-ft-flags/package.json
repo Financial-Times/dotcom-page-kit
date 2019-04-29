@@ -2,7 +2,7 @@
   "name": "@financial-times/anvil-ui-ft-flags",
   "version": "0.0.0",
   "description": "",
-  "main": "node.js",
+  "main": "component.js",
   "browser": "browser.js",
   "types": "src/index.ts",
   "scripts": {
