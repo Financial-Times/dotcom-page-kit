@@ -2,7 +2,7 @@
   "name": "@financial-times/anvil-ui-bootstrap",
   "version": "0.0.0",
   "description": "",
-  "main": "node.js",
+  "main": "component.js",
   "types": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
