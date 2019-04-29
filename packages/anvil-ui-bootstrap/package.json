@@ -14,7 +14,7 @@
     "clean:install": "npm run clean && npm i",
     "build:node": "npm run tsc -- --outDir ./dist/node",
     "build": "npm run build:node",
-    "dev": "npm run clean:dist && npm run build:node -- --watch"
+    "dev": "npm run build:node -- --watch"
   },
   "keywords": [],
   "author": "",

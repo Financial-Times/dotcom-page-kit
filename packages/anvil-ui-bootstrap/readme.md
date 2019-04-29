@@ -26,15 +26,14 @@ _Please note_ that the bootstrap code should be embedded in the `<head>` section
 If you are using React to render your app you can use the `Bootstrap` component:
 
 ```jsx
-// NOTE: Explicit import from /component
-import { Bootstrap } from '@financial-times/anvil-ui-bootstrap/component'
+import { Bootstrap } from '@financial-times/anvil-ui-bootstrap'
 
 export default (props) => (
   <html class="no-js core">
     <head>
       <meta charSet="utf-8" />
       <title>My Amazing Website</title>
-      <Bootstrap coreScripts={coreScripts} enhancedScripts={enhancedScripts} />
+      <Bootstrap coreScripts={props.coreScripts} enhancedScripts={props.enhancedScripts} />
     </head>
     <body>
       ...
@@ -43,10 +42,10 @@ export default (props) => (
 )
 ```
 
-Otherwise this module provides two methods to integrate the bootstrap code into your templates. First you must insert a JSON formatted string of configuration into a `<script>` element with an ID of `anvil-bootstrap-config` and secondly you must embed the bootstrap script itself:
+Otherwise this module provides two methods to manually integrate the bootstrap code into your templates. First you must insert a JSON formatted string of configuration into a `<script>` element with an ID of `anvil-bootstrap-config` and then you must embed the bootstrap script itself:
 
 ```js
-const bootstrap = require('@financial-times/anvil-ui-bootstrap/node')
+const bootstrap = require('@financial-times/anvil-ui-bootstrap/server')
 
 function page() {
   return `<!DOCTYPE html>
@@ -68,14 +67,14 @@ function page() {
 }
 ```
 
-### Client-side
+### Client-side API
 
-There is no client-side integration required. The bootstrap script should be embedded into your pages on the server-side.
+There is no client-side integration required. The bootstrap component can only be used on the server-side.
 
 
-## API
+## Server-side API
 
-### `.formatConfigJSON(coreScripts, enhancedScripts)`
+### `formatConfigJSON(coreScripts, enhancedScripts)`
 
 Returns a JSON formatted string representing the configuration for the bootstrap snippet. This must be inserted into a `<script>` element with an ID of `anvil-bootstrap-config`. This method requires two arguments:
 
@@ -87,7 +86,7 @@ Returns a JSON formatted string representing the configuration for the bootstrap
 
     An array of JavaScript file URLs which are required by the page if the browser successfully [cuts the mustard](#cutting-the-mustard) and should deliver an [enhanced experience](#core-enhanced).
 
-### `.getBootstrapJS()`
+### `getBootstrapJS()`
 
 Returns the JavaScript code as a string. This should be inserted into a `<script>` element.
 
