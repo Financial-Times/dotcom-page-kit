@@ -11,6 +11,7 @@ type TShellProps = TDocumentHeadProps &
   TStylesheetProps &
   TBodyProps & {
     children?: any
+    // TODO: ensure flags component types are available for re-use here.
     flags?: { [key: string]: boolean | string }
     initialProps?: any
     coreScripts?: string[]
