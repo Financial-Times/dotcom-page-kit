@@ -41,13 +41,6 @@ Array [
     href="https://www.googletagservices.com"
     rel="preconnect"
   />,
-  <style
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "body { background-color:#fff1e5; color:#33302e; }",
-      }
-    }
-  />,
   <meta
     content="index,follow"
     name="robots"

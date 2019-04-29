@@ -1,12 +1,14 @@
 import React from 'react'
 import Body, { TBodyProps } from './Body'
 import DocumentHead, { TDocumentHeadProps } from './DocumentHead'
+import StyleSheets, { TStylesheetProps } from './StyleSheets'
 import { Flags } from '@financial-times/anvil-ui-ft-flags/component'
 import { Bootstrap } from '@financial-times/anvil-ui-bootstrap/component'
 import formatAttributeNames, { TAttributeData } from '../lib/formatAttributeNames'
 import { corePolyfillServiceUrl, enhancedPolyfillServiceUrl } from '../lib/polyfillServiceURLs'
 
 type TShellProps = TDocumentHeadProps &
+  TStylesheetProps &
   TBodyProps & {
     children?: any
     flags?: { [key: string]: boolean | string }
@@ -31,6 +33,7 @@ function Shell(props: TShellProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(props.initialProps) }}
         />
         <Flags data={props.flags} />
+        <StyleSheets stylesheets={props.stylesheets} criticalStyles={props.criticalStyles} />
         <Bootstrap coreScripts={coreScripts} enhancedScripts={enhancedScripts} />
       </head>
       <Body {...formatAttributeNames(props.bodyAttributes)} contents={props.contents || props.children} />

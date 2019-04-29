@@ -2,11 +2,9 @@ import React from 'react'
 import imageServiceIconURL from '../lib/imageServiceIconURL'
 import OpenGraph, { TOpenGraphProps } from './OpenGraph'
 import LinkedData, { TLinkedDataProps } from './LinkedData'
-import StyleSheets, { TStylesheetProps } from './StyleSheets'
 
 export type TDocumentHeadProps = TOpenGraphProps &
-  TLinkedDataProps &
-  TStylesheetProps & {
+  TLinkedDataProps & {
     description?: string
     facebookPage?: string
     googleSiteVerification?: string
@@ -34,9 +32,6 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     <link rel="preconnect" href="https://session-next.ft.com" crossOrigin="use-credentials" />
     <link rel="preconnect" href="https://ads-api.ft.com" />
     <link rel="preconnect" href="https://www.googletagservices.com" />
-
-    {/* assets */}
-    <StyleSheets stylesheets={props.stylesheets} criticalStyles={props.criticalStyles} />
 
     {/* SEO */}
     <meta name="robots" content={props.robots} />
