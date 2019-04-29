@@ -1,6 +1,8 @@
 # @financial-times/anvil-ui-ft-shell
 
-This module provides a skeleton HTML document structure for the user-facing applications which comprise FT.com. It includes all of the things you can't see and can render metadata, output dehydrated data, load stylesheets, and polyfill and bootstrap client-side JavaScript.
+This module provides a skeleton HTML document structure for the user-facing applications which comprise FT.com. It includes all of the things you can't see and can render metadata, output dehydrated data, load stylesheets, and [polyfill] and bootstrap client-side JavaScript.
+
+[polyfill]: https://polyfill.io
 
 
 ## Getting started
