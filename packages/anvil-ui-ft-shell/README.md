@@ -1,6 +1,6 @@
 # @financial-times/anvil-ui-ft-shell
 
-This module provides a skeleton HTML document structure for the user-facing applications which comprise FT.com. It includes all of the things you can't see and can render metadata, output dehydrated data, load stylesheets, and bootstrap client-side JavaScript.
+This module provides a skeleton HTML document structure for the user-facing applications which comprise FT.com. It includes all of the things you can't see and can render metadata, output dehydrated data, load stylesheets, and polyfill and bootstrap client-side JavaScript.
 
 
 ## Getting started
@@ -28,24 +28,27 @@ _Please note_ that the shell component is designed to be used on the server-side
 
 ### Usage without React
 
-If your application is not using React you can also use the `Shell()` component as a function. The `contents` option is used to provide a prerendered string of HTML.
+If your application is not using React then you can use the `Shell()` component as a regular JavaScript function, without using JSX. In this case the `contents` option is used to pass in a prerendered string of HTML.
 
 ```js
-const app = require('./templates/app.html')
+const renderApp = require('./lib/render-app')
 const { Shell } = require('@financial-times/anvil-ui-ft-shell')
 
-const prerenderedHTML = app()
+const prerenderedHTML = renderApp()
 const document = Shell({ contents: prerenderedHTML, ...options })
 ```
 
 ### Rendering to a string
 
-However you are using the shell component you will need to convert the output to a string or stream of HTML to send to your application's users. You should use the `react-dom` package for this:
+However you are integrating the shell component with your applicaton you will need to convert the output from a [React element] to a string or stream of HTML to send to your application's users. You should use the [`react-dom`] package for this:
 
 ```js
 const ReactDOM = require('react-dom/server')
 const outputHTML = ReactDOM.renderToString(document)
 ```
+
+[React element]: https://reactjs.org/docs/rendering-elements.html
+[`react-dom`]: https://reactjs.org/docs/react-dom.html
 
 ---
 
@@ -64,11 +67,11 @@ A optional string of HTML to insert into the document `<body>`. This should be u
 
 #### `coreScripts` (string[])
 
-An array of script URLs which will be passed to the [JavaScript bootstrap](../anvil-ui-bootstrap/readme.md) and loaded if the visitor's browser fails the cut the mustard test. _Please note_ that a basic [Polyfill Service](https://polyfill.io/v3/) bundle URL will be automatically prepended to this list.
+An array of script URLs which will be passed to the [JavaScript bootstrap](../anvil-ui-bootstrap/readme.md) and loaded if the visitor's browser fails the cut the mustard test. _Please note_ that a [Polyfill Service](https://polyfill.io/v3/) bundle URL will be automatically prepended to this list.
 
 #### `enhancedScripts` (string[])
 
-An array of script URLs which will be passed to the [JavaScript bootstrap](../anvil-ui-bootstrap/readme.md) and loaded if the visitor's browser succeeds in passing the cut the mustard test. _Please note_ that a complete [Polyfill Service](https://polyfill.io/v3/) bundle URL will be automatically prepended to this list.
+An array of script URLs which will be passed to the [JavaScript bootstrap](../anvil-ui-bootstrap/readme.md) and loaded if the visitor's browser succeeds in passing the cut the mustard test. _Please note_ that a [Polyfill Service](https://polyfill.io/v3/) bundle URL including es2015, es2016, and es2017 features will be automatically prepended to this list.
 
 #### `stylesheets` (string[])
 
