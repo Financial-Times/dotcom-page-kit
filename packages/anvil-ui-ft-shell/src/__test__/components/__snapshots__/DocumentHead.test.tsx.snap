@@ -41,6 +41,10 @@ Array [
     href="https://www.googletagservices.com"
     rel="preconnect"
   />,
+  <link
+    href="https://polyfill.io"
+    rel="preconnect"
+  />,
   <meta
     content="index,follow"
     name="robots"

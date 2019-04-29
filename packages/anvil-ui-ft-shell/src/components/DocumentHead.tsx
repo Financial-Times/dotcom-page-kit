@@ -32,6 +32,7 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     <link rel="preconnect" href="https://session-next.ft.com" crossOrigin="use-credentials" />
     <link rel="preconnect" href="https://ads-api.ft.com" />
     <link rel="preconnect" href="https://www.googletagservices.com" />
+    <link rel="preconnect" href="https://polyfill.io" />
 
     {/* SEO */}
     <meta name="robots" content={props.robots} />

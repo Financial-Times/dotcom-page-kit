@@ -6,7 +6,7 @@ import querystring from 'querystring'
 export const core = preparePolyfillServiceUrl(['default'])
 
 export const enhanced = preparePolyfillServiceUrl([
-  'default',
+  'default', // The Andrew Betts definition of "default"
   'Array.prototype.find',
   'Array.prototype.findIndex',
   'Array.prototype.includes',
@@ -25,9 +25,7 @@ export const enhanced = preparePolyfillServiceUrl([
 ])
 
 function preparePolyfillServiceUrl(features: string[]) {
-  // We use a custom CDN configuration on our domain so that we can avoid extra DNS lookups
-  const serviceURL = 'https://www.ft.com/__origami/service/polyfill/v2/polyfill.min.js'
-
+  const serviceURL = 'https://www.polyfill.io/v3/polyfill.min.js'
   const queryString = querystring.stringify({ features: features.join(','), source: 'next' })
 
   return `${serviceURL}?${queryString}`
