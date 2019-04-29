@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`anvil-ui-ft-shell/src/components/OpenGraph renders the given Open Graph data to meta tags 1`] = `
+Array [
+  <meta
+    content="Open Graph title"
+    property="og:title"
+  />,
+  <meta
+    content="https://my.site/video.mp4"
+    property="og:video"
+  />,
+  <meta
+    content="video/mp4"
+    property="og:video:type"
+  />,
+  <meta
+    content={640}
+    property="og:video:width"
+  />,
+  <meta
+    content={360}
+    property="og:video:height"
+  />,
+  <meta
+    content="2019-02-27T06:59:35.000Z"
+    property="article:published_time"
+  />,
+  <meta
+    content="2019-02-27T16:01:21.000Z"
+    property="article:modified_time"
+  />,
+  <meta
+    content="Joe Bloggs"
+    property="article:author"
+  />,
+  <meta
+    content="Jane Doe"
+    property="article:author"
+  />,
+]
+`;

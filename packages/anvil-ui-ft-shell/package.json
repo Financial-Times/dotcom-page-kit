@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "main": "component.js",
+  "browser": "browser.js",
   "types": "src/index.tsx",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,9 +12,9 @@
     "clean:dist": "rm -rf dist",
     "clean:node_modules": "rm -rf node_modules",
     "clean:install": "npm run clean && npm i",
-    "build:cjs": "npm run tsc -- --outDir ./dist/cjs",
-    "build": "npm run build:cjs",
-    "dev": "npm run clean:dist && npm run build:cjs -- --watch"
+    "build:node": "npm run tsc -- --outDir ./dist/node",
+    "build": "npm run build:node",
+    "dev": "npm run build:node -- --watch"
   },
   "keywords": [],
   "author": "",

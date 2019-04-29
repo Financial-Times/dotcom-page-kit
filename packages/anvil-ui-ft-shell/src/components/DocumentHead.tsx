@@ -1,22 +1,19 @@
 import React from 'react'
-import OpenGraph, { TOpenGraphObject } from './OpenGraph'
-import LinkedData, { TLinkedDataObject } from './LinkedData'
-import StyleSheets from './StyleSheets'
+import imageServiceIconURL from '../lib/imageServiceIconURL'
+import OpenGraph, { TOpenGraphProps } from './OpenGraph'
+import LinkedData, { TLinkedDataProps } from './LinkedData'
 
-export interface TDocumentHeadProps {
-  criticalStyles?: string
-  description?: string
-  facebookPage?: string
-  googleSiteVerification?: string
-  jsonLd?: TLinkedDataObject[]
-  openGraph?: TOpenGraphObject
-  pageTitle: string
-  robots?: string
-  siteTitle?: string
-  stylesheets?: string[]
-  twitterSite?: string
-  url?: string
-}
+export type TDocumentHeadProps = TOpenGraphProps &
+  TLinkedDataProps & {
+    description?: string
+    facebookPage?: string
+    googleSiteVerification?: string
+    pageTitle: string
+    robots?: string
+    siteTitle?: string
+    twitterSite?: string
+    canonicalURL?: string
+  }
 
 const DocumentHead = (props: TDocumentHeadProps) => (
   <React.Fragment>
@@ -28,7 +25,7 @@ const DocumentHead = (props: TDocumentHeadProps) => (
 
     {props.description && <meta name="description" content={props.description} />}
 
-    {props.url && <link rel="canonical" href={props.url} />}
+    {props.canonicalURL && <link rel="canonical" href={props.canonicalURL} />}
 
     {/* resource hints */}
     <link rel="preconnect" href="https://spoor-api.ft.com" />
@@ -36,36 +33,33 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     <link rel="preconnect" href="https://ads-api.ft.com" />
     <link rel="preconnect" href="https://www.googletagservices.com" />
 
-    {/* assets */}
-    <StyleSheets {...props} />
-
     {/* SEO */}
     <meta name="robots" content={props.robots} />
     <meta name="google-site-verification" content={props.googleSiteVerification} />
     <LinkedData jsonLd={props.jsonLd} />
 
     {/* social media */}
-    {props.openGraph && <OpenGraph openGraph={props.openGraph} />}
     <meta property="fb:pages" content={props.facebookPage} />
     <meta property="twitter:site" content={props.twitterSite} />
+    <OpenGraph openGraph={props.openGraph} />
 
     {/* packaging */}
     <link
       rel="icon"
       type="image/png"
-      href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=32&height=32&format=png"
+      href={imageServiceIconURL('ftlogo-v1:brand-ft-logo-square-coloured', 32)}
       sizes="32x32"
     />
     <link
       rel="icon"
       type="image/png"
-      href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=194&height=194&format=png"
+      href={imageServiceIconURL('ftlogo-v1:brand-ft-logo-square-coloured', 194)}
       sizes="194x194"
     />
     <link
       rel="apple-touch-icon"
+      href={imageServiceIconURL('ftlogo-v1:brand-ft-logo-square-coloured', 180)}
       sizes="180x180"
-      href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=180&height=180&format=png"
     />
   </React.Fragment>
 )

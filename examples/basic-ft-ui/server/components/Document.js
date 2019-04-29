@@ -7,8 +7,8 @@ const scripts = ['/dist/client.bundle.js']
 const styles = ['/dist/styles.css']
 
 const shellProps = {
-  coreScriptsToLoad: [],
-  enhancedScriptsToLoad: scripts,
+  coreScripts: [],
+  enhancedScripts: scripts,
   stylesheets: styles,
   criticalStyles: 'body {background-color:#fff1e5; color:#33302e;}'
 }

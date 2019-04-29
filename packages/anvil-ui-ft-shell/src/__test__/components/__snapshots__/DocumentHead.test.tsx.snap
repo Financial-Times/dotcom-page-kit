@@ -41,13 +41,6 @@ Array [
     href="https://www.googletagservices.com"
     rel="preconnect"
   />,
-  <style
-    dangerouslySetInnerHTML={
-      Object {
-        "__html": "background-color: #fff1e5;",
-      }
-    }
-  />,
   <meta
     content="index,follow"
     name="robots"
@@ -59,54 +52,10 @@ Array [
   <script
     dangerouslySetInnerHTML={
       Object {
-        "__html": "{\\"@type\\":\\"article\\",\\"headline\\":\\"JSON+LD headline\\"}",
-      }
-    }
-    type="application/ld+json"
-  />,
-  <script
-    dangerouslySetInnerHTML={
-      Object {
         "__html": "{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"name\\":\\"Financial Times\\",\\"alternateName\\":\\"FT.com\\",\\"url\\":\\"http://www.ft.com\\"}",
       }
     }
     type="application/ld+json"
-  />,
-  <meta
-    content="Open Graph title"
-    property="og:title"
-  />,
-  <meta
-    content="https://my.site/video.mp4"
-    property="og:video"
-  />,
-  <meta
-    content="video/mp4"
-    property="og:video:type"
-  />,
-  <meta
-    content={640}
-    property="og:video:width"
-  />,
-  <meta
-    content={360}
-    property="og:video:height"
-  />,
-  <meta
-    content="2019-02-27T06:59:35.000Z"
-    property="article:published_time"
-  />,
-  <meta
-    content="2019-02-27T16:01:21.000Z"
-    property="article:modified_time"
-  />,
-  <meta
-    content="Joe Bloggs"
-    property="article:author"
-  />,
-  <meta
-    content="Jane Doe"
-    property="article:author"
   />,
   <meta
     content="facebook-page-id"
