@@ -39,9 +39,25 @@ const defaultOptions: AssetLoaderOptions = {
   cacheFileContents: false
 }
 
+type TEntrypoint = {
+  [type: string]: string[]
+}
+
+type TEntrypoints = {
+  entrypoints?: {
+    [name: string]: TEntrypoint
+  }
+}
+
+type TFiles = {
+  [name: string]: string
+}
+
+type TManifest = TEntrypoints & TFiles
+
 export class AssetLoader {
   public options: AssetLoaderOptions
-  public manifest: object
+  public manifest: TManifest
 
   constructor(userOptions: AssetLoaderOptions) {
     this.options = { ...defaultOptions, ...userOptions }
@@ -97,6 +113,22 @@ export class AssetLoader {
 
   getPublicURLOfHashedAssetsMatching(pattern: string | RegExp | Function): string[] {
     return this.matchAssets(pattern).map((asset) => this.getPublicURL(asset))
+  }
+
+  getChunksForEntrypoint(entrypoint: string): TEntrypoint {
+    if (this.manifest.entrypoints && this.manifest.entrypoints[entrypoint]) {
+      return this.manifest.entrypoints[entrypoint]
+    } else {
+      throw Error(`Couldn't find entrypoint "${entrypoint}" in manifest`)
+    }
+  }
+
+  getScriptChunksForEntrypoint(entrypoint: string): string[] {
+    return this.getChunksForEntrypoint(entrypoint).js || []
+  }
+
+  getStylesheetChunksForEntrypoint(entrypoint: string): string[] {
+    return this.getChunksForEntrypoint(entrypoint).css || []
   }
 }
 
