@@ -41,6 +41,11 @@ export function plugin() {
   function createSharedBundleSplittingConfig(name: string, packagesToInclude: string[]) {
     return {
       optimization: {
+        // Creates a separate bundle for webpack runtime.
+        // Specifying the name prevents multiple runtime bundles from being created.
+        runtimeChunk: {
+          name: 'runtime'
+        },
         splitChunks: {
           cacheGroups: {
             [name]: {
