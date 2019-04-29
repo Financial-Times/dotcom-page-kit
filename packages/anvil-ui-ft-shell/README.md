@@ -86,6 +86,14 @@ A data object which will be passed to the [feature flags component](../anvil-ui-
 
 An optional data object to serialise and embed in the page which can be used to rehydrate your application on the client-side.
 
+#### `htmlAttributes` (object)
+
+An optional data object of attributes to append to the `<html>` element. Any `camelCase` property names will be converted to `kebab-case`, e.g. `{ dataVersion: 123 }` will be rendered as `data-version="123"`.
+
+#### `bodyAttributes` (object)
+
+An optional data object of attributes to append to the `<body>` element. Any `camelCase` property names will be converted to `kebab-case`, e.g. `{ dataVersion: 123 }` will be rendered as `data-version="123"`.
+
 
 ### Metadata and SEO
 

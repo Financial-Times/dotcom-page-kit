@@ -3,6 +3,7 @@ import Body, { TBodyProps } from './Body'
 import DocumentHead, { TDocumentHeadProps } from './DocumentHead'
 import { Flags } from '@financial-times/anvil-ui-ft-flags/component'
 import { Bootstrap } from '@financial-times/anvil-ui-bootstrap/component'
+import formatAttributeNames, { TAttributeData } from '../lib/formatAttributeNames'
 import { corePolyfillServiceUrl, enhancedPolyfillServiceUrl } from '../lib/polyfillServiceURLs'
 
 type TShellProps = TDocumentHeadProps &
@@ -12,6 +13,8 @@ type TShellProps = TDocumentHeadProps &
     initialProps?: any
     coreScripts?: string[]
     enhancedScripts?: string[]
+    bodyAttributes?: TAttributeData
+    htmlAttributes?: TAttributeData
   }
 
 function Shell(props: TShellProps) {
@@ -19,7 +22,7 @@ function Shell(props: TShellProps) {
   const enhancedScripts = [enhancedPolyfillServiceUrl, ...props.enhancedScripts]
 
   return (
-    <html className="no-js core">
+    <html {...formatAttributeNames(props.htmlAttributes)} className="no-js core">
       <head>
         <DocumentHead {...props} />
         <script
@@ -30,14 +33,16 @@ function Shell(props: TShellProps) {
         <Flags data={props.flags} />
         <Bootstrap coreScripts={coreScripts} enhancedScripts={enhancedScripts} />
       </head>
-      <Body contents={props.contents || props.children} />
+      <Body {...formatAttributeNames(props.bodyAttributes)} contents={props.contents || props.children} />
     </html>
   )
 }
 
 Shell.defaultProps = {
   coreScripts: [],
-  enhancedScripts: []
+  enhancedScripts: [],
+  htmlAttributes: {},
+  bodyAttributes: {}
 }
 
 export { Shell, TShellProps }

@@ -4,11 +4,11 @@ export type TBodyProps = {
   contents?: any
 }
 
-function Body({ contents }) {
+function Body({ contents, ...bodyAttributes }) {
   if (typeof contents === 'string') {
-    return <body dangerouslySetInnerHTML={{ __html: contents }} />
+    return <body {...bodyAttributes} dangerouslySetInnerHTML={{ __html: contents }} />
   } else {
-    return <body>{contents}</body>
+    return <body {...bodyAttributes}>{contents}</body>
   }
 }
 
