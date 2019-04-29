@@ -14,8 +14,6 @@ const assets = new AssetLoader({
   manifestFileName: 'manifest.json'
 })
 
-const enhancedScriptsToLoad = assets.getScriptChunksForEntrypoint('main')
-
 app.use('/assets', express.static(path.resolve('./dist')))
 
 routes.forEach(async (route) => {
@@ -29,7 +27,7 @@ routes.forEach(async (route) => {
       pageTitle: Page.title,
       description: Page.description,
       initialProps: { $$page: route.name, ...initialProps },
-      enhancedScriptsToLoad
+      enhancedScripts: assets.getScriptChunksForEntrypoint('main')
     }
 
     const markup = renderToString(
