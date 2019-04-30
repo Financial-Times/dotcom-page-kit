@@ -25,7 +25,7 @@ export const enhanced = preparePolyfillServiceUrl([
 ])
 
 function preparePolyfillServiceUrl(features: string[]) {
-  const serviceURL = 'https://www.polyfill.io/v3/polyfill.min.js'
+  const serviceURL = 'https://polyfill.io/v3/polyfill.min.js'
   const queryString = querystring.stringify({ features: features.join(','), source: 'next' })
 
   return `${serviceURL}?${queryString}`
