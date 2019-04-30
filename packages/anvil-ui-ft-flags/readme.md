@@ -1,19 +1,19 @@
 # @financial-times/anvil-ui-ft-flags
 
-This module provides methods for integrating flags data into your server-sude rendered pages and safely retrieving it again in the browser.
+This package provides methods for integrating flags data into your server-side rendered pages and safely retrieving it again in the browser.
 
 
 ## Getting started
 
-This module is compatible with Node 8+ and is distributed on npm.
+This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
 npm install --save @financial-times/anvil-ui-ft-flags
 ```
 
-After installing the module you can use it to embed flags data into your pages on the server-side. This data can then be retrieved and used in your client-side code using the included flags client.
+After installing the package you can use it to embed flags data into your pages on the server-side. This data can then be retrieved and used in your client-side code using the included flags client.
 
-### Server-side
+### Server-side integration
 
 If you are using React to render your app you should use the `Flags` component:
 
@@ -56,9 +56,9 @@ function page() {
 }
 ```
 
-### Client-side
+### Client-side integration
 
-Once you are delivering the flags data with your pages you can use the flags client in your client-side code. This client will find the embedded data, parse it, and provide a method for retrieving the status of a flag.
+Once you are delivering the flags data with your pages you can use the flags client in your client-side code. A method is provided to find the embedded data and parse it and a this can be used to create a new client which provides methods for safely retrieving the status of individual flags.
 
 ```js
 import { Flags, loadFlags } from '@financial-times/anvil-ui-ft-flags'
