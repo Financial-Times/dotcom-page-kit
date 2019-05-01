@@ -2,7 +2,8 @@
   "name": "@financial-times/anvil-ui-bootstrap",
   "version": "0.0.0",
   "description": "",
-  "main": "node.js",
+  "main": "component.js",
+  "browser": "browser.js",
   "types": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,7 +14,7 @@
     "clean:install": "npm run clean && npm i",
     "build:node": "npm run tsc -- --outDir ./dist/node",
     "build": "npm run build:node",
-    "dev": "npm run clean:dist && npm run build:node -- --watch"
+    "dev": "npm run build:node -- --watch"
   },
   "keywords": [],
   "author": "",

@@ -3,18 +3,17 @@ import Body, { TBodyProps } from './Body'
 import DocumentHead, { TDocumentHeadProps } from './DocumentHead'
 import StyleSheets, { TStylesheetProps } from './StyleSheets'
 import { Flags, TFlagsProps } from '@financial-times/anvil-ui-ft-flags'
-import { Bootstrap } from '@financial-times/anvil-ui-bootstrap/component'
+import { Bootstrap, TBootstrapProps } from '@financial-times/anvil-ui-bootstrap'
 import formatAttributeNames, { TAttributeData } from '../lib/formatAttributeNames'
 import * as polyfillServiceURLs from '../lib/polyfillServiceURLs'
 
 type TShellProps = TDocumentHeadProps &
   TStylesheetProps &
   TBodyProps &
-  TFlagsProps & {
+  TFlagsProps &
+  TBootstrapProps & {
     children?: any
     initialProps?: any
-    coreScripts?: string[]
-    enhancedScripts?: string[]
     bodyAttributes?: TAttributeData
     htmlAttributes?: TAttributeData
   }
