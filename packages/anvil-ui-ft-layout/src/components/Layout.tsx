@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {
   Header,
   StickyHeader,
@@ -9,6 +8,7 @@ import {
   THeaderVariant
 } from '@financial-times/anvil-ui-ft-header/component'
 import { Footer, LegalFooter, TFooterVariant } from '@financial-times/anvil-ui-ft-footer/component'
+import Template from './Template'
 
 export enum AnvilHeader {
   Standard = Header,
@@ -33,23 +33,6 @@ type TLayoutProps = {
   footerBefore?: string | React.ReactNode
   footer?: AnvilFooter | React.ReactNode | TFooterVariant | false
   footerAfter?: string | React.ReactNode
-}
-
-type TTemplateProps = {
-  children?: string | React.ReactNode
-  [rest: string]: any
-}
-
-export function Template(props: TTemplateProps) {
-  const { children, ...rest } = props
-
-  if (!children) return null
-
-  if (typeof children === 'string') {
-    return <div {...rest} dangerouslySetInnerHTML={{ __html: children }} />
-  } else {
-    return <div {...rest}>{children}</div>
-  }
 }
 
 const headers = {

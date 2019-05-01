@@ -11,12 +11,11 @@ import * as layout from '../../browser'
 
 import { data as headerProps } from '../../../../__fixtures__/navigation'
 
-import { Layout, Template } from '..'
+import { Layout } from '..'
 
 const Extra = ({ children }) => <p className="extra">{children}</p>
 
 const switchFooter = () => select('Switch footer', { Standard: 'simple', Legal: 'legal' })
-const switchDisplay = () => boolean('Toggle {display: contents} on <Template />', false)
 
 const initUiComponents = () => {
   layout.init()
@@ -113,18 +112,5 @@ storiesOf('FT / Layout', module)
           </main>
         </Layout>
       </OnReady>
-    )
-  })
-  .add('Template utility', () => {
-    const theCrocodile = `
-    <p>How doth the little crocodile </p>
-    <p>Improve his shining tail</p>`
-
-    const cls = switchDisplay() ? 'demo__message--contents' : ''
-
-    return (
-      <main className="demo demo--flexed">
-        <Template className={`demo__message ${cls}`}>{theCrocodile}</Template>
-      </main>
     )
   })
