@@ -1,44 +1,37 @@
 import React from 'react'
-import {
-  Header,
-  StickyHeader,
-  LogoOnly,
-  Drawer,
-  THeaderProps,
-  THeaderVariant
-} from '@financial-times/anvil-ui-ft-header/component'
-import { Footer, LegalFooter, TFooterVariant } from '@financial-times/anvil-ui-ft-footer/component'
+import { Header, LogoOnly, Drawer, THeaderProps } from '@financial-times/anvil-ui-ft-header/component'
+import { Footer, LegalFooter } from '@financial-times/anvil-ui-ft-footer/component'
 import Template from './Template'
 
-export enum AnvilHeader {
+enum AnvilHeader {
   Standard = Header,
-  Sticky = StickyHeader,
   Logo = LogoOnly
 }
 
-export enum AnvilFooter {
+enum AnvilFooter {
   Standard = Footer,
   Legal = LegalFooter
 }
 
-type TLayoutProps = {
+export type TLayoutProps = {
   props: THeaderProps
 
   headerBefore?: string | React.ReactNode
-  header?: AnvilHeader | React.ReactNode | THeaderVariant | false
+  header?: AnvilHeader | React.ReactNode | false
   headerAfter?: string | React.ReactNode
 
   children?: React.ReactNode
 
   footerBefore?: string | React.ReactNode
-  footer?: AnvilFooter | React.ReactNode | TFooterVariant | false
+  footer?: AnvilFooter | React.ReactNode | false
   footerAfter?: string | React.ReactNode
 }
 
 const headers = {
   simple: AnvilHeader.Standard,
+  // This is the same as above but removing the "simple" variant will set
+  // the logo to its default (large) size.
   home: AnvilHeader.Standard,
-  sticky: AnvilHeader.Sticky,
   'logo-only': AnvilHeader.Logo
 }
 
@@ -51,8 +44,8 @@ const getLayoutPreset = (
   header: TLayoutProps['header'] = 'simple',
   footer: TLayoutProps['footer'] = 'simple'
 ) => ({
-  header: headers[header],
-  footer: footers[footer]
+  header: typeof header === 'string' ? headers[header] : null,
+  footer: typeof footer === 'string' ? footers[footer] : null
 })
 
 export function Layout({
@@ -68,22 +61,15 @@ export function Layout({
   /**
    * Let consuming apps
    * a) Pass in custom components to render as Header or Footer
-   * b) Pass false to component props to switch them off
+   * b) Pass false to switch them off
    */
-  const headerType = typeof header
-  const headerId = headerType === 'undefined' ? 'simple' : header
-
-  if (headerType === 'string') {
-    props = { ...props, variant: headerId }
-  }
-
-  const Preset = getLayoutPreset(headerId, footer)
+  const Preset = getLayoutPreset(header, footer)
 
   return (
     <div className="n-layout">
       <div className="n-layout__row n-layout__row--header">
         <Template>{headerBefore}</Template>
-        {Preset.header ? <Preset.header {...props} /> : header}
+        {Preset.header ? <Preset.header {...props} variant={header} /> : header}
         <Template>{headerAfter}</Template>
       </div>
 
@@ -91,11 +77,17 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--footer">
         <Template>{footerBefore}</Template>
-        {Preset.footer ? <Preset.footer data={props.data.footer.items} /> : footer}
+        {Preset.footer ? <Preset.footer data={props.data.footer.items} variant={footer} /> : footer}
         <Template>{footerAfter}</Template>
       </div>
 
+      {/* Always render the drawer if there is a default header being used */}
       {Preset.header && <Drawer {...props} />}
     </div>
   )
+}
+
+Layout.defaultProps = {
+  header: 'simple',
+  footer: 'simple'
 }
