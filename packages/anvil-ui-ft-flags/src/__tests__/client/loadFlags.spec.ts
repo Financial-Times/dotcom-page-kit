@@ -2,9 +2,9 @@
  * @jest-environment jsdom
  */
 
-import subject from '../lib/loadFlags'
+import subject from '../../client/loadFlags'
 
-describe('anvil-ui-ft-flags/src/lib/loadFlags', () => {
+describe('anvil-ui-ft-flags/src/client/loadFlags', () => {
   describe('when there is a configuration object', () => {
     beforeEach(() => {
       document.body.innerHTML = `

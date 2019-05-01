@@ -1,6 +1,6 @@
 import { TFlagsData, TFlag } from '../types'
 
-export default class Flags {
+export default class FlagsClient {
   private flags: TFlagsData
 
   constructor(flags: TFlagsData) {

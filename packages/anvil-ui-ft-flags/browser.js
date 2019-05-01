@@ -1,1 +1,1 @@
-export * from './dist/browser/index'
+export * from './dist/browser/client/index'

@@ -1,1 +1,1 @@
-module.exports = require('./dist/node/Component')
+module.exports = require('./dist/node/index')

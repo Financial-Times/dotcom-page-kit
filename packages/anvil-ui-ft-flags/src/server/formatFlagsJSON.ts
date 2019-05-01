@@ -1,4 +1,4 @@
-import { TFlagsData } from './types'
+import { TFlagsData } from '../types'
 
 export default function formatFlagsJSON(flags: TFlagsData = {}): string {
   const output = {}

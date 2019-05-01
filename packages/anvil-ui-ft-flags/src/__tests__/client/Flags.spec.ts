@@ -1,10 +1,6 @@
-import Subject from '../lib/FlagsClient'
+import Subject from '../../client/Flags'
 
-jest.mock('../lib/loadFlags', () => {
-  return jest.fn().mockReturnValue({ foo: 1, bar: true })
-})
-
-describe('anvil-ui-ft-flags/src/lib/FlagsClient', () => {
+describe('anvil-ui-ft-flags/src/client/Flags', () => {
   describe('.get()', () => {
     let instance
 
