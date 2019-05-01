@@ -5,8 +5,7 @@ import { storiesOf } from '@storybook/react'
 import { withKnobs, boolean, select } from '@storybook/addon-knobs'
 import './demos.scss'
 
-import * as header from '@financial-times/anvil-ui-ft-header/browser.js'
-import * as footer from '@financial-times/anvil-ui-ft-footer/browser.js'
+import * as layout from '../../browser'
 
 import { data as headerProps } from '../../../../__fixtures__/navigation'
 
@@ -19,8 +18,7 @@ const switchFooter = () => select('Switch footer', { Standard: 'simple', Legal: 
 const switchDisplay = () => boolean('Toggle {display: contents} on <Template />', false)
 
 const initUiComponents = () => {
-  header.init()
-  footer.init()
+  layout.init()
 }
 
 storiesOf('FT / Layout', module)

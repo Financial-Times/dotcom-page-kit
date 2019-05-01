@@ -13,6 +13,8 @@
   "dependencies": {
     "@financial-times/anvil-middleware-ft-edition": "file:../../packages/anvil-middleware-ft-edition",
     "@financial-times/anvil-middleware-ft-navigation": "file:../../packages/anvil-middleware-ft-navigation",
+    "@financial-times/anvil-ui-ft-footer": "file:../../packages/anvil-ui-ft-footer",
+    "@financial-times/anvil-ui-ft-header": "file:../../packages/anvil-ui-ft-header",
     "@financial-times/anvil-ui-ft-layout": "file:../../packages/anvil-ui-ft-layout",
     "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
     "express": "^4.16.2",
