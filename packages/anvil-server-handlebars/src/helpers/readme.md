@@ -157,6 +157,17 @@ Example:
 {{>partial parameter=(concat "Welcome to " name)}}
 ```
 
+### encode
+
+Encodes a uniform resource identifer (URI) using [`encodeURIComponent()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) or [`encodeURI()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI).
+
+Example:
+
+```hbs
+{{encode text}}
+{{encode text mode="uri"}}
+```
+
 ### json
 
 JSON stringifies the given parameter. Please note that this will error if you try to output the `@root` context when used in an Express application as this may contain secret information.

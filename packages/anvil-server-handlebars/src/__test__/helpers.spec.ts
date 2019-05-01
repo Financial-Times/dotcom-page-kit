@@ -209,6 +209,27 @@ describe('anvil-server-handlebars/src/helpers', () => {
       })
     })
 
+    describe('encode', () => {
+      it('encodes the parameter as a URI component', () => {
+        const template = compile('{{{encode title}}}')
+        const result = template({ title: 'http://www.foo.com?bar=baz&qux=«»' }, { helpers })
+
+        expect(result).toBe('http%3A%2F%2Fwww.foo.com%3Fbar%3Dbaz%26qux%3D%C2%AB%C2%BB')
+      })
+
+      it('encodes the parameter as a complete URI', () => {
+        const template = compile('{{{encode title mode="uri"}}}')
+        const result = template({ title: 'http://www.foo.com?bar=baz&qux=«»' }, { helpers })
+
+        expect(result).toBe('http://www.foo.com?bar=baz&qux=%C2%AB%C2%BB')
+      })
+
+      it('throws if the incorrect number of parameters are provided', () => {
+        const template = compile('{{encode}}')
+        expect(() => template({}, { helpers })).toThrow()
+      })
+    })
+
     describe('json', () => {
       it('stringifies the parameter', () => {
         const template = compile('{{{json data}}}')
