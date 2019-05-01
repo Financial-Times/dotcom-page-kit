@@ -3,49 +3,39 @@ import { Header, LogoOnly, Drawer, THeaderProps } from '@financial-times/anvil-u
 import { Footer, LegalFooter } from '@financial-times/anvil-ui-ft-footer/component'
 import Template from './Template'
 
-enum AnvilHeader {
-  Standard = Header,
-  Logo = LogoOnly
+enum Headers {
+  simple = Header,
+  // This is the same as above but removing the "simple" variant will set
+  // the logo to its default (large) size.
+  home = Header,
+  'logo-only' = LogoOnly
 }
 
-enum AnvilFooter {
-  Standard = Footer,
-  Legal = LegalFooter
+enum Footers {
+  simple = Footer,
+  legal = LegalFooter
 }
 
 export type TLayoutProps = {
   props: THeaderProps
 
   headerBefore?: string | React.ReactNode
-  header?: AnvilHeader | React.ReactNode | false
+  header?: Headers | React.ReactNode | false
   headerAfter?: string | React.ReactNode
 
   children?: React.ReactNode
 
   footerBefore?: string | React.ReactNode
-  footer?: AnvilFooter | React.ReactNode | false
+  footer?: Footers | React.ReactNode | false
   footerAfter?: string | React.ReactNode
-}
-
-const headers = {
-  simple: AnvilHeader.Standard,
-  // This is the same as above but removing the "simple" variant will set
-  // the logo to its default (large) size.
-  home: AnvilHeader.Standard,
-  'logo-only': AnvilHeader.Logo
-}
-
-const footers = {
-  simple: AnvilFooter.Standard,
-  legal: AnvilFooter.Legal
 }
 
 const getLayoutPreset = (
   header: TLayoutProps['header'] = 'simple',
   footer: TLayoutProps['footer'] = 'simple'
 ) => ({
-  header: typeof header === 'string' ? headers[header] : null,
-  footer: typeof footer === 'string' ? footers[footer] : null
+  header: typeof header === 'string' ? Headers[header] : null,
+  footer: typeof footer === 'string' ? Footers[footer] : null
 })
 
 export function Layout({
