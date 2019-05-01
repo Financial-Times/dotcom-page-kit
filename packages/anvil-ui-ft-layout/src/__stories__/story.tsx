@@ -15,7 +15,6 @@ import { Layout, Template } from '..'
 
 const Extra = ({ children }) => <p className="extra">{children}</p>
 
-const hideFooter = () => boolean('Hide outbound links', false)
 const switchFooter = () => select('Switch footer', { Standard: 'simple', Legal: 'legal' })
 const switchDisplay = () => boolean('Toggle {display: contents} on <Template />', false)
 
@@ -30,27 +29,27 @@ storiesOf('FT / Layout', module)
       <OnReady callback={initUiComponents}>
         <Layout props={headerProps}>
           <main className="demo">
-            <p className="demo__message demo__message--padded">Defaults: only passing data</p>
+            <p className="demo__message">Defaults: only passing data</p>
           </main>
         </Layout>
       </OnReady>
     )
   })
   .add('Home header', () => {
-    const props = { ...headerProps, variant: 'home', hideOutboundLinks: hideFooter() }
+    const props = { ...headerProps, variant: 'home' }
 
     return (
       <OnReady callback={initUiComponents}>
         <Layout props={props} footer={switchFooter()}>
           <main className="demo">
-            <p className="demo__message demo__message--padded">Home variant</p>
+            <p className="demo__message">Home variant</p>
           </main>
         </Layout>
       </OnReady>
     )
   })
   .add('Logo-only header', () => {
-    const props = { ...headerProps, hideOutboundLinks: hideFooter() }
+    const props = { ...headerProps }
 
     return (
       <OnReady callback={initUiComponents}>
@@ -63,7 +62,7 @@ storiesOf('FT / Layout', module)
     )
   })
   .add('Sticky header only', () => {
-    const props = { ...headerProps, hideOutboundLinks: hideFooter() }
+    const props = { ...headerProps }
 
     return (
       <OnReady callback={initUiComponents}>
@@ -76,13 +75,13 @@ storiesOf('FT / Layout', module)
     )
   })
   .add('Turn off footer', () => {
-    const props = { ...headerProps, hideOutboundLinks: hideFooter() }
+    const props = { ...headerProps }
 
     return (
       <OnReady callback={initUiComponents}>
         <Layout props={props} footer={false}>
           <main className="demo">
-            <p className="demo__message demo__message--padded">No footer</p>
+            <p className="demo__message">No footer</p>
           </main>
         </Layout>
       </OnReady>
@@ -96,9 +95,10 @@ storiesOf('FT / Layout', module)
           footer="legal"
           headerBefore={<Extra>Header before</Extra>}
           headerAfter={<Extra>Header after</Extra>}
+          footerBefore={<Extra>Footer before</Extra>}
           footerAfter={<Extra>Footer after</Extra>}>
           <main className="demo">
-            <p className="demo__message demo__message--padded">Custom content slots</p>
+            <p className="demo__message">Custom content slots</p>
           </main>
         </Layout>
       </OnReady>

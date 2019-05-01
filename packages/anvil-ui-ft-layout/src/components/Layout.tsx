@@ -106,13 +106,12 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--content">{children}</div>
 
-      {!props.hideOutboundLinks && (
-        <div className="n-layout__row n-layout__row--footer">
-          <Template>{footerBefore}</Template>
-          {Preset.footer ? <Preset.footer data={props.data.footer.items} /> : footer}
-          <Template>{footerAfter}</Template>
-        </div>
-      )}
+      <div className="n-layout__row n-layout__row--footer">
+        <Template>{footerBefore}</Template>
+        {Preset.footer ? <Preset.footer data={props.data.footer.items} /> : footer}
+        <Template>{footerAfter}</Template>
+      </div>
+
       {Preset.header && <Drawer {...props} />}
     </div>
   )
