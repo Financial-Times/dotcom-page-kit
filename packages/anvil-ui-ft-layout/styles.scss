@@ -1,0 +1,21 @@
+.n-layout {
+  display: table;
+  width: 100%;
+  height: 100vh;
+  table-layout: fixed;
+}
+
+.n-layout__row {
+  display: table-row;
+}
+
+.n-layout__row--content {
+  height: 100%;
+}
+
+@media print {
+  .n-layout,
+  .n-layout__row {
+    display: block;
+  }
+}

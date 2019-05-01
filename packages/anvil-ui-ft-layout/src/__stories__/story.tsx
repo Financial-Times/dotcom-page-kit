@@ -3,7 +3,9 @@ import { OnReady } from '@financial-times/anvil-ui-ft-on-ready'
 
 import { storiesOf } from '@storybook/react'
 import { withKnobs, boolean, select } from '@storybook/addon-knobs'
+
 import './demos.scss'
+import '../../styles.scss'
 
 import * as layout from '../../browser'
 
