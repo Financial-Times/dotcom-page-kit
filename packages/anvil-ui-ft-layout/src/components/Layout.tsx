@@ -24,6 +24,7 @@ export type TLayoutProps = {
   headerAfter?: string | React.ReactNode
 
   children?: React.ReactNode
+  contents?: string
 
   footerBefore?: string | React.ReactNode
   footer?: Footers | React.ReactNode | false
@@ -46,7 +47,8 @@ export function Layout({
   footer,
   footerBefore,
   footerAfter,
-  children
+  children,
+  contents
 }: TLayoutProps) {
   /**
    * Let consuming apps
@@ -79,7 +81,9 @@ export function Layout({
         <Template>{headerAfter}</Template>
       </div>
 
-      <div className="n-layout__row n-layout__row--content">{children}</div>
+      <div className="n-layout__row n-layout__row--content">
+        <Template>{contents || children}</Template>
+      </div>
 
       <div className="n-layout__row n-layout__row--footer">
         <Template>{footerBefore}</Template>
