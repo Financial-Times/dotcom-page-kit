@@ -36,38 +36,11 @@ storiesOf('FT / Layout', module)
       </OnReady>
     )
   })
-  .add('Sticky header only', () => {
-    const props = { ...headerProps }
-
-    return (
-      <OnReady callback={initUiComponents}>
-        <Layout props={props} header="sticky" footer={switchFooter()}>
-          <main className="demo">
-            <p className="demo__message demo__message--scroll">Scroll down</p>
-          </main>
-        </Layout>
-      </OnReady>
-    )
-  })
-  .add('Turn off footer', () => {
-    const props = { ...headerProps }
-
-    return (
-      <OnReady callback={initUiComponents}>
-        <Layout props={props} footer={false}>
-          <main className="demo">
-            <p className="demo__message">No footer</p>
-          </main>
-        </Layout>
-      </OnReady>
-    )
-  })
   .add('Custom slots', () => {
     return (
       <OnReady callback={initUiComponents}>
         <Layout
           props={headerProps}
-          footer="legal"
           headerBefore={<Extra>Header before</Extra>}
           headerAfter={<Extra>Header after</Extra>}
           footerBefore={<Extra>Footer before</Extra>}
@@ -82,7 +55,10 @@ storiesOf('FT / Layout', module)
   .add('Custom components', () => {
     return (
       <OnReady callback={initUiComponents}>
-        <Layout props={headerProps} footer={<Extra>Custom footer</Extra>}>
+        <Layout
+          props={headerProps}
+          header={<Extra>Custom header</Extra>}
+          footer={<Extra>Custom footer</Extra>}>
           <main className="demo">
             <p className="demo__message">Custom components</p>
           </main>
