@@ -1,0 +1,7 @@
+{
+  "name": "anvil-ui-ft-layout",
+  "dependencies": {
+    "n-ui-foundations": "^3.0.0"
+  },
+  "main": ["browser.js", "styles.scss"]
+}

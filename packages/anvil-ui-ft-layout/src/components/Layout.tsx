@@ -57,6 +57,22 @@ export function Layout({
 
   return (
     <div className="n-layout">
+      <a
+        data-trackable="a11y-survey-screen-reader"
+        className="n-layout__skip-link"
+        href="https://www.ft.com/accessibility">
+        Accessibility help
+      </a>
+      <a data-trackable="a11y-skip-to-navigation" className="n-layout__skip-link" href="#site-navigation">
+        Skip to navigation
+      </a>
+      <a data-trackable="a11y-skip-to-content" className="n-layout__skip-link" href="#site-content">
+        Skip to content
+      </a>
+      <a data-trackable="a11y-skip-to-footer" className="n-layout__skip-link" href="#site-footer">
+        Skip to footer
+      </a>
+
       <div className="n-layout__row n-layout__row--header">
         <Template>{headerBefore}</Template>
         {Preset.header ? <Preset.header {...props} variant={header} /> : header}

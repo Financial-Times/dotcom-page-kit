@@ -1,3 +1,5 @@
+@import 'n-ui-foundations';
+
 .n-layout {
   display: table;
   width: 100%;
@@ -11,6 +13,21 @@
 
 .n-layout__row--content {
   height: 100%;
+}
+
+.n-layout__skip-link {
+  @include nUiZIndexFor('notification');
+  position: absolute;
+  top: 1em;
+  left: -9999px;
+  padding: 0.5em 1em;
+  background: getColor('velvet');
+  color: getColor('white');
+
+  &:focus {
+    left: 0;
+    color: getColor('white');
+  }
 }
 
 @media print {
