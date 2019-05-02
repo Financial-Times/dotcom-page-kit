@@ -63,12 +63,12 @@ For a full example for how to use this component please refer to the [FT UI exam
 | PROP         | TYPE                                                    | OPTIONAL | DEFAULT   | DESCRIPTION                                                                                  |
 |--------------|---------------------------------------------------------|----------|-----------|----------------------------------------------------------------------------------------------|
 | props        | THeaderProps                                            | true*    | {}        | Required _unless_ the `header` prop is set to `logo-only`                                    |
-| header       | 'simple' \| 'home' \| 'logo-only' \| React.ReactElement | true     | 'simple'  | The type of header to display                                                                |
-| headerBefore | string \| React.ReactElement                            | true     | undefined | A slot for content to appear before Header                                                   |
-| headerAfter  | string \| React.ReactElement                            | true     | undefined | A slot for content to appear after Header                                                    |
-| footer       | 'simple' \| 'legal' \| React.ReactElement               | true     | 'simple'  | The type of footer to display                                                                |
-| footerBefore | string \| React.ReactElement                            | true     | undefined | A slot for content to appear before Footer                                                   |
-| footerAfter  | string \| React.ReactElement                            | true     | undefined | A slot for content to appear after Footer                                                    |
+| header       | 'simple' \| 'large-logo' \| 'logo-only' \| ReactElement | true     | 'simple'  | The type of header to display                                                                |
+| headerBefore | string \| ReactElement                                  | true     | undefined | A slot for content to appear before Header                                                   |
+| headerAfter  | string \| ReactElement                                  | true     | undefined | A slot for content to appear after Header                                                    |
+| footer       | 'simple' \| 'legal' \| ReactElement                     | true     | 'simple'  | The type of footer to display                                                                |
+| footerBefore | string \| ReactElement                                  | true     | undefined | A slot for content to appear before Footer                                                   |
+| footerAfter  | string \| ReactElement                                  | true     | undefined | A slot for content to appear after Footer                                                    |
 | contents     | string                                                  | true     | undefined | A prerendered string of HTML used to insert the page contents when not using JSX composition |
 
 ### Custom components

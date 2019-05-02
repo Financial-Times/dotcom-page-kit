@@ -16,7 +16,12 @@ import { Layout } from '..'
 const Extra = ({ children }) => <p className="extra">{children}</p>
 
 const switchHeader = () =>
-  select('Switch header', { Standard: 'simple', Home: 'home', LogoOnly: 'logo-only', None: '' })
+  select('Switch header', {
+    Standard: 'simple',
+    'Large Logo': 'large-logo',
+    'Logo Only': 'logo-only',
+    None: ''
+  })
 const switchFooter = () => select('Switch footer', { Standard: 'simple', Legal: 'legal', None: '' })
 
 const initUiComponents = () => {
