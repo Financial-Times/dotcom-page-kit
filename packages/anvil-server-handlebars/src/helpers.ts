@@ -1,6 +1,7 @@
 export * from './helpers/array'
 export * from './helpers/concat'
 export * from './helpers/dateformat'
+export * from './helpers/encode'
 export * from './helpers/ifAll'
 export * from './helpers/ifEquals'
 export * from './helpers/ifSome'
