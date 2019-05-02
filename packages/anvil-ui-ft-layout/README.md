@@ -55,6 +55,13 @@ For a full example for how to use this component please refer to the [FT UI exam
 
 [example]: ../../examples/basic-ft-ui/readme.md
 
+### Styles
+
+This component includes styles written in Sass which can be imported into your application's main Sass stylesheet.
+
+```scss
+@import '@financial-times/anvil-ui-ft-layout/styles';
+```
 
 ## Options
 
