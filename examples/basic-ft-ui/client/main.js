@@ -1,5 +1,3 @@
-import * as header from '@financial-times/anvil-ui-ft-header'
-import * as footer from '@financial-times/anvil-ui-ft-footer'
+import * as layout from '@financial-times/anvil-ui-ft-layout'
 
-header.init()
-footer.init()
+layout.init()
