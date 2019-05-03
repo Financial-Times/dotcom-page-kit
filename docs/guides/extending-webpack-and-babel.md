@@ -208,7 +208,6 @@ The third thing to note is that if `undefined` is returned from the handler, the
 Below is a list of the existing anvil plugins that are available for use
 
 - [@financial-time/anvil-plugin-bower-resolve](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-bower-resolve)
-- [@financial-time/anvil-plugin-code-splitting](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-code-splitting)
 - [@financial-time/anvil-plugin-css](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-css)
 - [@financial-time/anvil-plugin-esnext](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-esnext)
 - [@financial-time/anvil-plugin-sass](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-sass)
