@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@financial-times/anvil-cli": "file:../../packages/anvil-cli",
-    "@financial-times/anvil-plugin-code-splitting": "file:../../packages/anvil-plugin-code-splitting",
+    "@financial-times/anvil-plugin-ft-js-bundle-splitting": "file:../../packages/anvil-plugin-ft-js-bundle-splitting",
     "@financial-times/anvil-plugin-css": "file:../../packages/anvil-plugin-css",
     "@financial-times/anvil-plugin-sass": "file:../../packages/anvil-plugin-sass",
     "@financial-times/anvil-plugin-ft-js": "file:../../packages/anvil-plugin-ft-js",

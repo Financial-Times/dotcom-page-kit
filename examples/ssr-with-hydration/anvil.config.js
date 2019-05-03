@@ -1,10 +1,10 @@
 const esnext = require('@financial-times/anvil-plugin-esnext')
-const codeSplitting = require('@financial-times/anvil-plugin-code-splitting')
+const bundleSplitting = require('@financial-times/anvil-plugin-ft-js-bundle-splitting')
 
 module.exports = {
   plugins: [
     esnext.plugin(),
-    codeSplitting.plugin(),
+    bundleSplitting.plugin(),
     plugin
   ],
   settings: {

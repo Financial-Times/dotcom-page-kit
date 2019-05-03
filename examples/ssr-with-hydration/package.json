@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@financial-times/anvil-middleware-assets": "file:../../packages/anvil-middleware-assets",
-    "@financial-times/anvil-plugin-code-splitting": "file:../../packages/anvil-plugin-code-splitting",
+    "@financial-times/anvil-plugin-ft-js-bundle-splitting": "file:../../packages/anvil-plugin-ft-js-bundle-splitting",
     "@financial-times/anvil-server-asset-loader": "file:../../packages/anvil-server-asset-loader",
     "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
     "express": "^4.16.2",
