@@ -60,7 +60,7 @@ export function Layout({
   return (
     <div className="n-layout">
       <a
-        data-trackable="a11y-survey-screen-reader"
+        data-trackable="a11y-skip-to-help"
         className="n-layout__skip-link"
         href="https://www.ft.com/accessibility">
         Accessibility help
