@@ -11,6 +11,7 @@ import { getInitialProps, getDependencies } from '../libs/ssr/server'
 const app = express()
 const port = 3000
 const assets = new AssetLoader({
+  publicPath: '/assets',
   fileSystemPath: path.resolve('./dist'),
   manifestFileName: 'manifest.json'
 })
@@ -28,7 +29,7 @@ routes.forEach(async (route) => {
       pageTitle: Page.title,
       description: Page.description,
       initialProps: { $$page: route.name, ...initialProps },
-      enhancedScripts: [polyfillService.enhanced, ...assets.getScriptChunksForEntrypoint('main')]
+      enhancedScripts: [polyfillService.enhanced, ...assets.getScriptURLsFor('main')]
     }
 
     const markup = renderToString(
