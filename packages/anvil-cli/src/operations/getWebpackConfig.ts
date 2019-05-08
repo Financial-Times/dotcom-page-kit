@@ -14,7 +14,6 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
   const manifestPluginOptions = { output: manifestFileName, entrypoints: true }
   const cleanWebpackPluginOptions = { verbose: false }
 
-  publish(hooks.ENTRYPOINTS, entryOptions)
   publish(hooks.MANIFEST_PLUGIN_OPTIONS, manifestPluginOptions)
   publish(hooks.CLEAN_WEBPACK_PLUGIN_OPTIONS, cleanWebpackPluginOptions)
 
