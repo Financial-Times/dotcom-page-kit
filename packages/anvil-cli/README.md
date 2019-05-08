@@ -1,11 +1,11 @@
-# Anvil Command Line Interface
+# @financial-times/anvil-cli
 
 This Anvil CLI provides a suite of actions to assemble modern Web projects. The CLI can be extended via plugins to provide additional functionality.
 
 
 ## Getting started
 
-This module is compatible with Node 10+ and is distributed on npm.
+This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
 npm install --save-dev @financial-times/anvil
@@ -151,6 +151,42 @@ For convenience the build action can watch source files and trigger a rebuild wh
 anvil build --watch
 ```
 
-## Writing a plugin
+#### Extending
 
-TODO
+_Please note: The hooks below are listed in the order they will be executed._
+
+##### `webpackConfig::entry`
+
+The [entry points] configuration object. If you have configured this in `anvil.config.js` then this will be the same object.
+
+[entry points]: https://webpack.js.org/concepts/entry-points/
+
+##### `webpackConfig::plugins::manifestPlugin::options`
+
+Configuration options for the [manifest generation plugin](https://github.com/webdeveric/webpack-assets-manifest).
+
+##### `webpackConfig::plugins::cleanWebpackPlugin::paths`
+
+An array of paths to cleanup before running a build.
+
+##### `webpackConfig::plugins::cleanWebpackPlugin::options`
+
+Configuration options for the [clean plugin](https://github.com/johnagan/clean-webpack-plugin).
+
+##### `babelConfig`
+
+Configuration options for [Babel](https://babeljs.io/docs/en/options).
+
+##### `babelConfig::preset::env::options`
+
+Configuration options for [Babel Preset Env](https://babeljs.io/docs/en/babel-preset-env#options).
+
+##### `webpackConfig::jsRule`
+
+The Webpack [rule] for handling JavaScript files.
+
+[rule]: https://webpack.js.org/configuration/module/#rule
+
+##### `webpackConfig`
+
+The complete Webpack configuration object.

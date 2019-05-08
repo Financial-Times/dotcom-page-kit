@@ -1,4 +1,5 @@
 import get from 'lodash.get'
+import { hooks } from '../entities/hooks'
 import { CliContext } from '../entities/CliContext'
 
 /**
@@ -23,12 +24,13 @@ export function getBabelConfig(cli?: CliContext) {
     sourceType: 'unambiguous',
     presets: [[require.resolve('@babel/preset-env'), presetEnvOpts]],
     plugins: [],
-    babelrc: true
+    babelrc: true,
+    cacheDirectory: true
   }
 
   if (cli) {
-    cli.publish('babelConfig', babelConfig)
-    cli.publish('babelConfig::preset::env::options', presetEnvOpts)
+    cli.publish(hooks.BABEL_CONFIG, babelConfig)
+    cli.publish(hooks.BABEL_PRESET_ENV_OPTIONS, presetEnvOpts)
   }
 
   return babelConfig
