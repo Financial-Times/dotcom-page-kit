@@ -3,6 +3,7 @@ import delve from 'dlv'
 
 import { TNavigationLinks } from './types'
 import { Navigation, TNavOptions, TNavMenus } from '@financial-times/anvil-server-ft-navigation'
+import { navigationEditions } from './navigation-editions'
 
 type MiddlewareOptions = TNavOptions & {
   enableSubNavigation?: boolean
@@ -38,9 +39,9 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
       ])
       const currentPath = request.path
 
-      // response.locals.editions is set by cookie (on ft.com by visiting /?edition={edition})
-      // defaults to "uk"
+      response.locals.editions = navigationEditions(request, response)
       const edition = delve(response.locals.editions, 'current.id', 'uk')
+
       response.locals.navigation = { currentPath, subNavigation, ...getNavigationLinks(menuData, edition) }
 
       next()
