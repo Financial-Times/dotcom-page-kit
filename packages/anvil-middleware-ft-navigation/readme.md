@@ -1,6 +1,6 @@
 # @financial-times/anvil-middleware-ft-navigation
 
-This package provides an [Express] compatible middleware which integrates the [FT Navigation] package into your application and adds the navigation data to each response making it available to your application's route handlers. This data is required to render the navigation components [header] and [footer].
+This package provides an [Express] compatible middleware which integrates the [FT Navigation] package into your application and adds the navigation data, including editions data, to each response making it available to your application's route handlers. This data is required to render the navigation components [header] and [footer].
 
 [Express]: https://expressjs.com/
 [FT Navigation]: ../anvil-server-ft-navigation/readme.md
@@ -26,11 +26,12 @@ const app = express()
 + app.use(navigation.init())
 ```
 
-Once registered a `navigation` property will be added to the [response locals] object containing the navigation data.
+Once registered, `navigation` and `editions` properties will be added to the [response locals] object containing the navigation data.
 
 ```js
 app.get('/', (request, response) => {
   console.log(response.locals.navigation) // { ... }
+  console.log(response.locals.editions) // { ... }
 })
 ```
 
