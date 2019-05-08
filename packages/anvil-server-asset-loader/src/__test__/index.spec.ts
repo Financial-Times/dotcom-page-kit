@@ -142,7 +142,7 @@ describe('anvil-server-asset-loader', () => {
       expect(result).toEqual(expect.any(Array))
     })
 
-    it('returns an of JS files', () => {
+    it('returns an array of JS files', () => {
       const result = loader.getScriptFilesFor('main')
 
       expect(result.length).toBe(3)
@@ -154,18 +154,61 @@ describe('anvil-server-asset-loader', () => {
   })
 
   describe('.getStylesheetFilesFor()', () => {
-    it('returns an array', () => {
-      const result = loader.getStylesheetFilesFor('main')
-      expect(result).toEqual(expect.any(Array))
-    })
-
-    it('returns an of CSS files', () => {
+    it('returns an array of CSS files', () => {
       const result = loader.getStylesheetFilesFor('main')
 
       expect(result.length).toBe(2)
 
       result.forEach((item) => {
         expect(item).toMatch(/\.css$/)
+      })
+    })
+  })
+
+  describe('.getScriptPathsFor()', () => {
+    it('returns an array of JS file paths', () => {
+      const result = loader.getScriptPathsFor('main')
+
+      expect(result.length).toBe(3)
+
+      result.forEach((item) => {
+        expect(item).toMatch(/^\/internal\/path\/to\/assets\/.+\.js$/)
+      })
+    })
+  })
+
+  describe('.getStylesheetPathsFor()', () => {
+    it('returns an array of CSS file paths', () => {
+      const result = loader.getStylesheetPathsFor('main')
+
+      expect(result.length).toBe(2)
+
+      result.forEach((item) => {
+        expect(item).toMatch(/^\/internal\/path\/to\/assets\/.+\.css$/)
+      })
+    })
+  })
+
+  describe('.getScriptURLsFor()', () => {
+    it('returns an array of JS file URLs', () => {
+      const result = loader.getScriptURLsFor('main')
+
+      expect(result.length).toBe(3)
+
+      result.forEach((item) => {
+        expect(item).toMatch(/^\public\/assets\/.+\.js$/)
+      })
+    })
+  })
+
+  describe('.getStylesheetURLsFor()', () => {
+    it('returns an array of CSS file URLs', () => {
+      const result = loader.getStylesheetURLsFor('main')
+
+      expect(result.length).toBe(2)
+
+      result.forEach((item) => {
+        expect(item).toMatch(/^\public\/assets\/.+\.css$/)
       })
     })
   })

@@ -101,18 +101,28 @@ export class AssetLoader {
   }
 
   getFileSystemPath(asset: string): string {
-    const hashedAsset = this.getHashedAsset(asset)
-    return path.join(this.options.fileSystemPath, hashedAsset)
+    return this.formatFileSystemPath(this.getHashedAsset(asset))
   }
 
   getPublicURL(asset: string): string {
-    const hashedAsset = this.getHashedAsset(asset)
-    // Do not use path.join() as separator is platform specific
-    return this.options.publicPath ? `${this.options.publicPath}/${hashedAsset}` : hashedAsset
+    return this.formatPublicURL(this.getHashedAsset(asset))
   }
 
   getPublicURLOfHashedAssetsMatching(pattern: string | RegExp | Function): string[] {
     return this.matchAssets(pattern).map((asset) => this.getPublicURL(asset))
+  }
+
+  //
+  // File name prefix methods
+  //
+
+  formatPublicURL(hashedAsset: string): string {
+    // Do not use path.join() as separator is platform specific, e.g. "\" on Windows
+    return this.options.publicPath ? `${this.options.publicPath}/${hashedAsset}` : hashedAsset
+  }
+
+  formatFileSystemPath(hashedAsset: string): string {
+    return path.join(this.options.fileSystemPath, hashedAsset)
   }
 
   //
@@ -133,6 +143,22 @@ export class AssetLoader {
 
   getStylesheetFilesFor(entrypoint: string): string[] {
     return this.getFilesFor(entrypoint).css || []
+  }
+
+  getScriptPathsFor(entrypoint: string): string[] {
+    return this.getScriptFilesFor(entrypoint).map(this.formatFileSystemPath.bind(this))
+  }
+
+  getStylesheetPathsFor(entrypoint: string): string[] {
+    return this.getStylesheetFilesFor(entrypoint).map(this.formatFileSystemPath.bind(this))
+  }
+
+  getScriptURLsFor(entrypoint: string): string[] {
+    return this.getScriptFilesFor(entrypoint).map(this.formatPublicURL.bind(this))
+  }
+
+  getStylesheetURLsFor(entrypoint: string): string[] {
+    return this.getStylesheetFilesFor(entrypoint).map(this.formatPublicURL.bind(this))
   }
 }
 

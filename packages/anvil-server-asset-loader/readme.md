@@ -35,6 +35,13 @@ const assetPath = assetLoader.getFileSystemPath('main.css')
 const assetURL = assetLoader.getPublicURL('main.css')
 ```
 
+If you have configured your build step to split code into multiple files - such as when using Webpack's code splitting functionality - and are including this information in your manifest file then the asset loader also provides methods to retrieve it:
+
+```js
+const scriptURLs = assetLoader.getScriptURLsFor('main')
+const stylesheetURLs = assetLoader.getStylesheetURLsFor('main')
+```
+
 
 ## API
 
@@ -68,11 +75,27 @@ If the manifest file supports listing files generated for each entry point (whic
 
 ### `getScriptFilesFor(entrypoint: string)`
 
-Returns an array of JavaScript file names generated for an entry point.
+Returns an array of JavaScript output file names generated for an entry point.
 
 ### `getStylesheetFilesFor(entrypoint: string)`
 
-Returns an array of Stylesheet file names generated for an entry point.
+Returns an array of Stylesheet output file names generated for an entry point.
+
+### `getScriptPathsFor(entrypoint: string)`
+
+Returns an array of JavaScript file system paths generated for an entry point.
+
+### `getStylesheetPathsFor(entrypoint: string)`
+
+Returns an array of Stylesheet file system paths generated for an entry point.
+
+### `getScriptURLsFor(entrypoint: string)`
+
+Returns an array of JavaScript file URLs generated for an entry point.
+
+### `getStylesheetURLsFor(entrypoint: string)`
+
+Returns an array of Stylesheet file URLs generated for an entry point.
 
 
 ## Options
