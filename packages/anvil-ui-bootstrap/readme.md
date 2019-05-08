@@ -23,6 +23,18 @@ After installing the package you should add `no-js` and `core` class names to yo
 + <html class="no-js core">
 ```
 
+Because the bootstrap is intended to load scripts asynchronously and as early as possible you should always check that the DOM is ready before initialising your client-side code. We recommend using the [dom-ready] library which provides a promise-based interface for this:
+
+```js
+import domLoaded from 'dom-loaded'
+
+domLoaded.then(() => {
+  console.log('Ready!')
+})
+```
+
+[dom-loaded]: https://github.com/sindresorhus/dom-loaded
+
 ### Server-side integration
 
 _Please note_ that the bootstrap code should be embedded in the `<head>` section of your pages to ensure scripts begin downloading as soon as possible.

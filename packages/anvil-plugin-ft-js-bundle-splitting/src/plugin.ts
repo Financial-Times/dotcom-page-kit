@@ -28,6 +28,7 @@ export function plugin() {
 
   function addSharedStableBundleSplitting() {
     return createSharedBundleSplittingConfig('shared.stable', [
+      'dom-loaded',
       'superstore',
       'superstore-sync',
       'n-ui-foundations'
