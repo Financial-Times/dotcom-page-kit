@@ -108,7 +108,7 @@ To use the asset loader you must provide a manifest file. If you have implemente
 
 A manifest is a JSON file which provides a map of source file names to their corresponding output file names, e.g.:
 
-```
+```json
 {
   "main.js": "main.1793bd7a.js"
 }
@@ -118,6 +118,30 @@ This is required because many build tools can be configured to write files with 
 
 Plugins to create manifest files are available for most build popular tools:
 
-- [Manifest plugin for Webpack](https://www.npmjs.com/package/webpack-manifest-plugin)
+- [Manifest plugin for Webpack](https://github.com/webdeveric/webpack-assets-manifest)
 - [Manifest plugin for Parcel](https://www.npmjs.com/package/parcel-plugin-bundle-manifest)
 - [Hash plugin with manifest support for Rollup](https://www.npmjs.com/package/rollup-plugin-hash-manifest)
+
+If your build step is configured to split code into multiple files this information should also be included in the manifest so that the associations between files are preserved. For example when using the [webpack-assets-manifest] plugin with Webpack it can be configured to output an `entrypoints` block like this:
+
+```json
+{
+  "main.js": "main.1793bd7a.js",
+  "secondary.js": "secondary.jh340230.js",
+  "1.js": "1.jh340230.js",
+  "2.js": "2.i1s842n3.js",
+  "3.js": "3.as128n19.js",
+  "entrypoints": {
+    "main": {
+      "js": ["main.1793bd7a.js", "1.jh340230.js", "2.i1s842n3.js"]
+    },
+    "secondary": {
+      "js": ["secondary.1793bd7a.js", "1.jh340230.js", "3.as128n19.js"]
+    }
+  }
+}
+```
+
+With this information it is possible to retrieve all of the files required for the "main" JavaScript entry point and for the "secondary" entry point.
+
+[webpack-assets-manifest]: https://github.com/webdeveric/webpack-assets-manifest
