@@ -13,7 +13,7 @@ This module is compatible with Node 10+ and is distributed on npm.
 npm install --save @financial-times/anvil-ui-ft-header
 ```
 
-Create an [Express] server using the [anvil-middleware-ft-edition] and [anvil-middleware-ft-navigation] middlewares.
+Create an [Express] server using the [anvil-middleware-ft-navigation] middleware.
 
 ### Server-side
 
@@ -148,6 +148,5 @@ The storybook will launch on port: 9001. The header stories will be available un
 [Origami Navigation Service]: https://www.ft.com/__origami/service/navigation/v2/
 [anvil-ui-ft-footer]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ui-ft-footer
 [anvil-server-ft-navigation]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-ft-navigation
-[anvil-middleware-ft-edition]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-middleware-ft-edition
 [anvil-middleware-ft-navigation]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-middleware-ft-navigation
 [`o-header__top-link--myft`]: https://github.com/Financial-Times/n-myft-ui/blob/master/components/unread-articles-indicator/index.js#L55
