@@ -1,11 +1,11 @@
-# anvil-server-asset-loader
+# @financial-times/anvil-server-asset-loader
 
 This package provides functions to help applications locate their static assets from wherever they are output.
 
 
 ### Getting started
 
-This module is compatible with Node 10+ and is distributed on npm.
+This package is compatible with Node 8+ and is distributed on npm.
 
 ```bash
 npm install -S @financial-times/anvil-server-asset-loader
