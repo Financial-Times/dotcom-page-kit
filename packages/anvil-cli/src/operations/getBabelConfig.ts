@@ -23,7 +23,8 @@ export function getBabelConfig(cli?: CliContext) {
     sourceType: 'unambiguous',
     presets: [[require.resolve('@babel/preset-env'), presetEnvOpts]],
     plugins: [],
-    babelrc: true
+    babelrc: true,
+    cacheDirectory: true
   }
 
   if (cli) {

@@ -41,10 +41,7 @@ export function getWebpackConfig({ options, workingDir, config, publish, cli }: 
           exclude: [/node_modules/],
           use: {
             loader: require.resolve('babel-loader'),
-            options: {
-              ...getBabelConfig(cli),
-              cacheDirectory: true
-            }
+            options: getBabelConfig(cli)
           }
         })
       ]
