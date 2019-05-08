@@ -155,12 +155,6 @@ anvil build --watch
 
 _Please note: The hooks below are listed in the order they will be executed._
 
-##### `webpackConfig::entry`
-
-The [entry points] configuration object. If you have configured this in `anvil.config.js` then this will be the same object.
-
-[entry points]: https://webpack.js.org/concepts/entry-points/
-
 ##### `webpackConfig::plugins::manifestPlugin::options`
 
 Configuration options for the [manifest generation plugin](https://github.com/webdeveric/webpack-assets-manifest).
