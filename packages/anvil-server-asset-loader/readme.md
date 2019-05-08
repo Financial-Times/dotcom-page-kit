@@ -62,17 +62,17 @@ Returns an array of output file names whose source file name matches the supplie
 
 Match source file names based on a pattern which may be useful when output is split into multiple files.
 
-### `getChunksForEntrypoint(entrypoint: string)`
+### `getFilesFor(entrypoint: string)`
 
-If the manifest file supports listing chunks generated for each entrypoint (which is the case if you are using the [Anvil CLI](../anvil-cli/readme.md)) this method can be used to return a list of chunks organised by type.
+If the manifest file supports listing files generated for each entry point (which is the case if you are using the [Anvil CLI](../anvil-cli/readme.md)) this method can be used to return a list of all files organised by type.
 
-### `getScriptChunksForEntrypoint(entrypoint: string)`
+### `getScriptFilesFor(entrypoint: string)`
 
-Returns the JavaScript chunks generated for an entrypoint.
+Returns an array of JavaScript file names generated for an entry point.
 
-### `getStylesheetChunksForEntrypoint(entrypoint: string)`
+### `getStylesheetFilesFor(entrypoint: string)`
 
-Returns the CSS chunks generated for an entrypoint.
+Returns an array of Stylesheet file names generated for an entry point.
 
 
 ## Options

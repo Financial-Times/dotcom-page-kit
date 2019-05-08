@@ -122,28 +122,30 @@ describe('anvil-server-asset-loader', () => {
     })
   })
 
-  describe('.getChunksForEntrypoint()', () => {
-    it('returns all chunk types', () => {
-      const result = loader.getChunksForEntrypoint('main')
+  describe('.getFilesFor()', () => {
+    it('returns all file types', () => {
+      const result = loader.getFilesFor('main')
 
       expect(Object.keys(result)).toEqual(['js', 'css'])
       expect(result.js).toEqual(expect.any(Array))
       expect(result.css).toEqual(expect.any(Array))
     })
 
-    it('throws if the entrypoint cannot be found', () => {
-      expect(() => loader.getChunksForEntrypoint('third')).toThrow()
+    it('throws if the entry point cannot be found', () => {
+      expect(() => loader.getFilesFor('third')).toThrow()
     })
   })
 
-  describe('.getScriptChunksForEntrypoint()', () => {
+  describe('.getScriptFilesFor()', () => {
     it('returns an array', () => {
-      const result = loader.getScriptChunksForEntrypoint('main')
+      const result = loader.getScriptFilesFor('main')
       expect(result).toEqual(expect.any(Array))
     })
 
-    it('returns an of JS chunks', () => {
-      const result = loader.getScriptChunksForEntrypoint('main')
+    it('returns an of JS files', () => {
+      const result = loader.getScriptFilesFor('main')
+
+      expect(result.length).toBe(3)
 
       result.forEach((item) => {
         expect(item).toMatch(/\.js$/)
@@ -151,14 +153,16 @@ describe('anvil-server-asset-loader', () => {
     })
   })
 
-  describe('.getStylesheetChunksForEntrypoint()', () => {
+  describe('.getStylesheetFilesFor()', () => {
     it('returns an array', () => {
-      const result = loader.getStylesheetChunksForEntrypoint('main')
+      const result = loader.getStylesheetFilesFor('main')
       expect(result).toEqual(expect.any(Array))
     })
 
-    it('returns an of CSS chunks', () => {
-      const result = loader.getStylesheetChunksForEntrypoint('main')
+    it('returns an of CSS files', () => {
+      const result = loader.getStylesheetFilesFor('main')
+
+      expect(result.length).toBe(2)
 
       result.forEach((item) => {
         expect(item).toMatch(/\.css$/)

@@ -53,7 +53,7 @@ type TFiles = {
   [name: string]: string
 }
 
-type TManifest = TEntrypoints & TFiles
+export type TManifest = TEntrypoints & TFiles
 
 export class AssetLoader {
   public options: AssetLoaderOptions
@@ -115,7 +115,11 @@ export class AssetLoader {
     return this.matchAssets(pattern).map((asset) => this.getPublicURL(asset))
   }
 
-  getChunksForEntrypoint(entrypoint: string): TEntrypoint {
+  //
+  // Webpack entry point methods
+  //
+
+  getFilesFor(entrypoint: string): TEntrypoint {
     if (this.manifest.entrypoints && this.manifest.entrypoints[entrypoint]) {
       return this.manifest.entrypoints[entrypoint]
     } else {
@@ -123,12 +127,12 @@ export class AssetLoader {
     }
   }
 
-  getScriptChunksForEntrypoint(entrypoint: string): string[] {
-    return this.getChunksForEntrypoint(entrypoint).js || []
+  getScriptFilesFor(entrypoint: string): string[] {
+    return this.getFilesFor(entrypoint).js || []
   }
 
-  getStylesheetChunksForEntrypoint(entrypoint: string): string[] {
-    return this.getChunksForEntrypoint(entrypoint).css || []
+  getStylesheetFilesFor(entrypoint: string): string[] {
+    return this.getFilesFor(entrypoint).css || []
   }
 }
 
