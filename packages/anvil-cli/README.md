@@ -165,10 +165,6 @@ The [entry points] configuration object. If you have configured this in `anvil.c
 
 Configuration options for the [manifest generation plugin](https://github.com/webdeveric/webpack-assets-manifest).
 
-##### `webpackConfig::plugins::cleanWebpackPlugin::paths`
-
-An array of paths to cleanup before running a build.
-
 ##### `webpackConfig::plugins::cleanWebpackPlugin::options`
 
 Configuration options for the [clean plugin](https://github.com/johnagan/clean-webpack-plugin).

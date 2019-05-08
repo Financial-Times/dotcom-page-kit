@@ -27,7 +27,7 @@
     "@financial-times/anvil-pluggable": "file:../anvil-pluggable",
     "ansi-escapes": "^3.1.0",
     "babel-loader": "^8.0.5",
-    "clean-webpack-plugin": "^0.1.19",
+    "clean-webpack-plugin": "^2.0.2",
     "cli-progress": "^2.1.0",
     "commander": "^2.19.0",
     "inquirer": "^6.2.0",
