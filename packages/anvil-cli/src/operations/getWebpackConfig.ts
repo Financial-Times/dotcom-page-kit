@@ -5,19 +5,17 @@ import { getBabelConfig } from './getBabelConfig'
 import ManifestPlugin from 'webpack-assets-manifest'
 import CleanWebpackPlugin from 'clean-webpack-plugin'
 
-export function getWebpackConfig({ options, workingDir, config, publish, cli }: CliContext) {
+export function getWebpackConfig({ options, config, publish, cli }: CliContext) {
   const isDevMode = options.development
   const entryOptions = get(config, 'settings.build.entry') || options.entryFile
   const outputPath = get(config, 'settings.build.outputPath') || options.outputPath
   const outputFileName = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
   const manifestFileName = get(config, 'settings.build.manifestFileName') || 'manifest.json'
   const manifestPluginOptions = { output: manifestFileName, entrypoints: true }
-  const cleanWebpackPluginPaths = [outputPath]
-  const cleanWebpackPluginOptions = { root: workingDir, verbose: false }
+  const cleanWebpackPluginOptions = { verbose: false }
 
   publish(hooks.ENTRYPOINTS, entryOptions)
   publish(hooks.MANIFEST_PLUGIN_OPTIONS, manifestPluginOptions)
-  publish(hooks.CLEAN_WEBPACK_PLUGIN_PATHS, cleanWebpackPluginPaths)
   publish(hooks.CLEAN_WEBPACK_PLUGIN_OPTIONS, cleanWebpackPluginOptions)
 
   return publish(hooks.WEBPACK_CONFIG, {
@@ -45,10 +43,7 @@ export function getWebpackConfig({ options, workingDir, config, publish, cli }: 
         })
       ]
     },
-    plugins: [
-      new CleanWebpackPlugin(cleanWebpackPluginPaths, cleanWebpackPluginOptions),
-      new ManifestPlugin(manifestPluginOptions)
-    ],
+    plugins: [new CleanWebpackPlugin(cleanWebpackPluginOptions), new ManifestPlugin(manifestPluginOptions)],
     devtool: isDevMode ? 'cheap-module-eval-source-map' : 'source-map'
   })
 }
