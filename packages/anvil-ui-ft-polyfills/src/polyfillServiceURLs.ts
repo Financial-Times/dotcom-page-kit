@@ -23,9 +23,7 @@ export const enhanced = formatURL([
 ])
 
 function formatURL(features: string[]): string {
-  // We use a custom CDN configuration on our domain so that we can avoid extra DNS lookups
   const serviceURL = 'https://polyfill.io/v3/polyfill.min.js'
-
   const queryString = querystring.stringify({ features: features.join(','), source: 'next' })
 
   return `${serviceURL}?${queryString}`
