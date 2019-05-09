@@ -1,5 +1,9 @@
 import * as navigation from '..'
 import httpMocks from 'node-mocks-http'
+import * as navEditions from '../navigation-editions'
+
+// Hack so typescript accepts that navigationEditions has mock methods
+const navigationEditions = <jest.Mock<object>>navEditions.navigationEditions
 
 const fakeMenuResponse = {
   'navbar-uk': {
@@ -10,10 +14,6 @@ const fakeMenuResponse = {
     label: 'Navbar International',
     items: [{ label: 'Foo', url: '/world/uk', submenu: null, selected: false }]
   },
-  'navbar-some-edition-id': {
-    label: 'Navbar Fake',
-    items: [{ label: 'Foo', url: '/world/uk', submenu: null, selected: false }]
-  },
   'drawer-uk': {
     label: 'Drawer UK',
     items: [{ label: 'Foo', url: '/world/uk', submenu: null, selected: false }]
@@ -21,10 +21,6 @@ const fakeMenuResponse = {
   'drawer-international': {
     label: 'Drawer International',
     items: [{ label: 'Bar', url: '/fake-item?location=/world/uk', submenu: null, selected: false }]
-  },
-  'drawer-some-edition-id': {
-    label: 'Drawer Fake',
-    items: [{ label: 'Foo', url: '/world/uk', submenu: null, selected: false }]
   },
   footer: {
     label: 'Footer',
@@ -37,6 +33,16 @@ const fakeSubNavigationResponse = {
   subsections: 'some-subsections'
 }
 
+const ukEditionsResponse = {
+  current: { id: 'uk', name: 'UK', url: '/' },
+  others: { id: 'international', name: 'International', url: '/' }
+}
+
+const internationalEditionsResponse = {
+  current: { id: 'international', name: 'International', url: '/' },
+  others: { id: 'uk', name: 'UK', url: '/' }
+}
+
 const fakeMenu = {
   'navbar-right': undefined,
   'navbar-right-anon': undefined,
@@ -45,31 +51,35 @@ const fakeMenu = {
   account: undefined,
   anon: undefined,
   user: undefined,
-  footer: undefined
+  footer: undefined,
+  editions: undefined
 }
 
 const fakeMenuData = {
   ...fakeMenu,
   subNavigation: null,
-  navbar: fakeMenuResponse['navbar-some-edition-id'],
-  drawer: fakeMenuResponse['drawer-some-edition-id'],
-  footer: fakeMenuResponse['footer']
-}
-
-const fakeMenuDataDefault = {
-  ...fakeMenu,
-  subNavigation: null,
   navbar: fakeMenuResponse['navbar-uk'],
   drawer: fakeMenuResponse['drawer-uk'],
-  footer: fakeMenuResponse['footer']
+  footer: fakeMenuResponse['footer'],
+  editions: ukEditionsResponse
+}
+
+const fakeMenuDataInternational = {
+  ...fakeMenu,
+  subNavigation: null,
+  navbar: fakeMenuResponse['navbar-international'],
+  drawer: fakeMenuResponse['drawer-international'],
+  footer: fakeMenuResponse['footer'],
+  editions: internationalEditionsResponse
 }
 
 const fakeMenuDataWithSubNavigation = {
   ...fakeMenu,
   subNavigation: fakeSubNavigationResponse,
-  navbar: fakeMenuResponse['navbar-some-edition-id'],
-  drawer: fakeMenuResponse['drawer-some-edition-id'],
-  footer: fakeMenuResponse['footer']
+  navbar: fakeMenuResponse['navbar-uk'],
+  drawer: fakeMenuResponse['drawer-uk'],
+  footer: fakeMenuResponse['footer'],
+  editions: ukEditionsResponse
 }
 
 const FakePoller = {
@@ -88,12 +98,17 @@ jest.mock(
   { virtual: true }
 )
 
+jest.mock('../navigation-editions', () => {
+  return {
+    navigationEditions: jest.fn().mockImplementation(() => ukEditionsResponse)
+  }
+})
+
 describe('anvil-middleware-ft-navigation/index', () => {
   let nav
   let navWithSubNavigation
   let requestMock
   let responseMock
-  let responseMockNoEditions
   let next
 
   beforeEach(() => {
@@ -101,9 +116,6 @@ describe('anvil-middleware-ft-navigation/index', () => {
     navWithSubNavigation = navigation.init({ enableSubNavigation: true })
     requestMock = httpMocks.createRequest()
     responseMock = httpMocks.createResponse({
-      locals: { editions: { current: { id: 'some-edition-id' } } }
-    })
-    responseMockNoEditions = httpMocks.createResponse({
       locals: {}
     })
     next = jest.fn()
@@ -120,18 +132,17 @@ describe('anvil-middleware-ft-navigation/index', () => {
     expect(navWithSubNavigation).toBeInstanceOf(Function)
   })
 
-  describe('without the enableSubNavigation option', () => {
-    it('sets the navigation properties on response.locals', async () => {
-      await nav(requestMock, responseMock, next)
-      expect(responseMock.locals.navigation).toEqual(fakeMenuData)
-    })
-    it('calls the fallthrough function', async () => {
-      await nav(requestMock, responseMock, next)
-      expect(next).toHaveBeenCalled()
-    })
+  it('sets the navigation properties on response.locals', async () => {
+    await nav(requestMock, responseMock, next)
+    expect(responseMock.locals.navigation).toEqual(fakeMenuData)
   })
 
-  describe('with the enableSubNavigation option', () => {
+  it('calls the fallthrough function', async () => {
+    await nav(requestMock, responseMock, next)
+    expect(next).toHaveBeenCalled()
+  })
+
+  describe('when enableSubNavigation is true', () => {
     it('sets the subNavigation properties on response.locals', async () => {
       await navWithSubNavigation(requestMock, responseMock, next)
       expect(responseMock.locals.navigation).toEqual(fakeMenuDataWithSubNavigation)
@@ -142,7 +153,7 @@ describe('anvil-middleware-ft-navigation/index', () => {
     })
   })
 
-  describe('on error', () => {
+  describe('when the response object is invalid', () => {
     const invalidResponseMock = null
     it('catches the error', async () => {
       await nav(requestMock, invalidResponseMock, next)
@@ -150,10 +161,11 @@ describe('anvil-middleware-ft-navigation/index', () => {
     })
   })
 
-  describe('without editions data', () => {
-    it('can handle an empty response.locals', async () => {
-      await nav(requestMock, responseMockNoEditions, next)
-      expect(responseMockNoEditions.locals.navigation).toEqual(fakeMenuDataDefault)
+  describe('when current edition is international', () => {
+    it('returns the international edition', async () => {
+      navigationEditions.mockReturnValue(internationalEditionsResponse)
+      await nav(requestMock, responseMock, next)
+      expect(responseMock.locals.navigation).toEqual(fakeMenuDataInternational)
     })
   })
 })
