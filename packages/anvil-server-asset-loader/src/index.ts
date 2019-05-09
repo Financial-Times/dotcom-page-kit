@@ -53,7 +53,7 @@ type TFiles = {
   [name: string]: string
 }
 
-type TManifest = TEntrypoints & TFiles
+export type TManifest = TEntrypoints & TFiles
 
 export class AssetLoader {
   public options: AssetLoaderOptions
@@ -101,21 +101,35 @@ export class AssetLoader {
   }
 
   getFileSystemPath(asset: string): string {
-    const hashedAsset = this.getHashedAsset(asset)
-    return path.join(this.options.fileSystemPath, hashedAsset)
+    return this.formatFileSystemPath(this.getHashedAsset(asset))
   }
 
   getPublicURL(asset: string): string {
-    const hashedAsset = this.getHashedAsset(asset)
-    // Do not use path.join() as separator is platform specific
-    return this.options.publicPath ? `${this.options.publicPath}/${hashedAsset}` : hashedAsset
+    return this.formatPublicURL(this.getHashedAsset(asset))
   }
 
   getPublicURLOfHashedAssetsMatching(pattern: string | RegExp | Function): string[] {
     return this.matchAssets(pattern).map((asset) => this.getPublicURL(asset))
   }
 
-  getChunksForEntrypoint(entrypoint: string): TEntrypoint {
+  //
+  // File name prefix methods
+  //
+
+  formatPublicURL(hashedAsset: string): string {
+    // Do not use path.join() as separator is platform specific, e.g. "\" on Windows
+    return this.options.publicPath ? `${this.options.publicPath}/${hashedAsset}` : hashedAsset
+  }
+
+  formatFileSystemPath(hashedAsset: string): string {
+    return path.join(this.options.fileSystemPath, hashedAsset)
+  }
+
+  //
+  // Webpack entry point methods
+  //
+
+  getFilesFor(entrypoint: string): TEntrypoint {
     if (this.manifest.entrypoints && this.manifest.entrypoints[entrypoint]) {
       return this.manifest.entrypoints[entrypoint]
     } else {
@@ -123,12 +137,28 @@ export class AssetLoader {
     }
   }
 
-  getScriptChunksForEntrypoint(entrypoint: string): string[] {
-    return this.getChunksForEntrypoint(entrypoint).js || []
+  getScriptFilesFor(entrypoint: string): string[] {
+    return this.getFilesFor(entrypoint).js || []
   }
 
-  getStylesheetChunksForEntrypoint(entrypoint: string): string[] {
-    return this.getChunksForEntrypoint(entrypoint).css || []
+  getStylesheetFilesFor(entrypoint: string): string[] {
+    return this.getFilesFor(entrypoint).css || []
+  }
+
+  getScriptPathsFor(entrypoint: string): string[] {
+    return this.getScriptFilesFor(entrypoint).map(this.formatFileSystemPath.bind(this))
+  }
+
+  getStylesheetPathsFor(entrypoint: string): string[] {
+    return this.getStylesheetFilesFor(entrypoint).map(this.formatFileSystemPath.bind(this))
+  }
+
+  getScriptURLsFor(entrypoint: string): string[] {
+    return this.getScriptFilesFor(entrypoint).map(this.formatPublicURL.bind(this))
+  }
+
+  getStylesheetURLsFor(entrypoint: string): string[] {
+    return this.getStylesheetFilesFor(entrypoint).map(this.formatPublicURL.bind(this))
   }
 }
 

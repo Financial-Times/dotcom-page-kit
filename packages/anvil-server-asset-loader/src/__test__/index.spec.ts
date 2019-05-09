@@ -122,28 +122,30 @@ describe('anvil-server-asset-loader', () => {
     })
   })
 
-  describe('.getChunksForEntrypoint()', () => {
-    it('returns all chunk types', () => {
-      const result = loader.getChunksForEntrypoint('main')
+  describe('.getFilesFor()', () => {
+    it('returns all file types', () => {
+      const result = loader.getFilesFor('main')
 
       expect(Object.keys(result)).toEqual(['js', 'css'])
       expect(result.js).toEqual(expect.any(Array))
       expect(result.css).toEqual(expect.any(Array))
     })
 
-    it('throws if the entrypoint cannot be found', () => {
-      expect(() => loader.getChunksForEntrypoint('third')).toThrow()
+    it('throws if the entry point cannot be found', () => {
+      expect(() => loader.getFilesFor('third')).toThrow()
     })
   })
 
-  describe('.getScriptChunksForEntrypoint()', () => {
+  describe('.getScriptFilesFor()', () => {
     it('returns an array', () => {
-      const result = loader.getScriptChunksForEntrypoint('main')
+      const result = loader.getScriptFilesFor('main')
       expect(result).toEqual(expect.any(Array))
     })
 
-    it('returns an of JS chunks', () => {
-      const result = loader.getScriptChunksForEntrypoint('main')
+    it('returns an array of JS files', () => {
+      const result = loader.getScriptFilesFor('main')
+
+      expect(result.length).toBe(3)
 
       result.forEach((item) => {
         expect(item).toMatch(/\.js$/)
@@ -151,17 +153,62 @@ describe('anvil-server-asset-loader', () => {
     })
   })
 
-  describe('.getStylesheetChunksForEntrypoint()', () => {
-    it('returns an array', () => {
-      const result = loader.getStylesheetChunksForEntrypoint('main')
-      expect(result).toEqual(expect.any(Array))
-    })
+  describe('.getStylesheetFilesFor()', () => {
+    it('returns an array of CSS files', () => {
+      const result = loader.getStylesheetFilesFor('main')
 
-    it('returns an of CSS chunks', () => {
-      const result = loader.getStylesheetChunksForEntrypoint('main')
+      expect(result.length).toBe(2)
 
       result.forEach((item) => {
         expect(item).toMatch(/\.css$/)
+      })
+    })
+  })
+
+  describe('.getScriptPathsFor()', () => {
+    it('returns an array of JS file paths', () => {
+      const result = loader.getScriptPathsFor('main')
+
+      expect(result.length).toBe(3)
+
+      result.forEach((item) => {
+        expect(item).toMatch(/^\/internal\/path\/to\/assets\/.+\.js$/)
+      })
+    })
+  })
+
+  describe('.getStylesheetPathsFor()', () => {
+    it('returns an array of CSS file paths', () => {
+      const result = loader.getStylesheetPathsFor('main')
+
+      expect(result.length).toBe(2)
+
+      result.forEach((item) => {
+        expect(item).toMatch(/^\/internal\/path\/to\/assets\/.+\.css$/)
+      })
+    })
+  })
+
+  describe('.getScriptURLsFor()', () => {
+    it('returns an array of JS file URLs', () => {
+      const result = loader.getScriptURLsFor('main')
+
+      expect(result.length).toBe(3)
+
+      result.forEach((item) => {
+        expect(item).toMatch(/^\public\/assets\/.+\.js$/)
+      })
+    })
+  })
+
+  describe('.getStylesheetURLsFor()', () => {
+    it('returns an array of CSS file URLs', () => {
+      const result = loader.getStylesheetURLsFor('main')
+
+      expect(result.length).toBe(2)
+
+      result.forEach((item) => {
+        expect(item).toMatch(/^\public\/assets\/.+\.css$/)
       })
     })
   })

@@ -9,7 +9,7 @@
   "entrypoints": {
     "main": {
       "js": ["vendor.foo.12345.bundle.js", "vendor.bar.12345.bundle.js", "main.12345.bundle.js"],
-      "css": ["styles.12345.bundle.css"]
+      "css": ["styles.12345.bundle.css", "lazyload.12345.bundle.css"]
     },
     "secondary": {
       "js": ["vendor.foo.12345.bundle.js", "vendor.baz.12345.bundle.js", "secondary.12345.bundle.js"]
