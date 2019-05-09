@@ -11,4 +11,12 @@ describe('anvil-server-resource-hints/src/getFileType', () => {
   it('throws if the file extension cannot be matched', () => {
     expect(() => subject('style.doc')).toThrow()
   })
+
+  it('supports URLs', () => {
+    expect(subject('http://polyfill.io/v3/bundle.min.js?features=es5,es6')).toEqual('script')
+  })
+
+  it('supports file paths', () => {
+    expect(subject('/assets/public/style.as83hd99.css')).toEqual('style')
+  })
 })
