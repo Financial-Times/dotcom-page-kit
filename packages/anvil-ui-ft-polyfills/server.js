@@ -1,1 +1,1 @@
-module.exports = require('./dist/node/polyfillServiceURLs')
+module.exports = require('./dist/node/index')
