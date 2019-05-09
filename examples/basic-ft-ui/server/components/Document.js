@@ -1,14 +1,15 @@
 const React = require('react')
 const { Shell } = require('@financial-times/anvil-ui-ft-shell')
 const { Layout } = require('@financial-times/anvil-ui-ft-layout')
+const polyfillService = require('@financial-times/anvil-ui-ft-polyfills')
 
 const scripts = ['/dist/client.bundle.js']
 
 const styles = ['/dist/styles.css']
 
 const shellProps = {
-  coreScripts: [],
-  enhancedScripts: scripts,
+  coreScripts: [polyfillService.core],
+  enhancedScripts: [polyfillService.enhanced, ...scripts],
   stylesheets: styles,
   criticalStyles: 'body {background-color:#fff1e5; color:#33302e;}'
 }

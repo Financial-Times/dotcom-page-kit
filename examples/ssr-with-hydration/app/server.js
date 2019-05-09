@@ -1,6 +1,7 @@
 import path from 'path'
 import React from 'react'
 import { Shell } from '@financial-times/anvil-ui-ft-shell'
+import * as polyfillService from '@financial-times/anvil-ui-ft-polyfills'
 import routes from './routes'
 import express from 'express'
 import AssetLoader from '@financial-times/anvil-server-asset-loader'
@@ -27,7 +28,7 @@ routes.forEach(async (route) => {
       pageTitle: Page.title,
       description: Page.description,
       initialProps: { $$page: route.name, ...initialProps },
-      enhancedScripts: assets.getScriptChunksForEntrypoint('main')
+      enhancedScripts: [polyfillService.enhanced, ...assets.getScriptChunksForEntrypoint('main')]
     }
 
     const markup = renderToString(

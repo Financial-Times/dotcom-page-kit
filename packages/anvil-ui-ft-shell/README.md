@@ -1,8 +1,6 @@
 # @financial-times/anvil-ui-ft-shell
 
-This module provides a skeleton HTML document structure for the user-facing applications which comprise FT.com. It includes all of the things you can't see and can render metadata, output dehydrated data, load stylesheets, and [polyfill] and bootstrap client-side JavaScript.
-
-[polyfill]: https://polyfill.io
+This module provides a skeleton HTML document structure for the user-facing applications which comprise FT.com. It includes all of the things you can't see and can render metadata, output dehydrated data, load stylesheets, and bootstrap client-side JavaScript.
 
 
 ## Getting started
@@ -69,11 +67,11 @@ A optional string of HTML to insert into the document `<body>`. This should be u
 
 #### `coreScripts` (string[])
 
-An array of script URLs which will be passed to the [JavaScript bootstrap](../anvil-ui-bootstrap/readme.md) and loaded if the visitor's browser fails the cut the mustard test. _Please note_ that a [Polyfill Service](https://polyfill.io/v3/) bundle URL will be automatically prepended to this list.
+An array of script URLs which will be passed to the [JavaScript bootstrap](../anvil-ui-bootstrap/readme.md) and loaded if the visitor's browser fails the cut the mustard test.
 
 #### `enhancedScripts` (string[])
 
-An array of script URLs which will be passed to the [JavaScript bootstrap](../anvil-ui-bootstrap/readme.md) and loaded if the visitor's browser succeeds in passing the cut the mustard test. _Please note_ that a [Polyfill Service](https://polyfill.io/v3/) bundle URL including es2015, es2016, and es2017 features will be automatically prepended to this list.
+An array of script URLs which will be passed to the [JavaScript bootstrap](../anvil-ui-bootstrap/readme.md) and loaded if the visitor's browser succeeds in passing the cut the mustard test.
 
 #### `stylesheets` (string[])
 
