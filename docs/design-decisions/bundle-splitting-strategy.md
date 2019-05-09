@@ -12,7 +12,7 @@ Code which is sent to browsers is [chunked] into a set of distinct [bundles]. A 
 
 At FT we have a set of separate applications which serve different pages or page components for FT.com but which nonetheless share dependencies and therefore code.
 
-With n-ui an application will build a single code bundle for its own code and n-ui will separately creates a bundle of n-ui-specific code. This leads to duplicate code being downloaded by users as they navigate our site. As an example, the application bundle downloaded when a user visits the home page shares a lot of code with the application bundle downloaded for the stream page but the browser is not able to reuse any of this code because the bundle as a whole has changed.
+With n-ui an application will build a single code bundle for its own code and n-ui will separately create a bundle of n-ui-specific code. This can lead to duplicate code being downloaded by users as they navigate our site. As an example, the application bundle downloaded when a user visits the home page shares a lot of code with the application bundle downloaded for the stream page but the browser is not able to reuse any of this code because the bundle as a whole has changed. n-ui does enable reuse of the n-ui bundle but if the applications are using slightly different versions of n-ui this will also lead to code duplication.
 
 With anvil, applications are responsible for bundling both their own code and any anvil code they depend on. Commonly shared code is chunked into a separate bundles as detailed below to enable reuse by the browser. These steps reduce the chances that multiple copies of common modules will be downloaded as users navigate FT.com.
 
