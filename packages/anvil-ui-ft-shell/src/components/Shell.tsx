@@ -5,7 +5,6 @@ import StyleSheets, { TStylesheetProps } from './StyleSheets'
 import { Flags, TFlagsProps } from '@financial-times/anvil-ui-ft-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/anvil-ui-bootstrap'
 import formatAttributeNames, { TAttributeData } from '../lib/formatAttributeNames'
-import * as polyfillServiceURLs from '../lib/polyfillServiceURLs'
 
 type TShellProps = TDocumentHeadProps &
   TStylesheetProps &
@@ -19,9 +18,6 @@ type TShellProps = TDocumentHeadProps &
   }
 
 function Shell(props: TShellProps) {
-  const coreScripts = [polyfillServiceURLs.core, ...props.coreScripts]
-  const enhancedScripts = [polyfillServiceURLs.enhanced, ...props.enhancedScripts]
-
   return (
     <html {...formatAttributeNames(props.htmlAttributes)} className="no-js core">
       <head>
@@ -33,7 +29,7 @@ function Shell(props: TShellProps) {
         />
         <Flags flags={props.flags} />
         <StyleSheets stylesheets={props.stylesheets} criticalStyles={props.criticalStyles} />
-        <Bootstrap coreScripts={coreScripts} enhancedScripts={enhancedScripts} />
+        <Bootstrap coreScripts={props.coreScripts} enhancedScripts={props.enhancedScripts} />
       </head>
       <Body {...formatAttributeNames(props.bodyAttributes)} contents={props.contents || props.children} />
     </html>
