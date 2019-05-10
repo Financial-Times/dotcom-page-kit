@@ -13,10 +13,10 @@ const defaultOptions: MiddlewareOptions = {
   enableSubNavigation: false
 }
 
-export const getNavigationLinks = (menuData: TNavMenus, edition: string): TNavigationLinks => {
+export const getNavigationLinks = (menuData: TNavMenus, currentEdition: string): TNavigationLinks => {
   const menuKeys = ['account', 'user', 'anon', 'footer', 'navbar-simple', 'navbar-right', 'navbar-right-anon']
-  const navbar = menuData[`navbar-${edition}`]
-  const drawer = menuData[`drawer-${edition}`]
+  const navbar = menuData[`navbar-${currentEdition}`]
+  const drawer = menuData[`drawer-${currentEdition}`]
 
   return menuKeys.reduce(
     (acc, menuId) => {
@@ -39,10 +39,15 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
       ])
       const currentPath = request.path
 
-      response.locals.editions = navigationEditions(request, response)
-      const edition = delve(response.locals.editions, 'current.id', 'uk')
+      const editions = navigationEditions(request, response)
+      const currentEdition = delve(editions, 'current.id', 'uk')
 
-      response.locals.navigation = { currentPath, subNavigation, ...getNavigationLinks(menuData, edition) }
+      response.locals.navigation = {
+        currentPath,
+        subNavigation,
+        ...getNavigationLinks(menuData, currentEdition)
+      }
+      response.locals.navigation.editions = editions
 
       next()
     } catch (error) {

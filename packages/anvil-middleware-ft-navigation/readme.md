@@ -26,12 +26,11 @@ const app = express()
 + app.use(navigation.init())
 ```
 
-Once registered, `navigation` and `editions` properties will be added to the [response locals] object containing the navigation data.
+Once registered, a `navigation` propert will be added to the [response locals] object containing the navigation data.
 
 ```js
 app.get('/', (request, response) => {
   console.log(response.locals.navigation) // { ... }
-  console.log(response.locals.editions) // { ... }
 })
 ```
 
