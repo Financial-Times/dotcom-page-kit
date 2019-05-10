@@ -118,7 +118,11 @@ const TopColumnCenterSticky = (props: THeaderProps) => {
 // The normal header renders either the `navbar-right-anon` or the `navbar-right` data
 const TopColumnRightSticky = (props: THeaderProps) => (
   <div className="o-header__top-column o-header__top-column--right">
-    {props.userIsLoggedIn ? <MyFtSticky /> : <NavListRightAnonSticky {...props} />}
+    {props.userIsLoggedIn ? (
+      <MyFtSticky />
+    ) : props.showUserNavigation ? (
+      <NavListRightAnonSticky {...props} />
+    ) : null}
   </div>
 )
 
