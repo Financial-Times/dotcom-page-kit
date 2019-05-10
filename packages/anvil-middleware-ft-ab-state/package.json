@@ -16,7 +16,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "node-mocks-http": "^1.7.3"
   },
