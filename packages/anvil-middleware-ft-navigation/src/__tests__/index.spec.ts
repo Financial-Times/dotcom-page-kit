@@ -25,22 +25,20 @@ const fakeMenuResponse = {
   footer: {
     label: 'Footer',
     items: [{ label: 'Support', url: null, submenu: { label: null, items: [] } }]
+  },
+  'editions-uk': {
+    current: { id: 'uk', name: 'UK', url: '/' },
+    others: { id: 'international', name: 'International', url: '/' }
+  },
+  'editions-international': {
+    current: { id: 'international', name: 'International', url: '/' },
+    others: { id: 'uk', name: 'UK', url: '/' }
   }
 }
 
 const fakeSubNavigationResponse = {
   breadcrumb: 'some-breadcrumb',
   subsections: 'some-subsections'
-}
-
-const ukEditionsResponse = {
-  current: { id: 'uk', name: 'UK', url: '/' },
-  others: { id: 'international', name: 'International', url: '/' }
-}
-
-const internationalEditionsResponse = {
-  current: { id: 'international', name: 'International', url: '/' },
-  others: { id: 'uk', name: 'UK', url: '/' }
 }
 
 const fakeMenu = {
@@ -61,7 +59,7 @@ const fakeMenuData = {
   navbar: fakeMenuResponse['navbar-uk'],
   drawer: fakeMenuResponse['drawer-uk'],
   footer: fakeMenuResponse['footer'],
-  editions: ukEditionsResponse
+  editions: fakeMenuResponse['editions-uk']
 }
 
 const fakeMenuDataInternational = {
@@ -70,7 +68,7 @@ const fakeMenuDataInternational = {
   navbar: fakeMenuResponse['navbar-international'],
   drawer: fakeMenuResponse['drawer-international'],
   footer: fakeMenuResponse['footer'],
-  editions: internationalEditionsResponse
+  editions: fakeMenuResponse['editions-international']
 }
 
 const fakeMenuDataWithSubNavigation = {
@@ -79,7 +77,7 @@ const fakeMenuDataWithSubNavigation = {
   navbar: fakeMenuResponse['navbar-uk'],
   drawer: fakeMenuResponse['drawer-uk'],
   footer: fakeMenuResponse['footer'],
-  editions: ukEditionsResponse
+  editions: fakeMenuResponse['editions-uk']
 }
 
 const FakePoller = {
@@ -100,7 +98,7 @@ jest.mock(
 
 jest.mock('../navigation-editions', () => {
   return {
-    navigationEditions: jest.fn().mockImplementation(() => ukEditionsResponse)
+    navigationEditions: jest.fn().mockImplementation(() => fakeMenuResponse['editions-uk'])
   }
 })
 
@@ -163,7 +161,7 @@ describe('anvil-middleware-ft-navigation/index', () => {
 
   describe('when current edition is international', () => {
     it('returns the international edition', async () => {
-      navigationEditions.mockReturnValue(internationalEditionsResponse)
+      navigationEditions.mockReturnValue(fakeMenuResponse['editions-international'])
       await nav(requestMock, responseMock, next)
       expect(responseMock.locals.navigation).toEqual(fakeMenuDataInternational)
     })

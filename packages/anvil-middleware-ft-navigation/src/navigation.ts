@@ -45,9 +45,9 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
       response.locals.navigation = {
         currentPath,
         subNavigation,
-        ...getNavigationLinks(menuData, currentEdition)
+        ...getNavigationLinks(menuData, currentEdition),
+        editions
       }
-      response.locals.navigation.editions = editions
 
       next()
     } catch (error) {
