@@ -43,17 +43,14 @@ export type TNavMenuItem = {
   submenu?: TNavMenu | TNavMenuWithColumns
   selected?: boolean
   meganav?: TNavMeganav[]
+  disableTracking?: boolean
 }
-
-// Items can be split into separate "columns" by the navigation service
-// so we'll receive an array of arrays for some submenus.
-export type TNavMenuItems = TNavMenuItem[] | Array<TNavMenuItem[]>
 
 export type TNavMeganav = {
   component: 'sectionlist' | 'articlelist'
   dataset: 'subsections' | 'popular'
   title: string
-  data: TNavMenuItems
+  data: TNavMenuItem[] | TNavMenuItem[][]
 }
 
 export type TNavSubNavigation = {

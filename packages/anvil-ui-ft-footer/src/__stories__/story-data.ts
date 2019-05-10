@@ -1,6 +1,7 @@
-export default {
+import { TFooterProps } from '..'
+
+const fixture: TFooterProps = {
   theme: 'dark',
-  legalOnly: false,
   data: [
     {
       label: 'Support',
@@ -204,3 +205,5 @@ export default {
     }
   ]
 }
+
+export default fixture
