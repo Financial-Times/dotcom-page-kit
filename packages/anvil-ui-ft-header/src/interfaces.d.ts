@@ -1,3 +1,5 @@
+import { TNavMenusForEdition, TNavMenuItem } from '@financial-times/anvil-types-navigation'
+
 export interface THeaderProps {
   variant?: THeaderVariant
   hideOutboundLinks?: boolean
@@ -6,48 +8,40 @@ export interface THeaderProps {
   showUserNav?: boolean
   showSubNavigation?: boolean
   disableSticky?: boolean
-  data: {
-    currentPath?: string
+  data: TNavMenusForEdition & {
+    breadcrumb?: TNavMenuItem[]
+    subsections?: TNavMenuItem[]
     editions: TEditions
-    drawer: TItemSubMenu
-    navbar: TItemSubMenu
-    'navbar-right': TItemSubMenu
-    'navbar-right-anon': TItemSubMenu
-    'navbar-simple': TItemSubMenu
-    breadcrumb: TItem[]
-    subsections: TItem[]
-    user: TUserMenu
   }
-  children?: any
 }
 
 export type THeaderVariant = 'simple' | 'home' | 'sticky' | 'logo-only'
 
-export interface TItemSubMenu {
-  label: string | null
-  items: TItem[]
-}
-export interface TItem {
-  label: string | null
-  url: string | null
-  submenu?: TItemSubMenu | null
-  selected?: boolean
-}
+// export interface TItemSubMenu {
+//   label: string | null
+//   items: TItem[]
+// }
+// export interface TItem {
+//   label: string | null
+//   url: string | null
+//   submenu?: TItemSubMenu | null
+//   selected?: boolean
+// }
 
-export type TUserMenu = {
-  label: string
-  items: TItem[]
-}
+// export type TUserMenu = {
+//   label: string
+//   items: TItem[]
+// }
 
-export type NavListProps = {
-  navbarOptions: any[]
-  variant?: string
-}
+// export type NavListProps = {
+//   navbarOptions: any[]
+//   variant?: string
+// }
 
-export interface IDrawerParent {
-  props: TItem
-  index?
-}
+// export interface IDrawerParent {
+//   props: TItem
+//   index?
+// }
 
 export type TEditions = {
   current: { name: string }

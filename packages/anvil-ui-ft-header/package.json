@@ -21,6 +21,9 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "@financial-times/anvil-types-navigation": "file:../anvil-types-navigation"
+  },
   "devDependencies": {
     "@financial-times/anvil-ui-ft-on-ready": "file:../anvil-ui-ft-on-ready"
   },

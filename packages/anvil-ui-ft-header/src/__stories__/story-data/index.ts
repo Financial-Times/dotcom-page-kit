@@ -1,11 +1,11 @@
-import navbarUk from './navbarUk.json'
-import navbarSimple from './navbarSimple.json'
-import navbarRight from './navbarRight.json'
-import navbarRightAnon from './navbarRightAnon.json'
-import drawerUk from './drawerUk.json'
-import subNavigation from './subNavigationUk.json'
-import editionsUk from './editionsUk.json'
-import user from './user.json'
+import navbarUK from './navbarUK'
+import navbarSimple from './navbarSimple'
+import navbarRight from './navbarRight'
+import navbarRightAnon from './navbarRightAnon'
+import drawerUK from './drawerUK'
+import subNavigation from './subNavigationUK'
+import editionsUK from './editionsUK'
+import user from './user'
 
 import { THeaderProps } from '../../interfaces'
 
@@ -21,14 +21,17 @@ const data: THeaderProps = {
   showSubNavigation: true,
   disableSticky: true,
   data: {
-    navbar: navbarUk,
+    account: null,
+    anon: null,
+    breadcrumb,
+    drawer: drawerUK,
+    editions: editionsUK,
+    footer: null,
+    navbar: navbarUK,
     'navbar-right': navbarRight,
     'navbar-right-anon': navbarRightAnon,
     'navbar-simple': navbarSimple,
-    drawer: drawerUk,
-    breadcrumb,
     subsections,
-    editions: editionsUk,
     user
   }
 }
