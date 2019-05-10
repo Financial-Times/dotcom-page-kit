@@ -26,7 +26,7 @@ const app = express()
 + app.use(navigation.init())
 ```
 
-Once registered, a `navigation` propert will be added to the [response locals] object containing the navigation data.
+Once registered, a `navigation` property will be added to the [response locals] object containing the navigation data.
 
 ```js
 app.get('/', (request, response) => {
