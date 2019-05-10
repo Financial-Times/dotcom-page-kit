@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-plugin-ft-js-bundle-splitting",
+  "name": "@financial-times/anvil-plugin-ft-js-code-splitting",
   "version": "0.0.0",
   "description": "",
   "main": "dist/cjs/index.js",

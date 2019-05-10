@@ -1,7 +1,7 @@
 const css = require('@financial-times/anvil-plugin-css')
 const ftJs = require('@financial-times/anvil-plugin-ft-js')
 const sass = require('@financial-times/anvil-plugin-sass')
-const bundleSplitting = require('@financial-times/anvil-plugin-ft-js-bundle-splitting')
+const bundleSplitting = require('@financial-times/anvil-plugin-ft-js-code-splitting')
 
 module.exports = {
   plugins: [
