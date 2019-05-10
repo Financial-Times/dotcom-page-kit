@@ -13,6 +13,8 @@ describe('anvil-server-resource-hints/src/getFileType', () => {
   })
 
   it('supports URLs', () => {
+    expect(subject('www.example.com/assets/style.css')).toEqual('style')
+    expect(subject('www.example.com/images/graphic.svg#icon')).toEqual('image')
     expect(subject('http://polyfill.io/v3/bundle.min.js?features=es5,es6')).toEqual('script')
   })
 
