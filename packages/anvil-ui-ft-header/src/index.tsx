@@ -43,7 +43,7 @@ function MainHeader(props: THeaderProps) {
     <HeaderWrapper {...props}>
       {includeUserActionsNav ? <UserActionsNav {...props} /> : null}
       <TopWrapper>
-        <TopColumnLeft context="primary" />
+        <TopColumnLeft />
         <TopColumnCenter {...props} />
         <TopColumnRight />
       </TopWrapper>
@@ -94,7 +94,7 @@ function LogoOnly(props?) {
   return (
     <HeaderWrapper {...props}>
       <TopWrapper>
-        <TopColumnCenter />
+        <TopColumnCenter {...props} />
       </TopWrapper>
     </HeaderWrapper>
   )
