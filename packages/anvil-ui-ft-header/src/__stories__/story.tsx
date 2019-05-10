@@ -13,7 +13,7 @@ const toggleVariantOptions = () => radios('Choose variant', { simple: 'simple', 
 const toggleLoggedIn = () => boolean('User is logged in', false)
 const toggleShowSubNav = () => boolean('Show the sub-navigation component', true)
 const toggleDisableSticky = () => boolean('Disable sticky header', false)
-const toggleMobileNav = () => radios('Show mobile nav', { show: '/', hide: '' }, '/')
+const toggleMobileNav = () => radios('Show mobile nav', { show: '/', hide: '/404' }, '/')
 
 const onReadyCallback = () => {
   // Passing a cors-anywhere hostname to n-topic-search
@@ -24,24 +24,12 @@ const onReadyCallback = () => {
 
 storiesOf('FT / Header', module)
   .addDecorator(withKnobs)
-  .add('Default header', () => {
+  .add('Default header with drawer', () => {
     const knobs = {
       showSubNavigation: toggleShowSubNav(),
       showUserNav: toggleUserStateOptions(),
-      userIsLoggedIn: toggleLoggedIn()
-    }
-    storyData.data = { ...storyData.data, currentPath: toggleMobileNav() }
-
-    return (
-      <OnReady callback={onReadyCallback}>
-        <Header {...storyData} {...knobs} />
-      </OnReady>
-    )
-  })
-  .add('With drawer component', () => {
-    const knobs = {
-      showUserNav: toggleUserStateOptions(),
-      userIsLoggedIn: toggleLoggedIn()
+      userIsLoggedIn: toggleLoggedIn(),
+      currentPath: toggleMobileNav()
     }
     storyData.data = { ...storyData.data, currentPath: toggleMobileNav() }
 
