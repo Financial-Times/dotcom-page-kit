@@ -67,3 +67,14 @@ export type TNavSubNavigation = {
   breadcrumb: TNavMenuItem[]
   subsections: TNavMenuItem[]
 }
+
+export type TNavEditions = {
+  current: { name: string }
+  others: TNavEdition[]
+}
+
+export type TNavEdition = {
+  name: string
+  id: string
+  url: string
+}
