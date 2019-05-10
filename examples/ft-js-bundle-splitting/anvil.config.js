@@ -1,6 +1,6 @@
 const js = require('@financial-times/anvil-plugin-ft-js')
 const bower = require('@financial-times/anvil-plugin-bower-resolve');
-const bundleSplitting = require('@financial-times/anvil-plugin-ft-js-bundle-splitting')
+const bundleSplitting = require('@financial-times/anvil-plugin-ft-js-code-splitting')
 
 module.exports = {
   plugins: [

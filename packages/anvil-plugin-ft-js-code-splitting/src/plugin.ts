@@ -1,13 +1,13 @@
 export function plugin() {
   return ({ on }) => {
-    on('webpackConfig', addVendorBundleSplitting)
-    on('webpackConfig', addOrigamiBundleSplitting)
-    on('webpackConfig', addAnvilUiBundleSplitting)
-    on('webpackConfig', addSharedStableBundleSplitting)
-    on('webpackConfig', addSharedVolatileBundleSplitting)
+    on('webpackConfig', addVendorCodeSplitting)
+    on('webpackConfig', addOrigamiCodeSplitting)
+    on('webpackConfig', addAnvilUiCodeSplitting)
+    on('webpackConfig', addSharedStableCodeSplitting)
+    on('webpackConfig', addSharedVolatileCodeSplitting)
   }
 
-  function addVendorBundleSplitting() {
+  function addVendorCodeSplitting() {
     return {
       optimization: {
         splitChunks: {
@@ -18,16 +18,16 @@ export function plugin() {
     }
   }
 
-  function addOrigamiBundleSplitting() {
+  function addOrigamiCodeSplitting() {
     return createSplitByPackagePrefixConfig('origami', 'o-')
   }
 
-  function addAnvilUiBundleSplitting() {
+  function addAnvilUiCodeSplitting() {
     return createSplitByPackagePrefixConfig('anvil-ui', 'anvil-ui-')
   }
 
-  function addSharedStableBundleSplitting() {
-    return createSharedBundleSplittingConfig('shared.stable', [
+  function addSharedStableCodeSplitting() {
+    return createSharedCodeSplittingConfig('shared.stable', [
       'dom-loaded',
       'superstore',
       'superstore-sync',
@@ -35,11 +35,11 @@ export function plugin() {
     ])
   }
 
-  function addSharedVolatileBundleSplitting() {
-    return createSharedBundleSplittingConfig('shared.volatile', ['n-syndication', 'n-feedback'])
+  function addSharedVolatileCodeSplitting() {
+    return createSharedCodeSplittingConfig('shared.volatile', ['n-syndication', 'n-feedback'])
   }
 
-  function createSharedBundleSplittingConfig(name: string, packagesToInclude: string[]) {
+  function createSharedCodeSplittingConfig(name: string, packagesToInclude: string[]) {
     return {
       optimization: {
         // Creates a separate bundle for webpack runtime.

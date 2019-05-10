@@ -1,7 +1,7 @@
 import AssetLoader from '@financial-times/anvil-server-asset-loader'
 
 /**
- * Returns an array of public asset urls that are specific to the FT app bundle splitting strategy
+ * Returns an array of public asset urls that are specific to the FT app code splitting strategy
  */
 export function getFTBundleAssetUrls(assetLoader: AssetLoader) {
   return []
