@@ -8,7 +8,7 @@ const IncludeDrawer = (props) => <Drawer {...props} />
 const Drawer = (props: THeaderProps) => {
   const editions = props.data.editions
   const [primary, secondary, tertiary] = props.data.drawer.items
-  const user = props.data.user
+  const user = props.userIsLoggedIn ? props.data.user : props.data.anon
 
   return (
     <div
