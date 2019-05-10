@@ -36,7 +36,6 @@ const defaultProps: Partial<THeaderProps> = {
 }
 
 function MainHeader(props: THeaderProps) {
-  const navItems = props.data.navbar.items
   const includeUserActionsNav = props.showUserNav && props.userIsAnonymous ? UserActionsNav(props) : null
   const includeSubNavigation = props.data.breadcrumb && props.data.subsections ? SubNavigation(props) : null
 
@@ -49,10 +48,10 @@ function MainHeader(props: THeaderProps) {
         <TopColumnRight />
       </TopWrapper>
       <Search context="primary" />
-      {MobileNav(props)}
+      <MobileNav {...props} />
       <NavDesktop>
-        <NavListLeft navItems={navItems} />
-        <NavListRight {...props} />
+        <NavListLeft {...props} />
+        {props.showUserNav ? <NavListRight {...props} /> : null}
       </NavDesktop>
       {includeSubNavigation}
     </HeaderWrapper>

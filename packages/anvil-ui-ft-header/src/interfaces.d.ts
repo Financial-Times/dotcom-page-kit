@@ -12,6 +12,7 @@ export interface THeaderProps {
     breadcrumb?: TNavMenuItem[]
     subsections?: TNavMenuItem[]
     editions: TEditions
+    currentPath?: string
   }
 }
 
