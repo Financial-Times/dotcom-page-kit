@@ -10,8 +10,8 @@ import './demos.scss'
 
 const toggleUserStateOptions = () => boolean('Enable user nav actions', true)
 const toggleVariantOptions = () => radios('Choose variant', { simple: 'simple', normal: 'normal' }, 'simple')
-const toggleAnonymous = () => boolean('User is anonymous', true)
-const toggleShowSubNav = () => boolean('Show the subNavigation component', true)
+const toggleLoggedIn = () => boolean('User is logged in', false)
+const toggleShowSubNav = () => boolean('Show the sub-navigation component', true)
 const toggleDisableSticky = () => boolean('Disable sticky header', false)
 const toggleMobileNav = () => radios('Show mobile nav', { show: '/', hide: '' }, '/')
 
@@ -28,7 +28,7 @@ storiesOf('FT / Header', module)
     const knobs = {
       showSubNavigation: toggleShowSubNav(),
       showUserNav: toggleUserStateOptions(),
-      userIsAnonymous: toggleAnonymous()
+      userIsLoggedIn: toggleLoggedIn()
     }
     storyData.data = { ...storyData.data, currentPath: toggleMobileNav() }
 
@@ -41,7 +41,7 @@ storiesOf('FT / Header', module)
   .add('With drawer component', () => {
     const knobs = {
       showUserNav: toggleUserStateOptions(),
-      userIsAnonymous: toggleAnonymous()
+      userIsLoggedIn: toggleLoggedIn()
     }
     storyData.data = { ...storyData.data, currentPath: toggleMobileNav() }
 
@@ -55,7 +55,7 @@ storiesOf('FT / Header', module)
   .add('Sticky header', () => {
     const knobs = {
       showUserNav: toggleUserStateOptions(),
-      userIsAnonymous: toggleAnonymous(),
+      userIsLoggedIn: toggleLoggedIn(),
       disableSticky: toggleDisableSticky()
     }
 

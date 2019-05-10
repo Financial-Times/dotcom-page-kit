@@ -36,7 +36,7 @@ const defaultProps: Partial<THeaderProps> = {
 }
 
 function MainHeader(props: THeaderProps) {
-  const includeUserActionsNav = props.showUserNav && props.userIsAnonymous
+  const includeUserActionsNav = props.showUserNav && !props.userIsLoggedIn
   const includeSubNavigation = props.showSubNavigation && (props.data.breadcrumb || props.data.subsections)
 
   return (
