@@ -46,7 +46,7 @@ export type TNavMenuItem = {
   disableTracking?: boolean
 }
 
-export type TNavMeganav = INavMeganavSections | INavMeganavPopular
+export type TNavMeganav = INavMeganavSections | INavMeganavArticles
 
 export interface INavMeganavSections {
   component: 'sectionlist'
@@ -56,7 +56,7 @@ export interface INavMeganavSections {
   data: TNavMenuItem[][]
 }
 
-export interface INavMeganavPopular {
+export interface INavMeganavArticles {
   component: 'articlelist'
   dataset: 'popular'
   title: string
