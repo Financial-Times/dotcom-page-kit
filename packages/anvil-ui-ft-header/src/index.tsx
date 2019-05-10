@@ -27,8 +27,8 @@ import { Search } from './components/search/partials'
 import { THeaderProps } from './interfaces'
 
 const defaultProps: Partial<THeaderProps> = {
-  showUserNav: true,
   showSubNavigation: true,
+  showUserNavigation: true,
   hideOutboundLinks: false,
   userIsAnonymous: true,
   userIsLoggedIn: false,
@@ -36,7 +36,7 @@ const defaultProps: Partial<THeaderProps> = {
 }
 
 function MainHeader(props: THeaderProps) {
-  const includeUserActionsNav = props.showUserNav && !props.userIsLoggedIn
+  const includeUserActionsNav = props.showUserNavigation && !props.userIsLoggedIn
   const includeSubNavigation = props.showSubNavigation && (props.data.breadcrumb || props.data.subsections)
 
   return (
@@ -51,7 +51,7 @@ function MainHeader(props: THeaderProps) {
       <MobileNav {...props} />
       <NavDesktop>
         <NavListLeft {...props} />
-        {props.showUserNav ? <NavListRight {...props} /> : null}
+        {props.showUserNavigation ? <NavListRight {...props} /> : null}
       </NavDesktop>
       {includeSubNavigation ? <SubNavigation {...props} /> : null}
     </HeaderWrapper>

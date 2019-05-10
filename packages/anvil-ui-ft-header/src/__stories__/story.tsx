@@ -27,7 +27,7 @@ storiesOf('FT / Header', module)
   .add('Default header with drawer', () => {
     const knobs = {
       showSubNavigation: toggleShowSubNav(),
-      showUserNav: toggleUserStateOptions(),
+      showUserNavigation: toggleUserStateOptions(),
       userIsLoggedIn: toggleLoggedIn(),
       currentPath: toggleMobileNav()
     }
@@ -42,7 +42,7 @@ storiesOf('FT / Header', module)
   })
   .add('Sticky header', () => {
     const knobs = {
-      showUserNav: toggleUserStateOptions(),
+      showUserNavigation: toggleUserStateOptions(),
       userIsLoggedIn: toggleLoggedIn(),
       disableSticky: toggleDisableSticky()
     }

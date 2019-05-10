@@ -15,11 +15,11 @@ const subsections = subNavigation.children
 
 const data: THeaderProps = {
   // property names are consistent with the navigation service data
-  showUserNav: false,
   hideOutboundLinks: false,
   userIsAnonymous: false,
   userIsLoggedIn: true,
   showSubNavigation: true,
+  showUserNavigation: false,
   disableSticky: true,
   data: {
     account: null,

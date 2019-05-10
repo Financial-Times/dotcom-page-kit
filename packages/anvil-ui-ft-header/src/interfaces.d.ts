@@ -5,8 +5,8 @@ export interface THeaderProps {
   hideOutboundLinks?: boolean
   userIsAnonymous?: boolean
   userIsLoggedIn?: boolean
-  showUserNav?: boolean
   showSubNavigation?: boolean
+  showUserNavigation?: boolean
   disableSticky?: boolean
   data: TNavMenusForEdition &
     TNavSubNavigation & {
