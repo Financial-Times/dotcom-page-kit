@@ -1,7 +1,7 @@
 import React from 'react'
 import { DrawerParentItem, DrawerSingleItem, DrawerSpecialItem, EditionsSwitcher } from './additionalPartials'
-import { THeaderProps, TEditions } from '../../interfaces'
-import { TNavMenuItem, TNavMenu } from '@financial-times/anvil-types-navigation'
+import { THeaderProps } from '../../interfaces'
+import { TNavMenuItem, TNavMenu, TNavEditions } from '@financial-times/anvil-types-navigation'
 
 const IncludeDrawer = (props) => <Drawer {...props} />
 
@@ -37,7 +37,7 @@ const Drawer = (props: THeaderProps) => {
   )
 }
 
-const DrawerTools = (props: TEditions) => (
+const DrawerTools = (props: TNavEditions) => (
   <div className="o-header__drawer-tools">
     <button
       type="button"

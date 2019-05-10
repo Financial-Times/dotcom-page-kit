@@ -1,7 +1,6 @@
 import React from 'react'
-import { TEditions } from '../../interfaces'
 import { ariaSelected } from '../../utils'
-import { TNavMenuItem } from '@financial-times/anvil-types-navigation'
+import { TNavMenuItem, TNavEditions } from '@financial-times/anvil-types-navigation'
 
 export type TDrawerParentItemProps = {
   item: TNavMenuItem
@@ -76,7 +75,7 @@ export const DrawerSpecialItem = (item: TNavMenuItem) => {
   )
 }
 
-export const EditionsSwitcher = (editions: TEditions) => (
+export const EditionsSwitcher = (editions: TNavEditions) => (
   <ul className="o-header__drawer-menu-list">
     {editions.others.map(({ id, name, url }) => {
       const href = `${url}?edition=${id}`

@@ -1,4 +1,4 @@
-import { TNavMenusForEdition, TNavMenuItem } from '@financial-times/anvil-types-navigation'
+import { TNavMenusForEdition, TNavSubNavigation, TNavEditions } from '@financial-times/anvil-types-navigation'
 
 export interface THeaderProps {
   variant?: THeaderVariant
@@ -8,23 +8,11 @@ export interface THeaderProps {
   showUserNav?: boolean
   showSubNavigation?: boolean
   disableSticky?: boolean
-  data: TNavMenusForEdition & {
-    breadcrumb?: TNavMenuItem[]
-    subsections?: TNavMenuItem[]
-    editions: TEditions
-    currentPath?: string
-  }
+  data: TNavMenusForEdition &
+    TNavSubNavigation & {
+      editions: TNavEditions
+      currentPath?: string
+    }
 }
 
 export type THeaderVariant = 'simple' | 'home' | 'sticky' | 'logo-only'
-
-export type TEditions = {
-  current: { name: string }
-  others: TEdition[]
-}
-
-export type TEdition = {
-  name: string
-  id: string
-  url: string
-}

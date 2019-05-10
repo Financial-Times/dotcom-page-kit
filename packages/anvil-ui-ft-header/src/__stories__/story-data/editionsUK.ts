@@ -1,6 +1,6 @@
-import { TEditions } from '../../interfaces'
+import { TNavEditions } from '@financial-times/anvil-types-navigation'
 
-const data: TEditions = {
+const data: TNavEditions = {
   current: { name: 'UK Edition' },
   others: [{ id: 'international', name: 'International Edition', url: '#' }]
 }
