@@ -36,12 +36,12 @@ const defaultProps: Partial<THeaderProps> = {
 }
 
 function MainHeader(props: THeaderProps) {
-  const includeUserActionsNav = props.showUserNav && props.userIsAnonymous ? UserActionsNav(props) : null
-  const includeSubNavigation = props.data.breadcrumb && props.data.subsections ? SubNavigation(props) : null
+  const includeUserActionsNav = props.showUserNav && props.userIsAnonymous
+  const includeSubNavigation = props.showSubNavigation && (props.data.breadcrumb || props.data.subsections)
 
   return (
     <HeaderWrapper {...props}>
-      {includeUserActionsNav}
+      {includeUserActionsNav ? <UserActionsNav {...props} /> : null}
       <TopWrapper>
         <TopColumnLeft context="primary" />
         <TopColumnCenter {...props} />
@@ -53,7 +53,7 @@ function MainHeader(props: THeaderProps) {
         <NavListLeft {...props} />
         {props.showUserNav ? <NavListRight {...props} /> : null}
       </NavDesktop>
-      {includeSubNavigation}
+      {includeSubNavigation ? <SubNavigation {...props} /> : null}
     </HeaderWrapper>
   )
 }
