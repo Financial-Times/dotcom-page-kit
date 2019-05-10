@@ -1,4 +1,5 @@
 import path from 'path'
+import url from 'url'
 
 const StyleFiles = new Set(['.css'])
 
@@ -8,8 +9,12 @@ const ImageFiles = new Set(['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp'])
 
 const FontFiles = new Set(['.woff', '.otf', '.ttf', '.eot'])
 
-export default (filename: string): string => {
-  const extension = path.extname(filename)
+export default (file: string): string => {
+  // Always parse the file so that we can ignore any domain names, query strings etc.
+  // Node's old URL API is able to parse anything inc. filenames, paths, and URLs.
+  const { pathname } = url.parse(file)
+
+  const extension = path.extname(pathname)
 
   if (StyleFiles.has(extension)) {
     return 'style'
