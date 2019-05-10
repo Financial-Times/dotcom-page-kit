@@ -1,6 +1,7 @@
 import React from 'react'
 import { DrawerParentItem, DrawerSingleItem, DrawerSpecialItem, EditionsSwitcher } from './additionalPartials'
-import { THeaderProps, TEditions, TUserMenu, TItem } from '../../interfaces'
+import { THeaderProps, TEditions } from '../../interfaces'
+import { TNavMenuItem, TNavMenu } from '@financial-times/anvil-types-navigation'
 
 const IncludeDrawer = (props) => <Drawer {...props} />
 
@@ -27,9 +28,9 @@ const Drawer = (props: THeaderProps) => {
         <nav className="o-header__drawer-menu o-header__drawer-menu--primary o-header__drawer-menu--border">
           {editions && <EditionsSwitcher {...editions} />}
           <ul className="o-header__drawer-menu-list">
-            <SectionPrimary {...sections[0]} />
-            <SectionSecondary {...sections[1]} />
-            <SectionTertiary {...sections[2]} />
+            <SectionPrimary {...sections[0] as TNavMenuItem} />
+            <SectionSecondary {...sections[1] as TNavMenuItem} />
+            <SectionTertiary {...sections[2] as TNavMenuItem} />
           </ul>
         </nav>
 
@@ -39,7 +40,7 @@ const Drawer = (props: THeaderProps) => {
   )
 }
 
-const DrawerTools = (editions: TEditions) => {
+const DrawerTools = (props: TEditions) => {
   return (
     <div className="o-header__drawer-tools">
       <button
@@ -55,7 +56,7 @@ const DrawerTools = (editions: TEditions) => {
         <span className="o-header__visually-hidden">Financial Times</span>
       </a>
 
-      {editions && <p className="o-header__drawer-current-edition">{editions.current.name}</p>}
+      {props && <p className="o-header__drawer-current-edition">{props.current.name}</p>}
     </div>
   )
 }
@@ -95,14 +96,14 @@ const Search = () => {
   )
 }
 
-const SectionPrimary = ({ label, submenu }: TItem) => {
+const SectionPrimary = ({ label, submenu }: TNavMenuItem) => {
   return (
     <React.Fragment>
       <li className="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{label}</li>
-      {submenu.items.map((item, index) => {
+      {(submenu.items as TNavMenuItem[]).map((item, index) => {
         return (
           <li key={item.url} className="o-header__drawer-menu-item">
-            {item.submenu ? <DrawerParentItem props={item} index={index} /> : <DrawerSingleItem {...item} />}
+            {item.submenu ? <DrawerParentItem item={item} index={index} /> : <DrawerSingleItem {...item} />}
           </li>
         )
       })}
@@ -110,11 +111,11 @@ const SectionPrimary = ({ label, submenu }: TItem) => {
   )
 }
 
-const SectionSecondary = ({ label, submenu }: TItem) => {
+const SectionSecondary = ({ label, submenu }: TNavMenuItem) => {
   return (
     <React.Fragment>
       <li className="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{label}</li>
-      {submenu.items.map((item) => {
+      {(submenu.items as TNavMenuItem[]).map((item) => {
         return (
           <li key={item.url} className="o-header__drawer-menu-item">
             <DrawerSingleItem {...item} />
@@ -125,10 +126,10 @@ const SectionSecondary = ({ label, submenu }: TItem) => {
   )
 }
 
-const SectionTertiary = ({ submenu }: TItem) => {
+const SectionTertiary = ({ submenu }: TNavMenuItem) => {
   return (
     <React.Fragment>
-      {submenu.items.map((item, index) => {
+      {(submenu.items as TNavMenuItem[]).map((item, index) => {
         const divideItem = index === 0 ? 'o-header__drawer-menu-item--divide' : ''
         return (
           <li key={item.url} className={`o-header__drawer-menu-item ${divideItem}`}>
@@ -140,19 +141,17 @@ const SectionTertiary = ({ submenu }: TItem) => {
   )
 }
 
-const UserMenu = (userMenu: TUserMenu) => {
+const UserMenu = ({ items }: TNavMenu) => {
   return (
     <nav className="o-header__drawer-menu o-header__drawer-menu--user" data-trackable="user-nav">
       <ul className="o-header__drawer-menu-list">
-        {userMenu.items.map((item) => {
-          return (
-            <li key={item.url} className="o-header__drawer-menu-item">
-              <a className="o-header__drawer-menu-link" href={item.url} data-trackable={item.label}>
-                {item.label}
-              </a>
-            </li>
-          )
-        })}
+        {items.map((item) => (
+          <li key={item.url} className="o-header__drawer-menu-item">
+            <a className="o-header__drawer-menu-link" href={item.url} data-trackable={item.label}>
+              {item.label}
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
   )

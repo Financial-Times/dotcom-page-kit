@@ -1,31 +1,37 @@
 import React from 'react'
-import { IDrawerParent, TItem, TEditions } from '../../interfaces'
+import { TEditions } from '../../interfaces'
 import { ariaSelected } from '../../utils'
+import { TNavMenuItem } from '@financial-times/anvil-types-navigation'
 
-export const DrawerParentItem = ({ props, index }: IDrawerParent) => {
-  const selected = props.selected ? 'selected' : 'unselected'
+export type TDrawerParentItemProps = {
+  item: TNavMenuItem
+  index: number
+}
+
+export const DrawerParentItem = ({ item, index }: TDrawerParentItemProps) => {
+  const selected = item.selected ? 'selected' : 'unselected'
   return (
     <React.Fragment>
-      <div key={props.url} className="o-header__drawer-menu-toggle-wrapper">
+      <div key={item.url} className="o-header__drawer-menu-toggle-wrapper">
         <a
           className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--parent`}
-          href={props.url}
-          {...ariaSelected(props)}
-          data-trackable={props.label}>
-          {props.label}
+          href={item.url}
+          {...ariaSelected(item)}
+          data-trackable={item.label}>
+          {item.label}
         </a>
         <button
           className={`o-header__drawer-menu-toggle o-header__drawer-menu-toggle--${selected}`}
           aria-controls={`o-header-drawer-child-${index}`}
-          data-trackable={`sub-level-toggle | ${props.label}`}>
-          {`Show more ${props.label} links`}
+          data-trackable={`sub-level-toggle | ${item.label}`}>
+          {`Show more ${item.label} links`}
         </button>
       </div>
       <ul
         className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
         id={`o-header-drawer-child-${index}`}
         data-trackable="sub-level">
-        {props.submenu.items.map((item) => {
+        {(item.submenu.items as TNavMenuItem[]).map((item) => {
           const selected = item.selected ? 'selected' : 'unselected'
           return (
             <li key={item.url} className="o-header__drawer-menu-item">
@@ -44,7 +50,7 @@ export const DrawerParentItem = ({ props, index }: IDrawerParent) => {
   )
 }
 
-export const DrawerSingleItem = (item: TItem) => {
+export const DrawerSingleItem = (item: TNavMenuItem) => {
   const selected = item.selected ? 'selected' : 'unselected'
   return (
     <a
@@ -57,7 +63,7 @@ export const DrawerSingleItem = (item: TItem) => {
   )
 }
 
-export const DrawerSpecialItem = (item: TItem) => {
+export const DrawerSpecialItem = (item: TNavMenuItem) => {
   const selected = item.selected ? 'selected' : 'unselected'
   return (
     <a
