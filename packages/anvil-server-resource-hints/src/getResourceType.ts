@@ -10,8 +10,8 @@ const ImageFiles = new Set(['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp'])
 const FontFiles = new Set(['.woff', '.otf', '.ttf', '.eot'])
 
 export default (file: string): string => {
-  // Always parse so that we can ignore any parts we should ignore such as
-  // a query string. The old URL API accepts filenames, paths, and URLs.
+  // Always parse the file so that we can ignore any domain names, query strings etc.
+  // Node's old URL API is able to parse anything inc. filenames, paths, and URLs.
   const { pathname } = url.parse(file)
 
   const extension = path.extname(pathname)
