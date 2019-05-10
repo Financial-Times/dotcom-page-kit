@@ -64,7 +64,7 @@ function StickyHeader(props: THeaderProps) {
   return props.disableSticky ? null : (
     <StickyHeaderWrapper {...props}>
       <TopWrapperSticky>
-        <TopColumnLeftSticky context="sticky" />
+        <TopColumnLeftSticky />
         <TopColumnCenterSticky {...props} />
         <TopColumnRightSticky {...props} />
       </TopWrapperSticky>
