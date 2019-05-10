@@ -1,4 +1,4 @@
-import { TNavMenu } from '../types'
+import { TNavMenu } from '@financial-times/anvil-types-navigation'
 
 const footer: TNavMenu = {
   label: 'Footer',

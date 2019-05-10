@@ -19,6 +19,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@financial-times/anvil-types-navigation": "file:../anvil-types-navigation",
     "@types/deep-freeze": "^0.1.1",
     "deep-freeze": "0.0.1",
     "ft-poller": "^3.0.1",

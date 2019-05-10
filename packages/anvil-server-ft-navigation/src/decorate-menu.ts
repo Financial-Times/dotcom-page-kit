@@ -1,4 +1,4 @@
-import { TNavMenu, TNavMenuItem } from './types'
+import { TNavMenu, TNavMenuItem } from '@financial-times/anvil-types-navigation'
 
 const isSelected = (url: string, currentPath: string): boolean => {
   return url === currentPath
