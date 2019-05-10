@@ -20,7 +20,7 @@
   "style": "./src/components/drawer/drawer.scss",
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@financial-times/anvil-ui-ft-on-ready": "file:../anvil-ui-ft-on-ready"
   },

@@ -16,7 +16,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@financial-times/anvil-server-ft-navigation": "file:../../packages/anvil-server-ft-navigation",
     "@types/dlv": "1.1.0",

@@ -18,7 +18,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@financial-times/anvil-ui-bootstrap": "file:../anvil-ui-bootstrap",
     "@financial-times/anvil-ui-ft-flags": "file:../anvil-ui-ft-flags"
