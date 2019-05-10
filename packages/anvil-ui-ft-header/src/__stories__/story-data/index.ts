@@ -1,10 +1,11 @@
-import navbarUK from './navbarUK'
-import navbarSimple from './navbarSimple'
+import anon from './anon'
+import drawerUK from './drawerUK'
+import editionsUK from './editionsUK'
 import navbarRight from './navbarRight'
 import navbarRightAnon from './navbarRightAnon'
-import drawerUK from './drawerUK'
+import navbarSimple from './navbarSimple'
+import navbarUK from './navbarUK'
 import subNavigation from './subNavigationUK'
-import editionsUK from './editionsUK'
 import user from './user'
 
 import { THeaderProps } from '../../interfaces'
@@ -22,7 +23,7 @@ const data: THeaderProps = {
   disableSticky: true,
   data: {
     account: null,
-    anon: null,
+    anon,
     breadcrumb,
     drawer: drawerUK,
     editions: editionsUK,
