@@ -1,3 +1,4 @@
+import { hooks } from './hooks'
 import { CliContext } from '@financial-times/anvil-cli'
 
 /**
@@ -23,9 +24,9 @@ export default (cli?: CliContext) => {
   }
 
   if (cli) {
-    cli.publish('babelConfig::plugin::proposalClassProperties::options', classPropertiesPluginOptions)
-    cli.publish('babelConfig::plugin::syntaxDynamicImport::options', syntaxDynamicImportPluginOptions)
-    cli.publish('babelConfig::plugin::transformRuntime::options', transformRuntimePluginOptions)
+    cli.publish(hooks.BABEL_CLASS_PROPERTIES_PLUGIN_OPTIONS, classPropertiesPluginOptions)
+    cli.publish(hooks.BABEL_SYNTAX_DYNAMIC_IMPORT_PLUGIN_OPTIONS, syntaxDynamicImportPluginOptions)
+    cli.publish(hooks.BABEL_TRANSFORM_RUNTIME_PLUGIN_OPTIONS, transformRuntimePluginOptions)
   }
 
   return config
