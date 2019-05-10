@@ -11,7 +11,7 @@ export type TNavMenuKeys =
   | 'navbar-simple'
   | 'user'
 
-export type TNavMenuKeysByEdition =
+export type TNavMenuKeysForEdition =
   | 'account'
   | 'anon'
   | 'drawer'
@@ -24,7 +24,7 @@ export type TNavMenuKeysByEdition =
 
 export type TNavMenus = { [key in TNavMenuKeys]: TNavMenu }
 
-export type TNavMenusByEdition = { [key in TNavMenuKeysByEdition]: TNavMenu }
+export type TNavMenusForEdition = { [key in TNavMenuKeysForEdition]: TNavMenu }
 
 export type TNavMenu = {
   label: string | null

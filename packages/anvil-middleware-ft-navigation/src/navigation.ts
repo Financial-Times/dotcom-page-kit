@@ -1,8 +1,8 @@
 import { Request, Response, NextFunction } from 'express'
 import delve from 'dlv'
 
-import { TNavigationLinks } from './types'
-import { Navigation, TNavOptions, TNavMenus } from '@financial-times/anvil-server-ft-navigation'
+import { TNavMenus, TNavMenusForEdition } from '@financial-times/anvil-types-navigation'
+import { Navigation, TNavOptions } from '@financial-times/anvil-server-ft-navigation'
 import { navigationEditions } from './navigation-editions'
 
 type MiddlewareOptions = TNavOptions & {
@@ -13,18 +13,19 @@ const defaultOptions: MiddlewareOptions = {
   enableSubNavigation: false
 }
 
-export const getNavigationLinks = (menuData: TNavMenus, currentEdition: string): TNavigationLinks => {
+export const getNavigationLinks = (menuData: TNavMenus, currentEdition: string): TNavMenusForEdition => {
   const menuKeys = ['account', 'user', 'anon', 'footer', 'navbar-simple', 'navbar-right', 'navbar-right-anon']
-  const navbar = menuData[`navbar-${currentEdition}`]
-  const drawer = menuData[`drawer-${currentEdition}`]
 
-  return menuKeys.reduce(
-    (acc, menuId) => {
-      acc[menuId] = menuData[menuId]
-      return acc
-    },
-    { navbar, drawer }
-  )
+  const output = {
+    navbar: menuData[`navbar-${currentEdition}`],
+    drawer: menuData[`drawer-${currentEdition}`]
+  }
+
+  for (const key of menuKeys) {
+    output[key] = menuData[key]
+  }
+
+  return output as TNavMenusForEdition
 }
 
 export const init = (userOptions: MiddlewareOptions = {}) => {
