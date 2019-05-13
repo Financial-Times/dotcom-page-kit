@@ -1,3 +1,4 @@
+import { hooks } from './hooks'
 import { PluginOptions } from './types'
 import { CliContext } from '@financial-times/anvil-cli'
 
@@ -39,11 +40,11 @@ export default (pluginOptions: PluginOptions = {}, cli: CliContext) => {
     ]
   }
 
-  cli.publish('babelConfig::preset::react::options', options.presetReact)
-  cli.publish('babelConfig::preset::typescript::options', options.presetTypescript)
-  cli.publish('babelConfig::plugin::proposalClassProperties::options', options.pluginClassProperties)
-  cli.publish('babelConfig::plugin::syntaxDynamicImport::options', options.pluginDynamicImport)
-  cli.publish('babelConfig::plugin::transformRuntime::options', options.pluginTransformRuntime)
+  cli.publish(hooks.BABEL_PRESET_REACT_OPTIONS, options.presetReact)
+  cli.publish(hooks.BABEL_PRESET_TYPESCRIPT_OPTIONS, options.presetTypescript)
+  cli.publish(hooks.BABEL_PLUGIN_CLASS_PROPERTIES_OPTIONS, options.pluginClassProperties)
+  cli.publish(hooks.BABEL_PLUGIN_SYNTAX_DYNAMIC_IMPORT_OPTIONS, options.pluginDynamicImport)
+  cli.publish(hooks.BABEL_PLUGIN_TRANSFORM_RUNTIME_OPTIONS, options.pluginTransformRuntime)
 
   return config
 }
