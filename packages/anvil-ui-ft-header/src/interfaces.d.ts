@@ -2,7 +2,6 @@ import { TNavMenusForEdition, TNavSubNavigation, TNavEditions } from '@financial
 
 export interface THeaderProps {
   variant?: THeaderVariant
-  hideOutboundLinks?: boolean
   userIsAnonymous?: boolean
   userIsLoggedIn?: boolean
   showSubNavigation?: boolean

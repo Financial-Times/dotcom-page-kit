@@ -45,7 +45,6 @@ All variants with the exception of `LogoOnly` require a props object to be passe
 | PROP               | TYPE    | OPTIONAL | DEFAULT  | DESCRIPTION                                                                                       |
 |--------------------|---------|----------|----------|---------------------------------------------------------------------------------------------------|
 | variant            | string  | true     | 'simple' | Serve a variant of the default header element                                                     |
-| hideOutboundLinks  | boolean | true     | false    | An iOS setting which removes the link tag around the ft logo element for Apple compliance reasons |
 | userIsAnonymous    | boolean | true     | true     | Marks a user as anonymous - can be set by middleware included with n-express                      |
 | userIsLoggedIn     | boolean | true     | false    | Marks a user as logged in - can be set by middleware included with n-express                      |
 | showUserNavigation | boolean | true     | true     | Show user navigation options - `Portfolio` and `Account Settings` or `Sign in` and `Subscribe`    |

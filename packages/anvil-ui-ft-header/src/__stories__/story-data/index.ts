@@ -14,8 +14,6 @@ const breadcrumb = subNavigation.ancestors.concat(subNavigation.item)
 const subsections = subNavigation.children
 
 const data: THeaderProps = {
-  // property names are consistent with the navigation service data
-  hideOutboundLinks: false,
   userIsAnonymous: false,
   userIsLoggedIn: true,
   showSubNavigation: true,

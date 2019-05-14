@@ -4,6 +4,7 @@ import {
   TopWrapper,
   TopColumnLeft,
   TopColumnCenter,
+  TopColumnCenterNoLink,
   TopColumnRight
 } from './components/top/partials'
 import {
@@ -29,7 +30,6 @@ import { THeaderProps } from './interfaces'
 const defaultProps: Partial<THeaderProps> = {
   showSubNavigation: true,
   showUserNavigation: true,
-  hideOutboundLinks: false,
   userIsAnonymous: true,
   userIsLoggedIn: false,
   disableSticky: false
@@ -44,7 +44,7 @@ function MainHeader(props: THeaderProps) {
       {includeUserActionsNav ? <UserActionsNav {...props} /> : null}
       <TopWrapper>
         <TopColumnLeft />
-        <TopColumnCenter {...props} />
+        <TopColumnCenter />
         <TopColumnRight />
       </TopWrapper>
       <Search context="primary" />
@@ -90,11 +90,11 @@ function Header(props: THeaderProps) {
 
 Header.defaultProps = defaultProps
 
-function LogoOnly(props?) {
+function LogoOnly(props: THeaderProps) {
   return (
     <HeaderWrapper {...props}>
       <TopWrapper>
-        <TopColumnCenter {...props} />
+        <TopColumnCenterNoLink />
       </TopWrapper>
     </HeaderWrapper>
   )
