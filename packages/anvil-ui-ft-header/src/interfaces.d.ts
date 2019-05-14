@@ -14,4 +14,4 @@ export interface THeaderProps {
     }
 }
 
-export type THeaderVariant = 'simple' | 'home' | 'sticky' | 'logo-only'
+export type THeaderVariant = 'simple' | 'large-logo' | 'logo-only'
