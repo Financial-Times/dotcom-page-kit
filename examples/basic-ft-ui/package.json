@@ -8,12 +8,13 @@
     "build": "anvil build -d",
     "dev": "nodemon server/listen.js",
     "start": "node server/listen.js",
+    "pretest": "npm run build",
     "test": "../../node_modules/.bin/jest"
   },
   "dependencies": {
+    "@financial-times/anvil-middleware-assets": "file:../../packages/anvil-middleware-assets",
     "@financial-times/anvil-middleware-ft-navigation": "file:../../packages/anvil-middleware-ft-navigation",
-    "@financial-times/anvil-ui-ft-footer": "file:../../packages/anvil-ui-ft-footer",
-    "@financial-times/anvil-ui-ft-header": "file:../../packages/anvil-ui-ft-header",
+    "@financial-times/anvil-ui-ft-flags": "file:../../packages/anvil-ui-ft-flags",
     "@financial-times/anvil-ui-ft-layout": "file:../../packages/anvil-ui-ft-layout",
     "@financial-times/anvil-ui-ft-polyfills": "file:../../packages/anvil-ui-ft-polyfills",
     "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
@@ -25,6 +26,7 @@
     "@financial-times/anvil-cli": "file:../../packages/anvil-cli",
     "@financial-times/anvil-plugin-bower-resolve": "file:../../packages/anvil-plugin-bower-resolve",
     "@financial-times/anvil-plugin-ft-js": "file:../../packages/anvil-plugin-ft-js",
+    "@financial-times/anvil-plugin-ft-js-code-splitting": "file:../../packages/anvil-plugin-ft-js-code-splitting",
     "@financial-times/anvil-plugin-sass": "file:../../packages/anvil-plugin-sass",
     "dom-loaded": "^1.2.0",
     "nodemon": "^1.18.9"

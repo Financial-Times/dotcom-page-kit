@@ -1,12 +1,11 @@
 const express = require('express')
-
-const navigationMiddleware = require('@financial-times/anvil-middleware-ft-navigation')
+const navigation = require('@financial-times/anvil-middleware-ft-navigation')
+const assets = require('@financial-times/anvil-middleware-assets')
 
 const app = express()
 
-app.use(navigationMiddleware.init())
+app.use(navigation.init(), assets.init({ hostStaticAssets: true }))
 
-app.use('/dist', express.static('./dist'))
 app.get('/', require('./controllers/home'))
 
 module.exports = app
