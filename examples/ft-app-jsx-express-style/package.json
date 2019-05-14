@@ -21,12 +21,12 @@
     "prettier": "^1.14.3"
   },
   "dependencies": {
-    "@babel/runtime": "^7.1.5",
+    "@babel/runtime": "^7.4.4",
     "@financial-times/anvil-server-asset-loader": "file:../../packages/anvil-server-asset-loader",
     "@financial-times/anvil-server-react-renderer": "file:../../packages/anvil-server-react-renderer",
     "@financial-times/anvil-ui-ft-layout": "file:../../packages/anvil-ui-ft-layout",
     "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
     "express": "^4.16.4",
-    "sucrase": "^3.8.0"
+    "sucrase": "^3.10.1"
   }
 }
