@@ -1,4 +1,4 @@
-import { TNavMenus, TNavMeganav, TNavMenu } from '../types'
+import { TNavMenus, TNavMeganav, TNavMenu } from '@financial-times/anvil-types-navigation'
 
 const meganav: TNavMeganav[] = [
   {
@@ -26,7 +26,7 @@ const submenu: TNavMenu = {
   ]
 }
 
-const menus: TNavMenus = {
+const menus: Partial<TNavMenus> = {
   'navbar-uk': {
     label: 'Navigation',
     items: [

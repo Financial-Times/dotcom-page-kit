@@ -1,23 +1,25 @@
 import React from 'react'
-import { TFooterProps } from './interfaces'
+import { TNavMenuItem } from '@financial-times/anvil-types-navigation'
 import {
-  FooterRow,
   FooterContents,
-  MoreFromFt,
+  MoreFromFT,
   CopyrightNotice,
   NikkeiBrandLogo,
   CompressedLegal
 } from './components/partials'
 
-function Footer(props: TFooterProps) {
+export interface TFooterProps {
+  data: TNavMenuItem[]
+  theme?: 'dark' | 'light' | string
+}
+
+export function Footer(props: TFooterProps) {
   const theme = props.theme ? `${props.theme}` : 'dark'
   return (
     <footer id="site-footer" className={`o-footer o-footer--theme-${theme}`} data-o-component="o-footer">
       <div className="o-footer__container">
-        <FooterRow>
-          <FooterContents footerData={props.data} />
-        </FooterRow>
-        <MoreFromFt />
+        <FooterContents footerData={props.data} />
+        <MoreFromFT />
         <CopyrightNotice />
       </div>
       <NikkeiBrandLogo />
@@ -25,7 +27,7 @@ function Footer(props: TFooterProps) {
   )
 }
 
-function LegalFooter(props: TFooterProps) {
+export function LegalFooter(props: TFooterProps) {
   const theme = props.theme ? props.theme : 'dark'
   return (
     <footer id="site-footer" className={`o-footer o-footer--theme-${theme}`} data-o-component="o-footer">
@@ -37,5 +39,3 @@ function LegalFooter(props: TFooterProps) {
     </footer>
   )
 }
-
-export { Footer, LegalFooter, TFooterProps }

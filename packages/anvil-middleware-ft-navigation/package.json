@@ -19,6 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "@financial-times/anvil-server-ft-navigation": "file:../../packages/anvil-server-ft-navigation",
+    "@financial-times/anvil-types-navigation": "file:../anvil-types-navigation",
     "@types/dlv": "1.1.0",
     "dlv": "1.1.2"
   },

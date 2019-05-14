@@ -1,0 +1,15 @@
+{
+  "name": "@financial-times/anvil-types-navigation",
+  "version": "0.0.0",
+  "description": "",
+  "main": "",
+  "types": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "npm run clean:node_modules",
+    "clean:node_modules": "rm -rf node_modules"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

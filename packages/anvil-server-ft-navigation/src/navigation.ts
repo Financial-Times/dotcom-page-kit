@@ -5,7 +5,7 @@ import fetch from 'node-fetch'
 
 import { decorateMenu } from '.'
 
-import { TNavMenus, TNavMenu, TNavOptions, TNavSubNavigation } from './types'
+import { TNavMenus, TNavMenu, TNavSubNavigation } from '@financial-times/anvil-types-navigation'
 
 /**
  * Makes the navigation data completely immutable,
@@ -19,6 +19,12 @@ const parseData = (data: any) => {
 
 const removeLeadingForwardSlash = (pagePath: string) => {
   return pagePath.charAt(0) === '/' ? pagePath.substring(1) : pagePath
+}
+
+export type TNavOptions = {
+  menuUrl?: string
+  subNavigationUrl?: string
+  interval?: number
 }
 
 const defaults: TNavOptions = {
@@ -52,10 +58,13 @@ export class Navigation {
 
   async getMenuData(path: string): Promise<TNavMenus> {
     const data = await this._getNavigationData()
-    return Object.entries(data).reduce((acc, [menuId, menu]) => {
-      acc[menuId] = decorateMenu(menu, path)
-      return acc
-    }, {})
+    const output = {}
+
+    for (const [id, menu] of Object.entries(data)) {
+      output[id] = decorateMenu(menu, path)
+    }
+
+    return output as TNavMenus
   }
 
   async getPathMenu(menuId: string, path: string = '/'): Promise<TNavMenu> {

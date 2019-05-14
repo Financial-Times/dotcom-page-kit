@@ -1,29 +1,47 @@
 import React from 'react'
+import { TNavMenuItem } from '@financial-times/anvil-types-navigation'
 
-const Link: Function = ({ item }) => {
-  const disableTracking = { 'data-o-tracking-do-not-track': item.disableTracking ? 'true' : null }
+type TLinkProps = {
+  item: TNavMenuItem
+  [key: string]: any
+}
+
+const Link = ({ item, ...props }: TLinkProps) => {
+  const disableTracking = { 'data-o-tracking-do-not-track': item.disableTracking ? true : null }
+
   return (
-    <a className="o-footer__matrix-link" href={item.url} data-trackable={item.label} {...disableTracking}>
+    <a {...props} href={item.url} data-trackable={item.label} {...disableTracking}>
       {item.label}
     </a>
   )
 }
 
-const SectionLinks = ({ submenu, index }) => {
+type TSectionLinksProps = {
+  index: number
+  submenu: TNavMenuItem[][]
+}
+
+const SectionLinks = ({ submenu, index }: TSectionLinksProps) => {
   return (
     <div className="o-footer__matrix-content" id={`o-footer-section-${index}`}>
-      {submenu.map((submenuItems, columnIndex) => (
-        <div className="o-footer__matrix-column" key={`footer-section-${index}--column-${columnIndex}`}>
-          {submenuItems.map((item, itemIndex) => {
-            return <Link item={item} index={itemIndex} key={`footer-section-${index}--link-${itemIndex}`} />
-          })}
+      {submenu.map((submenuItems, index) => (
+        <div className="o-footer__matrix-column" key={`column-${index}`}>
+          {submenuItems.map((item, index) => (
+            <Link className="o-footer__matrix-link" item={item} key={`link-${index}`} />
+          ))}
         </div>
       ))}
     </div>
   )
 }
 
-const SectionTitle = ({ label, submenu, index }) => {
+type TSectionTitleProps = {
+  index: number
+  label: string
+  submenu: TNavMenuItem[][]
+}
+
+const SectionTitle = ({ label, submenu, index }: TSectionTitleProps) => {
   // On smaller viewports, submenus which span two columns are collapsed behind toggles
   const ariaControls = { 'aria-controls': submenu.length === 2 ? `o-footer-section-${index}` : null }
   return (
@@ -33,35 +51,30 @@ const SectionTitle = ({ label, submenu, index }) => {
   )
 }
 
-const MenuSection: Function = ({ label, submenu, index }) => {
-  return (
-    <div className={`o-footer__matrix-group o-footer__matrix-group--${submenu.length}`}>
-      <SectionTitle label={label} submenu={submenu} index={index} />
-      <SectionLinks submenu={submenu} index={index} />
-    </div>
-  )
+type TFooterContentsProps = {
+  footerData: TNavMenuItem[]
 }
 
-const FooterRow = (props) => (
+const FooterContents = ({ footerData }: TFooterContentsProps) => (
   <div className="o-footer__row">
     <nav className="o-footer__matrix" role="navigation" aria-label="Useful links">
-      {props.children}
+      {footerData.map((item, index) => {
+        // The Next navigation API splits footer links data into "columns"
+        // <https://github.com/Financial-Times/next-navigation-api/blob/master/server/transforms/footer.js>
+        const submenu = item.submenu.items as TNavMenuItem[][]
+
+        return (
+          <div className={`o-footer__matrix-group o-footer__matrix-group--${submenu.length}`}>
+            <SectionTitle label={item.label} submenu={submenu} index={index} />
+            <SectionLinks submenu={submenu} index={index} />
+          </div>
+        )
+      })}
     </nav>
   </div>
 )
 
-const FooterContents = ({ footerData }) => {
-  return footerData.map((item, index) => (
-    <MenuSection
-      label={item.label}
-      submenu={item.submenu.items}
-      index={index}
-      key={`footer-section-${index}`}
-    />
-  ))
-}
-
-const MoreFromFt = () => (
+const MoreFromFT = () => (
   <div className="o-footer__external-link o-footer__matrix-title">
     <a
       className="o-footer__more-from-ft o-footer__matrix-title"
@@ -93,34 +106,33 @@ const CopyrightNotice = ({ withoutMarketsData = false }) => {
   )
 }
 
-const LegalLink: Function = ({ item }) => {
-  const disableTracking = { 'data-o-tracking-do-not-track': item.disableTracking ? 'true' : null }
-  return (
-    <li>
-      <a href={item.url} data-trackable={item.label} {...disableTracking}>
-        {item.label}
-      </a>
-    </li>
-  )
+type TCompressedLegalProps = {
+  footerData: TNavMenuItem[]
 }
 
-const CompressedLegal = ({ footerData }) => {
-  const legalAndPrivacyData = footerData.filter((item) => {
-    return item.label === 'Legal & Privacy'
-  })
-  return legalAndPrivacyData.map((legal, sectionIndex) => (
-    <div key={`legalFooter-${sectionIndex}`}>
-      {legal.submenu && legal.submenu.items
-        ? legal.submenu.items.map((items, submenuIndex) => (
-            <ul className="o-footer__legal-links" key={`legalFooter-submenu-${submenuIndex}`}>
-              {items.map((item, submenuIndex) => {
-                return <LegalLink item={item} key={`legalFooter-link-${submenuIndex}`} />
-              })}
+const CompressedLegal = ({ footerData }: TCompressedLegalProps) => {
+  // Find the legal and privacy column
+  const data = footerData.filter((item) => item.label === 'Legal & Privacy')
+
+  return (
+    <React.Fragment>
+      {data.map((legal, index) => (
+        // The Next navigation API splits footer links data into "columns"
+        // <https://github.com/Financial-Times/next-navigation-api/blob/master/server/transforms/footer.js>
+        <div key={`column-${index}`}>
+          {(legal.submenu.items as TNavMenuItem[][]).map((items, index) => (
+            <ul className="o-footer__legal-links" key={`list-${index}`}>
+              {items.map((item, index) => (
+                <li>
+                  <Link item={item} key={`link-${index}`} />
+                </li>
+              ))}
             </ul>
-          ))
-        : null}
-    </div>
-  ))
+          ))}
+        </div>
+      ))}
+    </React.Fragment>
+  )
 }
 
 const NikkeiBrandLogo = () => (
@@ -134,10 +146,8 @@ const NikkeiBrandLogo = () => (
 export {
   SectionLinks,
   SectionTitle,
-  MenuSection,
-  FooterRow,
   FooterContents,
-  MoreFromFt,
+  MoreFromFT,
   CompressedLegal,
   CopyrightNotice,
   NikkeiBrandLogo
