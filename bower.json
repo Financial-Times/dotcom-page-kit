@@ -3,8 +3,5 @@
   "private": true,
   "dependencies": {
     "anvil-ui-components": "glob:packages/anvil-ui-*/bower.json"
-  },
-  "resolutions": {
-    "ftdomdelegate": "^3.0.0"
   }
 }
