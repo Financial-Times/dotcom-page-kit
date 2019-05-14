@@ -75,15 +75,11 @@ function StickyHeader(props: THeaderProps) {
 
 StickyHeader.defaultProps = defaultProps
 
-/**
- *
- * @param props
- */
 function Header(props: THeaderProps) {
   return (
     <React.Fragment>
-      <StickyHeader {...props} />
       <MainHeader {...props} />
+      <StickyHeader {...props} />
     </React.Fragment>
   )
 }
