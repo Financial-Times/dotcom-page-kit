@@ -19,7 +19,7 @@ The aim of this project is to provide a high quality, well tested, and thoroughl
 
 ## Scope
 
-Anvil is not a single part but a set of packages which provide the different pieces required to deliver a reliable production Website. The packages which comprise the Anvil project can be roughly grouped into 4 categories:
+Anvil is not a single part but a set of packages which provide the different pieces required to deliver a reliable production website. The packages which comprise the Anvil project can be roughly grouped into 4 categories:
 
 ### 1. Compiling client-side assets
 
@@ -36,8 +36,9 @@ Anvil includes several packages which are designed to help assemble and deliver 
 
 ### 3. Client-side bootstrapping
 
-Anvil has packages to help make fast loading Websites which include all of the metadata and information needed by search engines and social networks. There are packages which provide browser feature detection and script loading, data dehydration and rehydration, and utilities to format [Open Graph] and [Linked Data].
+Anvil has packages to help make fast loading websites which include all of the metadata and information needed by search engines and social networks. There are packages which provide browser [feature detection] and script loading, and utilities to format [Open Graph] and [Linked Data].
 
+[feature detection]: https://en.wikipedia.org/wiki/Feature_detection_(web_development)
 [Open Graph]: http://ogp.me/
 [Linked Data]: https://json-ld.org/
 
@@ -61,7 +62,7 @@ See the [original pitch document] for more information.
 
 ### Does this replace `n-ui`?
 
-The intention of this project is to eventually replace `n-ui`.
+The intention of this project is to replace `n-ui`.
 
 ### How does this relate to Origami?
 
@@ -82,7 +83,7 @@ To get started with Anvil, you'll need to make sure you have the following softw
 2. [Node.js](https://nodejs.org/en/) (version 8 or higher is required)
 3. [npm](http://npmjs.com/)
 
-Please note that Anvil has only been tested in Mac and Linux environments. If you are on a Mac you may find it easiest to install the [Command Line Tools](https://developer.apple.com/download/more/) package which includes Git and Make.
+Please note that Anvil has only been tested in Mac and Linux environments. If you are on a Mac you may find it easiest to install the [Command Line Tools](https://developer.apple.com/download/more/) package which includes Git.
 
 
 ### Project setup
