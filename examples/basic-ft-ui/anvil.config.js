@@ -1,3 +1,5 @@
+const path = require('path')
+const codeSplitting = require('@financial-times/anvil-plugin-ft-js-code-splitting')
 const bower = require('@financial-times/anvil-plugin-bower-resolve')
 const sass = require('@financial-times/anvil-plugin-sass')
 const js = require('@financial-times/anvil-plugin-ft-js')
@@ -5,6 +7,7 @@ const js = require('@financial-times/anvil-plugin-ft-js')
 module.exports = {
   plugins: [
     resolveBowerFromRoot,
+    codeSplitting.plugin(),
     bower.plugin(),
     sass.plugin(),
     js.plugin(),
@@ -12,9 +15,10 @@ module.exports = {
   settings: {
     build: {
       entry: {
-        client: './client/main.js',
+        scripts: './client/main.js',
         styles: './client/main.scss'
-      }
+      },
+      outputPath: path.resolve('./public')
     }
   }
 }
