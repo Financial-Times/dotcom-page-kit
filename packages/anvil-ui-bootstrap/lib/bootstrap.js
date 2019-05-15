@@ -18,7 +18,14 @@
   }
 
   function scriptLoadError(error) {
-    console.error('Script loading error', error) // eslint-disable-line no-console
+    if (error.target) {
+      console.error('The script ' + error.target.src + ' failed to load') // eslint-disable-line no-console
+    }
+
+    if (isEnhanced) {
+      console.warn('Script loading failed, reverting to core experience') // eslint-disable-line no-console
+      doc.className = doc.className.replace('enhanced', 'core')
+    }
   }
 
   function loadScript(src) {
@@ -45,7 +52,7 @@
 
   function getScriptsConfig() {
     var scriptsConfigEl = document.getElementById('anvil-bootstrap-config')
-    var scriptsConfig = { core: [], enhanced: [] }
+    var scriptsConfig = { core: [], enhanced: [], trackErrors: false }
 
     if (scriptsConfigEl) {
       try {
