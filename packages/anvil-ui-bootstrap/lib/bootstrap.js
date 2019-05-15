@@ -26,6 +26,23 @@
       console.warn('Script loading failed, reverting to core experience') // eslint-disable-line no-console
       doc.className = doc.className.replace('enhanced', 'core')
     }
+
+    if (scriptsConfig.trackErrors) {
+      var img = new Image()
+
+      var data = JSON.stringify({
+        category: 'javascript',
+        action: 'load-error',
+        system: {
+          source: 'anvil'
+        },
+        context: {
+          script: error.target.src
+        }
+      })
+
+      img.src = 'https://spoor-api.ft.com/px.gif?data=' + encodeURIComponent(data)
+    }
   }
 
   function loadScript(src) {
