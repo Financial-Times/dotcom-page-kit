@@ -1,7 +1,6 @@
 import React from 'react'
-import { THeaderProps } from '../../interfaces'
 
-const HeaderWrapper = (props: THeaderProps & { children: React.ReactNode }) => (
+const HeaderWrapper = (props) => (
   <header
     id="site-navigation"
     className={`o-header o-header--${props.variant || 'simple'}`}
