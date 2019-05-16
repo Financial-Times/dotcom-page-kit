@@ -113,18 +113,20 @@ const TopColumnCenterSticky = (props: THeaderProps) => {
   )
 }
 
-// This behaviour is similar to `NavListRight` in '../navigation/partials
-// The sticky header renders either the `navbar-right-anon` data or the myFT component
-// The normal header renders either the `navbar-right-anon` or the `navbar-right` data
-const TopColumnRightSticky = (props: THeaderProps) => (
-  <div className="o-header__top-column o-header__top-column--right">
-    {props.userIsLoggedIn ? (
-      <MyFtSticky />
-    ) : props.showUserNavigation ? (
-      <NavListRightAnonSticky {...props} />
-    ) : null}
-  </div>
-)
+// This behaviour is similar to `NavListRight` in '../navigation/partials' but:
+// - The sticky header renders either the `navbar-right-anon` data or the myFT component
+// - The normal header renders either the `navbar-right-anon` or the `navbar-right` data
+const TopColumnRightSticky = (props: THeaderProps) => {
+  let children = null
+
+  if (props.userIsLoggedIn) {
+    children = <MyFtSticky />
+  } else if (props.showUserNavigation) {
+    children = <NavListRightAnonSticky {...props} />
+  }
+
+  return <div className="o-header__top-column o-header__top-column--right">{children}</div>
+}
 
 export {
   StickyHeaderWrapper,
