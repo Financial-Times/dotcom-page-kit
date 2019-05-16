@@ -1,5 +1,5 @@
 import React from 'react'
-import { TNavMenuItem } from '@financial-times/anvil-types-navigation'
+import { TNavMenusForEdition } from '@financial-times/anvil-types-navigation'
 import {
   FooterContents,
   MoreFromFT,
@@ -9,16 +9,17 @@ import {
 } from './components/partials'
 
 export interface TFooterProps {
-  data: TNavMenuItem[]
+  data: TNavMenusForEdition
   theme?: 'dark' | 'light' | string
 }
 
 export function Footer(props: TFooterProps) {
+  const footerData = props.data.footer.items
   const theme = props.theme ? `${props.theme}` : 'dark'
   return (
     <footer id="site-footer" className={`o-footer o-footer--theme-${theme}`} data-o-component="o-footer">
       <div className="o-footer__container">
-        <FooterContents footerData={props.data} />
+        <FooterContents footerData={footerData} />
         <MoreFromFT />
         <CopyrightNotice />
       </div>
@@ -28,11 +29,12 @@ export function Footer(props: TFooterProps) {
 }
 
 export function LegalFooter(props: TFooterProps) {
+  const footerData = props.data.footer.items
   const theme = props.theme ? props.theme : 'dark'
   return (
     <footer id="site-footer" className={`o-footer o-footer--theme-${theme}`} data-o-component="o-footer">
       <div className="o-footer__container">
-        <CompressedLegal footerData={props.data} />
+        <CompressedLegal footerData={footerData} />
         <CopyrightNotice withoutMarketsData={true} />
       </div>
       <NikkeiBrandLogo />
