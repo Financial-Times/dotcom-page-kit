@@ -1,6 +1,6 @@
 # @financial-times/anvil-server-handlebars
 
-This module provides rendering for [Handlebars] templates with additional support for dynamically loading partial templates and a suite of [helper functions]. It is primarily designed to be used during the transition between [n-handlebars] and JSX rendering and does not support layouts.
+This package provides rendering for [Handlebars] templates with additional support for dynamically loading partial templates and a suite of [helper functions]. It is primarily designed to be used during the transition between [n-handlebars] and JSX rendering and does not support layouts.
 
 [Handlebars]: https://handlebarsjs.com/
 [n-handlebars]: https://github.com/Financial-Times/n-handlebars
@@ -9,7 +9,7 @@ This module provides rendering for [Handlebars] templates with additional suppor
 
 ## Getting started
 
-This module is compatible with Node 8+ and is distributed on npm.
+This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
 npm install --save @financial-times/anvil-server-handlebars
@@ -20,7 +20,7 @@ It is best used [within an Express application](#usage-with-express) but can als
 
 ### Usage with Express
 
-After installing the module you must register it as a [view engine] for your Express application. This will enable you to render template files with the matching file extension and send the result as a response to requests.
+After installing the package you must register it as a [view engine] for your Express application. This will enable you to render template files with the matching file extension and send the result as a response to requests.
 
 _Please note_ the template file extension registered with your application should be `.html` or `.hbs`.
 

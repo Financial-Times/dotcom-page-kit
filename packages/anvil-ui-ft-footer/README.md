@@ -5,7 +5,7 @@ This package provides components which return variations on the footer component
 
 ## Getting started
 
-This module is compatible with Node 10+ and is distributed on npm.
+This package is compatible with Node 8+ and is distributed on npm.
 
 ```bash
 npm install --save @financial-times/anvil-ui-ft-footer

@@ -30,5 +30,8 @@
   },
   "devDependencies": {
     "@financial-times/anvil-cli": "file:../anvil-cli"
+  },
+  "engines": {
+    "node": ">= 8.16.0"
   }
 }

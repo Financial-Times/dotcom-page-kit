@@ -4,7 +4,7 @@ A lightweight library for facilitating pluggability within apps and libraries.
 
 ## Installation
 
-This module is compatible with Node 10+ and is distributed via npm
+This package is compatible with Node 8+ and is distributed via npm
 
 ```
 npm install --save-dev @financial-times/anvil-pluggable
@@ -12,7 +12,7 @@ npm install --save-dev @financial-times/anvil-pluggable
 
 ## General Usage
 
-At the center of this module, is the `Pluggable` class. It is the class that is meant to either be extended (i.e., via class inheritance) or instantiated directly to provide the functionality required to facilitate pluggability within apps and libraries. An instance of this class can be used to register plugins / resource handlers, as well as to publish resources to the registered plugins / resource handlers for possible amendment, as seen in the following example:
+At the center of this package, is the `Pluggable` class. It is the class that is meant to either be extended (i.e., via class inheritance) or instantiated directly to provide the functionality required to facilitate pluggability within apps and libraries. An instance of this class can be used to register plugins / resource handlers, as well as to publish resources to the registered plugins / resource handlers for possible amendment, as seen in the following example:
 
 ```js
 import { Pluggable } from '@financial-times/anvil-pluggable'
@@ -58,7 +58,7 @@ const plugin = (pluggable) => {
   pluggable.on('foo', handlerFn)
 }
 ```
- 
+
 ## The `Pluggable` Class
 
 #### Methods
@@ -77,7 +77,7 @@ Publishes a resource to the registered handlers for potential amendment.
 
 ##### `.alias`
 
-Sets the alias of the `Pluggable` instance. The alias is used to allow for accessing the instance via a more appropriate name than `pluggable` when the instance is destructured. It is also used to alias the `Pluggable` 
+Sets the alias of the `Pluggable` instance. The alias is used to allow for accessing the instance via a more appropriate name than `pluggable` when the instance is destructured. It is also used to alias the `Pluggable`
 instance on the args that are supplied to resource handlers, as follows:
 
 ```ts

@@ -1,6 +1,6 @@
 # Anvil Server React Renderer
 
-This module provides rendering for React components with convenient extras for Express applications.
+This package provides rendering for React components with convenient extras for Express applications.
 
 [view engine]: https://expressjs.com/en/guide/using-template-engines.html
 [route handler]: https://expressjs.com/en/guide/routing.html#route-handlers
@@ -8,13 +8,13 @@ This module provides rendering for React components with convenient extras for E
 
 ## Getting started
 
-This module is compatible with Node 10+ and is distributed on npm.
+This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
 npm install --save-dev @financial-times/anvil-server-react-renderer
 ```
 
-This module provides a single class which can be configured by providing [options](#options):
+This package provides a single class which can be configured by providing [options](#options):
 
 ```diff
 + import ReactRenderer from '@financial-times/anvil-server-react-renderer'

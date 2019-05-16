@@ -19,5 +19,8 @@
   "license": "MIT",
   "dependencies": {
     "lodash.mergewith": "^4.6.1"
+  },
+  "engines": {
+    "node": ">= 8.16.0"
   }
 }

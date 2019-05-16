@@ -18,6 +18,6 @@
   "author": "",
   "license": "MIT",
   "engines": {
-    "node": ">= 8.15"
+    "node": ">= 8.16.0"
   }
 }

@@ -7,13 +7,13 @@ This package provides functions to help applications track and send [resource hi
 
 ### Getting started
 
-This module is compatible with Node 8+ and is distributed on npm.
+This package is compatible with Node 8+ and is distributed on npm.
 
 ```bash
 npm install -S @financial-times/anvil-server-resource-hints
 ```
 
-This module provides a single class which can be configured using [options](#options).
+This package provides a single class which can be configured using [options](#options).
 
 ```js
 import ResourceHints from '@financial-times/anvil-server-resource-hints'

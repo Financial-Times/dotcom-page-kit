@@ -12,5 +12,8 @@
   "license": "MIT",
   "peerDependencies": {
     "react": "^16.8.6"
+  },
+  "engines": {
+    "node": ">= 8.16.0"
   }
 }

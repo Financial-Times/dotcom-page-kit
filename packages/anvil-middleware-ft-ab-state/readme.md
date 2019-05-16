@@ -9,7 +9,7 @@ This package provides an [Express] compatible middleware which appends the [Ammi
 
 ### Getting started
 
-This package is compatible with Node 10+ and is distributed on npm.
+This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
 npm install --save @financial-times/anvil-middleware-ft-ab-state

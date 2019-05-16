@@ -1,19 +1,19 @@
 # Anvil Plugin ESNext
 
-This module extends the [Anvil CLI build action][cli] (`anvil build`) with the ability to build JavaScript that makes use of features that fall under the [`esnext`] banner
+This package extends the [Anvil CLI build action][cli] (`anvil build`) with the ability to build JavaScript that makes use of features that fall under the [`esnext`] banner
 
 [cli]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil#build
 [`esnext`]: https://www.freelancinggig.com/blog/2017/07/04/what-is-esnext-is-it-same-as-ecmascript/
 
 ## Getting started
 
-This module is compatible with Node 8+ and is distributed on npm.
+This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
 npm install --save-dev @financial-times/anvil-plugin-esnext
 ```
 
-After installing the module you must add it to the list of plugins in your project's `anvil.config.js` configuration file:
+After installing the package you must add it to the list of plugins in your project's `anvil.config.js` configuration file:
 
 ```diff
 + const esnext = require('@financial-times/anvil-plugin-esnext')
@@ -25,7 +25,7 @@ module.exports = {
 }
 ```
 
-Once setup, this plugin will enable you to use the following `esnext` features within your JavaScript code. 
+Once setup, this plugin will enable you to use the following `esnext` features within your JavaScript code.
 
 * [Class properties](https://github.com/tc39/proposal-class-public-fields)
 * [Dynamic import syntax](https://developers.google.com/web/updates/2017/11/dynamic-import)
