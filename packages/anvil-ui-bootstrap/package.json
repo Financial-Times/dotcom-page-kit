@@ -27,5 +27,11 @@
   },
   "peerDependencies": {
     "react": "^16.8.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/Financial-Times/anvil.git",
+    "directory": "packages/anvil-ui-bootstrap"
+  },
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ui-bootstrap"
 }

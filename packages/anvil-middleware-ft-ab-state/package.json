@@ -25,5 +25,11 @@
   },
   "engines": {
     "node": ">= 8.16.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/Financial-Times/anvil.git",
+    "directory": "packages/anvil-middleware-ft-ab-state"
+  },
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-middleware-ft-ab-state"
 }
