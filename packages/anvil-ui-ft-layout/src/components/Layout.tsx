@@ -87,7 +87,7 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--footer">
         <Template>{footerBefore}</Template>
-        {Preset.footer ? <Preset.footer data={props.data.footer.items} variant={footer} /> : footer}
+        {Preset.footer ? <Preset.footer {...props} variant={footer} /> : footer}
         <Template>{footerAfter}</Template>
       </div>
 
