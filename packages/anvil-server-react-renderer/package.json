@@ -24,5 +24,11 @@
   },
   "engines": {
     "node": ">= 8.16.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/Financial-Times/anvil.git",
+    "directory": "packages/anvil-server-react-renderer"
+  },
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-react-renderer"
 }

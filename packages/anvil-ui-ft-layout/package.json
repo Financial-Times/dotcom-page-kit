@@ -33,5 +33,11 @@
   },
   "engines": {
     "node": ">= 8.16.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/Financial-Times/anvil.git",
+    "directory": "packages/anvil-ui-ft-layout"
+  },
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ui-ft-layout"
 }
