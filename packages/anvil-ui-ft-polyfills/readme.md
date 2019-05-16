@@ -6,7 +6,7 @@ This package provides URLs for the [Polyfill Service] which sets a consistent ba
 
 ## Getting started
 
-This module is compatible with Node 8+ and is distributed on npm.
+This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
 npm install --save @financial-times/anvil-ui-ft-polyfills
