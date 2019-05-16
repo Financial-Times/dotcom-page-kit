@@ -18,17 +18,14 @@ enum Footers {
 
 export type TLayoutProps = {
   props: THeaderProps
-
   headerBefore?: string | React.ReactNode
   header?: Headers | React.ReactNode | false
   headerAfter?: string | React.ReactNode
-
-  children?: React.ReactNode
-  contents?: string
-
   footerBefore?: string | React.ReactNode
   footer?: Footers | React.ReactNode | false
   footerAfter?: string | React.ReactNode
+  children?: React.ReactNode
+  contents?: string
 }
 
 const getLayoutPreset = (
@@ -41,11 +38,11 @@ const getLayoutPreset = (
 
 export function Layout({
   props,
-  header,
   headerBefore,
+  header,
   headerAfter,
-  footer,
   footerBefore,
+  footer,
   footerAfter,
   children,
   contents
