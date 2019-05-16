@@ -2510,10 +2510,10 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as an anonymous user 1
         >
           <a
             className="o-header__drawer-menu-link"
-            data-trackable="Account Settings"
-            href="https://myaccount.ft.com/details/core/view"
+            data-trackable="Subscribe"
+            href="/products?segmentId=#"
           >
-            Account Settings
+            Subscribe
           </a>
         </li>
         <li
@@ -2521,21 +2521,10 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as an anonymous user 1
         >
           <a
             className="o-header__drawer-menu-link"
-            data-trackable="Contact Preferences"
-            href="/myft/alerts"
+            data-trackable="Sign In"
+            href="/login?location=#"
           >
-            Contact Preferences
-          </a>
-        </li>
-        <li
-          className="o-header__drawer-menu-item"
-        >
-          <a
-            className="o-header__drawer-menu-link"
-            data-trackable="Sign Out"
-            href="/logout"
-          >
-            Sign Out
+            Sign In
           </a>
         </li>
       </ul>
