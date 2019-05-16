@@ -5,17 +5,15 @@ import React from 'react'
 import { NavListRightAnon } from '../navigation/partials'
 import { THeaderProps } from '../../interfaces'
 
-const StickyHeaderWrapper = (props: THeaderProps) => {
-  return (
-    <header
-      className={`o-header o-header--${props.variant || 'simple'} o-header--sticky o--if-js`}
-      data-o-component="o-header"
-      data-o-header--sticky
-      aria-hidden="true">
-      {props.children}
-    </header>
-  )
-}
+const StickyHeaderWrapper = (props: THeaderProps & { children: React.ReactNode }) => (
+  <header
+    className={`o-header o-header--${props.variant || 'simple'} o-header--sticky o--if-js`}
+    data-o-component="o-header"
+    data-o-header--sticky
+    aria-hidden="true">
+    {props.children}
+  </header>
+)
 
 const DrawerIconSticky = () => (
   <a
@@ -28,41 +26,36 @@ const DrawerIconSticky = () => (
   </a>
 )
 
-const SearchIconSticky = ({ context }) => (
+const SearchIconSticky = () => (
   <a
     href="#"
     className="o-header__top-link o-header__top-link--search"
-    aria-controls={`o-header-search-${context}`}
+    aria-controls="o-header-search-sticky"
     data-trackable="search-toggle"
     tabIndex={-1}>
     <span className="o-header__top-link-label">Search</span>
   </a>
 )
 
-const Navigation = (props: THeaderProps) => {
-  const navItems = props.data.navbar.items
-  return (
-    <div className="o-header__top-takeover">
-      <div className="o-header__nav">
-        <ul className="o-header__nav-list o-header__nav-list--left" data-trackable="primary-nav">
-          {navItems.map((navItem, index) => {
-            return (
-              <li className="o-header__nav-item" key={`link-${index}`}>
-                <a
-                  className="o-header__nav-link o-header__nav-link--primary"
-                  href={navItem.url}
-                  data-trackable={navItem.label}
-                  tabIndex={-1}>
-                  {navItem.label}
-                </a>
-              </li>
-            )
-          })}
-        </ul>
-      </div>
+const Navigation = (props: THeaderProps) => (
+  <div className="o-header__top-takeover">
+    <div className="o-header__nav">
+      <ul className="o-header__nav-list o-header__nav-list--left" data-trackable="primary-nav">
+        {props.data.navbar.items.map((item, index) => (
+          <li className="o-header__nav-item" key={`link-${index}`}>
+            <a
+              className="o-header__nav-link o-header__nav-link--primary"
+              href={item.url}
+              data-trackable={item.label}
+              tabIndex={-1}>
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
     </div>
-  )
-}
+  </div>
+)
 
 const Logo = () => (
   <a
@@ -76,10 +69,11 @@ const Logo = () => (
 )
 
 const NavListRightAnonSticky = (props: THeaderProps) => {
-  const navItems = props.data['navbar-right-anon'].items
+  const navbarItems = props.data['navbar-right-anon'].items
+
   return (
     <div className="o-header__nav">
-      <NavListRightAnon navbarOptions={navItems} variant={'sticky'} />
+      <NavListRightAnon items={navbarItems} variant="sticky" />
     </div>
   )
 }
@@ -102,32 +96,31 @@ const TopWrapperSticky = (props) => (
   </div>
 )
 
-const TopColumnLeftSticky = (props) => {
+const TopColumnLeftSticky = () => {
   return (
     <div className="o-header__top-column o-header__top-column--left">
       <DrawerIconSticky />
-      <SearchIconSticky {...props} />
+      <SearchIconSticky />
     </div>
   )
 }
-const TopColumnCenterSticky = (props) => {
+const TopColumnCenterSticky = (props: THeaderProps) => {
   return (
     <div className="o-header__top-column o-header__top-column--center">
-      {/* On larger viewports show navigation
-      On smaller viewports show FT logo  */}
       <Navigation {...props} />
       <Logo />
     </div>
   )
 }
 
-/* This behaviour is similar to `NavListRight` in '../navigation/partials */
-/* The sticky header renders either the `navbar-right-anon` data or the myFT component */
-/* Other header variants render either the `navbar-right-anon` or the `navbar-right` data */
-const TopColumnRightSticky = (props: THeaderProps) => {
-  const ChooseNavRight = props.userIsAnonymous ? NavListRightAnonSticky(props) : MyFtSticky()
-  return <div className="o-header__top-column o-header__top-column--right">{ChooseNavRight}</div>
-}
+// This behaviour is similar to `NavListRight` in '../navigation/partials
+// The sticky header renders either the `navbar-right-anon` data or the myFT component
+// The normal header renders either the `navbar-right-anon` or the `navbar-right` data
+const TopColumnRightSticky = (props: THeaderProps) => (
+  <div className="o-header__top-column o-header__top-column--right">
+    {props.userIsLoggedIn ? <MyFtSticky /> : <NavListRightAnonSticky {...props} />}
+  </div>
+)
 
 export {
   StickyHeaderWrapper,

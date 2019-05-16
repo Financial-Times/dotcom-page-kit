@@ -1,14 +1,13 @@
 import React from 'react'
 import { THeaderProps } from '../../interfaces'
+import { TNavMenuItem } from '@financial-times/anvil-types-navigation'
 
-const SubNavigation = (props: THeaderProps) => {
-  return props.showSubNavigation ? (
-    <SubNavigationWrapper>
-      <BreadCrumb breadcrumb={props.data.breadcrumb} />
-      <SubSections subsections={props.data.subsections} />
-    </SubNavigationWrapper>
-  ) : null
-}
+const SubNavigation = (props: THeaderProps) => (
+  <SubNavigationWrapper>
+    <BreadCrumb items={props.data.breadcrumb} />
+    <SubSections items={props.data.subsections} />
+  </SubNavigationWrapper>
+)
 
 const SubNavigationWrapper = (props) => (
   <div
@@ -42,43 +41,42 @@ const SubNavigationWrapper = (props) => (
   </div>
 )
 
-const BreadCrumb = ({ breadcrumb }) => {
-  return (
-    <ol
-      className="o-header__subnav-list o-header__subnav-list--breadcrumb"
-      aria-label="Breadcrumb"
-      data-trackable="breadcrumb">
-      {breadcrumb.map((item, index) => {
-        const selected = item.selected ? 'o-header__subnav-link--highlight' : null
-        const ariaCurrent = item.selected ? { 'aria-current': true } : null
-        return (
-          <li className="o-header__subnav-item" key={`item-${index}`}>
-            <a
-              className={`o-header__subnav-link ${selected}`}
-              href={item.url}
-              {...ariaCurrent}
-              data-trackable={item.label}>
-              {item.label}
-            </a>
-          </li>
-        )
-      })}
-    </ol>
-  )
-}
+const BreadCrumb = ({ items }: { items: TNavMenuItem[] }) => (
+  <ol
+    className="o-header__subnav-list o-header__subnav-list--breadcrumb"
+    aria-label="Breadcrumb"
+    data-trackable="breadcrumb">
+    {items.map((item, index) => {
+      const selected = item.selected ? 'o-header__subnav-link--highlight' : ''
+      const ariaCurrent = item.selected ? { 'aria-current': true } : null
 
-const SubSections = ({ subsections }) => {
+      return (
+        <li className="o-header__subnav-item" key={`item-${index}`}>
+          <a
+            className={`o-header__subnav-link ${selected}`}
+            href={item.url}
+            {...ariaCurrent}
+            data-trackable={item.label}>
+            {item.label}
+          </a>
+        </li>
+      )
+    })}
+  </ol>
+)
+
+const SubSections = ({ items }: { items: TNavMenuItem[] }) => {
   return (
     <ul
       className="o-header__subnav-list o-header__subnav-list--subsections"
       aria-label="Subsections"
       data-trackable="subsections">
-      {subsections.map((item, index) => {
-        const id = item.id ? `data-id=subnav-${item.id}` : null
-        const selected = item.selected ? 'o-header__subnav-link--highlight' : null
+      {items.map((item, index) => {
+        const selected = item.selected ? 'o-header__subnav-link--highlight' : ''
         const ariaCurrent = item.selected ? { 'aria-current': true } : null
+
         return (
-          <li className="o-header__subnav-item" {...id} key={`item-${index}`}>
+          <li className="o-header__subnav-item" key={`item-${index}`}>
             <a
               className={`o-header__subnav-link ${selected}`}
               href={item.url}

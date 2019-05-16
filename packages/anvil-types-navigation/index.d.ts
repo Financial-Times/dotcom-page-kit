@@ -46,14 +46,35 @@ export type TNavMenuItem = {
   disableTracking?: boolean
 }
 
-export type TNavMeganav = {
-  component: 'sectionlist' | 'articlelist'
-  dataset: 'subsections' | 'popular'
+export type TNavMeganav = INavMeganavSections | INavMeganavArticles
+
+export interface INavMeganavSections {
+  component: 'sectionlist'
+  dataset: 'subsections'
   title: string
-  data: TNavMenuItem[] | TNavMenuItem[][]
+  /** This data has been split into "columns" by the Next navigation API */
+  data: TNavMenuItem[][]
+}
+
+export interface INavMeganavArticles {
+  component: 'articlelist'
+  dataset: 'popular'
+  title: string
+  data: TNavMenuItem[]
 }
 
 export type TNavSubNavigation = {
   breadcrumb: TNavMenuItem[]
   subsections: TNavMenuItem[]
+}
+
+export type TNavEditions = {
+  current: { name: string }
+  others: TNavEdition[]
+}
+
+export type TNavEdition = {
+  name: string
+  id: string
+  url: string
 }

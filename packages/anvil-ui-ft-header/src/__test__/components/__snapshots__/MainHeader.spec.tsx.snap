@@ -344,8 +344,8 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
                   </div>
                 </div>
                 <div
-                  className="o-header__mega-column o-header__mega-column--subsections"
-                  data-trackable="sections"
+                  className="o-header__mega-column o-header__mega-column--articles"
+                  data-trackable="popular"
                 >
                   <div
                     className="o-header__mega-heading"
@@ -508,8 +508,8 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
                   </div>
                 </div>
                 <div
-                  className="o-header__mega-column o-header__mega-column--subsections"
-                  data-trackable="sections"
+                  className="o-header__mega-column o-header__mega-column--articles"
+                  data-trackable="popular"
                 >
                   <div
                     className="o-header__mega-heading"
@@ -749,8 +749,8 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
                   </div>
                 </div>
                 <div
-                  className="o-header__mega-column o-header__mega-column--subsections"
-                  data-trackable="sections"
+                  className="o-header__mega-column o-header__mega-column--articles"
+                  data-trackable="popular"
                 >
                   <div
                     className="o-header__mega-heading"
@@ -991,8 +991,8 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
                   </div>
                 </div>
                 <div
-                  className="o-header__mega-column o-header__mega-column--subsections"
-                  data-trackable="sections"
+                  className="o-header__mega-column o-header__mega-column--articles"
+                  data-trackable="popular"
                 >
                   <div
                     className="o-header__mega-heading"
@@ -1222,8 +1222,8 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
                   </div>
                 </div>
                 <div
-                  className="o-header__mega-column o-header__mega-column--subsections"
-                  data-trackable="sections"
+                  className="o-header__mega-column o-header__mega-column--articles"
+                  data-trackable="popular"
                 >
                   <div
                     className="o-header__mega-heading"
@@ -1408,8 +1408,8 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
                   </div>
                 </div>
                 <div
-                  className="o-header__mega-column o-header__mega-column--subsections"
-                  data-trackable="sections"
+                  className="o-header__mega-column o-header__mega-column--articles"
+                  data-trackable="popular"
                 >
                   <div
                     className="o-header__mega-heading"
@@ -1627,8 +1627,8 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
                   </div>
                 </div>
                 <div
-                  className="o-header__mega-column o-header__mega-column--subsections"
-                  data-trackable="sections"
+                  className="o-header__mega-column o-header__mega-column--articles"
+                  data-trackable="popular"
                 >
                   <div
                     className="o-header__mega-heading"
@@ -1747,7 +1747,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
                 className="o-header__subnav-item"
               >
                 <a
-                  className="o-header__subnav-link null"
+                  className="o-header__subnav-link "
                   data-trackable="World"
                   href="/world"
                 >
@@ -1776,7 +1776,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
                 className="o-header__subnav-item"
               >
                 <a
-                  className="o-header__subnav-link null"
+                  className="o-header__subnav-link "
                   data-trackable="UK Business & Economy"
                   href="/uk-business-economy"
                 >
@@ -1787,7 +1787,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
                 className="o-header__subnav-item"
               >
                 <a
-                  className="o-header__subnav-link null"
+                  className="o-header__subnav-link "
                   data-trackable="UK Politics & Policy"
                   href="/world/uk/politics"
                 >
@@ -1798,7 +1798,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
                 className="o-header__subnav-item"
               >
                 <a
-                  className="o-header__subnav-link null"
+                  className="o-header__subnav-link "
                   data-trackable="UK Companies"
                   href="/companies/uk"
                 >
@@ -2172,8 +2172,8 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
                   </div>
                 </div>
                 <div
-                  className="o-header__mega-column o-header__mega-column--subsections"
-                  data-trackable="sections"
+                  className="o-header__mega-column o-header__mega-column--articles"
+                  data-trackable="popular"
                 >
                   <div
                     className="o-header__mega-heading"
@@ -2336,8 +2336,8 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
                   </div>
                 </div>
                 <div
-                  className="o-header__mega-column o-header__mega-column--subsections"
-                  data-trackable="sections"
+                  className="o-header__mega-column o-header__mega-column--articles"
+                  data-trackable="popular"
                 >
                   <div
                     className="o-header__mega-heading"
@@ -2577,8 +2577,8 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
                   </div>
                 </div>
                 <div
-                  className="o-header__mega-column o-header__mega-column--subsections"
-                  data-trackable="sections"
+                  className="o-header__mega-column o-header__mega-column--articles"
+                  data-trackable="popular"
                 >
                   <div
                     className="o-header__mega-heading"
@@ -2819,8 +2819,8 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
                   </div>
                 </div>
                 <div
-                  className="o-header__mega-column o-header__mega-column--subsections"
-                  data-trackable="sections"
+                  className="o-header__mega-column o-header__mega-column--articles"
+                  data-trackable="popular"
                 >
                   <div
                     className="o-header__mega-heading"
@@ -3050,8 +3050,8 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
                   </div>
                 </div>
                 <div
-                  className="o-header__mega-column o-header__mega-column--subsections"
-                  data-trackable="sections"
+                  className="o-header__mega-column o-header__mega-column--articles"
+                  data-trackable="popular"
                 >
                   <div
                     className="o-header__mega-heading"
@@ -3236,8 +3236,8 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
                   </div>
                 </div>
                 <div
-                  className="o-header__mega-column o-header__mega-column--subsections"
-                  data-trackable="sections"
+                  className="o-header__mega-column o-header__mega-column--articles"
+                  data-trackable="popular"
                 >
                   <div
                     className="o-header__mega-heading"
@@ -3455,8 +3455,8 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
                   </div>
                 </div>
                 <div
-                  className="o-header__mega-column o-header__mega-column--subsections"
-                  data-trackable="sections"
+                  className="o-header__mega-column o-header__mega-column--articles"
+                  data-trackable="popular"
                 >
                   <div
                     className="o-header__mega-heading"
@@ -3575,7 +3575,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
                 className="o-header__subnav-item"
               >
                 <a
-                  className="o-header__subnav-link null"
+                  className="o-header__subnav-link "
                   data-trackable="World"
                   href="/world"
                 >
@@ -3604,7 +3604,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
                 className="o-header__subnav-item"
               >
                 <a
-                  className="o-header__subnav-link null"
+                  className="o-header__subnav-link "
                   data-trackable="UK Business & Economy"
                   href="/uk-business-economy"
                 >
@@ -3615,7 +3615,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
                 className="o-header__subnav-item"
               >
                 <a
-                  className="o-header__subnav-link null"
+                  className="o-header__subnav-link "
                   data-trackable="UK Politics & Policy"
                   href="/world/uk/politics"
                 >
@@ -3626,7 +3626,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
                 className="o-header__subnav-item"
               >
                 <a
-                  className="o-header__subnav-link null"
+                  className="o-header__subnav-link "
                   data-trackable="UK Companies"
                   href="/companies/uk"
                 >

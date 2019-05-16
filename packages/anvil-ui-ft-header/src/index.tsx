@@ -36,25 +36,24 @@ const defaultProps: Partial<THeaderProps> = {
 }
 
 function MainHeader(props: THeaderProps) {
-  const navItems = props.data.navbar.items
-  const includeUserActionsNav = props.showUserNav && props.userIsAnonymous ? UserActionsNav(props) : null
-  const includeSubNavigation = props.data.breadcrumb && props.data.subsections ? SubNavigation(props) : null
+  const includeUserActionsNav = props.showUserNav && props.userIsAnonymous
+  const includeSubNavigation = props.showSubNavigation && (props.data.breadcrumb || props.data.subsections)
 
   return (
     <HeaderWrapper {...props}>
-      {includeUserActionsNav}
+      {includeUserActionsNav ? <UserActionsNav {...props} /> : null}
       <TopWrapper>
-        <TopColumnLeft context="primary" />
+        <TopColumnLeft />
         <TopColumnCenter {...props} />
         <TopColumnRight />
       </TopWrapper>
       <Search context="primary" />
-      {MobileNav(props)}
+      <MobileNav {...props} />
       <NavDesktop>
-        <NavListLeft navItems={navItems} />
-        <NavListRight {...props} />
+        <NavListLeft {...props} />
+        {props.showUserNav ? <NavListRight {...props} /> : null}
       </NavDesktop>
-      {includeSubNavigation}
+      {includeSubNavigation ? <SubNavigation {...props} /> : null}
     </HeaderWrapper>
   )
 }
@@ -65,7 +64,7 @@ function StickyHeader(props: THeaderProps) {
   return props.disableSticky ? null : (
     <StickyHeaderWrapper {...props}>
       <TopWrapperSticky>
-        <TopColumnLeftSticky context="sticky" />
+        <TopColumnLeftSticky />
         <TopColumnCenterSticky {...props} />
         <TopColumnRightSticky {...props} />
       </TopWrapperSticky>
@@ -95,7 +94,7 @@ function LogoOnly(props?) {
   return (
     <HeaderWrapper {...props}>
       <TopWrapper>
-        <TopColumnCenter />
+        <TopColumnCenter {...props} />
       </TopWrapper>
     </HeaderWrapper>
   )

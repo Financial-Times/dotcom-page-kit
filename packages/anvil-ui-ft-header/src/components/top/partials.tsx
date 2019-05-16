@@ -1,18 +1,16 @@
 import React from 'react'
 import { THeaderProps } from '../../interfaces'
 
-const HeaderWrapper = (props: THeaderProps) => {
-  return (
-    <header
-      id="site-navigation"
-      className={`o-header o-header--${props.variant || 'simple'}`}
-      data-o-component="o-header"
-      data-o-header--no-js={true}
-      tabIndex={-1}>
-      {props.children}
-    </header>
-  )
-}
+const HeaderWrapper = (props: THeaderProps & { children: React.ReactNode }) => (
+  <header
+    id="site-navigation"
+    className={`o-header o-header--${props.variant || 'simple'}`}
+    data-o-component="o-header"
+    data-o-header--no-js={true}
+    tabIndex={-1}>
+    {props.children}
+  </header>
+)
 
 const DrawerIcon = () => (
   <a
@@ -26,11 +24,11 @@ const DrawerIcon = () => (
   </a>
 )
 
-const SearchIcon = ({ context }) => (
+const SearchIcon = () => (
   <a
-    href={`o-header-search-${context}`}
+    href={`o-header-search-primary`}
     className="o-header__top-link o-header__top-link--search"
-    aria-controls={`o-header-search-${context}`}
+    aria-controls={`o-header-search-primary`}
     title="Search"
     aria-label="Search"
     data-trackable="search-toggle">
@@ -69,19 +67,18 @@ const TopWrapper = (props) => (
   </div>
 )
 
-const TopColumnLeft = (props) => {
-  return (
-    <div className="o-header__top-column o-header__top-column--left">
-      <DrawerIcon />
-      <SearchIcon {...props} />
-    </div>
-  )
-}
+const TopColumnLeft = () => (
+  <div className="o-header__top-column o-header__top-column--left">
+    <DrawerIcon />
+    <SearchIcon />
+  </div>
+)
 
-const TopColumnCenter = (props = null) => {
-  const chooseFTLogo = props.hideOutboundLinks ? FTLogoNoOutbound() : FTLogo()
-  return <div className="o-header__top-column o-header__top-column--center">{chooseFTLogo}</div>
-}
+const TopColumnCenter = (props: THeaderProps) => (
+  <div className="o-header__top-column o-header__top-column--center">
+    {props.hideOutboundLinks ? <FTLogoNoOutbound /> : <FTLogo />}
+  </div>
+)
 
 const TopColumnRight = () => {
   return (
