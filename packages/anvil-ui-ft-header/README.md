@@ -1,11 +1,9 @@
 # @financial-times/anvil-ui-ft-header
 
-This package provides templates which render variants of the page header and navigation drawer for ft.com.
+This package provides templates which render variants of the FT.com header and navigation.
 
 
 ## Getting started
-
-### Installation
 
 This package is compatible with Node 8+ and is distributed on npm.
 
@@ -13,23 +11,40 @@ This package is compatible with Node 8+ and is distributed on npm.
 npm install --save @financial-times/anvil-ui-ft-header
 ```
 
-Create an [Express] server using the [anvil-middleware-ft-navigation] middleware.
+After installing the package you will need to setup your application to fetch data from the [Next Navigation API] required to render these UI components. Anvil provides two packages for this:
+
+1. [`anvil-middleware-ft-navigation`] (if you are using Express)
+2. [`anvil-server-ft-navigation`] (if you are not using Express)
+
+[Next Navigation API]: http://github.com/Financial-Times/next-navigation-api
+[`anvil-middleware-ft-navigation`]: ../anvil-middleware-ft-navigation/readme.md
+[`anvil-server-ft-navigation`]: ../anvil-server-ft-navigation/readme.md
 
 ### Server-side
 
-To render header components include them in your template code and pass in a data object. The data can be fetched using the [anvil-server-ft-navigation] package or it's middleware.
+This package provides several UI components to render different parts and styles of the FT.com header:
+
+- `<Header />` the full header with navigation with lots of options. See [header elements](#header-elements) for a breakdown of its parts.
+- `<Drawer />` the navigation drawer which should be rendered separately from the header, preferably near the bottom of the document.
+- `<LogoOnly>` a simple masthead displaying the logo image which does require any configuration.
+
 
 ```jsx
-import { Header, Drawer } from 'anvil-ui-ft-header'
-const header = () => {
-  <Header {...headerProps} />
-  <Drawer {...headerProps}/>
-}
+import { Header, Drawer } from '@financial-times/anvil-ui-ft-header'
+
+const SiteHeader = (props) => (
+  <Header data={props.navigationData} userIsLoggedIn={props.userIsLoggedIn} />
+  <Drawer data={props.navigationData} userIsLoggedIn={props.userIsLoggedIn} />
+)
 ```
+
+_Please note_ that the header components are designed to be used on the server-side and should not be rendered on the client-side. Although it is possible to render them on the client-side there is usually no reason to do so and is not supported.
 
 ### Client-side
 
-Once you are rendering the header components in your page you will need to initialise the client-side code to add interactive behaviour including search typeahead and toggling the drawer menu and sticky header.
+Once you are rendering the header components in your page you will need to initialise the client-side code to add styles and interactive behaviour.
+
+To initialise the client-side JavaScript import the package and call the `.init()` method:
 
 ```js
 import * as header from '@financial-times/anvil-ui-ft-header'
@@ -37,115 +52,62 @@ import * as header from '@financial-times/anvil-ui-ft-header'
 header.init()
 ```
 
+This component includes styles written in Sass which can be imported into your application's main Sass stylesheet.
 
-## Props
+```scss
+@import '@financial-times/anvil-ui-ft-header/styles';
+```
 
-All variants with the exception of `LogoOnly` require a props object to be passed to the header component. The component can be configured by setting properties on this object.
-
-| PROP               | TYPE    | OPTIONAL | DEFAULT  | DESCRIPTION                                                                                       |
-|--------------------|---------|----------|----------|---------------------------------------------------------------------------------------------------|
-| variant            | string  | true     | 'simple' | Serve a variant of the default header element                                                     |
-| userIsAnonymous    | boolean | true     | true     | Marks a user as anonymous - can be set by middleware included with n-express                      |
-| userIsLoggedIn     | boolean | true     | false    | Marks a user as logged in - can be set by middleware included with n-express                      |
-| showUserNavigation | boolean | true     | true     | Show user navigation options - `Portfolio` and `Account Settings` or `Sign in` and `Subscribe`    |
-| showSubNavigation  | boolean | true     | true     | Show the sub-navigation element which may include the crumbtrail                                  |
-| disableSticky      | boolean | true     | false    | Prevents the StickyHeader component from rendering                                                |
-| data               | object  | false    |          | Navigation data for rendering the header links - takes the shape of [Data Props](#data-props)     |
+_Please note_ that the exact usage of styles will depend on how you configure your Sass compiler and whether or not you are using Bower to install dependencies.
 
 
-## Navigation data
+## Options
 
-The props object passed to the header component must have a `data` property. The data is expected to come from the [navigation API] and should have the following properties.
+All header components with the exception of `<LogoOnly />` require the following options:
 
-|       PROP        |                                                         DESCRIPTION                                                         |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| currentPath       | The url for which data has been requested                                                                                   |
-| editions          | Detailing the `current` and `other` available editions                                                                      |
-| drawer            | Populates the drawer menu elements                                                                                          |
-| navbar            | Populates the primary navigation links and any associated meganav components                                                |
-| navbar-right      | Logged in user navigation options - rendered if `showUserNav` is true                                                       |
-| navbar-right-anon | Anonymous user navigation options - rendered if `showUserNav` is true                                                       |
-| navbar-simple     | Minimal navigation links for displaying navigation on smaller viewports                                                     |
-| breadcrumb        | Populates the ancestors section of the subNavigation                                                                        |
-| subsections       | Populates the children section of the subNavigation                                                                         |
-| user              | Populates the last section of the drawer with `Help Centre`, `Account Settings`, `Contact Preferences` and `Sign out` links |
-
-## Variants
-
-A variant property can be configured on the data object which is passed to the header component. The available variants are:
-
-|  VARIANT  |                                                                           DESCRIPTION                                                                           |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| simple    | The default variant of the header top element which is used on most ft.com pages including article pages - it is narrower than the homepage masthead            |
-| home      | Use the taller, 'masthead' variant of the header top element - this overrides the default `simple` style and is used on the ft.com homepage and on stream pages |
-| sticky    | Render the sticky header after a predetermined scroll-depth                                                                                                     |
-| logo-only | Render without the drawer, search or myFT elements - this pattern is used in several conversion apps                                                            |
+| OPTION             | TYPE                               | OPTIONAL | DEFAULT  | DESCRIPTION                                                                    |
+|--------------------|------------------------------------|----------|----------|--------------------------------------------------------------------------------|
+| variant            | 'simple' \| 'large-logo' \| string | true     | 'simple' | Adds a class name to the header element                                        |
+| userIsAnonymous    | boolean                            | true     | true     | Marks a user as anonymous - can be set by middleware included with n-express   |
+| userIsLoggedIn     | boolean                            | true     | false    | Marks a user as logged in - can be set by middleware included with n-express   |
+| showUserNavigation | boolean                            | true     | true     | Show user navigation options such as `Sign out` or `Subscribe`                 |
+| showSubNavigation  | boolean                            | true     | true     | Show the sub-navigation component which may include the crumbtrail             |
+| disableSticky      | boolean                            | true     | false    | Prevents the sticky header component from rendering                            |
+| data               | object                             | false    |          | Navigation data for rendering the header links fetched from the navigation API |
 
 
 ## Header Elements
 
-### Header top
+### Top
 
-The primary header element on ft.com.
-
-The default header contains `drawer` `search` and `myFT` links. The search element is hidden if JavaScript is present and accessible via the search icon.
-
-Note: The myFT unread articles indicator code lives outside this package and depends on the [`o-header__top-link--myft`] class being present in the header.
+The topmost element - or masthead - contains the logo, toggle buttons for the [drawer](#drawer) and search bar, and the MyFT indicator if logged in.
 
 ![Example header top element](./screenshots/header-top-search.png)
 
+_Please note_ that the myFT unread articles indicator code lives outside this package in [`n-myft-ui`].
 
-### Header navigation
+[`n-myft-ui`]: https://github.com/Financial-Times/n-myft-ui/blob/master/components/unread-articles-indicator/index.js#L55
 
-The header navigation will be rendered as part of the default header. It contains the primary content links for navigating ft.com and optionally contains user navigation links. Where meganav data exists a meganav component will be attached to the relevant navbar items.
+### Navigation
 
-The `editions` and `navbar` properties are added to the navigation data by the [anvil-server-ft-navigation] package. The data is regionally-specific to either the UK or International edition.
+The navigation element contains links for navigating the top-level sections of FT.com. Some of the sections may include subsections which are presented in "mega-nav" dropdown elements.
 
 ![Example header navigation element](./screenshots/header-navigation.png)
 
+_Please note_ that the data for this menu is regionally-specific and changes depending on the selected FT edition.
 
-### Header subNavigation
+### Sub-navigation
 
-Unless `showSubNavigation` is set to `false` the subNavigation element will be rendered as part of the default header if subNavigation data exists for the requested page. Some stream pages on ft.com contain a subNavigation element and myFT pages contain a submenu which uses the subNavigation element as its base.
-
-The `breadcrumb` and `subsections` properties are required to render the subNavigation. They are added to the navigation data by the [anvil-server-ft-navigation] package and the data is page-specific.
+If enabled the sub-navigation element will be rendered if either crumbtrail or subsection navigation data is provided. This is usually page specific and will be automatically set when using the[`anvil-middleware-ft-navigation`] package.
 
 ![Example header subNavigation element](./screenshots/header-sub-navigation.png)
 
-
 ### Drawer
 
-The drawer menu is a separate component and is not included in the default header. It will need to be rendered separately.
+The drawer menu is a separate component and is not included within the header. It is the primary navigation on small screens and supplementary on large screens. It mostly re-uses the data from the [navigation](#navigation) element but can also have extra groups of links.
 
-To support core experience the drawer component should be included in the html template *below the footer component*.
+To support a non-JS, or core experience, the drawer component should be rendered near the bottom of the document.
 
-```jsx
-import { Footer } from 'anvil-ui-ft-footer'
-import { Drawer } from 'anvil-ui-ft-header'
-let navigationProps
+### Sticky header
 
-navigationProps.data = response.locals.navigation
-
-<Footer {...navigationProps.footer} />
-<Drawer {...navigationProps} />
-```
-
-
-## Storybook
-
-[Storybook] has been configured for all UI packages in Anvil. From the root of the anvil directory, run:
-
-```bash
-npm run storybook
-```
-
-The storybook will launch on port: 9001. The header stories will be available under 'FT > Header'.
-
-[Express]: https://expressjs.com/
-[Storybook]: https://storybook.js.org/
-[navigation API]: https://github.com/Financial-Times/next-navigation-api
-[Origami Navigation Service]: https://www.ft.com/__origami/service/navigation/v2/
-[anvil-ui-ft-footer]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ui-ft-footer
-[anvil-server-ft-navigation]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-ft-navigation
-[anvil-middleware-ft-navigation]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-middleware-ft-navigation
-[`o-header__top-link--myft`]: https://github.com/Financial-Times/n-myft-ui/blob/master/components/unread-articles-indicator/index.js#L55
+If enabled the sticky header is shown when users scroll down on both small and large screens. It combines similar components to the [top](#top) and [navigation](#navigation) elements.
