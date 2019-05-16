@@ -22,7 +22,7 @@ module.exports = (_, response, next) => {
   }
 
   const layoutProps = {
-    props: { data: response.locals.navigation }
+    navigationProps: { data: response.locals.navigation }
   }
 
   try {

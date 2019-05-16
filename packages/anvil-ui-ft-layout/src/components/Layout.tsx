@@ -17,7 +17,7 @@ enum Footers {
 }
 
 export type TLayoutProps = {
-  props: THeaderProps
+  navigationProps: THeaderProps
   headerBefore?: string | React.ReactNode
   header?: Headers | React.ReactNode | false
   headerAfter?: string | React.ReactNode
@@ -37,7 +37,7 @@ const getLayoutPreset = (
 })
 
 export function Layout({
-  props,
+  navigationProps,
   headerBefore,
   header,
   headerAfter,
@@ -74,7 +74,7 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--header">
         <Template>{headerBefore}</Template>
-        {Preset.header ? <Preset.header {...props} variant={header} /> : header}
+        {Preset.header ? <Preset.header {...navigationProps} variant={header} /> : header}
         <Template>{headerAfter}</Template>
       </div>
 
@@ -84,12 +84,12 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--footer">
         <Template>{footerBefore}</Template>
-        {Preset.footer ? <Preset.footer {...props} variant={footer} /> : footer}
+        {Preset.footer ? <Preset.footer {...navigationProps} variant={footer} /> : footer}
         <Template>{footerAfter}</Template>
       </div>
 
       {/* Always render the drawer if there is a default header being used */}
-      {Preset.header && <Drawer {...props} />}
+      {Preset.header && <Drawer {...navigationProps} />}
     </div>
   )
 }
