@@ -20,7 +20,7 @@
   "author": "",
   "license": "MIT",
   "engines": {
-    "node": ">= 8.15.0"
+    "node": ">= 8.16.0"
   },
   "dependencies": {
     "find-up": "^3.0.0"

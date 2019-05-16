@@ -19,5 +19,8 @@
   "license": "MIT",
   "dependencies": {
     "@financial-times/anvil-server-asset-loader": "file:../../packages/anvil-server-asset-loader"
+  },
+  "engines": {
+    "node": ">= 8.16.0"
   }
 }

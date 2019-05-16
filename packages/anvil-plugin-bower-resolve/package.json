@@ -22,5 +22,8 @@
   },
   "dependencies": {
     "bower-resolve-webpack-plugin": "^1.0.5"
+  },
+  "engines": {
+    "node": ">= 8.16.0"
   }
 }

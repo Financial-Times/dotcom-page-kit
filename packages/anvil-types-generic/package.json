@@ -11,5 +11,8 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {},
+  "engines": {
+    "node": ">= 8.16.0"
+  }
 }
