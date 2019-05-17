@@ -25,9 +25,10 @@ import { SubNavigation } from './components/sub-navigation/partials'
 import { IncludeDrawer } from './components/drawer/topLevelPartials'
 import { Search } from './components/search/partials'
 
-import { THeaderProps } from './interfaces'
+import { THeaderProps, THeaderOptions } from './interfaces'
 
-const defaultProps: Partial<THeaderProps> = {
+const defaultProps: Partial<THeaderOptions> = {
+  showUserNav: true,
   showSubNavigation: true,
   showUserNavigation: true,
   userIsAnonymous: true,

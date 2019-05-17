@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express'
 import delve from 'dlv'
 
-import { TNavMenus, TNavMenusForEdition } from '@financial-times/anvil-types-navigation'
+import { TNavMenus, TNavMenusForEdition, TNavigationData } from '@financial-times/anvil-types-navigation'
 import { Navigation, TNavOptions } from '@financial-times/anvil-server-ft-navigation'
 import { navigationEditions } from './navigation-editions'
 
@@ -43,12 +43,14 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
       const editions = navigationEditions(request, response)
       const currentEdition = delve(editions, 'current.id', 'uk')
 
-      response.locals.navigation = {
+      const navigationData:TNavigationData = {
         currentPath,
-        subNavigation,
+        ...subNavigation,
         ...getNavigationLinks(menuData, currentEdition),
         editions
       }
+
+      response.locals.navigation = navigationData;
 
       next()
     } catch (error) {

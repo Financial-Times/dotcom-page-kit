@@ -1,6 +1,12 @@
 import React from 'react'
-import { Header, LogoOnly, Drawer, THeaderProps } from '@financial-times/anvil-ui-ft-header/component'
-import { Footer, LegalFooter } from '@financial-times/anvil-ui-ft-footer/component'
+import {
+  Header,
+  LogoOnly,
+  Drawer,
+  THeaderOptions
+} from '@financial-times/anvil-ui-ft-header/component'
+import { TNavigationData } from '@financial-times/anvil-types-navigation'
+import { Footer, LegalFooter, TFooterProps } from '@financial-times/anvil-ui-ft-footer/component'
 import Template from './Template'
 
 enum Headers {
@@ -17,7 +23,9 @@ enum Footers {
 }
 
 export type TLayoutProps = {
-  navigationProps: THeaderProps
+  navigationData: TNavigationData
+  headerOptions: THeaderOptions
+  footerOptions: TFooterProps
   headerBefore?: string | React.ReactNode
   header?: Headers | React.ReactNode | false
   headerAfter?: string | React.ReactNode
@@ -37,7 +45,9 @@ const getLayoutPreset = (
 })
 
 export function Layout({
-  navigationProps,
+  navigationData,
+  headerOptions,
+  footerOptions,
   headerBefore,
   header,
   headerAfter,
@@ -74,7 +84,7 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--header">
         <Template>{headerBefore}</Template>
-        {Preset.header ? <Preset.header {...navigationProps} variant={header} /> : header}
+        {Preset.header ? <Preset.header {...headerOptions} data={navigationData} variant={header} /> : header}
         <Template>{headerAfter}</Template>
       </div>
 
@@ -84,17 +94,19 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--footer">
         <Template>{footerBefore}</Template>
-        {Preset.footer ? <Preset.footer {...navigationProps} variant={footer} /> : footer}
+        {Preset.footer ? <Preset.footer {...footerOptions} data={navigationData} variant={footer} /> : footer}
         <Template>{footerAfter}</Template>
       </div>
 
       {/* Always render the drawer if there is a default header being used */}
-      {Preset.header && <Drawer {...navigationProps} />}
+      {Preset.header && <Drawer {...headerOptions} data={navigationData} />}
     </div>
   )
 }
 
 Layout.defaultProps = {
   header: 'simple',
-  footer: 'simple'
+  footer: 'simple',
+  headerOptions: {},
+  footerOptions: {}
 }

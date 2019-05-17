@@ -1,5 +1,5 @@
 import React from 'react'
-import { TNavMenusForEdition } from '@financial-times/anvil-types-navigation'
+import { TNavigationData } from '@financial-times/anvil-types-navigation'
 import {
   FooterContents,
   MoreFromFT,
@@ -8,8 +8,8 @@ import {
   CompressedLegal
 } from './components/partials'
 
-export interface TFooterProps {
-  data: TNavMenusForEdition
+export type TFooterProps = {
+  data: TNavigationData
   theme?: 'dark' | 'light' | string
 }
 

@@ -26,8 +26,7 @@ export type TNavMenus = { [key in TNavMenuKeys]: TNavMenu }
 
 export type TNavMenusForEdition = { [key in TNavMenuKeysForEdition]: TNavMenu }
 
-export type TNavigationData =
-  TNavMenusForEdition &
+export type TNavigationData = TNavMenusForEdition &
   TNavSubNavigation & {
     editions: TNavEditions
     currentPath?: string
