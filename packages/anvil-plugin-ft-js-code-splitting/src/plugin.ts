@@ -10,6 +10,11 @@ export function plugin() {
   function addVendorCodeSplitting() {
     return {
       optimization: {
+        // Creates a separate bundle for webpack runtime.
+        // Specifying the name prevents multiple runtime bundles from being created.
+        runtimeChunk: {
+          name: 'webpack-runtime'
+        },
         splitChunks: {
           chunks: 'all',
           name: 'vendor'
@@ -42,11 +47,6 @@ export function plugin() {
   function createSharedCodeSplittingConfig(name: string, packagesToInclude: string[]) {
     return {
       optimization: {
-        // Creates a separate bundle for webpack runtime.
-        // Specifying the name prevents multiple runtime bundles from being created.
-        runtimeChunk: {
-          name: 'runtime'
-        },
         splitChunks: {
           cacheGroups: {
             [name]: {
