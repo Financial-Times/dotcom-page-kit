@@ -1,3 +1,5 @@
+import extractPackageName from './lib/extractPackageName'
+
 export function plugin() {
   return ({ on }) => {
     on('webpackConfig', addVendorCodeSplitting)
@@ -25,19 +27,19 @@ export function plugin() {
   }
 
   function addOrigamiCodeSplitting() {
-    return createSplitByPackagePrefixConfig('origami', 'o-')
+    return createBundlesForPackagesPrefixed('origami', 'o-')
   }
 
   function addAnvilUiCodeSplitting() {
-    return createBundleByRegExp('anvil-ui', /anvil-ui-/)
+    return createBundleWithRegExp('anvil-ui', /anvil-ui-/)
   }
 
   function addBabelRuntimeCodeSplitting() {
-    return createBundleByRegExp('babel-runtime', /@babel\/runtime/)
+    return createBundleWithRegExp('babel-runtime', /@babel\/runtime/)
   }
 
   function addSharedStableCodeSplitting() {
-    return createSharedCodeSplittingConfig('shared.stable', [
+    return createBundleWithPackageNames('shared.stable', [
       'dom-loaded',
       'ftdomdelegate',
       'morphdom',
@@ -49,19 +51,18 @@ export function plugin() {
   }
 
   function addSharedVolatileCodeSplitting() {
-    return createSharedCodeSplittingConfig('shared.volatile', ['n-syndication', 'n-feedback'])
+    return createBundleWithPackageNames('shared.volatile', ['n-syndication', 'n-feedback'])
   }
 
-  function createSharedCodeSplittingConfig(name: string, packagesToInclude: string[]) {
+  function createBundleWithPackageNames(name: string, packageNames: string[]) {
     return {
       optimization: {
         splitChunks: {
           cacheGroups: {
             [name]: {
               test: (module) => {
-                const match = module.context.match(/\bnode_modules|bower_components\/([^\/]+)\b/)
-                if (!match) return false
-                return packagesToInclude.includes(match[1])
+                const packageName = extractPackageName(module.context)
+                return packageName ? packageNames.includes(packageName) : false
               },
               chunks: 'all',
               minSize: 0,
@@ -74,7 +75,7 @@ export function plugin() {
     }
   }
 
-  function createSplitByPackagePrefixConfig(group: string, packagePrefix: string) {
+  function createBundlesForPackagesPrefixed(group: string, packagePrefix: string) {
     return {
       optimization: {
         splitChunks: {
@@ -94,7 +95,7 @@ export function plugin() {
     }
   }
 
-  function createBundleByRegExp(name: string, pattern: RegExp) {
+  function createBundleWithRegExp(name: string, pattern: RegExp) {
     return {
       optimization: {
         splitChunks: {
