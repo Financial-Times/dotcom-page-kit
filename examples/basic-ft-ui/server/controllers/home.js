@@ -14,7 +14,7 @@ module.exports = (_, response, next) => {
   const styleBundles = response.locals.assets.loader.getStylesheetURLsFor('styles')
 
   const shellProps = {
-    flags: {},
+    flags: { ads: true, tracking: true },
     coreScripts: [polyfills.core],
     enhancedScripts: [polyfills.enhanced, ...scriptBundles],
     stylesheets: styleBundles,

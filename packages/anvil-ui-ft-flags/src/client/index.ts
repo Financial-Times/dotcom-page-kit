@@ -1,4 +1,9 @@
 import loadFlags from './loadFlags'
 import Flags from './Flags'
 
-export { loadFlags, Flags }
+const init = () => {
+  const flagsData = loadFlags()
+  return new Flags(flagsData)
+}
+
+export { loadFlags, Flags, init }
