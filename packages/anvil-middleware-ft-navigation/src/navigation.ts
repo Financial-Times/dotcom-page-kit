@@ -43,14 +43,14 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
       const editions = navigationEditions(request, response)
       const currentEdition = delve(editions, 'current.id', 'uk')
 
-      const navigationData:TNavigationData = {
+      const navigationData: TNavigationData = {
         currentPath,
-        subNavigation,
+        ...subNavigation,
         ...getNavigationLinks(menuData, currentEdition),
         editions
       }
 
-      response.locals.navigation = navigationData;
+      response.locals.navigation = navigationData
 
       next()
     } catch (error) {

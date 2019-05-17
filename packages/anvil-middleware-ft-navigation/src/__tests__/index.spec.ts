@@ -55,7 +55,6 @@ const fakeMenu = {
 
 const fakeMenuData = {
   ...fakeMenu,
-  subNavigation: null,
   navbar: fakeMenuResponse['navbar-uk'],
   drawer: fakeMenuResponse['drawer-uk'],
   footer: fakeMenuResponse['footer'],
@@ -64,7 +63,6 @@ const fakeMenuData = {
 
 const fakeMenuDataInternational = {
   ...fakeMenu,
-  subNavigation: null,
   navbar: fakeMenuResponse['navbar-international'],
   drawer: fakeMenuResponse['drawer-international'],
   footer: fakeMenuResponse['footer'],
@@ -73,7 +71,7 @@ const fakeMenuDataInternational = {
 
 const fakeMenuDataWithSubNavigation = {
   ...fakeMenu,
-  subNavigation: fakeSubNavigationResponse,
+  ...fakeSubNavigationResponse,
   navbar: fakeMenuResponse['navbar-uk'],
   drawer: fakeMenuResponse['drawer-uk'],
   footer: fakeMenuResponse['footer'],
