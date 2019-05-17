@@ -3,6 +3,7 @@ export function plugin() {
     on('webpackConfig', addVendorCodeSplitting)
     on('webpackConfig', addOrigamiCodeSplitting)
     on('webpackConfig', addAnvilUiCodeSplitting)
+    on('webpackConfig', addBabelRuntimeCodeSplitting)
     on('webpackConfig', addSharedStableCodeSplitting)
     on('webpackConfig', addSharedVolatileCodeSplitting)
   }
@@ -29,6 +30,10 @@ export function plugin() {
 
   function addAnvilUiCodeSplitting() {
     return createSplitByPackagePrefixConfig('anvil-ui', 'anvil-ui-')
+  }
+
+  function addBabelRuntimeCodeSplitting() {
+    return createBundleByRegExp('babel-runtime', /@babel\/runtime/)
   }
 
   function addSharedStableCodeSplitting() {
@@ -82,6 +87,24 @@ export function plugin() {
               name(module) {
                 return module.context.match(new RegExp(`\\b(${packagePrefix}[^\/]+)\\b`))[0]
               }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  function createBundleByRegExp(name: string, pattern: RegExp) {
+    return {
+      optimization: {
+        splitChunks: {
+          cacheGroups: {
+            [name]: {
+              test: pattern,
+              chunks: 'all',
+              minSize: 0,
+              maxInitialRequests: Infinity,
+              name
             }
           }
         }
