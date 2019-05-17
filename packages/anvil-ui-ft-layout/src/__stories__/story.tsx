@@ -33,7 +33,7 @@ storiesOf('FT / Layout', module)
   .add('Default components', () => {
     return (
       <OnReady callback={initUiComponents}>
-        <Layout props={headerProps} header={switchHeader()} footer={switchFooter()}>
+        <Layout navigationData={headerProps} header={switchHeader()} footer={switchFooter()}>
           <main className="demo">
             <p className="demo__message">Defaults: only passing data</p>
           </main>
@@ -45,7 +45,7 @@ storiesOf('FT / Layout', module)
     return (
       <OnReady callback={initUiComponents}>
         <Layout
-          props={headerProps}
+          navigationData={headerProps}
           headerBefore={<Extra>Header before</Extra>}
           headerAfter={<Extra>Header after</Extra>}
           footerBefore={<Extra>Footer before</Extra>}
@@ -61,7 +61,7 @@ storiesOf('FT / Layout', module)
     return (
       <OnReady callback={initUiComponents}>
         <Layout
-          props={headerProps}
+          navigationData={headerProps}
           header={<Extra>Custom header</Extra>}
           footer={<Extra>Custom footer</Extra>}>
           <main className="demo">

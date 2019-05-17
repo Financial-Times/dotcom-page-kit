@@ -26,6 +26,13 @@ export type TNavMenus = { [key in TNavMenuKeys]: TNavMenu }
 
 export type TNavMenusForEdition = { [key in TNavMenuKeysForEdition]: TNavMenu }
 
+export type TNavigationData =
+  TNavMenusForEdition &
+  TNavSubNavigation & {
+    editions: TNavEditions
+    currentPath?: string
+  }
+
 export type TNavMenu = {
   label: string | null
   items: TNavMenuItem[]
@@ -64,8 +71,8 @@ export interface INavMeganavArticles {
 }
 
 export type TNavSubNavigation = {
-  breadcrumb: TNavMenuItem[]
-  subsections: TNavMenuItem[]
+  breadcrumb?: TNavMenuItem[]
+  subsections?: TNavMenuItem[]
 }
 
 export type TNavEditions = {
