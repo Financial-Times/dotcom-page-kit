@@ -29,7 +29,7 @@ export function plugin() {
   }
 
   function addAnvilUiCodeSplitting() {
-    return createSplitByPackagePrefixConfig('anvil-ui', 'anvil-ui-')
+    return createBundleByRegExp('anvil-ui', /anvil-ui-/)
   }
 
   function addBabelRuntimeCodeSplitting() {
