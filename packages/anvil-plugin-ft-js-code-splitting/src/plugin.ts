@@ -34,9 +34,12 @@ export function plugin() {
   function addSharedStableCodeSplitting() {
     return createSharedCodeSplittingConfig('shared.stable', [
       'dom-loaded',
+      'ftdomdelegate',
+      'morphdom',
+      'n-topic-search',
+      'n-ui-foundations',
       'superstore',
-      'superstore-sync',
-      'n-ui-foundations'
+      'superstore-sync'
     ])
   }
 
