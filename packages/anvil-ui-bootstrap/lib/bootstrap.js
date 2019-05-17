@@ -28,20 +28,7 @@
     }
 
     if (scriptsConfig.trackErrors) {
-      var img = new Image()
-
-      var data = JSON.stringify({
-        category: 'javascript',
-        action: 'load-error',
-        system: {
-          source: 'anvil'
-        },
-        context: {
-          script: error.target.src
-        }
-      })
-
-      img.src = 'https://spoor-api.ft.com/px.gif?data=' + encodeURIComponent(data)
+      addTrackingPixel()
     }
   }
 
@@ -80,5 +67,22 @@
     }
 
     return scriptsConfig
+  }
+
+  function addTrackingPixel() {
+    var img = new Image()
+
+    var data = JSON.stringify({
+      category: 'javascript',
+      action: 'load-error',
+      system: {
+        source: 'anvil'
+      },
+      context: {
+        script: error.target.src
+      }
+    })
+
+    img.src = 'https://spoor-api.ft.com/px.gif?data=' + encodeURIComponent(data)
   }
 })()
