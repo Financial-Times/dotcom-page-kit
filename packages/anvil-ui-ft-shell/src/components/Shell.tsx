@@ -29,7 +29,11 @@ function Shell(props: TShellProps) {
         />
         <Flags flags={props.flags} />
         <StyleSheets stylesheets={props.stylesheets} criticalStyles={props.criticalStyles} />
-        <Bootstrap coreScripts={props.coreScripts} enhancedScripts={props.enhancedScripts} />
+        <Bootstrap
+          coreScripts={props.coreScripts}
+          enhancedScripts={props.enhancedScripts}
+          trackErrors={true}
+        />
       </head>
       <Body {...formatAttributeNames(props.bodyAttributes)} contents={props.contents || props.children} />
     </html>
