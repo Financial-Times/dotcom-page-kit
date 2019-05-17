@@ -2,11 +2,10 @@ import { TNavMenusForEdition, TNavSubNavigation, TNavEditions } from '@financial
 
 export interface THeaderProps {
   variant?: THeaderVariant
-  hideOutboundLinks?: boolean
   userIsAnonymous?: boolean
   userIsLoggedIn?: boolean
-  showUserNav?: boolean
   showSubNavigation?: boolean
+  showUserNavigation?: boolean
   disableSticky?: boolean
   data: TNavMenusForEdition &
     TNavSubNavigation & {
@@ -15,4 +14,4 @@ export interface THeaderProps {
     }
 }
 
-export type THeaderVariant = 'simple' | 'home' | 'sticky' | 'logo-only'
+export type THeaderVariant = 'simple' | 'large-logo'

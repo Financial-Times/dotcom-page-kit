@@ -73,14 +73,10 @@ const NavListLeft = (props: THeaderProps) => (
 )
 
 const NavListRight = (props: THeaderProps) => {
-  // Serve the signed-in or anonymous user experience
-  const navbarKey = props.userIsLoggedIn ? 'navbar-right' : 'navbar-right-anon'
-  const navbarItems = props.data[navbarKey].items
-
-  if (props.userIsAnonymous) {
-    return <NavListRightAnon items={navbarItems} />
+  if (props.userIsLoggedIn) {
+    return <NavListRightLoggedIn items={props.data['navbar-right'].items} />
   } else {
-    return <NavListRightLoggedIn items={navbarItems} />
+    return <NavListRightAnon items={props.data['navbar-right-anon'].items} />
   }
 }
 

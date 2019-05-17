@@ -4,6 +4,7 @@ import {
   TopWrapper,
   TopColumnLeft,
   TopColumnCenter,
+  TopColumnCenterNoLink,
   TopColumnRight
 } from './components/top/partials'
 import {
@@ -27,16 +28,15 @@ import { Search } from './components/search/partials'
 import { THeaderProps } from './interfaces'
 
 const defaultProps: Partial<THeaderProps> = {
-  showUserNav: true,
   showSubNavigation: true,
-  hideOutboundLinks: false,
+  showUserNavigation: true,
   userIsAnonymous: true,
   userIsLoggedIn: false,
   disableSticky: false
 }
 
 function MainHeader(props: THeaderProps) {
-  const includeUserActionsNav = props.showUserNav && props.userIsAnonymous
+  const includeUserActionsNav = props.showUserNavigation && !props.userIsLoggedIn
   const includeSubNavigation = props.showSubNavigation && (props.data.breadcrumb || props.data.subsections)
 
   return (
@@ -44,14 +44,14 @@ function MainHeader(props: THeaderProps) {
       {includeUserActionsNav ? <UserActionsNav {...props} /> : null}
       <TopWrapper>
         <TopColumnLeft />
-        <TopColumnCenter {...props} />
+        <TopColumnCenter />
         <TopColumnRight />
       </TopWrapper>
       <Search context="primary" />
       <MobileNav {...props} />
       <NavDesktop>
         <NavListLeft {...props} />
-        {props.showUserNav ? <NavListRight {...props} /> : null}
+        {props.showUserNavigation ? <NavListRight {...props} /> : null}
       </NavDesktop>
       {includeSubNavigation ? <SubNavigation {...props} /> : null}
     </HeaderWrapper>
@@ -75,26 +75,22 @@ function StickyHeader(props: THeaderProps) {
 
 StickyHeader.defaultProps = defaultProps
 
-/**
- *
- * @param props
- */
 function Header(props: THeaderProps) {
   return (
     <React.Fragment>
-      <StickyHeader {...props} />
       <MainHeader {...props} />
+      <StickyHeader {...props} />
     </React.Fragment>
   )
 }
 
 Header.defaultProps = defaultProps
 
-function LogoOnly(props?) {
+function LogoOnly() {
   return (
-    <HeaderWrapper {...props}>
+    <HeaderWrapper>
       <TopWrapper>
-        <TopColumnCenter {...props} />
+        <TopColumnCenterNoLink />
       </TopWrapper>
     </HeaderWrapper>
   )

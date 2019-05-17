@@ -10,10 +10,10 @@ import './demos.scss'
 
 const toggleUserStateOptions = () => boolean('Enable user nav actions', true)
 const toggleVariantOptions = () => radios('Choose variant', { simple: 'simple', normal: 'normal' }, 'simple')
-const toggleAnonymous = () => boolean('User is anonymous', true)
-const toggleShowSubNav = () => boolean('Show the subNavigation component', true)
+const toggleLoggedIn = () => boolean('User is logged in', false)
+const toggleShowSubNav = () => boolean('Show the sub-navigation component', true)
 const toggleDisableSticky = () => boolean('Disable sticky header', false)
-const toggleMobileNav = () => radios('Show mobile nav', { show: '/', hide: '' }, '/')
+const toggleMobileNav = () => radios('Show mobile nav', { show: '/', hide: '/404' }, '/')
 
 const onReadyCallback = () => {
   // Passing a cors-anywhere hostname to n-topic-search
@@ -24,24 +24,12 @@ const onReadyCallback = () => {
 
 storiesOf('FT / Header', module)
   .addDecorator(withKnobs)
-  .add('Default header', () => {
+  .add('Default header with drawer', () => {
     const knobs = {
       showSubNavigation: toggleShowSubNav(),
-      showUserNav: toggleUserStateOptions(),
-      userIsAnonymous: toggleAnonymous()
-    }
-    storyData.data = { ...storyData.data, currentPath: toggleMobileNav() }
-
-    return (
-      <OnReady callback={onReadyCallback}>
-        <Header {...storyData} {...knobs} />
-      </OnReady>
-    )
-  })
-  .add('With drawer component', () => {
-    const knobs = {
-      showUserNav: toggleUserStateOptions(),
-      userIsAnonymous: toggleAnonymous()
+      showUserNavigation: toggleUserStateOptions(),
+      userIsLoggedIn: toggleLoggedIn(),
+      currentPath: toggleMobileNav()
     }
     storyData.data = { ...storyData.data, currentPath: toggleMobileNav() }
 
@@ -54,8 +42,8 @@ storiesOf('FT / Header', module)
   })
   .add('Sticky header', () => {
     const knobs = {
-      showUserNav: toggleUserStateOptions(),
-      userIsAnonymous: toggleAnonymous(),
+      showUserNavigation: toggleUserStateOptions(),
+      userIsLoggedIn: toggleLoggedIn(),
       disableSticky: toggleDisableSticky()
     }
 

@@ -1,7 +1,6 @@
 import React from 'react'
-import { THeaderProps } from '../../interfaces'
 
-const HeaderWrapper = (props: THeaderProps & { children: React.ReactNode }) => (
+const HeaderWrapper = (props) => (
   <header
     id="site-navigation"
     className={`o-header o-header--${props.variant || 'simple'}`}
@@ -36,18 +35,6 @@ const SearchIcon = () => (
   </a>
 )
 
-const FTLogo = () => (
-  <a className="o-header__top-logo" data-trackable="logo" href="/" title="Go to Financial Times homepage">
-    <span className="o-header__visually-hidden">Financial Times</span>
-  </a>
-)
-
-const FTLogoNoOutbound = () => (
-  <div className="o-header__top-logo">
-    <span className="o-header__visually-hidden">Financial Times</span>
-  </div>
-)
-
 const MyFt = () => (
   <a
     className="o-header__top-link o-header__top-link--myft"
@@ -74,18 +61,26 @@ const TopColumnLeft = () => (
   </div>
 )
 
-const TopColumnCenter = (props: THeaderProps) => (
+const TopColumnCenter = () => (
   <div className="o-header__top-column o-header__top-column--center">
-    {props.hideOutboundLinks ? <FTLogoNoOutbound /> : <FTLogo />}
+    <a className="o-header__top-logo" data-trackable="logo" href="/" title="Go to Financial Times homepage">
+      <span className="o-header__visually-hidden">Financial Times</span>
+    </a>
   </div>
 )
 
-const TopColumnRight = () => {
-  return (
-    <div className="o-header__top-column o-header__top-column--right">
-      <MyFt />
+const TopColumnCenterNoLink = () => (
+  <div className="o-header__top-column o-header__top-column--center">
+    <div className="o-header__top-logo">
+      <span className="o-header__visually-hidden">Financial Times</span>
     </div>
-  )
-}
+  </div>
+)
 
-export { HeaderWrapper, TopWrapper, TopColumnLeft, TopColumnCenter, TopColumnRight }
+const TopColumnRight = () => (
+  <div className="o-header__top-column o-header__top-column--right">
+    <MyFt />
+  </div>
+)
+
+export { HeaderWrapper, TopWrapper, TopColumnLeft, TopColumnCenter, TopColumnCenterNoLink, TopColumnRight }
