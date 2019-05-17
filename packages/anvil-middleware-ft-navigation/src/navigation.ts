@@ -45,7 +45,7 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
 
       const navigationData:TNavigationData = {
         currentPath,
-        ...subNavigation,
+        subNavigation,
         ...getNavigationLinks(menuData, currentEdition),
         editions
       }
