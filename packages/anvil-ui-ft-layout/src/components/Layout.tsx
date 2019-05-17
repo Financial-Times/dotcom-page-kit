@@ -25,10 +25,10 @@ enum Footers {
 export type TLayoutProps = {
   navigationData: TNavigationData
   headerOptions: THeaderOptions
-  footerOptions: TFooterProps
   headerBefore?: string | React.ReactNode
   header?: Headers | React.ReactNode | false
   headerAfter?: string | React.ReactNode
+  footerOptions: TFooterProps
   footerBefore?: string | React.ReactNode
   footer?: Footers | React.ReactNode | false
   footerAfter?: string | React.ReactNode
@@ -47,10 +47,10 @@ const getLayoutPreset = (
 export function Layout({
   navigationData,
   headerOptions,
-  footerOptions,
   headerBefore,
   header,
   headerAfter,
+  footerOptions,
   footerBefore,
   footer,
   footerAfter,
