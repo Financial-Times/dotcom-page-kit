@@ -1,4 +1,5 @@
 import React from 'react'
+import { ariaSelected } from '../../utils'
 import { THeaderProps } from '../../interfaces'
 import { TNavMenuItem } from '@financial-times/anvil-types-navigation'
 
@@ -48,14 +49,13 @@ const BreadCrumb = ({ items }: { items: TNavMenuItem[] }) => (
     data-trackable="breadcrumb">
     {items.map((item, index) => {
       const selected = item.selected ? 'o-header__subnav-link--highlight' : ''
-      const ariaCurrent = item.selected ? { 'aria-current': true } : null
 
       return (
         <li className="o-header__subnav-item" key={`item-${index}`}>
           <a
             className={`o-header__subnav-link ${selected}`}
             href={item.url}
-            {...ariaCurrent}
+            {...ariaSelected(item)}
             data-trackable={item.label}>
             {item.label}
           </a>
@@ -73,14 +73,13 @@ const SubSections = ({ items }: { items: TNavMenuItem[] }) => {
       data-trackable="subsections">
       {items.map((item, index) => {
         const selected = item.selected ? 'o-header__subnav-link--highlight' : ''
-        const ariaCurrent = item.selected ? { 'aria-current': true } : null
 
         return (
           <li className="o-header__subnav-item" key={`item-${index}`}>
             <a
               className={`o-header__subnav-link ${selected}`}
               href={item.url}
-              {...ariaCurrent}
+              {...ariaSelected(item)}
               data-trackable={item.label}>
               {item.label}
             </a>
