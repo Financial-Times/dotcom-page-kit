@@ -20,7 +20,9 @@
   "peerDependencies": {
     "@financial-times/anvil-cli": "file:../anvil-cli"
   },
-  "dependencies": {},
+  "dependencies": {
+    "memoize-one": "^5.0.4"
+  },
   "devDependencies": {
     "@financial-times/anvil-cli": "file:../anvil-cli"
   },

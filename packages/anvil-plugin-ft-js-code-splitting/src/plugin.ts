@@ -1,4 +1,7 @@
+import memoize from 'memoize-one'
 import extractPackageName from './lib/extractPackageName'
+
+const memoizedExtractPackageName = memoize(extractPackageName)
 
 export function plugin() {
   return ({ on }) => {
@@ -61,7 +64,7 @@ export function plugin() {
           cacheGroups: {
             [name]: {
               test(module) {
-                const packageName = extractPackageName(module.context)
+                const packageName = memoizedExtractPackageName(module.context)
                 return packageName ? packageNames.includes(packageName) : false
               },
               chunks: 'all',
@@ -82,14 +85,14 @@ export function plugin() {
           cacheGroups: {
             [group]: {
               test(module) {
-                const packageName = extractPackageName(module.context)
+                const packageName = memoizedExtractPackageName(module.context)
                 return packageName ? packageName.startsWith(packagePrefix) : false
               },
               chunks: 'all',
               minSize: 0,
               maxInitialRequests: Infinity,
               name(module) {
-                return extractPackageName(module.context)
+                return memoizedExtractPackageName(module.context)
               }
             }
           }
