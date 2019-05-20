@@ -8,9 +8,12 @@ import {
   CompressedLegal
 } from './components/partials'
 
-export type TFooterProps = {
-  data: TNavigationData
+export type TFooterOptions = {
   theme?: 'dark' | 'light' | string
+}
+
+export type TFooterProps = TFooterOptions & {
+  data: TNavigationData
 }
 
 export function Footer(props: TFooterProps) {
