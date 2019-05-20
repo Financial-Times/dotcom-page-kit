@@ -28,7 +28,6 @@ import { Search } from './components/search/partials'
 import { THeaderProps, THeaderOptions } from './interfaces'
 
 const defaultProps: Partial<THeaderOptions> = {
-  showUserNav: true,
   showSubNavigation: true,
   showUserNavigation: true,
   userIsAnonymous: true,

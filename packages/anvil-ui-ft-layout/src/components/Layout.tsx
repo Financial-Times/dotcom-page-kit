@@ -1,12 +1,7 @@
 import React from 'react'
-import {
-  Header,
-  LogoOnly,
-  Drawer,
-  THeaderOptions
-} from '@financial-times/anvil-ui-ft-header/component'
+import { Header, LogoOnly, Drawer, THeaderOptions } from '@financial-times/anvil-ui-ft-header/component'
 import { TNavigationData } from '@financial-times/anvil-types-navigation'
-import { Footer, LegalFooter, TFooterProps } from '@financial-times/anvil-ui-ft-footer/component'
+import { Footer, LegalFooter, TFooterOptions } from '@financial-times/anvil-ui-ft-footer/component'
 import Template from './Template'
 
 enum Headers {
@@ -28,7 +23,7 @@ export type TLayoutProps = {
   headerBefore?: string | React.ReactNode
   header?: Headers | React.ReactNode | false
   headerAfter?: string | React.ReactNode
-  footerOptions: TFooterProps
+  footerOptions: TFooterOptions
   footerBefore?: string | React.ReactNode
   footer?: Footers | React.ReactNode | false
   footerAfter?: string | React.ReactNode
