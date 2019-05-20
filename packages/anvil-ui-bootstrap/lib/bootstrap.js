@@ -22,7 +22,7 @@
       console.error('The script ' + error.target.src + ' failed to load') // eslint-disable-line no-console
     }
 
-    if (isEnhanced) {
+    if (/enhanced/.test(doc.className)) {
       console.warn('Script loading failed, reverting to core experience') // eslint-disable-line no-console
       doc.className = doc.className.replace('enhanced', 'core')
     }
