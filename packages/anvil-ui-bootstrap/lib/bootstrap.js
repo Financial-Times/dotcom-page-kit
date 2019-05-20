@@ -18,8 +18,10 @@
   }
 
   function scriptLoadError(error) {
-    if (error.target) {
-      console.error('The script ' + error.target.src + ' failed to load') // eslint-disable-line no-console
+    var script = error.target ? error.target.src : null
+
+    if (script) {
+      console.error('The script ' + script + ' failed to load') // eslint-disable-line no-console
     }
 
     if (/enhanced/.test(doc.className)) {
@@ -28,7 +30,7 @@
     }
 
     if (scriptsConfig.trackErrors) {
-      addTrackingPixel()
+      addErrorTrackingPixel(script)
     }
   }
 
@@ -69,7 +71,7 @@
     return scriptsConfig
   }
 
-  function addTrackingPixel() {
+  function addErrorTrackingPixel(script) {
     var img = new Image()
 
     var data = JSON.stringify({
@@ -79,7 +81,7 @@
         source: 'anvil'
       },
       context: {
-        script: error.target.src
+        script: script
       }
     })
 
