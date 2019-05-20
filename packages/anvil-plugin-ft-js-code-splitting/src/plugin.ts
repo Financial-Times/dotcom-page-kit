@@ -60,7 +60,7 @@ export function plugin() {
         splitChunks: {
           cacheGroups: {
             [name]: {
-              test: (module) => {
+              test(module) {
                 const packageName = extractPackageName(module.context)
                 return packageName ? packageNames.includes(packageName) : false
               },
@@ -81,12 +81,15 @@ export function plugin() {
         splitChunks: {
           cacheGroups: {
             [group]: {
-              test: new RegExp(`\\b(${packagePrefix}[^\/]+)\\b`),
+              test(module) {
+                const packageName = extractPackageName(module.context)
+                return packageName ? packageName.startsWith(packagePrefix) : false
+              },
               chunks: 'all',
               minSize: 0,
               maxInitialRequests: Infinity,
               name(module) {
-                return module.context.match(new RegExp(`\\b(${packagePrefix}[^\/]+)\\b`))[0]
+                return extractPackageName(module.context)
               }
             }
           }
