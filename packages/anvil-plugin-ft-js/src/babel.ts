@@ -1,14 +1,7 @@
 import { PluginOptions } from './types'
 import { CliContext } from '@financial-times/anvil-cli'
 
-/**
- * Returns the babel config
- *
- * NOTE: This file can also be specified as a preset in a .babelrc file.
- * When used in such a manner, there will be no args supplied to the function,
- * hence why the arg is optional.
- */
-export default (pluginOptions: PluginOptions = {}, cli?: CliContext) => {
+export default (pluginOptions: PluginOptions = {}, cli: CliContext) => {
   const jsx = {
     pragma: pluginOptions.jsxPragma || 'h',
     fragment: pluginOptions.jsxPragmaFrag || 'Fragment'
@@ -46,13 +39,11 @@ export default (pluginOptions: PluginOptions = {}, cli?: CliContext) => {
     ]
   }
 
-  if (cli) {
-    cli.publish('babelConfig::preset::react::options', options.presetReact)
-    cli.publish('babelConfig::preset::typescript::options', options.presetTypescript)
-    cli.publish('babelConfig::plugin::proposalClassProperties::options', options.pluginClassProperties)
-    cli.publish('babelConfig::plugin::syntaxDynamicImport::options', options.pluginDynamicImport)
-    cli.publish('babelConfig::plugin::transformRuntime::options', options.pluginTransformRuntime)
-  }
+  cli.publish('babelConfig::preset::react::options', options.presetReact)
+  cli.publish('babelConfig::preset::typescript::options', options.presetTypescript)
+  cli.publish('babelConfig::plugin::proposalClassProperties::options', options.pluginClassProperties)
+  cli.publish('babelConfig::plugin::syntaxDynamicImport::options', options.pluginDynamicImport)
+  cli.publish('babelConfig::plugin::transformRuntime::options', options.pluginTransformRuntime)
 
   return config
 }
