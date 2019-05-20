@@ -85,6 +85,10 @@ An optional string of CSS to embed into the page. Defaults to setting the backgr
 
 A data object which will be passed to the [feature flags component](../anvil-ui-ft-flags/readme.md).
 
+#### `appContext` (object)
+
+An optional object that will be serialised and embedded within the page. See the [anvil-ft-app-context](../anvil-ft-app-context/readme.md) package for more information about the app context.
+
 #### `initialProps` (object)
 
 An optional data object to serialise and embed in the page which can be used to rehydrate your application on the client-side.

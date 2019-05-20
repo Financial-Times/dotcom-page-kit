@@ -21,4 +21,11 @@ describe('anvil-ui-open-graph/src/lib/formatAttributeNames', () => {
     expect(result).toHaveProperty('user-logged-in', true)
     expect(result).toHaveProperty('lang', 'en-GB')
   })
+
+  it('prefixes the kebab cased property names with the supplied prefix option', () => {
+    const result = subject({ version: 123, appName: 'test' }, { prefix: 'data' })
+
+    expect(result).toHaveProperty('data-version', 123)
+    expect(result).toHaveProperty('data-app-name', 'test')
+  })
 })

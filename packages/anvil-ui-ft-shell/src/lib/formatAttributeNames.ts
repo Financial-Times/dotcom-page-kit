@@ -2,11 +2,21 @@ export type TAttributeData = {
   [key: string]: string | number | boolean
 }
 
-export default function formatAttributeNames(data: TAttributeData = {}) {
+export type TOptions = {
+  prefix?: string
+}
+
+export default function formatAttributeNames(data: TAttributeData = {}, options: TOptions = {}) {
   const output = {}
 
   for (const [key, value] of Object.entries(data)) {
-    output[hyphenateString(key)] = value
+    let hyphenatedKey = hyphenateString(key)
+
+    if (options.prefix) {
+      hyphenatedKey = `${options.prefix}-${hyphenatedKey}`
+    }
+
+    output[hyphenatedKey] = value
   }
 
   return output
