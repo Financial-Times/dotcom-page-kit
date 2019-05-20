@@ -3,7 +3,7 @@ import middlewareData from './middleware.json'
 
 const { 'drawer-uk': drawer, 'navbar-uk': navbar } = menuData
 
-export const data = {
+export const navigationProps = {
   ...menuData,
   ...middlewareData,
   drawer,
