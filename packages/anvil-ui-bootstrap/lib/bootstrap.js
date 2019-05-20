@@ -18,7 +18,20 @@
   }
 
   function scriptLoadError(error) {
-    console.error('Script loading error', error) // eslint-disable-line no-console
+    var script = error.target ? error.target.src : null
+
+    if (script) {
+      console.error('The script ' + script + ' failed to load') // eslint-disable-line no-console
+    }
+
+    if (/enhanced/.test(doc.className)) {
+      console.warn('Script loading failed, reverting to core experience') // eslint-disable-line no-console
+      doc.className = doc.className.replace('enhanced', 'core')
+    }
+
+    if (scriptsConfig.trackErrors) {
+      addErrorTrackingPixel(script)
+    }
   }
 
   function loadScript(src) {
@@ -45,7 +58,7 @@
 
   function getScriptsConfig() {
     var scriptsConfigEl = document.getElementById('anvil-bootstrap-config')
-    var scriptsConfig = { core: [], enhanced: [] }
+    var scriptsConfig = { core: [], enhanced: [], trackErrors: false }
 
     if (scriptsConfigEl) {
       try {
@@ -56,5 +69,22 @@
     }
 
     return scriptsConfig
+  }
+
+  function addErrorTrackingPixel(script) {
+    var img = new Image()
+
+    var data = JSON.stringify({
+      category: 'javascript',
+      action: 'load-error',
+      system: {
+        source: 'anvil'
+      },
+      context: {
+        script: script
+      }
+    })
+
+    img.src = 'https://spoor-api.ft.com/px.gif?data=' + encodeURIComponent(data)
   }
 })()

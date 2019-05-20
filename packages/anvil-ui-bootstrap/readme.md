@@ -90,9 +90,9 @@ There is no client-side integration required. The bootstrap component can only b
 
 ## Server-side API
 
-### `formatConfigJSON(coreScripts, enhancedScripts)`
+### `formatConfigJSON(coreScripts, enhancedScripts, trackErrors)`
 
-Returns a JSON formatted string representing the configuration for the bootstrap snippet. This must be inserted into a `<script>` element with an ID of `anvil-bootstrap-config`. This method requires two arguments:
+Returns a JSON formatted string representing the configuration for the bootstrap snippet. This must be inserted into a `<script>` element with an ID of `anvil-bootstrap-config`. This method requires two arguments and has one optional argument:
 
 1. `coreScripts`
 
@@ -101,6 +101,12 @@ Returns a JSON formatted string representing the configuration for the bootstrap
 2. `enhancedScripts`
 
     An array of JavaScript file URLs which are required by the page if the browser successfully [cuts the mustard](#cutting-the-mustard) and should deliver an [enhanced experience](#core-enhanced).
+
+3. `trackErrors`
+
+    If enabled this will drop a tracking pixel on the page to send a JavaScript loading failure event to [Spoor].
+
+[Spoor]: https://spoor-docs.herokuapp.com/
 
 ### `getBootstrapJS()`
 
@@ -118,6 +124,10 @@ If JavaScript is available the `no-js` class on the document element will be rep
 ### Core/Enhanced
 
 If the browser passes the [cuts the mustard](#cutting-the-mustard) test then the `core` class name on the document element will be replaced with `enhanced`.
+
+If any scripts fail to load a tracking pixel will be loaded to send a JavaScript loading failure event to [Spoor].
+
+[Spoor]: https://spoor-docs.herokuapp.com/
 
 ### Cutting the mustard
 
