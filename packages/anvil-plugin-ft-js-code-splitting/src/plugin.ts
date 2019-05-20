@@ -67,10 +67,8 @@ export function plugin() {
                 const packageName = memoizedExtractPackageName(module.context)
                 return packageName ? packageNames.includes(packageName) : false
               },
-              chunks: 'all',
-              minSize: 0,
-              maxInitialRequests: Infinity,
-              name
+              name,
+              enforce: true
             }
           }
         }
@@ -88,12 +86,10 @@ export function plugin() {
                 const packageName = memoizedExtractPackageName(module.context)
                 return packageName ? packageName.startsWith(packagePrefix) : false
               },
-              chunks: 'all',
-              minSize: 0,
-              maxInitialRequests: Infinity,
               name(module) {
                 return memoizedExtractPackageName(module.context)
-              }
+              },
+              enforce: true
             }
           }
         }
@@ -108,10 +104,8 @@ export function plugin() {
           cacheGroups: {
             [name]: {
               test: pattern,
-              chunks: 'all',
-              minSize: 0,
-              maxInitialRequests: Infinity,
-              name
+              name,
+              enforce: true
             }
           }
         }
