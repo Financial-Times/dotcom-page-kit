@@ -9,15 +9,15 @@ const extractPackageName = memoize((modulePath) => {
 
 export function plugin() {
   return ({ on }) => {
-    on('webpackConfig', addVendorCodeSplitting)
+    on('webpackConfig', addInitialCodeSplitting)
     on('webpackConfig', addOrigamiCodeSplitting)
-    on('webpackConfig', addAnvilUiCodeSplitting)
+    on('webpackConfig', addAnvilUICodeSplitting)
     on('webpackConfig', addBabelRuntimeCodeSplitting)
     on('webpackConfig', addSharedStableCodeSplitting)
     on('webpackConfig', addSharedVolatileCodeSplitting)
   }
 
-  function addVendorCodeSplitting() {
+  function addInitialCodeSplitting() {
     return {
       optimization: {
         // Creates a separate bundle for webpack runtime.
@@ -26,8 +26,7 @@ export function plugin() {
           name: 'webpack-runtime'
         },
         splitChunks: {
-          chunks: 'all',
-          name: 'vendor'
+          chunks: 'all'
         }
       }
     }
@@ -37,7 +36,7 @@ export function plugin() {
     return createBundlesForPackagesPrefixed('origami', 'o-')
   }
 
-  function addAnvilUiCodeSplitting() {
+  function addAnvilUICodeSplitting() {
     return createBundleWithRegExp('anvil-ui', /anvil-ui-/)
   }
 
