@@ -1,11 +1,9 @@
-import memoize from 'memoize-one'
-import getPackageName from 'get-package-name'
-
-// Memoize calls as modules often need to be resolved many times.
-const extractPackageName = memoize((modulePath) => {
-  const moduleFolder = modulePath.match(/(node_modules|bower_components)/)
-  return moduleFolder ? getPackageName(modulePath, moduleFolder.pop()) : null
-})
+import {
+  createBundleWithPackages,
+  createBundleWithRegExp,
+  createBundlesForPackages,
+  createBundlesForRegExp
+} from './bundleTypes'
 
 export function plugin() {
   return ({ on }) => {
@@ -33,19 +31,19 @@ export function plugin() {
   }
 
   function addOrigamiCodeSplitting() {
-    return createBundlesForPackagesPrefixed('origami', 'o-')
+    return createBundlesForRegExp('origami-components', /[\\\/]o-/)
   }
 
   function addAnvilUICodeSplitting() {
-    return createBundleWithRegExp('anvil-ui', /anvil-ui-/)
+    return createBundleWithRegExp('anvil-ui', /[\\\/]anvil-ui-/)
   }
 
   function addBabelRuntimeCodeSplitting() {
-    return createBundleWithRegExp('babel-runtime', /@babel\/runtime/)
+    return createBundlesForPackages('babel-helpers', ['@babel/runtime'])
   }
 
   function addSharedStableCodeSplitting() {
-    return createBundleWithPackageNames('shared.stable', [
+    return createBundleWithPackages('shared.stable', [
       'dom-loaded',
       'ftdomdelegate',
       'morphdom',
@@ -57,62 +55,6 @@ export function plugin() {
   }
 
   function addSharedVolatileCodeSplitting() {
-    return createBundleWithPackageNames('shared.volatile', ['n-syndication', 'n-feedback'])
-  }
-
-  function createBundleWithPackageNames(name: string, packageNames: string[]) {
-    return {
-      optimization: {
-        splitChunks: {
-          cacheGroups: {
-            [name]: {
-              test(module) {
-                const packageName = extractPackageName(module.context)
-                return packageName ? packageNames.includes(packageName) : false
-              },
-              name,
-              enforce: true
-            }
-          }
-        }
-      }
-    }
-  }
-
-  function createBundlesForPackagesPrefixed(group: string, packagePrefix: string) {
-    return {
-      optimization: {
-        splitChunks: {
-          cacheGroups: {
-            [group]: {
-              test(module) {
-                const packageName = extractPackageName(module.context)
-                return packageName ? packageName.startsWith(packagePrefix) : false
-              },
-              name(module) {
-                return extractPackageName(module.context)
-              },
-              enforce: true
-            }
-          }
-        }
-      }
-    }
-  }
-
-  function createBundleWithRegExp(name: string, pattern: RegExp) {
-    return {
-      optimization: {
-        splitChunks: {
-          cacheGroups: {
-            [name]: {
-              test: pattern,
-              name,
-              enforce: true
-            }
-          }
-        }
-      }
-    }
+    return createBundleWithPackages('shared.volatile', ['n-syndication', 'n-feedback'])
   }
 }
