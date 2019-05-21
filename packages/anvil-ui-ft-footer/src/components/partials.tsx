@@ -64,7 +64,7 @@ const FooterContents = ({ footerData }: TFooterContentsProps) => (
         const submenu = item.submenu.items as TNavMenuItem[][]
 
         return (
-          <div className={`o-footer__matrix-group o-footer__matrix-group--${submenu.length}`}>
+          <div key={`group-${index}`} className={`o-footer__matrix-group o-footer__matrix-group--${submenu.length}`}>
             <SectionTitle label={item.label} submenu={submenu} index={index} />
             <SectionLinks submenu={submenu} index={index} />
           </div>
@@ -123,7 +123,7 @@ const CompressedLegal = ({ footerData }: TCompressedLegalProps) => {
           {(legal.submenu.items as TNavMenuItem[][]).map((items, index) => (
             <ul className="o-footer__legal-links" key={`list-${index}`}>
               {items.map((item, index) => (
-                <li>
+                <li key={`item-${index}`}>
                   <Link item={item} key={`link-${index}`} />
                 </li>
               ))}
