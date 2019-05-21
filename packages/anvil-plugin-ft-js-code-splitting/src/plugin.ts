@@ -1,7 +1,11 @@
 import memoize from 'memoize-one'
-import extractPackageName from './lib/extractPackageName'
+import getPackageName from 'get-package-name'
 
-const memoizedExtractPackageName = memoize(extractPackageName)
+// Memoize calls as modules often need to be resolved many times.
+const extractPackageName = memoize((modulePath) => {
+  const moduleFolder = modulePath.match(/(node_modules|bower_components)/)
+  return moduleFolder ? getPackageName(modulePath, moduleFolder.pop()) : null
+})
 
 export function plugin() {
   return ({ on }) => {
@@ -64,7 +68,7 @@ export function plugin() {
           cacheGroups: {
             [name]: {
               test(module) {
-                const packageName = memoizedExtractPackageName(module.context)
+                const packageName = extractPackageName(module.context)
                 return packageName ? packageNames.includes(packageName) : false
               },
               name,
@@ -83,11 +87,11 @@ export function plugin() {
           cacheGroups: {
             [group]: {
               test(module) {
-                const packageName = memoizedExtractPackageName(module.context)
+                const packageName = extractPackageName(module.context)
                 return packageName ? packageName.startsWith(packagePrefix) : false
               },
               name(module) {
-                return memoizedExtractPackageName(module.context)
+                return extractPackageName(module.context)
               },
               enforce: true
             }

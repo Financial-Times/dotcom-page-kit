@@ -21,6 +21,7 @@
     "@financial-times/anvil-cli": "file:../anvil-cli"
   },
   "dependencies": {
+    "get-package-name": "^1.0.0",
     "memoize-one": "^5.0.4"
   },
   "devDependencies": {
