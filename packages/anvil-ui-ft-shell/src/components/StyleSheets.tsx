@@ -15,7 +15,10 @@ const Stylesheets = ({ stylesheets, criticalStyles }: TStylesheetProps) => (
 
 Stylesheets.defaultProps = {
   stylesheets: [],
-  criticalStyles: 'body { background-color:#fff1e5; color:#33302e; }'
+  criticalStyles: `
+    html { font-family: MetricWeb,sans-serif; }
+    html.o-typography--loading-sans { font-family: sans-serif; }
+`
 }
 
 export default Stylesheets

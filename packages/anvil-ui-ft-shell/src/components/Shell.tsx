@@ -19,7 +19,10 @@ type TShellProps = TDocumentHeadProps &
 
 function Shell(props: TShellProps) {
   return (
-    <html {...formatAttributeNames(props.htmlAttributes)} className="no-js core">
+    <html
+      {...formatAttributeNames(props.htmlAttributes)}
+      className="no-js core"
+      style={{ backgroundColor: '#fff1e5', color: '#33302e;' }}>
       <head>
         <DocumentHead {...props} />
         <script
