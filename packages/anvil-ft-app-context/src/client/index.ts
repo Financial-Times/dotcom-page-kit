@@ -1,1 +1,1 @@
-// TODO: IMPLEMENT
+export { loadAppContext } from './loadAppContext'
