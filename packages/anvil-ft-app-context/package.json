@@ -28,5 +28,8 @@
     "repository": "https://github.com/Financial-Times/anvil.git",
     "directory": "packages/anvil-ft-app-context"
   },
-  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ft-app-context"
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ft-app-context",
+  "devDependencies": {
+    "with-dom-overwrites": "^1.2.1"
+  }
 }
