@@ -6,8 +6,5 @@ import * as layout from '@financial-times/anvil-ui-ft-layout'
 domLoaded.then(() => {
   const flagsClient = flags.init()
 
-  console.log(flagsClient.getAll()) // eslint-disable-line no-console
-
   layout.init()
-  // tracking.init({ flags: flags.getAll() })
 })

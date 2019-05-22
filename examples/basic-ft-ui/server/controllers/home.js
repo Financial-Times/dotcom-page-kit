@@ -7,7 +7,7 @@ const polyfills = require('@financial-times/anvil-ui-ft-polyfills')
 module.exports = (_, response, next) => {
   const pageData = {
     title: 'Hello World!',
-    contents: '<p><center>Hello, welcome to this Anvil demo.</center></p>'
+    contents: '<div align="center"><p>Hello, welcome to Anvil.</p></div>'
   }
 
   const scriptBundles = response.locals.assets.loader.getScriptURLsFor('scripts')

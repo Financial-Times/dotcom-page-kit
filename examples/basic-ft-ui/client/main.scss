@@ -6,3 +6,7 @@
 .enhanced .o--if-no-js {
   display: none !important;
 }
+
+p {
+  @include oTypographySans($scale: 7);
+}
