@@ -250,17 +250,16 @@ You will end up with this:
 
 An object with the following properties
 
-| Property         | Type    | Description                                                                                      |
-| ---------------- | ------- | ------------------------------------------------------------------------------------------------ |
-| app              | string  | The app name                                                                                     |
-| version          | string  | The app version                                                                                  |
-| abState          | string  | The AB test flags data as a comma delimited string (e.g., subscriberCohort:on,premiumCohort:off) |
-| edition          | string  | The site edition                                                                                 |
-| contentId        | string  | The id of the content being featured                                                             |
-| isProduction     | boolean | Whether or not the app is being run in the production environment                                |
-| publishReference | string  | The publish reference                                                                            |
-| contentType      | string  | The type of the content being featured                                                           |
-  
+| Property         | Type    | Required | Description                                                                                      |
+| ---------------- | ------- | -------- | ------------------------------------------------------------------------------------------------ |
+| app              | string  | required | The app name                                                                                     |
+| version          | string  | required | The app version                                                                                  |
+| abState          | string  | required | The AB test flags data as a comma delimited string (e.g., subscriberCohort:on,premiumCohort:off) |
+| edition          | string  | required | The site edition                                                                                 |
+| contentId        | string  | optional | The id of the content being featured                                                             |
+| isProduction     | boolean | required | Whether or not the app is being run in the production environment                                |
+| publishReference | string  | optional | The publish reference                                                                            |
+| contentType      | string  | optional | The type of the content being featured                                                           |
 
 
 ### TLegacyAppContextDataAttributes
