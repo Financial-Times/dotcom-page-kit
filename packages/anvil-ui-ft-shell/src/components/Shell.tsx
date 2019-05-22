@@ -22,7 +22,7 @@ function Shell(props: TShellProps) {
     <html
       {...formatAttributeNames(props.htmlAttributes)}
       className="no-js core"
-      style={{ backgroundColor: '#fff1e5', color: '#33302e;' }}>
+      style={{ backgroundColor: '#fff1e5', color: '#33302e' }}>
       <head>
         <DocumentHead {...props} />
         <script
