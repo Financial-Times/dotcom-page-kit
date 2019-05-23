@@ -8,3 +8,10 @@ export const appContext = {
   isProduction: true,
   publishReference: 'tid_17wmwszvk3'
 }
+
+// For testing the 'open ended' aspect of the app context
+export const appContextWithExtras = {
+  ...appContext,
+  fooProp: 'foo',
+  barProp: 'bar'
+}

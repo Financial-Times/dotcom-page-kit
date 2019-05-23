@@ -1,1 +1,2 @@
-export { AppContext } from './components/AppContext'
+export * from './server'
+export { AppContextEmbed } from './components/AppContextEmbed'
