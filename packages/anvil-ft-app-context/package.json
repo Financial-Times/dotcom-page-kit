@@ -2,7 +2,7 @@
   "name": "@financial-times/anvil-ft-app-context",
   "version": "0.0.0",
   "description": "",
-  "main": "component.js",
+  "main": "server.js",
   "browser": "browser.js",
   "types": "src/index.ts",
   "scripts": {
@@ -31,5 +31,6 @@
   "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ft-app-context",
   "devDependencies": {
     "with-dom-overwrites": "^1.2.1"
-  }
+  },
+  "dependencies": {}
 }
