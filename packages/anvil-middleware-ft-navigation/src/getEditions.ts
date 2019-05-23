@@ -1,4 +1,4 @@
-export const navigationEditions = (request, response) => {
+export default (request, response) => {
   const availableEditions = [
     {
       id: 'uk',

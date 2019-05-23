@@ -1,4 +1,4 @@
-import { navigationEditions as subject } from '../navigation-editions'
+import subject from '../getEditions'
 import httpMocks from 'node-mocks-http'
 
 const editionsUK = {
@@ -16,7 +16,7 @@ let requestMock
 let requestMockWithQueryString
 let responseMock
 
-describe('anvil-middleware-ft-navigation/src/navigation-editions', () => {
+describe('anvil-middleware-ft-navigation/src/getEditions', () => {
   beforeEach(() => {
     responseMock = httpMocks.createResponse()
     requestMock = httpMocks.createRequest()

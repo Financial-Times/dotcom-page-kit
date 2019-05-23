@@ -1,9 +1,8 @@
-import { Request, Response, NextFunction } from 'express'
 import delve from 'dlv'
-
+import { Request, Response, NextFunction } from 'express'
 import { TNavMenus, TNavMenusForEdition, TNavigationData } from '@financial-times/anvil-types-navigation'
 import { Navigation, TNavOptions } from '@financial-times/anvil-server-ft-navigation'
-import { navigationEditions } from './navigation-editions'
+import getEditions from './getEditions'
 
 type MiddlewareOptions = TNavOptions & {
   enableSubNavigation?: boolean
@@ -29,25 +28,26 @@ export const getNavigationLinks = (menuData: TNavMenus, currentEdition: string):
 }
 
 export const init = (userOptions: MiddlewareOptions = {}) => {
-  const { enableSubNavigation, ...navOptions } = { ...defaultOptions, ...userOptions }
-  const navigator = new Navigation(navOptions)
+  const options = { ...defaultOptions, ...userOptions }
+  const navigator = new Navigation(options)
 
   return async (request: Request, response: Response, next: NextFunction) => {
     try {
-      const [menuData, subNavigation] = await Promise.all([
-        navigator.getNavigationFor(request.path),
-        enableSubNavigation ? navigator.getSubNavigationFor(request.path) : null
-      ])
       const currentPath = request.path
 
-      const editions = navigationEditions(request, response)
+      const [menuData, subNavigation] = await Promise.all([
+        navigator.getNavigationFor(currentPath),
+        options.enableSubNavigation ? navigator.getSubNavigationFor(currentPath) : null
+      ])
+
+      const editions = getEditions(request, response)
       const currentEdition = delve(editions, 'current.id', 'uk')
 
       const navigationData: TNavigationData = {
+        editions,
         currentPath,
         ...subNavigation,
-        ...getNavigationLinks(menuData, currentEdition),
-        editions
+        ...getNavigationLinks(menuData, currentEdition)
       }
 
       response.locals.navigation = navigationData
