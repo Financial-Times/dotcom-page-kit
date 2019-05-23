@@ -25,22 +25,22 @@ const navigation = new Navigation()
 The navigation instance provides methods to retrieve global navigation data and navigation for a specific page:
 
 ```js
-const allData = await navigation._getNavigationData()
-const pageData = await navigation.getMenuData('/companies/health')
+const allData = await navigation.getNavigationData()
+const pageData = await navigation.getNavigationDataFor('/companies/health')
 ```
 
 
 ## API
 
-### `_getNavigationData(): Promise<TNavMenus>`
+### `getNavigationData(): Promise<TNavMenus>`
 
 Resolves the full navigation data, refreshed by a poller.
 
-### `getMenuData(path: string): Promise<TNavMenus>`
+### `getNavigationDataFor(path: string): Promise<TNavMenus>`
 
 Resolves the full navigation data with any links to the given path marked as selected and redirect placeholders updated.
 
-### `getSubNavigation(path: string): Promise<TNavSubNavigation>`
+### `getSubNavigationFor(path: string): Promise<TNavSubNavigation>`
 
 Resolves any sub-navigation data for the given page which may include ancestors and children (a.k.a. crumbtrail and subsections).
 
@@ -67,6 +67,6 @@ Time in milliseconds to wait between polling navigation data. Defaults to `90000
 The data resolved by all methods is frozen to prevent accidental mutation of the `Poller` instance's data as it is passed around. If you need to modify any part of the data, you should first clone the parts you need and then work with your cloned object.
 
 ```js
-const subNavData = getSubNavigation('/world/uk')
+const subNavData = getSubNavigationFor('/world/uk')
 const clone = JSON.parse(JSON.stringify(subNavData));
 ```
