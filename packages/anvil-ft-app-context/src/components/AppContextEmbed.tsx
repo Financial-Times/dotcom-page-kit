@@ -3,15 +3,15 @@ import { TAppContext } from '../types'
 import { APP_CONTEXT_ELEMENT_ID } from '../constants'
 
 export interface TAppContextProps {
-  data: TAppContext
+  context: TAppContext
 }
 
-export function AppContext({ data }: TAppContextProps) {
+export function AppContextEmbed({ context }: TAppContextProps) {
   return (
     <script
       type="application/json"
       id={APP_CONTEXT_ELEMENT_ID}
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(context) }}
     />
   )
 }
