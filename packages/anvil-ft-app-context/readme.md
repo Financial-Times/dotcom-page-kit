@@ -13,13 +13,20 @@ This package provides methods for integrating app context data into your server-
   - [Client-side integration](#client-side-integration)
 - [Server-side API](#server-side-api)
   - [middleware()](#middleware)
+  - [AppContextEmbed](#appcontextembed)
+    - [Props](#props)
+      - [context](#context)
+  - [AppContext](#appcontext)
+    - [Constructor args](#constructor-args)
+    - [Properties](#properties)
+      - [.data](#data)
+    - [Methods](#methods)
+      - [.add(additionalAppContext: Partial\<TAppContext\>)](#addadditionalappcontext-partialtappcontext)
+      - [.toEmbedString()](#toembedstring)
+      - [.toLegacyDataAttributesString()](#tolegacydataattributesstring)
+      - [.toLegacyDataAttributesObject()](#tolegacydataattributesobject)
 - [Client-side API](#client-side-api)
   - [loadAppContext()](#loadappcontext)
-- [App context client API](#app-context-client-api)
-  - [data()](#data)
-  - [toEmbedString()](#toembedstring)
-  - [toLegacyDataAttributesString()](#tolegacydataattributesstring)
-  - [toLegacyDataAttributesObject()](#tolegacydataattributesobject)
 - [About the legacy data attributes support](#about-the-legacy-data-attributes-support)
 - [Types](#types)
   - [TAppContext](#tappcontext)
@@ -108,7 +115,7 @@ When rendering with React, use the `AppContext` component and / or the `toLegacy
 // NOTE: This example assumes a JSX supported environment
 
 import express from 'express'
-import { middleware: appContextMiddleware, AppContext } from '@financial-times/anvil-app-context'
+import { middleware: appContextMiddleware, AppContextEmbed } from '@financial-times/anvil-app-context'
 import { renderToString } from 'react-dom/server'
 
 app.use(appContextMiddleware)
@@ -122,7 +129,7 @@ app.get('/', (req, res) => {
       <head>
         <meta charSet="utf-8" />
         <title>My Amazing Website</title>
-        <AppContext data={appContext.data()}/>
+        <AppContextEmbed context={appContext.data}/>
       </head>
       <body>
         ...
@@ -147,24 +154,77 @@ const context = loadAppContext()
 
 An [express] compatible middleware function that makes the [app context client] available at `response.locals.appContext` within an express app route.
 
+---
+
+### AppContextEmbed
+
+A react component that can be used to embed the app context data within a html page
+
+```jsx
+import { AppContextEmbed } from '@financial-times/anvil-ft-app-context'
+
+const Page = ({ appContext }) => (
+  <html>
+    <head>
+      <title>Some Page</title>
+      <AppContextEmbed context={appContext} />
+    </head>
+    <body>
+      ...
+    </body>
+  </html>
+)
+```
+
+#### Props
+
+##### context
+
+The [app context data object] that should be embedded within the html page
+
+---
+
+### AppContext
+
+A class that contains methods and properties that allow for amending the app context data and retrieving it in various formats.
+
+```js
+import { AppContext } from '@financial-times/anvil-ft-app-context'
+
+const appContext = new AppContext({ context })
+```
+
+#### Constructor args
+
+An object with the following properties
+
+| Property | Type        | Required | Description                        |
+| -------- | ----------- | -------- | ---------------------------------- |
+| context  | TAppContext | optional | An initial app context data object |
 
 
-## Client-side API
+#### Properties
 
+##### .data
 
-### loadAppContext()
+The [app context data object]
 
-A function that parses and returns the embedded app context data if it exists. If no app context data was embedded within the page, the function returns `undefined`.
+#### Methods
 
-## App context client API
+##### .add(additionalAppContext: Partial\<TAppContext\>)
 
-An object containing the following methods
+Adds additional properties to the [app context data object]
 
-### data()
+```js
+const appContext = new AppContext({ context: initialAppContext })
+const additionalContext = { contentId: '123' }
 
-Returns the [app context data object]
+appContext.add(additionalContext)
 
-### toEmbedString()
+expect(appContext.data).toEqual({ ...initialAppContext, ...additionalContext  })
+```
+
+##### .toEmbedString()
 
 Returns the app context embed string. This string is meant to be outputted within the html head as follows:
 
@@ -181,7 +241,7 @@ const Page = `
 ```
 
 
-### toLegacyDataAttributesString()
+##### .toLegacyDataAttributesString()
 
 Returns the app context formatted as a data attributes string whose attribute names are in the legacy format for backwards compatibility. It is meant to be used as follows:
 
@@ -195,7 +255,7 @@ const Page = `
 ```
 
 
-### toLegacyDataAttributesObject()
+##### .toLegacyDataAttributesObject()
 
 Returns the app context data as an object whose keys represent are camel cased data attribute names. This object is meant to be supplied as props to the `<html>` tag of a [react] / [JSX] component.
 
@@ -208,6 +268,17 @@ const Page = () => (
   </html>
 )
 ```
+
+---
+
+## Client-side API
+
+
+### loadAppContext()
+
+A function that parses and returns the embedded app context data if it exists. If no app context data was embedded within the page, the function returns `undefined`.
+
+---
 
 ## About the legacy data attributes support
 
