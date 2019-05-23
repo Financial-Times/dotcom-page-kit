@@ -80,8 +80,8 @@ const fakeMenuDataWithSubNavigation = {
 
 const FakePoller = {
   start: jest.fn(),
-  getMenuData: jest.fn().mockImplementation(() => fakeMenuResponse),
-  getSubNavigation: jest.fn().mockImplementation(() => fakeSubNavigationResponse)
+  getNavigationFor: jest.fn().mockImplementation(() => fakeMenuResponse),
+  getSubNavigationFor: jest.fn().mockImplementation(() => fakeSubNavigationResponse)
 }
 
 jest.mock(

@@ -35,8 +35,8 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
   return async (request: Request, response: Response, next: NextFunction) => {
     try {
       const [menuData, subNavigation] = await Promise.all([
-        navigator.getMenuData(request.path),
-        enableSubNavigation ? navigator.getSubNavigation(request.path) : null
+        navigator.getNavigationFor(request.path),
+        enableSubNavigation ? navigator.getSubNavigationFor(request.path) : null
       ])
       const currentPath = request.path
 
