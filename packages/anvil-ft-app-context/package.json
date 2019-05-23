@@ -32,5 +32,9 @@
   "devDependencies": {
     "with-dom-overwrites": "^1.2.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "camelcase": "^5.3.1",
+    "dashify": "^2.0.0",
+    "pascalcase": "^0.1.1"
+  }
 }
