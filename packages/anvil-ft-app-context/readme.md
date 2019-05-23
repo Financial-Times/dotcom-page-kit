@@ -108,7 +108,7 @@ When rendering with React, use the `AppContext` component and / or the `toLegacy
 // NOTE: This example assumes a JSX supported environment
 
 import express from 'express'
-import { middleware: appContextMiddleware } from '@financial-times/anvil-app-context'
+import { middleware: appContextMiddleware, AppContext } from '@financial-times/anvil-app-context'
 import { renderToString } from 'react-dom/server'
 
 app.use(appContextMiddleware)
