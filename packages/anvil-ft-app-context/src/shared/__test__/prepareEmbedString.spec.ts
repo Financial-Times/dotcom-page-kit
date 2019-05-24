@@ -1,6 +1,6 @@
-import { appContext } from '../../client/__test__/fixtures'
+import { appContext } from '../../__fixtures__/appContext'
 import { prepareEmbedString } from '../prepareEmbedString'
-import { APP_CONTEXT_ELEMENT_ID } from '../../constants'
+import { APP_CONTEXT_ELEMENT_ID } from '../constants'
 
 describe('prepareEmbedString(appContext)', () => {
   it('returns a script embed string for the supplied app context', () => {
