@@ -1,6 +1,6 @@
-import { AppContext } from '../AppContext'
-import { prepareEmbedString } from '../../helpers/prepareEmbedString'
-import { appContextWithExtras as context } from '../../client/__test__/fixtures'
+import { AppContext } from '../../server/AppContext'
+import { prepareEmbedString } from '../../shared/prepareEmbedString'
+import { appContextWithExtras as context } from '../../__fixtures__/appContext'
 
 describe('AppContext', () => {
   describe('.data', () => {

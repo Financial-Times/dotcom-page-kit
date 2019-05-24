@@ -1,5 +1,5 @@
 import { TAppContext } from '../types'
-import { APP_CONTEXT_ELEMENT_ID } from '../constants'
+import { APP_CONTEXT_ELEMENT_ID } from '../shared/constants'
 
 export function loadAppContext(): TAppContext {
   return loadFromScriptEmbed() || loadFromDataAttributes()

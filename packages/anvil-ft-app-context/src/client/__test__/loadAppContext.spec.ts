@@ -3,9 +3,9 @@
  */
 
 import withDomOverwrites from 'with-dom-overwrites'
-import { appContext } from './fixtures'
+import { appContext } from '../../__fixtures__/appContext'
 import { loadAppContext } from '../loadAppContext'
-import { APP_CONTEXT_ELEMENT_ID } from '../../constants'
+import { APP_CONTEXT_ELEMENT_ID } from '../../shared/constants'
 
 describe('loadAppContext', () => {
   describe('when app context has been embedded via the script tag into the head', () => {

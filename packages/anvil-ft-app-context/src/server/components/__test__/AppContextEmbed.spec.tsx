@@ -1,8 +1,8 @@
 import React from 'react'
-import { appContext } from '../../client/__test__/fixtures'
-import { prepareEmbedString } from '../../helpers/prepareEmbedString'
-import { renderToStaticMarkup } from 'react-dom/server'
+import { appContext } from '../../../__fixtures__/appContext'
 import { AppContextEmbed } from '../AppContextEmbed'
+import { prepareEmbedString } from '../../../shared/prepareEmbedString'
+import { renderToStaticMarkup } from 'react-dom/server'
 
 describe('AppContextEmbed', () => {
   it('renders the app context embed script', () => {
