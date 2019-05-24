@@ -1,8 +1,10 @@
 import dashify from 'dashify'
 import camelCase from 'camelcase'
 import pascalCase from 'pascalcase'
-import { prepareEmbedString } from '../helpers/prepareEmbedString'
+import { prepareEmbedString } from '../shared/prepareEmbedString'
 import { TAppContext, TLegacyAppContextDataAttributes } from '../types'
+
+prepareEmbedString
 
 const legacyKeyMap = {
   app: 'data-next-app',
