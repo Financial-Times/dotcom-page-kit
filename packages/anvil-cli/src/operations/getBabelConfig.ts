@@ -11,7 +11,14 @@ import { CliContext } from '../entities/CliContext'
  */
 
 export function getBabelConfig(cli?: CliContext) {
-  const defaultTargets = '> 1%, ie 11, bb 10, ff ESR'
+  const defaultTargets = [
+    'last 2 Chrome versions',
+    'ie 11',
+    'Safari >= 9.1',
+    'ff ESR',
+    'last 2 Edge versions'
+  ]
+
   const presetEnvOpts = {
     targets: get(cli, 'config.settings.build.targets') || defaultTargets,
     // Exclude transforms that make all code slower
