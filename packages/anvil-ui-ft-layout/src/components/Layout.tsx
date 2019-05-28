@@ -2,6 +2,7 @@ import React from 'react'
 import { Header, LogoOnly, Drawer, THeaderOptions } from '@financial-times/anvil-ui-ft-header/component'
 import { TNavigationData } from '@financial-times/anvil-types-navigation'
 import { Footer, LegalFooter, TFooterOptions } from '@financial-times/anvil-ui-ft-footer/component'
+import { loadCustomFontsJS } from '..'
 import Template from './Template'
 
 enum Headers {
@@ -39,6 +40,13 @@ const getLayoutPreset = (
   footer: typeof footer === 'string' ? Footers[footer] : null
 })
 
+// EnhanceFonts removes the default o-typography--loading-* styles
+// allowing the custom fonts Finacier and MetricWeb to be shown.
+// An immediately invoked function expression is embedded in the DOM as a string
+const EnhanceFonts = () => {
+  return <script dangerouslySetInnerHTML={{ __html: loadCustomFontsJS }} />
+}
+
 export function Layout({
   navigationData,
   headerOptions,
@@ -61,6 +69,7 @@ export function Layout({
 
   return (
     <div className="n-layout o-typography--loading-sans o-typography--loading-sansBold o-typography--loading-display o-typography--loading-displayBold">
+      <EnhanceFonts />
       <a
         data-trackable="a11y-skip-to-help"
         className="n-layout__skip-link"
