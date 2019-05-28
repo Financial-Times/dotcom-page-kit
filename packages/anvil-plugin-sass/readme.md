@@ -1,9 +1,10 @@
-# Anvil Plugin Sass
+# @financial-times/anvil-plugin-sass
 
 This package extends the [Anvil CLI build action][cli] (`anvil build`) with a way to load and generate CSS files from [Sass] source code.
 
-[cli]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil#build
+[cli]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-cli#build
 [Sass]: https://sass-lang.com/
+
 
 ## Getting started
 
@@ -40,11 +41,11 @@ This plugin adds a [rule] to the Webpack configuration to handle `.scss` files. 
 
 Sass has been configured to find packages installed with Bower and or npm from the `@financial-times` organisation.
 
-[PostCSS] is configured with the [Autoprefixer] and [cssnano] tranforms.
+[PostCSS] is configured with the [Autoprefixer] and [cssnano] transforms.
 
 The CSS loader has `@import` and `url()` resolution disabled as these should be handled by Sass.
 
-Several [hooks](#extending) are provided in order to access and modify the configuration.
+Several [hooks](#hooks) are provided in order to access and modify the configuration.
 
 [rule]: https://webpack.js.org/configuration/module/#rule
 [sass-loader]: https://github.com/webpack-contrib/sass-loader
@@ -62,38 +63,44 @@ Several [hooks](#extending) are provided in order to access and modify the confi
 There are currently no additional options for this plugin.
 
 
-## Extending
+## Hooks
+
+This plugin exposes the following hooks as extension points. They are available as constants on the exported `hooks` object.
+
+```js
+import { hooks } from '@financial-times/anvil-plugin-sass'
+```
 
 _Please note: The hooks below are listed in the order they will be executed._
 
-### `webpackConfig::sassPlugin::sassLoaderOptions`
+### `POSTCSS_AUTOPREFIXER_OPTIONS`
 
-A synchronous hook which receives the configuration object to be used for the [sass-loader]. You may directly mutate this object.
+Configuration options for the [Autoprefixer] PostCSS plugin.
 
-### `webpackConfig::sassPlugin::autoprefixerOptions`
+### `POSTCSS_CSSNANO_OPTIONS`
 
-A synchronous hook which receives the configuration object to be used for the [Autoprefixer] PostCSS plugin. You may directly mutate this object.
+Configuration options for the [cssnano] PostCSS plugin.
 
-### `webpackConfig::sassPlugin::cssnanoOptions`
+### `WEBPACK_SASS_LOADER_OPTIONS`
 
-A synchronous hook which receives the configuration object to be used for the [cssnano] PostCSS plugin. You may directly mutate this object.
+Configuration options for the [sass-loader].
 
-### `webpackConfig::sassPlugin::postcssLoaderOptions`
+### `WEBPACK_POSTCSS_LOADER_OPTIONS`
 
-A synchronous hook which receives the configuration object to be used for the [postcss-loader]. You may directly mutate this object.
+Configuration options for the [postcss-loader].
 
-### `webpackConfig::sassPlugin::cssLoaderOptions`
+### `WEBPACK_CSS_LOADER_OPTIONS`
 
-A synchronous hook which receives the configuration object to be used for the [css-loader]. You may directly mutate this object.
+Configuration options for the [css-loader].
 
-### `webpackConfig::sassPlugin::rule`
+### `WEBPACK_MINI_CSS_EXTRACT_PLUGIN_OPTIONS`
 
-A synchronous hook which receives the entire [rule] to be appended by this plugin. You may directly mutate this object.
+Configuration options for the [mini-css-extract-plugin].
 
-### `webpackConfig::sassPlugin::stylesOnlyPluginOptions`
+### `WEBPACK_STYLES_ONLY_PLUGIN_OPTIONS`
 
-A synchronous hook which receives the configuration object to be used for the [webpack-fix-style-only-entries]. You may directly mutate this object.
+Configuration options for the [webpack-fix-style-only-entries].
 
-### `webpackConfig::sassPlugin::miniCssExtractPluginOptions`
+### `WEBPACK_SASS_RULE`
 
-A synchronous hook which receives the configuration object to be used for the [mini-css-extract-plugin]. You may directly mutate this object.
+Provides the entire [rule] to be appended by this plugin.
