@@ -2,15 +2,7 @@ import get from 'lodash.get'
 import { hooks } from '../entities/hooks'
 import { CliContext } from '../entities/CliContext'
 
-/**
- * Returns the babel config.
- *
- * NOTE: This function is also used in the `babel.js` file in to root of the package
- * to construct a preset that can be specified in a .babelrc file. When used in as a preset,
- * there will be no args supplied to the function, hence why the arg is optional.
- */
-
-export function getBabelConfig(cli?: CliContext) {
+export function getBabelConfig(cli: CliContext) {
   const defaultTargets = [
     'last 2 Chrome versions',
     'ie 11',
@@ -35,10 +27,8 @@ export function getBabelConfig(cli?: CliContext) {
     cacheDirectory: true
   }
 
-  if (cli) {
-    cli.publish(hooks.BABEL_CONFIG, babelConfig)
-    cli.publish(hooks.BABEL_PRESET_ENV_OPTIONS, presetEnvOpts)
-  }
+  cli.publish(hooks.BABEL_CONFIG, babelConfig)
+  cli.publish(hooks.BABEL_PRESET_ENV_OPTIONS, presetEnvOpts)
 
   return babelConfig
 }
