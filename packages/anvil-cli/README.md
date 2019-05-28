@@ -110,7 +110,7 @@ module.exports = {
 
 ##### Targets
 
-A value that describes the environments you support / target for your project. It accepts the same values that the `targets` property of `@babel/preset-env` accepts, and it defaults to the [browserslist-compatible] query `> 1%, ie 11, bb 10, ff ESR`. See the [`@babel/preset-env` documentation] for more information about targets
+A [browserslist-compatible] query that describes the environments you support / target for your project. It defaults to: `last 2 Chrome versions, ie 11, Safari >= 9.1, ff ESR, last 2 Edge versions`.
 
 Usage via configuration file:
 
@@ -129,7 +129,6 @@ module.exports = {
 ```
 
 [browserslist-compatible]: https://github.com/browserslist/browserslist
-[`@babel/preset-env` documentation]: https://babeljs.io/docs/en/babel-preset-env#targets
 
 ##### Development and production modes
 
