@@ -14,14 +14,14 @@ function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
   const stylesOnlyPluginOptions = getStylesOnlyPluginOptions()
   const miniCssExtractPluginOptions = getMiniCssExtractPluginOptions(cli)
 
-  publish(hooks.CSS_LOADER_OPTIONS, cssLoaderOptions)
-  publish(hooks.MINI_CSS_EXTRACT_PLUGIN_OPTIONS, miniCssExtractPluginOptions)
-  publish(hooks.STYLES_ONLY_PLUGIN_OPTIONS, stylesOnlyPluginOptions)
+  publish(hooks.WEBPACK_CSS_LOADER_OPTIONS, cssLoaderOptions)
+  publish(hooks.WEBPACK_MINI_CSS_EXTRACT_PLUGIN_OPTIONS, miniCssExtractPluginOptions)
+  publish(hooks.WEBPACK_STYLES_ONLY_PLUGIN_OPTIONS, stylesOnlyPluginOptions)
 
   return {
     module: {
       rules: [
-        publish(hooks.CSS_RULE, {
+        publish(hooks.WEBPACK_CSS_RULE, {
           test: [/\.css$/],
           use: [
             {
