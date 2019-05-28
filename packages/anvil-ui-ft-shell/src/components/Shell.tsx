@@ -2,14 +2,14 @@ import React from 'react'
 import Body, { TBodyProps } from './Body'
 import DocumentHead, { TDocumentHeadProps } from './DocumentHead'
 import StyleSheets, { TStylesheetProps } from './StyleSheets'
-import { Flags, TFlagsProps } from '@financial-times/anvil-ui-ft-flags'
+import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/anvil-ui-ft-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/anvil-ui-bootstrap'
 import formatAttributeNames, { TAttributeData } from '../lib/formatAttributeNames'
 
 type TShellProps = TDocumentHeadProps &
   TStylesheetProps &
   TBodyProps &
-  TFlagsProps &
+  TFlagsEmbedProps &
   TBootstrapProps & {
     children?: any
     initialProps?: any
@@ -27,7 +27,7 @@ function Shell(props: TShellProps) {
           type="application/json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(props.initialProps) }}
         />
-        <Flags flags={props.flags} />
+        <FlagsEmbed flags={props.flags} />
         <StyleSheets stylesheets={props.stylesheets} criticalStyles={props.criticalStyles} />
         <Bootstrap
           coreScripts={props.coreScripts}
