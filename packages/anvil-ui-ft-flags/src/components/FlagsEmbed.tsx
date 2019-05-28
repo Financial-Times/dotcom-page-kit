@@ -2,11 +2,11 @@ import React from 'react'
 import { formatFlagsJSON } from '../server'
 import { TFlagsData } from '../types'
 
-type TFlagsProps = {
+type TFlagsEmbedProps = {
   flags?: TFlagsData
 }
 
-function Flags({ flags }: TFlagsProps) {
+function FlagsEmbed({ flags }: TFlagsEmbedProps) {
   return (
     <script
       type="application/json"
@@ -16,8 +16,8 @@ function Flags({ flags }: TFlagsProps) {
   )
 }
 
-Flags.defaultProps = {
+FlagsEmbed.defaultProps = {
   flags: {}
 }
 
-export { Flags, TFlagsProps }
+export { FlagsEmbed, TFlagsEmbedProps }

@@ -1,1 +1,1 @@
-export * from './components/Flags'
+export * from './components/FlagsEmbed'
