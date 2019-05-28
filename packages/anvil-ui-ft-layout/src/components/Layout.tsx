@@ -2,7 +2,7 @@ import React from 'react'
 import { Header, LogoOnly, Drawer, THeaderOptions } from '@financial-times/anvil-ui-ft-header/component'
 import { TNavigationData } from '@financial-times/anvil-types-navigation'
 import { Footer, LegalFooter, TFooterOptions } from '@financial-times/anvil-ui-ft-footer/component'
-import { loadCustomFontsJS } from '..'
+import { loadCustomFontsJS } from '../font-loading'
 import Template from './Template'
 
 enum Headers {
