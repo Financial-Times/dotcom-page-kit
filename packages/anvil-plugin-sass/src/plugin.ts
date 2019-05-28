@@ -1,3 +1,4 @@
+import dlv from 'dlv'
 import { hooks } from './hooks'
 import StylesOnlyPlugin from 'webpack-fix-style-only-entries'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
@@ -10,7 +11,7 @@ export function plugin() {
 }
 
 function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
-  const autoprefixerOptions = getAutoPrefixerOptions()
+  const autoprefixerOptions = getAutoPrefixerOptions(cli)
   const cssnanoOptions = getCssNanoOptions()
   const sassLoaderOptions = getSassLoaderOptions()
   const postcssLoaderOptions = getPostCssLoaderOptions(autoprefixerOptions, cssnanoOptions)
@@ -82,7 +83,8 @@ function getSassLoaderOptions() {
   }
 }
 
-function getAutoPrefixerOptions() {
+function getAutoPrefixerOptions(cli) {
+  // https://github.com/browserslist/browserslist
   const defaultTargets = [
     'last 2 Chrome versions',
     'ie 11',
@@ -92,9 +94,7 @@ function getAutoPrefixerOptions() {
   ]
 
   return {
-    // https://github.com/browserslist/browserslist
-    // TODO: make configurable via browserslist setting
-    browsers: defaultTargets,
+    browsers: dlv(cli, 'config.settings.build.targets', defaultTargets),
     grid: true
   }
 }
