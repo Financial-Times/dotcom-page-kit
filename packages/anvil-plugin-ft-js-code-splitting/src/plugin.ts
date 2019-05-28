@@ -1,88 +1,60 @@
+import {
+  createBundleWithPackages,
+  createBundleWithRegExp,
+  createBundlesForPackages,
+  createBundlesForRegExp
+} from './bundleTypes'
+
 export function plugin() {
   return ({ on }) => {
-    on('webpackConfig', addVendorCodeSplitting)
+    on('webpackConfig', addInitialCodeSplitting)
     on('webpackConfig', addOrigamiCodeSplitting)
-    on('webpackConfig', addAnvilUiCodeSplitting)
+    on('webpackConfig', addAnvilUICodeSplitting)
+    on('webpackConfig', addBabelRuntimeCodeSplitting)
     on('webpackConfig', addSharedStableCodeSplitting)
     on('webpackConfig', addSharedVolatileCodeSplitting)
   }
 
-  function addVendorCodeSplitting() {
+  function addInitialCodeSplitting() {
     return {
       optimization: {
+        // Creates a separate bundle for webpack runtime.
+        // Specifying the name prevents multiple runtime bundles from being created.
+        runtimeChunk: {
+          name: 'webpack-runtime'
+        },
         splitChunks: {
-          chunks: 'all',
-          name: 'vendor'
+          chunks: 'all'
         }
       }
     }
   }
 
   function addOrigamiCodeSplitting() {
-    return createSplitByPackagePrefixConfig('origami', 'o-')
+    return createBundlesForRegExp('origami-components', /[\\\/]o-/)
   }
 
-  function addAnvilUiCodeSplitting() {
-    return createSplitByPackagePrefixConfig('anvil-ui', 'anvil-ui-')
+  function addAnvilUICodeSplitting() {
+    return createBundleWithRegExp('anvil-ui', /[\\\/]anvil-ui-/)
+  }
+
+  function addBabelRuntimeCodeSplitting() {
+    return createBundlesForPackages('babel-helpers', ['@babel/runtime'])
   }
 
   function addSharedStableCodeSplitting() {
-    return createSharedCodeSplittingConfig('shared.stable', [
+    return createBundleWithPackages('shared.stable', [
       'dom-loaded',
+      'ftdomdelegate',
+      'morphdom',
+      'n-topic-search',
+      'n-ui-foundations',
       'superstore',
-      'superstore-sync',
-      'n-ui-foundations'
+      'superstore-sync'
     ])
   }
 
   function addSharedVolatileCodeSplitting() {
-    return createSharedCodeSplittingConfig('shared.volatile', ['n-syndication', 'n-feedback'])
-  }
-
-  function createSharedCodeSplittingConfig(name: string, packagesToInclude: string[]) {
-    return {
-      optimization: {
-        // Creates a separate bundle for webpack runtime.
-        // Specifying the name prevents multiple runtime bundles from being created.
-        runtimeChunk: {
-          name: 'runtime'
-        },
-        splitChunks: {
-          cacheGroups: {
-            [name]: {
-              test: (module) => {
-                const match = module.context.match(/\bnode_modules|bower_components\/([^\/]+)\b/)
-                if (!match) return false
-                return packagesToInclude.includes(match[1])
-              },
-              chunks: 'all',
-              minSize: 0,
-              maxInitialRequests: Infinity,
-              name
-            }
-          }
-        }
-      }
-    }
-  }
-
-  function createSplitByPackagePrefixConfig(group: string, packagePrefix: string) {
-    return {
-      optimization: {
-        splitChunks: {
-          cacheGroups: {
-            [group]: {
-              test: new RegExp(`\\b(${packagePrefix}[^\/]+)\\b`),
-              chunks: 'all',
-              minSize: 0,
-              maxInitialRequests: Infinity,
-              name(module) {
-                return module.context.match(new RegExp(`\\b(${packagePrefix}[^\/]+)\\b`))[0]
-              }
-            }
-          }
-        }
-      }
-    }
+    return createBundleWithPackages('shared.volatile', ['n-syndication', 'n-feedback'])
   }
 }
