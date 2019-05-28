@@ -1,4 +1,4 @@
-export const navigationEditions = (request, response) => {
+export default (request, response) => {
   const availableEditions = [
     {
       id: 'uk',
@@ -13,8 +13,9 @@ export const navigationEditions = (request, response) => {
   ]
   const editionIds = availableEditions.map((e) => e.id)
 
-  // An FT-Edition cookie is set on ft.com by visiting /?edition={edition}
-  // defaults to "uk"
+  // NOTE: The FT-Edition header is set by next-router and the CDN.
+  // If an edition is selected with a cookie or query string it will be set to that.
+  // Otherwise the router will choose the best setting based on GeoIP.
   let currentEdition = request.get('FT-Edition') || 'uk'
 
   // if query string contains ?edition=..., serve that edition and save preference in a cookie

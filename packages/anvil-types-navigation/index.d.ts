@@ -75,7 +75,7 @@ export type TNavSubNavigation = {
 }
 
 export type TNavEditions = {
-  current: { name: string }
+  current: TNavEdition
   others: TNavEdition[]
 }
 

@@ -5,7 +5,7 @@ import fetch from 'node-fetch'
 
 import { decorateMenu } from '.'
 
-import { TNavMenus, TNavMenu, TNavSubNavigation } from '@financial-times/anvil-types-navigation'
+import { TNavMenus, TNavSubNavigation } from '@financial-times/anvil-types-navigation'
 
 /**
  * Makes the navigation data completely immutable,
@@ -34,8 +34,8 @@ const defaults: TNavOptions = {
 }
 
 export class Navigation {
-  public options
-  public poller
+  public options: TNavOptions
+  public poller: Poller
   public initialPromise: Promise<void>
 
   constructor(options = {}) {
@@ -50,14 +50,14 @@ export class Navigation {
     this.initialPromise = this.poller.start({ initialRequest: true })
   }
 
-  private async _getNavigationData(): Promise<TNavMenus> {
+  async getNavigationData(): Promise<TNavMenus> {
     // initialPromise does not return data but must resolve before `getData` can be called
     await this.initialPromise
     return this.poller.getData()
   }
 
-  async getMenuData(path: string): Promise<TNavMenus> {
-    const data = await this._getNavigationData()
+  async getNavigationFor(path: string): Promise<TNavMenus> {
+    const data = await this.getNavigationData()
     const output = {}
 
     for (const [id, menu] of Object.entries(data)) {
@@ -67,12 +67,7 @@ export class Navigation {
     return output as TNavMenus
   }
 
-  async getPathMenu(menuId: string, path: string = '/'): Promise<TNavMenu> {
-    const data = await this._getNavigationData()
-    return decorateMenu(data[menuId], path)
-  }
-
-  async getSubNavigation(path: string): Promise<TNavSubNavigation> {
+  async getSubNavigationFor(path: string): Promise<TNavSubNavigation> {
     const currentPage = removeLeadingForwardSlash(path)
     const subNavigation = `${this.options.subNavigationUrl}/${currentPage}`
     const response = await fetch(subNavigation)
@@ -84,7 +79,7 @@ export class Navigation {
         subsections: parseData(data.children)
       }
     } else {
-      throw httpError(response.status, `subNavigation for ${currentPage} could not be found.`)
+      throw httpError(response.status, `Sub-navigation for ${currentPage} could not be found.`)
     }
   }
 }
