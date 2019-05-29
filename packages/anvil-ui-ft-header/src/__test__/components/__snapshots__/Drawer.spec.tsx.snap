@@ -142,8 +142,8 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as a logged in user 1`
             className="o-header__drawer-menu-toggle-wrapper"
           >
             <a
-              aria-current={true}
-              aria-label="Current page World"
+              aria-current="page"
+              aria-label="World current page"
               className="o-header__drawer-menu-link o-header__drawer-menu-link--selected o-header__drawer-menu-link--parent"
               data-trackable="World"
               href="/world"
@@ -1414,8 +1414,8 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as an anonymous user 1
             className="o-header__drawer-menu-toggle-wrapper"
           >
             <a
-              aria-current={true}
-              aria-label="Current page World"
+              aria-current="page"
+              aria-label="World current page"
               className="o-header__drawer-menu-link o-header__drawer-menu-link--selected o-header__drawer-menu-link--parent"
               data-trackable="World"
               href="/world"

@@ -1,3 +1,5 @@
-export const ariaSelected = (item) => {
-  return item.selected ? { 'aria-label': `Current page ${item.label}`, 'aria-current': true } : null
+import { HTMLAttributes } from 'react'
+
+export const ariaSelected = (item): HTMLAttributes<HTMLElement> | null => {
+  return item.selected ? { 'aria-label': `${item.label} current page`, 'aria-current': 'page' } : null
 }
