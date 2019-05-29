@@ -64,7 +64,9 @@ const FooterContents = ({ footerData }: TFooterContentsProps) => (
         const submenu = item.submenu.items as TNavMenuItem[][]
 
         return (
-          <div key={`group-${index}`} className={`o-footer__matrix-group o-footer__matrix-group--${submenu.length}`}>
+          <div
+            key={`group-${index}`}
+            className={`o-footer__matrix-group o-footer__matrix-group--${submenu.length}`}>
             <SectionTitle label={item.label} submenu={submenu} index={index} />
             <SectionLinks submenu={submenu} index={index} />
           </div>

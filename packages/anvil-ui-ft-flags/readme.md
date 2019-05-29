@@ -15,17 +15,17 @@ After installing the package you can use it to embed flags data into your pages 
 
 ### Server-side integration
 
-If you are using React to render your app you should use the `Flags` component:
+If you are using React to render your app you should use the `FlagsEmbed` component to integrate the flags data with your pages:
 
 ```jsx
-import { Flags } from '@financial-times/anvil-ui-ft-flags'
+import { FlagsEmbed } from '@financial-times/anvil-ui-ft-flags'
 
 export default (props) => (
   <html>
     <head>
       <meta charSet="utf-8" />
       <title>My Amazing Website</title>
-      <Flags flags={props.flagsData} />
+      <FlagsEmbed flags={props.flagsData} />
     </head>
     <body>
       ...
