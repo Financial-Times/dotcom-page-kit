@@ -151,32 +151,39 @@ For convenience the build action can watch source files and trigger a rebuild wh
 anvil build --watch
 ```
 
-#### Extending
+
+## Hooks
+
+This plugin exposes the following hooks as extension points. They are available as constants on the exported `hooks` object.
+
+```js
+import { hooks } from '@financial-times/anvil-cli'
+```
 
 _Please note: The hooks below are listed in the order they will be executed._
 
-##### `webpackConfig::plugins::manifestPlugin::options`
+##### `WEBPACK_MANIFEST_PLUGIN_OPTIONS`
 
-Configuration options for the [manifest generation plugin](https://github.com/webdeveric/webpack-assets-manifest).
+Configuration options for the [assets manifest plugin](https://github.com/webdeveric/webpack-assets-manifest).
 
-##### `webpackConfig::plugins::cleanWebpackPlugin::options`
+##### `WEBPACK_CLEAN_PLUGIN_OPTIONS`
 
 Configuration options for the [clean plugin](https://github.com/johnagan/clean-webpack-plugin).
 
-##### `babelConfig`
+##### `BABEL_CONFIG`
 
 Configuration options for [Babel](https://babeljs.io/docs/en/options).
 
-##### `babelConfig::preset::env::options`
+##### `BABEL_PRESET_ENV_OPTIONS`
 
 Configuration options for [Babel Preset Env](https://babeljs.io/docs/en/babel-preset-env#options).
 
-##### `webpackConfig::jsRule`
+##### `WEBPACK_JS_RULE`
 
 The Webpack [rule] for handling JavaScript files.
 
 [rule]: https://webpack.js.org/configuration/module/#rule
 
-##### `webpackConfig`
+##### `WEBPACK_CONFIG`
 
 The complete Webpack configuration object.

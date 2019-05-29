@@ -1,8 +1,8 @@
-# Anvil Plugin Bower Resolve
+# @financial-times/anvil-plugin-bower-resolve
 
 This package extends the [Anvil CLI build action][cli] (`anvil build`) with a way to find and load dependencies installed with [Bower].
 
-[cli]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil#build
+[cli]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-cli#build
 [Bower]: https://bower.io/
 
 
@@ -17,11 +17,11 @@ npm install --save-dev @financial-times/anvil-plugin-bower-resolve
 After installing the package you must add it to the list of plugins in your project's `anvil.config.js` configuration file:
 
 ```diff
-+ const bowerResolvePlugin = require('@financial-times/anvil-plugin-bower-resolve').default
++ const bowerResolve = require('@financial-times/anvil-plugin-bower-resolve')
 
 module.exports {
   "plugins": [
-+    bowerResolvePlugin
++    bowerResolvePlugin.plugin()
   ]
 }
 ```
@@ -35,7 +35,7 @@ This plugin adds several properties to Webpack's [resolve configuration] instruc
 
 This plugin also adds the [bower-resolve-webpack-plugin].
 
-_Please note: Bower dependencies will be favoured over dependencies installed with npm._
+_Please note that Bower dependencies will be favoured over dependencies installed with npm._
 
 [resolve configuration]: https://webpack.js.org/configuration/resolve/
 [bower-resolve-webpack-plugin]: https://www.npmjs.com/package/bower-resolve-webpack-plugin
@@ -46,6 +46,6 @@ _Please note: Bower dependencies will be favoured over dependencies installed wi
 There are currently no additional options for this plugin.
 
 
-## Extending
+## Hooks
 
 This plugin currently has no hooks to extend.

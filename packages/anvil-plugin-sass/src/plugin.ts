@@ -10,26 +10,26 @@ export function plugin() {
 }
 
 function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
-  const cssnanoOptions = getCssNanoOptions()
-  const cssLoaderOptions = getCssLoaderOptions()
-  const sassLoaderOptions = getSassLoaderOptions()
   const autoprefixerOptions = getAutoPrefixerOptions()
+  const cssnanoOptions = getCssNanoOptions()
+  const sassLoaderOptions = getSassLoaderOptions()
   const postcssLoaderOptions = getPostCssLoaderOptions(autoprefixerOptions, cssnanoOptions)
-  const stylesOnlyPluginOptions = getStylesOnlyPluginOptions()
+  const cssLoaderOptions = getCssLoaderOptions()
   const miniCssExtractPluginOptions = getMiniCssExtractPluginOptions(cli)
+  const stylesOnlyPluginOptions = getStylesOnlyPluginOptions()
 
-  publish(hooks.CSSNANO_OPTIONS, cssnanoOptions)
-  publish(hooks.CSS_LOADER_OPTIONS, cssLoaderOptions)
-  publish(hooks.SASS_LOADER_OPTIONS, sassLoaderOptions)
-  publish(hooks.AUTOPREFIXER_OPTIONS, autoprefixerOptions)
-  publish(hooks.POSTCSS_LOADER_OPTIONS, postcssLoaderOptions)
-  publish(hooks.STYLES_ONLY_PLUGIN_OPTIONS, stylesOnlyPluginOptions)
-  publish(hooks.MINI_CSS_EXTRACT_PLUGIN_OPTIONS, miniCssExtractPluginOptions)
+  publish(hooks.POSTCSS_AUTOPREFIXER_OPTIONS, autoprefixerOptions)
+  publish(hooks.POSTCSS_CSSNANO_OPTIONS, cssnanoOptions)
+  publish(hooks.WEBPACK_SASS_LOADER_OPTIONS, sassLoaderOptions)
+  publish(hooks.WEBPACK_POSTCSS_LOADER_OPTIONS, postcssLoaderOptions)
+  publish(hooks.WEBPACK_CSS_LOADER_OPTIONS, cssLoaderOptions)
+  publish(hooks.WEBPACK_MINI_CSS_EXTRACT_PLUGIN_OPTIONS, miniCssExtractPluginOptions)
+  publish(hooks.WEBPACK_STYLES_ONLY_PLUGIN_OPTIONS, stylesOnlyPluginOptions)
 
   return {
     module: {
       rules: [
-        publish(hooks.SCSS_RULE, {
+        publish(hooks.WEBPACK_SASS_RULE, {
           test: [/\.s(c|a)ss$/],
           resolve: {
             // Required for sass-loader 7.0+

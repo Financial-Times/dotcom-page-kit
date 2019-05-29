@@ -15,9 +15,9 @@ export default (cli: CliContext) => {
     ]
   }
 
-  cli.publish(hooks.BABEL_CLASS_PROPERTIES_PLUGIN_OPTIONS, classPropertiesPluginOptions)
-  cli.publish(hooks.BABEL_SYNTAX_DYNAMIC_IMPORT_PLUGIN_OPTIONS, syntaxDynamicImportPluginOptions)
-  cli.publish(hooks.BABEL_TRANSFORM_RUNTIME_PLUGIN_OPTIONS, transformRuntimePluginOptions)
+  cli.publish(hooks.BABEL_PLUGIN_CLASS_PROPERTIES_OPTIONS, classPropertiesPluginOptions)
+  cli.publish(hooks.BABEL_PLUGIN_SYNTAX_DYNAMIC_IMPORT_OPTIONS, syntaxDynamicImportPluginOptions)
+  cli.publish(hooks.BABEL_PLUGIN_TRANSFORM_RUNTIME_OPTIONS, transformRuntimePluginOptions)
 
   return config
 }

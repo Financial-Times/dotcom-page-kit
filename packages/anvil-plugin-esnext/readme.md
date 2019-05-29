@@ -1,9 +1,10 @@
-# Anvil Plugin ESNext
+# @financial-times/anvil-plugin-esnext
 
 This package extends the [Anvil CLI build action][cli] (`anvil build`) with the ability to build JavaScript that makes use of features that fall under the [`esnext`] banner
 
-[cli]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil#build
+[cli]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-cli#build
 [`esnext`]: https://www.freelancinggig.com/blog/2017/07/04/what-is-esnext-is-it-same-as-ecmascript/
+
 
 ## Getting started
 
@@ -35,24 +36,31 @@ Once setup, this plugin will enable you to use the following `esnext` features w
 
 There are currently no additional options for this plugin.
 
-## Extending
 
-This plugin exposes the following hooks as extension points. They are available as constants on the exported `hooks` object, and they have been listed in the order that they will be executed.
+## Hooks
 
-### BABEL_CLASS_PROPERTIES_PLUGIN_OPTIONS
+This plugin exposes the following hooks as extension points. They are available as constants on the exported `hooks` object.
 
-A synchronous hook that exposes the configuration object that will be supplied to the [@babel/plugin-proposal-class-properties] plugin. You may directly mutate this object.
+```js
+import { hooks } from '@financial-times/anvil-plugin-esnext'
+```
+
+_Please note: The hooks below are listed in the order they will be executed._
+
+### `BABEL_PLUGIN_CLASS_PROPERTIES_OPTIONS`
+
+Configuration options for the [@babel/plugin-proposal-class-properties] plugin.
 
 [@babel/plugin-proposal-class-properties]: https://babeljs.io/docs/en/babel-plugin-proposal-class-properties
 
-### BABEL_TRANSFORM_RUNTIME_PLUGIN_OPTIONS
+### `BABEL_PLUGIN_SYNTAX_DYNAMIC_IMPORT_OPTIONS`
 
-A synchronous hook that exposes the configuration object that will be supplied to the [@babel/plugin-transform-runtime] plugin. You may directly mutate this object.
-
-[@babel/plugin-transform-runtime]: https://babeljs.io/docs/en/babel-plugin-transform-runtime
-
-### BABEL_SYNTAX_DYNAMIC_IMPORT_PLUGIN_OPTIONS
-
-A synchronous hook that exposes the configuration object that will be supplied to the [@babel/plugin-syntax-dynamic-import] plugin. You may directly mutate this object.
+Configuration options for the [@babel/plugin-syntax-dynamic-import] plugin.
 
 [@babel/plugin-syntax-dynamic-import]: https://babeljs.io/docs/en/babel-plugin-syntax-dynamic-import
+
+### `BABEL_PLUGIN_TRANSFORM_RUNTIME_OPTIONS`
+
+Configuration options for the [@babel/plugin-transform-runtime] plugin.
+
+[@babel/plugin-transform-runtime]: https://babeljs.io/docs/en/babel-plugin-transform-runtime

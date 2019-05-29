@@ -1,8 +1,8 @@
-# Anvil Plugin CSS
+# @financial-times/anvil-plugin-css
 
 This package extends the [Anvil CLI build action][cli] (`anvil build`) with a way to load and generate CSS files.
 
-[cli]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil#build
+[cli]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-cli#build
 
 
 ## Getting started
@@ -16,12 +16,6 @@ npm install --save-dev @financial-times/anvil-plugin-css
 After installing the package you must add it to the list of plugins in your project's `anvil.config.js` configuration file:
 
 ```diff
-{
-  "plugins": [
-+    "@financial-times/anvil-plugin-css"
-  ]
-}
-
 + const css = require('@financial-times/anvil-plugin-css')
 
 module.exports = {
@@ -31,7 +25,7 @@ module.exports = {
 }
 ```
 
-Once setup, this plugin will enable you to use CSS files as [entry points] into your source code or as a dependency of your JavaScript.
+Once setup, this plugin will enable you to use CSS files as [entry points] into your source code.
 
 ```sh
 anvil build --entryFile path/to/styles.css
@@ -44,7 +38,7 @@ anvil build --entryFile path/to/styles.css
 
 This plugin adds a [rule] to the Webpack configuration to handle `.css` files. It uses the [css-loader] to interpret `@import` rules and `url()` functions. The [mini-css-extract-plugin] is added to generate `.css` files and the [webpack-fix-style-only-entries] to clean up any empty JavaScript bundles left after CSS extraction.
 
-Several [hooks](#extending) are provided in order to access and modify the configuration.
+Several [hooks](#hooks) are provided in order to access and modify the configuration.
 
 [rule]: https://webpack.js.org/configuration/module/#rule
 [css-loader]: https://github.com/webpack-contrib/css-loader
@@ -57,22 +51,30 @@ Several [hooks](#extending) are provided in order to access and modify the confi
 There are currently no additional options for this plugin.
 
 
-## Extending
+## Hooks
+
+This plugin exposes the following hooks as extension points. They are available as constants on the exported `hooks` object.
+
+```js
+import { hooks } from '@financial-times/anvil-plugin-css'
+```
 
 _Please note: The hooks below are listed in the order they will be executed._
 
-### `webpackConfig::cssPlugin::cssLoaderOptions`
+### `WEBPACK_CSS_LOADER_OPTIONS`
 
-A synchronous hook which receives the configuration object to be used for the [css-loader]. You may directly mutate this object.
+Configuration options for the [css-loader].
 
-### `webpackConfig::cssPlugin::rule`
+### `WEBPACK_STYLES_ONLY_PLUGIN_OPTIONS`
 
-A synchronous hook which receives the entire rule to be appended by this plugin. You may directly mutate this object.
+Configuration options for the [webpack-fix-style-only-entries].
 
-### `webpackConfig::cssPlugin::stylesOnlyPluginOptions`
+### `WEBPACK_MINI_CSS_EXTRACT_PLUGIN_OPTIONS`
 
-A synchronous hook which receives the configuration object to be used for the [webpack-fix-style-only-entries]. You may directly mutate this object.
+Configuration options for the [mini-css-extract-plugin].
 
-### `webpackConfig::cssPlugin::miniCssExtractPluginOptions`
+### `WEBPACK_CSS_RULE`
 
-A synchronous hook which receives the configuration object to be used for the [mini-css-extract-plugin]. You may directly mutate this object.
+The Webpack [rule] for handling CSS files added by this plugin.
+
+[rule]: https://webpack.js.org/configuration/module/#rule

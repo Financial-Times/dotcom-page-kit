@@ -14,8 +14,8 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
   const manifestPluginOptions = { output: manifestFileName, entrypoints: true }
   const cleanWebpackPluginOptions = { verbose: false }
 
-  publish(hooks.MANIFEST_PLUGIN_OPTIONS, manifestPluginOptions)
-  publish(hooks.CLEAN_WEBPACK_PLUGIN_OPTIONS, cleanWebpackPluginOptions)
+  publish(hooks.WEBPACK_MANIFEST_PLUGIN_OPTIONS, manifestPluginOptions)
+  publish(hooks.WEBPACK_CLEAN_PLUGIN_OPTIONS, cleanWebpackPluginOptions)
 
   return publish(hooks.WEBPACK_CONFIG, {
     mode: isDevMode ? 'development' : 'production',
@@ -30,7 +30,7 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
     },
     module: {
       rules: [
-        publish(hooks.JS_RULE, {
+        publish(hooks.WEBPACK_JS_RULE, {
           test: [/\.(js|jsx|mjs)$/],
           // NOTE: Do not exclude bower_components directory because Origami components
           // installed with Bower are ES6/source code
