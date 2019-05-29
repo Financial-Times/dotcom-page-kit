@@ -2,7 +2,7 @@ import express from 'express'
 import { homePageController } from './controllers/home'
 import { aboutPageController } from './controllers/about'
 // import AssetLoader from '@financial-times/anvil-server-asset-loader'
-import ReactRenderer from '@financial-times/anvil-server-react-renderer'
+import AnvilReact from '@financial-times/anvil-server-react'
 
 export const app = express()
 
@@ -13,7 +13,7 @@ export const app = express()
 
 // const scriptsToLoad = [assets.getPublicURL('client.js'), assets.getPublicURL('runtime.js')]
 
-const renderer = new ReactRenderer({ useStaticRendering: true })
+const renderer = new AnvilReact({ useStaticRendering: true })
 
 app.engine('.jsx', renderer.engine)
 
