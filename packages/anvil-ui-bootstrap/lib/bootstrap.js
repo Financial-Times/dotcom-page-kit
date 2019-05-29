@@ -37,7 +37,7 @@
   function loadScript(src) {
     var script = document.createElement('script')
     script.onerror = scriptLoadError
-    script.async = true
+    script.async = false
     script.src = src
     document.head.insertBefore(script, document.currentScript)
   }
