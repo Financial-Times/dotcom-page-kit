@@ -3,7 +3,7 @@
   var isEnhanced = isEnhancedBrowser()
   var scriptsConfig = getScriptsConfig()
   var scriptsToLoad = []
-  var currentScript = doc.currentScript
+  var currentScript = document.currentScript
 
   doc.className = doc.className.replace('no-js', 'js')
 
