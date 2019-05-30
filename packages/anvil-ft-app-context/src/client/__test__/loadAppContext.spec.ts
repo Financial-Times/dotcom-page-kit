@@ -67,6 +67,7 @@ describe('loadAppContext', () => {
           <html
             data-app-context
             data-next-app="article"
+            data-next-product="next"
             data-next-edition="uk"
             data-next-is-production
             data-ab-state="subscriberCohort:on,premiumCohort:on,nonUSACohort:on"
@@ -89,7 +90,7 @@ describe('loadAppContext', () => {
   })
 
   describe('when the app context has not been embedded into the page', () => {
-    it('returns a undefined', () => {
+    it('returns undefined', () => {
       expect(loadAppContext()).toEqual(undefined)
     })
   })

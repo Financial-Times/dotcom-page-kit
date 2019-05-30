@@ -1,6 +1,7 @@
 export interface TAppContext {
   app: string
   edition: string
+  product: string
   abState: string
   version: string
   contentId?: string
@@ -14,6 +15,7 @@ export interface TLegacyAppContextDataAttributes {
   dataAppContext: string
   dataNextApp: string
   dataNextEdition: string
+  dataNextProduct: string
   dataAbState: string
   dataNextVersion: string
   dataContentId?: string

@@ -24,6 +24,7 @@ function loadFromDataAttributes() {
     return Object.freeze({
       app: elem.getAttribute('data-next-app'),
       edition: elem.getAttribute('data-next-edition'),
+      product: elem.getAttribute('data-next-product'),
       abState: elem.getAttribute('data-ab-state'),
       version: elem.getAttribute('data-next-version'),
       contentId: elem.getAttribute('data-content-id'),
