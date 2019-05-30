@@ -87,4 +87,12 @@ describe('AppContext', () => {
       expect(appContext.data).toEqual({ ...context, ...additionalContext })
     })
   })
+
+  describe(".get('item')", () => {
+    it('returns the value of the equivalent app context property', () => {
+      const appContext = new AppContext({ context })
+      const result = appContext.get('version')
+      expect(result).toBe(context.version)
+    })
+  })
 })
