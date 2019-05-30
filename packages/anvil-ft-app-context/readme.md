@@ -22,6 +22,7 @@ This package provides methods for integrating app context data into your server-
       - [.data](#data)
     - [Methods](#methods)
       - [.add(additionalAppContext: Partial\<TAppContext\>)](#addadditionalappcontext-partialtappcontext)
+      - [.get(item: string)](#getitem-string)
       - [.toEmbedString()](#toembedstring)
       - [.toLegacyDataAttributesString()](#tolegacydataattributesstring)
       - [.toLegacyDataAttributesObject()](#tolegacydataattributesobject)
@@ -222,6 +223,18 @@ const additionalContext = { contentId: '123' }
 appContext.add(additionalContext)
 
 expect(appContext.data).toEqual({ ...initialAppContext, ...additionalContext  })
+```
+
+##### .get(item: string)
+
+Returns the value of the equivalent app context data property
+
+```js
+const context = { version: '123' }
+const appContext = new AppContext({ context })
+const result = appContext.get('version')
+
+expect(result).toBe(context.version)
 ```
 
 ##### .toEmbedString()
