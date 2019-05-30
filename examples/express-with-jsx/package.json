@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node server/start.js",
-    "start:dev": "nodemon --ext js,jsx"
+    "start:dev": "nodemon --ext js,jsx",
+    "test": "../../node_modules/.bin/jest"
   },
   "dependencies": {
     "@financial-times/anvil-server-react": "file:../../packages/anvil-server-react",
@@ -13,6 +14,7 @@
     "sucrase": "^3.10.1"
   },
   "devDependencies": {
+    "@sucrase/jest-plugin": "^2.0.0",
     "nodemon": "^1.18.7"
   }
 }
