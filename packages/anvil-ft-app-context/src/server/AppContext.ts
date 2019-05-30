@@ -8,6 +8,7 @@ const legacyKeyMap = {
   app: 'data-next-app',
   edition: 'data-next-edition',
   version: 'data-next-version',
+  product: 'data-next-product',
   isProduction: 'data-next-is-production'
 }
 

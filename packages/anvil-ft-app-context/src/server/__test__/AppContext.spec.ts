@@ -32,6 +32,7 @@ describe('AppContext', () => {
         `data-next-edition="${context.edition}" ` +
         `data-foo-prop="${context.fooProp}" ` +
         'data-next-is-production ' +
+        `data-next-product="${context.product}" ` +
         `data-publish-reference="${context.publishReference}" ` +
         `data-next-version="${context.version}"`
       const result = appContext.toLegacyDataAttributesString()
@@ -51,6 +52,7 @@ describe('AppContext', () => {
         `data-foo-prop="${context.fooProp}" ` +
         'data-foo-true ' +
         'data-next-is-production ' +
+        `data-next-product="${context.product}" ` +
         `data-publish-reference="${context.publishReference}" ` +
         `data-next-version="${context.version}"`
       const result = appContext.toLegacyDataAttributesString()
@@ -70,6 +72,7 @@ describe('AppContext', () => {
         dataContentId: context.contentId,
         dataContentType: context.contentType,
         dataNextEdition: context.edition,
+        dataNextProduct: context.product,
         dataNextVersion: context.version,
         dataNextIsProduction: true,
         dataPublishReference: context.publishReference
