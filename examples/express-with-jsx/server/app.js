@@ -1,6 +1,5 @@
 import express from 'express'
 import { homePageController } from './controllers/home'
-import { aboutPageController } from './controllers/about'
 // import AssetLoader from '@financial-times/anvil-server-asset-loader'
 import AnvilReact from '@financial-times/anvil-server-react'
 
@@ -20,4 +19,3 @@ app.engine('.jsx', renderer.engine)
 app.use('/public', express.static('./public'))
 
 app.get('/', homePageController)
-app.get('/about', aboutPageController)
