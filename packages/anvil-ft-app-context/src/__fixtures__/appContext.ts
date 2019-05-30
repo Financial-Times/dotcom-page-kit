@@ -1,6 +1,7 @@
 export const appContext = {
   app: 'article',
   edition: 'uk',
+  product: 'next',
   version: '882797258625531f20d604f6441ef8cfcb2d772b',
   abState: 'subscriberCohort:on,premiumCohort:on,nonUSACohort:on',
   contentId: 'c5935758-7730-11e9-bbad-7c18c0ea0201',

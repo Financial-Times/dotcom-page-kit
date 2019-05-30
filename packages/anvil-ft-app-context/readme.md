@@ -348,6 +348,7 @@ An object with the following properties
 | ---------------- | ------- | -------- | ------------------------------------------------------------------------------------------------ |
 | app              | string  | required | The app name                                                                                     |
 | version          | string  | required | The app version                                                                                  |
+| product          | string  | required | The product name                                                                                 |
 | abState          | string  | required | The AB test flags data as a comma delimited string (e.g., subscriberCohort:on,premiumCohort:off) |
 | edition          | string  | required | The site edition                                                                                 |
 | contentId        | string  | optional | The id of the content being featured                                                             |
@@ -364,6 +365,7 @@ An object with the following properties
 | -------------------- | ------- | ------------------------------------------------------------------------------------------------ |
 | dataNextApp          | string  | The app name                                                                                     |
 | dataNextVersion      | string  | The app version                                                                                  |
+| dataNextProduct      | string  | The product name                                                                                 |
 | dataAbState          | string  | The AB test flags data as a comma delimited string (e.g., subscriberCohort:on,premiumCohort:off) |
 | dataNextEdition      | string  | The site edition                                                                                 |
 | dataContentId        | string  | The id of the content being featured                                                             |
