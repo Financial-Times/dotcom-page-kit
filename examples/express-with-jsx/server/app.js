@@ -1,20 +1,14 @@
 import express from 'express'
 import { homePageController } from './controllers/home'
-// import AssetLoader from '@financial-times/anvil-server-asset-loader'
 import AnvilReact from '@financial-times/anvil-server-react'
 
 export const app = express()
 
-// const assets = new AssetLoader({
-//   fileSystemPath: './dist',
-//   publicPath: '/assets'
-// })
+app.locals.siteName = 'Good Cats'
 
-// const scriptsToLoad = [assets.getPublicURL('client.js'), assets.getPublicURL('runtime.js')]
-
-const renderer = new AnvilReact({ useStaticRendering: true })
-
-app.engine('.jsx', renderer.engine)
+// Add React as a view engine so controllers may use response.render()
+const react = new AnvilReact({ useStaticRendering: true })
+app.engine('.jsx', react.engine)
 
 app.use('/public', express.static('./public'))
 
