@@ -1,5 +1,5 @@
 {
-  "name": "ft-app-jsx-express-style",
+  "name": "example-express-with-jsx",
   "private": true,
   "version": "1.0.0",
   "main": "server/app.js",
