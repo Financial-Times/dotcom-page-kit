@@ -7,6 +7,7 @@ This package provides methods for integrating app context data into your server-
 - [Installation](#installation)
 - [General Usage](#general-usage)
   - [Server-side integration](#server-side-integration)
+    - [Registering the middleware](#registering-the-middleware)
     - [Embedding the app context data within a html string](#embedding-the-app-context-data-within-a-html-string)
     - [Embedding app context data as data attributes of the html tag](#embedding-app-context-data-as-data-attributes-of-the-html-tag)
     - [Embedding app context within a react component](#embedding-app-context-within-a-react-component)
@@ -44,23 +45,31 @@ npm install --save @financial-times/anvil-ft-app-context
 
 ### Server-side integration
 
-#### Embedding the app context data within a html string
+#### Registering the middleware
+
 In order to make the app context data available to your express routes, you will first need to register the app context middleware with your application:
 
 ```js
 const express = require('express')
-const appContext = require('@financial-times/anvil-app-context')
+const appContextMiddleware = require('@financial-times/anvil-middleware-app-context')
 
-app.use(appContext.middleware)
+app.use(appContextMiddleware.init())
 ```
 
-Once registered, you will be able to access the [app context client] at `response.locals.appContext`. The [app context client] instance contains methods that can be used to retrieve the app context data in various formats. To embed the app context data within a string of html, use the [`toEmbedString()`](#toembedstring) method of the [app context client] as follows:
+Once registered, you will be able to access the [app context client] at `response.locals.appContext`. The [app context client] instance contains methods that can be used to retrieve the app context data in various formats.
+
+For more information on the options that the app context middleware accepts, see the the [anvil-middleware-app-context] package
+
+[anvil-middleware-app-context]: ../anvil-middleware-app-context/readme.md
+
+#### Embedding the app context data within a html string
+To embed the app context data within a string of html, use the [`toEmbedString()`](#toembedstring) method of the [app context client] as follows:
 
 ```js
 const express = require('express')
-const { middleware: appContextMiddleware } = require('@financial-times/anvil-app-context')
+const appContextMiddleware = require('@financial-times/anvil-middleware-app-context')
 
-app.use(appContextMiddleware)
+app.use(appContextMiddleware.init())
 
 app.get('/', (req, res) => {
   const appContext = response.locals.appContext
@@ -89,9 +98,9 @@ To embed the app context as data attributes of the `<html>` tag, use the [`toLeg
 
 ```js
 const express = require('express')
-const { middleware: appContextMiddleware } = require('@financial-times/anvil-app-context')
+const appContextMiddleware = require('@financial-times/anvil-middleware-app-context')
 
-app.use(appContextMiddleware)
+app.use(appContextMiddleware.init())
 
 app.get('/', (req, res) => {
   const { appContext } = response.locals
@@ -115,10 +124,11 @@ When rendering with React, use the `AppContext` component and / or the `toLegacy
 // NOTE: This example assumes a JSX supported environment
 
 import express from 'express'
-import { middleware: appContextMiddleware, AppContextEmbed } from '@financial-times/anvil-app-context'
+import appContextMiddleware from '@financial-times/anvil-middleware-app-context'
+import { AppContextEmbed } from '@financial-times/anvil-app-context'
 import { renderToString } from 'react-dom/server'
 
-app.use(appContextMiddleware)
+app.use(appContextMiddleware.init())
 
 app.get('/', (req, res) => {
   const { appContext } = response.locals
