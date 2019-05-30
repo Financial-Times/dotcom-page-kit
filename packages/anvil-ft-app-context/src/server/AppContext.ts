@@ -4,8 +4,6 @@ import pascalCase from 'pascalcase'
 import { prepareEmbedString } from '../shared/prepareEmbedString'
 import { TAppContext, TLegacyAppContextDataAttributes } from '../types'
 
-prepareEmbedString
-
 const legacyKeyMap = {
   app: 'data-next-app',
   edition: 'data-next-edition',
@@ -26,6 +24,10 @@ export class AppContext {
 
   add(additionalContext: Partial<TAppContext>) {
     this.data = { ...this.data, ...additionalContext }
+  }
+
+  get(item: string) {
+    return this.data[item]
   }
 
   toEmbedString(): string {
