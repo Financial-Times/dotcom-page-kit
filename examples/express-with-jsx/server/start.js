@@ -1,9 +1,9 @@
-if (process.env.NODE_ENV === 'development') {
-  require('dotenv').config()
-}
 require('sucrase/register')
 
-const port = process.env.PORT || 3000
-const app = require('./app').app
+const { app } = require('./app')
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`)) // eslint-disable-line no-console
+const PORT = process.env.PORT || 3456
+
+app.listen(PORT, () => {
+  console.log(`Listening on http://localhost:${PORT}`) // eslint-disable-line no-console
+})
