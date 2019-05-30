@@ -3,7 +3,13 @@ import querystring from 'querystring'
 // Please see https://polyfill.io/v3/url-builder/ for information about which
 // features are available and how they may be used.
 
-export const core = formatURL(['default', 'es5', 'es2015', 'HTMLPictureElement'])
+export const core = formatURL([
+  'default',
+  'es5',
+  'es2015',
+  'HTMLPictureElement',
+  'NodeList.prototype.forEach'
+])
 
 export const enhanced = formatURL([
   // What Andrew Betts decided is "default"
@@ -19,7 +25,8 @@ export const enhanced = formatURL([
   'EventSource',
   'fetch',
   'HTMLPictureElement',
-  'IntersectionObserver'
+  'IntersectionObserver',
+  'NodeList.prototype.forEach'
 ])
 
 function formatURL(features: string[]): string {
