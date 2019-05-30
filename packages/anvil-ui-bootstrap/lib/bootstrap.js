@@ -3,6 +3,7 @@
   var isEnhanced = isEnhancedBrowser()
   var scriptsConfig = getScriptsConfig()
   var scriptsToLoad = []
+  var currentScript = document.currentScript
 
   doc.className = doc.className.replace('no-js', 'js')
 
@@ -37,9 +38,9 @@
   function loadScript(src) {
     var script = document.createElement('script')
     script.onerror = scriptLoadError
-    script.async = true
+    script.async = false
     script.src = src
-    document.head.insertBefore(script, document.currentScript)
+    currentScript.parentNode.insertBefore(script, currentScript)
   }
 
   // "Cut the mustard" test
