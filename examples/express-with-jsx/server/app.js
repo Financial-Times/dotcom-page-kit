@@ -17,7 +17,7 @@ const renderer = new AnvilReact({ useStaticRendering: true })
 
 app.engine('.jsx', renderer.engine)
 
-app.use('/assets', express.static('./dist'))
+app.use('/public', express.static('./public'))
 
 app.get('/', homePageController)
 app.get('/about', aboutPageController)
