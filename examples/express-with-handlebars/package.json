@@ -2,12 +2,10 @@
   "name": "example-express-with-handlebars",
   "private": true,
   "version": "0.0.0",
-  "main": "server/app.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon server/listen.js --ext js",
     "start": "node server/listen.js",
-    "build": "anvil build -d",
+    "start:dev": "nodemon --ext js,hbs",
     "test": "../../node_modules/.bin/jest"
   },
   "dependencies": {

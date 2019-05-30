@@ -1,21 +1,18 @@
 {
   "name": "example-express-with-jsx",
   "private": true,
-  "version": "1.0.0",
-  "main": "server/app.js",
+  "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "anvil build",
-    "build:dev": "anvil build -d",
     "start": "node server/start.js",
-    "start:dev": "export NODE_ENV=development; nodemon --watch server --watch client --watch views --watch ../packages server/start.js"
-  },
-  "devDependencies": {
-    "nodemon": "^1.18.7"
+    "start:dev": "nodemon --ext js,jsx"
   },
   "dependencies": {
     "@financial-times/anvil-server-react": "file:../../packages/anvil-server-react",
     "express": "^4.16.4",
     "sucrase": "^3.10.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.7"
   }
 }
