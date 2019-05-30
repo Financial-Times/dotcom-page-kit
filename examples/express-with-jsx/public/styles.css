@@ -47,25 +47,31 @@ body {
   color: dimgrey;
 }
 
-.DogList {
+.CatList {
   margin: 0;
 }
 
-.DogList-name {
+.CatList-name {
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0 0 1rem;
 }
 
-.DogList-content {
+.CatList-content {
   margin: 0 0 2rem;
 }
 
-.DogList-content:last-child {
+.CatList-content:last-child {
   margin-bottom: 0;
 }
 
-.DogList-photo {
+.CatList-photo {
   display: block;
   max-width: 100%;
+}
+
+@media screen and (min-width: 640px) {
+  .CatList-photo {
+    max-width: 640px;
+  }
 }

@@ -3,7 +3,7 @@ import catData from '../lib/data.json'
 export function homePageController(request, response, next) {
   const renderOptions = {
     pageTitle: 'Welcome',
-    catData
+    data: catData
   }
 
   try {
