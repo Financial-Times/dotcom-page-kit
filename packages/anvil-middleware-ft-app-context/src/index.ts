@@ -3,10 +3,10 @@ import { getAppName, getAppVersion, getAbState, getEdition, isProduction } from 
 import { AppContext, TAppContext } from '@financial-times/anvil-ft-app-context'
 
 interface Options {
-  env?: string
   product?: string
   context?: Partial<TAppContext>
   workingDir?: string
+  environment?: string
 }
 
 export function init(options: Options = {}) {
@@ -14,11 +14,16 @@ export function init(options: Options = {}) {
     product = 'next',
     workingDir = process.cwd(),
     context: contextOverrides = {},
-    env = process.env.NODE_ENV || 'development'
+    environment = process.env.NODE_ENV || 'development'
   } = options
 
   return (request: Request, response: Response, next: NextFunction) => {
-    const state = { request, response, env, workingDir }
+    const state = {
+      request,
+      response,
+      workingDir,
+      environment
+    }
 
     const context = {
       app: getAppName(state),
