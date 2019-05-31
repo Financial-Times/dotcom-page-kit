@@ -5,40 +5,36 @@ const { Layout } = require('@financial-times/anvil-ui-ft-layout')
 const polyfills = require('@financial-times/anvil-ui-ft-polyfills')
 
 module.exports = (_, response, next) => {
-  const pageData = {
-    title: 'Hello World!',
-    contents: '<div align="center"><p>Hello, welcome to Anvil.</p></div>'
-  }
-
-  const scriptBundles = response.locals.assets.loader.getScriptURLsFor('scripts')
-  const styleBundles = response.locals.assets.loader.getStylesheetURLsFor('styles')
-
-  const shellProps = {
-    flags: { ads: true, tracking: true },
-    coreScripts: [polyfills.core],
-    enhancedScripts: [polyfills.enhanced, ...scriptBundles],
-    stylesheets: styleBundles,
-    pageTitle: pageData.title
-  }
-
-  const layoutProps = {
-    navigationData: response.locals.navigation
-  }
-
   try {
-    ;[...shellProps.enhancedScripts, ...shellProps.stylesheets].forEach((file) => {
+    const flags = { ads: true, tracking: true }
+    const styleBundles = response.locals.assets.loader.getStylesheetURLsFor('styles')
+    const scriptBundles = response.locals.assets.loader.getScriptURLsFor('scripts')
+    const enhancedScripts = [polyfills.enhanced, ...scriptBundles]
+    const coreScripts = [polyfills.core]
+    const forHints = [...enhancedScripts, ...styleBundles]
+
+    forHints.forEach((file) => {
       response.locals.assets.resourceHints.add(file)
     })
 
     response.set('Link', response.locals.assets.resourceHints.toString())
 
-    const document = React.createElement(
-      Shell,
-      { ...shellProps },
-      React.createElement(Layout, { ...layoutProps, contents: pageData.contents })
+    const Page = () => (
+      <Shell
+        flags={flags}
+        pageTitle="Hello World"
+        coreScripts={coreScripts}
+        stylesheets={styleBundles}
+        enhancedScripts={enhancedScripts}>
+        <Layout navigationData={response.locals.navigation}>
+          <div align="center">
+            <p>Hello, welcome to Anvil.</p>
+          </div>
+        </Layout>
+      </Shell>
     )
 
-    response.send('<!DOCTYPE html>' + ReactDOM.renderToStaticMarkup(document))
+    response.send('<!DOCTYPE html>' + ReactDOM.renderToStaticMarkup(<Page />))
   } catch (error) {
     next(error)
   }
