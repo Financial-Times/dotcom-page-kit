@@ -14,7 +14,7 @@ export function init(options: Options = {}) {
     product = 'next',
     workingDir = process.cwd(),
     context: contextOverrides = {},
-    env = process.env.NODE_ENV
+    env = process.env.NODE_ENV || 'development'
   } = options
 
   return (request: Request, response: Response, next: NextFunction) => {
