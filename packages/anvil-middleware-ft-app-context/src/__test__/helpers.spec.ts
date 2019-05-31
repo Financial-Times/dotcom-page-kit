@@ -1,8 +1,8 @@
 import httpMocks from 'node-mocks-http'
 import { appContext } from '../__fixtures__/appContext'
-import { mockAboutDoc } from '../__helpers__/about'
 import { createHttpResponseWithHeaders } from '../__helpers__/http'
 import { getAppName, getAbState, getEdition, isProduction, getAppVersion } from '../helpers'
+import { withEnv } from '../__helpers__/mocking'
 
 describe('helpers', () => {
   describe('getAppName()', () => {
@@ -30,29 +30,31 @@ describe('helpers', () => {
   })
 
   describe('getAppVersion', () => {
-    it('returns the app version', () => {
-      const { aboutDoc, workingDir } = mockAboutDoc()
-      const result = getAppVersion({ workingDir })
-      expect(result).toBe(aboutDoc.appVersion)
+    it('returns the `SOURCE_VERSION` environment variable', () => {
+      const env = { SOURCE_VERSION: 'foo:bar' }
+      withEnv(env, () => {
+        const result = getAppVersion({})
+        expect(result).toBe(env.SOURCE_VERSION)
+      })
     })
   })
 
   describe('isProduction', () => {
     it('returns `true` when in the production environment', () => {
-      const env = 'production'
-      const result = isProduction({ env })
+      const environment = 'production'
+      const result = isProduction({ environment })
       expect(result).toBe(true)
     })
 
     it('returns `false` when not in the production environment', () => {
-      const env = 'development'
-      const result = isProduction({ env })
+      const environment = 'development'
+      const result = isProduction({ environment })
       expect(result).toBe(false)
     })
 
     it('is case insensitive', () => {
-      const env = 'pRoduCtion'
-      const result = isProduction({ env })
+      const environment = 'pRoduCtion'
+      const result = isProduction({ environment })
       expect(result).toBe(true)
     })
   })
