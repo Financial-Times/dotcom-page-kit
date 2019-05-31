@@ -1,16 +1,7 @@
-import dashify from 'dashify'
 import camelCase from 'camelcase'
-import pascalCase from 'pascalcase'
 import { prepareEmbedString } from '../shared/prepareEmbedString'
+import { getLegacyAttributeNameOfProp } from '../shared/legacyAttributes'
 import { TAppContext, TLegacyAppContextDataAttributes } from '../types'
-
-const legacyKeyMap = {
-  app: 'data-next-app',
-  edition: 'data-next-edition',
-  version: 'data-next-version',
-  product: 'data-next-product',
-  isProduction: 'data-next-is-production'
-}
 
 export interface AppContextConstructorProps {
   context?: Partial<TAppContext>
@@ -41,7 +32,7 @@ export class AppContext {
     attributes.push('data-app-context')
 
     for (let key of Object.keys(this.data).sort()) {
-      const attrName = legacyKeyMap[key] ? legacyKeyMap[key] : `data-${dashify(key)}`
+      const attrName = getLegacyAttributeNameOfProp(key)
 
       if (typeof this.data[key] === 'boolean') {
         if (this.data[key]) {
@@ -59,7 +50,7 @@ export class AppContext {
     const attributes = { dataAppContext: true } as any
 
     for (let key of Object.keys(this.data).sort()) {
-      const prop = legacyKeyMap[key] ? camelCase(legacyKeyMap[key]) : `data${pascalCase(key)}`
+      const prop = camelCase(getLegacyAttributeNameOfProp(key))
       attributes[prop] = this.data[key]
     }
 
