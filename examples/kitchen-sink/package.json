@@ -2,12 +2,11 @@
   "name": "example-basic-ft-ui",
   "private": true,
   "version": "0.0.0",
-  "main": "server/app.js",
   "license": "MIT",
   "scripts": {
     "build": "anvil build -d",
-    "dev": "nodemon server/listen.js",
-    "start": "node server/listen.js",
+    "dev": "nodemon start.js",
+    "start": "node start.js",
     "pretest": "npm run build",
     "test": "../../node_modules/.bin/jest"
   },
@@ -21,7 +20,8 @@
     "@financial-times/n-tracking": "^0.3.0",
     "express": "^4.16.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "sucrase": "^3.10.1"
   },
   "devDependencies": {
     "@financial-times/anvil-cli": "file:../../packages/anvil-cli",
