@@ -1,5 +1,6 @@
 import { TAppContext } from '../types'
 import { APP_CONTEXT_ELEMENT_ID } from '../shared/constants'
+import { getPropNameOfLegacyDataAttribute } from '../shared/legacyAttributes'
 
 export function loadAppContext(): TAppContext {
   return loadFromScriptEmbed() || loadFromDataAttributes()
@@ -21,16 +22,26 @@ function loadFromDataAttributes() {
   const elem = document.querySelector('[data-app-context]')
 
   if (elem) {
-    return Object.freeze({
-      app: elem.getAttribute('data-next-app'),
-      edition: elem.getAttribute('data-next-edition'),
-      product: elem.getAttribute('data-next-product'),
-      abState: elem.getAttribute('data-ab-state'),
-      version: elem.getAttribute('data-next-version'),
-      contentId: elem.getAttribute('data-content-id'),
-      contentType: elem.getAttribute('data-content-type'),
-      isProduction: elem.hasAttribute('data-next-is-production'),
-      publishReference: elem.getAttribute('data-publish-reference')
-    })
+    const context: Partial<TAppContext> = {}
+
+    for (let i = 0; i < elem.attributes.length; i++) {
+      const attr = elem.attributes[i]
+
+      if (attr.name.startsWith('data-') && attr.name !== 'data-app-context') {
+        const prop = getPropNameOfLegacyDataAttribute(attr.name)
+        context[prop] = attr.value
+      }
+    }
+
+    switch (typeof context.isProduction) {
+      case 'string':
+        context.isProduction = true
+        break
+      case undefined:
+        context.isProduction = false
+        break
+    }
+
+    return Object.freeze(context)
   }
 }
