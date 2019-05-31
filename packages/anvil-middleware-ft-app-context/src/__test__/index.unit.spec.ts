@@ -37,10 +37,16 @@ describe('init()', () => {
     it('sets up the app context client on the response', () => {
       const middleware = init()
       const { request, response, next } = setupMocks()
+      const state = {
+        request,
+        response,
+        workingDir: process.cwd(),
+        environment: process.env.NODE_ENV || 'development'
+      }
       middleware(request, response, next)
       expect(response.locals.appContext).toBeInstanceOf(AppContext)
       expect(response.locals.appContext.data).toEqual(appContext)
-      expectAllHelpersToReceive({ request, response, workingDir: process.cwd() })
+      expectAllHelpersToReceive(state)
     })
 
     it('calls the next function in the chain', () => {
@@ -75,11 +81,11 @@ describe('init()', () => {
     })
 
     it('respects the supplied environment', () => {
-      const env = 'development'
-      const middleware = init({ env })
+      const environment = 'foo'
+      const middleware = init({ environment })
       const { request, response, next } = setupMocks()
       middleware(request, response, next)
-      expectAllHelpersToReceive({ env })
+      expectAllHelpersToReceive({ environment })
     })
 
     it('respects the supplied product name', () => {

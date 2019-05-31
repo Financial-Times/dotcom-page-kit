@@ -1,4 +1,3 @@
-import path from 'path'
 import { Request, Response } from 'express'
 
 interface RequestArgs {
@@ -9,12 +8,8 @@ interface ResponseArgs {
   response: Response
 }
 
-interface WorkingDirArgs {
-  workingDir: string
-}
-
-interface EnvArgs {
-  env: string
+interface EnvironmentArgs {
+  environment: string
 }
 
 export function getAppName({ response }: ResponseArgs) {
@@ -29,21 +24,10 @@ export function getEdition({ request }: RequestArgs) {
   return request.get('ft-edition')
 }
 
-export function getAppVersion({ workingDir }: WorkingDirArgs) {
-  return getAboutInfo({ workingDir }).appVersion
+export function getAppVersion({}) {
+  return process.env.SOURCE_VERSION
 }
 
-export function isProduction({ env }: EnvArgs) {
-  return env.toUpperCase() === 'PRODUCTION'
-}
-
-export function getAboutDocPath({ workingDir }: WorkingDirArgs) {
-  return path.join(workingDir, '/public/__about.json')
-}
-
-function getAboutInfo({ workingDir }: WorkingDirArgs) {
-  try {
-    return require(getAboutDocPath({ workingDir }))
-  } catch (e) {}
-  return {}
+export function isProduction({ environment }: EnvironmentArgs) {
+  return environment.toUpperCase() === 'PRODUCTION'
 }
