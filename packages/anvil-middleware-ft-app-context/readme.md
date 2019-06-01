@@ -41,23 +41,15 @@ See the [`anvil-ft-app-context` package] for documentation on the app context cl
 
 ## Options
 
-### product
-
-An optional string that represents the name of the product. It defaults to `next`
-
 ### context
 
 An optional object that has one or more [TAppContext] properties. When this is supplied, it will be used to set the equivalent properties of the app context data
 
-### workingDir
-
-An optional string that represents the working directory of the app. It defaults to `process.cwd()`
-
-### env
+### environment
 
 An optional string that represents the app environment. It defaults to `process.env.NODE_ENV`
 
 [Express]: https://expressjs.com/
+[TAppContext]: readme.md#appcontext../anvil-ft-app-context/readme.md#tappcontext
 [app context client instance]: ../anvil-ft-app-context/readme.md#appcontext
 [`anvil-ft-app-context` package]: ../anvil-ft-app-context/
-[TAppContext]: readme.md#appcontext../anvil-ft-app-context/readme.md#tappcontext
