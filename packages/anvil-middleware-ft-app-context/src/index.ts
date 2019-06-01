@@ -1,37 +1,23 @@
-import { Request, Response, NextFunction } from 'express'
-import { getAppName, getAppVersion, getAbState, getEdition, isProduction } from './helpers'
+import isProduction from './isProduction'
 import { AppContext, TAppContext } from '@financial-times/anvil-ft-app-context'
+import { Request, Response, NextFunction } from 'express'
 
 interface Options {
-  product?: string
   context?: Partial<TAppContext>
-  workingDir?: string
   environment?: string
 }
 
 export function init(options: Options = {}) {
-  const {
-    product = 'next',
-    workingDir = process.cwd(),
-    context: contextOverrides = {},
-    environment = process.env.NODE_ENV || 'development'
-  } = options
+  const { environment, context: contextOverrides = {} } = options
 
   return (request: Request, response: Response, next: NextFunction) => {
-    const state = {
-      request,
-      response,
-      workingDir,
-      environment
-    }
-
     const context = {
-      app: getAppName(state),
-      product: product,
-      version: getAppVersion(state),
-      abState: getAbState(state),
-      edition: getEdition(state),
-      isProduction: isProduction(state),
+      app: response.get('ft-app-name'),
+      product: 'next',
+      version: process.env.SOURCE_VERSION,
+      abState: request.get('ft-ab'),
+      edition: request.get('ft-edition'),
+      isProduction: isProduction(environment),
       ...contextOverrides
     }
 
