@@ -1,8 +1,17 @@
+import SharedAppContext from '../../shared/AppContext'
 import { AppContext } from '../../server/AppContext'
 import { prepareEmbedString } from '../../shared/prepareEmbedString'
 import { appContextWithExtras as context } from '../../__fixtures__/appContext'
 
 describe('AppContext', () => {
+
+  describe('the instance', () => {
+    it('extends the shared app context client', () => {
+      const appContext = new AppContext()
+      expect(appContext).toBeInstanceOf(SharedAppContext)
+    })
+  })
+
   describe('.data', () => {
     it('returns the app context data', () => {
       const appContext = new AppContext({ context })

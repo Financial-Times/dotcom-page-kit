@@ -3,11 +3,11 @@
  */
 
 import withDomOverwrites from 'with-dom-overwrites'
+import loadAppContextData from '../loadAppContextData'
 import { appContext } from '../../__fixtures__/appContext'
-import { loadAppContext } from '../loadAppContext'
 import { APP_CONTEXT_ELEMENT_ID } from '../../shared/constants'
 
-describe('loadAppContext', () => {
+describe('loadAppContextData', () => {
   describe('when app context has been embedded via the script tag into the head', () => {
     it('returns a frozen object', () => {
       const appContext = { foo: 1, bar: true, baz: 'qux' }
@@ -23,7 +23,7 @@ describe('loadAppContext', () => {
           `
         },
         run: () => {
-          const result = loadAppContext()
+          const result = loadAppContextData()
 
           expect(result).toEqual(appContext)
           expect(Object.isFrozen(result)).toBe(true)
@@ -50,7 +50,7 @@ describe('loadAppContext', () => {
         `
         },
         run: () => {
-          const result = loadAppContext()
+          const result = loadAppContextData()
 
           expect(result).toEqual(appContext)
           expect(Object.isFrozen(result)).toBe(true)
@@ -80,7 +80,7 @@ describe('loadAppContext', () => {
           `
         },
         run: () => {
-          const result = loadAppContext()
+          const result = loadAppContextData()
 
           expect(result).toEqual(appContext)
           expect(Object.isFrozen(result)).toBe(true)
@@ -91,7 +91,7 @@ describe('loadAppContext', () => {
 
   describe('when the app context has not been embedded into the page', () => {
     it('returns undefined', () => {
-      expect(loadAppContext()).toEqual(undefined)
+      expect(loadAppContextData()).toEqual(undefined)
     })
   })
 })
