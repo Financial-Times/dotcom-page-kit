@@ -35,6 +35,7 @@ function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
           resolve: {
             // Required for sass-loader 7.0+
             // https://github.com/webpack-contrib/sass-loader/issues/556
+            // https://github.com/Financial-Times/anvil/issues/269
             extensions: ['.scss', '.sass', '.css']
           },
           use: [
@@ -57,8 +58,6 @@ function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
             },
             // Enable use of Sass for CSS preprocessing
             // https://github.com/webpack-contrib/sass-loader
-            // NOTE: we're using ^6.0.0 as this avoids a bug with resolving .js files
-            // https://github.com/Financial-Times/anvil/issues/127
             {
               loader: require.resolve('sass-loader'),
               options: sassLoaderOptions
