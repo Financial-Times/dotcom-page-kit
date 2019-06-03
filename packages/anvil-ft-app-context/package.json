@@ -30,9 +30,11 @@
   },
   "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ft-app-context",
   "devDependencies": {
+    "@financial-times/anvil-types-generic": "file:../anvil-types-generic",
     "with-dom-overwrites": "^1.2.1"
   },
   "dependencies": {
+    "ajv": "^6.10.0",
     "camelcase": "^5.3.1",
     "dashify": "^2.0.0",
     "pascalcase": "^0.1.1"

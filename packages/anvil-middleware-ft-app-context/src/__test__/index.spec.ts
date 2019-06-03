@@ -29,18 +29,16 @@ const prodEnvironmentMocks = {
 const devEnvironmentMocks = mocksWithEnv('development')
 
 function withMocks(mocks, callback) {
-  jest.isolateModules(() => {
-    const mocked: any = {
-      next: jest.fn(),
-      request: httpMocks.createRequest({
-        headers: { ...mocks.requestHeaders }
-      }),
-      response: createHttpResponseWithHeaders(mocks.responseHeaders)
-    }
+  const mocked: any = {
+    next: jest.fn(),
+    request: httpMocks.createRequest({
+      headers: { ...mocks.requestHeaders }
+    }),
+    response: createHttpResponseWithHeaders(mocks.responseHeaders)
+  }
 
-    withEnv(mocks.env, () => {
-      callback(mocked)
-    })
+  withEnv(mocks.env, () => {
+    callback(mocked)
   })
 }
 
