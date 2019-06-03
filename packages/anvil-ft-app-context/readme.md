@@ -12,6 +12,7 @@ This package provides methods for integrating app context data into your server-
     - [Embedding app context data as data attributes of the html tag](#embedding-app-context-data-as-data-attributes-of-the-html-tag)
     - [Embedding app context within a react component](#embedding-app-context-within-a-react-component)
   - [Client-side integration](#client-side-integration)
+    - [Accessing the app context data](#accessing-the-app-context-data)
 - [Server-side API](#server-side-api)
   - [middleware()](#middleware)
   - [AppContextEmbed](#appcontextembed)
@@ -151,12 +152,16 @@ app.get('/', (req, res) => {
 
 ### Client-side integration
 
-Once the html is being delivered to the client with the app context data embedded within it, the `loadAppContext()` can then be used client-side to retrieve the app context data.
+#### Accessing the app context data
+
+Once the html is being delivered to the client with the app context data embedded within it, the app context client can then be used client-side to retrieve the app context data as follows.
 
 ```js
-import { loadAppContext } from '@financial-times/anvil-ft-app-context'
+import * as appContext from '@financial-times/anvil-ft-app-context'
 
-const context = loadAppContext()
+const appContextClient = appContext.init()
+const abState = appContextClient.get('abState')
+const appContextData = appContextClient.data
 ```
 
 ## Server-side API
@@ -296,10 +301,57 @@ const Page = () => (
 
 ## Client-side API
 
+### init()
 
-### loadAppContext()
+A function that returns an `AppContext` client instance which contains properties and methods for interacting with the embedded app context data.
 
-A function that parses and returns the embedded app context data if it exists. If no app context data was embedded within the page, the function returns `undefined`.
+```js
+import { init } from '@financial-times/anvil-ft-app-context'
+
+const appContextClient = init()
+const abState = appContextClient.get('abState)
+```
+
+---
+
+### AppContext
+
+A class that contains methods and properties that allow for amending the app context data and retrieving it in various formats.
+
+```js
+import { AppContext } from '@financial-times/anvil-ft-app-context'
+
+const appContext = new AppContext({ context })
+```
+
+#### Constructor args
+
+An object with the following properties
+
+| Property | Type        | Required | Description                        |
+| -------- | ----------- | -------- | ---------------------------------- |
+| context  | TAppContext | optional | An initial app context data object |
+
+
+#### Properties
+
+##### .data
+
+The [app context data object]
+
+#### Methods
+
+##### .get(item: string)
+
+Returns the value of the equivalent app context data property
+
+```js
+const context = { version: '123' }
+const appContext = new AppContext({ context })
+const result = appContext.get('version')
+
+expect(result).toBe(context.version)
+```
 
 ---
 
