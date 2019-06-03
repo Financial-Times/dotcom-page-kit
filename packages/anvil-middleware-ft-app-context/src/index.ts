@@ -1,5 +1,5 @@
 import isProduction from './isProduction'
-import { AppContext, TAppContext } from '@financial-times/anvil-ft-app-context'
+import { AppContext, TAppContext, ensureValidAppContext } from '@financial-times/anvil-ft-app-context'
 import { Request, Response, NextFunction } from 'express'
 
 interface Options {
@@ -9,6 +9,8 @@ interface Options {
 
 export function init(options: Options = {}) {
   const { environment, context: contextOverrides = {} } = options
+
+  ensureValidAppContext(contextOverrides)
 
   return (request: Request, response: Response, next: NextFunction) => {
     const context = {

@@ -1,6 +1,6 @@
 import { TAppContext } from '../types'
 import { APP_CONTEXT_ELEMENT_ID } from '../shared/constants'
-import { getPropNameOfLegacyDataAttribute } from '../shared/legacyAttributes'
+import { getPropNameOfLegacyDataAttribute } from '../shared/schema'
 
 export default function loadAppContextData(): TAppContext {
   return loadFromScriptEmbed() || loadFromDataAttributes()
