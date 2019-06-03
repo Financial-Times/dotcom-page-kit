@@ -1,0 +1,80 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [],
+  "properties": {
+    "app": {
+      "$id": "#/properties/app",
+      "type": "string",
+      "title": "The app name Schema",
+      "examples": ["article"],
+      "foo": "bar",
+      "pattern": "^(.*)$",
+      "legacyDataAttributeName": "data-next-app"
+    },
+    "edition": {
+      "$id": "#/properties/edition",
+      "type": "string",
+      "title": "The `appEdition` Schema",
+      "examples": ["uk"],
+      "pattern": "^(.*)$",
+      "legacyDataAttributeName": "data-next-edition"
+    },
+    "version": {
+      "$id": "#/properties/version",
+      "type": "string",
+      "title": "The `version` Schema",
+      "examples": ["882797258625531f20d604f6441ef8cfcb2d772b"],
+      "pattern": "^(.*)$",
+      "legacyDataAttributeName": "data-next-version"
+    },
+    "product": {
+      "$id": "#/properties/product",
+      "type": "string",
+      "title": "The `product` schema",
+      "default": "next",
+      "examples": ["next"],
+      "pattern": "^(.*)$",
+      "legacyDataAttributeName": "data-next-product"
+    },
+    "abState": {
+      "$id": "#/properties/abState",
+      "type": "string",
+      "title": "The `abState` schema",
+      "examples": ["subscriberCohort:on,premiumCohort:on,nonUSACohort:on"],
+      "pattern": "^(.*)$"
+    },
+    "contentId": {
+      "$id": "#/properties/contentId",
+      "type": "string",
+      "title": "The `contentId` schema",
+      "examples": ["c5935758-7730-11e9-bbad-7c18c0ea0201"],
+      "pattern": "^(.*)$"
+    },
+    "contentType": {
+      "$id": "#/properties/contentType",
+      "type": "string",
+      "title": "The `contentType` Schema",
+      "examples": ["article"],
+      "pattern": "^(.*)$"
+    },
+    "isProduction": {
+      "$id": "#/properties/isProduction",
+      "type": "boolean",
+      "title": "The `isProduction` Schema",
+      "default": false,
+      "examples": [true],
+      "legacyDataAttributeName": "data-next-is-production"
+    },
+    "publishReference": {
+      "$id": "#/properties/publishReference",
+      "type": "string",
+      "title": "The `publishReference` Schema",
+      "examples": ["tid_17wmwszvk3"],
+      "pattern": "^(.*)$"
+    }
+  }
+}
