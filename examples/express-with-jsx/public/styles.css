@@ -1,0 +1,77 @@
+body {
+  margin: 0 20px;
+  background: honeydew;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: #333;
+}
+
+.Header {
+  padding: 2.5rem 0;
+  margin-bottom: 20px;
+  border-bottom: 0.25rem solid lightgreen;
+}
+
+.Header-link {
+  font-size: 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: lightgreen;
+}
+
+.Header-link::after {
+  content: '😸';
+  margin-left: 0.5rem;
+}
+
+.Page {
+}
+
+.Page-title {
+  font-size: 3rem;
+  margin: 0 0 1rem;
+}
+
+.Page-content {
+}
+
+.Footer {
+  margin-top: 2rem;
+  border-top: 0.125rem solid lightgreen;
+  text-align: center;
+}
+
+.Footer-text {
+  margin: 1.25rem 0;
+  color: dimgrey;
+}
+
+.CatList {
+  margin: 0;
+}
+
+.CatList-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 1rem;
+}
+
+.CatList-content {
+  margin: 0 0 2rem;
+}
+
+.CatList-content:last-child {
+  margin-bottom: 0;
+}
+
+.CatList-photo {
+  display: block;
+  max-width: 100%;
+}
+
+@media screen and (min-width: 640px) {
+  .CatList-photo {
+    max-width: 640px;
+  }
+}
