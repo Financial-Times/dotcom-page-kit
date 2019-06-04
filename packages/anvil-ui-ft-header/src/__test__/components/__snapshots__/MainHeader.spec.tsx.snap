@@ -40,7 +40,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
             aria-label="Search"
             className="o-header__top-link o-header__top-link--search"
             data-trackable="search-toggle"
-            href="o-header-search-primary"
+            href="#o-header-search-primary"
             title="Search"
           >
             <span
@@ -1869,7 +1869,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
             aria-label="Search"
             className="o-header__top-link o-header__top-link--search"
             data-trackable="search-toggle"
-            href="o-header-search-primary"
+            href="#o-header-search-primary"
             title="Search"
           >
             <span
