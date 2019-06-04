@@ -34,7 +34,7 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
           test: [/\.(js|jsx|mjs)$/],
           // NOTE: Do not exclude bower_components directory because Origami components
           // installed with Bower are ES6/source code
-          exclude: [/node_modules/],
+          exclude: [],
           use: {
             loader: require.resolve('babel-loader'),
             options: getBabelConfig(cli)
