@@ -12,8 +12,8 @@ describe('AppContext', () => {
   describe(".get('item')", () => {
     it('returns the value of the equivalent app context property', () => {
       const appContext = new ShareAppContext({ context })
-      const result = appContext.get('version')
-      expect(result).toBe(context.version)
+      const result = appContext.get('appVersion')
+      expect(result).toBe(context.appVersion)
     })
   })
 })

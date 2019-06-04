@@ -6,51 +6,58 @@
   "title": "The Root Schema",
   "required": [],
   "properties": {
-    "app": {
-      "$id": "#/properties/app",
+    "appName": {
+      "$id": "#/properties/appName",
       "type": "string",
-      "title": "The app name Schema",
+      "title": "The `appName` Schema",
+      "description": "The name of the app",
       "examples": ["article"],
       "foo": "bar",
       "pattern": "^(.*)$",
       "legacyDataAttributeName": "data-next-app"
     },
+    "appVersion": {
+      "$id": "#/properties/appVersion",
+      "type": "string",
+      "title": "The `appVersion` Schema",
+      "description": "The version of the app (usually a Git commit hash)",
+      "examples": ["882797258625531f20d604f6441ef8cfcb2d772b"],
+      "pattern": "^(.*)$",
+      "legacyDataAttributeName": "data-next-version"
+    },
     "edition": {
       "$id": "#/properties/edition",
       "type": "string",
       "title": "The `appEdition` Schema",
+      "description": "the edition",
       "examples": ["uk"],
       "pattern": "^(.*)$",
       "legacyDataAttributeName": "data-next-edition"
-    },
-    "version": {
-      "$id": "#/properties/version",
-      "type": "string",
-      "title": "The `version` Schema",
-      "examples": ["882797258625531f20d604f6441ef8cfcb2d772b"],
-      "pattern": "^(.*)$",
-      "legacyDataAttributeName": "data-next-version"
     },
     "product": {
       "$id": "#/properties/product",
       "type": "string",
       "title": "The `product` schema",
+      "description": "The product name",
       "default": "next",
       "examples": ["next"],
       "pattern": "^(.*)$",
       "legacyDataAttributeName": "data-next-product"
     },
-    "abState": {
-      "$id": "#/properties/abState",
+    "abTestState": {
+      "$id": "#/properties/abTestState",
       "type": "string",
-      "title": "The `abState` schema",
+      "title": "The `abTestState` schema",
+      "description": "The AB test flags data as a comma delimited string",
       "examples": ["subscriberCohort:on,premiumCohort:on,nonUSACohort:on"],
-      "pattern": "^(.*)$"
+      "pattern": "^(.*)$",
+      "legacyDataAttributeName": "data-ab-state"
     },
     "contentId": {
       "$id": "#/properties/contentId",
       "type": "string",
       "title": "The `contentId` schema",
+      "description": "The UUID of the content being featured",
       "examples": ["c5935758-7730-11e9-bbad-7c18c0ea0201"],
       "pattern": "^(.*)$"
     },
@@ -58,13 +65,32 @@
       "$id": "#/properties/contentType",
       "type": "string",
       "title": "The `contentType` Schema",
+      "description": "The type of the content being featured",
       "examples": ["article"],
       "pattern": "^(.*)$"
+    },
+    "conceptId": {
+      "$id": "#/properties/conceptId",
+      "type": "string",
+      "title": "The `conceptId` schema",
+      "description": "The concept UUID",
+      "examples": ["c5935758-7730-11e9-bbad-7c18c0ea0201"],
+      "pattern": "^(.*)$"
+    },
+    "conceptType": {
+      "$id": "#/properties/conceptType",
+      "type": "string",
+      "title": "The `conceptType` schema",
+      "description": "A URL that represents the concept type",
+      "examples": ["http://www.ft.com/ontology/product/Brand", "http://www.ft.com/ontology/Location"],
+      "pattern": "^(.*)$",
+      "legacyDataAttributeName": "data-taxonomy"
     },
     "isProduction": {
       "$id": "#/properties/isProduction",
       "type": "boolean",
       "title": "The `isProduction` Schema",
+      "description": "Whether or not the app is being run in the production environment",
       "default": false,
       "examples": [true],
       "legacyDataAttributeName": "data-next-is-production"
@@ -73,6 +99,7 @@
       "$id": "#/properties/publishReference",
       "type": "string",
       "title": "The `publishReference` Schema",
+      "description": "The publish reference for the content",
       "examples": ["tid_17wmwszvk3"],
       "pattern": "^(.*)$"
     }

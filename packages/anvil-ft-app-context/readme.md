@@ -29,11 +29,16 @@ This package provides methods for integrating app context data into your server-
       - [.toLegacyDataAttributesString()](#tolegacydataattributesstring)
       - [.toLegacyDataAttributesObject()](#tolegacydataattributesobject)
 - [Client-side API](#client-side-api)
-  - [loadAppContext()](#loadappcontext)
+  - [init()](#init)
+  - [AppContext](#appcontext-1)
+    - [Constructor args](#constructor-args-1)
+    - [Properties](#properties-1)
+      - [.data](#data-1)
+    - [Methods](#methods-1)
+      - [.get(item: string)](#getitem-string-1)
 - [About the legacy data attributes support](#about-the-legacy-data-attributes-support)
 - [Types](#types)
   - [TAppContext](#tappcontext)
-  - [TLegacyAppContextDataAttributes](#tlegacyappcontextdataattributes)
 
 ## Installation
 
@@ -160,7 +165,7 @@ Once the html is being delivered to the client with the app context data embedde
 import * as appContext from '@financial-times/anvil-ft-app-context'
 
 const appContextClient = appContext.init()
-const abState = appContextClient.get('abState')
+const abTestState = appContextClient.get('abTestState')
 const appContextData = appContextClient.data
 ```
 
@@ -245,11 +250,11 @@ expect(appContext.data).toEqual({ ...initialAppContext, ...additionalContext  })
 Returns the value of the equivalent app context data property
 
 ```js
-const context = { version: '123' }
+const context = { appVersion: '123' }
 const appContext = new AppContext({ context })
-const result = appContext.get('version')
+const result = appContext.get('appVersion')
 
-expect(result).toBe(context.version)
+expect(result).toBe(context.appVersion)
 ```
 
 ##### .toEmbedString()
@@ -309,7 +314,7 @@ A function that returns an `AppContext` client instance which contains propertie
 import { init } from '@financial-times/anvil-ft-app-context'
 
 const appContextClient = init()
-const abState = appContextClient.get('abState)
+const abTestState = appContextClient.get('abTestState)
 ```
 
 ---
@@ -346,11 +351,11 @@ The [app context data object]
 Returns the value of the equivalent app context data property
 
 ```js
-const context = { version: '123' }
+const context = { appVersion: '123' }
 const appContext = new AppContext({ context })
-const result = appContext.get('version')
+const result = appContext.get('appVersion')
 
-expect(result).toBe(context.version)
+expect(result).toBe(context.appVersion)
 ```
 
 ---
@@ -389,7 +394,6 @@ You will end up with this:
 </html>
 ```
 
-
 ## Types
 
 ### TAppContext
@@ -398,33 +402,18 @@ An object with the following properties
 
 | Property         | Type    | Required | Description                                                                                      |
 | ---------------- | ------- | -------- | ------------------------------------------------------------------------------------------------ |
-| app              | string  | required | The app name                                                                                     |
-| version          | string  | required | The app version                                                                                  |
+| appName          | string  | required | The app name                                                                                     |
+| appVersion       | string  | required | The version of the app (usually a Git commit hash)                                               |
 | product          | string  | required | The product name                                                                                 |
-| abState          | string  | required | The AB test flags data as a comma delimited string (e.g., subscriberCohort:on,premiumCohort:off) |
+| abTestState      | string  | required | The AB test flags data as a comma delimited string (e.g., subscriberCohort:on,premiumCohort:off) |
 | edition          | string  | required | The site edition                                                                                 |
-| contentId        | string  | optional | The id of the content being featured                                                             |
-| isProduction     | boolean | required | Whether or not the app is being run in the production environment                                |
-| publishReference | string  | optional | The publish reference                                                                            |
+| contentId        | string  | optional | The UUID of the content                                                                          |
 | contentType      | string  | optional | The type of the content being featured                                                           |
-
-
-### TLegacyAppContextDataAttributes
-
-An object with the following properties
-
-| Property             | Type    | Description                                                                                      |
-| -------------------- | ------- | ------------------------------------------------------------------------------------------------ |
-| dataNextApp          | string  | The app name                                                                                     |
-| dataNextVersion      | string  | The app version                                                                                  |
-| dataNextProduct      | string  | The product name                                                                                 |
-| dataAbState          | string  | The AB test flags data as a comma delimited string (e.g., subscriberCohort:on,premiumCohort:off) |
-| dataNextEdition      | string  | The site edition                                                                                 |
-| dataContentId        | string  | The id of the content being featured                                                             |
-| dataNextIsProduction | boolean | Whether or not the app is being run in the production environment                                |
-| dataPublishReference | string  | The publish reference                                                                            |
-| dataContentType      | string  | The type of the content being featured                                                           |
-
+| conceptId        | string  | optional | The concept UUID                                                                                 |
+| conceptType      | string  | optional | A URL that represents the concept type                                                           |
+| isProduction     | boolean | required | Whether or not the app is being run in the production environment                                |
+| publishReference | string  | optional | The publish reference for the content                                                            |
+| contentType      | string  | optional | The type of the content being featured                                                           |
 
 [jsx]: https://reactjs.org/docs/introducing-jsx.html
 [react]: https://reactjs.org/
