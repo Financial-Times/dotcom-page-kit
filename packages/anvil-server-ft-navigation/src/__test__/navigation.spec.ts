@@ -69,8 +69,9 @@ describe('anvil-server-ft-navigation', () => {
 
       const result = await navigationInstance.getSubNavigationFor('streamPage')
 
-      expect(Object.isFrozen(result.breadcrumb)).toEqual(true)
-      expect(Object.isFrozen(result.subsections)).toEqual(true)
+      expect(Object.isFrozen(result)).toEqual(true)
+      expect(result).toHaveProperty('breadcrumb')
+      expect(result).toHaveProperty('subsections')
     })
 
     it('throws an HTTP error when fetch fails', async () => {
