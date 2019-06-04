@@ -11,7 +11,6 @@ module.exports = ({ config }) => {
   Object.assign(config.resolve, {
     modules: ['bower_components', 'node_modules'],
     descriptionFiles: ['bower.json', 'package.json'],
-    mainFields: ['browser', 'module', 'main'],
     mainFiles: ['index', 'main']
   })
 
