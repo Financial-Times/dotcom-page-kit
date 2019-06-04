@@ -4,7 +4,6 @@ import { prepareEmbedString } from '../../shared/prepareEmbedString'
 import { appContextWithExtras as context } from '../../__fixtures__/appContext'
 
 describe('AppContext', () => {
-
   describe('the instance', () => {
     it('extends the shared app context client', () => {
       const appContext = new AppContext()
@@ -33,17 +32,19 @@ describe('AppContext', () => {
       const appContext = new AppContext({ context })
       const legacyAttributesString =
         'data-app-context ' +
-        `data-ab-state="${context.abState}" ` +
-        `data-next-app="${context.app}" ` +
+        `data-ab-state="${context.abTestState}" ` +
+        `data-next-app="${context.appName}" ` +
+        `data-next-version="${context.appVersion}" ` +
         `data-bar-prop="${context.barProp}" ` +
+        `data-concept-id="${context.conceptId}" ` +
+        `data-taxonomy="${context.conceptType}" ` +
         `data-content-id="${context.contentId}" ` +
         `data-content-type="${context.contentType}" ` +
         `data-next-edition="${context.edition}" ` +
         `data-foo-prop="${context.fooProp}" ` +
         'data-next-is-production ' +
         `data-next-product="${context.product}" ` +
-        `data-publish-reference="${context.publishReference}" ` +
-        `data-next-version="${context.version}"`
+        `data-publish-reference="${context.publishReference}"`
       const result = appContext.toLegacyDataAttributesString()
       expect(result).toBe(legacyAttributesString)
     })
@@ -52,9 +53,12 @@ describe('AppContext', () => {
       const appContext = new AppContext({ context: { ...context, fooFalse: false, fooTrue: true } })
       const legacyAttributesString =
         'data-app-context ' +
-        `data-ab-state="${context.abState}" ` +
-        `data-next-app="${context.app}" ` +
+        `data-ab-state="${context.abTestState}" ` +
+        `data-next-app="${context.appName}" ` +
+        `data-next-version="${context.appVersion}" ` +
         `data-bar-prop="${context.barProp}" ` +
+        `data-concept-id="${context.conceptId}" ` +
+        `data-taxonomy="${context.conceptType}" ` +
         `data-content-id="${context.contentId}" ` +
         `data-content-type="${context.contentType}" ` +
         `data-next-edition="${context.edition}" ` +
@@ -62,8 +66,7 @@ describe('AppContext', () => {
         'data-foo-true ' +
         'data-next-is-production ' +
         `data-next-product="${context.product}" ` +
-        `data-publish-reference="${context.publishReference}" ` +
-        `data-next-version="${context.version}"`
+        `data-publish-reference="${context.publishReference}"`
       const result = appContext.toLegacyDataAttributesString()
       expect(result).toBe(legacyAttributesString)
     })
@@ -74,15 +77,17 @@ describe('AppContext', () => {
       const appContext = new AppContext({ context })
       const legacyAttributesObject = {
         dataAppContext: true,
-        dataAbState: context.abState,
-        dataNextApp: context.app,
+        dataAbState: context.abTestState,
+        dataNextApp: context.appName,
         dataBarProp: context.barProp,
         dataFooProp: context.fooProp,
+        dataTaxonomy: context.conceptType,
+        dataConceptId: context.conceptId,
         dataContentId: context.contentId,
         dataContentType: context.contentType,
         dataNextEdition: context.edition,
         dataNextProduct: context.product,
-        dataNextVersion: context.version,
+        dataNextVersion: context.appVersion,
         dataNextIsProduction: true,
         dataPublishReference: context.publishReference
       }
@@ -103,8 +108,8 @@ describe('AppContext', () => {
   describe(".get('item')", () => {
     it('returns the value of the equivalent app context property', () => {
       const appContext = new AppContext({ context })
-      const result = appContext.get('version')
-      expect(result).toBe(context.version)
+      const result = appContext.get('appVersion')
+      expect(result).toBe(context.appVersion)
     })
   })
 })

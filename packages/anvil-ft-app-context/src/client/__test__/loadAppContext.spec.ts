@@ -66,15 +66,17 @@ describe('loadAppContextData', () => {
           'document.documentElement.outerHTML': `
           <html
             data-app-context
-            data-next-app="article"
-            data-next-product="next"
-            data-next-edition="uk"
-            data-next-is-production
-            data-ab-state="subscriberCohort:on,premiumCohort:on,nonUSACohort:on"
-            data-next-version="882797258625531f20d604f6441ef8cfcb2d772b"
-            data-content-id="c5935758-7730-11e9-bbad-7c18c0ea0201"
-            data-publish-reference="tid_17wmwszvk3"
-            data-content-type="article">
+            data-next-app="${appContext.appName}"
+            data-next-product="${appContext.product}"
+            data-next-edition="${appContext.edition}"
+            ${appContext.isProduction ? 'data-next-is-production' : ''}
+            data-ab-state="${appContext.abTestState}"
+            data-next-version="${appContext.appVersion}"
+            data-content-id="${appContext.contentId}"
+            data-concept-id="${appContext.conceptId}"
+            data-taxonomy="${appContext.conceptType}"
+            data-publish-reference="${appContext.publishReference}"
+            data-content-type="${appContext.contentType}">
               ...
             </html>
           `
