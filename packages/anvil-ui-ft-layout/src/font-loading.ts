@@ -6,10 +6,7 @@ function loadCustomFonts() {
   if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
     var fontLabels = ['sans', 'sansBold', 'display', 'displayBold']
     for (var i = 0; i < fontLabels.length; i++) {
-      rootElement.className = document.documentElement.className.replace(
-        'o-typography--loading-' + fontLabels[i],
-        ''
-      )
+      rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
     }
   }
 }
