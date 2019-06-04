@@ -1,14 +1,12 @@
 import nock from 'nock'
-
 import { Navigation } from '..'
 import { menus as navigationData } from '../__fixtures__/menus'
 import * as expected from '../__fixtures__/expected'
 
 const subNavigationData = {
-  testData: 'some-sub-navigation-data',
-  ancestors: 'some-ancestors',
-  children: 'some-children',
-  item: 'some-data-item'
+  ancestors: [{ label: 'some-ancestors' }],
+  children: [{ label: 'some-children' }],
+  item: { label: 'some-data-item' }
 }
 
 const FakePoller = {
@@ -62,25 +60,41 @@ describe('anvil-server-ft-navigation', () => {
 
   // nock used here because SubNavigation fetches its data directly rather than pulling from Poller
   describe('.getSubNavigationFor()', () => {
-    it('fetches the sub-navigation data', async () => {
-      nock('http://next-navigation.ft.com')
-        .get('/v2/hierarchy/streamPage')
-        .reply(200, clone(subNavigationData))
+    describe('when things go well', () => {
+      let result
 
-      const result = await navigationInstance.getSubNavigationFor('streamPage')
+      beforeEach(async () => {
+        nock('http://next-navigation.ft.com')
+          .get('/v2/hierarchy/streamPage')
+          .reply(200, clone(subNavigationData))
 
-      expect(Object.isFrozen(result)).toEqual(true)
-      expect(result).toHaveProperty('breadcrumb')
-      expect(result).toHaveProperty('subsections')
+        result = await navigationInstance.getSubNavigationFor('streamPage')
+      })
+
+      it('fetches the sub-navigation data', async () => {
+        expect(Object.isFrozen(result)).toEqual(true)
+        expect(result).toHaveProperty('breadcrumb')
+        expect(result).toHaveProperty('subsections')
+      })
+
+      it('appends the current page to the list of ancestors', async () => {
+        expect(result.breadcrumb.length).toEqual(2)
+      })
+
+      it('appends a selected property to the current page', async () => {
+        expect(result.breadcrumb[result.breadcrumb.length - 1].selected).toEqual(true)
+      })
     })
 
-    it('throws an HTTP error when fetch fails', async () => {
-      nock('http://next-navigation.ft.com')
-        .get('/v2/hierarchy/streamPage')
-        .reply(500)
+    describe('when things go wrong', () => {
+      it('throws an HTTP error when fetch fails', async () => {
+        nock('http://next-navigation.ft.com')
+          .get('/v2/hierarchy/streamPage')
+          .reply(500)
 
-      await expect(navigationInstance.getSubNavigationFor('streamPage')).rejects.toMatchObject({
-        message: 'Sub-navigation for streamPage could not be found.'
+        await expect(navigationInstance.getSubNavigationFor('streamPage')).rejects.toMatchObject({
+          message: 'Sub-navigation for streamPage could not be found.'
+        })
       })
     })
   })

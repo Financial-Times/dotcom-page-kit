@@ -75,8 +75,10 @@ export class Navigation {
     if (response.ok) {
       const data = await response.json()
 
+      const currentItem = { ...data.item, selected: true }
+
       return parseData({
-        breadcrumb: data.ancestors.concat(data.item),
+        breadcrumb: data.ancestors.concat(currentItem),
         subsections: data.children
       })
     } else {
