@@ -25,7 +25,7 @@ const DrawerIcon = () => (
 
 const SearchIcon = () => (
   <a
-    href={`o-header-search-primary`}
+    href={`#o-header-search-primary`}
     className="o-header__top-link o-header__top-link--search"
     aria-controls={`o-header-search-primary`}
     title="Search"
