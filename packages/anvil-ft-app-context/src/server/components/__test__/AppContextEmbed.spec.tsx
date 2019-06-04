@@ -1,7 +1,7 @@
 import React from 'react'
 import { appContext } from '../../../__fixtures__/appContext'
 import { AppContextEmbed } from '../AppContextEmbed'
-import { prepareEmbedString } from '../../../shared/prepareEmbedString'
+import { prepareEmbedString } from '../../../shared/appContext'
 import { renderToStaticMarkup } from 'react-dom/server'
 
 describe('AppContextEmbed', () => {

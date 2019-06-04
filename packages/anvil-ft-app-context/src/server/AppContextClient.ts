@@ -1,15 +1,11 @@
 import camelCase from 'camelcase'
-import ShareAppContext from '../shared/AppContext'
-import { prepareEmbedString } from '../shared/prepareEmbedString'
+import AppContextClient from '../shared/appContext/AppContextClient'
+import { prepareEmbedString } from '../shared/appContext'
 import { ensureValidAppContext } from '../shared/schema'
 import { getLegacyAttributeNameOfProp } from '../shared/schema'
 import { TAppContext, TLegacyAppContextDataAttributes } from '../types'
 
-export interface AppContextConstructorProps {
-  context?: Partial<TAppContext>
-}
-
-export class AppContext extends ShareAppContext {
+export default class AppContext extends AppContextClient {
   add(additionalContext: Partial<TAppContext>) {
     ensureValidAppContext(additionalContext)
     this.data = { ...this.data, ...additionalContext }

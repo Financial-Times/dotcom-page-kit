@@ -1,5 +1,5 @@
-import { appContext } from '../../__fixtures__/appContext'
-import { prepareEmbedString } from '../prepareEmbedString'
+import { appContext } from '../../../__fixtures__/appContext'
+import { prepareEmbedString } from '..'
 import { APP_CONTEXT_ELEMENT_ID } from '../constants'
 
 describe('prepareEmbedString(appContext)', () => {

@@ -18,7 +18,7 @@ This package provides methods for integrating app context data into your server-
   - [AppContextEmbed](#appcontextembed)
     - [Props](#props)
       - [context](#context)
-  - [AppContext](#appcontext)
+  - [AppContextClient](#appcontextclient)
     - [Constructor args](#constructor-args)
     - [Properties](#properties)
       - [.data](#data)
@@ -30,7 +30,7 @@ This package provides methods for integrating app context data into your server-
       - [.toLegacyDataAttributesObject()](#tolegacydataattributesobject)
 - [Client-side API](#client-side-api)
   - [init()](#init)
-  - [AppContext](#appcontext-1)
+  - [AppContextClient](#appcontextclient-1)
     - [Constructor args](#constructor-args-1)
     - [Properties](#properties-1)
       - [.data](#data-1)
@@ -205,14 +205,14 @@ The [app context data object] that should be embedded within the html page
 
 ---
 
-### AppContext
+### AppContextClient
 
 A class that contains methods and properties that allow for amending the app context data and retrieving it in various formats.
 
 ```js
-import { AppContext } from '@financial-times/anvil-ft-app-context'
+import { AppContextClient } from '@financial-times/anvil-ft-app-context'
 
-const appContext = new AppContext({ context })
+const appContext = new AppContextClient({ context })
 ```
 
 #### Constructor args
@@ -237,7 +237,7 @@ The [app context data object]
 Adds additional properties to the [app context data object]
 
 ```js
-const appContext = new AppContext({ context: initialAppContext })
+const appContext = new AppContextClient({ context: initialAppContext })
 const additionalContext = { contentId: '123' }
 
 appContext.add(additionalContext)
@@ -251,7 +251,7 @@ Returns the value of the equivalent app context data property
 
 ```js
 const context = { appVersion: '123' }
-const appContext = new AppContext({ context })
+const appContext = new AppContextClient({ context })
 const result = appContext.get('appVersion')
 
 expect(result).toBe(context.appVersion)
@@ -319,14 +319,14 @@ const abTestState = appContextClient.get('abTestState)
 
 ---
 
-### AppContext
+### AppContextClient
 
 A class that contains methods and properties that allow for amending the app context data and retrieving it in various formats.
 
 ```js
-import { AppContext } from '@financial-times/anvil-ft-app-context'
+import { AppContextClient } from '@financial-times/anvil-ft-app-context'
 
-const appContext = new AppContext({ context })
+const appContext = new AppContextClient({ context })
 ```
 
 #### Constructor args
@@ -352,7 +352,7 @@ Returns the value of the equivalent app context data property
 
 ```js
 const context = { appVersion: '123' }
-const appContext = new AppContext({ context })
+const appContext = new AppContextClient({ context })
 const result = appContext.get('appVersion')
 
 expect(result).toBe(context.appVersion)

@@ -1,13 +1,13 @@
 import httpMocks from 'node-mocks-http'
-import { AppContext } from '@financial-times/anvil-ft-app-context'
-import { withEnv } from '../__helpers__/env'
+import { withEnv } from '@financial-times/anvil-test-utils'
+import { AppContextClient } from '@financial-times/anvil-ft-app-context'
 import { init } from '..'
 
 export const prodAppContext = {
-  app: 'foo:name',
-  version: '123',
+  appName: 'foo:name',
+  appVersion: '123',
   product: 'next',
-  abState: 'foo:abState',
+  abTestState: 'foo:abState',
   edition: 'fooEdition',
   isProduction: true
 }
@@ -15,14 +15,14 @@ export const prodAppContext = {
 const prodEnvironmentMocks = {
   env: {
     NODE_ENV: 'production',
-    SOURCE_VERSION: prodAppContext.version
+    SOURCE_VERSION: prodAppContext.appVersion
   },
   requestHeaders: {
     'FT-EDITION': prodAppContext.edition,
-    'FT-AB': prodAppContext.abState
+    'FT-AB': prodAppContext.abTestState
   },
   responseHeaders: {
-    'FT-APP-NAME': prodAppContext.app
+    'FT-APP-NAME': prodAppContext.appName
   }
 }
 
@@ -58,7 +58,7 @@ describe('init()', () => {
       withMocks(prodEnvironmentMocks, ({ request, response, next }) => {
         const middleware = init()
         middleware(request, response, next)
-        expect(response.locals.appContext).toBeInstanceOf(AppContext)
+        expect(response.locals.appContext).toBeInstanceOf(AppContextClient)
         expect(response.locals.appContext.data).toEqual(prodAppContext)
       })
     })
@@ -107,7 +107,7 @@ describe('init()', () => {
   describe('when the `context` option is supplied', () => {
     it('merges in the `context` option value to the app context', () => {
       const context = {
-        version: '345',
+        appVersion: '345',
         foo: '6'
       }
       withMocks(prodEnvironmentMocks, ({ request, response, next }) => {

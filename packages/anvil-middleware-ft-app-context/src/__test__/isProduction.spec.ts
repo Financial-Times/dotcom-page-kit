@@ -1,5 +1,5 @@
 import isProduction from '../isProduction'
-import { withEnv } from '../__helpers__/env'
+import { withEnv } from '@financial-times/anvil-test-utils'
 
 describe('isProduction(environment)', () => {
   describe('when the `environment` arg has been specified', () => {

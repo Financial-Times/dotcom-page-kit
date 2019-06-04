@@ -1,6 +1,6 @@
 import React from 'react'
 import { TAppContext } from '../../types'
-import { APP_CONTEXT_ELEMENT_ID } from '../../shared/constants'
+import { APP_CONTEXT_ELEMENT_ID } from '../../shared/appContext/constants'
 
 export interface TAppContextProps {
   context: TAppContext

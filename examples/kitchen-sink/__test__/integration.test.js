@@ -1,5 +1,7 @@
-const request = require('supertest')
 const app = require('../server/app')
+const request = require('supertest')
+const { withEnv, withHtml } = require('@financial-times/anvil-test-utils')
+const { loadFromScriptEmbed, loadFromDataAttributesEmbed } = require('@financial-times/anvil-ft-app-context')
 
 describe('examples/express-ft-header', () => {
   let response
@@ -42,5 +44,44 @@ describe('examples/express-ft-header', () => {
     expect(response.text).toContain('o-header__mega-heading')
     expect(response.text).toContain('o-header__mega-content')
     expect(response.text).toContain('o-header__mega-item')
+  })
+
+  describe('app context', () => {
+    const appContext = {
+      product: 'next',
+      edition: 'edition:foo',
+      abTestState: 'state:foo',
+      appVersion: 'foo:version',
+      isProduction: true
+    }
+
+    beforeEach(async () => {
+      await withEnv({
+        env: {
+          NODE_ENV: 'production',
+          SOURCE_VERSION: appContext.appVersion
+        },
+        execute: async () => {
+          response = await request(app)
+            .get('/')
+            .set('ft-ab', appContext.abTestState)
+            .set('ft-edition', appContext.edition)
+        }
+      })
+    })
+
+    it('embeds app context data as legacy data attributes on the html tag', () => {
+      withHtml(response.text, () => {
+        const result = loadFromDataAttributesEmbed()
+        expect(result).toEqual(appContext)
+      })
+    })
+
+    it('embed app context data as a script embed', () => {
+      withHtml(response.text, () => {
+        const result = loadFromScriptEmbed()
+        expect(result).toEqual(appContext)
+      })
+    })
   })
 })

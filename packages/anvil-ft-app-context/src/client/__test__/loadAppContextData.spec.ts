@@ -2,27 +2,25 @@
  * @jest-environment jsdom
  */
 
-import withDomOverwrites from 'with-dom-overwrites'
 import loadAppContextData from '../loadAppContextData'
+import { withHtml } from '@financial-times/anvil-test-utils'
 import { appContext } from '../../__fixtures__/appContext'
-import { APP_CONTEXT_ELEMENT_ID } from '../../shared/constants'
+import { APP_CONTEXT_ELEMENT_ID } from '../../shared/appContext/constants'
 
 describe('loadAppContextData', () => {
   describe('when app context has been embedded via the script tag into the head', () => {
     it('returns a frozen object', () => {
       const appContext = { foo: 1, bar: true, baz: 'qux' }
 
-      withDomOverwrites({
-        overwrites: {
-          'document.documentElement.outerHTML': `
-            <html data-foo="foo">
-              <head>
-                <script id="${APP_CONTEXT_ELEMENT_ID}">${JSON.stringify(appContext)}</script>
-              </head>
-            </html>
-          `
-        },
-        run: () => {
+      withHtml({
+        html: `
+          <html data-foo="foo">
+            <head>
+              <script id="${APP_CONTEXT_ELEMENT_ID}">${JSON.stringify(appContext)}</script>
+            </head>
+          </html>
+        `,
+        execute: () => {
           const result = loadAppContextData()
 
           expect(result).toEqual(appContext)
@@ -39,17 +37,15 @@ describe('loadAppContextData', () => {
     it('returns a frozen object', () => {
       const appContext = { foo: 1, bar: true }
 
-      withDomOverwrites({
-        overwrites: {
-          'document.documentElement.outerHTML': `
+      withHtml({
+        html: `
           <html data-foo="foo">
             <body>
               <script id="${APP_CONTEXT_ELEMENT_ID}">${JSON.stringify(appContext)}</script>
             </body>
           </html>
-        `
-        },
-        run: () => {
+        `,
+        execute: () => {
           const result = loadAppContextData()
 
           expect(result).toEqual(appContext)
@@ -61,9 +57,8 @@ describe('loadAppContextData', () => {
 
   describe('when the app context has been embedded as html data attributes', () => {
     it('returns a frozen object', () => {
-      withDomOverwrites({
-        overwrites: {
-          'document.documentElement.outerHTML': `
+      withHtml({
+        html: `
           <html
             data-app-context
             data-next-app="${appContext.appName}"
@@ -77,11 +72,10 @@ describe('loadAppContextData', () => {
             data-taxonomy="${appContext.conceptType}"
             data-publish-reference="${appContext.publishReference}"
             data-content-type="${appContext.contentType}">
-              ...
-            </html>
-          `
-        },
-        run: () => {
+            ...
+          </html>
+        `,
+        execute: () => {
           const result = loadAppContextData()
 
           expect(result).toEqual(appContext)

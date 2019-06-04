@@ -1,7 +1,8 @@
 {
-  "name": "@financial-times/anvil-middleware-ft-app-context",
+  "name": "@financial-times/anvil-test-utils",
   "version": "0.0.0",
   "description": "",
+  "private": true,
   "main": "dist/cjs/index.js",
   "types": "src/index.ts",
   "scripts": {
@@ -17,14 +18,10 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "dependencies": {},
   "devDependencies": {
-    "@financial-times/anvil-test-utils": "file:../anvil-test-utils",
     "@financial-times/anvil-types-generic": "file:../anvil-types-generic",
-    "@types/express": "^4.16.1",
-    "node-mocks-http": "^1.7.5"
-  },
-  "dependencies": {
-    "@financial-times/anvil-ft-app-context": "file:../anvil-ft-app-context"
+    "with-dom-overwrites": "^1.2.1"
   },
   "engines": {
     "node": ">= 8.16.0"
@@ -32,7 +29,7 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/anvil.git",
-    "directory": "packages/anvil-middleware-ft-app-context"
+    "directory": "packages/anvil-test-utils"
   },
-  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-middleware-ft-app-context"
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-test-utils"
 }

@@ -1,2 +1,2 @@
 export { default as init } from './init'
-export { default as AppContext } from '../shared/AppContext'
+export { default as AppContextClient } from '../shared/appContext/AppContextClient'

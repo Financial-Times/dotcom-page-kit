@@ -1,26 +1,25 @@
-import SharedAppContext from '../../shared/AppContext'
-import { AppContext } from '../../server/AppContext'
-import { prepareEmbedString } from '../../shared/prepareEmbedString'
+import ServerAppContextClient from '../AppContextClient'
 import { appContextWithExtras as context } from '../../__fixtures__/appContext'
+import { AppContextClient, prepareEmbedString } from '../../shared/appContext'
 
-describe('AppContext', () => {
+describe('AppContextClient', () => {
   describe('the instance', () => {
     it('extends the shared app context client', () => {
-      const appContext = new AppContext()
-      expect(appContext).toBeInstanceOf(SharedAppContext)
+      const appContext = new ServerAppContextClient()
+      expect(appContext).toBeInstanceOf(AppContextClient)
     })
   })
 
   describe('.data', () => {
     it('returns the app context data', () => {
-      const appContext = new AppContext({ context })
+      const appContext = new ServerAppContextClient({ context })
       expect(appContext.data).toEqual(context)
     })
   })
 
   describe('.toEmbedString()', () => {
     it('returns the script embed string', () => {
-      const appContext = new AppContext({ context })
+      const appContext = new ServerAppContextClient({ context })
       const embedString = prepareEmbedString(context)
       const result = appContext.toEmbedString()
       expect(result).toBe(embedString)
@@ -29,7 +28,7 @@ describe('AppContext', () => {
 
   describe('.toLegacyDataAttributesString()', () => {
     it('returns a data attributes string that contains the legacy attribute names', () => {
-      const appContext = new AppContext({ context })
+      const appContext = new ServerAppContextClient({ context })
       const legacyAttributesString =
         'data-app-context ' +
         `data-ab-state="${context.abTestState}" ` +
@@ -50,7 +49,9 @@ describe('AppContext', () => {
     })
 
     it('ensures that attributes with false values are not outputted', () => {
-      const appContext = new AppContext({ context: { ...context, fooFalse: false, fooTrue: true } })
+      const appContext = new ServerAppContextClient({
+        context: { ...context, fooFalse: false, fooTrue: true }
+      })
       const legacyAttributesString =
         'data-app-context ' +
         `data-ab-state="${context.abTestState}" ` +
@@ -74,7 +75,7 @@ describe('AppContext', () => {
 
   describe('.toLegacyDataAttributesObject()', () => {
     it('returns a data attributes object that contains the legacy attribute names', () => {
-      const appContext = new AppContext({ context })
+      const appContext = new ServerAppContextClient({ context })
       const legacyAttributesObject = {
         dataAppContext: true,
         dataAbState: context.abTestState,
@@ -98,7 +99,7 @@ describe('AppContext', () => {
 
   describe('.add({...})', () => {
     it('adds properties unto the app context', () => {
-      const appContext = new AppContext({ context })
+      const appContext = new ServerAppContextClient({ context })
       const additionalContext = { foo: 'one', bar: 'two', contentId: '12345' }
       appContext.add(additionalContext)
       expect(appContext.data).toEqual({ ...context, ...additionalContext })
@@ -107,7 +108,7 @@ describe('AppContext', () => {
 
   describe(".get('item')", () => {
     it('returns the value of the equivalent app context property', () => {
-      const appContext = new AppContext({ context })
+      const appContext = new ServerAppContextClient({ context })
       const result = appContext.get('appVersion')
       expect(result).toBe(context.appVersion)
     })
