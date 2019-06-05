@@ -182,7 +182,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
         >
           <a
             aria-current="page"
-            aria-label="World current page"
+            aria-label="World, current page"
             className="o-header__nav-link o-header__nav-link--primary"
             data-trackable="World"
             href="/world"
@@ -1759,7 +1759,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
               >
                 <a
                   aria-current="page"
-                  aria-label="UK current page"
+                  aria-label="UK, current page"
                   className="o-header__subnav-link o-header__subnav-link--highlight"
                   data-trackable="UK"
                   href="/world/uk"
@@ -2011,7 +2011,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
         >
           <a
             aria-current="page"
-            aria-label="World current page"
+            aria-label="World, current page"
             className="o-header__nav-link o-header__nav-link--primary"
             data-trackable="World"
             href="/world"
@@ -3588,7 +3588,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
               >
                 <a
                   aria-current="page"
-                  aria-label="UK current page"
+                  aria-label="UK, current page"
                   className="o-header__subnav-link o-header__subnav-link--highlight"
                   data-trackable="UK"
                   href="/world/uk"

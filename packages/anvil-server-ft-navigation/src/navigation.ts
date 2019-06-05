@@ -74,10 +74,13 @@ export class Navigation {
 
     if (response.ok) {
       const data = await response.json()
-      return {
-        breadcrumb: parseData(data.ancestors.concat(data.item)),
-        subsections: parseData(data.children)
-      }
+
+      const currentItem = { ...data.item, selected: true }
+
+      return parseData({
+        breadcrumb: data.ancestors.concat(currentItem),
+        subsections: data.children
+      })
     } else {
       throw httpError(response.status, `Sub-navigation for ${currentPage} could not be found.`)
     }
