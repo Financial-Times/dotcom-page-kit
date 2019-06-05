@@ -23,7 +23,7 @@
     "node": ">= 8.16.0"
   },
   "dependencies": {
-    "find-up": "^3.0.0"
+    "find-up": "^4.0.0"
   },
   "peerDependencies": {
     "react": "^16.8.6"
