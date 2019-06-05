@@ -1,57 +1,32 @@
 import * as subject from '../navigation'
 import httpMocks from 'node-mocks-http'
 
+const fakeEditionsData = {
+  current: { id: 'uk', name: 'UK', url: '/' },
+  others: [{ id: 'international', name: 'International', url: '/' }]
+}
+
 const fakeNavigationData = {
-  'navbar-uk': {
+  navbar: {
     label: 'Navbar UK',
     items: [{ label: 'Foo', url: '#' }]
   },
-  'navbar-international': {
-    label: 'Navbar International',
-    items: [{ label: 'Foo', url: '#' }]
-  },
-  'drawer-uk': {
+  drawer: {
     label: 'Drawer UK',
     items: [{ label: 'Foo', url: '#' }]
   },
-  'drawer-international': {
-    label: 'Drawer International',
-    items: [{ label: 'Bar', url: '#' }]
-  }
+  editions: fakeEditionsData
 }
 
-const fakeEditionsData = {
-  'editions-uk': {
-    current: { id: 'uk', name: 'UK', url: '/' },
-    others: [{ id: 'international', name: 'International', url: '/' }]
-  },
-  'editions-international': {
-    current: { id: 'international', name: 'International', url: '/' },
-    others: [{ id: 'uk', name: 'UK', url: '/' }]
-  }
-}
-
-const fakeSubNavigationResponse = {
+const fakeSubNavigationData = {
   breadcrumb: 'some-breadcrumb',
   subsections: 'some-subsections'
-}
-
-const fakeNavigationDataUK = {
-  navbar: fakeNavigationData['navbar-uk'],
-  drawer: fakeNavigationData['drawer-uk'],
-  editions: fakeEditionsData['editions-uk']
-}
-
-const fakeNavigationDataIntl = {
-  navbar: fakeNavigationData['navbar-international'],
-  drawer: fakeNavigationData['drawer-international'],
-  editions: fakeEditionsData['editions-international']
 }
 
 const FakePoller = {
   start: jest.fn(),
   getNavigationFor: jest.fn().mockImplementation(() => fakeNavigationData),
-  getSubNavigationFor: jest.fn().mockImplementation(() => fakeSubNavigationResponse)
+  getSubNavigationFor: jest.fn().mockImplementation(() => fakeSubNavigationData)
 }
 
 jest.mock(
@@ -89,7 +64,7 @@ describe('anvil-middleware-ft-navigation/index', () => {
   describe('when handling a request', () => {
     it('appends the navigation properties to response.locals', async () => {
       await instance(request, response, next)
-      expect(response.locals.navigation).toEqual(expect.objectContaining(fakeNavigationDataUK))
+      expect(response.locals.navigation).toEqual(expect.objectContaining(fakeNavigationData))
     })
 
     it('calls the fallthrough function', async () => {
@@ -107,20 +82,7 @@ describe('anvil-middleware-ft-navigation/index', () => {
 
     it('appends the sub-navigation properties on response.locals', async () => {
       await instance(request, response, next)
-      expect(response.locals.navigation).toEqual(expect.objectContaining(fakeSubNavigationResponse))
-    })
-  })
-
-  describe('when handling a request with the edition set to international', () => {
-    let request
-
-    beforeEach(() => {
-      request = httpMocks.createRequest({ query: { edition: 'international' } })
-    })
-
-    it('returns the international edition data', async () => {
-      await instance(request, response, next)
-      expect(response.locals.navigation).toEqual(expect.objectContaining(fakeNavigationDataIntl))
+      expect(response.locals.navigation).toEqual(expect.objectContaining(fakeSubNavigationData))
     })
   })
 
