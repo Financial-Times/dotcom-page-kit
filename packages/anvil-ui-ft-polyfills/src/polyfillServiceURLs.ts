@@ -8,7 +8,8 @@ export const core = formatURL([
   'es5',
   'es2015',
   'HTMLPictureElement',
-  'NodeList.prototype.forEach'
+  'NodeList.prototype.forEach',
+  'document.currentScript'
 ])
 
 export const enhanced = formatURL([
@@ -26,7 +27,8 @@ export const enhanced = formatURL([
   'fetch',
   'HTMLPictureElement',
   'IntersectionObserver',
-  'NodeList.prototype.forEach'
+  'NodeList.prototype.forEach',
+  'document.currentScript'
 ])
 
 function formatURL(features: string[]): string {
