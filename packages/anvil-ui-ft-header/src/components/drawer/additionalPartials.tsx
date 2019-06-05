@@ -82,7 +82,7 @@ export const EditionsSwitcher = (editions: TNavEditions) => (
       return (
         <li key={id} className="o-header__drawer-menu-item" data-trackable="edition-switcher">
           <a className="o-header__drawer-menu-link" href={href} data-trackable={id}>
-            Switch to {name}
+            Switch to {name} Edition
           </a>
         </li>
       )
