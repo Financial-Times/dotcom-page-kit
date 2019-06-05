@@ -20,8 +20,8 @@
   "dependencies": {
     "@financial-times/anvil-server-ft-navigation": "file:../../packages/anvil-server-ft-navigation",
     "@financial-times/anvil-types-navigation": "file:../anvil-types-navigation",
-    "@types/dlv": "1.1.0",
-    "dlv": "1.1.2"
+    "@types/dlv": "1.1.1",
+    "dlv": "1.1.3"
   },
   "devDependencies": {
     "node-mocks-http": "^1.7.3"
