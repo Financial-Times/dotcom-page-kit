@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
 import { Navigation, TNavOptions } from '@financial-times/anvil-server-ft-navigation'
-import getEditions from './getEditions'
+import getEdition from './getEdition'
 
 type MiddlewareOptions = TNavOptions & {
   enableSubNavigation?: boolean
@@ -17,8 +17,8 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
   return async (request: Request, response: Response, next: NextFunction) => {
     try {
       const currentPath = request.path
-      // TODO: refactor this to remove editions data from this package
-      const currentEdition = getEditions(request, response).current.id
+      // TODO: vary on selected edition
+      const currentEdition = getEdition(request, response)
 
       const [navigationData, subNavigationData] = await Promise.all([
         navigator.getNavigationFor(currentPath, currentEdition),

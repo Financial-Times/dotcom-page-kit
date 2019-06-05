@@ -1,12 +1,7 @@
 import * as subject from '../navigation'
 import httpMocks from 'node-mocks-http'
 
-const fakeEditionsData = {
-  current: { id: 'uk', name: 'UK', url: '/' },
-  others: [{ id: 'international', name: 'International', url: '/' }]
-}
-
-const fakeNavigationData = {
+const fakeMenusData = {
   navbar: {
     label: 'Navbar UK',
     items: [{ label: 'Foo', url: '#' }]
@@ -14,17 +9,22 @@ const fakeNavigationData = {
   drawer: {
     label: 'Drawer UK',
     items: [{ label: 'Foo', url: '#' }]
-  },
-  editions: fakeEditionsData
+  }
 }
+
+const fakeEditionsData = {
+  current: { id: 'uk', name: 'UK', url: '/' },
+  others: [{ id: 'international', name: 'International', url: '/' }]
+}
+
+const fakeNavigationData = { ...fakeMenusData, editions: fakeEditionsData }
 
 const fakeSubNavigationData = {
   breadcrumb: 'some-breadcrumb',
   subsections: 'some-subsections'
 }
 
-const FakePoller = {
-  start: jest.fn(),
+const FakeNavigation = {
   getNavigationFor: jest.fn().mockImplementation(() => fakeNavigationData),
   getSubNavigationFor: jest.fn().mockImplementation(() => fakeSubNavigationData)
 }
@@ -33,7 +33,7 @@ jest.mock(
   '@financial-times/anvil-server-ft-navigation',
   () => {
     return {
-      Navigation: jest.fn().mockImplementation(() => FakePoller)
+      Navigation: jest.fn().mockImplementation(() => FakeNavigation)
     }
   },
   { virtual: true }
@@ -88,7 +88,7 @@ describe('anvil-middleware-ft-navigation/index', () => {
 
   describe('when something goes wrong', () => {
     beforeEach(() => {
-      FakePoller.getNavigationFor = jest.fn(() => {
+      FakeNavigation.getNavigationFor = jest.fn(() => {
         throw Error('Whoops')
       })
     })
