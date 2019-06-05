@@ -17,7 +17,6 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
   return async (request: Request, response: Response, next: NextFunction) => {
     try {
       const currentPath = request.path
-      // TODO: vary on selected edition
       const currentEdition = getEdition(request, response)
 
       const [navigationData, subNavigationData] = await Promise.all([
