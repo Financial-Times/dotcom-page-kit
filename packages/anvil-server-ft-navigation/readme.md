@@ -25,16 +25,16 @@ const navigation = new Navigation()
 The navigation instance provides methods to retrieve global navigation data and navigation for a specific page:
 
 ```js
-const rawData = await navigation.getNavigationData()
-const pageData = await navigation.getNavigationDataFor('/companies/health')
+const menusData = await navigation.getMenusData()
+const navigationData = await navigation.getNavigationDataFor('/companies/health', 'uk')
 ```
 
 
 ## Navigation API
 
-### `getNavigationData(): Promise<TNavMenus>`
+### `getMenusData(): Promise<TNavMenus>`
 
-Resolves the full navigation data, refreshed by a poller.
+Resolves the full navigation menus data, refreshed by a poller.
 
 ### `getNavigationFor(currentPath: string, selectedEdition: string): Promise<TNavigationData>`
 

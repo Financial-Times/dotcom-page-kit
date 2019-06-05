@@ -47,7 +47,7 @@ export class Navigation {
     this.initialPromise = this.poller.start({ initialRequest: true })
   }
 
-  async getNavigationData(): Promise<TNavMenus> {
+  async getMenusData(): Promise<TNavMenus> {
     // initialPromise does not return data but must resolve before `getData` can be called
     await this.initialPromise
     return this.poller.getData()
@@ -55,7 +55,7 @@ export class Navigation {
 
   async getNavigationFor(currentPath: string, currentEdition: string = 'uk'): Promise<TNavigationData> {
     const editions = getEditions(currentEdition)
-    const menusData = await this.getNavigationData()
+    const menusData = await this.getMenusData()
     const menusForEdition = selectMenusForEdition(menusData, currentEdition)
 
     return {

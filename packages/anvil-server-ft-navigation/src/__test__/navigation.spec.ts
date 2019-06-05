@@ -40,9 +40,9 @@ describe('anvil-server-ft-navigation', () => {
     })
   })
 
-  describe('.getNavigationData()', () => {
+  describe('.getMenusData()', () => {
     it('returns the navigation data', async () => {
-      const result = await navigationInstance.getNavigationData()
+      const result = await navigationInstance.getMenusData()
       expect(result).toEqual(navigationData)
     })
   })
