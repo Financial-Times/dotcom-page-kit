@@ -3,7 +3,7 @@ import { hooks } from '../entities/hooks'
 import { CliContext } from '../entities/CliContext'
 import { getBabelConfig } from './getBabelConfig'
 import ManifestPlugin from 'webpack-assets-manifest'
-import CleanWebpackPlugin from 'clean-webpack-plugin'
+import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 
 export function getWebpackConfig({ options, config, publish, cli }: CliContext) {
   const isDevMode = options.development
