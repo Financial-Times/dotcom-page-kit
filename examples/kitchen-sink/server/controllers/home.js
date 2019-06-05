@@ -28,7 +28,7 @@ module.exports = (_, response, next) => {
         enhancedScripts={enhancedScripts}>
         <Layout navigationData={response.locals.navigation}>
           <div align="center">
-            <p>Hello, welcome to Anvil.</p>
+            <p className="hello">Hello, welcome to Anvil.</p>
           </div>
         </Layout>
       </Shell>
