@@ -1,7 +1,6 @@
 import nock from 'nock'
 import { Navigation } from '..'
-import { menus as navigationData } from '../__fixtures__/menus'
-import * as expected from '../__fixtures__/expected'
+import navigationData from '../../../../__fixtures__/menus.json'
 
 const subNavigationData = {
   ancestors: [{ label: 'some-ancestors' }],
@@ -49,12 +48,29 @@ describe('anvil-server-ft-navigation', () => {
   })
 
   describe('.getNavigationFor()', () => {
-    // Verify that
-    // - Additional props - meganav, selected, etc - are injected
-    // - Items whose url prop matches "/newsletters" have a selected: true
-    it('recursively processes menus to produces an expected foter', async () => {
-      const result = await navigationInstance.getNavigationFor('/newsletters')
-      expect(result.footer).toEqual(expected.footer)
+    let result
+
+    beforeAll(async () => {
+      result = await navigationInstance.getNavigationFor('/', 'uk')
+    })
+
+    it('returns the shared menu data', () => {
+      expect(result).toHaveProperty('account')
+      expect(result).toHaveProperty('footer')
+      expect(result).toHaveProperty('user')
+    })
+
+    it('returns the edition specific menu data', () => {
+      expect(result).toHaveProperty('drawer')
+      expect(result).toHaveProperty('navbar')
+    })
+
+    it('returns the editions data', () => {
+      expect(result).toHaveProperty('editions')
+    })
+
+    it('returns the current path', () => {
+      expect(result).toHaveProperty('currentPath', '/')
     })
   })
 
@@ -63,7 +79,7 @@ describe('anvil-server-ft-navigation', () => {
     describe('when things go well', () => {
       let result
 
-      beforeEach(async () => {
+      beforeAll(async () => {
         nock('http://next-navigation.ft.com')
           .get('/v2/hierarchy/streamPage')
           .reply(200, clone(subNavigationData))
@@ -71,17 +87,17 @@ describe('anvil-server-ft-navigation', () => {
         result = await navigationInstance.getSubNavigationFor('streamPage')
       })
 
-      it('fetches the sub-navigation data', async () => {
+      it('fetches the sub-navigation data', () => {
         expect(Object.isFrozen(result)).toEqual(true)
         expect(result).toHaveProperty('breadcrumb')
         expect(result).toHaveProperty('subsections')
       })
 
-      it('appends the current page to the list of ancestors', async () => {
+      it('appends the current page to the list of ancestors', () => {
         expect(result.breadcrumb.length).toEqual(2)
       })
 
-      it('appends a selected property to the current page', async () => {
+      it('appends a selected property to the current page', () => {
         expect(result.breadcrumb[result.breadcrumb.length - 1].selected).toEqual(true)
       })
     })

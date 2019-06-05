@@ -4,7 +4,9 @@ import deepFreeze from 'deep-freeze'
 import fetch from 'node-fetch'
 
 import { decorateMenuData } from './decorateMenuData'
-import { TNavMenus, TNavSubNavigation } from '@financial-times/anvil-types-navigation'
+import { TNavMenus, TNavigationData, TNavSubNavigation } from '@financial-times/anvil-types-navigation'
+import { getEditions } from './editions';
+import { selectMenusForEdition } from './selectMenusForEdition';
 
 // Makes the navigation data completely immutable,
 // To modify the data, clone the parts you need to change then modify in your app
@@ -51,9 +53,16 @@ export class Navigation {
     return this.poller.getData()
   }
 
-  async getNavigationFor(path: string): Promise<TNavMenus> {
-    const data = await this.getNavigationData()
-    return decorateMenuData(data, path)
+  async getNavigationFor(currentPath: string, currentEdition: string = 'uk'): Promise<TNavigationData> {
+    const editions = getEditions(currentEdition)
+    const menusData = await this.getNavigationData()
+    const menusForEdition = selectMenusForEdition(menusData, currentEdition)
+
+    return {
+      editions,
+      currentPath,
+      ...decorateMenuData(menusForEdition, currentPath)
+    }
   }
 
   async getSubNavigationFor(path: string): Promise<TNavSubNavigation> {

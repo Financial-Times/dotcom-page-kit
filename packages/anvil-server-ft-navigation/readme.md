@@ -25,24 +25,24 @@ const navigation = new Navigation()
 The navigation instance provides methods to retrieve global navigation data and navigation for a specific page:
 
 ```js
-const allData = await navigation.getNavigationData()
+const rawData = await navigation.getNavigationData()
 const pageData = await navigation.getNavigationDataFor('/companies/health')
 ```
 
 
-## API
+## Navigation API
 
 ### `getNavigationData(): Promise<TNavMenus>`
 
 Resolves the full navigation data, refreshed by a poller.
 
-### `getNavigationDataFor(path: string): Promise<TNavMenus>`
+### `getNavigationFor(currentPath: string, selectedEdition: string): Promise<TNavigationData>`
 
-Resolves the full navigation data with any links to the given path marked as selected and redirect placeholders updated.
+Resolves the navigation data for the selected edition with any links to the current path marked as selected and redirection placeholders updated. If no edition is selected it will default to `"uk"`.
 
-### `getSubNavigationFor(path: string): Promise<TNavSubNavigation>`
+### `getSubNavigationFor(currentPath: string): Promise<TNavSubNavigation>`
 
-Resolves any sub-navigation data for the given page which may include ancestors and children (a.k.a. crumbtrail and subsections).
+Resolves any sub-navigation data for the given path which may include ancestors and children (a.k.a. crumbtrail and subsections).
 
 
 ## Options
