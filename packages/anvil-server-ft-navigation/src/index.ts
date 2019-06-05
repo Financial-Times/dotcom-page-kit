@@ -1,2 +1,2 @@
 export * from './navigation'
-export * from './decorate-menu'
+export * from './decorateMenuData'

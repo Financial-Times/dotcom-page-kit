@@ -1,11 +1,11 @@
-import { decorateMenu } from '..'
+import { decorateMenuData as subject } from '..'
 import { menus } from '../__fixtures__/menus'
 import dlv from 'dlv'
 
-describe('anvil-server-ft-navigation/src/decorate-menu', () => {
+describe('anvil-server-ft-navigation/src/decorateMenuData', () => {
   describe('.decorateMenu()', () => {
     it('returns a new deeply cloned object rather than mutating in place', () => {
-      const decorated = decorateMenu(menus['navbar-uk'], '/world/uk')
+      const decorated = subject(menus['navbar-uk'], '/world/uk')
 
       expect(decorated).not.toBe(menus['navbar-uk'])
       expect(decorated.items).not.toBe(menus['navbar-uk'].items)
@@ -13,7 +13,7 @@ describe('anvil-server-ft-navigation/src/decorate-menu', () => {
     })
 
     it('marks menu items whose `url` property matches `currentPath` as `selected`', () => {
-      const decorated = decorateMenu(menus['navbar-uk'], '/world/uk')
+      const decorated = subject(menus['navbar-uk'], '/world/uk')
 
       const a = dlv(decorated, ['items', 0])
       const b = dlv(decorated, ['items', 1, 'submenu', 'items', 0])
@@ -27,7 +27,7 @@ describe('anvil-server-ft-navigation/src/decorate-menu', () => {
     })
 
     it('replaces the ${currentPath} placeholder with the value of `currentPath`', () => {
-      const decorated = decorateMenu(menus['navbar-uk'], '/world/us/politics')
+      const decorated = subject(menus['navbar-uk'], '/world/us/politics')
 
       const a = dlv(decorated, ['items', 1])
       const b = dlv(decorated, ['items', 1, 'submenu', 'items', 1])
@@ -40,7 +40,7 @@ describe('anvil-server-ft-navigation/src/decorate-menu', () => {
 
     it('replaces the ${currentPath} placeholder with %2F in URLs which contain keywords', () => {
       const testKeyword = (itemUrl: string) => {
-        const decorated = decorateMenu(menus['navbar-uk'], itemUrl)
+        const decorated = subject(menus['navbar-uk'], itemUrl)
 
         const a = dlv(decorated, ['items', 1, 'url'])
         const b = dlv(decorated, ['items', 1, 'submenu', 'items', 1, 'url'])
@@ -55,7 +55,7 @@ describe('anvil-server-ft-navigation/src/decorate-menu', () => {
     })
 
     it('can clone submenu properties', () => {
-      const decorated = decorateMenu(menus.footer, '/world/uk')
+      const decorated = subject(menus.footer, '/world/uk')
       const submenu = dlv(decorated, ['items', 0, 'submenu', 'items'])
 
       submenu.forEach((column) => {
@@ -68,7 +68,7 @@ describe('anvil-server-ft-navigation/src/decorate-menu', () => {
     })
 
     it('can clone meganav properties', () => {
-      const decorated = decorateMenu(menus['navbar-uk'], '/world/uk')
+      const decorated = subject(menus['navbar-uk'], '/world/uk')
       const meganav = dlv(decorated, ['items', 1, 'meganav'])
 
       expect(meganav[0]).toHaveProperty('component', 'sectionlist')

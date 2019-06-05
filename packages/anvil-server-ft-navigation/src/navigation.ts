@@ -3,16 +3,11 @@ import httpError from 'http-errors'
 import deepFreeze from 'deep-freeze'
 import fetch from 'node-fetch'
 
-import { decorateMenu } from '.'
-
+import { decorateMenuData } from './decorateMenuData'
 import { TNavMenus, TNavSubNavigation } from '@financial-times/anvil-types-navigation'
 
-/**
- * Makes the navigation data completely immutable,
- * To modify the data, clone the parts you need to change then modify in your app
- *
- * @param data
- */
+// Makes the navigation data completely immutable,
+// To modify the data, clone the parts you need to change then modify in your app
 const parseData = (data: any) => {
   return deepFreeze(data)
 }
@@ -58,13 +53,7 @@ export class Navigation {
 
   async getNavigationFor(path: string): Promise<TNavMenus> {
     const data = await this.getNavigationData()
-    const output = {}
-
-    for (const [id, menu] of Object.entries(data)) {
-      output[id] = decorateMenu(menu, path)
-    }
-
-    return output as TNavMenus
+    return decorateMenuData(data, path)
   }
 
   async getSubNavigationFor(path: string): Promise<TNavSubNavigation> {
