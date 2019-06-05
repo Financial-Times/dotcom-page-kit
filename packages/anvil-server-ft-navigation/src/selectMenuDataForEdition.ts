@@ -10,7 +10,7 @@ const sharedMenuKeys: TNavMenuKeys[] = [
   'user'
 ]
 
-export function selectMenusForEdition(menuData: TNavMenus, currentEdition: string): TNavMenusForEdition {
+export function selectMenuDataForEdition(menuData: TNavMenus, currentEdition: string): TNavMenusForEdition {
   const output = {
     navbar: menuData[`navbar-${currentEdition}`],
     drawer: menuData[`drawer-${currentEdition}`]

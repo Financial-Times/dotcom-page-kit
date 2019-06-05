@@ -19,13 +19,13 @@ export function isEdition(editionID: string): boolean {
   return editionIDs.includes(editionID)
 }
 
-export function getEditions(selectedEditionID: string): TNavEditions {
-  if (isEdition(selectedEditionID)) {
+export function getEditions(currentEdition: string): TNavEditions {
+  if (isEdition(currentEdition)) {
     return {
-      current: availableEditions.find((edition) => edition.id === selectedEditionID),
-      others: availableEditions.filter((edition) => edition.id !== selectedEditionID)
+      current: availableEditions.find((edition) => edition.id === currentEdition),
+      others: availableEditions.filter((edition) => edition.id !== currentEdition)
     }
   } else {
-    throw Error(`The selected edition "${selectedEditionID}" is not a valid edition`)
+    throw Error(`The provided edition "${currentEdition}" is not a valid edition`)
   }
 }

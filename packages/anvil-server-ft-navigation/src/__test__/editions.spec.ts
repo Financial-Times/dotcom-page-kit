@@ -27,7 +27,7 @@ describe('anvil-server-ft-navigation/src/editions', () => {
     describe('with an invalid edition', () => {
       it('throws an error', () => {
         const test = () => subject.getEditions('london')
-        expect(test).toThrow('The selected edition "london" is not a valid edition')
+        expect(test).toThrow('The provided edition "london" is not a valid edition')
       })
     })
   })

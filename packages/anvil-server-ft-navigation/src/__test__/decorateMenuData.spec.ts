@@ -1,4 +1,4 @@
-import { decorateMenuData as subject } from '..'
+import { decorateMenuData as subject } from '../decorateMenuData'
 import { menus } from '../__fixtures__/menus'
 import dlv from 'dlv'
 

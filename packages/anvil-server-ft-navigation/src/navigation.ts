@@ -6,7 +6,7 @@ import fetch from 'node-fetch'
 import { decorateMenuData } from './decorateMenuData'
 import { TNavMenus, TNavigationData, TNavSubNavigation } from '@financial-times/anvil-types-navigation'
 import { getEditions } from './editions';
-import { selectMenusForEdition } from './selectMenusForEdition';
+import { selectMenuDataForEdition } from './selectMenuDataForEdition';
 
 // Makes the navigation data completely immutable,
 // To modify the data, clone the parts you need to change then modify in your app
@@ -56,7 +56,7 @@ export class Navigation {
   async getNavigationFor(currentPath: string, currentEdition: string = 'uk'): Promise<TNavigationData> {
     const editions = getEditions(currentEdition)
     const menusData = await this.getMenusData()
-    const menusForEdition = selectMenusForEdition(menusData, currentEdition)
+    const menusForEdition = selectMenuDataForEdition(menusData, currentEdition)
 
     return {
       editions,
