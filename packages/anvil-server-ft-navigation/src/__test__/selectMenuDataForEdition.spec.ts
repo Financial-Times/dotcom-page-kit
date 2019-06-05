@@ -24,15 +24,15 @@ describe('anvil-server-ft-navigation/src/selectMenuDataForEdition', () => {
   it('appends shared menus', () => {
     const result = subject(fixture, 'uk')
 
-    expect(result).toHaveProperty('account', fixture.account)
-    expect(result).toHaveProperty('footer', fixture.footer)
-    expect(result).toHaveProperty('user', fixture.user)
+    expect(result.account).toBe(fixture.account)
+    expect(result.footer).toBe(fixture.footer)
+    expect(result.user).toBe(fixture.user)
   })
 
   it('appends edition specific menus', () => {
     const result = subject(fixture, 'uk')
 
-    expect(result).toHaveProperty('drawer', fixture['drawer-uk'])
-    expect(result).toHaveProperty('navbar', fixture['navbar-uk'])
+    expect(result.drawer).toBe(fixture['drawer-uk'])
+    expect(result.navbar).toBe(fixture['navbar-uk'])
   })
 })
