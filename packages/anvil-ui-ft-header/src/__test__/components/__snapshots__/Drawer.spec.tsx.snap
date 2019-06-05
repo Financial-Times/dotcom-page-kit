@@ -112,7 +112,8 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as a logged in user 1`
             href="#?edition=international"
           >
             Switch to 
-            International Edition
+            International
+             Edition
           </a>
         </li>
       </ul>
@@ -1384,7 +1385,8 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as an anonymous user 1
             href="#?edition=international"
           >
             Switch to 
-            International Edition
+            International
+             Edition
           </a>
         </li>
       </ul>
