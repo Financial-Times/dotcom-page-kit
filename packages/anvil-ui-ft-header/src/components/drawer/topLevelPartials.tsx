@@ -50,7 +50,7 @@ const DrawerTools = (props: TNavEditions) => (
     <a className="o-header__drawer-tools-logo" href="/" data-trackable="logo">
       <span className="o-header__visually-hidden">Financial Times</span>
     </a>
-    {props.current && <p className="o-header__drawer-current-edition">{props.current.name}</p>}
+    {props.current && <p className="o-header__drawer-current-edition">{`${props.current.name} Edition`}</p>}
   </div>
 )
 
