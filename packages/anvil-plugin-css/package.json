@@ -23,7 +23,7 @@
   "dependencies": {
     "css-loader": "^2.1.0",
     "mini-css-extract-plugin": "^0.7.0",
-    "webpack-fix-style-only-entries": "0.2.0"
+    "webpack-fix-style-only-entries": "0.3.0"
   },
   "devDependencies": {
     "@financial-times/anvil-cli": "file:../anvil-cli"
