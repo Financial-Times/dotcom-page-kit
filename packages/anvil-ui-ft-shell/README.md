@@ -1,6 +1,6 @@
 # @financial-times/anvil-ui-ft-shell
 
-This package provides a skeleton HTML document structure for the user-facing applications which comprise FT.com. It includes all of the things you can't see and can render metadata, output dehydrated data, load stylesheets, and bootstrap client-side JavaScript.
+This package provides a skeleton HTML document structure for the user-facing applications which comprise FT.com. It includes all of the things you can't see as well as setting up our [core branding](#core-branding). The shell can render metadata, output dehydrated data, load stylesheets and bootstrap client-side JavaScript.
 
 
 ## Getting started
@@ -55,6 +55,12 @@ const outputHTML = ReactDOM.renderToString(document)
 For a full example for how to use this component please refer to the [FT UI example app][example].
 
 [example]: ../../examples/basic-ft-ui/readme.md
+
+
+## Core branding
+Core branding encompases the shared elements which together generate the look and feel of an ft.com page, they are both intrinsic to our brand and required by every page. Core branding includes favicons, fonts, and backgorund colour.
+
+FT favicons, the background colour, and the fallback fonts have been defined in this package. Our custom fonts are defined in the [anvil-ft-ui-layout](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ui-ft-layout) package; font files must be downloaded via a blocking script and cannot be included in the shell for that reason.
 
 
 ## Options
