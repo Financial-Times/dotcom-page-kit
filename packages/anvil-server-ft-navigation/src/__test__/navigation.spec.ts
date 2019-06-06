@@ -1,12 +1,11 @@
 import nock from 'nock'
 import { Navigation } from '..'
-import { menus as navigationData } from '../__fixtures__/menus'
-import * as expected from '../__fixtures__/expected'
+import menusData from '../../../../__fixtures__/menus.json'
 
 const subNavigationData = {
   ancestors: [{ label: 'some-ancestors' }],
   children: [{ label: 'some-children' }],
-  item: { label: 'some-data-item' }
+  item: { label: 'current-page' }
 }
 
 const FakePoller = {
@@ -25,7 +24,7 @@ describe('anvil-server-ft-navigation', () => {
 
   beforeEach(() => {
     FakePoller.start.mockResolvedValue(null)
-    FakePoller.getData.mockResolvedValue(clone(navigationData))
+    FakePoller.getData.mockResolvedValue(clone(menusData))
 
     navigationInstance = new Navigation()
   })
@@ -41,49 +40,65 @@ describe('anvil-server-ft-navigation', () => {
     })
   })
 
-  describe('.getNavigationData()', () => {
-    it('returns the navigation data', async () => {
-      const result = await navigationInstance.getNavigationData()
-      expect(result).toEqual(navigationData)
+  describe('.getMenusData()', () => {
+    let result
+
+    beforeAll(async () => {
+      result = await navigationInstance.getMenusData()
+    })
+
+    it('returns the raw menus data', () => {
+      expect(result).toEqual(menusData)
     })
   })
 
-  describe('.getNavigationFor()', () => {
-    // Verify that
-    // - Additional props - meganav, selected, etc - are injected
-    // - Items whose url prop matches "/newsletters" have a selected: true
-    it('recursively processes menus to produces an expected foter', async () => {
-      const result = await navigationInstance.getNavigationFor('/newsletters')
-      expect(result.footer).toEqual(expected.footer)
+  describe('.getMenusFor()', () => {
+    let result
+
+    beforeAll(async () => {
+      result = await navigationInstance.getMenusFor('/', 'uk')
+    })
+
+    it('returns the shared menu data', () => {
+      expect(result).toHaveProperty('account.label', 'Account')
+      expect(result).toHaveProperty('footer.label', 'Footer')
+      expect(result).toHaveProperty('user.label', 'User')
+    })
+
+    it('returns the edition specific menu data', () => {
+      expect(result).toHaveProperty('drawer.label', 'Drawer')
+      expect(result).toHaveProperty('navbar.label', 'Navigation')
+    })
+
+    it('returns decorated menu data', () => {
+      expect(result).toHaveProperty('navbar.items.0.selected', true)
+      expect(result).toHaveProperty('drawer.items.0.submenu.items.0.selected', true)
     })
   })
 
   // nock used here because SubNavigation fetches its data directly rather than pulling from Poller
   describe('.getSubNavigationFor()', () => {
-    describe('when things go well', () => {
-      let result
+    let result
 
-      beforeEach(async () => {
-        nock('http://next-navigation.ft.com')
-          .get('/v2/hierarchy/streamPage')
-          .reply(200, clone(subNavigationData))
+    beforeAll(async () => {
+      nock('http://next-navigation.ft.com')
+        .get('/v2/hierarchy/streamPage')
+        .reply(200, clone(subNavigationData))
 
-        result = await navigationInstance.getSubNavigationFor('streamPage')
-      })
+      result = await navigationInstance.getSubNavigationFor('/streamPage')
+    })
 
-      it('fetches the sub-navigation data', async () => {
-        expect(Object.isFrozen(result)).toEqual(true)
-        expect(result).toHaveProperty('breadcrumb')
-        expect(result).toHaveProperty('subsections')
-      })
+    it('fetches the sub-navigation data', () => {
+      expect(result).toHaveProperty('breadcrumb')
+      expect(result).toHaveProperty('subsections')
+    })
 
-      it('appends the current page to the list of ancestors', async () => {
-        expect(result.breadcrumb.length).toEqual(2)
-      })
+    it('appends the current page to the list of ancestors', () => {
+      expect(result).toHaveProperty('breadcrumb.1.label', 'current-page')
+    })
 
-      it('appends a selected property to the current page', async () => {
-        expect(result.breadcrumb[result.breadcrumb.length - 1].selected).toEqual(true)
-      })
+    it('appends a selected property to the current page', () => {
+      expect(result).toHaveProperty('breadcrumb.1.selected', true)
     })
 
     describe('when things go wrong', () => {
@@ -95,6 +110,26 @@ describe('anvil-server-ft-navigation', () => {
         await expect(navigationInstance.getSubNavigationFor('streamPage')).rejects.toMatchObject({
           message: 'Sub-navigation for streamPage could not be found.'
         })
+      })
+    })
+  })
+
+  describe('.getEditionsFor()', () => {
+    let result
+
+    beforeAll(async () => {
+      result = await navigationInstance.getEditionsFor('uk')
+    })
+
+    it('returns the editions data', () => {
+      expect(result).toHaveProperty('current')
+      expect(result).toHaveProperty('others')
+    })
+
+    describe('with an invalid edition', () => {
+      it('throws an error', () => {
+        const test = () => navigationInstance.getEditionsFor('london')
+        expect(test).toThrow('The provided edition "london" is not a valid edition')
       })
     })
   })

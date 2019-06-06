@@ -1,4 +1,4 @@
-import { TNavMenu, TNavMenuItem } from '@financial-times/anvil-types-navigation'
+import { TNavMenuItem } from '@financial-times/anvil-types-navigation'
 
 const isSelected = (url: string, currentPath: string): boolean => {
   return url === currentPath
@@ -25,6 +25,7 @@ const decorateMenuItem = (item: TNavMenuItem, currentPath: string): void => {
   item.selected = isSelected(item.url, currentPath)
 }
 
+// This is a recursive clone function that will decorate objects it recognises as links
 function cloneMenu(value: any, currentPath: string): any {
   if (Array.isArray(value)) {
     return value.map((item) => cloneMenu(item, currentPath))
@@ -47,6 +48,6 @@ function cloneMenu(value: any, currentPath: string): any {
   return value
 }
 
-export const decorateMenu = (menu: TNavMenu, currentUrl: string): TNavMenu => {
-  return cloneMenu(menu, currentUrl)
+export function decorateMenuData<Type>(menuData: Type, currentUrl: string): Type {
+  return cloneMenu(menuData, currentUrl)
 }

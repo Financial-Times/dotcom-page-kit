@@ -2,17 +2,18 @@ import Poller from 'ft-poller'
 import httpError from 'http-errors'
 import deepFreeze from 'deep-freeze'
 import fetch from 'node-fetch'
+import {
+  TNavMenus,
+  TNavMenusForEdition,
+  TNavSubNavigation,
+  TNavEditions
+} from '@financial-times/anvil-types-navigation'
+import { selectMenuDataForEdition } from './selectMenuDataForEdition'
+import { decorateMenuData } from './decorateMenuData'
+import { getEditions, isEdition } from './editions'
 
-import { decorateMenu } from '.'
-
-import { TNavMenus, TNavSubNavigation } from '@financial-times/anvil-types-navigation'
-
-/**
- * Makes the navigation data completely immutable,
- * To modify the data, clone the parts you need to change then modify in your app
- *
- * @param data
- */
+// Makes the navigation data completely immutable,
+// To modify the data, clone the parts you need to change then modify in your app
 const parseData = (data: any) => {
   return deepFreeze(data)
 }
@@ -38,7 +39,7 @@ export class Navigation {
   public poller: Poller
   public initialPromise: Promise<void>
 
-  constructor(options = {}) {
+  constructor(options: TNavOptions = {}) {
     this.options = { ...defaults, ...options }
 
     this.poller = new Poller({
@@ -50,21 +51,17 @@ export class Navigation {
     this.initialPromise = this.poller.start({ initialRequest: true })
   }
 
-  async getNavigationData(): Promise<TNavMenus> {
+  async getMenusData(): Promise<TNavMenus> {
     // initialPromise does not return data but must resolve before `getData` can be called
     await this.initialPromise
     return this.poller.getData()
   }
 
-  async getNavigationFor(path: string): Promise<TNavMenus> {
-    const data = await this.getNavigationData()
-    const output = {}
+  async getMenusFor(currentPath: string, currentEdition: string = 'uk'): Promise<TNavMenusForEdition> {
+    const menusData = await this.getMenusData()
+    const menusForEdition = selectMenuDataForEdition(menusData, currentEdition)
 
-    for (const [id, menu] of Object.entries(data)) {
-      output[id] = decorateMenu(menu, path)
-    }
-
-    return output as TNavMenus
+    return decorateMenuData(menusForEdition, currentPath)
   }
 
   async getSubNavigationFor(path: string): Promise<TNavSubNavigation> {
@@ -77,12 +74,20 @@ export class Navigation {
 
       const currentItem = { ...data.item, selected: true }
 
-      return parseData({
+      return {
         breadcrumb: data.ancestors.concat(currentItem),
         subsections: data.children
-      })
+      }
     } else {
       throw httpError(response.status, `Sub-navigation for ${currentPage} could not be found.`)
+    }
+  }
+
+  getEditionsFor(currentEdition: string = 'uk'): TNavEditions {
+    if (isEdition(currentEdition)) {
+      return getEditions(currentEdition)
+    } else {
+      throw Error(`The provided edition "${currentEdition}" is not a valid edition`)
     }
   }
 }

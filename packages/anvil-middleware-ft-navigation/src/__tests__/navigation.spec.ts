@@ -1,70 +1,46 @@
 import * as subject from '../navigation'
 import httpMocks from 'node-mocks-http'
 
-const fakeNavigationData = {
-  'navbar-uk': {
+const fakeMenusData = {
+  navbar: {
     label: 'Navbar UK',
     items: [{ label: 'Foo', url: '#' }]
   },
-  'navbar-international': {
-    label: 'Navbar International',
-    items: [{ label: 'Foo', url: '#' }]
-  },
-  'drawer-uk': {
+  drawer: {
     label: 'Drawer UK',
     items: [{ label: 'Foo', url: '#' }]
-  },
-  'drawer-international': {
-    label: 'Drawer International',
-    items: [{ label: 'Bar', url: '#' }]
   }
 }
 
 const fakeEditionsData = {
-  'editions-uk': {
-    current: { id: 'uk', name: 'UK', url: '/' },
-    others: [{ id: 'international', name: 'International', url: '/' }]
-  },
-  'editions-international': {
-    current: { id: 'international', name: 'International', url: '/' },
-    others: [{ id: 'uk', name: 'UK', url: '/' }]
-  }
+  current: { id: 'uk', name: 'UK', url: '/' },
+  others: [{ id: 'international', name: 'International', url: '/' }]
 }
 
-const fakeSubNavigationResponse = {
+const fakeSubNavigationData = {
   breadcrumb: 'some-breadcrumb',
   subsections: 'some-subsections'
 }
 
-const fakeNavigationDataUK = {
-  navbar: fakeNavigationData['navbar-uk'],
-  drawer: fakeNavigationData['drawer-uk'],
-  editions: fakeEditionsData['editions-uk']
-}
+const fakeNavigationData = { ...fakeMenusData, editions: fakeEditionsData, currentPath: '' }
 
-const fakeNavigationDataIntl = {
-  navbar: fakeNavigationData['navbar-international'],
-  drawer: fakeNavigationData['drawer-international'],
-  editions: fakeEditionsData['editions-international']
-}
-
-const FakePoller = {
-  start: jest.fn(),
-  getNavigationFor: jest.fn().mockImplementation(() => fakeNavigationData),
-  getSubNavigationFor: jest.fn().mockImplementation(() => fakeSubNavigationResponse)
+const FakeNavigation = {
+  getMenusFor: jest.fn().mockResolvedValue(fakeMenusData),
+  getSubNavigationFor: jest.fn().mockResolvedValue(fakeSubNavigationData),
+  getEditionsFor: jest.fn().mockReturnValue(fakeEditionsData)
 }
 
 jest.mock(
   '@financial-times/anvil-server-ft-navigation',
   () => {
     return {
-      Navigation: jest.fn().mockImplementation(() => FakePoller)
+      Navigation: jest.fn().mockImplementation(() => FakeNavigation)
     }
   },
   { virtual: true }
 )
 
-describe('anvil-middleware-ft-navigation/index', () => {
+describe('anvil-middleware-ft-navigation', () => {
   let request
   let response
   let next
@@ -89,7 +65,7 @@ describe('anvil-middleware-ft-navigation/index', () => {
   describe('when handling a request', () => {
     it('appends the navigation properties to response.locals', async () => {
       await instance(request, response, next)
-      expect(response.locals.navigation).toEqual(expect.objectContaining(fakeNavigationDataUK))
+      expect(response.locals.navigation).toEqual(expect.objectContaining(fakeNavigationData))
     })
 
     it('calls the fallthrough function', async () => {
@@ -107,26 +83,13 @@ describe('anvil-middleware-ft-navigation/index', () => {
 
     it('appends the sub-navigation properties on response.locals', async () => {
       await instance(request, response, next)
-      expect(response.locals.navigation).toEqual(expect.objectContaining(fakeSubNavigationResponse))
-    })
-  })
-
-  describe('when handling a request with the edition set to international', () => {
-    let request
-
-    beforeEach(() => {
-      request = httpMocks.createRequest({ query: { edition: 'international' } })
-    })
-
-    it('returns the international edition data', async () => {
-      await instance(request, response, next)
-      expect(response.locals.navigation).toEqual(expect.objectContaining(fakeNavigationDataIntl))
+      expect(response.locals.navigation).toEqual(expect.objectContaining(fakeSubNavigationData))
     })
   })
 
   describe('when something goes wrong', () => {
     beforeEach(() => {
-      FakePoller.getNavigationFor = jest.fn(() => {
+      FakeNavigation.getMenusFor = jest.fn(() => {
         throw Error('Whoops')
       })
     })

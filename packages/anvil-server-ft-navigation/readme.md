@@ -1,10 +1,10 @@
 # @financial-times/anvil-server-ft-navigation
 
-This package provides a navigation data poller with methods for safely accessing the fetched data for FT.com.
+This package provides tools to fetch and format navigation data for FT.com.
 
 It is primarily intended to be consumed via the [`anvil-middleware-ft-navigation`](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-middleware-ft-navigation) package which can be used by Express applications.
 
-Data will be periodically fetched and updated from the [Next Navigation API](https://github.com/Financial-Times/next-navigation-api). This data is managed by editorial staff and is used to render the navigation components across FT.com including the header, drop-down menus, drawer, and footer.
+Data for the menus will be periodically fetched and updated from the [Next Navigation API](https://github.com/Financial-Times/next-navigation-api). This data is managed by editorial staff and is used to render the navigation components across FT.com including the header, drop-down menus, drawer, and footer.
 
 
 ## Getting started
@@ -18,31 +18,35 @@ npm install -S @financial-times/anvil-server-asset-loader
 This package provides a single class which can be configured using [options](#options).
 
 ```js
-import Navigation from '@financial-times/anvil-server-ft-navigation'
+import { Navigation } from '@financial-times/anvil-server-ft-navigation'
 const navigation = new Navigation()
 ```
 
 The navigation instance provides methods to retrieve global navigation data and navigation for a specific page:
 
 ```js
-const allData = await navigation.getNavigationData()
-const pageData = await navigation.getNavigationDataFor('/companies/health')
+const menusData = await navigation.getMenusData()
+const menusDataForPage = await navigation.getMenusFor('/companies/health', 'uk')
 ```
 
 
 ## API
 
-### `getNavigationData(): Promise<TNavMenus>`
+### `getMenusData(): Promise<TNavMenus>`
 
-Resolves the full navigation data, refreshed by a poller.
+Resolves all menus data, refreshed by a poller. This data has been deep-frozen to prevent accidental mutation as it gets passed around. If you need to modify any part of the data, you should first clone the parts you need and then work with your cloned object.
 
-### `getNavigationDataFor(path: string): Promise<TNavMenus>`
+### `getMenusFor(currentPath: string, currentEdition?: string): Promise<TNavMenusForEdition>`
 
-Resolves the full navigation data with any links to the given path marked as selected and redirect placeholders updated.
+Resolves the menus data for the current edition with any links to the current path marked as selected and URL placeholders updated. If no edition is provided it will default to `"uk"`.
 
-### `getSubNavigationFor(path: string): Promise<TNavSubNavigation>`
+### `getSubNavigationFor(currentPath: string): Promise<TNavSubNavigation>`
 
-Resolves any sub-navigation data for the given page which may include ancestors and children (a.k.a. crumbtrail and subsections).
+Resolves any sub-navigation data for the current path which may include ancestors and children (a.k.a. crumbtrail and subsections).
+
+### `getEditionsFor(currentEdition?: string): TNavEditions`
+
+Returns the available FT editions with the current edition selected. If no edition is provided it will default to `"uk"`.
 
 
 ## Options
@@ -60,13 +64,3 @@ The URL to the navigation service endpoint which provides navigation data for a 
 ### `interval`
 
 Time in milliseconds to wait between polling navigation data. Defaults to `900000` (15 minutes).
-
-
-## Modifying navigation data
-
-The data resolved by all methods is frozen to prevent accidental mutation of the `Poller` instance's data as it is passed around. If you need to modify any part of the data, you should first clone the parts you need and then work with your cloned object.
-
-```js
-const subNavData = getSubNavigationFor('/world/uk')
-const clone = JSON.parse(JSON.stringify(subNavData));
-```
