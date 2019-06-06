@@ -1,7 +1,7 @@
 const app = require('../server/app')
 const request = require('supertest')
 const { withEnv, withHtml } = require('@financial-times/anvil-test-utils')
-const { loadFromScriptEmbed, loadFromDataAttributesEmbed } = require('@financial-times/anvil-ft-app-context')
+const { loadDataFromScriptEmbed, loadDataFromAttributesEmbed } = require('@financial-times/anvil-ft-app-context')
 
 describe('examples/express-ft-header', () => {
   let response
@@ -72,14 +72,14 @@ describe('examples/express-ft-header', () => {
 
     it('embeds app context data as legacy data attributes on the html tag', () => {
       withHtml(response.text, () => {
-        const result = loadFromDataAttributesEmbed()
+        const result = loadDataFromAttributesEmbed()
         expect(result).toEqual(appContext)
       })
     })
 
     it('embed app context data as a script embed', () => {
       withHtml(response.text, () => {
-        const result = loadFromScriptEmbed()
+        const result = loadDataFromScriptEmbed()
         expect(result).toEqual(appContext)
       })
     })

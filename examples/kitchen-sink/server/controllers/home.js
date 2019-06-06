@@ -1,9 +1,9 @@
 const React = require('react')
 const ReactDOM = require('react-dom/server')
+const polyfills = require('@financial-times/anvil-ui-ft-polyfills')
 const { Shell } = require('@financial-times/anvil-ui-ft-shell')
 const { Layout } = require('@financial-times/anvil-ui-ft-layout')
 const { AppContextEmbed } = require('@financial-times/anvil-ft-app-context')
-const polyfills = require('@financial-times/anvil-ui-ft-polyfills')
 
 module.exports = (_, response, next) => {
   try {

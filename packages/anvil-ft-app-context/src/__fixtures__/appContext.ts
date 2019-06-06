@@ -18,3 +18,23 @@ export const appContextWithExtras = {
   fooProp: 'foo',
   barProp: 'bar'
 }
+
+export function legacyAttributesHtml({ withDataAppContextAttribute = true } = {}) {
+  return `
+    <html
+      ${withDataAppContextAttribute ? 'data-app-context' : ''}
+      data-next-app="${appContext.appName}"
+      data-next-product="${appContext.product}"
+      data-next-edition="${appContext.edition}"
+      ${appContext.isProduction ? 'data-next-is-production' : ''}
+      data-ab-state="${appContext.abTestState}"
+      data-next-version="${appContext.appVersion}"
+      data-content-id="${appContext.contentId}"
+      data-concept-id="${appContext.conceptId}"
+      data-taxonomy="${appContext.conceptType}"
+      data-publish-reference="${appContext.publishReference}"
+      data-content-type="${appContext.contentType}">
+      ...
+    </html>
+  `
+}

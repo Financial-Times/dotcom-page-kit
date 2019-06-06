@@ -2,9 +2,9 @@
   "name": "@financial-times/anvil-ft-app-context",
   "version": "0.0.0",
   "description": "",
-  "main": "server.js",
-  "browser": "browser.js",
-  "types": "src/index.ts",
+  "main": "dist/node/server",
+  "browser": "dist/browser/browser",
+  "types": "src/server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "../../node_modules/.bin/tsc",

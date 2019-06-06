@@ -1,5 +1,0 @@
-export * from './components/AppContextEmbed'
-export * from '../shared/schema'
-export { default as AppContextClient } from './AppContextClient'
-export { default as loadFromScriptEmbed } from '../client/loadFromScriptEmbed'
-export { default as loadFromDataAttributesEmbed } from '../client/loadFromDataAttributesEmbed'
