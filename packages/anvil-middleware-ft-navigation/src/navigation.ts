@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express'
+import { TNavigationData } from '@financial-times/anvil-types-navigation'
 import { Navigation, TNavOptions } from '@financial-times/anvil-server-ft-navigation'
-import getEdition from './getEdition'
+import handleEdition from './handleEdition'
 
 type MiddlewareOptions = TNavOptions & {
   enableSubNavigation?: boolean
@@ -12,19 +13,28 @@ const defaultOptions: MiddlewareOptions = {
 
 export const init = (userOptions: MiddlewareOptions = {}) => {
   const options = { ...defaultOptions, ...userOptions }
-  const navigator = new Navigation(options)
+  const navigation = new Navigation(options)
 
   return async (request: Request, response: Response, next: NextFunction) => {
     try {
       const currentPath = request.path
-      const currentEdition = getEdition(request, response)
+      const currentEdition = handleEdition(request, response)
 
-      const [navigationData, subNavigationData] = await Promise.all([
-        navigator.getNavigationFor(currentPath, currentEdition),
-        options.enableSubNavigation ? navigator.getSubNavigationFor(currentPath) : null
+      const [menusData, subNavigationData] = await Promise.all([
+        navigation.getMenusFor(currentPath, currentEdition),
+        options.enableSubNavigation ? navigation.getSubNavigationFor(currentPath) : null
       ])
 
-      response.locals.navigation = { ...navigationData, ...subNavigationData }
+      const editions = navigation.getEditionsFor(currentEdition)
+
+      const navigationData: TNavigationData = {
+        editions,
+        currentPath,
+        ...menusData,
+        ...subNavigationData
+      }
+
+      response.locals.navigation = navigationData
 
       next()
     } catch (error) {

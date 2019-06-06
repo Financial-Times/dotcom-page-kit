@@ -17,16 +17,17 @@ const fakeEditionsData = {
   others: [{ id: 'international', name: 'International', url: '/' }]
 }
 
-const fakeNavigationData = { ...fakeMenusData, editions: fakeEditionsData }
-
 const fakeSubNavigationData = {
   breadcrumb: 'some-breadcrumb',
   subsections: 'some-subsections'
 }
 
+const fakeNavigationData = { ...fakeMenusData, editions: fakeEditionsData, currentPath: '' }
+
 const FakeNavigation = {
-  getNavigationFor: jest.fn().mockImplementation(() => fakeNavigationData),
-  getSubNavigationFor: jest.fn().mockImplementation(() => fakeSubNavigationData)
+  getMenusFor: jest.fn().mockResolvedValue(fakeMenusData),
+  getSubNavigationFor: jest.fn().mockResolvedValue(fakeSubNavigationData),
+  getEditionsFor: jest.fn().mockReturnValue(fakeEditionsData)
 }
 
 jest.mock(
@@ -39,7 +40,7 @@ jest.mock(
   { virtual: true }
 )
 
-describe('anvil-middleware-ft-navigation/index', () => {
+describe('anvil-middleware-ft-navigation', () => {
   let request
   let response
   let next
@@ -88,7 +89,7 @@ describe('anvil-middleware-ft-navigation/index', () => {
 
   describe('when something goes wrong', () => {
     beforeEach(() => {
-      FakeNavigation.getNavigationFor = jest.fn(() => {
+      FakeNavigation.getMenusFor = jest.fn(() => {
         throw Error('Whoops')
       })
     })
