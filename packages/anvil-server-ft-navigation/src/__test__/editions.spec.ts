@@ -12,23 +12,14 @@ describe('anvil-server-ft-navigation/src/editions', () => {
   })
 
   describe('.getEditions()', () => {
-    describe('with a valid edition', () => {
-      it('returns the current selected edition', () => {
-        const result = subject.getEditions('uk')
-        expect(result.current).toEqual(expect.objectContaining({ id: 'uk' }))
-      })
-
-      it('returns the all other editions', () => {
-        const result = subject.getEditions('uk')
-        expect(result.others).toEqual([expect.objectContaining({ id: 'international' })])
-      })
+    it('returns the current selected edition', () => {
+      const result = subject.getEditions('uk')
+      expect(result.current).toEqual(expect.objectContaining({ id: 'uk' }))
     })
 
-    describe('with an invalid edition', () => {
-      it('throws an error', () => {
-        const test = () => subject.getEditions('london')
-        expect(test).toThrow('The provided edition "london" is not a valid edition')
-      })
+    it('returns the all other editions', () => {
+      const result = subject.getEditions('uk')
+      expect(result.others).toEqual([expect.objectContaining({ id: 'international' })])
     })
   })
 })

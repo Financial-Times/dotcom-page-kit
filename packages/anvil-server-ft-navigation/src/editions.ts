@@ -20,12 +20,8 @@ export function isEdition(editionID: string): boolean {
 }
 
 export function getEditions(currentEdition: string): TNavEditions {
-  if (isEdition(currentEdition)) {
-    return {
-      current: availableEditions.find((edition) => edition.id === currentEdition),
-      others: availableEditions.filter((edition) => edition.id !== currentEdition)
-    }
-  } else {
-    throw Error(`The provided edition "${currentEdition}" is not a valid edition`)
+  return {
+    current: availableEditions.find((edition) => edition.id === currentEdition),
+    others: availableEditions.filter((edition) => edition.id !== currentEdition)
   }
 }

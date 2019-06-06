@@ -1,6 +1,6 @@
 import nock from 'nock'
 import { Navigation } from '..'
-import navigationData from '../../../../__fixtures__/menus.json'
+import menusData from '../../../../__fixtures__/menus.json'
 
 const subNavigationData = {
   ancestors: [{ label: 'some-ancestors' }],
@@ -24,7 +24,7 @@ describe('anvil-server-ft-navigation', () => {
 
   beforeEach(() => {
     FakePoller.start.mockResolvedValue(null)
-    FakePoller.getData.mockResolvedValue(clone(navigationData))
+    FakePoller.getData.mockResolvedValue(clone(menusData))
 
     navigationInstance = new Navigation()
   })
@@ -41,17 +41,21 @@ describe('anvil-server-ft-navigation', () => {
   })
 
   describe('.getMenusData()', () => {
-    it('returns the navigation data', async () => {
+    it('returns the menu data', async () => {
       const result = await navigationInstance.getMenusData()
-      expect(result).toEqual(navigationData)
+      expect(result).toEqual(menusData)
     })
   })
 
-  describe('.getNavigationFor()', () => {
+  describe('.getMenusFor()', () => {
     let result
 
     beforeAll(async () => {
-      result = await navigationInstance.getNavigationFor('/', 'uk')
+      result = await navigationInstance.getMenusFor('/', 'uk')
+    })
+
+    it('returns a clone of the menu data', () => {
+      expect(result).not.toBe(menusData)
     })
 
     it('returns the shared menu data', () => {
@@ -63,14 +67,6 @@ describe('anvil-server-ft-navigation', () => {
     it('returns the edition specific menu data', () => {
       expect(result).toHaveProperty('drawer')
       expect(result).toHaveProperty('navbar')
-    })
-
-    it('returns the editions data', () => {
-      expect(result).toHaveProperty('editions')
-    })
-
-    it('returns the current path', () => {
-      expect(result).toHaveProperty('currentPath', '/')
     })
   })
 
@@ -88,7 +84,6 @@ describe('anvil-server-ft-navigation', () => {
       })
 
       it('fetches the sub-navigation data', () => {
-        expect(Object.isFrozen(result)).toEqual(true)
         expect(result).toHaveProperty('breadcrumb')
         expect(result).toHaveProperty('subsections')
       })
@@ -111,6 +106,26 @@ describe('anvil-server-ft-navigation', () => {
         await expect(navigationInstance.getSubNavigationFor('streamPage')).rejects.toMatchObject({
           message: 'Sub-navigation for streamPage could not be found.'
         })
+      })
+    })
+  })
+
+  describe('.getEditionsFor()', () => {
+    let result
+
+    beforeAll(async () => {
+      result = await navigationInstance.getEditionsFor('uk')
+    })
+
+    it('returns the editions data', () => {
+      expect(result).toHaveProperty('current')
+      expect(result).toHaveProperty('others')
+    })
+
+    describe('with an invalid edition', () => {
+      it('throws an error', () => {
+        const test = () => navigationInstance.getEditionsFor('london')
+        expect(test).toThrow('The provided edition "london" is not a valid edition')
       })
     })
   })

@@ -2,11 +2,15 @@ import Poller from 'ft-poller'
 import httpError from 'http-errors'
 import deepFreeze from 'deep-freeze'
 import fetch from 'node-fetch'
-
-import { decorateMenuData } from './decorateMenuData'
-import { TNavMenus, TNavigationData, TNavSubNavigation } from '@financial-times/anvil-types-navigation'
-import { getEditions } from './editions'
+import {
+  TNavMenus,
+  TNavMenusForEdition,
+  TNavSubNavigation,
+  TNavEditions
+} from '@financial-times/anvil-types-navigation'
 import { selectMenuDataForEdition } from './selectMenuDataForEdition'
+import { decorateMenuData } from './decorateMenuData'
+import { getEditions, isEdition } from './editions'
 
 // Makes the navigation data completely immutable,
 // To modify the data, clone the parts you need to change then modify in your app
@@ -53,16 +57,11 @@ export class Navigation {
     return this.poller.getData()
   }
 
-  async getNavigationFor(currentPath: string, currentEdition: string = 'uk'): Promise<TNavigationData> {
-    const editions = getEditions(currentEdition)
+  async getMenusFor(currentPath: string, currentEdition: string = 'uk'): Promise<TNavMenusForEdition> {
     const menusData = await this.getMenusData()
     const menusForEdition = selectMenuDataForEdition(menusData, currentEdition)
 
-    return {
-      editions,
-      currentPath,
-      ...decorateMenuData(menusForEdition, currentPath)
-    }
+    return decorateMenuData(menusForEdition, currentPath)
   }
 
   async getSubNavigationFor(path: string): Promise<TNavSubNavigation> {
@@ -75,12 +74,20 @@ export class Navigation {
 
       const currentItem = { ...data.item, selected: true }
 
-      return parseData({
+      return {
         breadcrumb: data.ancestors.concat(currentItem),
         subsections: data.children
-      })
+      }
     } else {
       throw httpError(response.status, `Sub-navigation for ${currentPage} could not be found.`)
+    }
+  }
+
+  getEditionsFor(currentEdition: string = 'uk'): TNavEditions {
+    if (isEdition(currentEdition)) {
+      return getEditions(currentEdition)
+    } else {
+      throw Error(`The provided edition "${currentEdition}" is not a valid edition`)
     }
   }
 }
