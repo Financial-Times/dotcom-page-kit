@@ -39,7 +39,7 @@ export class Navigation {
   public poller: Poller
   public initialPromise: Promise<void>
 
-  constructor(options = {}) {
+  constructor(options: TNavOptions = {}) {
     this.options = { ...defaults, ...options }
 
     this.poller = new Poller({
