@@ -5,7 +5,7 @@ import menusData from '../../../../__fixtures__/menus.json'
 const subNavigationData = {
   ancestors: [{ label: 'some-ancestors' }],
   children: [{ label: 'some-children' }],
-  item: { label: 'some-data-item' }
+  item: { label: 'current-page' }
 }
 
 const FakePoller = {
@@ -41,8 +41,13 @@ describe('anvil-server-ft-navigation', () => {
   })
 
   describe('.getMenusData()', () => {
-    it('returns the menu data', async () => {
-      const result = await navigationInstance.getMenusData()
+    let result
+
+    beforeAll(async () => {
+      result = await navigationInstance.getMenusData()
+    })
+
+    it('returns the raw menus data', () => {
       expect(result).toEqual(menusData)
     })
   })
@@ -54,47 +59,46 @@ describe('anvil-server-ft-navigation', () => {
       result = await navigationInstance.getMenusFor('/', 'uk')
     })
 
-    it('returns a clone of the menu data', () => {
-      expect(result).not.toBe(menusData)
-    })
-
     it('returns the shared menu data', () => {
-      expect(result).toHaveProperty('account')
-      expect(result).toHaveProperty('footer')
-      expect(result).toHaveProperty('user')
+      expect(result).toHaveProperty('account.label', 'Account')
+      expect(result).toHaveProperty('footer.label', 'Footer')
+      expect(result).toHaveProperty('user.label', 'User')
     })
 
     it('returns the edition specific menu data', () => {
-      expect(result).toHaveProperty('drawer')
-      expect(result).toHaveProperty('navbar')
+      expect(result).toHaveProperty('drawer.label', 'Drawer')
+      expect(result).toHaveProperty('navbar.label', 'Navigation')
+    })
+
+    it('returns decorated menu data', () => {
+      expect(result).toHaveProperty('navbar.items.0.selected', true)
+      expect(result).toHaveProperty('drawer.items.0.submenu.items.0.selected', true)
     })
   })
 
   // nock used here because SubNavigation fetches its data directly rather than pulling from Poller
   describe('.getSubNavigationFor()', () => {
-    describe('when things go well', () => {
-      let result
+    let result
 
-      beforeAll(async () => {
-        nock('http://next-navigation.ft.com')
-          .get('/v2/hierarchy/streamPage')
-          .reply(200, clone(subNavigationData))
+    beforeAll(async () => {
+      nock('http://next-navigation.ft.com')
+        .get('/v2/hierarchy/streamPage')
+        .reply(200, clone(subNavigationData))
 
-        result = await navigationInstance.getSubNavigationFor('streamPage')
-      })
+      result = await navigationInstance.getSubNavigationFor('/streamPage')
+    })
 
-      it('fetches the sub-navigation data', () => {
-        expect(result).toHaveProperty('breadcrumb')
-        expect(result).toHaveProperty('subsections')
-      })
+    it('fetches the sub-navigation data', () => {
+      expect(result).toHaveProperty('breadcrumb')
+      expect(result).toHaveProperty('subsections')
+    })
 
-      it('appends the current page to the list of ancestors', () => {
-        expect(result.breadcrumb.length).toEqual(2)
-      })
+    it('appends the current page to the list of ancestors', () => {
+      expect(result).toHaveProperty('breadcrumb.1.label', 'current-page')
+    })
 
-      it('appends a selected property to the current page', () => {
-        expect(result.breadcrumb[result.breadcrumb.length - 1].selected).toEqual(true)
-      })
+    it('appends a selected property to the current page', () => {
+      expect(result).toHaveProperty('breadcrumb.1.selected', true)
     })
 
     describe('when things go wrong', () => {
