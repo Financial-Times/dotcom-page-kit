@@ -1,0 +1,12 @@
+@import 'anvil-ui-ft-layout/styles';
+@import 'anvil-ui-ft-header/styles';
+@import 'anvil-ui-ft-footer/styles';
+
+.core .o--if-js,
+.enhanced .o--if-no-js {
+  display: none !important;
+}
+
+p {
+  @include oTypographySans($scale: 7);
+}
