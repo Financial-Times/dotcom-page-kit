@@ -11,7 +11,7 @@ This package is compatible with Node 8+ and is distributed on npm.
 npm install --save @financial-times/anvil-ui-ft-shell
 ```
 
-After installing the package you can use it to wrap your application output. The shell includes the `<html>`, `<head>`, and `<body>` elements so you only need to worry about what's visible to your users.
+After installing the package you can use it to wrap your application output. The shell provides a [HTML skeleton](#HTML-skeleton) so you only need to worry about what's visible to your users.
 
 ### Usage with React
 
@@ -57,10 +57,30 @@ For a full example for how to use this component please refer to the [FT UI exam
 [example]: ../../examples/basic-ft-ui/readme.md
 
 
-## Core branding
-Core branding encompases the shared elements which together generate the look and feel of an ft.com page, they are both intrinsic to our brand and required by every page. Core branding includes favicons, fonts, and backgorund colour.
+## Scope
+
+The anvil-ui-ft-shell can be loosely defined as encompassing the parts of the webpage that you cannot see, including any elements which are embedded in the document `<head>`, and some core branding decisions.
+
+### Core branding
+Core branding encompases the shared elements which together generate the look and feel of an ft.com page, they are both intrinsic to our brand and required by every page. Core branding includes favicons, fonts, and background colour.
 
 FT favicons, the background colour, and the fallback fonts have been defined in this package. Our custom fonts are defined in the [anvil-ft-ui-layout](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ui-ft-layout) package; font files must be downloaded via a blocking script and cannot be included in the shell for that reason.
+
+### HTML skeleton
+
+The shell contains a HTML document structure which wraps application HTML. It includes the `<html>`, `<head>`, and `<body>` elements and is shared across all user-facing applications.
+
+### Metadata
+
+The shell adds a collection of `<meta>` tags to the document `<head>` including SEO and social media properties and page context in Open Graph format.
+
+### Stylesheets
+
+Background colour, font colour and fallback fonts are included in the shell as critical styles. Additional stylesheet URLs which are passed to the application shell will be inserted as `<link>` tags in the document `<head>`.
+
+### JavaScript bootstrap
+
+Each page is served a bootstrap script including a "cuts the mustard" test via the [anvil-ui-bootstrap](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ui-bootstrap) package. Additional scripts for core and enhanced browsers which are passed to the shell  will be inserted as `<script>` tags in the document `<head>`.
 
 
 ## Options
