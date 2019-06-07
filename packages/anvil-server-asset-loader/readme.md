@@ -17,7 +17,7 @@ This module provides a single class which can be configured using [options](#opt
 
 ```js
 import path from 'path'
-import AssetLoader from '@financial-times/anvil-server-asset-loader'
+import { AssetLoader } from '@financial-times/anvil-server-asset-loader'
 
 const assetLoader = new AssetLoader({
   publicPath: 'https://cdn.site.com/assets',

@@ -1,4 +1,4 @@
-import AssetLoader, { AssetLoaderOptions } from '../'
+import { AssetLoader, AssetLoaderOptions } from '../AssetLoader'
 import manifest from './__fixtures__/manifest.json'
 
 jest.mock('../helpers/loadManifest', () => {
@@ -23,7 +23,7 @@ function createAssetLoader({
   return new AssetLoader({ publicPath, fileSystemPath, ...otherOptions })
 }
 
-describe('anvil-server-asset-loader', () => {
+describe('anvil-server-asset-loader/src/AssetLoader', () => {
   let loader
 
   beforeEach(() => {
