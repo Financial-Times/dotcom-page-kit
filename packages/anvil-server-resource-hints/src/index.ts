@@ -1,2 +1,1 @@
-import ResourceHints from './ResourceHints'
-export default ResourceHints
+export * from './ResourceHints'

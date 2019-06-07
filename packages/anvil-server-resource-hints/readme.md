@@ -1,4 +1,4 @@
-# anvil-server-resource-hints
+# @financial-times/anvil-server-resource-hints
 
 This package provides functions to help applications track and send [resource hints] for the assets they use. Resource hints enable developers to optimise the delivery of certain resources.
 
@@ -16,7 +16,7 @@ npm install -S @financial-times/anvil-server-resource-hints
 This package provides a single class which can be configured using [options](#options).
 
 ```js
-import ResourceHints from '@financial-times/anvil-server-resource-hints'
+import { ResourceHints } from '@financial-times/anvil-server-resource-hints'
 const resourceHints = new ResourceHints()
 ```
 
@@ -32,7 +32,7 @@ resourceHints.toString() // <styles.css>; as="style"; rel="preload"; nopush, <sc
 Below is an example demonstrating how this package may be used within an [Express] application to track any assets used during the lifecycle of a request and send a `Link` header along with the response:
 
 ```js
-import ResourceHints from '@financial-times/anvil-server-resource-hints'
+import { ResourceHints } from '@financial-times/anvil-server-resource-hints'
 
 app.use('/', (request, response) => {
   const resourceHints = new ResourceHints()

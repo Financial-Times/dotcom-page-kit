@@ -1,7 +1,7 @@
 import getResourceType from './getResourceType'
 import formatResourceHint from './formatResourceHint'
 
-export default class ResourceHinting {
+export class ResourceHints {
   public files: Set<string> = new Set()
 
   add(file: string): void {

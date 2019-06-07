@@ -1,4 +1,4 @@
-import Subject from '../ResourceHints'
+import { ResourceHints as Subject } from '../ResourceHints'
 
 const fixture = Object.freeze(['style.css', 'script.js', 'image.png', 'font.woff'])
 
