@@ -1,5 +1,5 @@
-import AssetLoader from '@financial-times/anvil-server-asset-loader'
-import ResourceHints from '@financial-times/anvil-server-resource-hints'
+import { AssetLoader } from '@financial-times/anvil-server-asset-loader'
+import { ResourceHints } from '@financial-times/anvil-server-resource-hints'
 import { MiddlewareOptions } from './options'
 import { Handler, Request, Response, NextFunction } from 'express'
 
