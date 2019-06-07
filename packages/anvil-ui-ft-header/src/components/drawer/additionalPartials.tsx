@@ -23,7 +23,7 @@ export const DrawerParentItem = ({ item, index }: TDrawerParentItemProps) => {
           className={`o-header__drawer-menu-toggle o-header__drawer-menu-toggle--${selected}`}
           aria-controls={`o-header-drawer-child-${index}`}
           data-trackable={`sub-level-toggle | ${item.label}`}>
-          {`Show more ${item.label} links`}
+          {`Show more ${item.label}`}
         </button>
       </div>
       <ul

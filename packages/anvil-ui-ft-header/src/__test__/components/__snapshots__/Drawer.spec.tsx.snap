@@ -156,7 +156,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as a logged in user 1`
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--selected"
               data-trackable="sub-level-toggle | World"
             >
-              Show more World links
+              Show more World
             </button>
           </div>
           <ul
@@ -294,7 +294,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as a logged in user 1`
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
               data-trackable="sub-level-toggle | UK"
             >
-              Show more UK links
+              Show more UK
             </button>
           </div>
           <ul
@@ -355,7 +355,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as a logged in user 1`
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
               data-trackable="sub-level-toggle | Companies"
             >
-              Show more Companies links
+              Show more Companies
             </button>
           </div>
           <ul
@@ -504,7 +504,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as a logged in user 1`
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
               data-trackable="sub-level-toggle | Markets"
             >
-              Show more Markets links
+              Show more Markets
             </button>
           </div>
           <ul
@@ -642,7 +642,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as a logged in user 1`
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
               data-trackable="sub-level-toggle | Opinion"
             >
-              Show more Opinion links
+              Show more Opinion
             </button>
           </div>
           <ul
@@ -758,7 +758,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as a logged in user 1`
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
               data-trackable="sub-level-toggle | Work & Careers"
             >
-              Show more Work & Careers links
+              Show more Work & Careers
             </button>
           </div>
           <ul
@@ -841,7 +841,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as a logged in user 1`
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
               data-trackable="sub-level-toggle | Life & Arts"
             >
-              Show more Life & Arts links
+              Show more Life & Arts
             </button>
           </div>
           <ul
@@ -957,7 +957,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as a logged in user 1`
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
               data-trackable="sub-level-toggle | Personal Finance"
             >
-              Show more Personal Finance links
+              Show more Personal Finance
             </button>
           </div>
           <ul
@@ -1429,7 +1429,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as an anonymous user 1
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--selected"
               data-trackable="sub-level-toggle | World"
             >
-              Show more World links
+              Show more World
             </button>
           </div>
           <ul
@@ -1567,7 +1567,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as an anonymous user 1
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
               data-trackable="sub-level-toggle | UK"
             >
-              Show more UK links
+              Show more UK
             </button>
           </div>
           <ul
@@ -1628,7 +1628,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as an anonymous user 1
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
               data-trackable="sub-level-toggle | Companies"
             >
-              Show more Companies links
+              Show more Companies
             </button>
           </div>
           <ul
@@ -1777,7 +1777,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as an anonymous user 1
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
               data-trackable="sub-level-toggle | Markets"
             >
-              Show more Markets links
+              Show more Markets
             </button>
           </div>
           <ul
@@ -1915,7 +1915,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as an anonymous user 1
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
               data-trackable="sub-level-toggle | Opinion"
             >
-              Show more Opinion links
+              Show more Opinion
             </button>
           </div>
           <ul
@@ -2031,7 +2031,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as an anonymous user 1
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
               data-trackable="sub-level-toggle | Work & Careers"
             >
-              Show more Work & Careers links
+              Show more Work & Careers
             </button>
           </div>
           <ul
@@ -2114,7 +2114,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as an anonymous user 1
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
               data-trackable="sub-level-toggle | Life & Arts"
             >
-              Show more Life & Arts links
+              Show more Life & Arts
             </button>
           </div>
           <ul
@@ -2230,7 +2230,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as an anonymous user 1
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
               data-trackable="sub-level-toggle | Personal Finance"
             >
-              Show more Personal Finance links
+              Show more Personal Finance
             </button>
           </div>
           <ul
