@@ -13,7 +13,8 @@
     "clean:node_modules": "rm -rf node_modules",
     "clean:install": "npm run clean && npm i",
     "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
-    "build": "npm run build:node"
+    "build": "npm run build:node",
+    "dev": "npm run build:node -- --watch"
   },
   "keywords": [],
   "author": "",

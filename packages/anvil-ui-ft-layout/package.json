@@ -15,7 +15,8 @@
     "clean:install": "npm run clean && npm i",
     "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
     "build:browser": "npm run tsc -- --module es2015 --outDir ./dist/browser",
-    "build": "npm run build:node && npm run build:browser"
+    "build": "npm run build:node && npm run build:browser",
+    "dev": "echo -n node browser | parallel -u -d ' ' npm run build:{} -- --watch"
   },
   "keywords": [],
   "author": "",

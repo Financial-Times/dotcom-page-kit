@@ -14,7 +14,8 @@
     "clean:node_modules": "rm -rf node_modules",
     "clean:install": "npm run clean && npm i",
     "build": "npm run build:node",
-    "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node"
+    "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
+    "dev": "npm run build:node -- --watch"
   },
   "style": "./src/components/drawer/drawer.scss",
   "keywords": [],

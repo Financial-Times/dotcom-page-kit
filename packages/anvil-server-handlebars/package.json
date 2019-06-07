@@ -11,7 +11,8 @@
     "clean:dist": "rm -rf dist",
     "clean:node_modules": "rm -rf node_modules",
     "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
-    "build": "npm run build:node"
+    "build": "npm run build:node",
+    "dev": "npm run build:node -- --watch"
   },
   "keywords": [],
   "author": "",
