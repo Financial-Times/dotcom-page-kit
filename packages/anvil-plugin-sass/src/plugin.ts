@@ -93,7 +93,7 @@ function getAutoPrefixerOptions(cli) {
   ]
 
   return {
-    browsers: dlv(cli, 'config.settings.build.targets', defaultTargets),
+    overrideBrowserslist: dlv(cli, 'config.settings.build.targets', defaultTargets),
     grid: true
   }
 }
@@ -101,7 +101,15 @@ function getAutoPrefixerOptions(cli) {
 function getCssNanoOptions() {
   // https://cssnano.co/guides/optimisations
   return {
-    preset: 'default'
+    preset: [
+      'default',
+      {
+        // disable reduceInitial optimisation as `initial` is not supported in IE11
+        // https://github.com/cssnano/cssnano/issues/721
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/initial
+        reduceInitial: false
+      }
+    ]
   }
 }
 
