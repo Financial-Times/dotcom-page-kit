@@ -12,7 +12,7 @@ Data for the menus will be periodically fetched and updated from the [Next Navig
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```bash
-npm install -S @financial-times/anvil-server-asset-loader
+npm install -S @financial-times/anvil-server-ft-navigation
 ```
 
 This package provides a single class which can be configured using [options](#options).
