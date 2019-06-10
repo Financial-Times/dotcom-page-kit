@@ -93,7 +93,7 @@ function getAutoPrefixerOptions(cli) {
   ]
 
   return {
-    browsers: dlv(cli, 'config.settings.build.targets', defaultTargets),
+    overrideBrowserslist: dlv(cli, 'config.settings.build.targets', defaultTargets),
     grid: true
   }
 }
