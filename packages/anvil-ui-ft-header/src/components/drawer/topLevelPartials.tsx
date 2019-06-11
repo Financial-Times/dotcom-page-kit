@@ -45,7 +45,7 @@ const DrawerTools = (props: TNavEditions) => (
       title="Close drawer menu"
       aria-controls="o-header-drawer"
       data-trackable="close">
-      <span className="o-header__visually-hidden">Close</span>
+      <span className="o-header__visually-hidden">Close drawer menu</span>
     </button>
     <a className="o-header__drawer-tools-logo" href="/" data-trackable="logo">
       <span className="o-header__visually-hidden">Financial Times</span>

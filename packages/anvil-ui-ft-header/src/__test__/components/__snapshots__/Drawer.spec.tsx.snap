@@ -27,7 +27,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as a logged in user 1`
         <span
           className="o-header__visually-hidden"
         >
-          Close
+          Close drawer menu
         </span>
       </button>
       <a
@@ -1300,7 +1300,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as an anonymous user 1
         <span
           className="o-header__visually-hidden"
         >
-          Close
+          Close drawer menu
         </span>
       </button>
       <a
