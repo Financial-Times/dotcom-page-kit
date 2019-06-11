@@ -4,19 +4,19 @@ import interopRequire from './interopRequire'
 import { Request, Response, NextFunction } from 'express'
 import { Renderable, RenderCallback } from './types'
 
-export interface Options {
-  useStaticRendering: boolean
+export interface TReactRendererOptions {
+  useStaticRendering?: boolean
 }
 
-const defaultOptions: Options = {
+const defaultOptions: TReactRendererOptions = {
   useStaticRendering: false
 }
 
-class ReactRenderer {
-  public options: Options
+export class ReactRenderer {
+  public options: TReactRendererOptions
   public engine: Function
 
-  constructor(userOptions?: Partial<Options>) {
+  constructor(userOptions: TReactRendererOptions = {}) {
     this.options = { ...defaultOptions, ...userOptions }
     this.engine = this.renderView.bind(this)
   }
@@ -62,5 +62,3 @@ class ReactRenderer {
     }
   }
 }
-
-export default ReactRenderer

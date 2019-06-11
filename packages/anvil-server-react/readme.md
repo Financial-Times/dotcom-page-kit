@@ -21,10 +21,10 @@ _Please note_ that you will need to extend Node's `require()` function to enable
 
 ```diff
 const express = require('express')
-+ const AnvilReact = require('@financial-times/anvil-server-react')
++ const { ReactRenderer } = require('@financial-times/anvil-server-react')
 
-+ const react = new AnvilReact(options)
-+ app.engine('.jsx', react.engine)
++ const renderer = new ReactRenderer(options)
++ app.engine('.jsx', renderer.engine)
 ```
 
 When using this module as a view engine Express will find the component file, decorate any data passed to it with properties from `app.locals` and `response.locals`, and automatically send the rendered result. See the Express [render documentation] for more information.
@@ -36,11 +36,11 @@ app.get('/', (request, response) => {
     content: 'Hello World!'
   }
 
-  response.render('home.jsx', data)
+  response.render('Home.jsx', data)
 })
 ```
 
-_Please note_ that where to lookup template files can be configured using Express's [settings].
+_Please note_ that where to lookup template files can be configured using Express's [settings] and component files _must_ have a default export.
 
 [view engine]: https://expressjs.com/en/guide/using-template-engines.html
 [render documentation]: https://expressjs.com/en/4x/api.html#res.render
@@ -48,17 +48,17 @@ _Please note_ that where to lookup template files can be configured using Expres
 
 ### Standalone usage
 
-This module can be used without integrating it fully into your application. This may be suitable for applications which are not built with Express or for ad-hoc template rendering needs. This is intended to provide some convenient extra functionality over your React's built-in render methods.
+This module can be used without integrating it fully into your application. This may be suitable for applications which are not built with Express or for ad-hoc template rendering needs. This is intended to provide some convenient extra functionality over React's built-in render methods.
 
 ```diff
-+ const AnvilReact = require('@financial-times/anvil-server-react')
-+ const renderer = new AnvilReact(options)
++ const { ReactRenderer } = require('@financial-times/anvil-server-react')
++ const renderer = new ReactRenderer(options)
 ```
 
 When using this module as a standalone library you will need to find template files, provide all data, and handle the rendered output manually.
 
 ```js
-const HomeComponent = require('../views/home.jsx')
+const Home = require('../views/Home.jsx')
 
 app.get('/', async (request, response, next) => {
   const data = {
@@ -67,7 +67,7 @@ app.get('/', async (request, response, next) => {
   }
 
   try {
-    const html = await renderer.render(HomeComponent, data, true)
+    const html = await renderer.render(Home, data, true)
     response.send(html)
   } catch (error) {
     next(error)
@@ -77,8 +77,6 @@ app.get('/', async (request, response, next) => {
 
 
 ## API
-
-The renderer class provides three methods, these are:
 
 ### `render(component, context[, includeDoctype])`
 
