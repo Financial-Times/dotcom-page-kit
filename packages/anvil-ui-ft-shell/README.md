@@ -64,21 +64,19 @@ The anvil-ui-ft-shell can be loosely defined as encompassing the parts of the we
 ### Core branding
 Core branding encompases the shared elements which together generate the look and feel of an ft.com page, they are both intrinsic to our brand and required by every page. Core branding includes favicons, fonts, and background colour.
 
-FT favicons, the background colour, and the fallback fonts have been defined in this package. Our custom fonts are defined in the [anvil-ft-ui-layout](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ui-ft-layout) package; font files must be downloaded via a blocking script and cannot be included in the shell for that reason.
-
 ### HTML skeleton
 
-The shell contains a HTML document structure which wraps application HTML. It defines the `<html>`, `<head>`, and `<body>` elements and sets some default page attributes which are common across user-facing applications. Metadata, stylesheets and JavaScript bootstrap elements can be found in the `<head>` element.
+The shell contains a HTML document structure which wraps application HTML. It defines the `<html>`, `<head>`, and `<body>` elements and sets some default page attributes which are common across user-facing applications. Metadata, stylesheets, [feature flags] and [JavaScript bootstrap] elements for the page can be found in the `<head>` element.
 
-#### Metadata
+### Metadata
 
-The shell adds a collection of `<meta>` tags to the document `<head>` including search engine optimisation, social media properties and page context in [Open Graph] format. The available metadata [options](#metadata-and-seo) are expanded below.
+The shell adds a collection of `<meta>` tags to the document `<head>` element. These include handles which associate the page with our social media accounts, page context in [Open Graph] format and [linked data] in [JSON-LD] format. The available metadata [options](#metadata-and-seo) are expanded below.
 
-#### Stylesheets
+### Stylesheets
 
 Background colour, font colour and fallback fonts are included in the shell as critical styles. Additional stylesheet URLs which are passed to the application shell will be inserted as `<link>` tags in the document `<head>`.
 
-#### JavaScript bootstrap
+### JavaScript bootstrap
 
 Each page is served a bootstrap script including a "cuts the mustard" test via the [JavaScript bootstrap] package. Additional scripts for core and enhanced browsers which are passed to the shell  will be inserted as `<script>` tags in the document `<head>`. The available bootstap [options](#app-bootstrapping) are expanded below.
 
@@ -93,11 +91,11 @@ A optional string of HTML to insert into the document `<body>`. This should be u
 
 #### `coreScripts` (string[])
 
-An array of script URLs which will be passed to the [JavaScript bootstrap](../anvil-ui-bootstrap/readme.md) and loaded if the visitor's browser fails the cut the mustard test.
+An array of script URLs which will be passed to the [JavaScript bootstrap] and loaded if the visitor's browser fails the cut the mustard test.
 
 #### `enhancedScripts` (string[])
 
-An array of script URLs which will be passed to the [JavaScript bootstrap](../anvil-ui-bootstrap/readme.md) and loaded if the visitor's browser succeeds in passing the cut the mustard test.
+An array of script URLs which will be passed to the [JavaScript bootstrap] and loaded if the visitor's browser succeeds in passing the cut the mustard test.
 
 #### `stylesheets` (string[])
 
@@ -109,7 +107,7 @@ An optional string of CSS to embed into the page. Defaults to setting the backgr
 
 #### `flags` (object)
 
-A data object which will be passed to the [feature flags component](../anvil-ui-ft-flags/readme.md).
+A data object which will be passed to the [feature flags] component.
 
 #### `initialProps` (object)
 
@@ -148,7 +146,7 @@ An optional value for the [`robots` meta tag](https://en.wikipedia.org/wiki/Meta
 
 #### `jsonLd` (object[])
 
-An optional array of [linked data](https://json-ld.org/) objects to be serialised and embedded in the page.
+An optional array of [JSON-LD] objects to be serialised and embedded in the page.
 
 #### `googleSiteVerification` (string)
 
@@ -170,5 +168,8 @@ Optional Twitter handle to associate with the page. Defaults to "@FinancialTimes
 An optional object describing the [Open Graph] metadata to add to the page. The provided objects keys will be collated to create each property name, e.g. `{ og: { title: 'Hello, World' } }` will be rendered as `<meta property="og:title" content="Hello, World" />`.
 
 
-[JavaScript bootstrap]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ui-bootstrap
+[JavaScript bootstrap]: ../anvil-ui-bootstrap/readme.md
+[feature flags]: ../anvil-ui-ft-flags/readme.md
 [Open Graph]: http://ogp.me/
+[linked data]: https://w3.org/standards/semanticweb/data
+[JSON-LD]: https://json-ld.org/
