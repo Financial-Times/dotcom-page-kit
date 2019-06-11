@@ -14,6 +14,7 @@ export function init(options: Options = {}) {
 
   return (request: Request, response: Response, next: NextFunction) => {
     const context = {
+      // TODO: refactor app name so that we don't need to assume this will get set by n-express
       appName: response.get('ft-app-name'),
       product: 'next',
       edition: request.get('ft-edition'),
