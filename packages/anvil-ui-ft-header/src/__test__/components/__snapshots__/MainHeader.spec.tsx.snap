@@ -23,7 +23,6 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
         >
           <a
             aria-controls="o-header-drawer"
-            aria-label="Open drawer menu"
             className="o-header__top-link o-header__top-link--menu"
             data-trackable="drawer-toggle"
             href="#o-header-drawer"
@@ -32,21 +31,20 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
             <span
               className="o-header__top-link-label"
             >
-              Menu
+              Open drawer menu
             </span>
           </a>
           <a
             aria-controls="o-header-search-primary"
-            aria-label="Search"
             className="o-header__top-link o-header__top-link--search"
             data-trackable="search-toggle"
             href="#o-header-search-primary"
-            title="Search"
+            title="Open search bar"
           >
             <span
               className="o-header__top-link-label"
             >
-              Search
+              Open search bar
             </span>
           </a>
         </div>
@@ -1852,7 +1850,6 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
         >
           <a
             aria-controls="o-header-drawer"
-            aria-label="Open drawer menu"
             className="o-header__top-link o-header__top-link--menu"
             data-trackable="drawer-toggle"
             href="#o-header-drawer"
@@ -1861,21 +1858,20 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
             <span
               className="o-header__top-link-label"
             >
-              Menu
+              Open drawer menu
             </span>
           </a>
           <a
             aria-controls="o-header-search-primary"
-            aria-label="Search"
             className="o-header__top-link o-header__top-link--search"
             data-trackable="search-toggle"
             href="#o-header-search-primary"
-            title="Search"
+            title="Open search bar"
           >
             <span
               className="o-header__top-link-label"
             >
-              Search
+              Open search bar
             </span>
           </a>
         </div>
