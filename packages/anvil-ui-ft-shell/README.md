@@ -11,7 +11,7 @@ This package is compatible with Node 8+ and is distributed on npm.
 npm install --save @financial-times/anvil-ui-ft-shell
 ```
 
-After installing the package you can use it to wrap your application output. The shell provides a [HTML skeleton](#HTML-skeleton) so you only need to worry about what's visible to your users.
+After installing the package you can use it to wrap your application output. The shell provides a [HTML skeleton](#HTML-skeleton) which includes the `<html>`, `<head>`, and `<body>` elements so you only need to think about what's visible to your users.
 
 ### Usage with React
 
@@ -68,19 +68,19 @@ FT favicons, the background colour, and the fallback fonts have been defined in 
 
 ### HTML skeleton
 
-The shell contains a HTML document structure which wraps application HTML. It includes the `<html>`, `<head>`, and `<body>` elements and is shared across all user-facing applications.
+The shell contains a HTML document structure which wraps application HTML. It defines the `<html>`, `<head>`, and `<body>` elements and sets some default page attributes which are common across user-facing applications. Metadata, stylesheets and JavaScript bootstrap elements can be found in the `<head>` element.
 
-### Metadata
+#### Metadata
 
-The shell adds a collection of `<meta>` tags to the document `<head>` including SEO and social media properties and page context in Open Graph format.
+The shell adds a collection of `<meta>` tags to the document `<head>` including search engine optimisation, social media properties and page context in [Open Graph] format. The available metadata [options](#metadata-and-seo) are expanded below.
 
-### Stylesheets
+#### Stylesheets
 
 Background colour, font colour and fallback fonts are included in the shell as critical styles. Additional stylesheet URLs which are passed to the application shell will be inserted as `<link>` tags in the document `<head>`.
 
-### JavaScript bootstrap
+#### JavaScript bootstrap
 
-Each page is served a bootstrap script including a "cuts the mustard" test via the [anvil-ui-bootstrap](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ui-bootstrap) package. Additional scripts for core and enhanced browsers which are passed to the shell  will be inserted as `<script>` tags in the document `<head>`.
+Each page is served a bootstrap script including a "cuts the mustard" test via the [JavaScript bootstrap] package. Additional scripts for core and enhanced browsers which are passed to the shell  will be inserted as `<script>` tags in the document `<head>`. The available bootstap [options](#app-bootstrapping) are expanded below.
 
 
 ## Options
@@ -167,4 +167,8 @@ Optional Twitter handle to associate with the page. Defaults to "@FinancialTimes
 
 #### `openGraph` (object[])
 
-An optional object describing the [Open Graph](http://ogp.me/) metadata to add to the page. The provided objects keys will be collated to create each property name, e.g. `{ og: { title: 'Hello, World' } }` will be rendered as `<meta property="og:title" content="Hello, World" />`.
+An optional object describing the [Open Graph] metadata to add to the page. The provided objects keys will be collated to create each property name, e.g. `{ og: { title: 'Hello, World' } }` will be rendered as `<meta property="og:title" content="Hello, World" />`.
+
+
+[JavaScript bootstrap]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ui-bootstrap
+[Open Graph]: http://ogp.me/
