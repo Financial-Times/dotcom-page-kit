@@ -17,9 +17,8 @@ const DrawerIcon = () => (
     className="o-header__top-link o-header__top-link--menu"
     aria-controls="o-header-drawer"
     title="Open drawer menu"
-    aria-label="Open drawer menu"
     data-trackable="drawer-toggle">
-    <span className="o-header__top-link-label">Menu</span>
+    <span className="o-header__top-link-label">Open drawer menu</span>
   </a>
 )
 
@@ -28,10 +27,9 @@ const SearchIcon = () => (
     href={`#o-header-search-primary`}
     className="o-header__top-link o-header__top-link--search"
     aria-controls={`o-header-search-primary`}
-    title="Search"
-    aria-label="Search"
+    title="Open search bar"
     data-trackable="search-toggle">
-    <span className="o-header__top-link-label">Search</span>
+    <span className="o-header__top-link-label">Open search bar</span>
   </a>
 )
 

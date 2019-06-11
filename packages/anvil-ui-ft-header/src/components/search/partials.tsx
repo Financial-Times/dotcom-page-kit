@@ -41,7 +41,7 @@ const Search = ({ context }) => {
             aria-controls={`"o-header-search-${context}`}
             title="Close search bar"
             data-trackable="close">
-            <span className="o-header__visually-hidden">Close</span>
+            <span className="o-header__visually-hidden">Close search bar</span>
           </button>
         </form>
       </div>
