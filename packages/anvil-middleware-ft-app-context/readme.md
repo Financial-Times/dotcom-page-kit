@@ -53,8 +53,4 @@ The middleware accepts the following parameters:
 
 An optional object containing [`TAppContext`] properties. This can be used to override any of the properties automatically inferred from the running application.
 
-### environment
-
-An optional string that represents the app environment. It defaults to `process.env.NODE_ENV`
-
 [`TAppContext`]: ../anvil-ft-app-context/readme.md#tappcontext

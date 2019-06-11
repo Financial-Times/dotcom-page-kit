@@ -86,22 +86,6 @@ describe('init()', () => {
         expect(response.locals.appContext.data.isProduction).toEqual(true)
       })
     })
-
-    it('sets `isProduction` to false if `process.env.NODE_ENV` is not `production`', () => {
-      withMocks(prodEnvironmentMocks, ({ request, response, next }) => {
-        const middleware = init()
-        middleware(request, response, next)
-        expect(response.locals.appContext.data.isProduction).toEqual(true)
-      })
-    })
-
-    it('treats `process.env.NODE_ENV` as case insensitive', () => {
-      withMocks(mocksWithEnv('proDucTion'), ({ request, response, next }) => {
-        const middleware = init()
-        middleware(request, response, next)
-        expect(response.locals.appContext.data.isProduction).toEqual(true)
-      })
-    })
   })
 
   describe('when the `context` option is supplied', () => {
@@ -114,35 +98,6 @@ describe('init()', () => {
         const middleware = init({ context })
         middleware(request, response, next)
         expect(response.locals.appContext.data).toEqual({ ...prodAppContext, ...context })
-      })
-    })
-  })
-
-  describe('when the `environment option is supplied`', () => {
-    it('sets `isProduction` to true if `environment` is `production`', () => {
-      withMocks(devEnvironmentMocks, ({ request, response, next }) => {
-        const environment = 'production'
-        const middleware = init({ environment })
-        middleware(request, response, next)
-        expect(response.locals.appContext.data.isProduction).toEqual(true)
-      })
-    })
-
-    it('sets `isProduction` to false if `environment` is not `production`', () => {
-      withMocks(prodEnvironmentMocks, ({ request, response, next }) => {
-        const environment = 'foo'
-        const middleware = init({ environment })
-        middleware(request, response, next)
-        expect(response.locals.appContext.data.isProduction).toEqual(false)
-      })
-    })
-
-    it('treats the `environment` as case insensitive', () => {
-      withMocks(devEnvironmentMocks, ({ request, response, next }) => {
-        const environment = 'proDucTion'
-        const middleware = init({ environment })
-        middleware(request, response, next)
-        expect(response.locals.appContext.data.isProduction).toEqual(true)
       })
     })
   })
