@@ -1,8 +1,8 @@
-# Helpers
+# Handlebars Helpers
 
 This package contains a suite of helpers to enable the migration of applications from [n-handlebars] to Anvil. Not every helper provided by n-handlebars has been ported over; any helpers we could not find usage of, are used only within [n-ui], or have dependencies on other Handlebars components have not been included.
 
-[n-ui]: https://github.com/Financial-Times/n-ui/]
+[n-ui]: https://github.com/Financial-Times/n-ui/
 [n-handlebars]: https://github.com/Financial-Times/n-handlebars
 
 
@@ -11,8 +11,8 @@ This package contains a suite of helpers to enable the migration of applications
 If you are using the Anvil Handlebars package you can import the "helpers" and provide them as an option when creating a new `AnvilHandlebars` instance. Helpers will not be added to the global Handlebars instance.
 
 ```js
-const AnvilHandlebars = require('@financial-times/anvil-server-handlebars')
-const hbs = new AnvilHandlebars({ helpers: AnvilHandlebars.helpers })
+const { HandlebarsRenderer, helpers } = require('@financial-times/anvil-server-handlebars')
+const renderer = new HandlebarsRenderer({ helpers })
 ```
 
 Alternatively if you only want the helpers you can register them with a Handlebars instance:
