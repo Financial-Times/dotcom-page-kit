@@ -52,8 +52,7 @@ describe('examples/express-ft-header', () => {
   })
 
   it('renders app context data as legacy data attributes', () => {
-    // TODO: reimplement this test when app name is being set consistently
-    // expect(response.text).toContain('data-next-app="kitchen-sink"')
+    expect(response.text).toContain('data-next-app="kitchen-sink"')
     expect(response.text).toContain('data-next-edition="international"')
     expect(response.text).toContain('data-next-product="next"')
   })

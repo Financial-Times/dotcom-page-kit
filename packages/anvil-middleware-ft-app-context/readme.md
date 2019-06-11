@@ -1,6 +1,6 @@
 # @financial-times/anvil-middleware-ft-app-context
 
-This package provides an [Express] compatible middleware which appends the [FT app context] to each request preconfigured with details automatically inferred from the running application.
+This package provides an [Express] compatible middleware which appends the [FT app context] to each request and configures it with details automatically inferred from the running application.
 
 [Express]: https://expressjs.com/
 [FT app context]: ../anvil-ft-app-context/
@@ -51,6 +51,6 @@ The middleware accepts the following parameters:
 
 ### `context`
 
-An optional object containing [`TAppContext`] properties. This can be used to override any of the properties automatically inferred from the running application.
+An optional object of context properties. This can be used to append extra properties or override any of the properties automatically inferred from the running application.
 
 [`TAppContext`]: ../anvil-ft-app-context/readme.md#tappcontext
