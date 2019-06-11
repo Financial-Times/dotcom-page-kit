@@ -1,8 +1,12 @@
-# FT App Context Middleware
+# @financial-times/anvil-middleware-ft-app-context
 
-This package provides an [Express] compatible middleware which appends the [app context client instance] to each request.
+This package provides an [Express] compatible middleware which appends the [FT app context] to each request preconfigured with details automatically inferred from the running application.
 
-### Getting started
+[Express]: https://expressjs.com/
+[FT app context]: ../anvil-ft-app-context/
+
+
+## Getting started
 
 This package is compatible with Node 8+ and is distributed on npm.
 
@@ -10,46 +14,47 @@ This package is compatible with Node 8+ and is distributed on npm.
 npm install --save @financial-times/anvil-middleware-ft-app-context
 ```
 
-After installing the package create a new instance of the middleware and register it with your application:
+After installing the package create a new instance of the middleware and register it with your application. The middleware can be configured with several [options](#options):
 
 ```diff
 const express = require('express')
 const app = express()
 
-+const appContextMiddleware = require('@financial-times/anvil-middleware-ft-app-context')
-+app.use(appContextMiddleware.init())
++const appContext = require('@financial-times/anvil-middleware-ft-app-context')
++app.use(appContext.init())
 ```
 
-Once added to your application the [app context client] will become available to each request.
+Once registered an `appContext` property will be added to the [response locals] object which provides a preconfigured instance of [FT app context].
 
 ```js
 app.get('/', (request, response) => {
+  const { appContext } = response.locals
+
   res.send(`
     <!DOCTYPE html>
     <html>
       <head>
-        <title>Some page with embedded app context</title>
-        ${response.locals.appContext.toEmbedString()}
+        ${appContext.toEmbedString()}
       </head>
     </html>
   `)
 })
 ```
 
-See the [`anvil-ft-app-context` package] for documentation on the app context client
+See the [FT app context] package documentation for a complete list of available methods.
 
+[response locals]: https://expressjs.com/en/api.html#res.locals
 
 ## Options
 
-### context
+The middleware accepts the following parameters:
 
-An optional object that has one or more [TAppContext] properties. When this is supplied, it will be used to set the equivalent properties of the app context data
+### `context`
+
+An optional object containing [`TAppContext`] properties. This can be used to override any of the properties automatically inferred from the running application.
 
 ### environment
 
 An optional string that represents the app environment. It defaults to `process.env.NODE_ENV`
 
-[Express]: https://expressjs.com/
-[TAppContext]: readme.md#appcontext../anvil-ft-app-context/readme.md#tappcontext
-[app context client instance]: ../anvil-ft-app-context/readme.md#appcontext
-[`anvil-ft-app-context` package]: ../anvil-ft-app-context/
+[`TAppContext`]: ../anvil-ft-app-context/readme.md#tappcontext
