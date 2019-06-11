@@ -1,0 +1,35 @@
+{
+  "name": "@financial-times/anvil-test-utils",
+  "version": "0.0.0",
+  "description": "",
+  "private": true,
+  "main": "dist/cjs/index.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "../../node_modules/.bin/tsc",
+    "clean": "npm run clean:dist && npm run clean:node_modules",
+    "clean:dist": "rm -rf dist",
+    "clean:node_modules": "rm -rf node_modules",
+    "build:cjs": "npm run tsc -- --outDir ./dist/cjs",
+    "build": "npm run build:cjs",
+    "dev": "npm run clean:dist && npm run build:cjs -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@financial-times/anvil-types-generic": "file:../anvil-types-generic",
+    "with-dom-overwrites": "^1.2.1"
+  },
+  "engines": {
+    "node": ">= 8.16.0"
+  },
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/Financial-Times/anvil.git",
+    "directory": "packages/anvil-test-utils"
+  },
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-test-utils"
+}

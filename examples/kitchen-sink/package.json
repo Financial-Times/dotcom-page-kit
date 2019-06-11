@@ -11,7 +11,9 @@
     "test": "../../node_modules/.bin/jest"
   },
   "dependencies": {
+    "@financial-times/anvil-ft-app-context": "file:../../packages/anvil-ft-app-context",
     "@financial-times/anvil-middleware-assets": "file:../../packages/anvil-middleware-assets",
+    "@financial-times/anvil-middleware-ft-app-context": "file:../../packages/anvil-middleware-ft-app-context",
     "@financial-times/anvil-middleware-ft-navigation": "file:../../packages/anvil-middleware-ft-navigation",
     "@financial-times/anvil-ui-ft-flags": "file:../../packages/anvil-ui-ft-flags",
     "@financial-times/anvil-ui-ft-layout": "file:../../packages/anvil-ui-ft-layout",
@@ -29,6 +31,7 @@
     "@financial-times/anvil-plugin-ft-js": "file:../../packages/anvil-plugin-ft-js",
     "@financial-times/anvil-plugin-ft-js-code-splitting": "file:../../packages/anvil-plugin-ft-js-code-splitting",
     "@financial-times/anvil-plugin-sass": "file:../../packages/anvil-plugin-sass",
+    "@financial-times/anvil-test-utils": "file:../../packages/anvil-test-utils",
     "@sucrase/jest-plugin": "^2.0.0",
     "dom-loaded": "^1.2.0",
     "nodemon": "^1.18.9"

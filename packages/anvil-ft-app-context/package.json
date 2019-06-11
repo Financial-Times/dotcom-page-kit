@@ -1,0 +1,42 @@
+{
+  "name": "@financial-times/anvil-ft-app-context",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/node/server",
+  "browser": "dist/browser/browser",
+  "types": "src/server.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "../../node_modules/.bin/tsc",
+    "clean": "npm run clean:dist && npm run clean:node_modules",
+    "clean:dist": "rm -rf dist",
+    "clean:node_modules": "rm -rf node_modules",
+    "clean:install": "npm run clean && npm i",
+    "build:node": "npm run tsc -- --outDir ./dist/node",
+    "build:browser": "npm run tsc -- --outDir ./dist/browser --module es2015 --target ES5",
+    "build": "npm run build:node && npm run build:browser",
+    "dev": "npm run clean:dist && npm run build -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 8.16.0"
+  },
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/Financial-Times/anvil.git",
+    "directory": "packages/anvil-ft-app-context"
+  },
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ft-app-context",
+  "devDependencies": {
+    "@financial-times/anvil-test-utils": "file:../anvil-test-utils",
+    "@financial-times/anvil-types-generic": "file:../anvil-types-generic"
+  },
+  "dependencies": {
+    "ajv": "^6.10.0",
+    "camelcase": "^5.3.1",
+    "dashify": "^2.0.0",
+    "pascalcase": "^0.1.1"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "@financial-times/anvil-middleware-ft-app-context",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/cjs/index.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "../../node_modules/.bin/tsc",
+    "clean": "npm run clean:dist && npm run clean:node_modules",
+    "clean:dist": "rm -rf dist",
+    "clean:node_modules": "rm -rf node_modules",
+    "build:cjs": "npm run tsc -- --outDir ./dist/cjs",
+    "build": "npm run build:cjs",
+    "dev": "npm run clean:dist && npm run build:cjs -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@financial-times/anvil-test-utils": "file:../anvil-test-utils",
+    "@financial-times/anvil-types-generic": "file:../anvil-types-generic",
+    "@types/express": "^4.16.1",
+    "node-mocks-http": "^1.7.5"
+  },
+  "dependencies": {
+    "@financial-times/anvil-ft-app-context": "file:../anvil-ft-app-context"
+  },
+  "engines": {
+    "node": ">= 8.16.0"
+  },
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/Financial-Times/anvil.git",
+    "directory": "packages/anvil-middleware-ft-app-context"
+  },
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-middleware-ft-app-context"
+}

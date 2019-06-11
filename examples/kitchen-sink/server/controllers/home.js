@@ -1,12 +1,14 @@
 const React = require('react')
 const ReactDOM = require('react-dom/server')
+const polyfills = require('@financial-times/anvil-ui-ft-polyfills')
 const { Shell } = require('@financial-times/anvil-ui-ft-shell')
 const { Layout } = require('@financial-times/anvil-ui-ft-layout')
-const polyfills = require('@financial-times/anvil-ui-ft-polyfills')
+const { AppContextEmbed } = require('@financial-times/anvil-ft-app-context')
 
 module.exports = (_, response, next) => {
   try {
     const flags = { ads: true, tracking: true }
+    const appContext = response.locals.appContext
     const styleBundles = response.locals.assets.loader.getStylesheetURLsFor('styles')
     const scriptBundles = response.locals.assets.loader.getScriptURLsFor('scripts')
     const enhancedScripts = [polyfills.enhanced, ...scriptBundles]
@@ -25,7 +27,10 @@ module.exports = (_, response, next) => {
         pageTitle="Hello World"
         coreScripts={coreScripts}
         stylesheets={styleBundles}
-        enhancedScripts={enhancedScripts}>
+        enhancedScripts={enhancedScripts}
+        htmlAttributes={appContext.toLegacyDataAttributesObject()}>
+        <AppContextEmbed context={appContext.data} />
+
         <Layout navigationData={response.locals.navigation}>
           <div align="center">
             <p className="hello">Hello, welcome to Anvil.</p>
