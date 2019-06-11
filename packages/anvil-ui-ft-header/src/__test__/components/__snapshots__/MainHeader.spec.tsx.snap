@@ -143,7 +143,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
           <span
             className="o-header__visually-hidden"
           >
-            Close
+            Close search bar
           </span>
         </button>
       </form>
@@ -1970,7 +1970,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
           <span
             className="o-header__visually-hidden"
           >
-            Close
+            Close search bar
           </span>
         </button>
       </form>
