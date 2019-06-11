@@ -1,11 +1,11 @@
 import path from 'path'
-import Subject from '../HandlebarsRenderer'
+import { HandlebarsRenderer as Subject } from '../HandlebarsRenderer'
 
 // NOTE: Tests are run from the repository root directory so we need to set the CWD
 const root = path.join(__dirname, '__fixtures__')
 const view = path.resolve(root, 'views/view.hbs')
 
-describe('anvil-server-handlebars', () => {
+describe('anvil-server-handlebars/src/HandlebarsRenderer', () => {
   let instance
 
   beforeEach(() => {
