@@ -18,12 +18,10 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@financial-times/anvil-test-utils": "file:../anvil-test-utils",
-    "@financial-times/anvil-types-generic": "file:../anvil-types-generic",
-    "@types/express": "^4.16.1",
     "node-mocks-http": "^1.7.5"
   },
   "dependencies": {
+    "@types/express": "^4.16.1",
     "@financial-times/anvil-ft-app-context": "file:../anvil-ft-app-context"
   },
   "engines": {
