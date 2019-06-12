@@ -1,14 +1,14 @@
 import Ajv from 'ajv'
 import schema from './schema'
 
-export default function isValidContextData(contextData): boolean {
-  const ajv = new Ajv()
+const ajv = new Ajv()
 
-  const isValid = ajv.validate(schema, contextData)
+const isValid = ajv.compile(schema)
 
-  if (isValid) {
+export default function validate(contextData): boolean {
+  if (isValid(contextData)) {
     return true
   } else {
-    throw Error(`App Context Data Validation Error: ${ajv.errorsText()}`)
+    throw Error(`App context data validation Error: ${ajv.errorsText(isValid.errors)}`)
   }
 }
