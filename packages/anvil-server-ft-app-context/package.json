@@ -1,0 +1,34 @@
+{
+  "name": "@financial-times/anvil-server-ft-app-context",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/node/index.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "../../node_modules/.bin/tsc",
+    "clean": "npm run clean:dist && npm run clean:node_modules",
+    "clean:dist": "rm -rf dist",
+    "clean:node_modules": "rm -rf node_modules",
+    "build": "npm run build:node",
+    "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
+    "dev": "npm run build:node -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "ajv": "^6.10.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">= 8.16.0"
+  },
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/Financial-Times/anvil.git",
+    "directory": "packages/anvil-server-ft-app-context"
+  },
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-ft-app-context"
+}
