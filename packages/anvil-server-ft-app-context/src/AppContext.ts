@@ -1,5 +1,5 @@
 import { TAppContext } from './types'
-import isValidContextData from './schema/isValidContextData'
+import validate from './validate'
 
 export type TAppContextOptions = {
   context?: Partial<TAppContext>
@@ -22,6 +22,6 @@ export class AppContext {
   }
 
   validate() {
-    return isValidContextData(this.data)
+    return validate(this.data)
   }
 }

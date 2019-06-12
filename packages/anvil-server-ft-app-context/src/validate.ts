@@ -1,5 +1,5 @@
 import Ajv from 'ajv'
-import schema from './contextDataSchema'
+import schema from './schema'
 
 export default function isValidContextData(contextData): boolean {
   const ajv = new Ajv()

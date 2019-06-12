@@ -1,5 +1,5 @@
 import { AppContext } from '../AppContext'
-import * as fixtures from '../__fixtures__/contextData'
+import * as fixtures from './__fixtures__/contextData'
 
 describe('anvil-server-ft-app-context/src/AppContext', () => {
   describe('constructor', () => {
