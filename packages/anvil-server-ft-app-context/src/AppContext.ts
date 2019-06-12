@@ -18,7 +18,7 @@ export class AppContext {
   }
 
   set(item: string, value: any) {
-    return (this.data[item] = value)
+    this.data[item] = value
   }
 
   validate() {
