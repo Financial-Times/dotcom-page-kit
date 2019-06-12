@@ -5,7 +5,7 @@ export default {
   properties: {
     abTestState: {
       type: 'string',
-      description: 'The AB test flags data as a comma delimited string',
+      description: 'The A/B test flags data as a comma delimited string',
       examples: ['subscriberCohort:on,premiumCohort:on,nonUSACohort:on'],
       pattern: '^([0-9A-Za-z]+:[0-9A-Za-z]+,?)+$'
     },
@@ -17,19 +17,19 @@ export default {
     },
     appVersion: {
       type: 'string',
-      description: 'The version of the app (usually a Git commit hash)',
+      description: 'The running version of the app (usually a Git commit hash)',
       examples: ['882797258625531f20d604f6441ef8cfcb2d772b'],
       pattern: '^.+$'
     },
     conceptId: {
       type: 'string',
-      description: 'The concept UUID for the current page',
+      description: 'The UUID of the concept on the current page',
       examples: ['c5935758-7730-11e9-bbad-7c18c0ea0201'],
       pattern: '^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}$'
     },
     conceptType: {
       type: 'string',
-      description: 'A URL that represents the concept type for the current page',
+      description: 'The type of concept on the current page',
       examples: ['http://www.ft.com/ontology/product/Brand', 'http://www.ft.com/ontology/Location'],
       pattern: '^http://www.ft.com/ontology/.+$'
     },
@@ -53,7 +53,7 @@ export default {
     },
     isProduction: {
       type: 'boolean',
-      description: 'Whether or not the app is being run in the production environment',
+      description: 'If the app is currently running in a production environment',
       default: false
     },
     product: {
@@ -64,7 +64,7 @@ export default {
     },
     publishReference: {
       type: 'string',
-      description: 'The publish reference for the content',
+      description: 'The publish reference of the content on the current page',
       examples: ['tid_17wmwszvk3'],
       pattern: '^tid_.+$'
     }

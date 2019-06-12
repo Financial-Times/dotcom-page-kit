@@ -13,12 +13,12 @@ export class AppContext {
     this.validate()
   }
 
-  get(item: string) {
-    return this.data[item]
+  get(property: string) {
+    return this.data[property]
   }
 
-  set(item: string, value: any) {
-    this.data[item] = value
+  set(property: string, value: any) {
+    this.data[property] = value
   }
 
   validate() {
