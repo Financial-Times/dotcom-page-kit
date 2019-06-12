@@ -8,7 +8,7 @@ const app = express()
 app.use(
   navigation.init(),
   assets.init({ hostStaticAssets: true }),
-  appContext.init({ appName: 'kitchen-sink' })
+  appContext.init({ context: { appName: 'kitchen-sink' } })
 )
 
 app.get('/', require('./controllers/home'))
