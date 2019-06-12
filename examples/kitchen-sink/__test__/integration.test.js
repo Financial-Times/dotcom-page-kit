@@ -1,7 +1,7 @@
 const app = require('../server/app')
 const request = require('supertest')
 
-describe('examples/express-ft-header', () => {
+describe('examples/kitchen-sink/integration', () => {
   let response
 
   beforeEach(async () => {
