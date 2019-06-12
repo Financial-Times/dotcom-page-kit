@@ -8,7 +8,7 @@ describe('anvil-server-ft-app-context/src/validate', () => {
 
   it('throws an error when given invalid data', () => {
     expect(() => subject(fixtures.invalidAppContext)).toThrow(
-      'App context data validation Error: data.isProduction should be boolean'
+      'Validation error: data.isProduction should be boolean'
     )
   })
 })

@@ -46,7 +46,7 @@ Sets the value of the specified property.
 
 ### `validate(): boolean`
 
-Validates the current data against the schema definition. If the data is invalid this method will throw an containing details of the invalid data.
+Validates the current data against the schema definition using []. If the data is invalid this method will throw an error with details of the first error encountered.
 
 
 ## Options
@@ -55,12 +55,12 @@ The `AppContext` class accepts the following parameters. All parameters are opti
 
 ### `context`
 
-An initial app context data object
+An app context data object, see [app context data](#app-context-data) for more information. Defaults to `{}`.
 
 
-## Context data
+## App Context data
 
-A summary of context data properties is displayed below but for full context please refer to the [JSON schema definition](src/schema.ts).
+A summary of app context data properties is displayed below but for full context please refer to the [JSON schema definition](src/schema.ts).
 
 | Property         | Type    | Description                                                 |
 |------------------|---------|-------------------------------------------------------------|

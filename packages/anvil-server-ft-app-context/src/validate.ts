@@ -9,6 +9,6 @@ export default function validate(contextData): boolean {
   if (isValid(contextData)) {
     return true
   } else {
-    throw Error(`App context data validation Error: ${ajv.errorsText(isValid.errors)}`)
+    throw Error(`Validation error: ${ajv.errorsText(isValid.errors)}`)
   }
 }
