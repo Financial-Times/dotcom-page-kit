@@ -13,10 +13,10 @@
     "clean:dist": "rm -rf dist",
     "clean:node_modules": "rm -rf node_modules",
     "clean:install": "npm run clean && npm i",
-    "build:node": "npm run tsc -- --outDir ./dist/node",
-    "build:browser": "npm run tsc -- --outDir ./dist/browser --module es2015 --target ES5",
+    "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
+    "build:browser": "npm run tsc -- --module es2015 --outDir ./dist/browser",
     "build": "npm run build:node && npm run build:browser",
-    "dev": "npm run clean:dist && npm run build -- --watch"
+    "dev": "echo -n node browser | parallel -u -d ' ' npm run build:{} -- --watch"
   },
   "keywords": [],
   "author": "",

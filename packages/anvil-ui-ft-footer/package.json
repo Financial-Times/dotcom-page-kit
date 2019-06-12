@@ -13,9 +13,9 @@
     "clean:dist": "rm -rf dist",
     "clean:node_modules": "rm -rf node_modules",
     "clean:install": "npm run clean && npm i",
-    "build:cjs": "npm run tsc -- --outDir ./dist/cjs --module commonjs --target es5",
-    "build": "npm run build:cjs",
-    "dev": "npm run clean:dist && npm run build:cjs -- --watch"
+    "build": "npm run build:node",
+    "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
+    "dev": "npm run build:node -- --watch"
   },
   "keywords": [],
   "author": "",
