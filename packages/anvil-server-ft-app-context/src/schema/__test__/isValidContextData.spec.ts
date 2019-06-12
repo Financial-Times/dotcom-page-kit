@@ -7,6 +7,6 @@ describe('anvil-server-ft-app-context/src/schema/isValidContextData', () => {
   })
 
   it('throws an error for invalid data', () => {
-    expect(() => subject(fixtures.invalidAppContext)).toThrowError()
+    expect(() => subject(fixtures.invalidAppContext)).toThrow()
   })
 })

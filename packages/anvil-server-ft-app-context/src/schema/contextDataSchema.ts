@@ -2,7 +2,6 @@ export default {
   $schema: 'http://json-schema.org/draft-07/schema#',
   type: 'object',
   title: 'FT App Context Schema',
-  required: ['appName'],
   properties: {
     abTestState: {
       type: 'string',
