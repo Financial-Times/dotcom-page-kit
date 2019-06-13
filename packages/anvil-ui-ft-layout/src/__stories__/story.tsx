@@ -1,6 +1,5 @@
 import React from 'react'
-import { OnReady } from '@financial-times/anvil-ui-ft-on-ready'
-
+import { OnReady } from '../../../../.storybook/components/OnReady'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, select } from '@storybook/addon-knobs'
 
