@@ -1,3 +1,3 @@
 export * from './types'
 export * from './components/AppContextEmbed'
-export * from './client/loadEmbeddedAppContextData'
+export * from './client/loadAppContext'
