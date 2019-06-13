@@ -46,7 +46,7 @@ Sets the value of the specified property.
 
 ### `validate(): boolean`
 
-Validates the current data against the schema definition using []. If the data is invalid this method will throw an error with details of the first error encountered.
+Validates the current data against the schema definition. If the data is invalid this method will throw an error with details of the first error encountered.
 
 
 ## Options
