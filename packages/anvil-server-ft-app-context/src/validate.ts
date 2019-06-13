@@ -1,5 +1,5 @@
 import Ajv from 'ajv'
-import schema from './schema'
+import schema from './schema.json'
 
 const ajv = new Ajv()
 

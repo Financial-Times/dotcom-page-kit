@@ -5,6 +5,7 @@
   "main": "dist/node/index.js",
   "types": "src/index.ts",
   "scripts": {
+    "generate-schema": "node scripts/schemaToMarkdown.js > schema.md",
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "../../node_modules/.bin/tsc",
     "clean": "npm run clean:dist && npm run clean:node_modules",
@@ -20,7 +21,9 @@
   "dependencies": {
     "ajv": "^6.10.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "json-schema-to-markdown": "^1.1.0"
+  },
   "engines": {
     "node": ">= 8.16.0"
   },

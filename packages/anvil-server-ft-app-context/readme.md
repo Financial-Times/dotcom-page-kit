@@ -58,20 +58,6 @@ The `AppContext` class accepts the following parameters. All parameters are opti
 An app context data object, see [app context data](#app-context-data) for more information. Defaults to `{}`.
 
 
-## App Context data
+## App Context Data
 
-A summary of app context data properties is displayed below but for full context please refer to the [JSON schema definition](src/schema.ts).
-
-| Property         | Type    | Description                                                 |
-|------------------|---------|-------------------------------------------------------------|
-| appName          | string  | The name of the application                                 |
-| appVersion       | string  | The running version of the app (usually a Git commit hash)  |
-| product          | string  | The product name, defaults to "next"                        |
-| abTestState      | string  | The A/B test flags data as a comma delimited string         |
-| edition          | string  | The selected FT edition                                     |
-| contentId        | string  | The UUID of the content on the current page                 |
-| contentType      | string  | The type or sub-type of the content on the current page     |
-| conceptId        | string  | The UUID of the concept on the current page                 |
-| conceptType      | string  | The type of concept on the current page                     |
-| isProduction     | boolean | If the app is currently running in a production environment |
-| publishReference | string  | The publish reference of the content on the current page    |
+Please refer to the [JSON schema definition](schema.md) for more information.
