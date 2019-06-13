@@ -1,7 +1,7 @@
 import { AppContextClient } from './src/client/AppContextClient'
-import { loadEmbeddedAppContextData } from './src/client/loadAppContext'
+import { loadAppContext } from './src/client/loadAppContext'
 
 export function init() {
-  const context = loadEmbeddedAppContextData()
+  const context = loadAppContext()
   return new AppContextClient({ context })
 }
