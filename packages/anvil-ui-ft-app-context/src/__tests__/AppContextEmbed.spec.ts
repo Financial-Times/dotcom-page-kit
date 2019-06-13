@@ -1,3 +1,4 @@
+import renderer from 'react-test-renderer'
 import { AppContextEmbed as subject } from '../components/AppContextEmbed'
 import { TAppContext } from '../types'
 
@@ -11,20 +12,8 @@ const fakeContext: TAppContext = {
 }
 
 describe('anvil-ui-ft-context/src/components/AppContextEmbed', () => {
-  it('returns a frozen object', () => {
-    const result = subject({ context: fakeContext })
-    expect(Object.isFrozen(result)).toBe(true)
-  })
-
-  it('returns a react element for generating HTML script', () => {
-    const result = subject({ context: fakeContext })
-    expect(result.type).toBe('script')
-  })
-
-  it('contains the expected context properties', () => {
-    const result = subject({ context: fakeContext })
-    const scriptHTML = result.props.dangerouslySetInnerHTML.__html
-    expect(scriptHTML).toContain('"appName":"app-name"')
-    expect(scriptHTML).toContain('"appVersion":"123"')
+  it('renders a script element containing app context properties', () => {
+    const tree = renderer.create(subject({ context: fakeContext }))
+    expect(tree).toMatchSnapshot()
   })
 })
