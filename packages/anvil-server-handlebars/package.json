@@ -2,7 +2,7 @@
   "name": "@financial-times/anvil-server-handlebars",
   "version": "0.0.0",
   "description": "",
-  "main": "node.js",
+  "main": "dist/node/index.js",
   "types": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

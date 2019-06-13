@@ -26,10 +26,10 @@ _Please note_ the template file extension registered with your application shoul
 
 ```diff
 const express = require('express')
-+ const AnvilHandlebars = require('@financial-times/anvil-server-handlebars')
++ const { HandlebarsRenderer } = require('@financial-times/anvil-server-handlebars')
 
-+ const hbs = new AnvilHandlebars(options)
-+ app.engine('.html', hbs.engine)
++ const renderer = new HandlebarsRenderer(options)
++ app.engine('.html', renderer.engine)
 ```
 
 When using this module as a view engine Express will find the template file, decorate any data passed to it with properties from `app.locals` and `response.locals`, and automatically send the rendered result. See the Express [render documentation] for more information.
@@ -57,8 +57,8 @@ _Please note_ that where to lookup template files can be configured using Expres
 This module can be used without integrating it fully into your application. This may be suitable for applications which are not built with Express or for ad-hoc template rendering needs.
 
 ```diff
-+ const AnvilHandlebars = require('@financial-times/anvil-server-handlebars')
-+ const renderer = new AnvilHandlebars(options)
++ const { HandlebarsRenderer } = require('@financial-times/anvil-server-handlebars')
++ const renderer = new HandlebarsRenderer(options)
 ```
 
 When using this module as a standalone library you will need to find template files, provide all data, and handle the rendered output manually.
