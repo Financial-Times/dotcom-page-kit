@@ -5,8 +5,11 @@ const assets = require('@financial-times/anvil-middleware-assets')
 
 const app = express()
 
-app.use(navigation.init(), assets.init({ hostStaticAssets: true }))
-app.use(appContext.init())
+app.use(
+  navigation.init(),
+  assets.init({ hostStaticAssets: true }),
+  appContext.init({ context: { appName: 'kitchen-sink' } })
+)
 
 app.get('/', require('./controllers/home'))
 

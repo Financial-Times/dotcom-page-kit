@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-describe('examples/basic-ft-ui/build', () => {
+describe('examples/kitchen-sink/build', () => {
   let output
 
   beforeAll(() => {
