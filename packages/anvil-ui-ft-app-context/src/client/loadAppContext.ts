@@ -1,7 +1,7 @@
 import { TAppContext } from '../types'
 import { APP_CONTEXT_ELEMENT_ID } from '../../constants'
 
-export default function loadEmbeddedAppContextData(): TAppContext {
+export default function loadEmbeddedAppContext(): TAppContext {
   const elem = document.getElementById(APP_CONTEXT_ELEMENT_ID)
 
   if (elem) {
