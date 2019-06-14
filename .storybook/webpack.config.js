@@ -35,7 +35,7 @@ module.exports = ({ config }) => {
     exclude: excludePaths
   })
 
-  config.resolve.extensions.push('.d.ts', '.ts', '.tsx')
+  config.resolve.extensions.push('.ts', '.tsx', '.d.ts')
 
   // Add support for styles written with Sass
   config.module.rules.push({
@@ -60,6 +60,9 @@ module.exports = ({ config }) => {
       }
     ]
   })
+
+  // HACK: Ensure we only bundle one instance of React
+  config.resolve.alias.react = require.resolve('react')
 
   return config
 }
