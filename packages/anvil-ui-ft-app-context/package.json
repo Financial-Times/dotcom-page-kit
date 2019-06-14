@@ -2,7 +2,7 @@
   "name": "@financial-times/anvil-ui-ft-app-context",
   "version": "0.0.0",
   "description": "",
-  "main": "dist/node",
+  "main": "component.js",
   "browser": "browser.js",
   "types": "src/index.ts",
   "scripts": {
