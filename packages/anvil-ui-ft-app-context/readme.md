@@ -21,9 +21,9 @@ Once you are delivering the [app context data] with your pages you can use the [
 ```js
 import * as appContext from '@financial-times/anvil-ui-ft-app-context'
 
-const appContextClient = appContext.init()
+const appContext = appContext.init()
 
-if (appContextClient.get('my-context-property')) {
+if (appContext.get('my-context-property')) {
   ...
 }
 ```
