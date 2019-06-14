@@ -1,4 +1,4 @@
-import subject from '../client/AppContextClient'
+import subject from '../client/AppContext'
 
 const fakeContext: object = {
   appName: 'app-name',
@@ -9,7 +9,7 @@ const fakeContext: object = {
   isProduction: true
 }
 
-describe('anvil-ui-ft-app-context/src/client/AppContextClient', () => {
+describe('anvil-ui-ft-app-context/src/client/AppContext', () => {
   let instance
 
   beforeEach(() => {

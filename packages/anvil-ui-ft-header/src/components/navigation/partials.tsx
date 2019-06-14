@@ -128,8 +128,8 @@ const MegaNav = ({ label, meganav, index }: { label: string; meganav: TNavMegana
       data-trackable={`meganav | ${label}`}>
       <div className="o-header__container">
         <div className="o-header__mega-wrapper">
-          {sections ? <SectionList {...(sections as INavMeganavSections)} /> : null}
-          {articles ? <ArticleList {...(articles as INavMeganavArticles)} /> : null}
+          {sections ? <SectionList {...sections as INavMeganavSections} /> : null}
+          {articles ? <ArticleList {...articles as INavMeganavArticles} /> : null}
         </div>
       </div>
     </div>
