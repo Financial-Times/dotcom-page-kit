@@ -19,6 +19,7 @@
     "@financial-times/anvil-ui-ft-layout": "file:../../packages/anvil-ui-ft-layout",
     "@financial-times/anvil-ui-ft-polyfills": "file:../../packages/anvil-ui-ft-polyfills",
     "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
+    "@financial-times/n-ads": "^1.0.0",
     "@financial-times/n-tracking": "^0.3.0",
     "express": "^4.16.2",
     "react": "^16.8.6",
