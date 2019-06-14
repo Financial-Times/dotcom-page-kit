@@ -14,6 +14,49 @@ npm install --save @financial-times/anvil-ui-ft-app-context
 After installing the package you can use it to embed app-context data into your pages on the server-side. This data can then be retrieved and used in your client-side code.
 
 
+### Server-side integration
+
+If you are using React to render your app you can use the `AppContextEmbed` component to integrate the app context data with your pages:
+
+```jsx
+import { AppContextEmbed } from '@financial-times/anvil-ui-ft-app-context'
+const context = {appName:"app-name", contextProperty:"my-property"}
+
+export default (props) => (
+  <html>
+    <head>
+      <meta charSet="utf-8" />
+      <title>My Amazing Website</title>
+      <AppContextEmbed context={context} />
+    </head>
+    <body>
+      ...
+    </body>
+  </html>
+)
+```
+
+Otherwise you can insert a JSON formatted string into a `<script>` element with an ID of `ft-app-context`.
+
+```js
+function page() {
+  return `<!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <title>My Amazing Website</title>
+      <script type="application/json" id="ft-app-context">
+        {"appName":"app-name","contextProperty":"my-property"}
+      </script>
+    </head>
+    <body>
+      ...
+    </body>
+  </html>`
+}
+```
+
+
 ### Client-side integration
 
 Once you are delivering the [app context data] with your pages you can use the [app context client] in your client-side code. The client provides methods for safely retrieving the status of individual context properties.
@@ -40,7 +83,7 @@ Initialises and returns a new [app context client] which can be used to safely a
 
 ### `get(context: string)`
 
-Returns the status for the requested context. If the context is not found or has been filtered out this will return `undefined`.
+Returns the value of the requested property. If the context is not found this will return `undefined`.
 
 ### `getAll()`
 
