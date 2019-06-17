@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
-import { AppContextClient, TAppContext } from '@financial-times/anvil-ft-app-context'
+import { AppContext, TAppContext } from '@financial-times/anvil-server-ft-app-context'
 
 export type TMiddlewareOptions = {
   context?: Partial<TAppContext>
@@ -20,7 +20,7 @@ export function init(options: TMiddlewareOptions = {}) {
       ...options.context
     }
 
-    response.locals.appContext = new AppContextClient({ context })
+    response.locals.appContext = new AppContext({ context })
 
     next()
   }
