@@ -3,7 +3,7 @@ const ReactDOM = require('react-dom/server')
 const polyfills = require('@financial-times/anvil-ui-ft-polyfills')
 const { Shell } = require('@financial-times/anvil-ui-ft-shell')
 const { Layout } = require('@financial-times/anvil-ui-ft-layout')
-const { AppContextEmbed } = require('@financial-times/anvil-ft-app-context')
+const { AppContextEmbed } = require('@financial-times/anvil-ui-ft-app-context')
 const { Slot, AdsOptionsEmbed } = require('@financial-times/n-ads')
 
 module.exports = (_, response, next) => {
@@ -49,8 +49,7 @@ module.exports = (_, response, next) => {
         pageTitle="Hello World"
         coreScripts={coreScripts}
         stylesheets={styleBundles}
-        enhancedScripts={enhancedScripts}
-        htmlAttributes={appContext.toLegacyDataAttributesObject()}>
+        enhancedScripts={enhancedScripts}>
         <AppContextEmbed context={appContext.data} />
         <AdsOptionsEmbed {...adOptions} />
         <Layout navigationData={response.locals.navigation} headerBefore={<Slot {...adSlotProps} />}>

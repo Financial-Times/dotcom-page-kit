@@ -51,11 +51,7 @@ describe('examples/kitchen-sink/integration', () => {
     expect(response.text).toContain('<p class="o-header__drawer-current-edition">International Edition</p>')
   })
 
-  it('renders app context data as legacy data attributes', () => {
-    expect(response.text).toContain('data-next-app="kitchen-sink"')
-    expect(response.text).toContain('data-next-edition="international"')
-    expect(response.text).toContain('data-next-product="next"')
+  it('renders app context data as embedded JSON', () => { //queryselector
+    expect(response.text).toContain('<script type="application/json" id="ft-app-context">')
   })
-
-  it.skip('renders app context data as embedded JSON', () => {})
 })
