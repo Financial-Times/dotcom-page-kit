@@ -3,7 +3,7 @@
 This package provides an [Express] compatible middleware which appends the [FT app context] to each request and configures it with details automatically inferred from the running application.
 
 [Express]: https://expressjs.com/
-[FT app context]: ../anvil-ft-app-context/
+[FT app context]: ../anvil-server-ft-app-context/readme.md
 
 
 ## Getting started
@@ -53,4 +53,4 @@ The middleware accepts the following parameters:
 
 An optional object of context properties. This can be used to append extra properties or override any of the properties automatically inferred from the running application.
 
-[`TAppContext`]: ../anvil-ft-app-context/readme.md#tappcontext
+[`TAppContext`]: ../anvil-server-ft-app-context/schema.md

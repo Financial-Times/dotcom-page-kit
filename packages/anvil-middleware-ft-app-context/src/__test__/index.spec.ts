@@ -1,5 +1,5 @@
 import httpMocks from 'node-mocks-http'
-import { AppContextClient } from '@financial-times/anvil-ft-app-context'
+import { AppContext } from '@financial-times/anvil-server-ft-app-context'
 import { init } from '../index'
 
 const context = {
@@ -12,7 +12,7 @@ const headers = {
   'ft-ab': 'foo:true,bar:false'
 }
 
-jest.mock('@financial-times/anvil-ft-app-context')
+jest.mock('@financial-times/anvil-server-ft-app-context')
 
 describe('anvil-middleware-ft-app-context', () => {
   let instance
@@ -40,7 +40,7 @@ describe('anvil-middleware-ft-app-context', () => {
 
       instance(request, response, next)
 
-      expect(AppContextClient).toHaveBeenCalledWith(expected)
+      expect(AppContext).toHaveBeenCalledWith(expected)
     })
 
     it('initialises app context with provided context overrides', () => {
@@ -48,12 +48,12 @@ describe('anvil-middleware-ft-app-context', () => {
 
       instance(request, response, next)
 
-      expect(AppContextClient).toHaveBeenCalledWith(expected)
+      expect(AppContext).toHaveBeenCalledWith(expected)
     })
 
     it('appends the app context instance to response.locals', () => {
       instance(request, response, next)
-      expect(response.locals.appContext).toBeInstanceOf(AppContextClient)
+      expect(response.locals.appContext).toBeInstanceOf(AppContext)
     })
 
     it('calls the fallthrough function', () => {
