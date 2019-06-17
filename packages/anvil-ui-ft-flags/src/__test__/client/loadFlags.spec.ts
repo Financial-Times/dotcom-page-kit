@@ -3,12 +3,13 @@
  */
 
 import subject from '../../client/loadFlags'
+import { SCRIPT_ELEMENT_ID } from '../../constants'
 
 describe('anvil-ui-ft-flags/src/client/loadFlags', () => {
   describe('when there is a configuration object', () => {
     beforeEach(() => {
       document.body.innerHTML = `
-        <script id="anvil-flags-data">{"foo":1,"bar":true,"baz":"qux"}</script>
+        <script id="${SCRIPT_ELEMENT_ID}">{"foo":1,"bar":true,"baz":"qux"}</script>
       `
     })
 
