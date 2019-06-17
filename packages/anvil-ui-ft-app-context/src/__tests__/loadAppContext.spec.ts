@@ -28,7 +28,7 @@ describe('anvil-ui-ft-app-context/src/client/loadAppContext', () => {
     it('returns a frozen empty object', () => {
       const result = subject()
 
-      expect(result).toBeUndefined()
+      expect(result).toEqual({})
       expect(Object.isFrozen(result)).toBe(true)
     })
   })

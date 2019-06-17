@@ -4,11 +4,15 @@ import { APP_CONTEXT_ELEMENT_ID } from '../../constants'
 export default function loadEmbeddedAppContext(): TAppContext {
   const elem = document.getElementById(APP_CONTEXT_ELEMENT_ID)
 
+  let data = {}
+
   if (elem) {
     try {
-      return Object.freeze(JSON.parse(elem.innerHTML))
+      data = JSON.parse(elem.innerHTML)
     } catch (error) {
-      console.error('App context error:', error) // eslint-disable-line no-console
+      console.error('Embedded app context could not be loaded:', error) // eslint-disable-line no-console
     }
   }
+
+  return Object.freeze(data) as TAppContext
 }
