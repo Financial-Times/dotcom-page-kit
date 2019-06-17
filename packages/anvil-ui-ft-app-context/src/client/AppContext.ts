@@ -1,10 +1,13 @@
 import { TAppContext } from '../types'
 
+export type TAppContextOptions = {
+  context: TAppContext
+}
 export default class AppContext {
-  private context: Partial<TAppContext>
+  private context: TAppContext
 
-  constructor(context: Partial<AppContext> = {}) {
-    this.context = Object.freeze(context)
+  constructor(options: TAppContextOptions) {
+    this.context = Object.freeze(options.context)
   }
 
   get(property: string): any | undefined {
