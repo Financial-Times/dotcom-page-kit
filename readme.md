@@ -82,6 +82,7 @@ To get started with Anvil, you'll need to make sure you have the following softw
 1. [Git](https://git-scm.com/)
 2. [Node.js](https://nodejs.org/en/) (version 8 or higher is required)
 3. [npm](http://npmjs.com/)
+4. [GNU Parallel](https://www.gnu.org/software/parallel/) (Optional, for running parallel `watch` scripts)
 
 Please note that Anvil has only been tested in Mac and Linux environments. If you are on a Mac you may find it easiest to install the [Command Line Tools](https://developer.apple.com/download/more/) package which includes Git.
 
