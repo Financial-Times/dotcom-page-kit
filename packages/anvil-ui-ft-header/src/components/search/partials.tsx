@@ -38,7 +38,7 @@ const Search = ({ context }) => {
           <button
             className="o-header__search-close o--if-js"
             type="button"
-            aria-controls={`"o-header-search-${context}`}
+            aria-controls={`o-header-search-${context}`}
             title="Close search bar"
             data-trackable="close">
             <span className="o-header__visually-hidden">Close search bar</span>

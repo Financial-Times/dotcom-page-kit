@@ -134,7 +134,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
           Search
         </button>
         <button
-          aria-controls="\\"o-header-search-primary"
+          aria-controls="o-header-search-primary"
           className="o-header__search-close o--if-js"
           data-trackable="close"
           title="Close search bar"
@@ -1961,7 +1961,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous us
           Search
         </button>
         <button
-          aria-controls="\\"o-header-search-primary"
+          aria-controls="o-header-search-primary"
           className="o-header__search-close o--if-js"
           data-trackable="close"
           title="Close search bar"
