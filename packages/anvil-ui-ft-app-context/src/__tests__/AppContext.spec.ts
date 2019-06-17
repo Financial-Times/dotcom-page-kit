@@ -1,12 +1,14 @@
 import subject from '../client/AppContext'
 
-const fakeContext: object = {
-  appName: 'app-name',
-  appVersion: '123',
-  edition: 'uk',
-  product: 'next',
-  abTestState: 'someCohort:on',
-  isProduction: true
+const fakeContext = {
+  context: {
+    appName: 'app-name',
+    appVersion: '123',
+    edition: 'uk',
+    product: 'next',
+    abTestState: 'someCohort:on',
+    isProduction: true
+  }
 }
 
 describe('anvil-ui-ft-app-context/src/client/AppContext', () => {
@@ -29,7 +31,7 @@ describe('anvil-ui-ft-app-context/src/client/AppContext', () => {
 
   describe('.getAll()', () => {
     it('returns all context data', () => {
-      expect(instance.getAll()).toEqual(fakeContext)
+      expect(instance.getAll()).toEqual(fakeContext.context)
     })
 
     it('freezes the context data', () => {
