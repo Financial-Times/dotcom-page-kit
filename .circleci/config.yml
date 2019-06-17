@@ -88,6 +88,9 @@ jobs:
       - run:
           name: Run example app integration tests
           command: npm run test:examples
+      - run:
+          name: Run storybook
+          command: npm run storybook
 
   publish:
     <<: *container_config_node
