@@ -45,6 +45,7 @@ export function plugin() {
   function addSharedStableCodeSplitting() {
     return createBundleWithPackages('shared.stable', [
       'dom-loaded',
+      'focus-visible',
       'fontfaceobserver',
       'ftdomdelegate',
       'morphdom',
