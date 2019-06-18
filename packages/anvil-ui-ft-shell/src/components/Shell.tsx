@@ -6,6 +6,7 @@ import { AppContextEmbed, TAppContextProps } from '@financial-times/anvil-ui-ft-
 import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/anvil-ui-ft-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/anvil-ui-bootstrap'
 import formatAttributeNames, { TAttributeData } from '../lib/formatAttributeNames'
+import CoreTracking from './CoreTracking'
 
 type TShellProps = TDocumentHeadProps &
   TAppContextProps &
@@ -41,6 +42,7 @@ function Shell(props: TShellProps) {
           enhancedScripts={props.enhancedScripts}
           trackErrors={true}
         />
+        <CoreTracking app="app-name" />
       </head>
       <Body {...formatAttributeNames(props.bodyAttributes)} contents={props.contents || props.children} />
     </html>
