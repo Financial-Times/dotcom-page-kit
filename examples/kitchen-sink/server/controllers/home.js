@@ -4,6 +4,7 @@ const polyfills = require('@financial-times/anvil-ui-ft-polyfills')
 const { Shell } = require('@financial-times/anvil-ui-ft-shell')
 const { Layout } = require('@financial-times/anvil-ui-ft-layout')
 const { AppContextEmbed } = require('@financial-times/anvil-ft-app-context')
+const { Slot, AdsOptionsEmbed } = require('@financial-times/n-ads')
 
 module.exports = (_, response, next) => {
   try {
@@ -21,6 +22,27 @@ module.exports = (_, response, next) => {
 
     response.set('Link', response.locals.assets.resourceHints.toString())
 
+    const adOptions = {
+      ...appContext.data,
+      appName: 'kitchen-sink',
+      dfp_site: 'ft.com',
+      dfp_zone: 'Home/UK'
+    }
+
+    const adSlotProps = {
+      name: 'leaderboard',
+      formatSmall: false,
+      formatsLarge: 'SuperLeaderboard,Leaderboard,Responsive',
+      formatsExtra: 'Billboard,SuperLeaderboard,Leaderboard,Responsive',
+      targeting: {
+        pos: 'top'
+      },
+      style: {
+        width: '100%',
+        textAlign: 'center'
+      }
+    }
+
     const Page = () => (
       <Shell
         flags={flags}
@@ -30,8 +52,8 @@ module.exports = (_, response, next) => {
         enhancedScripts={enhancedScripts}
         htmlAttributes={appContext.toLegacyDataAttributesObject()}>
         <AppContextEmbed context={appContext.data} />
-
-        <Layout navigationData={response.locals.navigation}>
+        <AdsOptionsEmbed {...adOptions} />
+        <Layout navigationData={response.locals.navigation} headerBefore={<Slot {...adSlotProps} />}>
           <div align="center">
             <p className="hello">Hello, welcome to Anvil.</p>
           </div>
