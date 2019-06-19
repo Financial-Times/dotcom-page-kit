@@ -2,7 +2,7 @@ import React from 'react'
 import { TAppContext } from '../types'
 import { APP_CONTEXT_ELEMENT_ID } from '../constants'
 
-export interface TAppContextProps {
+export type TAppContextProps = {
   context: TAppContext
 }
 
