@@ -11,11 +11,11 @@
     "test": "../../node_modules/.bin/jest"
   },
   "dependencies": {
-    "@financial-times/anvil-ui-ft-app-context": "file:../../packages/anvil-ui-ft-app-context",
-    "@financial-times/anvil-server-ft-app-context": "file:../../packages/anvil-server-ft-app-context",
     "@financial-times/anvil-middleware-assets": "file:../../packages/anvil-middleware-assets",
     "@financial-times/anvil-middleware-ft-app-context": "file:../../packages/anvil-middleware-ft-app-context",
     "@financial-times/anvil-middleware-ft-navigation": "file:../../packages/anvil-middleware-ft-navigation",
+    "@financial-times/anvil-server-ft-app-context": "file:../../packages/anvil-server-ft-app-context",
+    "@financial-times/anvil-ui-ft-app-context": "file:../../packages/anvil-ui-ft-app-context",
     "@financial-times/anvil-ui-ft-flags": "file:../../packages/anvil-ui-ft-flags",
     "@financial-times/anvil-ui-ft-layout": "file:../../packages/anvil-ui-ft-layout",
     "@financial-times/anvil-ui-ft-polyfills": "file:../../packages/anvil-ui-ft-polyfills",
