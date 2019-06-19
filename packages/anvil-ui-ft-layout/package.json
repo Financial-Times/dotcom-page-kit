@@ -25,7 +25,7 @@
     "@financial-times/anvil-ui-ft-header": "file:../anvil-ui-ft-header",
     "@financial-times/anvil-ui-ft-footer": "file:../anvil-ui-ft-footer",
     "@financial-times/anvil-types-navigation": "file:../anvil-types-navigation",
-    "focus-visible": "^5.0.0"
+    "focus-visible": "^4.1.5"
   },
   "peerDependencies": {
     "react": "^16.8.6"
