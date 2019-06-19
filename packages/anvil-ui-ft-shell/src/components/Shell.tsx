@@ -27,6 +27,7 @@ function Shell(props: TShellProps) {
       style={{ backgroundColor: '#fff1e5', color: '#33302e' }}>
       <head>
         <DocumentHead {...props} />
+        {/* TODO: refactor initial props, flags data, and context data to the bottom of body */}
         <script
           id="initial-props"
           type="application/json"
