@@ -94,11 +94,8 @@ jobs:
     steps:
       - *attach_workspace
       - run:
-          name: Clone next-ci-shared-helpers
-          command: git clone --depth 1 git@github.com:Financial-Times/next-ci-shared-helpers.git .circleci/shared-helpers
-      - run:
           name: Set npm auth token
-          command: .circleci/shared-helpers/helper-npm-store-auth-token
+          command: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ${HOME}/.npmrc
       - run:
           name: Bump version
           command: npx athloi version ${CIRCLE_TAG}
