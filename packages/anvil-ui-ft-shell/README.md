@@ -105,6 +105,10 @@ An array of stylesheet URLs to be loaded using `<link rel="stylesheet" />` tags.
 
 An optional string of CSS to embed into the page. Defaults to setting the background colour to FT pink.
 
+#### `context` (object)
+
+A data object which will be passed to the [FT app context] component.
+
 #### `flags` (object)
 
 A data object which will be passed to the [feature flags] component.
@@ -170,6 +174,7 @@ An optional object describing the [Open Graph] metadata to add to the page. The 
 
 [JavaScript bootstrap]: ../anvil-ui-bootstrap/readme.md
 [feature flags]: ../anvil-ui-ft-flags/readme.md
+[FT app context]: ../anvil-ui-ft-app-context/readme.md
 [Open Graph]: http://ogp.me/
 [linked data]: https://w3.org/standards/semanticweb/data
 [JSON-LD]: https://json-ld.org/
