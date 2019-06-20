@@ -1,46 +1,41 @@
 import React from 'react'
 
-export default function CoreTracking({ app }) {
-  const noJS = JSON.stringify({
+const pixel = 'https://spoor-api.ft.com/px.gif?data='
+
+export default function CoreTracking({ context }) {
+  const trackingData = {
     category: 'page',
     action: 'view',
     system: {
       source: 'non-ctm'
     },
     context: {
+      ...context,
       product: 'next',
-      app: app,
-      data: { source: 'noscript' }
+      data: { source: 'SOURCE' }
     }
-  })
+  }
 
-  // NOTE: This will be stringified and embedded so use ES5 only!
+  const encodedTrackingData = encodeURIComponent(JSON.stringify(trackingData))
+
+  // NOTE: This function will be stringified and embedded so use ES5 only!
   function coreExperience() {
     if (/\bcore\b/.test(document.documentElement.className)) {
-      var data = JSON.stringify({
-        category: 'page',
-        action: 'view',
-        system: {
-          source: 'non-ctm'
-        },
-        context: {
-          product: 'next',
-          app: app,
-          data: { source: 'core-experience' }
-        }
-      })
-
+      var currentScript = document.scripts[document.scripts.length - 1]
       var img = new Image()
 
-      img.src = 'https://spoor-api.ft.com/px.gif?data=' + encodeURIComponent(data)
+      img.src = currentScript.getAttribute('data-pixel-src')
     }
   }
 
   return (
     <React.Fragment>
-      <script dangerouslySetInnerHTML={{ __html: '(' + coreExperience.toString() + ')();' }} />
+      <script
+        data-pixel-src={pixel + encodedTrackingData.replace('SOURCE', 'core-experience')}
+        dangerouslySetInnerHTML={{ __html: '(' + coreExperience.toString() + ')();' }}
+      />
       <noscript>
-        <img src={`https://spoor-api.ft.com/px.gif?data=${encodeURIComponent(noJS)}`} />
+        <img src={pixel + encodedTrackingData.replace('SOURCE', 'no-js')} />
       </noscript>
     </React.Fragment>
   )

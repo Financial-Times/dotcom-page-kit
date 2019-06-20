@@ -42,7 +42,7 @@ function Shell(props: TShellProps) {
           enhancedScripts={props.enhancedScripts}
           trackErrors={true}
         />
-        <CoreTracking app="app-name" />
+        <CoreTracking context={props.context} />
       </head>
       <Body {...formatAttributeNames(props.bodyAttributes)} contents={props.contents || props.children} />
     </html>
