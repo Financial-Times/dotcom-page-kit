@@ -67,8 +67,6 @@ export function Layout({
    */
   const Preset = getLayoutPreset(header, footer)
 
-  const defaultHeaderBeforeStyles = `n-layout__header-before`
-
   return (
     <div className="n-layout o-typography--loading-sans o-typography--loading-sansBold o-typography--loading-display o-typography--loading-displayBold">
       <EnhanceFonts />
@@ -89,9 +87,9 @@ export function Layout({
       </a>
 
       <div className="n-layout__row n-layout__row--header">
-        <Template className={defaultHeaderBeforeStyles}>{headerBefore}</Template>
+        <Template className="n-layout__header-before">{headerBefore}</Template>
         {Preset.header ? <Preset.header {...headerOptions} data={navigationData} variant={header} /> : header}
-        <Template>{headerAfter}</Template>
+        <Template className="n-layout__header-after">{headerAfter}</Template>
       </div>
 
       <div className="n-layout__row n-layout__row--content">
@@ -99,9 +97,9 @@ export function Layout({
       </div>
 
       <div className="n-layout__row n-layout__row--footer">
-        <Template>{footerBefore}</Template>
+        <Template className="n-layout__footer-before">{footerBefore}</Template>
         {Preset.footer ? <Preset.footer {...footerOptions} data={navigationData} variant={footer} /> : footer}
-        <Template>{footerAfter}</Template>
+        <Template className="n-layout__footer-after">{footerAfter}</Template>
       </div>
 
       {/* Always render the drawer if there is a default header being used */}
