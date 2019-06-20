@@ -15,6 +15,10 @@
   height: 100%;
 }
 
+.n-layout__header-before {
+  background-color: oColorsGetPaletteColor('black-20')
+}
+
 .n-layout__skip-link {
   @include nUiZIndexFor('notification');
   position: absolute;

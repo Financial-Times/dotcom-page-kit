@@ -67,6 +67,8 @@ export function Layout({
    */
   const Preset = getLayoutPreset(header, footer)
 
+  const defaultHeaderBeforeStyles = `n-layout__header-before`
+
   return (
     <div className="n-layout o-typography--loading-sans o-typography--loading-sansBold o-typography--loading-display o-typography--loading-displayBold">
       <EnhanceFonts />
@@ -87,7 +89,7 @@ export function Layout({
       </a>
 
       <div className="n-layout__row n-layout__row--header">
-        <Template>{headerBefore}</Template>
+        <Template className={defaultHeaderBeforeStyles}>{headerBefore}</Template>
         {Preset.header ? <Preset.header {...headerOptions} data={navigationData} variant={header} /> : header}
         <Template>{headerAfter}</Template>
       </div>
