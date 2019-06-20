@@ -49,6 +49,13 @@ references:
       only:
         - master
 
+  filters_release_build: &filters_release_build
+    tags:
+      only:
+        - /^v\d+\.\d+\.\d+(?:-\w+\.\d+)?$/
+    branches:
+      ignore: /.*/
+
 jobs:
 
   build:
@@ -82,6 +89,23 @@ jobs:
           name: Run example app integration tests
           command: npm run test:examples
 
+  publish:
+    <<: *container_config_node8
+    steps:
+      - *attach_workspace
+      - run:
+          name: Clone next-ci-shared-helpers
+          command: git clone --depth 1 git@github.com:Financial-Times/next-ci-shared-helpers.git .circleci/shared-helpers
+      - run:
+          name: Set npm auth token
+          command: .circleci/shared-helpers/helper-npm-store-auth-token
+      - run:
+          name: Bump version
+          command: npx athloi version ${CIRCLE_TAG}
+      - run:
+          name: NPM publish
+          command: npx athloi publish -- --access=public
+
 workflows:
 
   version: 2
@@ -96,3 +120,19 @@ workflows:
             <<: *filters_branch_build
           requires:
             - build
+
+  build-test-publish:
+    jobs:
+      - build:
+          filters:
+            <<: *filters_release_build
+      - test:
+          filters:
+            <<: *filters_release_build
+          requires:
+            - build
+      - publish:
+          filters:
+            <<: *filters_release_build
+          requires:
+            - test
