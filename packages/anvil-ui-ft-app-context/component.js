@@ -1,1 +1,1 @@
-module.exports = require('./dist/node/components/AppContextEmbed')
+module.exports = require('./dist/node/index')

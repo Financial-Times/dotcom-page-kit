@@ -5,6 +5,11 @@ import { Layout } from '@financial-times/anvil-ui-ft-layout'
 import * as polyfills from '@financial-times/anvil-ui-ft-polyfills'
 
 export function homeController(_, response, next) {
+  const appContext = {
+    appName: 'ft-ui',
+    edition: response.locals.navigation.editions.current.id
+  }
+
   const pageData = {
     title: 'Hello World!',
     contents: '<div align="center"><p>Hello, welcome to Anvil.</p></div>'
@@ -14,7 +19,8 @@ export function homeController(_, response, next) {
     coreScripts: [polyfills.core],
     enhancedScripts: [polyfills.enhanced, 'public/scripts.bundle.js'],
     stylesheets: ['public/styles.css'],
-    pageTitle: pageData.title
+    pageTitle: pageData.title,
+    context: appContext
   }
 
   const layoutProps = {
