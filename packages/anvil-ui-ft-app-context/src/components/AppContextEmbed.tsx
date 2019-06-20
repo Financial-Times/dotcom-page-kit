@@ -3,7 +3,7 @@ import { TAppContext } from '../types'
 import { APP_CONTEXT_ELEMENT_ID } from '../constants'
 
 export type TAppContextProps = {
-  context: TAppContext
+  context?: TAppContext
 }
 
 export function AppContextEmbed({ context }: TAppContextProps) {
