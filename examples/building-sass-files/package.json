@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "@financial-times/anvil-cli": "file:../../packages/anvil-cli",
-    "@financial-times/anvil-plugin-sass": "file:../../packages/anvil-plugin-sass"
+    "@financial-times/anvil-plugin-sass": "file:../../packages/anvil-plugin-sass",
+    "@financial-times/o-normalise": "^1.7.2"
   }
 }
