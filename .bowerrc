@@ -4,8 +4,5 @@
       "https://origami-bower-registry.ft.com",
       "https://registry.bower.io"
     ]
-  },
-  "resolvers": [
-    "bower-glob-resolver"
-  ]
+  }
 }
