@@ -1,4 +1,4 @@
-const esnext = require('@financial-times/anvil-plugin-esnext')
+const esnext = require('@financial-times/anvil-build-esnext')
 
 module.exports = {
   plugins: [

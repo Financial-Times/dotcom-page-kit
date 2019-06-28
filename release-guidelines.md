@@ -4,9 +4,9 @@
 
 Only stable, well tested packages should be present in the master or development branches. This is so we do not release unproven components with a stable version number.
 
-To develop your package create a new feature branch including your package name, for example if you are building a new Sass plugin you would create a branch named `anvil-plugin-sass`. Your component will stay in this branch until it is ready to be merged into the next major or minor release so you are encouraged to merge from or rebase onto the latest development or master branch regularly. You are welcome to raise pull requests against your feature branch if you need to.
+To develop your package create a new feature branch including your package name, for example if you are building a new Sass plugin you would create a branch named `anvil-build-sass`. Your component will stay in this branch until it is ready to be merged into the next major or minor release so you are encouraged to merge from or rebase onto the latest development or master branch regularly. You are welcome to raise pull requests against your feature branch if you need to.
 
-Because experimental modules will not be included in any stable releases we allow them to be published separately using a pre-1.0.0 version number. You are free to make as many prereleases as you need. To create a prerelease of your experimental module you must create a tag in the format `module-name-v0.x.x`, for example to release the Sass component you would create tag named `anvil-plugin-sass-v0.0.1` for the latest commit in the `anvil-plugin-sass` branch.
+Because experimental modules will not be included in any stable releases we allow them to be published separately using a pre-1.0.0 version number. You are free to make as many prereleases as you need. To create a prerelease of your experimental module you must create a tag in the format `module-name-v0.x.x`, for example to release the Sass component you would create tag named `anvil-build-sass-v0.0.1` for the latest commit in the `anvil-build-sass` branch.
 
 When your new module is considered stable raise a pull request against the current development branch. Your module will be released as part of the next major or minor version.
 
