@@ -1,4 +1,4 @@
-# @financial-times/anvil-plugin-ft-js
+# @financial-times/anvil-build-ft-js
 
 This module extends the [Anvil CLI build action][cli] (`anvil build`) with the ability to build JavaScript that makes use of features that are specific to [ft.com]
 
@@ -11,13 +11,13 @@ This module extends the [Anvil CLI build action][cli] (`anvil build`) with the a
 This module is compatible with Node 8+ and is distributed on npm.
 
 ```
-npm install --save-dev @financial-times/anvil-plugin-ft-js
+npm install --save-dev @financial-times/anvil-build-ft-js
 ```
 
 After installing the module you must add it to the list of plugins in your project's `anvil.config.js` configuration file:
 
 ```diff
-+ const js = require('@financial-times/anvil-plugin-ft-js')
++ const js = require('@financial-times/anvil-build-ft-js')
 
 module.exports = {
   plugins: [
@@ -47,7 +47,7 @@ Several [hooks](#hooks) are provided in order to access and modify the configura
 This plugin exposes the following hooks as extension points. They are available as constants on the exported `hooks` object.
 
 ```js
-import { hooks } from '@financial-times/anvil-plugin-ft-js'
+import { hooks } from '@financial-times/anvil-build-ft-js'
 ```
 
 _Please note: The hooks below are listed in the order they will be executed._

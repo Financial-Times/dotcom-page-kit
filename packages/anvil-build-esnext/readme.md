@@ -1,4 +1,4 @@
-# @financial-times/anvil-plugin-esnext
+# @financial-times/anvil-build-esnext
 
 This package extends the [Anvil CLI build action][cli] (`anvil build`) with the ability to build JavaScript that makes use of features that fall under the [`esnext`] banner
 
@@ -11,13 +11,13 @@ This package extends the [Anvil CLI build action][cli] (`anvil build`) with the 
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
-npm install --save-dev @financial-times/anvil-plugin-esnext
+npm install --save-dev @financial-times/anvil-build-esnext
 ```
 
 After installing the package you must add it to the list of plugins in your project's `anvil.config.js` configuration file:
 
 ```diff
-+ const esnext = require('@financial-times/anvil-plugin-esnext')
++ const esnext = require('@financial-times/anvil-build-esnext')
 
 module.exports = {
   plugins: [
@@ -42,7 +42,7 @@ There are currently no additional options for this plugin.
 This plugin exposes the following hooks as extension points. They are available as constants on the exported `hooks` object.
 
 ```js
-import { hooks } from '@financial-times/anvil-plugin-esnext'
+import { hooks } from '@financial-times/anvil-build-esnext'
 ```
 
 _Please note: The hooks below are listed in the order they will be executed._

@@ -5,4 +5,4 @@ This example demonstrates how to compile Sass source code using the [Anvil CLI] 
 Source files are stored in the `src/` directory and the output will be stored in a directory named `dist/`. To run the build script run `npm run build`.
 
 [Anvil CLI]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil
-[Anvil Sass plugin]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-sass
+[Anvil Sass plugin]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-build-sass

@@ -1,4 +1,4 @@
-# @financial-times/anvil-plugin-ft-js-code-splitting
+# @financial-times/anvil-build-ft-js-code-splitting
 
 This package extends the [Anvil CLI build action][cli] (`anvil build`) with code splitting functionality in accordance with the [FT.com code splitting] strategy.
 
@@ -11,13 +11,13 @@ This package extends the [Anvil CLI build action][cli] (`anvil build`) with code
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```
-npm install --save-dev @financial-times/anvil-plugin-ft-js-code-splitting
+npm install --save-dev @financial-times/anvil-build-ft-js-code-splitting
 ```
 
 After installing the package you must add it to the list of plugins in your project's `anvil.config.js` configuration file:
 
 ```diff
-+ const codeSplitting = require('@financial-times/anvil-plugin-ft-js-code-splitting')
++ const codeSplitting = require('@financial-times/anvil-build-ft-js-code-splitting')
 
 module.export = {
   plugins: [

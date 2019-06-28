@@ -41,6 +41,6 @@ The [ft-js-code-splitting] plugin bundles application code as follows:
  - A webpack runtime bundle. Webpack generates a webpack runtime which contains all of the code webpack needs to load your chunked code in the browser.
 
 
-[ft-js-code-splitting]:https://github.com/Financial-Times/anvil/tree/master/packages/anvil-plugin-ft-js-code-splitting
+[ft-js-code-splitting]:https://github.com/Financial-Times/anvil/tree/master/packages/anvil-build-ft-js-code-splitting
 [chunked]:https://webpack.js.org/glossary/#c
 [bundles]:https://webpack.js.org/glossary/#b
