@@ -68,7 +68,7 @@ export function Layout({
   const Preset = getLayoutPreset(header, footer)
 
   return (
-    <div className="n-layout o-typography--loading-sans o-typography--loading-sansBold o-typography--loading-display o-typography--loading-displayBold">
+    <div className="n-layout o-typography--loading-sans o-typography--loading-sansBold o-typography--loading-display o-typography--loading-displayBold" data-o-component="o-typography">
       <EnhanceFonts />
       <a
         data-trackable="a11y-skip-to-help"
