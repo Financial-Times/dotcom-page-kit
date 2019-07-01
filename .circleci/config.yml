@@ -90,7 +90,7 @@ jobs:
           command: npm run test:examples
       - run:
           name: Run storybook
-          command: npm run storybook
+          command: npm run storybook:ci
 
   publish:
     <<: *container_config_node
