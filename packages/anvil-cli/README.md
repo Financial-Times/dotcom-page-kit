@@ -20,7 +20,7 @@ module.exports = {
 }
 ```
 
-The `plugins` property is used to supply the plugins that should be loaded by the anvil CLI. These plugins should be installed in your project as development dependencies. The available plugins, by convention, all have names that start with `anvil-cli-`.
+The `plugins` property is used to supply the plugins that should be loaded by the anvil CLI. These plugins should be installed in your project as development dependencies. Plugins by convention have names matching the CLI action, e.g. `anvil-build-`.
 
 The `settings` property is used to provide specific configuration for the individual CLI actions. These settings are covered below (see [actions](#actions).)
 

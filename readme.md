@@ -119,7 +119,7 @@ The repository groups all public packages together in a single `packages/` direc
 Packages follow a naming convention which broadly denotes their functionality, these are:
 
 - `anvil-middleware-*` An [Express] compatible middleware
-- `anvil-build-*` A plugin for the Anvil CLI tool
+- `anvil-build-*` A plugin for the Anvil CLI build action
 - `anvil-server-*` A generic Node.js module
 - `anvil-types-*` Shared TypeScript declaration files
 - `anvil-ui-*` A UI component
