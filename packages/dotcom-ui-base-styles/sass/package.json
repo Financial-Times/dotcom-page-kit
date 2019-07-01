@@ -11,7 +11,8 @@
     "commit": "commit-wizard",
     "precommit": "node_modules/.bin/secret-squirrel",
     "prepush": "make verify -j3",
-    "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg"
+    "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
+    "prepare": "npx snyk protect || npx snyk protect -d || true"
   },
   "repository": {
     "type": "git",
@@ -48,6 +49,7 @@
     "lintspaces-cli": "^0.6.0",
     "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0",
+    "snyk": "^1.168.0",
     "webpack": "^1.14.0"
   },
   "dependencies": {
