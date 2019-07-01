@@ -21,8 +21,10 @@
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
     "script:update": "node scripts/update-dep",
     "storybook": "npm run storybook:generate && npm run storybook:start",
+    "storybook:ci": "npm run storybook:generate && npm run storybook:start:ci",
+    "storybook:generate": "node ./.storybook/scripts/generateConfig",
     "storybook:start": "start-storybook -p 9001 -c .storybook",
-    "storybook:generate": "node ./.storybook/scripts/generateConfig"
+    "storybook:start:ci": "start-storybook -c .storybook --ci --smoke-test"
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
