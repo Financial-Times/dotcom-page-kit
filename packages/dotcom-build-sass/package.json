@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-build-sass",
+  "name": "@financial-times/dotcom-build-sass",
   "version": "0.0.0",
   "description": "",
   "main": "dist/node/index.js",
@@ -40,7 +40,7 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/anvil.git",
-    "directory": "packages/anvil-build-sass"
+    "directory": "packages/dotcom-build-sass"
   },
-  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-build-sass"
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-sass"
 }

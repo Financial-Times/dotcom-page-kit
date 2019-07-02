@@ -24,7 +24,7 @@
     "@financial-times/anvil-cli": "file:../../packages/anvil-cli",
     "@financial-times/dotcom-build-bower-resolve": "file:../../packages/dotcom-build-bower-resolve",
     "@financial-times/dotcom-build-js": "file:../../packages/dotcom-build-js",
-    "@financial-times/anvil-build-sass": "file:../../packages/anvil-build-sass",
+    "@financial-times/dotcom-build-sass": "file:../../packages/dotcom-build-sass",
     "dom-loaded": "^1.2.0",
     "nodemon": "^1.18.9"
   }
