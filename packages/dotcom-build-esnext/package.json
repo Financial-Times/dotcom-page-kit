@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-build-esnext",
+  "name": "@financial-times/dotcom-build-esnext",
   "version": "0.0.0",
   "description": "",
   "main": "dist/node/index.js",
@@ -34,7 +34,7 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/anvil.git",
-    "directory": "packages/anvil-build-esnext"
+    "directory": "packages/dotcom-build-esnext"
   },
-  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-build-esnext"
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-esnext"
 }
