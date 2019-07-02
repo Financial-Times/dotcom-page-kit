@@ -1,4 +1,4 @@
-# @financial-times/anvil-build-css
+# @financial-times/dotcom-build-css
 
 This package extends the [Anvil CLI build action][cli] (`anvil build`) with a way to load and generate CSS files.
 
@@ -10,13 +10,13 @@ This package extends the [Anvil CLI build action][cli] (`anvil build`) with a wa
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
-npm install --save-dev @financial-times/anvil-build-css
+npm install --save-dev @financial-times/dotcom-build-css
 ```
 
 After installing the package you must add it to the list of plugins in your project's `anvil.config.js` configuration file:
 
 ```diff
-+ const css = require('@financial-times/anvil-build-css')
++ const css = require('@financial-times/dotcom-build-css')
 
 module.exports = {
   plugins: [
@@ -56,7 +56,7 @@ There are currently no additional options for this plugin.
 This plugin exposes the following hooks as extension points. They are available as constants on the exported `hooks` object.
 
 ```js
-import { hooks } from '@financial-times/anvil-build-css'
+import { hooks } from '@financial-times/dotcom-build-css'
 ```
 
 _Please note: The hooks below are listed in the order they will be executed._
