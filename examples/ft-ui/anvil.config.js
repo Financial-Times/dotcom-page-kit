@@ -1,7 +1,7 @@
 const path = require('path')
 const bower = require('@financial-times/dotcom-build-bower-resolve')
 const sass = require('@financial-times/anvil-build-sass')
-const js = require('@financial-times/anvil-build-ft-js')
+const js = require('@financial-times/dotcom-build-js')
 
 module.exports = {
   plugins: [
