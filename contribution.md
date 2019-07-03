@@ -1,6 +1,6 @@
 # Contribution
 
-So you'd like to contribute some code, report a bug, or request a feature? You're in the right place! This guide covers the basics of starting to contribute to Anvil.
+So you'd like to contribute some code, report a bug, or request a feature? You're in the right place! This guide covers the basics of starting to contribute to Page Kit.
 
   - [Reporting Bugs](#reporting-bugs)
   - [Requesting Features](#requesting-features)
@@ -41,7 +41,7 @@ When making a feature request, it's helpful for us if you follow these guideline
     If you phrase your feature request as a user need rather than a proposed solution, it opens up more potential for discussion and collaboration – _way_ more fun for everyone.
 
   - ### Does it have proven value?
-    New features should consider the product vision and wider FT technology programme goals. Components and tools within Anvil should have proven value and defined use-cases applicable to the majority of implementers.
+    New features should consider the product vision and wider FT technology programme goals. Components and tools within Page Kit should have proven value and defined use-cases applicable to the majority of implementers.
 
   - ### Open multiple feature requests
     If you have multiple different requests, it's best to open each as a separate GitHub issue.
@@ -51,7 +51,7 @@ It's important to note that we can't accept _every_ feature request, we'll alway
 
 ## Opening a pull request
 
-Please do! All of the code in Anvil is peer-reviewed by members of the FT customer products team. Here are some things you can do to help this review go smoothly:
+Please do! All of the code in Page Kit is peer-reviewed by members of the FT customer products team. Here are some things you can do to help this review go smoothly:
 
   - ### Discuss features first
     If you're thinking of opening a pull request that adds a feature, you'll save yourself some time and effort if you [discuss it in a feature request first](#requesting-features). The review is guaranteed to go more smoothly if we've chatted about it beforehand.
@@ -63,7 +63,7 @@ Please do! All of the code in Anvil is peer-reviewed by members of the FT custom
     The user documentation should be kept up to date with any changes made. Use inline code comments as developer documentation, focusing more on _why_ your code does something than _what_ it's doing.
 
   - ### Avoid hacks or temporary workarounds
-    The stability of Anvil is vital for it to be successful and sustainable. As well as maintaining quality it is important to consider that applications can have very different lifespans; a "quick hack" may remain in production for several months longer than it is required. If you need a hack try to keep it in your app!
+    The stability of Page Kit is vital for it to be successful and sustainable. As well as maintaining quality it is important to consider that applications can have very different lifespans; a "quick hack" may remain in production for several months longer than it is required. If you need a hack try to keep it in your app!
 
   - ### Reviewers are empowered to say no
     This is a collaborative project and sometimes your pull request may not work in the best interests of those in another team so they have been given the power to say "no". If your pull request is good but would require a major release then it may be held until a more suitable time.
@@ -88,7 +88,7 @@ This project follows a workflow designed around project releases. It is less str
 
 ## Code style
 
-The best way to ensure you stick to the Anvil code style is to make your work consistent with the code around it. We also provide a [Prettier] configuration to automatically format files and run [ESLint] before any tests so don't let it get in the way of your flow – you can fix it afterwards!
+The best way to ensure you stick to the Page Kit code style is to make your work consistent with the code around it. We also provide a [Prettier] configuration to automatically format files and run [ESLint] before any tests so don't let it get in the way of your flow – you can fix it afterwards!
 
 [Prettier]: https://prettier.io/
 [ESLint]: https://eslint.org/
