@@ -5,7 +5,6 @@
 - [Amending supplementary resources](#amending-supplementary-resources)
 - [Publishing resources from plugins](#publishing-resources-from-plugins)
 - [Returning values from handlers](#returning-values-from-handlers)
-- [Existing plugins](#existing-plugins)
 - [Best practices for creating plugins](#best-practices-for-creating-plugins)
   - [Don't use `webpack-merge`](#dont-use-webpack-merge)
   - [Array items of note should be published for amendment](#array-items-of-note-should-be-published-for-amendment)
@@ -84,14 +83,13 @@ function plugin({ on }) {
 }
 ```
 
-Webpack [rules] and [plugin] options are the supplementary resources that are commonly published, and they are published from both the [Page Kit CLI] and [individual plugins]. So for a list of all the resources that will be published during the life cycle of invoking the `anvil build` CLI command, see the README documentation of both the CLI and the plugins that will be used.
+Webpack [rules] and [plugin] options are the supplementary resources that are commonly published, and they are published from both the [Page Kit CLI] and individual plugins. So for a list of all the resources that will be published during the life cycle of invoking the `anvil build` CLI command, see the README documentation of both the CLI and the plugins that will be used.
 
 [rules]: https://webpack.js.org/configuration/module/#modulerules
 [plugin]: https://webpack.js.org/plugins/
 [unsafe]: #array-items-of-note-should-be-published-for-amendment
 [Page Kit CLI]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-cli
 [clean-webpack-plugin]: https://github.com/johnagan/clean-webpack-plugin
-[individual plugins]: #existing-plugins
 
 ## Publishing resources from plugins
 
@@ -202,19 +200,6 @@ destArray.push(...srcArray)
 This is intentional as we don't want plugins to be dependent on private details such as where exactly an item is located within the array. This way, if the position of the item is changed, plugins don't break. In situations where there is a need to amend something that is in an array (like a webpack rule for instance), the plugin should instead subscribe to amend that particular item (instead of subscribing to amend the entire webpack config for instance).
 
 The third thing to note is that if `undefined` is returned from the handler, then nothing happens. The system treats an `undefined` handler result as meaning that nothing was returned from the handler, which means that the original resource should then be passed to the next handler in the list. Note, however, that the behavior is different when `null` is returned from a handler. The system treats a `null` handler result as being an intention request to overwrite the resource with `null`, so that null becomes the resource that is passed to subsequent handlers in the chain.
-
-## Existing plugins
-
-Below is a list of the existing plugins that are available for use
-
-- [@financial-times/dotcom-build-bower-resolve](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-bower-resolve)
-- [@financial-times/dotcom-build-css](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-css)
-- [@financial-times/dotcom-build-esnext](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-esnext)
-- [@financial-times/dotcom-build-sass](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-sass)
-- [@financial-times/dotcom-build-js](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-js)
-
-[`publisher`]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-pluggable
-[Page Kit CLI package]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-cli
 
 ## Best practices for creating plugins
 
