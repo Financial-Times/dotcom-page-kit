@@ -1,6 +1,6 @@
 # @financial-times/dotcom-build-sass
 
-This package extends the [Page Kit CLI build action][cli] (`anvil build`) with a way to load and generate CSS files from [Sass] source code.
+This package extends the [Page Kit CLI build action][cli] (`page-kit build`) with a way to load and generate CSS files from [Sass] source code.
 
 [cli]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-cli#build
 [Sass]: https://sass-lang.com/
@@ -29,7 +29,7 @@ module.exports = {
 Once setup, this plugin will enable you to use Sass files (`.scss` and `.sass`) as [entry points] into your source code.
 
 ```sh
-anvil build --entryFile path/to/styles.scss
+page-kit build --entryFile path/to/styles.scss
 ```
 
 [entry points]: ../dotcom-page-kit-cli/readme.md#entry-points

@@ -11,7 +11,7 @@
 
 ## Authoring plugins
 
-In order to extend the core webpack or babel config, a plugin will have to be authored. Plugins are functions that subscribe to be notified when a resource is published, so that they can have a chance to amend the resource in some way. During the life cycle of invoking the `anvil build` CLI command, multiple resources will be published for possible amendment, and these include the webpack and babel config. The following is an example of a plugin that [enables symlink resolves](https://webpack.js.org/configuration/resolve/#resolve-symlinks) on the webpack config:
+In order to extend the core webpack or babel config, a plugin will have to be authored. Plugins are functions that subscribe to be notified when a resource is published, so that they can have a chance to amend the resource in some way. During the life cycle of invoking the `page-kit build` CLI command, multiple resources will be published for possible amendment, and these include the webpack and babel config. The following is an example of a plugin that [enables symlink resolves](https://webpack.js.org/configuration/resolve/#resolve-symlinks) on the webpack config:
 
 ```js
 function webpackPlugin(publisher) {
@@ -60,7 +60,7 @@ See the [Page Kit CLI package] for more information on the `page-kit.config.js` 
 
 ## Amending supplementary resources
 
-While the `webpackConfig` and the `babelConfig` are the main resources that are published for amendment, they are not the only resources that are published during the life cycle of the `anvil build` CLI command. Other supplementary resources are also published with an aim of making it easy to extend the main resources. Supplementary resources are pieces of data on the main resource that are either hard, [unsafe] or impossible to access from the main resource. Take the options of a webpack plugin like the [clean-webpack-plugin], for example.
+While the `webpackConfig` and the `babelConfig` are the main resources that are published for amendment, they are not the only resources that are published during the life cycle of the `page-kit build` CLI command. Other supplementary resources are also published with an aim of making it easy to extend the main resources. Supplementary resources are pieces of data on the main resource that are either hard, [unsafe] or impossible to access from the main resource. Take the options of a webpack plugin like the [clean-webpack-plugin], for example.
 
 ```js
 const cleanWebpackPluginOptions = {...}
@@ -83,7 +83,7 @@ function plugin({ on }) {
 }
 ```
 
-Webpack [rules] and [plugin] options are the supplementary resources that are commonly published, and they are published from both the [Page Kit CLI] and individual plugins. So for a list of all the resources that will be published during the life cycle of invoking the `anvil build` CLI command, see the README documentation of both the CLI and the plugins that will be used.
+Webpack [rules] and [plugin] options are the supplementary resources that are commonly published, and they are published from both the [Page Kit CLI] and individual plugins. So for a list of all the resources that will be published during the life cycle of invoking the `page-kit build` CLI command, see the README documentation of both the CLI and the plugins that will be used.
 
 [rules]: https://webpack.js.org/configuration/module/#modulerules
 [plugin]: https://webpack.js.org/plugins/
@@ -290,7 +290,7 @@ const originalWebpackConfigAfterMerge = {
 }
 ```
 
-But if the intention is to amend an existing rule, then the plugin should subscribe to receive that particular rule as a resource and amend it directly. As an example, the `webpackConfig::jsRule` resource is published during the life cycle of executing the `anvil build` CLI command. A plugin that amends this rule may look like the following:
+But if the intention is to amend an existing rule, then the plugin should subscribe to receive that particular rule as a resource and amend it directly. As an example, the `webpackConfig::jsRule` resource is published during the life cycle of executing the `page-kit build` CLI command. A plugin that amends this rule may look like the following:
 
 ```js
 export default ({on} => {
