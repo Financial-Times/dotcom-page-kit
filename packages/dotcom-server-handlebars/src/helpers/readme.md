@@ -11,7 +11,7 @@ This package contains a suite of helpers to enable the migration of applications
 If you are using the Anvil Handlebars package you can import the "helpers" and provide them as an option when creating a new `AnvilHandlebars` instance. Helpers will not be added to the global Handlebars instance.
 
 ```js
-const { HandlebarsRenderer, helpers } = require('@financial-times/anvil-server-handlebars')
+const { HandlebarsRenderer, helpers } = require('@financial-times/dotcom-server-handlebars')
 const renderer = new HandlebarsRenderer({ helpers })
 ```
 
@@ -19,7 +19,7 @@ Alternatively if you only want the helpers you can register them with a Handleba
 
 ```js
 const Handlebars = require('handlebars')
-const { helpers } = require('@financial-times/anvil-server-handlebars')
+const { helpers } = require('@financial-times/dotcom-server-handlebars')
 
 Handlebars.registerHelper(helpers)
 ```

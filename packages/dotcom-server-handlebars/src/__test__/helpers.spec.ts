@@ -1,7 +1,7 @@
 import { compile } from 'handlebars'
 import * as helpers from '../helpers'
 
-describe('anvil-server-handlebars/src/helpers', () => {
+describe('dotcom-server-handlebars/src/helpers', () => {
   describe('block helpers', () => {
     describe('#dateformat', () => {
       const date = new Date('2019-04-10 13:40:21 GMT+0100 (BST)')

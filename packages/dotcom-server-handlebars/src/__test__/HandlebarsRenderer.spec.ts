@@ -5,7 +5,7 @@ import { HandlebarsRenderer as Subject } from '../HandlebarsRenderer'
 const root = path.join(__dirname, '__fixtures__')
 const view = path.resolve(root, 'views/view.hbs')
 
-describe('anvil-server-handlebars/src/HandlebarsRenderer', () => {
+describe('dotcom-server-handlebars/src/HandlebarsRenderer', () => {
   let instance
 
   beforeEach(() => {

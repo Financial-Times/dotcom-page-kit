@@ -1,4 +1,4 @@
-# @financial-times/anvil-server-handlebars
+# @financial-times/dotcom-server-handlebars
 
 This package provides rendering for [Handlebars] templates with additional support for dynamically loading partial templates and a suite of [helper functions]. It is primarily designed to be used during the transition between [n-handlebars] and JSX rendering and does not support layouts.
 
@@ -12,7 +12,7 @@ This package provides rendering for [Handlebars] templates with additional suppo
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
-npm install --save @financial-times/anvil-server-handlebars
+npm install --save @financial-times/dotcom-server-handlebars
 ```
 
 It is best used [within an Express application](#usage-with-express) but can also be used as a [standalone library](#standalone-usage).
@@ -26,7 +26,7 @@ _Please note_ the template file extension registered with your application shoul
 
 ```diff
 const express = require('express')
-+ const { HandlebarsRenderer } = require('@financial-times/anvil-server-handlebars')
++ const { HandlebarsRenderer } = require('@financial-times/dotcom-server-handlebars')
 
 + const renderer = new HandlebarsRenderer(options)
 + app.engine('.html', renderer.engine)
@@ -57,7 +57,7 @@ _Please note_ that where to lookup template files can be configured using Expres
 This module can be used without integrating it fully into your application. This may be suitable for applications which are not built with Express or for ad-hoc template rendering needs.
 
 ```diff
-+ const { HandlebarsRenderer } = require('@financial-times/anvil-server-handlebars')
++ const { HandlebarsRenderer } = require('@financial-times/dotcom-server-handlebars')
 + const renderer = new HandlebarsRenderer(options)
 ```
 
