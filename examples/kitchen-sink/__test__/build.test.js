@@ -14,8 +14,8 @@ describe('examples/kitchen-sink/build', () => {
     expect(output).toContain('o-viewport.bundle.js')
   })
 
-  it('creates a JS bundle for Anvil UI components', () => {
-    expect(output).toContain('anvil-ui.bundle.js')
+  it('creates a JS bundle for Page Kit UI components', () => {
+    expect(output).toContain('page-kit-components.bundle.js')
   })
 
   it('creates a shared JS bundle', () => {
