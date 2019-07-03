@@ -1,4 +1,4 @@
-# @financial-times/anvil-ui-ft-flags
+# @financial-times/dotcom-ui-flags
 
 This package provides methods for integrating flags data into your server-side rendered pages and safely retrieving it again in the browser.
 
@@ -8,7 +8,7 @@ This package provides methods for integrating flags data into your server-side r
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
-npm install --save @financial-times/anvil-ui-ft-flags
+npm install --save @financial-times/dotcom-ui-flags
 ```
 
 After installing the package you can use it to embed flags data into your pages on the server-side. This data can then be retrieved and used in your client-side code using the included flags client.
@@ -18,7 +18,7 @@ After installing the package you can use it to embed flags data into your pages 
 If you are using React to render your app you should use the `FlagsEmbed` component to integrate the flags data with your pages:
 
 ```jsx
-import { FlagsEmbed } from '@financial-times/anvil-ui-ft-flags'
+import { FlagsEmbed } from '@financial-times/dotcom-ui-flags'
 
 export default (props) => (
   <html>
@@ -37,7 +37,7 @@ export default (props) => (
 Otherwise you can insert a JSON formatted string into a `<script>` element with an ID of `anvil-flags-data-embed`. You can use the `.formatFlagsJSON()` method to help with this.
 
 ```js
-const { formatFlagsJSON } = require('@financial-times/anvil-ui-ft-flags/server')
+const { formatFlagsJSON } = require('@financial-times/dotcom-ui-flags/server')
 
 function page() {
   return `<!DOCTYPE html>
@@ -61,7 +61,7 @@ function page() {
 Once you are delivering the flags data with your pages you can use the flags client in your client-side code. The flags client provides methods for safely retrieving the status of individual flags.
 
 ```js
-import * as flags from '@financial-times/anvil-ui-ft-flags'
+import * as flags from '@financial-times/dotcom-ui-flags'
 
 const flagsClient = flags.init()
 

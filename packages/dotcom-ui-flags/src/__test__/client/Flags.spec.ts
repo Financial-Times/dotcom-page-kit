@@ -2,7 +2,7 @@ import Subject from '../../client/Flags'
 
 const fixture = { foo: 1, bar: true }
 
-describe('anvil-ui-ft-flags/src/client/Flags', () => {
+describe('dotcom-ui-flags/src/client/Flags', () => {
   let instance
 
   beforeEach(() => {

@@ -173,7 +173,7 @@ An optional object describing the [Open Graph] metadata to add to the page. The 
 
 
 [JavaScript bootstrap]: ../dotcom-ui-bootstrap/readme.md
-[feature flags]: ../anvil-ui-ft-flags/readme.md
+[feature flags]: ../dotcom-ui-flags/readme.md
 [FT app context]: ../dotcom-ui-app-context/readme.md
 [Open Graph]: http://ogp.me/
 [linked data]: https://w3.org/standards/semanticweb/data

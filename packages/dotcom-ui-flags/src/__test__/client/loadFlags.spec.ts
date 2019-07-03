@@ -5,7 +5,7 @@
 import subject from '../../client/loadFlags'
 import { SCRIPT_ELEMENT_ID } from '../../constants'
 
-describe('anvil-ui-ft-flags/src/client/loadFlags', () => {
+describe('dotcom-ui-flags/src/client/loadFlags', () => {
   describe('when there is a configuration object', () => {
     beforeEach(() => {
       document.body.innerHTML = `
