@@ -22,7 +22,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@financial-times/anvil-ui-ft-header": "file:../anvil-ui-ft-header",
+    "@financial-times/dotcom-ui-header": "file:../dotcom-ui-header",
     "@financial-times/dotcom-ui-footer": "file:../dotcom-ui-footer",
     "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation",
     "focus-visible": "^4.1.5"

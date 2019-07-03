@@ -1,4 +1,4 @@
-# @financial-times/anvil-ui-ft-header
+# @financial-times/dotcom-ui-header
 
 This package provides templates which render variants of the FT.com header and navigation.
 
@@ -8,7 +8,7 @@ This package provides templates which render variants of the FT.com header and n
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```bash
-npm install --save @financial-times/anvil-ui-ft-header
+npm install --save @financial-times/dotcom-ui-header
 ```
 
 After installing the package you will need to setup your application to fetch data from the [Next Navigation API] required to render these UI components. Anvil provides two packages for this:
@@ -30,7 +30,7 @@ This package provides several UI components to render different parts and styles
 
 
 ```jsx
-import { Header, Drawer } from '@financial-times/anvil-ui-ft-header'
+import { Header, Drawer } from '@financial-times/dotcom-ui-header'
 
 const SiteHeader = (props) => (
   <Header data={props.navigationData} userIsLoggedIn={props.userIsLoggedIn} />
@@ -47,7 +47,7 @@ Once you are rendering the header components in your page you will need to initi
 To initialise the client-side JavaScript import the package and call the `.init()` method:
 
 ```js
-import * as header from '@financial-times/anvil-ui-ft-header'
+import * as header from '@financial-times/dotcom-ui-header'
 
 header.init()
 ```
@@ -55,7 +55,7 @@ header.init()
 This component includes styles written in Sass which can be imported into your application's main Sass stylesheet.
 
 ```scss
-@import '@financial-times/anvil-ui-ft-header/styles';
+@import '@financial-times/dotcom-ui-header/styles';
 ```
 
 _Please note_ that the exact usage of styles will depend on how you configure your Sass compiler and whether or not you are using Bower to install dependencies.

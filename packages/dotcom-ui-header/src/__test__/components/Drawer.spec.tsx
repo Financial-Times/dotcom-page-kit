@@ -6,7 +6,7 @@ import { Drawer as Subject } from '../../index'
 const propsAnonymous = { ...fixture, userIsAnonymous: true, userIsLoggedIn: false }
 const propsLoggedIn = { ...fixture, userIsAnonymous: false, userIsLoggedIn: true }
 
-describe('anvil-ui-ft-header/src/components/Drawer', () => {
+describe('dotcom-ui-header/src/components/Drawer', () => {
   it('renders as an anonymous user', () => {
     const tree = renderer.create(<Subject {...propsAnonymous} />).toJSON()
     expect(tree).toMatchSnapshot()

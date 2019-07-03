@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in user 1`] = `
+exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 1`] = `
 <header
   className="o-header o-header--simple"
   data-o-component="o-header"
@@ -1827,7 +1827,7 @@ exports[`anvil-ui-ft-header/src/components/MainHeader renders as a logged in use
 </header>
 `;
 
-exports[`anvil-ui-ft-header/src/components/MainHeader renders as an anonymous user 1`] = `
+exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user 1`] = `
 <header
   className="o-header o-header--simple"
   data-o-component="o-header"

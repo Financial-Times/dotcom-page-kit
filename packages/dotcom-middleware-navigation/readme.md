@@ -4,7 +4,7 @@ This package provides an [Express] compatible middleware which integrates the [F
 
 [Express]: https://expressjs.com/
 [FT Navigation]: ../dotcom-server-navigation/readme.md
-[header]: ../anvil-ui-ft-header/readme.md
+[header]: ../dotcom-ui-header/readme.md
 [footer]: ../dotcom-ui-footer/readme.md
 
 

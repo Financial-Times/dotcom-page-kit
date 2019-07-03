@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`anvil-ui-ft-header/src/components/Drawer renders as a logged in user 1`] = `
+exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] = `
 <div
   aria-label="Drawer menu"
   className="o-header__drawer"
@@ -1273,7 +1273,7 @@ exports[`anvil-ui-ft-header/src/components/Drawer renders as a logged in user 1`
 </div>
 `;
 
-exports[`anvil-ui-ft-header/src/components/Drawer renders as an anonymous user 1`] = `
+exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`] = `
 <div
   aria-label="Drawer menu"
   className="o-header__drawer"
