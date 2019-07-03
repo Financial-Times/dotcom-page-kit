@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`anvil-ui-ft-shell/src/components/LinkedData renders the base site schema 1`] = `
+exports[`dotcom-ui-shell/src/components/LinkedData renders the base site schema 1`] = `
 <script
   dangerouslySetInnerHTML={
     Object {
@@ -11,7 +11,7 @@ exports[`anvil-ui-ft-shell/src/components/LinkedData renders the base site schem
 />
 `;
 
-exports[`anvil-ui-ft-shell/src/components/LinkedData renders the given additional schemas 1`] = `
+exports[`dotcom-ui-shell/src/components/LinkedData renders the given additional schemas 1`] = `
 Array [
   <script
     dangerouslySetInnerHTML={

@@ -14,7 +14,7 @@
     "@financial-times/dotcom-middleware-navigation": "file:../../packages/dotcom-middleware-navigation",
     "@financial-times/dotcom-ui-layout": "file:../../packages/dotcom-ui-layout",
     "@financial-times/dotcom-ui-polyfill-service": "file:../../packages/dotcom-ui-polyfill-service",
-    "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
+    "@financial-times/dotcom-ui-shell": "file:../../packages/dotcom-ui-shell",
     "express": "^4.16.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

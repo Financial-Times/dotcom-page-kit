@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`anvil-ui-ft-shell/src/components/DocumentHead renders the document head 1`] = `
+exports[`dotcom-ui-shell/src/components/DocumentHead renders the document head 1`] = `
 Array [
   <meta
     charSet="utf-8"

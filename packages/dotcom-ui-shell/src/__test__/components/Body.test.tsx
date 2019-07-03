@@ -2,7 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import Subject from '../../components/Body'
 
-describe('anvil-ui-ft-shell/src/components/Body', () => {
+describe('dotcom-ui-shell/src/components/Body', () => {
   describe('with stringified contents', () => {
     it('renders the given HTML string without escaping', () => {
       const contents = '<p>Hello, World!</p>'

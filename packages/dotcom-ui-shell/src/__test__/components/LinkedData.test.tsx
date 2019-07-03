@@ -2,7 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import Subject from '../../components/LinkedData'
 
-describe('anvil-ui-ft-shell/src/components/LinkedData', () => {
+describe('dotcom-ui-shell/src/components/LinkedData', () => {
   it('renders the base site schema', () => {
     const tree = renderer.create(<Subject />).toJSON()
     expect(tree).toMatchSnapshot()

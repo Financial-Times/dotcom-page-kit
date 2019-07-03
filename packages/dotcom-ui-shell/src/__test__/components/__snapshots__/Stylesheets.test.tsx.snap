@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`anvil-ui-ft-shell/src/components/StyleSheets renders the given stylesheets and critical styles 1`] = `
+exports[`dotcom-ui-shell/src/components/StyleSheets renders the given stylesheets and critical styles 1`] = `
 Array [
   <style
     dangerouslySetInnerHTML={

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/server'
-import { Shell } from '@financial-times/anvil-ui-ft-shell'
+import { Shell } from '@financial-times/dotcom-ui-shell'
 import { Layout } from '@financial-times/dotcom-ui-layout'
 import * as polyfills from '@financial-times/dotcom-ui-polyfill-service'
 

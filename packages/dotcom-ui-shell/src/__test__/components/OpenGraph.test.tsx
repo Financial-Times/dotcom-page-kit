@@ -2,7 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import Subject from '../../components/OpenGraph'
 
-describe('anvil-ui-ft-shell/src/components/OpenGraph', () => {
+describe('dotcom-ui-shell/src/components/OpenGraph', () => {
   it('renders the given Open Graph data to meta tags', () => {
     const fixture = {
       og: {

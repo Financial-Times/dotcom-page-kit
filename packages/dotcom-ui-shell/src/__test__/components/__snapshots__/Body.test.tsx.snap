@@ -20,7 +20,7 @@ exports[` 2`] = `
 />
 `;
 
-exports[`anvil-ui-ft-shell/src/components/Body with stringified contents renders the given HTML string without escaping 1`] = `
+exports[`dotcom-ui-shell/src/components/Body with stringified contents renders the given HTML string without escaping 1`] = `
 <body
   dangerouslySetInnerHTML={
     Object {

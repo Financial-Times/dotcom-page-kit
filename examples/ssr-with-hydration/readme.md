@@ -1,8 +1,8 @@
-# Example Rendering with anvil-ui-ft-shell
+# Example Rendering with dotcom-ui-shell
 
 This package demonstrates the use of anvil to create a react app that renders pages on the server while also hydrating them on the client. Some notable things that it features are as follows:
 
-- The use of `anvil-ui-ft-shell` `initialProps` functionality
+- The use of `dotcom-ui-shell` `initialProps` functionality
 - Dynamic imports
 - Custom plugins
 

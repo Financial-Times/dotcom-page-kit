@@ -21,10 +21,10 @@ After installing the package you can use it to create `<script>` tags or integra
 
 If you're using the [`<Shell />` component][shell] to wrap your application you can prepend the Polyfill Service bundle URLs to the `coreScripts` and `enhancedScripts` options:
 
-[shell]: ../anvil-ui-ft-shell/readme.md
+[shell]: ../dotcom-ui-shell/readme.md
 
 ```jsx
-import { Shell } from '@financial-times/anvil-ui-ft-shell'
+import { Shell } from '@financial-times/dotcom-ui-shell'
 import * as PolyfillService from '@financial-times/dotcom-ui-polyfill-service'
 
 const document = <Shell coreScripts={[PolyfillService.core]} enhancedScripts={[PolyfillService.enhanced]}></Shell>

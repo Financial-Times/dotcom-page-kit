@@ -1,4 +1,4 @@
-# @financial-times/anvil-ui-ft-shell
+# @financial-times/dotcom-ui-shell
 
 This package provides a skeleton HTML document structure for the user-facing applications which comprise FT.com. It includes all of the things you can't see as well as setting up our [core branding](#core-branding). The shell can render metadata, output dehydrated data, load stylesheets and bootstrap client-side JavaScript.
 
@@ -8,7 +8,7 @@ This package provides a skeleton HTML document structure for the user-facing app
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
-npm install --save @financial-times/anvil-ui-ft-shell
+npm install --save @financial-times/dotcom-ui-shell
 ```
 
 After installing the package you can use it to wrap your application output. The shell provides a [HTML skeleton](#HTML-skeleton) which includes the `<html>`, `<head>`, and `<body>` elements so you only need to think about what's visible to your users.
@@ -19,7 +19,7 @@ If you're using React you can use the `<Shell />` component to wrap your existin
 
 ```jsx
 import App from './components/App'
-import { Shell } from '@financial-times/anvil-ui-ft-shell'
+import { Shell } from '@financial-times/dotcom-ui-shell'
 
 const document = <Shell {...options}><App /></Shell>
 ```
@@ -32,7 +32,7 @@ If your application is not using React then you can use the `Shell()` component 
 
 ```js
 const renderApp = require('./lib/render-app')
-const { Shell } = require('@financial-times/anvil-ui-ft-shell')
+const { Shell } = require('@financial-times/dotcom-ui-shell')
 
 const prerenderedHTML = renderApp()
 const document = Shell({ contents: prerenderedHTML, ...options })
@@ -59,7 +59,7 @@ For a full example for how to use this component please refer to the [FT UI exam
 
 ## Scope
 
-The anvil-ui-ft-shell can be loosely defined as encompassing the parts of the webpage that you cannot see, including any elements which are embedded in the document `<head>`, and some core branding decisions.
+The dotcom-ui-shell can be loosely defined as encompassing the parts of the webpage that you cannot see, including any elements which are embedded in the document `<head>`, and some core branding decisions.
 
 ### Core branding
 Core branding encompases the shared elements which together generate the look and feel of an ft.com page, they are both intrinsic to our brand and required by every page. Core branding includes favicons, fonts, and background colour.
