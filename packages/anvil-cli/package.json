@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@types/ora": "^3.0.0",
-    "@financial-times/anvil-types-generic": "file:../anvil-types-generic"
+    "@financial-times/dotcom-types-generic": "file:../dotcom-types-generic"
   },
   "engines": {
     "node": ">= 8.16.0"
