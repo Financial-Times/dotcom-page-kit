@@ -11,7 +11,7 @@
     "test": "../../node_modules/.bin/jest"
   },
   "dependencies": {
-    "@financial-times/anvil-middleware-assets": "file:../../packages/anvil-middleware-assets",
+    "@financial-times/dotcom-middleware-assets": "file:../../packages/dotcom-middleware-assets",
     "@financial-times/anvil-middleware-ft-app-context": "file:../../packages/anvil-middleware-ft-app-context",
     "@financial-times/anvil-middleware-ft-navigation": "file:../../packages/anvil-middleware-ft-navigation",
     "@financial-times/dotcom-server-app-context": "file:../../packages/dotcom-server-app-context",

@@ -1,7 +1,7 @@
 const express = require('express')
 const navigation = require('@financial-times/anvil-middleware-ft-navigation')
 const appContext = require('@financial-times/anvil-middleware-ft-app-context')
-const assets = require('@financial-times/anvil-middleware-assets')
+const assets = require('@financial-times/dotcom-middleware-assets')
 
 const app = express()
 

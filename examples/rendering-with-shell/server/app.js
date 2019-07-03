@@ -1,6 +1,6 @@
 import path from 'path'
 import express from 'express'
-import * as assetsMiddleware from '@financial-times/anvil-middleware-assets'
+import * as assetsMiddleware from '@financial-times/dotcom-middleware-assets'
 import { homepageController } from './controllers/home'
 
 const app = express()

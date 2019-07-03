@@ -12,8 +12,8 @@
     "pretest": "npm run build"
   },
   "dependencies": {
-    "@financial-times/anvil-middleware-assets": "file:../../packages/anvil-middleware-assets",
     "@financial-times/dotcom-build-code-splitting": "file:../../packages/dotcom-build-code-splitting",
+    "@financial-times/dotcom-middleware-assets": "file:../../packages/dotcom-middleware-assets",
     "@financial-times/dotcom-server-asset-loader": "file:../../packages/dotcom-server-asset-loader",
     "@financial-times/anvil-ui-ft-polyfills": "file:../../packages/anvil-ui-ft-polyfills",
     "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
