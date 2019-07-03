@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-build-ft-js-code-splitting",
+  "name": "@financial-times/dotcom-build-esnext",
   "version": "0.0.0",
   "description": "",
   "main": "dist/node/index.js",
@@ -21,8 +21,9 @@
     "@financial-times/anvil-cli": "file:../anvil-cli"
   },
   "dependencies": {
-    "get-package-name": "^1.0.0",
-    "memoize-one": "^5.0.4"
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.4.4"
   },
   "devDependencies": {
     "@financial-times/anvil-cli": "file:../anvil-cli"
@@ -33,7 +34,7 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/anvil.git",
-    "directory": "packages/anvil-build-ft-js-code-splitting"
+    "directory": "packages/dotcom-build-esnext"
   },
-  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-build-ft-js-code-splitting"
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-esnext"
 }

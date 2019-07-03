@@ -207,11 +207,11 @@ The third thing to note is that if `undefined` is returned from the handler, the
 
 Below is a list of the existing anvil plugins that are available for use
 
-- [@financial-time/anvil-build-bower-resolve](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-build-bower-resolve)
-- [@financial-time/anvil-build-css](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-build-css)
-- [@financial-time/anvil-build-esnext](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-build-esnext)
-- [@financial-time/anvil-build-sass](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-build-sass)
-- [@financial-time/anvil-build-ft-js](https://github.com/Financial-Times/anvil/tree/master/packages/anvil-build-ft-js)
+- [@financial-time/dotcom-build-bower-resolve](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-bower-resolve)
+- [@financial-time/dotcom-build-css](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-css)
+- [@financial-time/dotcom-build-esnext](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-esnext)
+- [@financial-time/dotcom-build-sass](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-sass)
+- [@financial-time/dotcom-build-js](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-js)
 
 [`publisher`]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-pluggable
 [`anvil` package readme]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil

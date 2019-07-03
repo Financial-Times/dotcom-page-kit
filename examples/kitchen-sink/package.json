@@ -29,10 +29,10 @@
   },
   "devDependencies": {
     "@financial-times/anvil-cli": "file:../../packages/anvil-cli",
-    "@financial-times/anvil-build-bower-resolve": "file:../../packages/anvil-build-bower-resolve",
-    "@financial-times/anvil-build-ft-js": "file:../../packages/anvil-build-ft-js",
-    "@financial-times/anvil-build-ft-js-code-splitting": "file:../../packages/anvil-build-ft-js-code-splitting",
-    "@financial-times/anvil-build-sass": "file:../../packages/anvil-build-sass",
+    "@financial-times/dotcom-build-bower-resolve": "file:../../packages/dotcom-build-bower-resolve",
+    "@financial-times/dotcom-build-js": "file:../../packages/dotcom-build-js",
+    "@financial-times/dotcom-build-code-splitting": "file:../../packages/dotcom-build-code-splitting",
+    "@financial-times/dotcom-build-sass": "file:../../packages/dotcom-build-sass",
     "@sucrase/jest-plugin": "^2.0.0",
     "dom-loaded": "^1.2.0",
     "nodemon": "^1.18.9"

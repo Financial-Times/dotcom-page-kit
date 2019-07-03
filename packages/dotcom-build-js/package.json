@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-build-ft-js",
+  "name": "@financial-times/dotcom-build-js",
   "version": "0.0.0",
   "description": "",
   "main": "dist/node/index.js",
@@ -37,7 +37,7 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/anvil.git",
-    "directory": "packages/anvil-build-ft-js"
+    "directory": "packages/dotcom-build-js"
   },
-  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-build-ft-js"
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-js"
 }

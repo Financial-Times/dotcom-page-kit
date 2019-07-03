@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@financial-times/anvil-middleware-assets": "file:../../packages/anvil-middleware-assets",
-    "@financial-times/anvil-build-ft-js-code-splitting": "file:../../packages/anvil-build-ft-js-code-splitting",
+    "@financial-times/dotcom-build-code-splitting": "file:../../packages/dotcom-build-code-splitting",
     "@financial-times/anvil-server-asset-loader": "file:../../packages/anvil-server-asset-loader",
     "@financial-times/anvil-ui-ft-polyfills": "file:../../packages/anvil-ui-ft-polyfills",
     "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
@@ -26,7 +26,7 @@
   "devDependencies": {
     "@babel/preset-react": "^7.0.0",
     "@financial-times/anvil-cli": "file:../../packages/anvil-cli",
-    "@financial-times/anvil-build-esnext": "file:../../packages/anvil-build-esnext",
+    "@financial-times/dotcom-build-esnext": "file:../../packages/dotcom-build-esnext",
     "nodemon": "^1.18.7"
   },
   "jest": {

@@ -1,4 +1,4 @@
-const sass = require('@financial-times/anvil-build-sass')
+const sass = require('@financial-times/dotcom-build-sass')
 
 module.exports = {
   plugins: [
