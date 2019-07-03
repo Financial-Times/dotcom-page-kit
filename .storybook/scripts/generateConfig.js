@@ -18,7 +18,7 @@ function generatePathsConfig(cwd) {
 }
 
 function getPaths(cwd) {
-  return glob.sync('packages/anvil-ui*/src/**/*story.tsx', { cwd }).map((p) => path.join('../', p))
+  return glob.sync('packages/dotcom-ui-*/src/**/*story.tsx', { cwd }).map((p) => path.join('../', p))
 }
 
 function prepareConfigFileContents(paths) {
