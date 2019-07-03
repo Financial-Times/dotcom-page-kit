@@ -1,6 +1,6 @@
 # @financial-times/dotcom-build-css
 
-This package extends the [Anvil CLI build action][cli] (`anvil build`) with a way to load and generate CSS files.
+This package extends the [Page Kit CLI build action][cli] (`anvil build`) with a way to load and generate CSS files.
 
 [cli]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-cli#build
 
