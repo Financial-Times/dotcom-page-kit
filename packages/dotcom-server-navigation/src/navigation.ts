@@ -7,7 +7,7 @@ import {
   TNavMenusForEdition,
   TNavSubNavigation,
   TNavEditions
-} from '@financial-times/anvil-types-navigation'
+} from '@financial-times/dotcom-types-navigation'
 import { selectMenuDataForEdition } from './selectMenuDataForEdition'
 import { decorateMenuData } from './decorateMenuData'
 import { getEditions, isEdition } from './editions'

@@ -1,5 +1,5 @@
 import { selectMenuDataForEdition as subject } from '../selectMenuDataForEdition'
-import { TNavMenus } from '@financial-times/anvil-types-navigation'
+import { TNavMenus } from '@financial-times/dotcom-types-navigation'
 
 const fixture = {
   account: {},

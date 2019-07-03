@@ -1,4 +1,4 @@
-import { TNavEditions } from '@financial-times/anvil-types-navigation'
+import { TNavEditions } from '@financial-times/dotcom-types-navigation'
 
 const data: TNavEditions = {
   current: { id: 'uk', name: 'UK', url: '#' },

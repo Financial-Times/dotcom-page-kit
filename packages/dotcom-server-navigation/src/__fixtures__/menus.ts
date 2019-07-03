@@ -1,4 +1,4 @@
-import { TNavMenus, TNavMeganav, TNavMenu } from '@financial-times/anvil-types-navigation'
+import { TNavMenus, TNavMeganav, TNavMenu } from '@financial-times/dotcom-types-navigation'
 
 const meganav: TNavMeganav[] = [
   {

@@ -6,7 +6,7 @@ import {
   TNavMeganav,
   INavMeganavSections,
   INavMeganavArticles
-} from '@financial-times/anvil-types-navigation'
+} from '@financial-times/dotcom-types-navigation'
 
 const MobileNav = (props: THeaderProps) => {
   // Only display navigation on pages which are included in this menu

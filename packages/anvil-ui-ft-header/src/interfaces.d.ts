@@ -1,4 +1,4 @@
-import { TNavigationData } from '@financial-times/anvil-types-navigation'
+import { TNavigationData } from '@financial-times/dotcom-types-navigation'
 
 export type THeaderOptions = {
   variant?: THeaderVariant

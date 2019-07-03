@@ -1,7 +1,7 @@
 import React from 'react'
 import { ariaSelected } from '../../utils'
 import { THeaderProps } from '../../interfaces'
-import { TNavMenuItem } from '@financial-times/anvil-types-navigation'
+import { TNavMenuItem } from '@financial-times/dotcom-types-navigation'
 
 const SubNavigation = (props: THeaderProps) => (
   <SubNavigationWrapper>

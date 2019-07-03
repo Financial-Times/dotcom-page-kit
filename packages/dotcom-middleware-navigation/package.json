@@ -19,7 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "@financial-times/dotcom-server-navigation": "file:../../packages/dotcom-server-navigation",
-    "@financial-times/anvil-types-navigation": "file:../anvil-types-navigation"
+    "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation"
   },
   "devDependencies": {
     "node-mocks-http": "^1.7.3"
