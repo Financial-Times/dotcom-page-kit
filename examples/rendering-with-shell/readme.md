@@ -1,6 +1,6 @@
-# Example Rendering with anvil-ui-ft-shell
+# Example Rendering with dotcom-ui-shell
 
-This package demonstrates using `anvil-ui-ft-shell` to render pages 
+This package demonstrates using `dotcom-ui-shell` to render pages
 
 ### Running the app
 

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@financial-times/dotcom-middleware-assets": "file:../../packages/dotcom-middleware-assets",
-    "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
+    "@financial-times/dotcom-ui-shell": "file:../../packages/dotcom-ui-shell",
     "express": "^4.16.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",

@@ -9,7 +9,7 @@ export function plugin() {
   return ({ on }) => {
     on('webpackConfig', addInitialCodeSplitting)
     on('webpackConfig', addOrigamiCodeSplitting)
-    on('webpackConfig', addAnvilUICodeSplitting)
+    on('webpackConfig', addPageKitCodeSplitting)
     on('webpackConfig', addBabelRuntimeCodeSplitting)
     on('webpackConfig', addSharedStableCodeSplitting)
     on('webpackConfig', addSharedVolatileCodeSplitting)
@@ -34,8 +34,8 @@ export function plugin() {
     return createBundlesForRegExp('origami-components', /[\\\/]o-/)
   }
 
-  function addAnvilUICodeSplitting() {
-    return createBundleWithRegExp('anvil-ui', /[\\\/]anvil-ui-/)
+  function addPageKitCodeSplitting() {
+    return createBundleWithRegExp('page-kit-components', /[\\\/]dotcom-ui-/)
   }
 
   function addBabelRuntimeCodeSplitting() {

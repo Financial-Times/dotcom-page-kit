@@ -1,0 +1,38 @@
+{
+  "name": "@financial-times/dotcom-ui-footer",
+  "version": "0.0.0",
+  "description": "",
+  "main": "component.js",
+  "styles": "styles.scss",
+  "browser": "browser.js",
+  "types": "src/index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "../../node_modules/.bin/tsc",
+    "clean": "npm run clean:dist && npm run clean:node_modules",
+    "clean:dist": "rm -rf dist",
+    "clean:node_modules": "rm -rf node_modules",
+    "clean:install": "npm run clean && npm i",
+    "build": "npm run build:node",
+    "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
+    "dev": "npm run build:node -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
+  },
+  "engines": {
+    "node": ">= 8.16.0"
+  },
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/Financial-Times/anvil.git",
+    "directory": "packages/dotcom-ui-footer"
+  },
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-ui-footer"
+}

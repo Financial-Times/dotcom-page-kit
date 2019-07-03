@@ -1,0 +1,43 @@
+{
+  "name": "@financial-times/dotcom-ui-shell",
+  "version": "0.0.0",
+  "description": "",
+  "main": "component.js",
+  "browser": "browser.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "../../node_modules/.bin/tsc",
+    "clean": "npm run clean:dist && npm run clean:node_modules",
+    "clean:dist": "rm -rf dist",
+    "clean:node_modules": "rm -rf node_modules",
+    "clean:install": "npm run clean && npm i",
+    "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
+    "build": "npm run build:node",
+    "dev": "npm run build:node -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@financial-times/dotcom-ui-bootstrap": "file:../dotcom-ui-bootstrap",
+    "@financial-times/dotcom-ui-app-context": "file:../dotcom-ui-app-context",
+    "@financial-times/dotcom-ui-flags": "file:../dotcom-ui-flags",
+    "@financial-times/dotcom-ui-polyfill-service": "file:../dotcom-ui-polyfill-service"
+  },
+  "devDependencies": {
+    "@financial-times/dotcom-types-generic": "file:../dotcom-types-generic"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
+  },
+  "engines": {
+    "node": ">= 8.16.0"
+  },
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/Financial-Times/anvil.git",
+    "directory": "packages/dotcom-ui-shell"
+  },
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-ui-shell"
+}

@@ -1,0 +1,36 @@
+{
+  "name": "@financial-times/dotcom-ui-flags",
+  "version": "0.0.0",
+  "description": "",
+  "main": "component.js",
+  "browser": "browser.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "../../node_modules/.bin/tsc",
+    "clean": "npm run clean:dist && npm run clean:node_modules",
+    "clean:dist": "rm -rf dist",
+    "clean:node_modules": "rm -rf node_modules",
+    "clean:install": "npm run clean && npm i",
+    "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
+    "build:browser": "npm run tsc -- --module es2015 --outDir ./dist/browser",
+    "build": "npm run build:node && npm run build:browser",
+    "dev": "echo -n node browser | parallel -u -d ' ' npm run build:{} -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 8.16.0"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
+  },
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/Financial-Times/anvil.git",
+    "directory": "packages/dotcom-ui-flags"
+  },
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-ui-flags",
+  "devDependencies": {}
+}

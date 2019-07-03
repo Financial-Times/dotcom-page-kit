@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/server'
-import { Shell } from '@financial-times/anvil-ui-ft-shell'
-import { Layout } from '@financial-times/anvil-ui-ft-layout'
-import * as polyfills from '@financial-times/anvil-ui-ft-polyfills'
+import { Shell } from '@financial-times/dotcom-ui-shell'
+import { Layout } from '@financial-times/dotcom-ui-layout'
+import * as polyfills from '@financial-times/dotcom-ui-polyfill-service'
 
 export function homeController(_, response, next) {
   const appContext = {

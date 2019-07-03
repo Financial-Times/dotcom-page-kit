@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in user 1`] = `null`;
+
+exports[`dotcom-ui-header/src/components/StickyHeader renders as an anonymous user 1`] = `null`;

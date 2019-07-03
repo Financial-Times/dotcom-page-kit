@@ -1,8 +1,8 @@
 import domLoaded from 'dom-loaded'
 // import tracking from '@financial-times/n-tracking'
-import * as flags from '@financial-times/anvil-ui-ft-flags'
-import * as layout from '@financial-times/anvil-ui-ft-layout'
-import * as appContext from '@financial-times/anvil-ui-ft-app-context'
+import * as flags from '@financial-times/dotcom-ui-flags'
+import * as layout from '@financial-times/dotcom-ui-layout'
+import * as appContext from '@financial-times/dotcom-ui-app-context'
 import { init as initAds } from '@financial-times/n-ads'
 
 domLoaded.then(() => {
