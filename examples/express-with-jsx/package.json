@@ -9,7 +9,7 @@
     "test": "../../node_modules/.bin/jest"
   },
   "dependencies": {
-    "@financial-times/anvil-server-react": "file:../../packages/anvil-server-react",
+    "@financial-times/dotcom-server-react-jsx": "file:../../packages/dotcom-server-react-jsx",
     "express": "^4.16.4",
     "sucrase": "^3.10.1"
   },
