@@ -34,7 +34,7 @@ function babelPlugin({ on }) {
 
 ## Loading plugins
 
-Once the plugin has been authored, it will have to be loaded. To do so, the plugin should be added to the `anvil.config.js` file. The `anvil.config.js` file is the file that plugins and Page Kit CLI settings are declared in. This file is expected to be in the project root. The following is an example of an `anvil.config.js` file that specifies two plugins:
+Once the plugin has been authored, it will have to be loaded. To do so, the plugin should be added to the `page-kit.config.js` file. The `page-kit.config.js` file is the file that plugins and Page Kit CLI settings are declared in. This file is expected to be in the project root. The following is an example of an `page-kit.config.js` file that specifies two plugins:
 
 ```js
 module.exports = {
@@ -57,7 +57,7 @@ function babelPlugin ({ on }) => {
 }
 ```
 
-See the [`anvil` package readme] for more information on the `anvil.config.js` file
+See the [`anvil` package readme] for more information on the `page-kit.config.js` file
 
 ## Amending supplementary resources
 
