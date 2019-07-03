@@ -1,4 +1,4 @@
-# @financial-times/anvil-ui-ft-app-context
+# @financial-times/dotcom-ui-app-context
 
 This package provides methods for embedding [app context data] into your server-side rendered pages and safely retrieving it again in the browser.
 
@@ -8,7 +8,7 @@ This package provides methods for embedding [app context data] into your server-
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
-npm install --save @financial-times/anvil-ui-ft-app-context
+npm install --save @financial-times/dotcom-ui-app-context
 ```
 
 After installing the package you can use it to embed app-context data into your pages on the server-side. This data can then be retrieved and used in your client-side code.
@@ -19,7 +19,7 @@ After installing the package you can use it to embed app-context data into your 
 If you are using React to render your app you can use the `AppContextEmbed` component to integrate the app context data with your pages:
 
 ```jsx
-import { AppContextEmbed } from '@financial-times/anvil-ui-ft-app-context'
+import { AppContextEmbed } from '@financial-times/dotcom-ui-app-context'
 const context = {appName:"app-name", contextProperty:"my-property"}
 
 export default (props) => (
@@ -62,7 +62,7 @@ function page() {
 Once you are delivering the [app context data] with your pages you can use the [app context client] in your client-side code. The client provides methods for safely retrieving the status of individual context properties.
 
 ```js
-import * as appContext from '@financial-times/anvil-ui-ft-app-context'
+import * as appContext from '@financial-times/dotcom-ui-app-context'
 
 const appContext = appContext.init()
 

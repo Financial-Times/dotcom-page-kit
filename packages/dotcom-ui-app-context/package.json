@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-ui-ft-app-context",
+  "name": "@financial-times/dotcom-ui-app-context",
   "version": "0.0.0",
   "description": "",
   "main": "component.js",
@@ -26,8 +26,8 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/anvil.git",
-    "directory": "packages/anvil-ui-ft-app-context"
+    "directory": "packages/dotcom-ui-app-context"
   },
-  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ui-ft-app-context",
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-ui-app-context",
   "dependencies": {}
 }

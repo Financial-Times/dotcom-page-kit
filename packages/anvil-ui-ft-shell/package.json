@@ -21,7 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "@financial-times/dotcom-ui-bootstrap": "file:../dotcom-ui-bootstrap",
-    "@financial-times/anvil-ui-ft-app-context": "file:../anvil-ui-ft-app-context",
+    "@financial-times/dotcom-ui-app-context": "file:../dotcom-ui-app-context",
     "@financial-times/anvil-ui-ft-flags": "file:../anvil-ui-ft-flags",
     "@financial-times/anvil-ui-ft-polyfills": "file:../anvil-ui-ft-polyfills"
   },

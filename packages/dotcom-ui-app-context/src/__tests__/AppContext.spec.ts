@@ -11,7 +11,7 @@ const fakeContext = {
   }
 }
 
-describe('anvil-ui-ft-app-context/src/client/AppContext', () => {
+describe('dotcom-ui-app-context/src/client/AppContext', () => {
   let instance
 
   beforeEach(() => {

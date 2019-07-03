@@ -4,7 +4,7 @@
 
 import subject from '../client/loadAppContext'
 
-describe('anvil-ui-ft-app-context/src/client/loadAppContext', () => {
+describe('dotcom-ui-app-context/src/client/loadAppContext', () => {
   describe('when there is a configuration object', () => {
     beforeEach(() => {
       document.body.innerHTML = `
