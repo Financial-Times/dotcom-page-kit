@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@financial-times/dotcom-middleware-assets": "file:../../packages/dotcom-middleware-assets",
-    "@financial-times/anvil-middleware-ft-app-context": "file:../../packages/anvil-middleware-ft-app-context",
+    "@financial-times/dotcom-middleware-app-context": "file:../../packages/dotcom-middleware-app-context",
     "@financial-times/anvil-middleware-ft-navigation": "file:../../packages/anvil-middleware-ft-navigation",
     "@financial-times/dotcom-server-app-context": "file:../../packages/dotcom-server-app-context",
     "@financial-times/anvil-ui-ft-app-context": "file:../../packages/anvil-ui-ft-app-context",

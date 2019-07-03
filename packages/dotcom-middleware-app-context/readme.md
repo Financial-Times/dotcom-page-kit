@@ -1,4 +1,4 @@
-# @financial-times/anvil-middleware-ft-app-context
+# @financial-times/dotcom-middleware-app-context
 
 This package provides an [Express] compatible middleware which appends an instance of [app context] to each request and configures it with details automatically inferred from the running application.
 
@@ -11,7 +11,7 @@ This package provides an [Express] compatible middleware which appends an instan
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
-npm install --save @financial-times/anvil-middleware-ft-app-context
+npm install --save @financial-times/dotcom-middleware-app-context
 ```
 
 After installing the package create a new instance of the middleware and register it with your application. The middleware can be configured with several [options](#options):
@@ -20,7 +20,7 @@ After installing the package create a new instance of the middleware and registe
 const express = require('express')
 const app = express()
 
-+const appContext = require('@financial-times/anvil-middleware-ft-app-context')
++const appContext = require('@financial-times/dotcom-middleware-app-context')
 +app.use(appContext.init())
 ```
 
