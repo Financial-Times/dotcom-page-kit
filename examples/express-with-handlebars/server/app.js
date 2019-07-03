@@ -1,6 +1,6 @@
 const express = require('express')
 const homePageController = require('./controllers/home')
-const { HandlebarsRenderer } = require('@financial-times/anvil-server-handlebars')
+const { HandlebarsRenderer } = require('@financial-times/dotcom-server-handlebars')
 
 const app = (module.exports = express())
 
