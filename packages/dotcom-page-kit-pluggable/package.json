@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-pluggable",
+  "name": "@financial-times/dotcom-page-kit-pluggable",
   "version": "0.0.0",
   "description": "A lightweight library for facilitating pluggability within apps and libraries.",
   "main": "dist/node/index.js",
@@ -26,7 +26,7 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/anvil.git",
-    "directory": "packages/anvil-pluggable"
+    "directory": "packages/dotcom-page-kit-pluggable"
   },
-  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-pluggable"
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-pluggable"
 }

@@ -145,10 +145,10 @@ function plugin({ on }) {
 
 Because strings are immutable in JavaScript, it's not possible to mutate the string `bar...` in place, hence why the result of the `publish` function is being captured.
 
-> See the [anvil-pluggable] package documentation for more information on the `publish` method as well as the `Publisher`
+> See the [Page Kit pluggable] package documentation for more information on the `publish` method as well as the `Publisher`
 
 [hard to reach]: #amending-supplementary-resources
-[anvil-pluggable]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-pluggable
+[Page Kit pluggable]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-pluggable
 
 ## Returning values from handlers
 
@@ -213,7 +213,7 @@ Below is a list of the existing anvil plugins that are available for use
 - [@financial-time/dotcom-build-sass](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-sass)
 - [@financial-time/dotcom-build-js](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-js)
 
-[`publisher`]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-pluggable
+[`publisher`]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-pluggable
 [`anvil` package readme]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil
 
 ## Best practices for creating plugins

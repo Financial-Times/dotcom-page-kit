@@ -1,4 +1,4 @@
-# Anvil Pluggable
+# @financial-times/dotcom-page-kit-pluggable
 
 A lightweight library for facilitating pluggability within apps and libraries.
 
@@ -7,7 +7,7 @@ A lightweight library for facilitating pluggability within apps and libraries.
 This package is compatible with Node 8+ and is distributed via npm
 
 ```
-npm install --save-dev @financial-times/anvil-pluggable
+npm install --save-dev @financial-times/dotcom-page-kit-pluggable
 ```
 
 ## General Usage
@@ -15,7 +15,7 @@ npm install --save-dev @financial-times/anvil-pluggable
 At the center of this package, is the `Pluggable` class. It is the class that is meant to either be extended (i.e., via class inheritance) or instantiated directly to provide the functionality required to facilitate pluggability within apps and libraries. An instance of this class can be used to register plugins / resource handlers, as well as to publish resources to the registered plugins / resource handlers for possible amendment, as seen in the following example:
 
 ```js
-import { Pluggable } from '@financial-times/anvil-pluggable'
+import { Pluggable } from '@financial-times/dotcom-page-kit-pluggable'
 
 const plugin = ({ on }) => {
   on('person', ({ resource: person }) => {
