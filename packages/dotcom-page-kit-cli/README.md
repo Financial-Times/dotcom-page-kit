@@ -1,6 +1,6 @@
 # @financial-times/dotcom-page-kit-cli
 
-This Page Kit CLI provides a suite of actions to assemble modern Web projects. The CLI can be extended via plugins to provide additional functionality.
+The Page Kit CLI provides a suite of actions to assemble modern Web projects. The CLI can be extended via plugins to provide additional functionality.
 
 
 ## Getting started
@@ -20,7 +20,7 @@ module.exports = {
 }
 ```
 
-The `plugins` property is used to supply the plugins that should be loaded by the Page Kit CLI. These plugins should be installed in your project as development dependencies. Plugins by convention have names matching the CLI action, e.g. `anvil-build-`.
+The `plugins` property is used to supply the plugins that should be loaded by the Page Kit CLI. These plugins should be installed in your project as development dependencies. Plugins by convention are namespaced with `dotcom-build-`.
 
 The `settings` property is used to provide specific configuration for the individual CLI actions. These settings are covered below (see [actions](#actions).)
 
