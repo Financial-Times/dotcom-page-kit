@@ -1,7 +1,7 @@
 {
   "name": "@financial-times/dotcom-page-kit-cli",
   "version": "0.0.0",
-  "description": "The anvil CLI",
+  "description": "The Page Kit CLI",
   "main": "dist/node/index.js",
   "types": "src/index.ts",
   "bin": {
