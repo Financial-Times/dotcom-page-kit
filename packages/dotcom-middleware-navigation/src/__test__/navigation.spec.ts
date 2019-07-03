@@ -40,7 +40,7 @@ jest.mock(
   { virtual: true }
 )
 
-describe('anvil-middleware-ft-navigation', () => {
+describe('dotcom-middleware-navigation', () => {
   let request
   let response
   let next

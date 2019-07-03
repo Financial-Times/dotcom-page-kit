@@ -1,4 +1,4 @@
-# @financial-times/anvil-middleware-ft-navigation
+# @financial-times/dotcom-middleware-navigation
 
 This package provides an [Express] compatible middleware which integrates the [FT Navigation] package into your application and adds the navigation data, including editions data, to each response making it available to your application's route handlers. This data is required to render the navigation components [header] and [footer].
 
@@ -13,7 +13,7 @@ This package provides an [Express] compatible middleware which integrates the [F
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
-npm install --save @financial-times/anvil-middleware-ft-navigation
+npm install --save @financial-times/dotcom-middleware-navigation
 ```
 
 After installing the package create a new instance of the middleware and register it with your application. The middleware can be configured with several [options](#options):
@@ -22,7 +22,7 @@ After installing the package create a new instance of the middleware and registe
 const express = require('express')
 const app = express()
 
-+ const navigation = require('@financial-times/anvil-middleware-ft-navigation')
++ const navigation = require('@financial-times/dotcom-middleware-navigation')
 + app.use(navigation.init())
 ```
 

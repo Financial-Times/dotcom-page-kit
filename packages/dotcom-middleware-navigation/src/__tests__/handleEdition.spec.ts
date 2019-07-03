@@ -1,7 +1,7 @@
 import subject from '../handleEdition'
 import httpMocks from 'node-mocks-http'
 
-describe('anvil-middleware-ft-navigation/src/handleEdition', () => {
+describe('dotcom-middleware-navigation/src/handleEdition', () => {
   describe('with no query string parameter or cookie set', () => {
     let request
     let response
