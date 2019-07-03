@@ -11,11 +11,11 @@ This package is compatible with Node 8+ and is distributed on npm.
 npm install --save @financial-times/anvil-ui-ft-footer
 ```
 
-Create an [Express] server using the [anvil-middleware-ft-navigation] middleware.
+Create an [Express] server using the [dotcom-middleware-navigation] middleware.
 
 ```js
 const express = require('express')
-const navigationMiddleware = require('@financial-times/anvil-middleware-ft-navigation')
+const navigationMiddleware = require('@financial-times/dotcom-middleware-navigation')
 
 const app = express()
 
@@ -48,7 +48,7 @@ All variants require a props object to be passed to the footer component. The co
 
 ## Navigation data
 
-The props object passed to the footer component must have a `data` property. The [dotcom-server-navigation] package or its middleware, [anvil-middleware-ft-navigation], can be used to make data from the [navigation API] available on `response.locals.navigation`.
+The props object passed to the footer component must have a `data` property. The [dotcom-server-navigation] package or its middleware, [dotcom-middleware-navigation], can be used to make data from the [navigation API] available on `response.locals.navigation`.
 
 
 ## Storybook
@@ -65,4 +65,4 @@ The storybook will launch on port: 9001. The footer stories will be available un
 [Storybook]: https://storybook.js.org/
 [navigation API]: https://github.com/Financial-Times/next-navigation-api
 [dotcom-server-navigation]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-server-navigation
-[anvil-middleware-ft-navigation]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-middleware-ft-navigation
+[dotcom-middleware-navigation]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-middleware-navigation

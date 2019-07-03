@@ -13,11 +13,11 @@ npm install --save @financial-times/anvil-ui-ft-header
 
 After installing the package you will need to setup your application to fetch data from the [Next Navigation API] required to render these UI components. Anvil provides two packages for this:
 
-1. [`anvil-middleware-ft-navigation`] (if you are using Express)
+1. [`dotcom-middleware-navigation`] (if you are using Express)
 2. [`dotcom-server-navigation`] (if you are not using Express)
 
 [Next Navigation API]: http://github.com/Financial-Times/next-navigation-api
-[`anvil-middleware-ft-navigation`]: ../anvil-middleware-ft-navigation/readme.md
+[`dotcom-middleware-navigation`]: ../dotcom-middleware-navigation/readme.md
 [`dotcom-server-navigation`]: ../dotcom-server-navigation/readme.md
 
 ### Server-side
@@ -98,7 +98,7 @@ _Please note_ that the data for this menu is regionally-specific and changes dep
 
 ### Sub-navigation
 
-If enabled the sub-navigation element will be rendered if either crumbtrail or subsection navigation data is provided. This is usually page specific and will be automatically set when using the[`anvil-middleware-ft-navigation`] package.
+If enabled the sub-navigation element will be rendered if either crumbtrail or subsection navigation data is provided. This is usually page specific and will be automatically set when using the[`dotcom-middleware-navigation`] package.
 
 ![Example header subNavigation element](./screenshots/header-sub-navigation.png)
 
