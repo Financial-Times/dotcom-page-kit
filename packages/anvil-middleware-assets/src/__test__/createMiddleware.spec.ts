@@ -6,7 +6,7 @@ let request
 let response
 let next
 
-jest.mock('@financial-times/anvil-server-asset-loader')
+jest.mock('@financial-times/dotcom-server-asset-loader')
 
 describe('anvil-middleware-assets/src/createMiddleware', () => {
   beforeEach(() => {

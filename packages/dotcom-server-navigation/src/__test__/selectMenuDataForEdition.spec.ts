@@ -15,7 +15,7 @@ const fixture = {
   user: {}
 } as TNavMenus
 
-describe('anvil-server-ft-navigation/src/selectMenuDataForEdition', () => {
+describe('dotcom-server-navigation/src/selectMenuDataForEdition', () => {
   it('returns a new object', () => {
     const result = subject(fixture, 'uk')
     expect(result).not.toBe(fixture)

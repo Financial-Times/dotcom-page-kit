@@ -48,7 +48,7 @@ All variants require a props object to be passed to the footer component. The co
 
 ## Navigation data
 
-The props object passed to the footer component must have a `data` property. The [anvil-server-ft-navigation] package or its middleware, [anvil-middleware-ft-navigation], can be used to make data from the [navigation API] available on `response.locals.navigation`.
+The props object passed to the footer component must have a `data` property. The [dotcom-server-navigation] package or its middleware, [anvil-middleware-ft-navigation], can be used to make data from the [navigation API] available on `response.locals.navigation`.
 
 
 ## Storybook
@@ -64,5 +64,5 @@ The storybook will launch on port: 9001. The footer stories will be available un
 [Express]: https://expressjs.com/
 [Storybook]: https://storybook.js.org/
 [navigation API]: https://github.com/Financial-Times/next-navigation-api
-[anvil-server-ft-navigation]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-ft-navigation
+[dotcom-server-navigation]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-server-navigation
 [anvil-middleware-ft-navigation]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-middleware-ft-navigation

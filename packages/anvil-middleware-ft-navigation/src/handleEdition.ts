@@ -1,4 +1,4 @@
-import { isEdition } from '@financial-times/anvil-server-ft-navigation'
+import { isEdition } from '@financial-times/dotcom-server-navigation'
 import { Request, Response } from 'express'
 
 const defaultEdition = 'uk'

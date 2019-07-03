@@ -3,7 +3,7 @@
 This package provides an [Express] compatible middleware which integrates the [FT Navigation] package into your application and adds the navigation data, including editions data, to each response making it available to your application's route handlers. This data is required to render the navigation components [header] and [footer].
 
 [Express]: https://expressjs.com/
-[FT Navigation]: ../anvil-server-ft-navigation/readme.md
+[FT Navigation]: ../dotcom-server-navigation/readme.md
 [header]: ../anvil-ui-ft-header/readme.md
 [footer]: ../anvil-ui-ft-footer/readme.md
 
@@ -57,4 +57,4 @@ See the [FT navigation documentation] for more details.
 
 See the [FT navigation documentation] for more details.
 
-[FT navigation documentation]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-ft-navigation#options
+[FT navigation documentation]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-server-navigation#options

@@ -1,5 +1,5 @@
 import httpMocks from 'node-mocks-http'
-import { AppContext } from '@financial-times/anvil-server-ft-app-context'
+import { AppContext } from '@financial-times/dotcom-server-app-context'
 import { init } from '../index'
 
 const context = {
@@ -12,7 +12,7 @@ const headers = {
   'ft-ab': 'foo:true,bar:false'
 }
 
-jest.mock('@financial-times/anvil-server-ft-app-context')
+jest.mock('@financial-times/dotcom-server-app-context')
 
 describe('anvil-middleware-ft-app-context', () => {
   let instance

@@ -1,4 +1,4 @@
-# @financial-times/anvil-server-ft-navigation
+# @financial-times/dotcom-server-navigation
 
 This package provides tools to fetch and format navigation data for FT.com.
 
@@ -12,13 +12,13 @@ Data for the menus will be periodically fetched and updated from the [Next Navig
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```bash
-npm install -S @financial-times/anvil-server-ft-navigation
+npm install -S @financial-times/dotcom-server-navigation
 ```
 
 This package provides a single class which can be configured using [options](#options).
 
 ```js
-import { Navigation } from '@financial-times/anvil-server-ft-navigation'
+import { Navigation } from '@financial-times/dotcom-server-navigation'
 const navigation = new Navigation()
 ```
 

@@ -1,6 +1,6 @@
 import * as subject from '../editions'
 
-describe('anvil-server-ft-navigation/src/editions', () => {
+describe('dotcom-server-navigation/src/editions', () => {
   describe('.isEdition()', () => {
     it('returns true for editions which exist', () => {
       expect(subject.isEdition('uk')).toBe(true)

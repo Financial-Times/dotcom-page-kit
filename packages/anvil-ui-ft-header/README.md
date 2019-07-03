@@ -14,11 +14,11 @@ npm install --save @financial-times/anvil-ui-ft-header
 After installing the package you will need to setup your application to fetch data from the [Next Navigation API] required to render these UI components. Anvil provides two packages for this:
 
 1. [`anvil-middleware-ft-navigation`] (if you are using Express)
-2. [`anvil-server-ft-navigation`] (if you are not using Express)
+2. [`dotcom-server-navigation`] (if you are not using Express)
 
 [Next Navigation API]: http://github.com/Financial-Times/next-navigation-api
 [`anvil-middleware-ft-navigation`]: ../anvil-middleware-ft-navigation/readme.md
-[`anvil-server-ft-navigation`]: ../anvil-server-ft-navigation/readme.md
+[`dotcom-server-navigation`]: ../dotcom-server-navigation/readme.md
 
 ### Server-side
 

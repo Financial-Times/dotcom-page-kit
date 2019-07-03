@@ -2,7 +2,7 @@ import { decorateMenuData as subject } from '../decorateMenuData'
 import { menus } from '../__fixtures__/menus'
 import dlv from 'dlv'
 
-describe('anvil-server-ft-navigation/src/decorateMenuData', () => {
+describe('dotcom-server-navigation/src/decorateMenuData', () => {
   describe('.decorateMenu()', () => {
     it('returns a new deeply cloned object rather than mutating in place', () => {
       const decorated = subject(menus['navbar-uk'], '/world/uk')

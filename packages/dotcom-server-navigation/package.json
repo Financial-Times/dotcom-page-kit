@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-server-resource-hints",
+  "name": "@financial-times/dotcom-server-navigation",
   "version": "0.0.0",
   "description": "",
   "main": "dist/node/index.js",
@@ -17,13 +17,25 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "@financial-times/anvil-types-navigation": "file:../anvil-types-navigation",
+    "@types/deep-freeze": "^0.1.1",
+    "deep-freeze": "0.0.1",
+    "ft-poller": "^3.0.1",
+    "http-errors": "^1.7.1",
+    "node-fetch": "^2.2.1"
+  },
+  "devDependencies": {
+    "dlv": "^1.1.2",
+    "nock": "^10.0.2"
+  },
   "engines": {
     "node": ">= 8.16.0"
   },
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/anvil.git",
-    "directory": "packages/anvil-server-resource-hints"
+    "directory": "packages/dotcom-server-navigation"
   },
-  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-resource-hints"
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-server-navigation"
 }

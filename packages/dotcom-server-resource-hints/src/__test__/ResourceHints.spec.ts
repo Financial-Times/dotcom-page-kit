@@ -2,7 +2,7 @@ import { ResourceHints as Subject } from '../ResourceHints'
 
 const fixture = Object.freeze(['style.css', 'script.js', 'image.png', 'font.woff'])
 
-describe('anvil-server-resource-hints/src/ResourceHints', () => {
+describe('dotcom-server-resource-hints/src/ResourceHints', () => {
   let instance
 
   beforeEach(() => {

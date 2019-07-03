@@ -1,6 +1,6 @@
 import subject from '../getResourceType'
 
-describe('anvil-server-resource-hints/src/getFileType', () => {
+describe('dotcom-server-resource-hints/src/getFileType', () => {
   it('uses the file extension to match to a resource type', () => {
     expect(subject('style.css')).toEqual('style')
     expect(subject('script.js')).toEqual('script')

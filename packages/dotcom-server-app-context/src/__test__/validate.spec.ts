@@ -1,7 +1,7 @@
 import subject from '../validate'
 import * as fixtures from './__fixtures__/contextData'
 
-describe('anvil-server-ft-app-context/src/validate', () => {
+describe('dotcom-server-app-context/src/validate', () => {
   it('returns true when given valid data', () => {
     expect(subject(fixtures.validAppContext)).toBe(true)
   })
