@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "anvil build -d",
+    "build": "page-kit build -d",
     "dev": "nodemon start.js",
     "start": "node start.js",
     "pretest": "npm run build",

@@ -5,7 +5,7 @@
   "main": "app.js",
   "license": "MIT",
   "scripts": {
-    "build": "anvil build -d",
+    "build": "page-kit build -d",
     "start": "node start.js",
     "start:dev": "nodemon start.js --ext js",
     "test:app": "../../node_modules/.bin/jest",
