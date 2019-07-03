@@ -1,5 +1,5 @@
 import domLoaded from 'dom-loaded'
-import * as layout from '@financial-times/anvil-ui-ft-layout'
+import * as layout from '@financial-times/dotcom-ui-layout'
 
 domLoaded.then(() => {
   layout.init()

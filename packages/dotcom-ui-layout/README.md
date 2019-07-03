@@ -1,4 +1,4 @@
-# @financial-times/anvil-ui-ft-layout
+# @financial-times/dotcom-ui-layout
 
 This package provides and an abstraction over the header and footer navigation UI components for FT.com.
 
@@ -7,7 +7,7 @@ This package provides and an abstraction over the header and footer navigation U
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
-npm install --save @financial-times/anvil-ui-ft-layout
+npm install --save @financial-times/dotcom-ui-layout
 ```
 
 After installing the package you can use it to wrap your application views and pages. The layout includes all shared UI elements so you can focus on the contents of your pages.
@@ -18,7 +18,7 @@ If you're using React you can use the `<Layout />` component to wrap your existi
 
 ```jsx
 import Home from './pages/Home'
-import { Layout } from '@financial-times/anvil-ui-ft-layout'
+import { Layout } from '@financial-times/dotcom-ui-layout'
 
 const page = <Layout {...options}><App /></Layout>
 ```
@@ -31,7 +31,7 @@ If your application is not using React then you can use the `Layout()` component
 
 ```js
 const renderApp = require('./lib/render-app')
-const { Layout } = require('@financial-times/anvil-ui-ft-layout')
+const { Layout } = require('@financial-times/dotcom-ui-layout')
 
 const prerenderedHTML = renderApp()
 const page = Layout({ contents: prerenderedHTML, ...options })
@@ -60,7 +60,7 @@ For a full example for how to use this component please refer to the [FT UI exam
 This component includes styles written in Sass which can be imported into your application's main Sass stylesheet.
 
 ```scss
-@import '@financial-times/anvil-ui-ft-layout/styles';
+@import '@financial-times/dotcom-ui-layout/styles';
 ```
 
 _Please note_ that the exact usage will depend on how you configure your Sass compiler and whether or not you are using Bower to install dependencies.
@@ -85,7 +85,7 @@ _Please note_ that the exact usage will depend on how you configure your Sass co
 All slots accept both custom React components or a string of HTML.
 
 ```jsx
-import { Layout } from '@financial-times/anvil-ui-ft-layout'
+import { Layout } from '@financial-times/dotcom-ui-layout'
 
 const adBannerHTML = getAdBanner(id) // => <iframe>...<iframe>
 

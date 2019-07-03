@@ -2,7 +2,7 @@ const React = require('react')
 const ReactDOM = require('react-dom/server')
 const polyfills = require('@financial-times/anvil-ui-ft-polyfills')
 const { Shell } = require('@financial-times/anvil-ui-ft-shell')
-const { Layout } = require('@financial-times/anvil-ui-ft-layout')
+const { Layout } = require('@financial-times/dotcom-ui-layout')
 const { Slot, AdsOptionsEmbed } = require('@financial-times/n-ads')
 
 module.exports = (_, response, next) => {

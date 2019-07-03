@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-ui-ft-layout",
+  "name": "@financial-times/dotcom-ui-layout",
   "version": "0.0.0",
   "description": "",
   "main": "component.js",
@@ -36,7 +36,7 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/anvil.git",
-    "directory": "packages/anvil-ui-ft-layout"
+    "directory": "packages/dotcom-ui-layout"
   },
-  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-ui-ft-layout"
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-ui-layout"
 }

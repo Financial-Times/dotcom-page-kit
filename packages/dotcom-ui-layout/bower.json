@@ -1,5 +1,5 @@
 {
-  "name": "anvil-ui-ft-layout",
+  "name": "dotcom-ui-layout",
   "dependencies": {
     "n-ui-foundations": "^3.0.0",
     "o-typography": "^5.11.3"
