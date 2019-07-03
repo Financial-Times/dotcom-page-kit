@@ -1,4 +1,4 @@
-# @financial-times/anvil-server-react
+# @financial-times/dotcom-server-react-jsx
 
 This package provides server-side rendering for React components with convenient extras for Express applications.
 
@@ -8,7 +8,7 @@ This package provides server-side rendering for React components with convenient
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
-npm install --save-dev @financial-times/anvil-server-react
+npm install --save-dev @financial-times/dotcom-server-react-jsx
 ```
 
 It is best used [within an Express application](#usage-with-express) but can also be used as a [standalone library](#standalone-usage).
@@ -21,7 +21,7 @@ _Please note_ that you will need to extend Node's `require()` function to enable
 
 ```diff
 const express = require('express')
-+ const { ReactRenderer } = require('@financial-times/anvil-server-react')
++ const { ReactRenderer } = require('@financial-times/dotcom-server-react-jsx')
 
 + const renderer = new ReactRenderer(options)
 + app.engine('.jsx', renderer.engine)
@@ -51,7 +51,7 @@ _Please note_ that where to lookup template files can be configured using Expres
 This module can be used without integrating it fully into your application. This may be suitable for applications which are not built with Express or for ad-hoc template rendering needs. This is intended to provide some convenient extra functionality over React's built-in render methods.
 
 ```diff
-+ const { ReactRenderer } = require('@financial-times/anvil-server-react')
++ const { ReactRenderer } = require('@financial-times/dotcom-server-react-jsx')
 + const renderer = new ReactRenderer(options)
 ```
 

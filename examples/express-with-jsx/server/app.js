@@ -1,6 +1,6 @@
 import express from 'express'
 import { homePageController } from './controllers/home'
-import { ReactRenderer } from '@financial-times/anvil-server-react'
+import { ReactRenderer } from '@financial-times/dotcom-server-react-jsx'
 
 export const app = express()
 
