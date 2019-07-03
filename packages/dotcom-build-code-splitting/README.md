@@ -2,7 +2,7 @@
 
 This package extends the [Anvil CLI build action][cli] (`anvil build`) with code splitting functionality in accordance with the [FT.com code splitting] strategy.
 
-[cli]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-cli#build
+[cli]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-cli#build
 [FT.com code splitting]: ../../docs/design-decisions/code-splitting-strategy.md
 
 

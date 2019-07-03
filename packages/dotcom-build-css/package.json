@@ -18,7 +18,7 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
-    "@financial-times/anvil-cli": "file:../anvil-cli"
+    "@financial-times/dotcom-page-kit-cli": "file:../dotcom-page-kit-cli"
   },
   "dependencies": {
     "css-loader": "^3.0.0",
@@ -26,7 +26,7 @@
     "webpack-fix-style-only-entries": "0.3.0"
   },
   "devDependencies": {
-    "@financial-times/anvil-cli": "file:../anvil-cli"
+    "@financial-times/dotcom-page-kit-cli": "file:../dotcom-page-kit-cli"
   },
   "engines": {
     "node": ">= 8.16.0"

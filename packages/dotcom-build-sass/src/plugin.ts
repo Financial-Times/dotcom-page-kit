@@ -2,7 +2,7 @@ import dlv from 'dlv'
 import { hooks } from './hooks'
 import StylesOnlyPlugin from 'webpack-fix-style-only-entries'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import { HandlerArgs, CliContext } from '@financial-times/anvil-cli'
+import { HandlerArgs, CliContext } from '@financial-times/dotcom-page-kit-cli'
 
 export function plugin() {
   return ({ on }) => {

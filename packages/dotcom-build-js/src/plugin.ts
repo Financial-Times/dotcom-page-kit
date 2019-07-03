@@ -1,5 +1,5 @@
 import babelPreset from './babel'
-import { HandlerArgs } from '@financial-times/anvil-cli'
+import { HandlerArgs } from '@financial-times/dotcom-page-kit-cli'
 import { PluginOptions } from './types'
 
 export function plugin(options: PluginOptions = {}) {

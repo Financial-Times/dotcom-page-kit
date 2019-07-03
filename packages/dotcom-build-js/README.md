@@ -2,7 +2,7 @@
 
 This module extends the [Anvil CLI build action][cli] (`anvil build`) with the ability to build JavaScript that makes use of features that are specific to [ft.com]
 
-[cli]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-cli#build
+[cli]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-cli#build
 [ft.com]: https://www.ft.com/
 
 

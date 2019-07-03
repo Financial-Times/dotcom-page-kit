@@ -1,4 +1,4 @@
-# @financial-times/anvil-cli
+# @financial-times/dotcom-page-kit-cli
 
 This Anvil CLI provides a suite of actions to assemble modern Web projects. The CLI can be extended via plugins to provide additional functionality.
 
@@ -156,7 +156,7 @@ anvil build --watch
 This plugin exposes the following hooks as extension points. They are available as constants on the exported `hooks` object.
 
 ```js
-import { hooks } from '@financial-times/anvil-cli'
+import { hooks } from '@financial-times/dotcom-page-kit-cli'
 ```
 
 _Please note: The hooks below are listed in the order they will be executed._

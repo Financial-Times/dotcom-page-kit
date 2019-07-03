@@ -2,7 +2,7 @@
 
 This package extends the [Anvil CLI build action][cli] (`anvil build`) with a way to load and generate CSS files from [Sass] source code.
 
-[cli]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-cli#build
+[cli]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-cli#build
 [Sass]: https://sass-lang.com/
 
 

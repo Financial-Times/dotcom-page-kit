@@ -71,7 +71,7 @@ Match source file names based on a pattern which may be useful when output is sp
 
 ### `getFilesFor(entrypoint: string)`
 
-If the manifest file supports listing files generated for each entry point (which is the case if you are using the [Anvil CLI](../anvil-cli/readme.md)) this method can be used to return a list of all files organised by type.
+If the manifest file supports listing files generated for each entry point (which is the case if you are using the [page kit CLI](../dotcom-page-kit-cli/readme.md)) this method can be used to return a list of all files organised by type.
 
 ### `getScriptFilesFor(entrypoint: string)`
 
