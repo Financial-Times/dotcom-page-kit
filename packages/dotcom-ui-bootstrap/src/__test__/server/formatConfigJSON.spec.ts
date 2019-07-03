@@ -1,6 +1,6 @@
 import subject from '../../server/formatConfigJSON'
 
-describe('anvil-ui-bootstrap/src/server/formatConfigJSON', () => {
+describe('dotcom-ui-bootstrap/src/server/formatConfigJSON', () => {
   it('returns a string', () => {
     const result = subject([], [])
     // NOTE: '' !== String('')

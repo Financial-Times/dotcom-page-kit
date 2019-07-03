@@ -14,7 +14,7 @@ npm install --save @financial-times/anvil-ui-ft-polyfills
 
 After installing the package you can use it to create `<script>` tags or integrate it with the [JavaScript bootstrap].
 
-[JavaScript bootstrap]: ../anvil-ui-bootstrap/readme.md
+[JavaScript bootstrap]: ../dotcom-ui-bootstrap/readme.md
 
 
 ### Usage with the FT Shell
@@ -48,4 +48,4 @@ A script bundle URL configured to provide a limited set of features intended to 
 
 A script bundle URL configured to provide a full set of features (up to ES2017) intended to be loaded by browsers which successfully [cut the mustard] and should receive an "enhanced" experience.
 
-[cut the mustard]: ../anvil-ui-bootstrap/readme.md#cutting-the-mustard
+[cut the mustard]: ../dotcom-ui-bootstrap/readme.md#cutting-the-mustard

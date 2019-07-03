@@ -172,7 +172,7 @@ Optional Twitter handle to associate with the page. Defaults to "@FinancialTimes
 An optional object describing the [Open Graph] metadata to add to the page. The provided objects keys will be collated to create each property name, e.g. `{ og: { title: 'Hello, World' } }` will be rendered as `<meta property="og:title" content="Hello, World" />`.
 
 
-[JavaScript bootstrap]: ../anvil-ui-bootstrap/readme.md
+[JavaScript bootstrap]: ../dotcom-ui-bootstrap/readme.md
 [feature flags]: ../anvil-ui-ft-flags/readme.md
 [FT app context]: ../anvil-ui-ft-app-context/readme.md
 [Open Graph]: http://ogp.me/

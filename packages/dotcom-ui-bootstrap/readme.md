@@ -1,4 +1,4 @@
-# @financial-times/anvil-ui-bootstrap
+# @financial-times/dotcom-ui-bootstrap
 
 This package provides a JavaScript bootstrap for your client-side code which can be embedded in your HTML pages. The bootstrap implements feature detection ([cuts the mustard](#cutting-the-mustard)) to determine if the browser should receive a core or enhanced experience, and the capability to load script files as appropriate.
 
@@ -8,7 +8,7 @@ This package provides a JavaScript bootstrap for your client-side code which can
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
-npm install --save @financial-times/anvil-ui-bootstrap
+npm install --save @financial-times/dotcom-ui-bootstrap
 ```
 
 After installing the package you can use it to embed the bootstrap data into your pages.
@@ -42,7 +42,7 @@ _Please note_ that the bootstrap code should be embedded in the `<head>` section
 If you are using React to render your app you can use the `Bootstrap` component:
 
 ```jsx
-import { Bootstrap } from '@financial-times/anvil-ui-bootstrap'
+import { Bootstrap } from '@financial-times/dotcom-ui-bootstrap'
 
 export default (props) => (
   <html class="no-js core">
@@ -61,7 +61,7 @@ export default (props) => (
 Otherwise this package provides two methods to manually integrate the bootstrap code into your templates. First you must insert a JSON formatted string of configuration into a `<script>` element with an ID of `anvil-bootstrap-config` and then you must embed the bootstrap script itself:
 
 ```js
-const bootstrap = require('@financial-times/anvil-ui-bootstrap/server')
+const bootstrap = require('@financial-times/dotcom-ui-bootstrap/server')
 
 function page() {
   return `<!DOCTYPE html>

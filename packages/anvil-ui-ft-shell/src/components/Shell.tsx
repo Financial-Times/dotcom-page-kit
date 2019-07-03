@@ -4,7 +4,7 @@ import DocumentHead, { TDocumentHeadProps } from './DocumentHead'
 import StyleSheets, { TStylesheetProps } from './StyleSheets'
 import { AppContextEmbed, TAppContextProps } from '@financial-times/anvil-ui-ft-app-context'
 import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/anvil-ui-ft-flags'
-import { Bootstrap, TBootstrapProps } from '@financial-times/anvil-ui-bootstrap'
+import { Bootstrap, TBootstrapProps } from '@financial-times/dotcom-ui-bootstrap'
 import formatAttributeNames, { TAttributeData } from '../lib/formatAttributeNames'
 import CoreTracking from './CoreTracking'
 
