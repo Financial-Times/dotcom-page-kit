@@ -7,7 +7,7 @@
     "test": "../../node_modules/.bin/jest"
   },
   "devDependencies": {
-    "@financial-times/anvil-cli": "file:../../packages/anvil-cli",
+    "@financial-times/dotcom-page-kit-cli": "file:../../packages/dotcom-page-kit-cli",
     "@financial-times/dotcom-build-sass": "file:../../packages/dotcom-build-sass",
     "@financial-times/o-normalise": "^1.7.2"
   }

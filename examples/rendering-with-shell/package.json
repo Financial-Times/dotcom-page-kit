@@ -17,7 +17,7 @@
     "sucrase": "^3.10.1"
   },
   "devDependencies": {
-    "@financial-times/anvil-cli": "file:../../packages/anvil-cli",
+    "@financial-times/dotcom-page-kit-cli": "file:../../packages/dotcom-page-kit-cli",
     "@financial-times/dotcom-build-esnext": "file:../../packages/dotcom-build-esnext",
     "nodemon": "^1.18.7"
   }

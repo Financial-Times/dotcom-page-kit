@@ -1,6 +1,6 @@
 import { hooks } from './hooks'
 import { PluginOptions } from './types'
-import { CliContext } from '@financial-times/anvil-cli'
+import { CliContext } from '@financial-times/dotcom-page-kit-cli'
 
 export default (pluginOptions: PluginOptions = {}, cli: CliContext) => {
   const jsx = {

@@ -1,5 +1,5 @@
 import { hooks } from './hooks'
-import { CliContext } from '@financial-times/anvil-cli'
+import { CliContext } from '@financial-times/dotcom-page-kit-cli'
 
 export default (cli: CliContext) => {
   const classPropertiesPluginOptions = {}

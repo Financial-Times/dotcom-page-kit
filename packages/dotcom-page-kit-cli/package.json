@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-cli",
+  "name": "@financial-times/dotcom-page-kit-cli",
   "version": "0.0.0",
   "description": "The anvil CLI",
   "main": "dist/node/index.js",
@@ -46,7 +46,7 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/anvil.git",
-    "directory": "packages/anvil-cli"
+    "directory": "packages/dotcom-page-kit-cli"
   },
-  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-cli"
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-cli"
 }
