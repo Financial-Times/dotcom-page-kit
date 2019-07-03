@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-middleware-ft-app-context",
+  "name": "@financial-times/dotcom-middleware-app-context",
   "version": "0.0.0",
   "description": "",
   "main": "dist/node/index.js",
@@ -30,7 +30,7 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/anvil.git",
-    "directory": "packages/anvil-middleware-ft-app-context"
+    "directory": "packages/dotcom-middleware-app-context"
   },
-  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-middleware-ft-app-context"
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-middleware-app-context"
 }

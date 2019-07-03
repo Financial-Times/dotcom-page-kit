@@ -14,7 +14,7 @@ const headers = {
 
 jest.mock('@financial-times/dotcom-server-app-context')
 
-describe('anvil-middleware-ft-app-context', () => {
+describe('dotcom-middleware-app-context', () => {
   let instance
   let request
   let response
