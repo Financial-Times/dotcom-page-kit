@@ -1,7 +1,7 @@
 import { CliPrompt } from './CliPrompt'
 import { AnyObject } from '@financial-times/dotcom-types-generic'
 import { AnvilConfig } from '../types/AnvilConfig'
-import { Pluggable, Plugin } from '@financial-times/anvil-pluggable'
+import { Pluggable, Plugin } from '@financial-times/dotcom-page-kit-pluggable'
 
 interface ConstructorArgs {
   config: AnvilConfig

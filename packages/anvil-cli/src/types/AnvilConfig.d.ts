@@ -1,4 +1,4 @@
-import { Plugin } from '@financial-times/anvil-pluggable'
+import { Plugin } from '@financial-times/dotcom-page-kit-pluggable'
 
 export interface AnvilConfig {
   plugins: Plugin[]
