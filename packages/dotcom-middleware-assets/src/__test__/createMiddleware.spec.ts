@@ -8,7 +8,7 @@ let next
 
 jest.mock('@financial-times/dotcom-server-asset-loader')
 
-describe('anvil-middleware-assets/src/createMiddleware', () => {
+describe('dotcom-middleware-assets/src/createMiddleware', () => {
   beforeEach(() => {
     instance = subject({})
     request = httpMocks.createRequest({ app: { locals: {} } })
