@@ -1,6 +1,6 @@
 import * as subject from '../polyfillServiceURLs'
 
-describe('anvil-ui-ft-polyfills', () => {
+describe('dotcom-ui-polyfill-service', () => {
   it('provides both core and enhanced URLs', () => {
     expect(typeof subject.core).toBe('string')
     expect(typeof subject.enhanced).toBe('string')

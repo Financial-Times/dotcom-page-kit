@@ -13,7 +13,7 @@
   "dependencies": {
     "@financial-times/dotcom-middleware-navigation": "file:../../packages/dotcom-middleware-navigation",
     "@financial-times/dotcom-ui-layout": "file:../../packages/dotcom-ui-layout",
-    "@financial-times/anvil-ui-ft-polyfills": "file:../../packages/anvil-ui-ft-polyfills",
+    "@financial-times/dotcom-ui-polyfill-service": "file:../../packages/dotcom-ui-polyfill-service",
     "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
     "express": "^4.16.2",
     "react": "^16.8.6",

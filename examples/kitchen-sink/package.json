@@ -17,7 +17,7 @@
     "@financial-times/dotcom-ui-app-context": "file:../../packages/dotcom-ui-app-context",
     "@financial-times/dotcom-ui-flags": "file:../../packages/dotcom-ui-flags",
     "@financial-times/dotcom-ui-layout": "file:../../packages/dotcom-ui-layout",
-    "@financial-times/anvil-ui-ft-polyfills": "file:../../packages/anvil-ui-ft-polyfills",
+    "@financial-times/dotcom-ui-polyfill-service": "file:../../packages/dotcom-ui-polyfill-service",
     "@financial-times/anvil-ui-ft-shell": "file:../../packages/anvil-ui-ft-shell",
     "@financial-times/n-ads": "^1.0.0",
     "@financial-times/n-tracking": "^0.3.0",

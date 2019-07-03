@@ -1,7 +1,7 @@
 import path from 'path'
 import React from 'react'
 import { Shell } from '@financial-times/anvil-ui-ft-shell'
-import * as polyfillService from '@financial-times/anvil-ui-ft-polyfills'
+import * as polyfillService from '@financial-times/dotcom-ui-polyfill-service'
 import routes from './routes'
 import express from 'express'
 import { AssetLoader } from '@financial-times/dotcom-server-asset-loader'

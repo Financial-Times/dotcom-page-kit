@@ -1,4 +1,4 @@
-# @financial-times/anvil-ui-ft-polyfills
+# @financial-times/dotcom-ui-polyfill-service
 
 This package provides URLs for the [Polyfill Service] which sets a consistent baseline for JavaScript code used by the user-facing applications which comprise FT.com.
 
@@ -9,7 +9,7 @@ This package provides URLs for the [Polyfill Service] which sets a consistent ba
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
-npm install --save @financial-times/anvil-ui-ft-polyfills
+npm install --save @financial-times/dotcom-ui-polyfill-service
 ```
 
 After installing the package you can use it to create `<script>` tags or integrate it with the [JavaScript bootstrap].
@@ -25,7 +25,7 @@ If you're using the [`<Shell />` component][shell] to wrap your application you 
 
 ```jsx
 import { Shell } from '@financial-times/anvil-ui-ft-shell'
-import * as PolyfillService from '@financial-times/anvil-ui-ft-polyfills'
+import * as PolyfillService from '@financial-times/dotcom-ui-polyfill-service'
 
 const document = <Shell coreScripts={[PolyfillService.core]} enhancedScripts={[PolyfillService.enhanced]}></Shell>
 ```
