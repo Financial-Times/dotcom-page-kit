@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-server-asset-loader",
+  "name": "@financial-times/dotcom-server-asset-loader",
   "version": "0.0.0",
   "description": "",
   "main": "dist/node/index.js",
@@ -23,7 +23,7 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/anvil.git",
-    "directory": "packages/anvil-server-asset-loader"
+    "directory": "packages/dotcom-server-asset-loader"
   },
-  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-asset-loader"
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-server-asset-loader"
 }

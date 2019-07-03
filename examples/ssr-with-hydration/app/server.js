@@ -4,7 +4,7 @@ import { Shell } from '@financial-times/anvil-ui-ft-shell'
 import * as polyfillService from '@financial-times/anvil-ui-ft-polyfills'
 import routes from './routes'
 import express from 'express'
-import { AssetLoader } from '@financial-times/anvil-server-asset-loader'
+import { AssetLoader } from '@financial-times/dotcom-server-asset-loader'
 import { renderToString } from 'react-dom/server'
 import { getInitialProps, getDependencies } from '../libs/ssr/server'
 

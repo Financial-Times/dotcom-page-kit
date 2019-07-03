@@ -5,7 +5,7 @@ This package provides an [Express] compatible middleware which integrates the [a
 In addition this package can also be used to [serve static files].
 
 [Express]: https://expressjs.com/
-[asset loader]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-asset-loader
+[asset loader]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-server-asset-loader
 [resource hints]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-resource-hints
 [serve static files]: https://expressjs.com/en/starter/static-files.html
 
@@ -90,4 +90,4 @@ See the [asset loader documentation] for more details.
 
 See the [asset loader documentation] for more details.
 
-[asset loader documentation]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-asset-loader#options
+[asset loader documentation]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-server-asset-loader#options

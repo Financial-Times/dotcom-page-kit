@@ -23,7 +23,7 @@ function createAssetLoader({
   return new AssetLoader({ publicPath, fileSystemPath, ...otherOptions })
 }
 
-describe('anvil-server-asset-loader/src/AssetLoader', () => {
+describe('dotcom-server-asset-loader/src/AssetLoader', () => {
   let loader
 
   beforeEach(() => {

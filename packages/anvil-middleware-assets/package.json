@@ -20,7 +20,7 @@
   "dependencies": {
     "@types/express": "^4.16.0",
     "express": "^4.16.4",
-    "@financial-times/anvil-server-asset-loader": "file:../../packages/anvil-server-asset-loader",
+    "@financial-times/dotcom-server-asset-loader": "file:../../packages/dotcom-server-asset-loader",
     "@financial-times/anvil-server-resource-hints": "file:../../packages/anvil-server-resource-hints"
   },
   "devDependencies": {

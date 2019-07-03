@@ -1,4 +1,4 @@
-# @financial-times/anvil-server-asset-loader
+# @financial-times/dotcom-server-asset-loader
 
 This package provides functions to help applications locate their static assets from wherever they are output.
 
@@ -8,7 +8,7 @@ This package provides functions to help applications locate their static assets 
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```bash
-npm install -S @financial-times/anvil-server-asset-loader
+npm install -S @financial-times/dotcom-server-asset-loader
 ```
 
 You will also need to ensure your application is configured to create manifest files for your static assets. See the [creating a manifest file](#creating-a-manifest-file) section for more information.
@@ -17,7 +17,7 @@ This module provides a single class which can be configured using [options](#opt
 
 ```js
 import path from 'path'
-import { AssetLoader } from '@financial-times/anvil-server-asset-loader'
+import { AssetLoader } from '@financial-times/dotcom-server-asset-loader'
 
 const assetLoader = new AssetLoader({
   publicPath: 'https://cdn.site.com/assets',

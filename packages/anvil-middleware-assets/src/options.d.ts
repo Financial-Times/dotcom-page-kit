@@ -1,4 +1,4 @@
-import { AssetLoaderOptions } from '@financial-times/anvil-server-asset-loader'
+import { AssetLoaderOptions } from '@financial-times/dotcom-server-asset-loader'
 
 export interface MiddlewareOptions extends AssetLoaderOptions {
   /**
