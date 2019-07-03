@@ -1,4 +1,4 @@
-# @financial-times/anvil-ui-ft-footer
+# @financial-times/dotcom-ui-footer
 
 This package provides components which return variations on the footer component for ft.com; the standard ft.com `Footer` and a compressed `LegalFooter`.
 
@@ -8,7 +8,7 @@ This package provides components which return variations on the footer component
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```bash
-npm install --save @financial-times/anvil-ui-ft-footer
+npm install --save @financial-times/dotcom-ui-footer
 ```
 
 Create an [Express] server using the [dotcom-middleware-navigation] middleware.
@@ -27,7 +27,7 @@ module.exports = app
 Include a footer component in your html template and pass in a data object.
 
 ```jsx
-import { Footer } from 'anvil-ui-ft-footer'
+import { Footer } from 'dotcom-ui-footer'
 let footerProps
 
 footerProps.data = response.locals.navigation.footer
