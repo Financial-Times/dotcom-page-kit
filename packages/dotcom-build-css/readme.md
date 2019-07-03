@@ -31,7 +31,7 @@ Once setup, this plugin will enable you to use CSS files as [entry points] into 
 anvil build --entryFile path/to/styles.css
 ```
 
-[entry points]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil#entry-points
+[entry points]: ../dotcom-page-kit-cli/readme.md#entry-points
 
 
 ## Scope
