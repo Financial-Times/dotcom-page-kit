@@ -1,4 +1,4 @@
-# @financial-times/anvil-server-ft-app-context
+# @financial-times/dotcom-server-app-context
 
 This package provides tools to define FT app context data and a [JSON schema] definition to validate it with.
 
@@ -10,13 +10,13 @@ This package provides tools to define FT app context data and a [JSON schema] de
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```bash
-npm install -S @financial-times/anvil-server-ft-app-context
+npm install -S @financial-times/dotcom-server-app-context
 ```
 
 This package provides a single class which can be configured using [options](#options):
 
 ```js
-import { AppContext } from '@financial-times/anvil-server-ft-app-context'
+import { AppContext } from '@financial-times/dotcom-server-app-context'
 const appContext = new AppContext()
 ```
 

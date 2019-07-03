@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@types/express": "^4.16.1",
-    "@financial-times/anvil-server-ft-app-context": "file:../anvil-server-ft-app-context"
+    "@financial-times/dotcom-server-app-context": "file:../dotcom-server-app-context"
   },
   "engines": {
     "node": ">= 8.16.0"

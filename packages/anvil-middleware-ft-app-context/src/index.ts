@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
-import { AppContext, TAppContext } from '@financial-times/anvil-server-ft-app-context'
+import { AppContext, TAppContext } from '@financial-times/dotcom-server-app-context'
 
 export type TMiddlewareOptions = {
   context?: Partial<TAppContext>

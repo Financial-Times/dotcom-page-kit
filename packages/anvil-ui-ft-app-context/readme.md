@@ -92,4 +92,4 @@ Returns all app context data.
 _Please note_ that the [app context data] object is frozen so it cannot be modified.
 
 [app context client]: #app-context-client-api
-[app context data]: ../anvil-server-ft-app-context
+[app context data]: ../dotcom-server-app-context
