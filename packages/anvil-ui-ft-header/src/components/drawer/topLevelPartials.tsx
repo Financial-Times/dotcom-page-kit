@@ -1,7 +1,7 @@
 import React from 'react'
 import { DrawerParentItem, DrawerSingleItem, DrawerSpecialItem, EditionsSwitcher } from './additionalPartials'
 import { THeaderProps } from '../../interfaces'
-import { TNavMenuItem, TNavMenu, TNavEditions } from '@financial-times/anvil-types-navigation'
+import { TNavMenuItem, TNavMenu, TNavEditions } from '@financial-times/dotcom-types-navigation'
 
 const IncludeDrawer = (props) => <Drawer {...props} />
 

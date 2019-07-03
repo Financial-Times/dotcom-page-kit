@@ -1,6 +1,6 @@
 import React from 'react'
 import { ariaSelected } from '../../utils'
-import { TNavMenuItem, TNavEditions } from '@financial-times/anvil-types-navigation'
+import { TNavMenuItem, TNavEditions } from '@financial-times/dotcom-types-navigation'
 
 export type TDrawerParentItemProps = {
   item: TNavMenuItem

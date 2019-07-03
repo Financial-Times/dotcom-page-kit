@@ -1,4 +1,4 @@
-import { TNavMenuKeys, TNavMenus, TNavMenusForEdition } from '@financial-times/anvil-types-navigation'
+import { TNavMenuKeys, TNavMenus, TNavMenusForEdition } from '@financial-times/dotcom-types-navigation'
 
 const sharedMenuKeys: TNavMenuKeys[] = [
   'account',

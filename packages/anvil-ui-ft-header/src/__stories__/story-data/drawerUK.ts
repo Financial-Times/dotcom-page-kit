@@ -1,4 +1,4 @@
-import { TNavMenu } from '@financial-times/anvil-types-navigation'
+import { TNavMenu } from '@financial-times/dotcom-types-navigation'
 
 const data: TNavMenu = {
   label: 'Drawer',

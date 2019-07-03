@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-types-navigation",
+  "name": "@financial-times/dotcom-types-navigation",
   "version": "0.0.0",
   "description": "",
   "main": "",
@@ -18,7 +18,7 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/anvil.git",
-    "directory": "packages/anvil-types-navigation"
+    "directory": "packages/dotcom-types-navigation"
   },
-  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-types-navigation"
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-types-navigation"
 }

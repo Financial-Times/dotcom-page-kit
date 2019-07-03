@@ -1,4 +1,4 @@
-import { TNavEdition, TNavEditions } from '@financial-times/anvil-types-navigation'
+import { TNavEdition, TNavEditions } from '@financial-times/dotcom-types-navigation'
 
 const availableEditions: TNavEdition[] = [
   {

@@ -1,4 +1,4 @@
-import { TNavMenuItem } from '@financial-times/anvil-types-navigation'
+import { TNavMenuItem } from '@financial-times/dotcom-types-navigation'
 
 const item: TNavMenuItem = {
   label: 'UK',

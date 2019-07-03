@@ -22,7 +22,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@financial-times/anvil-types-navigation": "file:../anvil-types-navigation"
+    "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation"
   },
   "peerDependencies": {
     "react": "^16.8.6"
