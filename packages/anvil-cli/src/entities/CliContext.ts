@@ -1,5 +1,5 @@
 import { CliPrompt } from './CliPrompt'
-import { AnyObject } from '@financial-times/anvil-types-generic'
+import { AnyObject } from '@financial-times/dotcom-types-generic'
 import { AnvilConfig } from '../types/AnvilConfig'
 import { Pluggable, Plugin } from '@financial-times/anvil-pluggable'
 

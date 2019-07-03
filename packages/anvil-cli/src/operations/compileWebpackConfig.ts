@@ -1,5 +1,5 @@
 import { pack } from '../utils/pack'
-import { AnyObject } from '@financial-times/anvil-types-generic'
+import { AnyObject } from '@financial-times/dotcom-types-generic'
 import { CliContext } from '../entities/CliContext'
 
 const WATCHING_FOR_CHANGES = 'watching for changes ...'
