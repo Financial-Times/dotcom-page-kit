@@ -1,6 +1,6 @@
 # Design Decisions: Client-Side Error Logging
 
-Anvil does not provide any client-side error logging capability. This is a major change from the existing FT.com toolset.
+Page Kit does not provide any client-side error logging capability. This is a major change from the existing FT.com toolset.
 
 Since the Next team started the rebuild of FT.com in 2014 we've used [Sentry] to capture and log both server and client-side errors for each application. It has been integrated with both [`n-express`] and [`n-ui`] so our applications get error logs by default.
 
@@ -8,7 +8,7 @@ However, for some time the value of this has been questioned, in particular the 
 
 Although the development team wants a tool to capture client-side errors it is apparent that the current implementation is of limited use.
 
-Therefore we have chosen not to implement the Sentry client as part of Anvil at this time as we believe a proper solution requires discussion and research which is out of scope for this project.
+Therefore we have chosen not to implement the Sentry client as part of Page Kit at this time as we believe a proper solution requires discussion and research which is out of scope for this project.
 
 [An issue has been created][issue] for discussing this topic further.
 

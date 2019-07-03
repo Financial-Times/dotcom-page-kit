@@ -1,8 +1,8 @@
 # Design Decisions: Many Small Packages
 
-At the time of writing the Anvil codebase contains ~30 individual packages. This is a major change from the existing FT.com toolset which can be considered a single installable package.
+At the time of writing the Page Kit codebase contains ~26 individual packages. This is a major change from the existing FT.com toolset which can be considered a single installable package.
 
-There are generally accepted benefits gained by choosing this architecture and a number of trade-offs. We have decided that most of the trade-offs are short-term, will be absorbed by the Anvil team, and should not adversely affect the end-users of Anvil.
+There are generally accepted benefits gained by choosing this architecture and a number of trade-offs. We have decided that most of the trade-offs are short-term, will be absorbed by the Page Kit team, and should not adversely affect the end-users of Page Kit.
 
 When we started the project we considered the problems people were having with the old system, some of which were:
 

@@ -1,6 +1,6 @@
 # Design Decisions: HTML Templating
 
-UI components provided by Anvil are authored using [JSX]. This is a major change from the existing FT.com toolset.
+UI components provided by Page Kit are authored using [JSX]. This is a major change from the existing FT.com toolset.
 
 Since the Next team started the rebuild of FT.com in 2014 we've used [Handlebars] to render HTML templates in our applications. With [Express] integration it's been easy for us to render our HTML pages on the server and send them to our users:
 
@@ -43,4 +43,4 @@ This opinion was also backed up by [the survey] we sent to the customer products
 
 ## Conclusion
 
-The Anvil team chose to use JSX instead of Handlebars for rendering HTML because it works well on both the server and client-side, is supported by many tools out of the box, enables access to a wide ecosystem of tools, can be used with a variety of different libraries, and is what the _majority of the customer products engineering team want to use_.
+The Page Kit team chose to use JSX instead of Handlebars for rendering HTML because it works well on both the server and client-side, is supported by many tools out of the box, enables access to a wide ecosystem of tools, can be used with a variety of different libraries, and is what the _majority of the customer products engineering team want to use_.

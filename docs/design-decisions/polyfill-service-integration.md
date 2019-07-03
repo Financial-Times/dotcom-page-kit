@@ -1,6 +1,6 @@
 # Design Decisions: Polyfill Service Integration
 
-Anvil integrates the [Polyfill Service] in order to provide JavaScript features that we use to browsers that do not yet support them. Our integration is different to the existing FT.com toolset.
+Page Kit integrates the [Polyfill Service] in order to provide JavaScript features that we use to browsers that do not yet support them. Our integration is different to the existing FT.com toolset.
 
 Firstly, we no longer load the Polyfill Service JS bundle via the FT.com CDN and instead load it directly from polyfill.io.
 
