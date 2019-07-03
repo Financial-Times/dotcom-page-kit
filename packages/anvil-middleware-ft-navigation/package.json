@@ -18,7 +18,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@financial-times/anvil-server-ft-navigation": "file:../../packages/anvil-server-ft-navigation",
+    "@financial-times/dotcom-server-navigation": "file:../../packages/dotcom-server-navigation",
     "@financial-times/anvil-types-navigation": "file:../anvil-types-navigation"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express'
 import { TNavigationData } from '@financial-times/anvil-types-navigation'
-import { Navigation, TNavOptions } from '@financial-times/anvil-server-ft-navigation'
+import { Navigation, TNavOptions } from '@financial-times/dotcom-server-navigation'
 import handleEdition from './handleEdition'
 
 type MiddlewareOptions = TNavOptions & {

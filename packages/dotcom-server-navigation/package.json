@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-server-ft-navigation",
+  "name": "@financial-times/dotcom-server-navigation",
   "version": "0.0.0",
   "description": "",
   "main": "dist/node/index.js",
@@ -35,7 +35,7 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/anvil.git",
-    "directory": "packages/anvil-server-ft-navigation"
+    "directory": "packages/dotcom-server-navigation"
   },
-  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-ft-navigation"
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-server-navigation"
 }

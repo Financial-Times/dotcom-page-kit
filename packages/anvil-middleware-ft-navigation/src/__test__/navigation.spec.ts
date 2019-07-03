@@ -31,7 +31,7 @@ const FakeNavigation = {
 }
 
 jest.mock(
-  '@financial-times/anvil-server-ft-navigation',
+  '@financial-times/dotcom-server-navigation',
   () => {
     return {
       Navigation: jest.fn().mockImplementation(() => FakeNavigation)

@@ -19,7 +19,7 @@ jest.mock('ft-poller', () => {
 
 const clone = (obj) => JSON.parse(JSON.stringify(obj))
 
-describe('anvil-server-ft-navigation', () => {
+describe('dotcom-server-navigation', () => {
   let navigationInstance
 
   beforeEach(() => {
