@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/anvil-server-resource-hints",
+  "name": "@financial-times/dotcom-server-resource-hints",
   "version": "0.0.0",
   "description": "",
   "main": "dist/node/index.js",
@@ -23,7 +23,7 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/anvil.git",
-    "directory": "packages/anvil-server-resource-hints"
+    "directory": "packages/dotcom-server-resource-hints"
   },
-  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-resource-hints"
+  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-server-resource-hints"
 }

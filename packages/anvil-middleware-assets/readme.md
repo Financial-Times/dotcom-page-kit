@@ -6,7 +6,7 @@ In addition this package can also be used to [serve static files].
 
 [Express]: https://expressjs.com/
 [asset loader]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-server-asset-loader
-[resource hints]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil-server-resource-hints
+[resource hints]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-server-resource-hints
 [serve static files]: https://expressjs.com/en/starter/static-files.html
 
 
