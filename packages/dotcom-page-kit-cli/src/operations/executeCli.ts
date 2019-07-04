@@ -1,7 +1,7 @@
 import path from 'path'
 import { CliPrompt } from '../entities/CliPrompt'
 import { CliContext } from '../entities/CliContext'
-import { AnvilConfig } from '../types/AnvilConfig'
+import { PageKitConfig } from '../types/PageKitConfig'
 import { getCommanderProgram } from './getCommanderProgram'
 
 interface Args {
@@ -13,7 +13,7 @@ export async function executeCli({ argv, workingDir }: Args) {
   const prompt = new CliPrompt()
 
   try {
-    const config: AnvilConfig = getWorkingDirConfig(workingDir)
+    const config: PageKitConfig = getWorkingDirConfig(workingDir)
     const plugins = config.plugins
     const cli = new CliContext({ prompt, config, workingDir, plugins })
 

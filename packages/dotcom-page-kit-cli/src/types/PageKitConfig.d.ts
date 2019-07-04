@@ -1,6 +1,6 @@
 import { Plugin } from '@financial-times/dotcom-page-kit-pluggable'
 
-export interface AnvilConfig {
+export interface PageKitConfig {
   plugins: Plugin[]
   settings?: {
     build?: {
