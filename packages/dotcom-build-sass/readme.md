@@ -2,7 +2,7 @@
 
 This package extends the [Page Kit CLI build action][cli] (`page-kit build`) with a way to load and generate CSS files from [Sass] source code.
 
-[cli]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-cli#build
+[cli]: https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-page-kit-cli#build
 [Sass]: https://sass-lang.com/
 
 

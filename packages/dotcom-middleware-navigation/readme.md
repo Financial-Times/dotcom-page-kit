@@ -57,4 +57,4 @@ See the [FT navigation documentation] for more details.
 
 See the [FT navigation documentation] for more details.
 
-[FT navigation documentation]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-server-navigation#options
+[FT navigation documentation]: https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-server-navigation#options
