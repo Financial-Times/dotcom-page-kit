@@ -1,1 +1,1 @@
-export const APP_CONTEXT_ELEMENT_ID = 'ft-app-context'
+export const APP_CONTEXT_ELEMENT_ID = 'page-kit-app-context'

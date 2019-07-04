@@ -52,6 +52,6 @@ describe('examples/kitchen-sink/integration', () => {
   })
 
   it('renders app context data as embedded JSON', () => {
-    expect(response.text).toContain('<script type="application/json" id="ft-app-context">')
+    expect(response.text).toContain('<script type="application/json" id="page-kit-app-context">')
   })
 })

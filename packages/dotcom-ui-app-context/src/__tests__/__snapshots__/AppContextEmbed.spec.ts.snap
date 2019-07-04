@@ -7,7 +7,7 @@ exports[`dotcom-ui-app-context/src/components/AppContextEmbed renders a script e
       "__html": "{\\"appName\\":\\"app-name\\",\\"appVersion\\":\\"123\\",\\"edition\\":\\"uk\\",\\"product\\":\\"next\\",\\"abTestState\\":\\"someCohort:on\\",\\"isProduction\\":true}",
     }
   }
-  id="ft-app-context"
+  id="page-kit-app-context"
   type="application/json"
 />
 `;
