@@ -19,7 +19,7 @@ With Page Kit, applications are responsible for bundling both their own code and
 
 ## Enabling code splitting
 
-Apps which are serving client-side code should include the [ft-js-code-splitting] plugin in their `anvil.config.js` files to enable code-splitting.
+Apps which are serving client-side code should include the [ft-js-code-splitting] plugin in their `page-kit.config.js` files to enable code-splitting.
 
 Once the webpackConfig has been successfully loaded the plugin will execute a number of code-splitting rules to chunk the application code into bundles.
 

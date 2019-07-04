@@ -14,7 +14,7 @@ This package is compatible with Node 8+ and is distributed on npm.
 npm install --save-dev @financial-times/dotcom-build-sass
 ```
 
-After installing the package you must add it to the list of plugins in your project's `anvil.config.js` configuration file:
+After installing the package you must add it to the list of plugins in your project's `page-kit.config.js` configuration file:
 
 ```diff
 + const sass = require('@financial-times/dotcom-build-sass')
@@ -32,7 +32,7 @@ Once setup, this plugin will enable you to use Sass files (`.scss` and `.sass`) 
 anvil build --entryFile path/to/styles.scss
 ```
 
-[entry points]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil#entry-points
+[entry points]: ../dotcom-page-kit-cli/readme.md#entry-points
 
 
 ## Scope

@@ -5,7 +5,6 @@
 - [Amending supplementary resources](#amending-supplementary-resources)
 - [Publishing resources from plugins](#publishing-resources-from-plugins)
 - [Returning values from handlers](#returning-values-from-handlers)
-- [Existing anvil plugins](#existing-anvil-plugins)
 - [Best practices for creating plugins](#best-practices-for-creating-plugins)
   - [Don't use `webpack-merge`](#dont-use-webpack-merge)
   - [Array items of note should be published for amendment](#array-items-of-note-should-be-published-for-amendment)
@@ -34,7 +33,7 @@ function babelPlugin({ on }) {
 
 ## Loading plugins
 
-Once the plugin has been authored, it will have to be loaded. To do so, the plugin should be added to the `anvil.config.js` file. The `anvil.config.js` file is the file that plugins and Page Kit CLI settings are declared in. This file is expected to be in the project root. The following is an example of an `anvil.config.js` file that specifies two plugins:
+Once the plugin has been authored, it will have to be loaded. To do so, the plugin should be added to the `page-kit.config.js` file. The `page-kit.config.js` file is the file that plugins and Page Kit CLI settings are declared in. This file is expected to be in the project root. The following is an example of an `page-kit.config.js` file that specifies two plugins:
 
 ```js
 module.exports = {
@@ -57,7 +56,7 @@ function babelPlugin ({ on }) => {
 }
 ```
 
-See the [`anvil` package readme] for more information on the `anvil.config.js` file
+See the [Page Kit CLI package] for more information on the `page-kit.config.js` file
 
 ## Amending supplementary resources
 
@@ -84,14 +83,13 @@ function plugin({ on }) {
 }
 ```
 
-Webpack [rules] and [plugin] options are the supplementary resources that are commonly published, and they are published from both [anvil core] and [individual anvil plugins]. So for a list of all the resources that will be published during the life cycle of invoking the `anvil build` CLI command, see the README documentation of both [anvil core] and the [individual anvil plugins] that will be used.
+Webpack [rules] and [plugin] options are the supplementary resources that are commonly published, and they are published from both the [Page Kit CLI] and individual plugins. So for a list of all the resources that will be published during the life cycle of invoking the `anvil build` CLI command, see the README documentation of both the CLI and the plugins that will be used.
 
 [rules]: https://webpack.js.org/configuration/module/#modulerules
 [plugin]: https://webpack.js.org/plugins/
 [unsafe]: #array-items-of-note-should-be-published-for-amendment
-[anvil core]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil
+[Page Kit CLI]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-cli
 [clean-webpack-plugin]: https://github.com/johnagan/clean-webpack-plugin
-[individual anvil plugins]: #existing-anvil-plugins
 
 ## Publishing resources from plugins
 
@@ -202,19 +200,6 @@ destArray.push(...srcArray)
 This is intentional as we don't want plugins to be dependent on private details such as where exactly an item is located within the array. This way, if the position of the item is changed, plugins don't break. In situations where there is a need to amend something that is in an array (like a webpack rule for instance), the plugin should instead subscribe to amend that particular item (instead of subscribing to amend the entire webpack config for instance).
 
 The third thing to note is that if `undefined` is returned from the handler, then nothing happens. The system treats an `undefined` handler result as meaning that nothing was returned from the handler, which means that the original resource should then be passed to the next handler in the list. Note, however, that the behavior is different when `null` is returned from a handler. The system treats a `null` handler result as being an intention request to overwrite the resource with `null`, so that null becomes the resource that is passed to subsequent handlers in the chain.
-
-## Existing anvil plugins
-
-Below is a list of the existing anvil plugins that are available for use
-
-- [@financial-time/dotcom-build-bower-resolve](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-bower-resolve)
-- [@financial-time/dotcom-build-css](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-css)
-- [@financial-time/dotcom-build-esnext](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-esnext)
-- [@financial-time/dotcom-build-sass](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-sass)
-- [@financial-time/dotcom-build-js](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-build-js)
-
-[`publisher`]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-pluggable
-[`anvil` package readme]: https://github.com/Financial-Times/anvil/tree/master/packages/anvil
 
 ## Best practices for creating plugins
 

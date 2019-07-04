@@ -24,5 +24,5 @@ export async function executeCli({ argv, workingDir }: Args) {
 }
 
 function getWorkingDirConfig(workingDir: string) {
-  return require(path.join(workingDir, 'anvil.config.js'))
+  return require(path.join(workingDir, 'page-kit.config.js'))
 }
