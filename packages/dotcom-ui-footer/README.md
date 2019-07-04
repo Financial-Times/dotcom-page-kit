@@ -53,5 +53,5 @@ The props object passed to the footer component must have a `data` property. The
 
 [Express]: https://expressjs.com/
 [navigation API]: https://github.com/Financial-Times/next-navigation-api
-[dotcom-server-navigation]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-server-navigation
-[dotcom-middleware-navigation]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-middleware-navigation
+[dotcom-server-navigation]: https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-server-navigation
+[dotcom-middleware-navigation]: https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-middleware-navigation

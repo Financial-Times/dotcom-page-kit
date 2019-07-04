@@ -2,7 +2,7 @@
 
 This package provides tools to fetch and format navigation data for FT.com.
 
-It is primarily intended to be consumed via the [`dotcom-middleware-navigation`](https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-middleware-navigation) package which can be used by Express applications.
+It is primarily intended to be consumed via the [`dotcom-middleware-navigation`](https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-middleware-navigation) package which can be used by Express applications.
 
 Data for the menus will be periodically fetched and updated from the [Next Navigation API](https://github.com/Financial-Times/next-navigation-api). This data is managed by editorial staff and is used to render the navigation components across FT.com including the header, drop-down menus, drawer, and footer.
 

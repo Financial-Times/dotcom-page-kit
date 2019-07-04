@@ -35,7 +35,7 @@ function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
           resolve: {
             // Required for sass-loader 7.0+
             // https://github.com/webpack-contrib/sass-loader/issues/556
-            // https://github.com/Financial-Times/anvil/issues/269
+            // https://github.com/Financial-Times/dotcom-page-kit/issues/269
             extensions: ['.scss', '.sass', '.css']
           },
           use: [

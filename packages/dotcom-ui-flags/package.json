@@ -28,9 +28,9 @@
   },
   "repository": {
     "type": "git",
-    "repository": "https://github.com/Financial-Times/anvil.git",
+    "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
     "directory": "packages/dotcom-ui-flags"
   },
-  "homepage": "https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-ui-flags",
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-ui-flags",
   "devDependencies": {}
 }

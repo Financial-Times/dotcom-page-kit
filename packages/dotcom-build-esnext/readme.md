@@ -2,7 +2,7 @@
 
 This package extends the [Page Kit CLI build action][cli] (`page-kit build`) with the ability to build JavaScript that makes use of features that fall under the [`esnext`] banner
 
-[cli]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-cli#build
+[cli]: https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-page-kit-cli#build
 [`esnext`]: https://www.freelancinggig.com/blog/2017/07/04/what-is-esnext-is-it-same-as-ecmascript/
 
 

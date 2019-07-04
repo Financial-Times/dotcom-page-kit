@@ -1,6 +1,6 @@
 # FT.com Page Kit
 
-[![CircleCI](https://circleci.com/gh/Financial-Times/anvil/tree/master.svg?style=svg&circle-token=2149091698510f3908776e16620b30494fdca26c)](https://circleci.com/gh/Financial-Times/anvil/tree/master)
+[![CircleCI](https://circleci.com/gh/Financial-Times/dotcom-page-kit/tree/master.svg?style=svg&circle-token=2149091698510f3908776e16620b30494fdca26c)](https://circleci.com/gh/Financial-Times/dotcom-page-kit/tree/master)
 
 The aim of this project is to provide a high quality, well tested, and thoroughly documented set of tools for assembling and delivering modern websites with Node.js based upon the best industry standards.
 
@@ -87,7 +87,7 @@ Please note that Page Kit has only been tested in Mac and Linux environments. If
 1. Clone the Page Kit Git repository and change to the new directory that has been created:
 
     ```bash
-    git clone git@github.com:financial-times/anvil
+    git clone git@github.com:Financial-Times/dotcom-page-kit
     cd anvil
     ```
 

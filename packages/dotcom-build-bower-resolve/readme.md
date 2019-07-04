@@ -2,7 +2,7 @@
 
 This package extends the [Page Kit CLI build action][cli] (`page-kit build`) with a way to find and load dependencies installed with [Bower].
 
-[cli]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-cli#build
+[cli]: https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-page-kit-cli#build
 [Bower]: https://bower.io/
 
 
