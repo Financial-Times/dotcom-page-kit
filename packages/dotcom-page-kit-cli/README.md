@@ -24,10 +24,10 @@ The `plugins` property is used to supply the plugins that should be loaded by th
 
 The `settings` property is used to provide specific configuration for the individual CLI actions. These settings are covered below (see [actions](#actions).)
 
-To view the available actions and global options provided by the CLI, run the `anvil` command with the `--help` flag:
+To view the available actions and global options provided by the CLI, run the `page-kit` command with the `--help` flag:
 
 ```sh
-anvil --help
+page-kit --help
 ```
 
 
@@ -48,7 +48,7 @@ The path for the entry point into your source code can be provided via the `--en
 Usage via CLI flag:
 
 ```sh
-anvil build --entryFile ./path/to/entry.js
+page-kit build --entryFile ./path/to/entry.js
 ```
 
 Usage via configuration file:
@@ -73,7 +73,7 @@ The generated output can be directed to a destination directory using the `--out
 Usage via CLI flag:
 
 ```sh
-anvil build --outputPath ./path/to/dist
+page-kit build --outputPath ./path/to/dist
 ```
 
 Usage via configuration file:
@@ -137,7 +137,7 @@ In production mode the generated output will be optimised, file names hashed, an
 To enable development mode you can use the `--development` CLI flag. This will disable several optimisations in favour of providing faster builds and rebuilds. See the [Webpack mode documentation] for further information about modes.
 
 ```sh
-anvil build --development
+page-kit build --development
 ```
 
 [Webpack mode documentation]: https://webpack.js.org/concepts/mode/
@@ -147,7 +147,7 @@ anvil build --development
 For convenience the build action can watch source files and trigger a rebuild whenever they change. To enable watch mode use the `--watch` CLI flag.
 
 ```sh
-anvil build --watch
+page-kit build --watch
 ```
 
 
