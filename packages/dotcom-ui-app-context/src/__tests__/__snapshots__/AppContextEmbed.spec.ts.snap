@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`anvil-ui-ft-context/src/components/AppContextEmbed renders a script element containing app context properties 1`] = `
+exports[`dotcom-ui-app-context/src/components/AppContextEmbed renders a script element containing app context properties 1`] = `
 <script
   dangerouslySetInnerHTML={
     Object {

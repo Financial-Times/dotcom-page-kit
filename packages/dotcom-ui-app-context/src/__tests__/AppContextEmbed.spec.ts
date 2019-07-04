@@ -11,7 +11,7 @@ const fakeContext: TAppContext = {
   isProduction: true
 }
 
-describe('anvil-ui-ft-context/src/components/AppContextEmbed', () => {
+describe('dotcom-ui-app-context/src/components/AppContextEmbed', () => {
   it('renders a script element containing app context properties', () => {
     const tree = renderer.create(subject({ context: fakeContext }))
     expect(tree).toMatchSnapshot()
