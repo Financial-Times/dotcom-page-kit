@@ -21,19 +21,19 @@ describe('examples/ssr-with-hydration', () => {
   })
 
   it('should work as expected', async () => {
-    expect(await page.title()).toBe('Home | Anvil')
+    expect(await page.title()).toBe('Home | Page Kit')
     expect(await pageDescription()).toBe('The homepage')
 
     await assertButtonOpensAlertBox()
 
     await page.click(element.nav.dogsPageLink)
 
-    expect(await page.title()).toBe('Dogs | Anvil')
+    expect(await page.title()).toBe('Dogs | Page Kit')
     expect(await pageDescription()).toBe('The dogs list page')
 
     await page.click(element.dogsPage.bulldogLink)
 
-    expect(await page.title()).toBe('Dog | Anvil')
+    expect(await page.title()).toBe('Dog | Page Kit')
     expect(await pageDescription()).toBe('The dog page')
 
     const totalImages = await getTotalDogImages()

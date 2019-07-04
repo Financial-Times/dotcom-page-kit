@@ -15,7 +15,7 @@ const fixture = Object.freeze({
   }
 })
 
-describe('anvil-ui-open-graph/src/lib/flattenOpenGraphData', () => {
+describe('dotcom-ui-shell/src/lib/flattenOpenGraphData', () => {
   it('returns an array', () => {
     const result = subject(fixture)
     expect(result).toEqual(expect.any(Array))

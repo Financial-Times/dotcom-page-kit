@@ -7,7 +7,7 @@ const fixture = Object.freeze({
   lang: 'en-GB'
 })
 
-describe('anvil-ui-open-graph/src/lib/formatAttributeNames', () => {
+describe('dotcom-ui-shell/src/lib/formatAttributeNames', () => {
   it('returns a new object', () => {
     const result = subject(fixture)
     expect(result).not.toBe(fixture)

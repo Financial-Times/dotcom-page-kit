@@ -11,7 +11,7 @@ This package is compatible with Node 8+ and is distributed on npm.
 npm install --save @financial-times/dotcom-ui-header
 ```
 
-After installing the package you will need to setup your application to fetch data from the [Next Navigation API] required to render these UI components. Anvil provides two packages for this:
+After installing the package you will need to configure your application to fetch data from the [Next Navigation API] required to render these UI components. Page Kit provides two packages for this:
 
 1. [`dotcom-middleware-navigation`] (if you are using Express)
 2. [`dotcom-server-navigation`] (if you are not using Express)

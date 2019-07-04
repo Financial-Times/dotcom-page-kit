@@ -25,7 +25,7 @@ routes.forEach(async (route) => {
     const dependencies = await getDependencies(Page)
 
     const props = {
-      siteTitle: 'Anvil',
+      siteTitle: 'Page Kit',
       pageTitle: Page.title,
       description: Page.description,
       initialProps: { $$page: route.name, ...initialProps },
