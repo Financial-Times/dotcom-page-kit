@@ -34,7 +34,7 @@ export default (props) => (
 )
 ```
 
-Otherwise you can insert a JSON formatted string into a `<script>` element with an ID of `anvil-flags-data-embed`. You can use the `.formatFlagsJSON()` method to help with this.
+Otherwise you can insert a JSON formatted string into a `<script>` element with an ID of `page-kit-flags-embed`. You can use the `.formatFlagsJSON()` method to help with this.
 
 ```js
 const { formatFlagsJSON } = require('@financial-times/dotcom-ui-flags/server')
@@ -45,7 +45,7 @@ function page() {
     <head>
       <meta charset="utf-8">
       <title>My Amazing Website</title>
-      <script type="application/json" id="anvil-flags-data-embed">
+      <script type="application/json" id="page-kit-flags-embed">
         ${formatFlagsJSON(flagsData)}
       </script>
     </head>
@@ -81,7 +81,7 @@ Initialises and returns a new [flags client](#flags-client-api) which can be use
 
 Finds and parses the formatted flags data embedded in the page and returns the flags data object if successful.
 
-_Please note_ the formatted flags data must be present in a `<script>` element with an ID of `anvil-flags-data-embed`.
+_Please note_ the formatted flags data must be present in a `<script>` element with an ID of `page-kit-flags-embed`.
 
 ### `new Flags(flagsData: object)`
 
@@ -94,7 +94,7 @@ Creates a [flags client](#flags-client-api) with the given data.
 
 Returns a serialised JSON string representing the given data. This will filter out any properties with a falsey value to reduce the amount of data to send to and parse on the client-side.
 
-_Please note_ The data returned by this method should be inserted into a `<script>` element with an ID of `anvil-flags-data-embed`.
+_Please note_ The data returned by this method should be inserted into a `<script>` element with an ID of `page-kit-flags-embed`.
 
 
 ## Flags client API

@@ -36,7 +36,7 @@ export default (props) => (
 )
 ```
 
-Otherwise you can insert a JSON formatted string into a `<script>` element with an ID of `ft-app-context`.
+Otherwise you can insert a JSON formatted string into a `<script>` element with an ID of `page-kit-app-context`.
 
 ```js
 function page() {
@@ -45,7 +45,7 @@ function page() {
     <head>
       <meta charset="utf-8">
       <title>My Amazing Website</title>
-      <script type="application/json" id="ft-app-context">
+      <script type="application/json" id="page-kit-app-context">
         {"appName":"app-name","contextProperty":"my-property"}
       </script>
     </head>

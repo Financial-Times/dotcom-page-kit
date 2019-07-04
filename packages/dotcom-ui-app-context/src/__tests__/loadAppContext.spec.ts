@@ -8,7 +8,7 @@ describe('dotcom-ui-app-context/src/client/loadAppContext', () => {
   describe('when there is a configuration object', () => {
     beforeEach(() => {
       document.body.innerHTML = `
-        <script type="application/json" id="ft-app-context">{"appName":"app-name","appVersion":"123"}</script>
+        <script type="application/json" id="page-kit-app-context">{"appName":"app-name","appVersion":"123"}</script>
       `
     })
 

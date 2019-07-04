@@ -1,1 +1,1 @@
-export const SCRIPT_ELEMENT_ID = 'anvil-flags-data-embed'
+export const SCRIPT_ELEMENT_ID = 'page-kit-flags-embed'
