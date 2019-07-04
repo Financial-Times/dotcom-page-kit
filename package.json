@@ -35,15 +35,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Financial-Times/anvil.git"
+    "url": "git+https://github.com/Financial-Times/dotcom-page-kit.git"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Financial-Times/anvil/issues"
+    "url": "https://github.com/Financial-Times/dotcom-page-kit/issues"
   },
-  "homepage": "https://github.com/Financial-Times/anvil#readme",
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit#readme",
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@financial-times/athloi": "^1.0.0-beta.17",
