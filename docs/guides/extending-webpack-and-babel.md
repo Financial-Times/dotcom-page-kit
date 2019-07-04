@@ -88,7 +88,7 @@ Webpack [rules] and [plugin] options are the supplementary resources that are co
 [rules]: https://webpack.js.org/configuration/module/#modulerules
 [plugin]: https://webpack.js.org/plugins/
 [unsafe]: #array-items-of-note-should-be-published-for-amendment
-[Page Kit CLI]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-cli
+[Page Kit CLI]: ../../packages/dotcom-page-kit-cli/readme.md
 [clean-webpack-plugin]: https://github.com/johnagan/clean-webpack-plugin
 
 ## Publishing resources from plugins
@@ -146,7 +146,7 @@ Because strings are immutable in JavaScript, it's not possible to mutate the str
 > See the [Page Kit pluggable] package documentation for more information on the `publish` method as well as the `Publisher`
 
 [hard to reach]: #amending-supplementary-resources
-[Page Kit pluggable]: https://github.com/Financial-Times/anvil/tree/master/packages/dotcom-page-kit-pluggable
+[Page Kit pluggable]: ../../packages/dotcom-page-kit-pluggable/readme.md
 
 ## Returning values from handlers
 
@@ -300,7 +300,7 @@ export default ({on} => {
 })
 ```
 
-In summary, it is not at all necessary to use `webpack-merge`. This is because its default behavior has already been accommodated for in `anvil`, and where its smart merging capabilities are concerned, it is considered an unhealthy practice within a plugin ecosystem such as this.
+In summary, it is not at all necessary to use `webpack-merge`. This is because its default behavior has already been accommodated for, and where its smart merging capabilities are concerned, it is considered an unhealthy practice within a plugin ecosystem such as this.
 
 [returned from a handler function]: #returning-values-from-handlers
 
