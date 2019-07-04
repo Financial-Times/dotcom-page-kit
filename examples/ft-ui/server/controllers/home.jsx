@@ -12,7 +12,7 @@ export function homeController(_, response, next) {
 
   const pageData = {
     title: 'Hello World!',
-    contents: '<div align="center"><p>Hello, welcome to Anvil.</p></div>'
+    contents: '<div align="center"><p>Hello, welcome to Page Kit.</p></div>'
   }
 
   const shellProps = {

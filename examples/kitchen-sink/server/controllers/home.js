@@ -52,7 +52,7 @@ module.exports = (_, response, next) => {
         <AdsOptionsEmbed {...adOptions} />
         <Layout navigationData={response.locals.navigation} headerBefore={<Slot {...adSlotProps} />}>
           <div align="center">
-            <p className="hello">Hello, welcome to Anvil.</p>
+            <p className="hello">Hello, welcome to Page Kit.</p>
           </div>
         </Layout>
       </Shell>
