@@ -58,7 +58,7 @@ export default (props) => (
 )
 ```
 
-Otherwise this package provides two methods to manually integrate the bootstrap code into your templates. First you must insert a JSON formatted string of configuration into a `<script>` element with an ID of `anvil-bootstrap-config` and then you must embed the bootstrap script itself:
+Otherwise this package provides two methods to manually integrate the bootstrap code into your templates. First you must insert a JSON formatted string of configuration into a `<script>` element with an ID of `page-kit-bootstrap-config` and then you must embed the bootstrap script itself:
 
 ```js
 const bootstrap = require('@financial-times/dotcom-ui-bootstrap/server')
@@ -69,7 +69,7 @@ function page() {
     <head>
       <meta charset="utf-8">
       <title>My Amazing Website</title>
-      <script type="application/json" id="anvil-bootstrap-config">
+      <script type="application/json" id="page-kit-bootstrap-config">
         ${bootstrap.formatConfigJSON(coreScripts, enhancedScripts)}
       </script>
       <script>
@@ -92,7 +92,7 @@ There is no client-side integration required. The bootstrap component can only b
 
 ### `formatConfigJSON(coreScripts, enhancedScripts, trackErrors)`
 
-Returns a JSON formatted string representing the configuration for the bootstrap snippet. This must be inserted into a `<script>` element with an ID of `anvil-bootstrap-config`. This method requires two arguments and has one optional argument:
+Returns a JSON formatted string representing the configuration for the bootstrap snippet. This must be inserted into a `<script>` element with an ID of `page-kit-bootstrap-config`. This method requires two arguments and has one optional argument:
 
 1. `coreScripts`
 

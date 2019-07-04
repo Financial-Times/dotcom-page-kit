@@ -58,7 +58,7 @@
   }
 
   function getScriptsConfig() {
-    var scriptsConfigEl = document.getElementById('anvil-bootstrap-config')
+    var scriptsConfigEl = document.getElementById('page-kit-bootstrap-config')
     var scriptsConfig = { core: [], enhanced: [], trackErrors: false }
 
     if (scriptsConfigEl) {
@@ -79,7 +79,7 @@
       category: 'javascript',
       action: 'load-error',
       system: {
-        source: 'anvil'
+        source: 'page-kit'
       },
       context: {
         script: script

@@ -12,7 +12,7 @@ function Bootstrap({ coreScripts, enhancedScripts, trackErrors }: TBootstrapProp
     <React.Fragment>
       <script
         type="application/json"
-        id="anvil-bootstrap-config"
+        id="page-kit-bootstrap-config"
         dangerouslySetInnerHTML={{ __html: formatConfigJSON(coreScripts, enhancedScripts, trackErrors) }}
       />
       <script dangerouslySetInnerHTML={{ __html: getBootstrapJS() }} />
