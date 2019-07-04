@@ -9,7 +9,7 @@ export default function formatAttributeNames(data: TAttributeData = {}) {
     const hyphenatedKey = hyphenateString(key)
 
     // Let's render boolean data attributes properly
-    // as per https://github.com/Financial-Times/anvil/issues/370
+    // as per https://github.com/Financial-Times/dotcom-page-kit/issues/370
     if (hyphenatedKey.startsWith('data-') && typeof value === 'boolean') {
       // Where react is concerned, a `true` boolean data attribute
       // is one where the attribute value is an empty string (because

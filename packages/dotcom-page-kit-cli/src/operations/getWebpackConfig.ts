@@ -33,7 +33,7 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
         publish(hooks.WEBPACK_JS_RULE, {
           test: [/\.(js|jsx|mjs)$/],
           // NOTE: Do not exclude bower_components or node_modules directories
-          // https://github.com/Financial-Times/anvil/issues/366
+          // https://github.com/Financial-Times/dotcom-page-kit/issues/366
           exclude: [],
           use: {
             loader: require.resolve('babel-loader'),
