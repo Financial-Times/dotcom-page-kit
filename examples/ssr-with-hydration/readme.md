@@ -1,6 +1,6 @@
 # Example Rendering with dotcom-ui-shell
 
-This package demonstrates the use of anvil to create a react app that renders pages on the server while also hydrating them on the client. Some notable things that it features are as follows:
+This package demonstrates a react app that renders pages on the server while also hydrating them on the client. Some notable things that it features are as follows:
 
 - The use of `dotcom-ui-shell` `initialProps` functionality
 - Dynamic imports

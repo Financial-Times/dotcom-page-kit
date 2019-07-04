@@ -88,7 +88,7 @@ Please note that Page Kit has only been tested in Mac and Linux environments. If
 
     ```bash
     git clone git@github.com:Financial-Times/dotcom-page-kit
-    cd anvil
+    cd dotcom-page-kit
     ```
 
 2. Install all of the project dependencies (this may take a few minutes if you are running this for the first time):
