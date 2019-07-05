@@ -101,10 +101,10 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ${HOME}/.npmrc
       - run:
           name: Bump version
-          command: npx athloi version ${CIRCLE_TAG}
+          command: npx athloi version ${CIRCLE_TAG} --filter "dotcom-*"
       - run:
           name: NPM publish
-          command: npx athloi publish -- --access=public
+          command: npx athloi publish --filter "dotcom-*" -- --access=public
 
 workflows:
 
