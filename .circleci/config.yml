@@ -104,7 +104,7 @@ jobs:
           command: npx athloi version ${CIRCLE_TAG}
       - run:
           name: NPM publish
-          command: npx athloi publish -- --access=public
+          command: npx athloi publish -- --access=public --dry-run
 
 workflows:
 
