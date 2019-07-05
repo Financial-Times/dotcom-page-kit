@@ -1,5 +1,6 @@
 **/__fixtures__/**
 **/__stories__/**
 **/__test__/**
+**/__tests__/**
 tsconfig.json
 *.tsbuildinfo
