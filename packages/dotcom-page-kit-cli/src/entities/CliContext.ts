@@ -1,5 +1,5 @@
 import { CliPrompt } from './CliPrompt'
-import { TOptions } from '../types/HandlerArgs'
+import { TArguments, TOptions } from '../types/HandlerArgs'
 import { PageKitConfig } from '../types/PageKitConfig'
 import { Pluggable, Plugin } from '@financial-times/dotcom-page-kit-pluggable'
 
@@ -12,7 +12,7 @@ interface ConstructorArgs {
 
 export class CliContext extends Pluggable {
   cli = this
-  args: AnyObject = {}
+  args: TArguments
   prompt: CliPrompt
   config: PageKitConfig
   options: TOptions
