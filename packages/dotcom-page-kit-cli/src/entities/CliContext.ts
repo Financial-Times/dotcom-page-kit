@@ -1,5 +1,5 @@
 import { CliPrompt } from './CliPrompt'
-import { AnyObject } from '@financial-times/dotcom-types-generic'
+import { TOptions } from '../types/HandlerArgs'
 import { PageKitConfig } from '../types/PageKitConfig'
 import { Pluggable, Plugin } from '@financial-times/dotcom-page-kit-pluggable'
 
@@ -15,7 +15,7 @@ export class CliContext extends Pluggable {
   args: AnyObject = {}
   prompt: CliPrompt
   config: PageKitConfig
-  options: AnyObject = {}
+  options: TOptions
   workingDir: string
 
   constructor({ prompt = new CliPrompt(), workingDir, plugins, config }: ConstructorArgs) {

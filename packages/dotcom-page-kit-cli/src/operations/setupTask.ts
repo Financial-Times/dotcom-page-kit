@@ -1,5 +1,6 @@
 import { Command } from 'commander'
 import { CliContext } from '../entities/CliContext'
+import { TOptions } from '../types/HandlerArgs'
 
 interface Task {
   (cli: CliContext): any
@@ -10,7 +11,7 @@ export function setupTask(cli: CliContext, invokeTask: Task) {
     const command = getCommandFromTaskArgs(taskArgs)
 
     cli.args = getArgsFromCommand(command, taskArgs)
-    cli.options = getOptionsFromCommand(command)
+    cli.options = getOptionsFromCommand(command) as TOptions
 
     await invokeTask(cli)
   }
