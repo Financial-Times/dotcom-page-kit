@@ -5,6 +5,13 @@ export interface HandlerArgs extends pluggable.HandlerArgs {
   cli: CliContext
 }
 
-export type TWebpackConfig  = {
+export type TWebpackConfig = {
   [key: string]: any
+}
+
+export type TOptions = {
+  watch: any
+  development: any
+  entryFile: any
+  outputPath: any
 }
