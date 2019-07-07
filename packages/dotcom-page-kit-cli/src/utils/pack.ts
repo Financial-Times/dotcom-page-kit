@@ -1,5 +1,5 @@
 import webpack from 'webpack'
-import { AnyObject } from '@financial-times/dotcom-types-generic'
+import { TWebpackConfig } from '../types/HandlerArgs'
 import ProgressPlugin from 'webpack/lib/ProgressPlugin'
 
 interface OnProgress {
@@ -13,7 +13,7 @@ interface OnWatchError {
 interface Args {
   stdin?: boolean
   watch: boolean
-  webpackConfig: AnyObject
+  webpackConfig: TWebpackConfig
   onProgress?: OnProgress
   onComplete?: Function
   onWatching?: Function

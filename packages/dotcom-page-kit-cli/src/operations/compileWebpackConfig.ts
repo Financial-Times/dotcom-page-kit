@@ -1,10 +1,10 @@
 import { pack } from '../utils/pack'
-import { AnyObject } from '@financial-times/dotcom-types-generic'
+import { TWebpackConfig } from '../types/HandlerArgs'
 import { CliContext } from '../entities/CliContext'
 
 const WATCHING_FOR_CHANGES = 'watching for changes ...'
 
-export async function compileWebpackConfig(cli: CliContext, webpackConfig: AnyObject) {
+export async function compileWebpackConfig(cli: CliContext, webpackConfig: TWebpackConfig) {
   const watch = cli.options.watch
   const prompt = cli.prompt
 
