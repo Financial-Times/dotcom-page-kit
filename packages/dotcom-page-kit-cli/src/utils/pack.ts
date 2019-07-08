@@ -1,5 +1,5 @@
 import webpack from 'webpack'
-import { TWebpackConfig } from '../types/HandlerArgs'
+import { TWebpackConfig } from '../types/CliConfig'
 import ProgressPlugin from 'webpack/lib/ProgressPlugin'
 
 interface OnProgress {

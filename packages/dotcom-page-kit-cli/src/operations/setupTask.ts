@@ -1,6 +1,6 @@
 import { Command } from 'commander'
 import { CliContext } from '../entities/CliContext'
-import { TOptions } from '../types/HandlerArgs'
+import { TOptions } from '../types/CliConfig'
 
 interface Task {
   (cli: CliContext): any
