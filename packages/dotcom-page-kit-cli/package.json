@@ -38,8 +38,7 @@
     "webpack-assets-manifest": "^3.1.1"
   },
   "devDependencies": {
-    "@types/ora": "^3.0.0",
-    "@financial-times/dotcom-types-generic": "file:../dotcom-types-generic"
+    "@types/ora": "^3.0.0"
   },
   "engines": {
     "node": ">= 8.16.0"

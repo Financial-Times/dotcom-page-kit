@@ -25,9 +25,6 @@
     "@financial-times/dotcom-ui-flags": "file:../dotcom-ui-flags",
     "@financial-times/dotcom-ui-polyfill-service": "file:../dotcom-ui-polyfill-service"
   },
-  "devDependencies": {
-    "@financial-times/dotcom-types-generic": "file:../dotcom-types-generic"
-  },
   "peerDependencies": {
     "react": "^16.8.6"
   },
