@@ -24,6 +24,7 @@ function Shell(props: TShellProps) {
   return (
     <html
       {...formatAttributeNames(props.htmlAttributes)}
+      lang="en-GB"
       className="no-js core"
       style={{ backgroundColor: '#fff1e5', color: '#33302e' }}>
       <head>
