@@ -43,6 +43,7 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
       ]
     },
     plugins: [new CleanWebpackPlugin(cleanWebpackPluginOptions), new ManifestPlugin(manifestPluginOptions)],
-    devtool: isDevMode ? 'cheap-module-eval-source-map' : 'source-map'
+    devtool: isDevMode ? 'cheap-module-eval-source-map' : 'source-map',
+    bail: isDevMode ? false : true
   })
 }
