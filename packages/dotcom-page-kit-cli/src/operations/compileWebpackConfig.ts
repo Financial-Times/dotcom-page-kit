@@ -1,5 +1,5 @@
 import { pack } from '../utils/pack'
-import { TWebpackConfig } from '../types/HandlerArgs'
+import { TWebpackConfig } from '../types/CliConfig'
 import { CliContext } from '../entities/CliContext'
 
 const WATCHING_FOR_CHANGES = 'watching for changes ...'

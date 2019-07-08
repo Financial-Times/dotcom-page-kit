@@ -1,5 +1,5 @@
 import { CliPrompt } from './CliPrompt'
-import { TArguments, TOptions } from '../types/HandlerArgs'
+import { TArguments, TOptions } from '../types/CliConfig'
 import { PageKitConfig } from '../types/PageKitConfig'
 import { Pluggable, Plugin } from '@financial-times/dotcom-page-kit-pluggable'
 
