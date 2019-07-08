@@ -26,7 +26,13 @@ function Shell(props: TShellProps) {
       {...formatAttributeNames(props.htmlAttributes)}
       lang="en-GB"
       className="no-js core"
-      style={{ backgroundColor: '#fff1e5', color: '#33302e' }}>
+      style={{
+        // TODO: abstract styles into 'core branding' package
+        // Enable use of 100vw which does not account for the scroll bar
+        overflowX: 'hidden',
+        backgroundColor: '#fff1e5',
+        color: '#33302e'
+      }}>
       <head>
         <DocumentHead {...props} />
         {/* TODO: refactor initial props, flags data, and context data to the bottom of body */}
