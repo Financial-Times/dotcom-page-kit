@@ -22,9 +22,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@babel/core": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
-    "@babel/runtime": "^7.4.4",
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "@babel/runtime": "^7.5.0",
     "@financial-times/dotcom-page-kit-pluggable": "file:../dotcom-page-kit-pluggable",
     "ansi-escapes": "^4.0.0",
     "babel-loader": "^8.0.5",
