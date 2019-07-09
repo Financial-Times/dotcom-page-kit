@@ -11,3 +11,7 @@
   @include oTypographySans($scale: 7);
 }
 
+.project-aim {
+  @include oTypographySans($scale: 3);
+  margin: 0 100px 0 100px;
+}
