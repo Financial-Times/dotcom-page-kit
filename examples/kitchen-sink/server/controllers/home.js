@@ -54,6 +54,13 @@ module.exports = (_, response, next) => {
           <div align="center">
             <p className="hello">Hello, welcome to Page Kit.</p>
           </div>
+          <div>
+            <p className="project-aim">
+              The aim of this project is to provide a high quality, well tested, and thoroughly documented set
+              of tools for assembling and delivering modern websites with Node.js based upon the best industry
+              standards.
+            </p>
+          </div>
         </Layout>
       </Shell>
     )
