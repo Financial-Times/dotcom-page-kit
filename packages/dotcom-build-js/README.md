@@ -38,9 +38,11 @@ Several [hooks](#hooks) are provided in order to access and modify the configura
 
 ## Options
 
-- **jsxPragma**: (Defaults to `h`) See https://babeljs.io/docs/en/babel-preset-react#pragma
-- **jsxPragmaFrag**: (Defaults to `Fragment`) See https://babeljs.io/docs/en/babel-preset-react#pragmafrag
+- **jsxPragma**: (Defaults to `"h"`) See https://babeljs.io/docs/en/babel-preset-react#pragma
+- **jsxPragmaFrag**: (Defaults to `"Fragment"`) See https://babeljs.io/docs/en/babel-preset-react#pragmafrag
+- **enableRequireDefault** (Defaults to `false`) Enable usage of [`babel-plugin-transform-require-default`][] which
 
+[1]: https://www.npmjs.com/package/babel-plugin-transform-require-default
 
 ## Hooks
 
