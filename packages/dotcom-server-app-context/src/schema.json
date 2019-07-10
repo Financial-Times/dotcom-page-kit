@@ -4,18 +4,10 @@
   "title": "FT App Context Schema",
   "properties": {
     "abTestState": {
+      "type": "string",
       "description": "The A/B test flags data as a comma delimited string",
-      "examples": ["subscriberCohort:on,premiumCohort:on,nonUSACohort:on", "-"],
-      "anyOf": [
-        {
-          "type": "string",
-          "pattern": "^,*([0-9A-Za-z-_]+:[0-9A-Za-z-_]+,*)+$"
-        },
-        {
-          "type": "string",
-          "pattern": "^-$"
-        }
-      ]
+      "examples": ["subscriberCohort:on,premiumCohort:on,nonUSACohort:on"],
+      "pattern": "^,*([0-9A-Za-z-_]+:[0-9A-Za-z-_]+,*)+$"
     },
     "appName": {
       "type": "string",
