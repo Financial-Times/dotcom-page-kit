@@ -14,7 +14,7 @@ export function init(options: TMiddlewareOptions = {}) {
       appName: response.get('ft-app-name'),
       product: 'next',
       edition: request.get('ft-edition'),
-      appVersion: process.env.SOURCE_VERSION,
+      appVersion: process.env.SOURCE_VERSION || process.env.HEROKU_SLUG_COMMIT,
       abTestState: request.get('ft-ab'),
       isProduction: process.env.NODE_ENV === 'production',
       ...options.context
