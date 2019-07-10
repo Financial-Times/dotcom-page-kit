@@ -2,7 +2,15 @@ import babelPreset from './babel'
 import { HandlerArgs } from '@financial-times/dotcom-page-kit-cli'
 import { PluginOptions } from './types'
 
-export function plugin(options: PluginOptions = {}) {
+const defaultOptions: PluginOptions = {
+  jsxPragma: 'h',
+  jsxPragmaFrag: 'Fragment',
+  enableRequireDefault: false
+}
+
+export function plugin(userOptions: PluginOptions = {}) {
+  const options = { ...defaultOptions, ...userOptions }
+
   return ({ on }) => {
     on('babelConfig', addBabelPreset)
     on('webpackConfig::jsRule', amendWebpackConfigScriptsRule)
