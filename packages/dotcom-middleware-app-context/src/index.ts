@@ -15,7 +15,9 @@ export function init(options: TMiddlewareOptions = {}) {
       product: 'next',
       edition: request.get('ft-edition'),
       appVersion: process.env.SOURCE_VERSION || process.env.HEROKU_SLUG_COMMIT,
-      abTestState: request.get('ft-ab'),
+      // Many headers are set to a default value of "-" by the CDN so we need to ignore those
+      // https://github.com/Financial-Times/ft.com-cdn/blob/master/src/vcl/next-preflight.vcl
+      abTestState: request.get('ft-ab') === '-' ? undefined : request.get('ft-ab'),
       isProduction: process.env.NODE_ENV === 'production',
       ...options.context
     }
