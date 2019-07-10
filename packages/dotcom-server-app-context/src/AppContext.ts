@@ -1,5 +1,6 @@
 import { TAppContext } from './types'
 import validate from './validate'
+import filterEmptyData from './filterEmptyData'
 
 export type TAppContextOptions = {
   context?: Partial<TAppContext>
@@ -9,7 +10,7 @@ export class AppContext {
   public data: Partial<TAppContext>
 
   constructor(options: TAppContextOptions = {}) {
-    this.data = { ...options.context }
+    this.data = filterEmptyData({ ...options.context })
     this.validate()
   }
 
