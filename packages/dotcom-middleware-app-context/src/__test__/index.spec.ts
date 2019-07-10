@@ -9,7 +9,7 @@ const context = {
 
 const headers = {
   'ft-edition': 'international',
-  'ft-ab': 'foo:true,bar:false'
+  'ft-ab': '-'
 }
 
 jest.mock('@financial-times/dotcom-server-app-context')
@@ -35,7 +35,17 @@ describe('dotcom-middleware-app-context', () => {
   describe('when handling a request', () => {
     it('initialises app context with inferred data', () => {
       const expected = {
-        context: expect.objectContaining({ edition: 'international', abTestState: 'foo:true,bar:false' })
+        context: expect.objectContaining({ edition: 'international' })
+      }
+
+      instance(request, response, next)
+
+      expect(AppContext).toHaveBeenCalledWith(expected)
+    })
+
+    it('ignores default "-" header values', () => {
+      const expected = {
+        context: expect.not.objectContaining({ abTestState: '-' })
       }
 
       instance(request, response, next)
