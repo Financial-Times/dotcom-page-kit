@@ -17,20 +17,25 @@ After installing the package you can use it to create `<script>` tags or integra
 [JavaScript bootstrap]: ../dotcom-ui-bootstrap/readme.md
 
 
-### Usage with the FT Shell
+### Usage with the shell component
 
-If you're using the [`<Shell />` component][shell] to wrap your application you can prepend the Polyfill Service bundle URLs to the `coreScripts` and `enhancedScripts` options:
+This package is integrated with the [shell component]. A set of predefined Core and Enhanced polyfills will be included in the bootstrap scripts of any application loaded using the [shell component].
 
-[shell]: ../dotcom-ui-shell/readme.md
+App-specific polyfills can be appended to the predefined polyfills by [passing them as options](../dotcom-ui-shell/readme.md#options) to the [shell component].
+
+
+### Usage without the shell component
+
+The polyfill service can be used directly calling methods which return formatted sets of polyfills.
 
 ```jsx
-import { Shell } from '@financial-times/dotcom-ui-shell'
 import * as PolyfillService from '@financial-times/dotcom-ui-polyfill-service'
 
-const document = <Shell coreScripts={[PolyfillService.core]} enhancedScripts={[PolyfillService.enhanced]}></Shell>
+corePolyfills = PolyfillService.core()
+enhancedPolyfills = PolyfillService.enhanced()
 ```
 
-_Please note_ that the shell component is designed to be used on the server-side and cannot be rendered on the client-side. For this reason you should always consider `<App />` your application root and client-side mounting point.
+App-specific polyfills can optionally be passed to the `PolyfillService` as arguments.
 
 
 ## Client-side API
@@ -49,3 +54,4 @@ A script bundle URL configured to provide a limited set of features intended to 
 A script bundle URL configured to provide a full set of features (up to ES2017) intended to be loaded by browsers which successfully [cut the mustard] and should receive an "enhanced" experience.
 
 [cut the mustard]: ../dotcom-ui-bootstrap/readme.md#cutting-the-mustard
+[shell component]: ../dotcom-ui-shell/readme.md
