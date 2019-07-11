@@ -5,6 +5,7 @@ import StyleSheets, { TStylesheetProps } from './StyleSheets'
 import { AppContextEmbed, TAppContextProps } from '@financial-times/dotcom-ui-app-context'
 import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/dotcom-ui-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/dotcom-ui-bootstrap'
+import * as PolyfillService from '@financial-times/dotcom-ui-polyfill-service'
 import formatAttributeNames, { TAttributeData } from '../lib/formatAttributeNames'
 import CoreTracking from './CoreTracking'
 
@@ -18,9 +19,17 @@ type TShellProps = TDocumentHeadProps &
     initialProps?: any
     bodyAttributes?: TAttributeData
     htmlAttributes?: TAttributeData
+    appPolyfillsCore?: Array<String>
+    appPolyfillsEnhanced?: Array<String>
   }
 
 function Shell(props: TShellProps) {
+  const corePolyfills = [PolyfillService.core(props.appPolyfillsCore)]
+  const enhancedPolyfills = [PolyfillService.enhanced(props.appPolyfillsEnhanced)]
+
+  const coreScripts = [...corePolyfills, ...props.coreScripts]
+  const enhancedScripts = [...enhancedPolyfills, ...props.enhancedScripts]
+
   return (
     <html
       {...formatAttributeNames(props.htmlAttributes)}
@@ -44,11 +53,7 @@ function Shell(props: TShellProps) {
         <FlagsEmbed flags={props.flags} />
         <AppContextEmbed context={props.context} />
         <StyleSheets stylesheets={props.stylesheets} criticalStyles={props.criticalStyles} />
-        <Bootstrap
-          coreScripts={props.coreScripts}
-          enhancedScripts={props.enhancedScripts}
-          trackErrors={true}
-        />
+        <Bootstrap coreScripts={coreScripts} enhancedScripts={enhancedScripts} trackErrors={true} />
         <CoreTracking context={props.context} />
       </head>
       <Body {...formatAttributeNames(props.bodyAttributes)} contents={props.contents || props.children} />
