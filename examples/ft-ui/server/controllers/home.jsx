@@ -2,7 +2,6 @@ import React from 'react'
 import ReactDOM from 'react-dom/server'
 import { Shell } from '@financial-times/dotcom-ui-shell'
 import { Layout } from '@financial-times/dotcom-ui-layout'
-import * as polyfills from '@financial-times/dotcom-ui-polyfill-service'
 
 export function homeController(_, response, next) {
   const appContext = {
@@ -16,8 +15,7 @@ export function homeController(_, response, next) {
   }
 
   const shellProps = {
-    coreScripts: [polyfills.core],
-    enhancedScripts: [polyfills.enhanced, 'public/scripts.bundle.js'],
+    enhancedScripts: ['public/scripts.bundle.js'],
     stylesheets: ['public/styles.css'],
     pageTitle: pageData.title,
     context: appContext
