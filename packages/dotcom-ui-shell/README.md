@@ -40,7 +40,7 @@ const document = Shell({ contents: prerenderedHTML, ...options })
 
 ### Rendering to a string
 
-However you are integrating the shell component with your applicaton you will need to convert the output from a [React element] to a string or stream of HTML to send to your application's users. You should use the [`react-dom`] package for this:
+However you are integrating the shell component with your application you will need to convert the output from a [React element] to a string or stream of HTML to send to your application's users. You should use the [`react-dom`] package for this:
 
 ```js
 const ReactDOM = require('react-dom/server')
@@ -78,7 +78,7 @@ Background colour, font colour and fallback fonts are included in the shell as c
 
 ### JavaScript bootstrap
 
-Each page is served a bootstrap script including a "cuts the mustard" test via the [JavaScript bootstrap] package. Additional scripts for core and enhanced browsers which are passed to the shell  will be inserted as `<script>` tags in the document `<head>`. The available bootstap [options](#app-bootstrapping) are expanded below.
+Each page is served a bootstrap script including a "cuts the mustard" test via the [JavaScript bootstrap] package. Additional scripts for core and enhanced browsers which are passed to the shell  will be inserted as `<script>` tags in the document `<head>`. Additional polyfills passed to the shell will be appended to the relevant polyfills script by the [polyfill service]. The available bootstrap [options](#app-bootstrapping) are expanded below.
 
 
 ## Options
@@ -87,7 +87,7 @@ Each page is served a bootstrap script including a "cuts the mustard" test via t
 
 #### `contents` (string)
 
-A optional string of HTML to insert into the document `<body>`. This should be used if you are not using JSX composition and have a prerendered string of HTML.
+An optional string of HTML to insert into the document `<body>`. This should be used if you are not using JSX composition and have a prerendered string of HTML.
 
 #### `coreScripts` (string[])
 
@@ -96,6 +96,14 @@ An array of script URLs which will be passed to the [JavaScript bootstrap] and l
 #### `enhancedScripts` (string[])
 
 An array of script URLs which will be passed to the [JavaScript bootstrap] and loaded if the visitor's browser succeeds in passing the cut the mustard test.
+
+#### `appPolyfillsCore` (string[])
+
+An array of polyfills required by an application which will be appended to the predefined set of Page Kit Core polyfills by the [polyfill service].
+
+#### `appPolyfillsEnhanced` (string[])
+
+An array of polyfills required by an application which will be appended to the predefined set of Page Kit Enhanced polyfills by the [polyfill service].
 
 #### `stylesheets` (string[])
 
@@ -175,6 +183,7 @@ An optional object describing the [Open Graph] metadata to add to the page. The 
 [JavaScript bootstrap]: ../dotcom-ui-bootstrap/readme.md
 [feature flags]: ../dotcom-ui-flags/readme.md
 [FT app context]: ../dotcom-ui-app-context/readme.md
+[polyfill service]: ../dotcom-ui-polyfill-service/readme.md
 [Open Graph]: http://ogp.me/
 [linked data]: https://w3.org/standards/semanticweb/data
 [JSON-LD]: https://json-ld.org/
