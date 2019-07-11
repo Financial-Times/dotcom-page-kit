@@ -1,6 +1,5 @@
 const React = require('react')
 const ReactDOM = require('react-dom/server')
-const polyfills = require('@financial-times/dotcom-ui-polyfill-service')
 const { Shell } = require('@financial-times/dotcom-ui-shell')
 const { Layout } = require('@financial-times/dotcom-ui-layout')
 const { Slot, AdsOptionsEmbed } = require('@financial-times/n-ads')
@@ -11,9 +10,7 @@ module.exports = (_, response, next) => {
     const appContext = response.locals.appContext
     const styleBundles = response.locals.assets.loader.getStylesheetURLsFor('styles')
     const scriptBundles = response.locals.assets.loader.getScriptURLsFor('scripts')
-    const enhancedScripts = [polyfills.enhanced, ...scriptBundles]
-    const coreScripts = [polyfills.core]
-    const forHints = [...enhancedScripts, ...styleBundles]
+    const forHints = [...scriptBundles, ...styleBundles]
 
     forHints.forEach((file) => {
       response.locals.assets.resourceHints.add(file)
@@ -45,9 +42,8 @@ module.exports = (_, response, next) => {
       <Shell
         flags={flags}
         pageTitle="Hello World"
-        coreScripts={coreScripts}
         stylesheets={styleBundles}
-        enhancedScripts={enhancedScripts}
+        enhancedScripts={scriptBundles}
         context={appContext.data}>
         <AdsOptionsEmbed {...adOptions} />
         <Layout navigationData={response.locals.navigation} headerBefore={<Slot {...adSlotProps} />}>
