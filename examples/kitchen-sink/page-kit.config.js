@@ -8,7 +8,7 @@ module.exports = {
   plugins: [
     codeSplitting.plugin(),
     bower.plugin(),
-    sass.plugin({includePaths: ['../../bower_components']}),
+    sass.plugin({includePaths: [path.resolve('../../bower_components')]}),
     js.plugin(),
   ],
   settings: {

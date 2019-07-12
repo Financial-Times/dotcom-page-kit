@@ -2,7 +2,7 @@
 
 This package extends the [Page Kit CLI build action][cli] (`page-kit build`) with a way to load and generate CSS files from [Sass] source code.
 
-[cli]: https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-page-kit-cli#build
+[cli]: ../dotcom-page-kit-cli/readme.md
 [Sass]: https://sass-lang.com/
 
 
@@ -39,7 +39,11 @@ page-kit build --entryFile path/to/styles.scss
 
 This plugin adds a [rule] to the Webpack configuration to handle `.scss` files. It first uses the [sass-loader] to transpile Sass source code, then sends the output through to the [postcss-loader] for optimisations, and finally the [css-loader]. The [mini-css-extract-plugin] is added to generate `.css` files and the [webpack-fix-style-only-entries] to clean up any empty JavaScript bundles.
 
-Sass has been configured to find packages installed with Bower and or npm from the `@financial-times` organisation.
+Sass has been configured to find packages installed with Bower and or npm by looking in the `'bower_components'` and `'node_modules/@financial-times'` directories. It can be configured to look in additional locations by passing the relevant paths to the plugin as absolute paths.
+
+```js
+sass.plugin({includePaths: [path.resolve('./path-to-sass-files')]})
+```
 
 [PostCSS] is configured with the [Autoprefixer] and [cssnano] transforms.
 
