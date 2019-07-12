@@ -1,11 +1,27 @@
 import dlv from 'dlv'
+import * as path from 'path'
 import { hooks } from './hooks'
 import StylesOnlyPlugin from 'webpack-fix-style-only-entries'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { HandlerArgs, CliContext } from '@financial-times/dotcom-page-kit-cli'
 
-export function plugin() {
+type TIncludePaths = {
+  includePaths?: Array<string>
+}
+
+function resolveSassPaths({ on }, sassPaths) {
+  on(hooks.WEBPACK_SASS_LOADER_OPTIONS, ({ resource }) => {
+    sassPaths.map((sassPath) => {
+      resource.includePaths.push(path.resolve(sassPath))
+    })
+  })
+}
+
+export function plugin({ includePaths }: TIncludePaths = {}) {
   return ({ on }) => {
+    if (Array.isArray(includePaths)) {
+      resolveSassPaths({ on }, includePaths)
+    }
     on('webpackConfig', getWebpackConfigToMerge)
   }
 }
