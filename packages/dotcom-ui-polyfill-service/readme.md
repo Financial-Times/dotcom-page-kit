@@ -21,8 +21,6 @@ After installing the package you can use it to create `<script>` tags or integra
 
 This package is integrated with the [shell component]. A set of predefined Core and Enhanced polyfills will be included in the bootstrap scripts of any application loaded using the [shell component].
 
-App-specific polyfills can be appended to the predefined polyfills by [passing them as options](../dotcom-ui-shell/readme.md#options) to the [shell component].
-
 
 ### Usage without the shell component
 
@@ -34,8 +32,6 @@ import * as PolyfillService from '@financial-times/dotcom-ui-polyfill-service'
 corePolyfills = PolyfillService.core()
 enhancedPolyfills = PolyfillService.enhanced()
 ```
-
-App-specific polyfills can optionally be passed to the `PolyfillService` as arguments.
 
 
 ## Client-side API

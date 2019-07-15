@@ -78,7 +78,7 @@ Background colour, font colour and fallback fonts are included in the shell as c
 
 ### JavaScript bootstrap
 
-Each page is served a bootstrap script including a "cuts the mustard" test via the [JavaScript bootstrap] package. Additional scripts for core and enhanced browsers which are passed to the shell  will be inserted as `<script>` tags in the document `<head>`. Additional polyfills passed to the shell will be appended to the relevant polyfills script by the [polyfill service]. The available bootstrap [options](#app-bootstrapping) are expanded below.
+Each page is served a bootstrap script including a "cuts the mustard" test via the [JavaScript bootstrap] package. Additional scripts for core and enhanced browsers which are passed to the shell  will be inserted as `<script>` tags in the document `<head>`. The available bootstrap [options](#app-bootstrapping) are expanded below.
 
 
 ## Options
@@ -96,14 +96,6 @@ An array of script URLs which will be passed to the [JavaScript bootstrap] and l
 #### `enhancedScripts` (string[])
 
 An array of script URLs which will be passed to the [JavaScript bootstrap] and loaded if the visitor's browser succeeds in passing the cut the mustard test.
-
-#### `appPolyfillsCore` (string[])
-
-An array of additional polyfills required by an application which will be appended to the predefined set of Page Kit Core polyfills by the [polyfill service].
-
-#### `appPolyfillsEnhanced` (string[])
-
-An array of additional polyfills required by an application which will be appended to the predefined set of Page Kit Enhanced polyfills by the [polyfill service].
 
 #### `stylesheets` (string[])
 

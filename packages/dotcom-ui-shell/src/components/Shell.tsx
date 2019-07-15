@@ -19,13 +19,11 @@ type TShellProps = TDocumentHeadProps &
     initialProps?: any
     bodyAttributes?: TAttributeData
     htmlAttributes?: TAttributeData
-    appPolyfillsCore?: Array<string>
-    appPolyfillsEnhanced?: Array<string>
   }
 
 function Shell(props: TShellProps) {
-  const corePolyfills = polyfillService.core(props.appPolyfillsCore)
-  const enhancedPolyfills = polyfillService.enhanced(props.appPolyfillsEnhanced)
+  const corePolyfills = polyfillService.core()
+  const enhancedPolyfills = polyfillService.enhanced()
 
   const coreScripts = [corePolyfills, ...props.coreScripts]
   const enhancedScripts = [enhancedPolyfills, ...props.enhancedScripts]

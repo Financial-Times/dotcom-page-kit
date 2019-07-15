@@ -23,16 +23,12 @@ const polyfillsEnhanced = [
   'NodeList.prototype.forEach'
 ]
 
-export const core = (appPolyfills = []) => {
-  return Array.isArray(appPolyfills)
-    ? formatURL(polyfillsCore.concat(appPolyfills))
-    : formatURL(polyfillsCore)
+export const core = () => {
+  return formatURL(polyfillsCore)
 }
 
-export const enhanced = (appPolyfills = []) => {
-  return Array.isArray(appPolyfills)
-    ? formatURL(polyfillsEnhanced.concat(appPolyfills))
-    : formatURL(polyfillsEnhanced)
+export const enhanced = () => {
+  return formatURL(polyfillsEnhanced)
 }
 
 function formatURL(features: string[]): string {
