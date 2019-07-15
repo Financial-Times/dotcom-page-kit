@@ -24,13 +24,13 @@ const polyfillsEnhanced = [
 ]
 
 export const core = (appPolyfills = []) => {
-  return appPolyfills.length
+  return Array.isArray(appPolyfills)
     ? formatURL(polyfillsCore.concat(appPolyfills))
     : formatURL(polyfillsCore)
 }
 
-export const enhanced = (appPolyfills  = []) => {
-  return appPolyfills.length
+export const enhanced = (appPolyfills = []) => {
+  return Array.isArray(appPolyfills)
     ? formatURL(polyfillsEnhanced.concat(appPolyfills))
     : formatURL(polyfillsEnhanced)
 }
