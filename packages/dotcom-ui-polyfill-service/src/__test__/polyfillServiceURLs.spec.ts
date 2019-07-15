@@ -15,9 +15,4 @@ describe('dotcom-ui-polyfill-service', () => {
     expect(subject.core()).toMatch(/source=next/)
     expect(subject.enhanced()).toMatch(/source=next/)
   })
-
-  it('appends app specific polyfills to the formatted polyfills string', () => {
-    expect(subject.core(['Some-polyfill'])).toMatch(/Some-polyfill/)
-    expect(subject.enhanced(['Some-polyfill'])).toMatch(/Some-polyfill/)
-  })
 })
