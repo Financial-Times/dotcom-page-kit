@@ -99,11 +99,11 @@ An array of script URLs which will be passed to the [JavaScript bootstrap] and l
 
 #### `appPolyfillsCore` (string[])
 
-An array of polyfills required by an application which will be appended to the predefined set of Page Kit Core polyfills by the [polyfill service].
+An array of additional polyfills required by an application which will be appended to the predefined set of Page Kit Core polyfills by the [polyfill service].
 
 #### `appPolyfillsEnhanced` (string[])
 
-An array of polyfills required by an application which will be appended to the predefined set of Page Kit Enhanced polyfills by the [polyfill service].
+An array of additional polyfills required by an application which will be appended to the predefined set of Page Kit Enhanced polyfills by the [polyfill service].
 
 #### `stylesheets` (string[])
 
