@@ -49,7 +49,7 @@ There are several example applications in the `examples/` folder which serve two
 2. Each example should include integration tests which verify Page Kit is working as expected. Maintaining a wide-range of examples with tests will help all contributors to feel confident that the changes they make are reliable.
 
 
-## Releasing
+## Releasing changes
 
 All Page Kit packages have their version numbers pinned together and use a single release process. Releases are currently planned according to [the roadmap](roadmap.md) and changes should be recorded in [the changelog](changelog.md). Before making a new release please consult the [release guidelines](release-guidelines.md).
 
@@ -58,3 +58,10 @@ Important bug fixes should be released as soon as possible. New features and min
 [Renovate] has been configured to pin all Page Kit dependencies to a specific version and open a single pull request when new versions of Page Kit are available.
 
 [Renovate]: https://renovatebot.com/
+
+
+## Application integration
+
+### Client-side assets
+
+https://docs.google.com/drawings/d/18ByjywGZmqqWXxHCekwbU-_3eq7ZA701nPRwEG0cX_4/edit?usp=sharing
