@@ -35,7 +35,8 @@ export default (options: PluginOptions = {}, cli: CliContext) => {
   }
 
   // HACK: Allow CommonJS require() of ESM default exports without .default
-  // This is here because we have a large amount of source code which still needs it.
+  // This is here because we have a large amount of source code which still needs it and n-ui allowed it.
+  // <https://github.com/babel/babel/issues/2212>
   if (options.enableRequireDefault) {
     config.plugins.push(require.resolve('babel-plugin-transform-require-default'))
   }
