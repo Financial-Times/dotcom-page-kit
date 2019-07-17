@@ -33,11 +33,14 @@ export default (pluginOptions: PluginOptions = {}, cli: CliContext) => {
       [require.resolve('@babel/plugin-proposal-class-properties'), options.pluginClassProperties],
       // This enables Babel's built-in 'dynamicImport' flag which defines import() function usage
       [require.resolve('@babel/plugin-syntax-dynamic-import'), options.pluginDynamicImport],
-      [require.resolve('@babel/plugin-transform-runtime'), options.pluginTransformRuntime],
-      // HACK: Allow CommonJS require() of ESM files without .default
-      // This is here because we have a large amount of source code which still needs it.
-      require.resolve('babel-plugin-transform-require-default')
-    ]
+      [require.resolve('@babel/plugin-transform-runtime'), options.pluginTransformRuntime]
+    ] as any[]
+  }
+
+  // HACK: Allow CommonJS require() of ESM files without .default
+  // This is here because we have a large amount of source code which still needs it.
+  if (pluginOptions.enableRequireDefault) {
+    config.plugins.push(require.resolve('babel-plugin-transform-require-default'))
   }
 
   cli.publish(hooks.BABEL_PRESET_REACT_OPTIONS, options.presetReact)
