@@ -35,7 +35,7 @@ import { Footer } from '@financial-times/dotcom-ui-footer'
 <Footer data={navigationData} />
 ```
 
-_Please note_ that the footer components are designed to be used on the server-side and should not be rendered on the client-side. Although it is possible to render them on the client-side there is usually no reason to do so and is not officially supported.
+_Please note_ that the footer components are designed to be used on the server-side and should not be rendered on the client-side. Although it is possible to render them on the client-side there is usually no reason to do so and it's not officially supported.
 
 ### Client-side
 
