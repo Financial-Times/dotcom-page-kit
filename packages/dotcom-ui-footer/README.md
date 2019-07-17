@@ -1,6 +1,6 @@
 # @financial-times/dotcom-ui-footer
 
-This package provides components which return variations on the footer component for ft.com; the standard ft.com `Footer` and a compressed `LegalFooter`.
+This package provides components which render variations on the footer component for FT.com.
 
 
 ## Getting started
@@ -11,32 +11,55 @@ This package is compatible with Node 8+ and is distributed on npm.
 npm install --save @financial-times/dotcom-ui-footer
 ```
 
-Create an [Express] server using the [dotcom-middleware-navigation] middleware.
+After installing the package you will need to configure your application to fetch data from the [Next Navigation API] required to render these UI components. Page Kit provides two packages for this:
 
-```js
-const express = require('express')
-const navigationMiddleware = require('@financial-times/dotcom-middleware-navigation')
+1. [`dotcom-middleware-navigation`] (if you are using Express)
+2. [`dotcom-server-navigation`] (if you are not using Express)
 
-const app = express()
+[Next Navigation API]: http://github.com/Financial-Times/next-navigation-api
+[`dotcom-middleware-navigation`]: ../dotcom-middleware-navigation/readme.md
+[`dotcom-server-navigation`]: ../dotcom-server-navigation/readme.md
 
-app.use(navigationMiddleware.init())
+### Server-side
 
-module.exports = app
-```
+This package provides several UI components to render different parts and styles of the FT.com header:
+
+- `<Footer />` the full footer with all navigation links and branding.
+- `<LegalFooter />` a simple footer used to brand pages and link to the necessary legal pages.
 
 Include a footer component in your html template and pass in a data object.
 
+
 ```jsx
-import { Footer } from 'dotcom-ui-footer'
-let footerProps
+import { Footer } from '@financial-times/dotcom-ui-footer'
 
-footerProps.data = response.locals.navigation.footer
-
-<Footer {...footerProps} />
+<Footer data={navigationData} />
 ```
 
+_Please note_ that the footer components are designed to be used on the server-side and should not be rendered on the client-side. Although it is possible to render them on the client-side there is usually no reason to do so and is not officially supported.
 
-## Props
+### Client-side
+
+Once you are rendering the footer components in your page you will need to initialise the client-side code to add styles and interactive behaviour.
+
+To initialise the client-side JavaScript import the package and call the `.init()` method:
+
+```js
+import * as footer from '@financial-times/dotcom-ui-footer'
+
+footer.init()
+```
+
+This component includes styles written in Sass which can be imported into your application's main Sass stylesheet.
+
+```scss
+@import '@financial-times/dotcom-ui-footer/styles';
+```
+
+_Please note_ that the exact usage of styles will depend on how you configure your Sass compiler.
+
+
+## Options
 
 All variants require a props object to be passed to the footer component. The component can be configured by setting properties on this object or by passing the desired property directly into the component: `<Footer {...footerData} theme="light"/>`.
 
@@ -44,14 +67,4 @@ All variants require a props object to be passed to the footer component. The co
 | ---------- | ------- | ------- | ------------------------------------------------------------------------------------- |
 | theme      | string  | 'dark'  | Serve the specified variant of the footer - the `light` theme is a valid alternative. |
 | legal-only | boolean | false   | Serve the shorter, 'legal-only' variant of the footer                                 |
-| data       | object  |         | Props from the navigation service                                                     |
-
-## Navigation data
-
-The props object passed to the footer component must have a `data` property. The [dotcom-server-navigation] package or its middleware, [dotcom-middleware-navigation], can be used to make data from the [navigation API] available on `response.locals.navigation`.
-
-
-[Express]: https://expressjs.com/
-[navigation API]: https://github.com/Financial-Times/next-navigation-api
-[dotcom-server-navigation]: https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-server-navigation
-[dotcom-middleware-navigation]: https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-middleware-navigation
+| data       | object  |         | Navigation data for rendering the footer links fetched from the navigation API        |
