@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/Financial-Times/dotcom-page-kit/tree/master.svg?style=svg&circle-token=2149091698510f3908776e16620b30494fdca26c)](https://circleci.com/gh/Financial-Times/dotcom-page-kit/tree/master)
 
-The aim of this project is to provide a high quality, well tested, and thoroughly documented set of tools for assembling and delivering modern websites with Node.js based upon the best industry standards.
+Page Kit provides a high quality, well tested, and thoroughly documented set of tools for assembling and delivering FT.com based upon the best industry standards.
 
 ---
 
@@ -105,7 +105,8 @@ Please note that Page Kit has only been tested in Mac and Linux environments. If
 
 4. You can now choose to run an example application or start Storybook to view UI component demos. Examples are located in the `examples/` directory and each have their own instructions. To use Storybook you can follow [the guide below](#using-storybook).
 
-Before writing any new code you may also find it useful to refer to the [contribution guide](contribution.md) which covers coding standards and expectations.
+Before writing any new code you may also find it useful to refer to the [architecture overview](architecture.md) and [contribution guide](contribution.md) which covers coding standards and expectations.
+
 
 ### Project structure
 
@@ -119,7 +120,10 @@ Packages follow a naming convention which broadly denotes their functionality, t
 - `dotcom-types-*` Shared TypeScript declaration files
 - `dotcom-ui-*` A UI component
 
+If you're interested to know more about our approach of building so many small packages see our [architecture overview](architecture.md) and [design decisions document](docs/design-decisions/many-small-packages.md).
+
 [Express]: https://expressjs.com/
+
 
 ### Using Storybook
 
@@ -139,6 +143,4 @@ Once all of the packages have been built you can run Storybook using the followi
 npm run storybook
 ```
 
-The Storybook interface should then automatically open in your default browser. Storybook has been configured to automatically find stories inside packages prefixed with `dotcom-ui-`.
-
-_Please note_ that the Storybook configuration file at `./.storybook/config.js` is automatically generated from the template located at `./.storybook/config.template.js`. Anything that needs to be added to the Storybook configuration file should be added to `./.storybook/config.template.js`. You do not need to manually add stories to the Storybook configuration file as these will be automatically discovered.
+The Storybook interface should then open in your default browser. Storybook has been configured to automatically find stories inside packages with names prefixed with `dotcom-ui-`.

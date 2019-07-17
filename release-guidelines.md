@@ -1,32 +1,29 @@
 # Release Guidelines
 
-## Experimental features
-
-Only stable, well tested packages should be present in the master or development branches. This is so we do not release unproven components with a stable version number.
-
-To develop your package create a new feature branch including your package name, for example if you are building a new Sass plugin you would create a branch named `dotcom-build-sass`. Your component will stay in this branch until it is ready to be merged into the next major or minor release so you are encouraged to merge from or rebase onto the latest development or master branch regularly. You are welcome to raise pull requests against your feature branch if you need to.
-
-Because experimental modules will not be included in any stable releases we allow them to be published separately using a pre-1.0.0 version number. You are free to make as many prereleases as you need. To create a prerelease of your experimental module you must create a tag in the format `module-name-v0.x.x`, for example to release the Sass component you would create tag named `dotcom-build-sass-v0.0.1` for the latest commit in the `dotcom-build-sass` branch.
-
-When your new module is considered stable raise a pull request against the current development branch. Your module will be released as part of the next major or minor version.
+All of our packages are versioned using [Semantic Versioning]. The following guide will outline how to tag and release a new version of all packages, it assumes that all the code you wish to release is now on the `master` branch.
 
 
-## Releasing/Versioning
+## When to release
 
-All of our projects are versioned using [Semantic Versioning], you should familiarise yourself with this. The following guide will outline how to tag and release a new version of all projects, it assumes that all the code you wish to release is now on the `master` or main branch.
+Important bug fixes should be released as soon as possible. New features and minor code changes should be grouped into minor releases to avoid creating unnecessary noise and work for the team. Do not be afraid of releasing new major versions but please carefully consider if the change may implemented in another way. If a breaking change will require effort to migrate consuming applications it may be easier to create a new package instead to avoid any apps being left behind on an old version.
+
+_Please note_ for apps using [Renovate] we have configured Page Kit dependencies to be pinned to a specific version and open a single pull request when new versions of packages are available.
+
+[Renovate]: https://renovatebot.com/
+
+
+## How to release
 
   1. **Review the commits since the last release**. You can find the last release in the git log, or by using the compare feature on GitHub. Make sure you've pulled all of the latest changes.
 
   2. **Decide on a version**. Work out whether this release is major, minor, or patch level. Major releases are generally planned out; if a breaking change has snuck into `master` without prior-planning it may be worth removing it or attempting to make it backwards-compatible.
 
-  3. **Write the changelog**. This project has a `changelog.md` file in the root. You should create a new section at the top with the new version number and the date, then outline all of the changes as a list. Follow the style of the rest of the document.
+  3. **Write the changelog**. This project has a `changelog.md` file in the root. You should create a new section at the top with the new version number then outline all of the changes as a list. Follow the style of the rest of the document.
 
-  4. **Update any package files**. Add the new version to package files. This could include `package.json` or `bower.json` as examples. A quick way to check if you've got them all is by running: `git grep "current-version-number"`
+  4. **Commit your changes**. Commit the changes to the changelog. This is the _only_ time a maintainer may commit directly to the `master` branch.
 
-  5. **Commit your changes**. Commit the changes to changelong, README, and package files. The commit message should be "Version x.x.x" (exact casing, and with no "v" preceeding the version number). This is the _only_ time you're allowed to commit directly to `master`.
+  5. **Add a release**. Create a release using the GitHub UI (note there should be a "v" preceding the version number). This will automatically kick off a new build and publish each package.
 
-  6. **Add a release**. Create a release using the GitHub UI (note there should be a "v" preceeding the version number). This will automatically kick off a new build and publish each package.
-
-  7. **Celebrate**. :tada::beer::cake::cocktail:
+  6. **Celebrate**. :tada::beer::cake::cocktail:
 
 [semantic versioning]: http://semver.org/
