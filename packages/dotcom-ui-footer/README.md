@@ -22,13 +22,12 @@ After installing the package you will need to configure your application to fetc
 
 ### Server-side
 
-This package provides several UI components to render different parts and styles of the FT.com header:
+This package provides two UI components to render different parts and styles of the FT.com footer:
 
 - `<Footer />` the full footer with all navigation links and branding.
 - `<LegalFooter />` a simple footer used to brand pages and link to the necessary legal pages.
 
-Include a footer component in your html template and pass in a data object.
-
+Example:
 
 ```jsx
 import { Footer } from '@financial-times/dotcom-ui-footer'
