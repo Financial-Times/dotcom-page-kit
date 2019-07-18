@@ -81,7 +81,7 @@ export function plugin({ includePaths }: TPluginOptions = {}) {
       // Disable formatting so that we don't spend time pretty printing
       outputStyle: 'compressed',
       // Enable Sass to @import source files from installed dependencies
-      includePaths: ['bower_components', 'node_modules/@financial-times', ...includePaths]
+      includePaths: ['bower_components', 'node_modules', ...includePaths]
     }
   }
 
