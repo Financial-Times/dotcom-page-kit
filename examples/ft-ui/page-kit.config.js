@@ -6,7 +6,7 @@ const js = require('@financial-times/dotcom-build-js')
 module.exports = {
   plugins: [
     bower.plugin(),
-    sass.plugin({includePaths: ['../../bower_components']}),
+    sass.plugin({ includePaths: [path.resolve('../../bower_components')] }),
     js.plugin(),
   ],
   settings: {
