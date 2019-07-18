@@ -6,10 +6,9 @@ const js = require('@financial-times/dotcom-build-js')
 
 module.exports = {
   plugins: [
-    resolveBowerFromRoot,
     codeSplitting.plugin(),
     bower.plugin(),
-    sass.plugin(),
+    sass.plugin({includePaths: [path.resolve('../../bower_components')]}),
     js.plugin(),
   ],
   settings: {
@@ -21,13 +20,4 @@ module.exports = {
       outputPath: path.resolve('./public')
     }
   }
-}
-
-// HACK: This is intended only for this example app as all Bower components should be
-// installed at the top-level of the repository.
-function resolveBowerFromRoot({ on }) {
-  on(sass.hooks.WEBPACK_SASS_LOADER_OPTIONS, ({ resource }) => {
-    const path = require('path')
-    resource.includePaths.push(path.resolve('../../bower_components'))
-  })
 }
