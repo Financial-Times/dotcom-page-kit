@@ -4,11 +4,11 @@ import StylesOnlyPlugin from 'webpack-fix-style-only-entries'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { HandlerArgs, CliContext } from '@financial-times/dotcom-page-kit-cli'
 
-type TIncludePaths = {
+export type TPluginOptions = {
   includePaths?: Array<string>
 }
 
-export function plugin({ includePaths }: TIncludePaths = {}) {
+export function plugin({ includePaths }: TPluginOptions = {}) {
   return ({ on }) => {
     on('webpackConfig', getWebpackConfigToMerge)
   }
@@ -76,14 +76,12 @@ export function plugin({ includePaths }: TIncludePaths = {}) {
     }
   }
 
-  function getSassLoaderOptions(sassPaths) {
+  function getSassLoaderOptions(includePaths = []) {
     return {
       // Disable formatting so that we don't spend time pretty printing
       outputStyle: 'compressed',
       // Enable Sass to @import source files from installed dependencies
-      includePaths: sassPaths
-        ? ['bower_components', 'node_modules/@financial-times', ...sassPaths]
-        : ['bower_components', 'node_modules/@financial-times']
+      includePaths: ['bower_components', 'node_modules/@financial-times', ...includePaths]
     }
   }
 
