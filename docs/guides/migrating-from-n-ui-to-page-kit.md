@@ -305,3 +305,22 @@ _NOTE: This is probably the second hardest step and may vary between application
 - ​Build and run the application and check the output in the browser.
   - The network tab should show the expected requests for script files and stylesheets.
 - Commit your work.
+
+
+## Configure Page Kit JS code splitting
+
+- Install the code splitting package:
+  ```
+  npm install -D @financial-times/dotcom-build-code-splitting
+  ```
+- Add the code splitting plugin to the list of plugins in  `page-kit.config.js`:
+  ```diff
+  plugins: [
+  + require('@financial-times/dotcom-build-code-splitting').plugin()
+    ...
+  ]
+  ```
+- ​Build and run the application and check the output in the browser.
+  - Do the client-side assets load correctly?
+  - Check the `/public` file, it should contain several separate assets files.
+- Commit your work.
