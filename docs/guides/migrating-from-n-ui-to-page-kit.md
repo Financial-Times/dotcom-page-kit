@@ -53,3 +53,31 @@ _NOTE: This is quite a long step and you may need a notepad and pen._
     - _Please note_ that we will need to initialise any client-side components not included in Page Kit later, such as image lazy loading, n-feedback, o-date, etc.
 
 - Finally, search for any references to `n-ui` and `nui` and clean up what's left. Commit your work and have a cup of tea, you've earned it!
+
+
+##  Implement Page Kit Handlebars as Express view engine
+
+_NOTE: This is probably the hardest step and this will vary between applications depending on how it extends or works around the limitations of Handlebars._
+
+- Install the Handlebars package:
+  ```bash
+  npm install -S @financial-times/dotcom-server-handlebars
+  ```
+- Register Handlebars as an Express view engine and configure the helper functions:
+    ```js
+    const { PageKitHandlebars, helpers } = require('@financial-times/dotcom-server-handlebars');
+    app.engine('.html', new PageKitHandlebars({ helpers }).engine);
+    ```
+    If your app was using any additional Handlebars helpers configure them now.
+
+- Update all `response.render()` calls in the application's controllers to include the `.html` file extension.
+- If your application is using Handlebars directly (`require('handlebars')`):
+    - Don't! Handlebars is a singleton...
+    - ...and n-ui implemented a hack to load partial templates on application startup and append them to this.
+    - If necessary refactor the application to use a shared instance of `PageKitHandlebars`, you may prefer to add a new `handlebars-setup.js` module to achieve this.
+- Run the application (`make run`) and load it in your browser:
+    - This is the point in the migration where you will find out if your application is using any unsupported Handlebars helpers. For instance, Page Kit does not support `{{#defineBlock}}{{/defineBlock}}` as it uses a different mechanism for inserting content into the document `<head>` and before/after the header and footer slots. Handlebars supports an inline partials mechanism which you can use instead if necessary.
+    - Comment out the use of any other unsupported helpers for now and make a note of them.
+
+  It's important to get the application running and verify that it is delivering the expected HTML at this point as we will verify each of the following stages by running the application and checking it in the browser.
+- Commit your work.
