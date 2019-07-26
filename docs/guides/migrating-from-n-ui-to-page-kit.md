@@ -267,3 +267,41 @@ _NOTE: This is probably the second hardest step and may vary between application
 - ​Build and run the application and check the output in the browser.
   - The header and footer elements should be styled.
 - Commit your work.
+
+
+## Add the asset loader and provide styles and scripts to the shell
+
+- Install the assets middleware:
+    ```
+    npm install -S @financial-times/dotcom-middleware-assets
+    ```
+- Integrate the assets middleware in the application's server file.
+  - Require the module.
+  - Add an `isProduction` boolean statement.
+  - Add the middleware to the list of middlewares being used by your application and configure the `hostStaticAssets` and `publicPath` options.
+    ```diff
+    + const assetsMiddleware = require('@financial-times/dotcom-middleware-assets');
+    ...
+    + const isProduction = process.env.NODE_ENV === 'production';
+    ...
+    app.use(
+    +  assetsMiddleware.init({
+    +    hostStaticAssets: !isProduction,
+    +    publicPath: isProduction ? '/__assets/hashed/page-kit' : '/__dev/assets/[application-name]'
+    +  })
+    );
+    ```
+- Use the assets loader api to add `enhancedScripts` and `stylesheets` properties to the existing `shellProps`​ object:
+    ```diff
+    const shellProps = {
+    + enhancedScripts: response.locals.assets.loader.getScriptURLsFor(entrypoint),
+    + stylesheets: response.locals.assets.loader.getStylesheetURLsFor(entrypoint
+    ...
+    }
+    ```
+- Bump dependencies to support loading assets with Page Kit.
+    - Bump n-gage to `v3.9.2` or higher.
+    - Bump n-heroku-tools to `v8.3.0` or higher.
+- ​Build and run the application and check the output in the browser.
+  - The network tab should show the expected requests for script files and stylesheets.
+- Commit your work.
