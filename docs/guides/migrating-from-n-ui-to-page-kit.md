@@ -345,3 +345,32 @@ _NOTE: This is probably the second hardest step and may vary between application
   - Client-side JS should be running
   - The drawer menu and search bar icons should show/hide those elements.
 - Commit your work.
+
+
+## Integrate flags data with Page Kit shell component
+
+- Install the flags package:
+    ```
+    npm install -S @financial-times/dotcom-ui-flags
+    ```
+- Implement the flags component in the client-side JS:
+    ```diff
+    + import * as flags from '@financial-times/dotcom-ui-flags';
+    ...
+    domLoaded.then(() => {
+    + const flagsClient = flags.init(); // eslint-disable-line no-unused-vars
+      layout.init();
+      ...
+    });
+    ```
+- Add a `flags` property to `shellProps`:
+    ```diff
+    const shellProps = {
+    + flags: response.locals.flags,
+      ...
+    }
+    ```
+- Find any commented out uses of flags and reinstate them.
+- Build and run the application and check the output in the browser.
+  - The flags script should be populated with the relevant flags data.
+- Commit your work.
