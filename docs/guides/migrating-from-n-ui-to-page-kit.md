@@ -81,3 +81,54 @@ _NOTE: This is probably the hardest step and this will vary between applications
 
   It's important to get the application running and verify that it is delivering the expected HTML at this point as we will verify each of the following stages by running the application and checking it in the browser.
 - Commit your work.
+
+
+## Setup basic build task for client-side JS and Sass
+
+_NOTE: This is probably the second hardest step and may vary between applications and the dependencies it uses._
+
+- Install the Page Kit build packages:
+    ```bash
+    npm install -D \
+        @financial-times/dotcom-page-kit-cli \
+        @financial-times/dotcom-build-js \
+        @financial-times/dotcom-build-sass \
+        @financial-times/dotcom-build-bower-resolve
+    ```
+- Create a `page-kit.config.js` file in the repository root:
+    ```js
+    module.exports = {
+        plugins: [
+            require('@financial-times/dotcom-build-js').plugin(),
+            require('@financial-times/dotcom-build-sass').plugin(),
+            require('@financial-times/dotcom-build-bower-resolve').plugin()
+        ],
+        settings: {
+            build: {
+                entry: {
+                    scripts: './client/main.js',
+                    styles: './client/main.scss'
+                },
+                outputPath: path.resolve('./public')
+            }
+        }
+    };
+    ```
+- Configure Page Kit build steps in the application's `makefile`:
+    ```diff
+    build:
+    +	page-kit build --development
+    build-production:
+    +	page-kit build
+    watch:
+    +	page-kit build --development --watch
+    ```
+- Build the application and check the output in the browser:
+    - There may be a number of warnings output to the console, inspect these but they can usually be ignored.
+    - If there are any errors resolve these now. In our tests the most common cause of problems is CJS/ESM interoperability.
+    - Open the `public/` folder and ensure the expected JS and CSS files are being generated along with a `manifest.json` file.
+
+  It's important to get the application building correctly without any errors at this stage. If you are unsure run `make build-production` which will fail if any problems are found.
+- Commit your work.
+
+
