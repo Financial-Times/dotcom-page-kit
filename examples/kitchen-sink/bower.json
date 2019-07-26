@@ -1,0 +1,6 @@
+{
+  "name": "example-kitchen-sink",
+  "dependencies": {
+    "n-tracking": "git@github.com:Financial-Times/n-tracking#master"
+  }
+}
