@@ -233,3 +233,37 @@ _NOTE: This is probably the second hardest step and may vary between application
 - ​Build and run the application and check the output in the browser.
    - The header, footer and navigation elements should be present in the rendered html.
 - Commit your work.
+
+
+## Setup Bower package resolution for Page Kit components
+
+- Install the bower glob resolver package as a devDependency:
+   ```bash
+    npm install -D bower-glob-resolve
+   ```
+- Add the new resolver to the application's `.bowerrc`:
+   ```json
+    { "resolvers": ["bower-glob-resolver"] }
+   ```
+- Use the resolver to add the Page Kit UI components as bower dependencies in the `bower.json` file:
+  ```json
+  "dependencies": {
+    "page-kit-ui-components": "glob:node_modules/@financial-times/dotcom-ui-*/bower.json"
+  }
+  ```
+- Initialise the layout component in the application's client-side JS entrypoint:
+   ```js
+    import * as layout from '@financial-times/dotcom-ui-layout'
+    ...
+    layout.init()
+   ```
+- Import the UI styles in the application's client-side styles entrypoint:
+   ```scss
+    @import '@financial-times/dotcom-ui-layout/styles';
+    @import '@financial-times/dotcom-ui-header/styles';
+    @import '@financial-times/dotcom-ui-footer/styles';
+   ```
+- Delete and reinstall the `bower_components` directory.
+- ​Build and run the application and check the output in the browser.
+  - The header and footer elements should be styled.
+- Commit your work.
