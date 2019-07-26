@@ -324,3 +324,24 @@ _NOTE: This is probably the second hardest step and may vary between application
   - Do the client-side assets load correctly?
   - Check the `/public` file, it should contain several separate assets files.
 - Commit your work.
+
+
+## Implement dom-loaded library to safely initialise client-side JS code
+
+- Install dom-loaded:
+    ```
+    npm install -S dom-loaded
+    ```
+- Implement dom-loaded in the client-side JS:
+    ```diff
+    + import domLoaded from 'dom-loaded';
+    ...
+    + domLoaded.then(() => {
+      layout.init();
+      ...
+    + });
+    ```
+- Build and run the application and check the output in the browser.
+  - Client-side JS should be running
+  - The drawer menu and search bar icons should show/hide those elements.
+- Commit your work.
