@@ -374,3 +374,39 @@ _NOTE: This is probably the second hardest step and may vary between application
 - Build and run the application and check the output in the browser.
   - The flags script should be populated with the relevant flags data.
 - Commit your work.
+
+
+## Integrate Page Kit app context data with the shell component
+
+- Install the app context packages:
+    ```bash
+    npm install \
+      @financial-times/dotcom-ui-app-context \
+      @financial-times/dotcom-middleware-app-context
+    ```
+- Add the app context middleware to the list of middlewares used in the application server file.
+    ```diff
+  app.use(
+  + appContextMiddleware.init()
+    ...
+  );
+  ```
+- Implement the app context component in the client-side JS:
+    ```diff
+    import * as appContext from '@financial-times/dotcom-ui-app-context';
+    ...
+    domLoaded.then(() => {
+    + const appContextClient = appContext.init(); // eslint-disable-line no-unused-vars
+      ...
+    });
+    ```
+- Add a `context` property to `shellProps`:
+    ```diff
+    const shellProps = {
+    + context: response.locals.appContext.data,
+      ...
+    }
+    ```
+- Build and run the application and check the output in the browser.
+  - The app context script should be populated with the relevant context data.
+- Commit your work.
