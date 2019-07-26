@@ -185,3 +185,51 @@ _NOTE: This is probably the second hardest step and may vary between application
    - Bootstrap scripts and meta tags should be present in the rendered HTML.
    - The page should have a pink background.
 - Commit your work.
+
+
+## Implement the layout component with navigation data
+
+- Install the layout component and the navigation middleware:
+   ```bash
+     npm install -S \
+       @financial-times/dotcom-ui-layout \
+       @financial-times/dotcom-middleware-navigation
+   ```
+- Require the navigation middleware in your application's server file and add it to the list of middlewares being used by your application.
+  ```diff
+  app.use(
+  + navigationMiddleware.init()
+    ...
+  );
+  ```
+- Integrate the layout component with your application controllers.
+   - Create a `layoutProps` object.
+   - Add `layoutProps` to the existing `pageKitArgs`.
+     ```js
+     const layoutProps = {
+       navigationData: response.locals.navigation,
+       headerOptions: { ...response.locals.anon }
+     };
+     ...
+     const pageKitArgs = { request, response, next, shellProps, layoutProps };
+     ```
+- Integrate the layout component with your `page-kit-shell.js` module.
+   - Require the module.
+   - Add `layoutProps` to the function arguments.
+   - Pass `layoutProps` to the existing `document` component.
+     ```diff
+     + const { Layout } = require('@financial-times/dotcom-ui-layout');
+       ...
+     - module.exports = ({ response, next, shellProps }) => {
+     + module.exports = ({ response, next, shellProps, layoutProps }) => {
+       ...
+       const document = React.createElement(
+         Shell,
+     -   { ...shellProps, contents: html }
+     +   { ...shellProps },
+     +   React.createElement(Layout, { ...layoutProps, contents: html })
+       );
+     ```
+- ​Build and run the application and check the output in the browser.
+   - The header, footer and navigation elements should be present in the rendered html.
+- Commit your work.
