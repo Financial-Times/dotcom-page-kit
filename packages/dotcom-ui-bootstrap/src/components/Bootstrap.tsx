@@ -21,6 +21,7 @@ function Bootstrap({ coreScripts, enhancedScripts, trackErrors }: TBootstrapProp
 }
 
 Bootstrap.defaultProps = {
+  trackErrors: true,
   coreScripts: [],
   enhancedScripts: []
 }

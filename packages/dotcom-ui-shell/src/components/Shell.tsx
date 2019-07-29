@@ -13,8 +13,8 @@ type TShellProps = TDocumentHeadProps &
   TAppContextProps &
   TStylesheetProps &
   TBodyProps &
-  TFlagsEmbedProps &
-  TBootstrapProps & {
+  TFlagsEmbedProps & {
+    scripts?: string[]
     children?: any
     initialProps?: any
     bodyAttributes?: TAttributeData
@@ -22,11 +22,10 @@ type TShellProps = TDocumentHeadProps &
   }
 
 function Shell(props: TShellProps) {
-  const corePolyfills = polyfillService.core()
-  const enhancedPolyfills = polyfillService.enhanced()
-
-  const coreScripts = [corePolyfills, ...props.coreScripts]
-  const enhancedScripts = [enhancedPolyfills, ...props.enhancedScripts]
+  const bootstrapProps: TBootstrapProps = {
+    coreScripts: [polyfillService.core()],
+    enhancedScripts: [polyfillService.enhanced(), ...props.scripts]
+  }
 
   return (
     <html
@@ -51,7 +50,7 @@ function Shell(props: TShellProps) {
         <FlagsEmbed flags={props.flags} />
         <AppContextEmbed context={props.context} />
         <StyleSheets stylesheets={props.stylesheets} criticalStyles={props.criticalStyles} />
-        <Bootstrap coreScripts={coreScripts} enhancedScripts={enhancedScripts} trackErrors={true} />
+        <Bootstrap {...bootstrapProps} />
         <CoreTracking context={props.context} />
       </head>
       <Body {...formatAttributeNames(props.bodyAttributes)} contents={props.contents || props.children} />
@@ -60,8 +59,8 @@ function Shell(props: TShellProps) {
 }
 
 Shell.defaultProps = {
-  coreScripts: [],
-  enhancedScripts: [],
+  scripts: [],
+  stylesheets: [],
   htmlAttributes: {},
   bodyAttributes: {}
 }
