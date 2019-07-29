@@ -39,7 +39,7 @@ export function plugin() {
   }
 
   function addBabelRuntimeCodeSplitting() {
-    return createBundlesForPackages('babel-helpers', ['@babel/runtime'])
+    return createBundlesForPackages('babel-helpers', ['@babel/runtime', 'regenerator-runtime'])
   }
 
   function addSharedStableCodeSplitting() {
