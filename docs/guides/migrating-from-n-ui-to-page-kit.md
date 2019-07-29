@@ -410,3 +410,25 @@ _NOTE: This is probably the second hardest step and may vary between application
 - Build and run the application and check the output in the browser.
   - The app context script should be populated with the relevant context data.
 - Commit your work.
+
+
+## Implement n-tracking
+
+- Install n-tracking:
+    ```
+    npm install -S @financial-times/n-tracking
+    ```
+- Implement n-tracking in the client-side JS with options. At a minimum, include the app context as an option:
+    ```diff
+    + import * as tracking from '@financial-times/n-tracking';
+    ...
+    domLoaded.then(() => {
+    + tracking.init({ appContext })
+      ...
+    });
+    ```
+- Build and run the application and check the output in the browser.
+  - An o-tracking.bundle.js should have been built.
+  - An o-tracking script should be present in the bootstrap html.
+  - Tracking events (spoor-api.ft.com as `ingest?type=`) should be present in the network tab.
+- Commit your work.
