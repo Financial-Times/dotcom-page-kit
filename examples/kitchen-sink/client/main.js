@@ -2,8 +2,8 @@ import domLoaded from 'dom-loaded'
 import * as flags from '@financial-times/dotcom-ui-flags'
 import * as layout from '@financial-times/dotcom-ui-layout'
 import * as appContext from '@financial-times/dotcom-ui-app-context'
+import * as tracking from '@financial-times/n-tracking'
 import { init as initAds } from '@financial-times/n-ads'
-import * as tracking from 'n-tracking'
 
 domLoaded.then(() => {
   const flagsClient = flags.init()
