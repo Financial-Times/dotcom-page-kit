@@ -8,11 +8,11 @@ This package contains a suite of helpers to enable the migration of applications
 
 ## Usage
 
-When using this package you can import the `helpers` property and provide it as an option when creating a new `HandlebarsRenderer` instance. Please note that helpers will not be appended to the global Handlebars instance.
+When using this package you can import the `helpers` property and provide it as an option when creating a new `PageKitHandlebars` instance. Please note that helpers will not be appended to the global Handlebars instance.
 
 ```js
-const { HandlebarsRenderer, helpers } = require('@financial-times/dotcom-server-handlebars')
-const renderer = new HandlebarsRenderer({ helpers })
+const { PageKitHandlebars, helpers } = require('@financial-times/dotcom-server-handlebars')
+const renderer = new PageKitHandlebars({ helpers })
 ```
 
 Alternatively if you want to use the helpers with an existing Handlebars instance:
