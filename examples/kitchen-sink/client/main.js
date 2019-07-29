@@ -11,7 +11,7 @@ domLoaded.then(() => {
 
   layout.init()
 
-  tracking.init({ appContext: appContextClient.context })
+  tracking.init({ appContext: appContextClient.getAll() })
 
   initAds(
     {
