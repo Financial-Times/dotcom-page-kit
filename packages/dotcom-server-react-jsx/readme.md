@@ -21,9 +21,9 @@ _Please note_ that you will need to extend Node's `require()` function to enable
 
 ```diff
 const express = require('express')
-+ const { ReactRenderer } = require('@financial-times/dotcom-server-react-jsx')
++ const { PageKitReactJSX } = require('@financial-times/dotcom-server-react-jsx')
 
-+ const renderer = new ReactRenderer(options)
++ const renderer = new PageKitReactJSX(options)
 + app.engine('.jsx', renderer.engine)
 ```
 
@@ -51,8 +51,8 @@ _Please note_ that where to lookup template files can be configured using Expres
 This module can be used without integrating it fully into your application. This may be suitable for applications which are not built with Express or for ad-hoc template rendering needs. This is intended to provide some convenient extra functionality over React's built-in render methods.
 
 ```diff
-+ const { ReactRenderer } = require('@financial-times/dotcom-server-react-jsx')
-+ const renderer = new ReactRenderer(options)
++ const { PageKitReactJSX } = require('@financial-times/dotcom-server-react-jsx')
++ const renderer = new PageKitReactJSX(options)
 ```
 
 When using this module as a standalone library you will need to find template files, provide all data, and handle the rendered output manually.

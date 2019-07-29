@@ -4,19 +4,19 @@ import interopRequire from './interopRequire'
 import { Request, Response, NextFunction } from 'express'
 import { Renderable, RenderCallback } from './types'
 
-export interface TReactRendererOptions {
+export interface TPageKitReactJSXOptions {
   useStaticRendering?: boolean
 }
 
-const defaultOptions: TReactRendererOptions = {
+const defaultOptions: TPageKitReactJSXOptions = {
   useStaticRendering: false
 }
 
-export class ReactRenderer {
-  public options: TReactRendererOptions
+export class PageKitReactJSX {
+  public options: TPageKitReactJSXOptions
   public engine: Function
 
-  constructor(userOptions: TReactRendererOptions = {}) {
+  constructor(userOptions: TPageKitReactJSXOptions = {}) {
     this.options = { ...defaultOptions, ...userOptions }
     this.engine = this.renderView.bind(this)
   }

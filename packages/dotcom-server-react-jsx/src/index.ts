@@ -1,1 +1,1 @@
-export * from './ReactRenderer'
+export * from './PageKitReactJSX'
