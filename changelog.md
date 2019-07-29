@@ -6,6 +6,8 @@
 - Shell UI component: refactored to include the polyfill service component by default
 - Sass build plugin: added configurable `includePaths` option
 - Sass build plugin: changed the default value of the `includePaths` option from `node_modules/@financial-times` to `node_modules`
+- Renames the HandlebarsRenderer component to PageKitHandlebars
+- Renames the ReactRenderer component to PageKitReactJSX
 
 ## 0.0.x
 
