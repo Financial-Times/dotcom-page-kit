@@ -89,11 +89,7 @@ Each page is served a bootstrap script including a "cuts the mustard" test via t
 
 An optional string of HTML to insert into the document `<body>`. This should be used if you are not using JSX composition and have a prerendered string of HTML.
 
-#### `coreScripts` (string[])
-
-An array of script URLs which will be passed to the [JavaScript bootstrap] and loaded if the visitor's browser fails the cut the mustard test.
-
-#### `enhancedScripts` (string[])
+#### `scripts` (string[])
 
 An array of script URLs which will be passed to the [JavaScript bootstrap] and loaded if the visitor's browser succeeds in passing the cut the mustard test.
 
