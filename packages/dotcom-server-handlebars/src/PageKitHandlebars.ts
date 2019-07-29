@@ -5,7 +5,7 @@ import findPartialFiles from './findPartialFiles'
 import loadFileContents from './loadFileContents'
 import { TRenderCallback, TPartialTemplates, TFilePaths } from './types'
 
-export type THandlebarsRendererOptions = {
+export type TPageKitHandlebarsOptions = {
   /**
    * An instance of Handlebars to use.
    * @default require('handlebars')
@@ -45,7 +45,7 @@ export type THandlebarsRendererOptions = {
   cache?: boolean
 }
 
-const defaultOptions: THandlebarsRendererOptions = {
+const defaultOptions: TPageKitHandlebarsOptions = {
   rootDirectory: process.cwd(),
   helpers: {},
   partials: {},
@@ -56,13 +56,13 @@ const defaultOptions: THandlebarsRendererOptions = {
   }
 }
 
-export class HandlebarsRenderer {
-  public options: THandlebarsRendererOptions
+export class PageKitHandlebars {
+  public options: TPageKitHandlebarsOptions
   public engine: this['renderView']
 
   private cache: Map<string, any> = new Map()
 
-  constructor(userOptions: THandlebarsRendererOptions = {}) {
+  constructor(userOptions: TPageKitHandlebarsOptions = {}) {
     this.options = mixinDeep({}, defaultOptions, userOptions)
 
     // Create a point for Express to mount as a view engine

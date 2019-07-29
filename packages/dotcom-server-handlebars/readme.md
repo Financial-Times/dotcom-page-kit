@@ -26,9 +26,9 @@ _Please note_ the template file extension registered with your application shoul
 
 ```diff
 const express = require('express')
-+ const { HandlebarsRenderer } = require('@financial-times/dotcom-server-handlebars')
++ const { PageKitHandlebars } = require('@financial-times/dotcom-server-handlebars')
 
-+ const renderer = new HandlebarsRenderer(options)
++ const renderer = new PageKitHandlebars(options)
 + app.engine('.html', renderer.engine)
 ```
 
@@ -57,8 +57,8 @@ _Please note_ that where to lookup template files can be configured using Expres
 This module can be used without integrating it fully into your application. This may be suitable for applications which are not built with Express or for ad-hoc template rendering needs.
 
 ```diff
-+ const { HandlebarsRenderer } = require('@financial-times/dotcom-server-handlebars')
-+ const renderer = new HandlebarsRenderer(options)
++ const { PageKitHandlebars } = require('@financial-times/dotcom-server-handlebars')
++ const renderer = new PageKitHandlebars(options)
 ```
 
 When using this module as a standalone library you will need to find template files, provide all data, and handle the rendered output manually.

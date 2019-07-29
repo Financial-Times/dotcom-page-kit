@@ -1,13 +1,13 @@
 const express = require('express')
 const homePageController = require('./controllers/home')
-const { HandlebarsRenderer } = require('@financial-times/dotcom-server-handlebars')
+const { PageKitHandlebars } = require('@financial-times/dotcom-server-handlebars')
 
 const app = (module.exports = express())
 
 app.locals.siteName = 'Good Dogs'
 
 // Add Handlebars as a view engine so controllers may use response.render()
-const renderer = new HandlebarsRenderer({
+const renderer = new PageKitHandlebars({
   cache: process.env.NODE_ENV === 'production'
 })
 

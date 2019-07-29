@@ -1,3 +1,3 @@
 import * as helpers from './helpers'
-export * from './HandlebarsRenderer'
+export * from './PageKitHandlebars'
 export { helpers }

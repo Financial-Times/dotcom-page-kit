@@ -1,11 +1,11 @@
 import path from 'path'
-import { HandlebarsRenderer as Subject } from '../HandlebarsRenderer'
+import { PageKitHandlebars as Subject } from '../PageKitHandlebars'
 
 // NOTE: Tests are run from the repository root directory so we need to set the CWD
 const root = path.join(__dirname, '__fixtures__')
 const view = path.resolve(root, 'views/view.hbs')
 
-describe('dotcom-server-handlebars/src/HandlebarsRenderer', () => {
+describe('dotcom-server-handlebars/src/PageKitHandlebars', () => {
   let instance
 
   beforeEach(() => {
