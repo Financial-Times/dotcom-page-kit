@@ -42,8 +42,8 @@ module.exports = (_, response, next) => {
       <Shell
         flags={flags}
         pageTitle="Hello World"
+        scripts={scriptBundles}
         stylesheets={styleBundles}
-        enhancedScripts={scriptBundles}
         context={appContext.data}>
         <AdsOptionsEmbed {...adOptions} />
         <Layout navigationData={response.locals.navigation} headerBefore={<Slot {...adSlotProps} />}>

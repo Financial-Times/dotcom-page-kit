@@ -28,7 +28,7 @@ routes.forEach(async (route) => {
       pageTitle: Page.title,
       description: Page.description,
       initialProps: { $$page: route.name, ...initialProps },
-      enhancedScripts: assets.getScriptURLsFor('main')
+      scripts: assets.getScriptURLsFor('main')
     }
 
     const markup = renderToString(

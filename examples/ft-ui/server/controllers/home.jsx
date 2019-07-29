@@ -15,7 +15,7 @@ export function homeController(_, response, next) {
   }
 
   const shellProps = {
-    enhancedScripts: ['public/scripts.bundle.js'],
+    scripts: ['public/scripts.bundle.js'],
     stylesheets: ['public/styles.css'],
     pageTitle: pageData.title,
     context: appContext
