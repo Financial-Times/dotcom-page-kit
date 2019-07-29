@@ -57,6 +57,11 @@ export function plugin() {
   }
 
   function addSharedVolatileCodeSplitting() {
-    return createBundleWithPackages('shared.volatile', ['n-syndication', 'n-feedback'])
+    return createBundleWithPackages('shared.volatile', [
+      '@financial-times/n-ads',
+      '@financial-times/n-tracking',
+      'n-syndication',
+      'n-feedback'
+    ])
   }
 }
