@@ -10,11 +10,11 @@ export default class AppContext {
     this.context = Object.freeze(options.context)
   }
 
-  get(property: string): any | undefined {
+  get(property: string): any {
     return this.context.hasOwnProperty(property) ? this.context[property] : undefined
   }
 
-  getAll(): any {
+  getAll(): TAppContext {
     return this.context
   }
 }
