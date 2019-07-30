@@ -1,3 +1,5 @@
+import { hooks } from '@financial-times/dotcom-page-kit-cli'
+
 import {
   createBundleWithPackages,
   createBundleWithRegExp,
@@ -7,12 +9,12 @@ import {
 
 export function plugin() {
   return ({ on }) => {
-    on('webpackConfig', addInitialCodeSplitting)
-    on('webpackConfig', addOrigamiCodeSplitting)
-    on('webpackConfig', addPageKitCodeSplitting)
-    on('webpackConfig', addBabelRuntimeCodeSplitting)
-    on('webpackConfig', addSharedStableCodeSplitting)
-    on('webpackConfig', addSharedVolatileCodeSplitting)
+    on(hooks.WEBPACK_CONFIG, addInitialCodeSplitting)
+    on(hooks.WEBPACK_CONFIG, addOrigamiCodeSplitting)
+    on(hooks.WEBPACK_CONFIG, addPageKitCodeSplitting)
+    on(hooks.WEBPACK_CONFIG, addBabelRuntimeCodeSplitting)
+    on(hooks.WEBPACK_CONFIG, addSharedStableCodeSplitting)
+    on(hooks.WEBPACK_CONFIG, addSharedVolatileCodeSplitting)
   }
 
   function addInitialCodeSplitting() {
