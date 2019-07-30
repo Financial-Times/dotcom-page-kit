@@ -8,6 +8,7 @@ export type TDocumentHeadProps = TOpenGraphProps &
     description?: string
     facebookPage?: string
     googleSiteVerification?: string
+    metaTags?: Array<{ [key: string]: any }>
     pageTitle: string
     robots?: string
     siteTitle?: string
@@ -37,6 +38,9 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     {/* SEO */}
     <meta name="robots" content={props.robots} />
     <meta name="google-site-verification" content={props.googleSiteVerification} />
+    {props.metaTags.map((attributes, i) => (
+      <meta key={`meta-${i}`} {...attributes} />
+    ))}
     <LinkedData jsonLd={props.jsonLd} />
 
     {/* social media */}
@@ -70,6 +74,7 @@ DocumentHead.defaultProps = {
     'News, analysis and comment from the Financial Times, the worldʼs leading global business publication',
   facebookPage: '8860325749',
   googleSiteVerification: '4-t8sFaPvpO5FH_Gnw1dkM28CQepjzo8UjjAkdDflTw',
+  metaTags: [],
   jsonLd: [],
   robots: 'index,follow',
   siteTitle: 'Financial Times',
