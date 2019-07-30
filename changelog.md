@@ -2,6 +2,7 @@
 
 ## 0.1.0
 
+- Added n-ui to Page Kit v0.1.0 migration guide ✨
 - Polyfill Service UI component: refactored exported properties into functions
 - Shell UI component: refactored to include the polyfill service component by default
 - Shell UI component: removed `enhancedScripts` and `coreScripts` and replaced with single `scripts` prop
