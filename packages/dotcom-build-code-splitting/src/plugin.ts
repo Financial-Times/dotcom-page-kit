@@ -44,6 +44,10 @@ export function plugin() {
     return createBundlesForPackages('babel-helpers', ['@babel/runtime', 'regenerator-runtime'])
   }
 
+  function addFrameworkCodeSplitting() {
+    return createBundlesForPackages('frameworks', ['react', 'preact'])
+  }
+
   function addSharedStableCodeSplitting() {
     return createBundleWithPackages('shared.stable', [
       'dom-loaded',
