@@ -53,6 +53,11 @@ Array [
     content="4-t8sFaPvpO5FH_Gnw1dkM28CQepjzo8UjjAkdDflTw"
     name="google-site-verification"
   />,
+  <meta
+    href="path/to/rss"
+    rel="alternate"
+    type="application/rss+xml"
+  />,
   <script
     dangerouslySetInnerHTML={
       Object {

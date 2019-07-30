@@ -10,7 +10,8 @@ describe('dotcom-ui-shell/src/components/DocumentHead', () => {
       pageTitle: 'Page title',
       siteTitle: 'Website title',
       twitterSite: '@twitter_page',
-      canonicalURL: 'https://my.site'
+      canonicalURL: 'https://my.site',
+      metaTags: [{ rel: 'alternate', type: 'application/rss+xml', href: 'path/to/rss' }]
     }
 
     const tree = renderer.create(<Subject {...props} />).toJSON()

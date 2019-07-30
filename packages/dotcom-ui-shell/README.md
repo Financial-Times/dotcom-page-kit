@@ -140,6 +140,10 @@ An optional meta description for the current page. Defaults to: "News, analysis 
 
 An optional URL for the current page which will render a [`canonical` meta tag](https://en.wikipedia.org/wiki/Canonical_link_element).
 
+#### `metaTags` (object[])
+
+An optional array of custom `<meta>` tags to add to the page. Each array item is a map of property name and value pairs.
+
 #### `robots` (string)
 
 An optional value for the [`robots` meta tag](https://en.wikipedia.org/wiki/Meta_element#The_robots_attribute). Defaults to "index,follow".
