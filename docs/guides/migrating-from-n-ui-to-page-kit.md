@@ -132,3 +132,56 @@ _NOTE: This is probably the second hardest step and may vary between application
 - Commit your work.
 
 
+## Setup basic integration with the Page Kit shell
+
+- Install the shell package:
+   ```bash
+   npm install -S @financial-times/dotcom-ui-shell
+   ```
+- Install react, react-dom and the eslint react plugin (this is required by n-gage):
+   ```bash
+   npm install -S \
+     react \
+     react-dom \
+     eslint-plugin-react
+   ```
+- Create a `page-kit-shell.js` file in the application's `/server` directory with the following content:
+   ```js
+   const React = require('react');
+   const ReactDOM = require('react-dom/server');
+   const { Shell } = require('@financial-times/dotcom-ui-shell');
+
+   module.exports = ({ response, next, shellProps }) => {
+     return (error, html) => {
+       if (error) {
+         return next(error);
+       }
+
+       const document = React.createElement(
+         Shell,
+         { ...shellProps, contents: html }
+       );
+
+       response.send('<!DOCTYPE html>' + ReactDOM.renderToStaticMarkup(document));
+     };
+   };
+   ```
+- Integrate the new `page-kit-shell.js` module in the application's controller files.
+    - Require the module.
+    - Create a `shellProps` object.
+    - Create a `pageKitArgs` object passing in Express route handler params and `shellProps`.
+    - Pass the shell with its arguments as a third parameter to the `render()` call.
+    ```js
+    const pageKitShell = require('./[PATH]/page-kit-shell');
+    ...
+    const shellProps = {
+      pageTitle: 'application-title'
+    };
+    const pageKitArgs = { request, response, next, shellProps };
+    ...
+    res.render('layout.html', templateData, pageKitShell(pageKitArgs));
+    ```
+- Build and run the application and check the output in the browser.
+   - Bootstrap scripts and meta tags should be present in the rendered HTML.
+   - The page should have a pink background.
+- Commit your work.
