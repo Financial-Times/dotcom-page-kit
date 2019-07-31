@@ -266,7 +266,7 @@ _NOTE: This is probably the second hardest step and may vary between application
     @import '@financial-times/dotcom-ui-footer/styles';
    ```
 - Delete and reinstall the `bower_components` directory.
-- ​Build the application.
+- Build the application.
   - If you see errors declaring missing bower modules, these have probably been supplied via n-ui in the past, install them directly in your application now.
 - Commit your work.
 
@@ -278,8 +278,6 @@ _NOTE: This is probably the second hardest step and may vary between application
     npm install -S @financial-times/dotcom-middleware-assets
     ```
 - Integrate the assets middleware in the application's server file.
-  - Require the module.
-  - Add an `isProduction` boolean statement.
   - Add the middleware to the list of middlewares being used by your application and configure the `hostStaticAssets` and `publicPath` options.
     ```diff
     + const assetsMiddleware = require('@financial-times/dotcom-middleware-assets');
@@ -293,7 +291,7 @@ _NOTE: This is probably the second hardest step and may vary between application
     +  })
     );
     ```
-- Use the assets loader api to add `scripts` and `stylesheets` properties to the existing `shellProps`​ object:
+- Use the assets loader api to add `scripts` and `stylesheets` properties to the existing `shellProps` object:
     ```diff
     const shellProps = {
     + scripts: response.locals.assets.loader.getScriptURLsFor('entrypointJS'),
@@ -304,9 +302,10 @@ _NOTE: This is probably the second hardest step and may vary between application
 - Bump dependencies to support loading assets with Page Kit.
     - Bump n-gage to `v3.9.2` or higher.
     - Bump n-heroku-tools to `v8.3.0` or higher.
-- ​Build and run the application and check the output in the browser.
-  - The header and footer elements should be styled.
+- Build and run the application and check the output in the browser.
   - The network tab should show the expected requests for script files and stylesheets.
+  - The header and footer elements should be styled.
+  - The application's client-side behaviour should work. Please note you may find runtime errors with the compiled JS. The most common issues are caused by ESM and Common JS module syntax being mixed up or otherwise used correctly. Fix these problems now or in a separate commit.
 - Commit your work.
 
 
@@ -323,7 +322,7 @@ _NOTE: This is probably the second hardest step and may vary between application
     ...
   ]
   ```
-- ​Build and run the application and check the output in the browser.
+- Build and run the application and check the output in the browser.
   - Do the client-side assets load correctly?
   - Check the `/public` file, it should contain several separate assets files.
 - Commit your work.
