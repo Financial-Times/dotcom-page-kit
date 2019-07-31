@@ -38,7 +38,7 @@ _NOTE: This is quite a long step and you may need a notepad and pen._
   - const express = require('@financial-times/n-ui');
   + const express = require('@financial-times/n-express');
   ```
-- Update the Express server initialisation options, at a minimum add the `appName` and set `withFlags`, `withConsent` and `withAnonMiddleware` to `true`.
+- Update the Express server initialisation options, at a minimum add the `appName`, `graphiteName` and set `withFlags`, `withConsent` and `withAnonMiddleware` to `true`.
   ```diff
   const app = express({
   + appName: 'application name',
@@ -48,7 +48,6 @@ _NOTE: This is quite a long step and you may need a notepad and pen._
   ...
   });
   ```
-- Remove the `layout` property (usually `layout: 'wrapper'`).
 - If the `.snyk` file contains a patch for n-ui, delete this now.
 - If any `helpers` are being registered at this time comment out these dependencies and then remove the `helpers` option.
 - Make a note of what features `app.locals.nUiConfig = {}` is configuring and then delete it.
@@ -72,6 +71,7 @@ _NOTE: This is probably the hardest step and this will vary between applications
     ```
     If your app was using any additional Handlebars helpers (e.g `x-handlebars`) configure them now.
 - Update all `response.render()` calls in the application's controllers to include the `.html` file extension.
+- Remove the `layout` property (usually `layout: 'wrapper'`).
 - If your application is using Handlebars directly (`require('handlebars')`):
     - Don't! Handlebars is a singleton...
     - ...and n-ui implemented a hack to load partial templates on application startup and append them to this.
