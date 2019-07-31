@@ -21,7 +21,8 @@
     "@financial-times/dotcom-page-kit-cli": "file:../dotcom-page-kit-cli"
   },
   "dependencies": {
-    "bower-resolve-webpack-plugin": "^1.0.5"
+    "bower-resolve-webpack-plugin": "^1.0.5",
+    "enhanced-resolve": "^4.1.0"
   },
   "engines": {
     "node": ">= 8.16.0"
