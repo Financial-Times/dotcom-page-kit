@@ -10,6 +10,9 @@ _NOTE: This is quite a long step and you may need a notepad and pen._
 - Remove n-ui as a dependency from `bower.json` and `package.json` (but leave n-ui-foundations, Page Kit does not replace any part of n-ui-foundations).
 - Remove n-ui scripts from the `makefile`, we will add replacement scripts later.
 - Delete `n-ui-build.config.js` in the app root directory.
+- Now is a good time to bump some dependencies to versions which support Page Kit.
+    - Bump n-gage to `v3.9.2` or higher.
+    - Bump n-heroku-tools to `v8.3.0` or higher.
 
 ### Client-side
 
@@ -299,9 +302,6 @@ _NOTE: This is probably the second hardest step and may vary between application
     ...
     }
     ```
-- Bump dependencies to support loading assets with Page Kit.
-    - Bump n-gage to `v3.9.2` or higher.
-    - Bump n-heroku-tools to `v8.3.0` or higher.
 - Build and run the application and check the output in the browser.
   - The network tab should show the expected requests for script files and stylesheets.
   - The header and footer elements should be styled.
