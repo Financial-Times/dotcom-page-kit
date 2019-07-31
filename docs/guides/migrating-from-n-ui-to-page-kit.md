@@ -234,7 +234,7 @@ _NOTE: This is probably the second hardest step and may vary between application
      +   React.createElement(Layout, { ...layoutProps, contents: html })
        );
      ```
-- ​Build and run the application and check the output in the browser.
+- Build and run the application and check the output in the browser.
    - The header, footer and navigation elements should be present in the rendered html.
    - Site skip-links should be present in the rendered html.
 - Commit your work.
@@ -305,7 +305,7 @@ _NOTE: This is probably the second hardest step and may vary between application
 - Build and run the application and check the output in the browser.
   - The network tab should show the expected requests for script files and stylesheets.
   - The header and footer elements should be styled.
-  - The application's client-side behaviour should work. Please note you may find runtime errors with the compiled JS. The most common issues are caused by ESM and Common JS module syntax being mixed up or otherwise used correctly. Fix these problems now or in a separate commit.
+  - The application's client-side behaviour should work. Please note you may find runtime errors with the compiled JS. The most common issues are caused by ESM and Common JS module syntax being mixed up or otherwise used incorrectly. You should fix these issues in a separate commit.
 - Commit your work.
 
 
