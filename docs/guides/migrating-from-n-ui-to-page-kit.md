@@ -7,8 +7,8 @@
 _NOTE: This is quite a long step and you may need a notepad and pen._
 
 - Update `.gitignore`, replace all the `public/*` lines with a single `public/` line.
-- Remove n-ui scripts from `makefile`, we will add replacement scripts later.
 - Remove n-ui as a dependency from `bower.json` and `package.json` (but leave n-ui-foundations, Page Kit does not replace any part of n-ui-foundations).
+- Remove n-ui scripts from the `makefile`, we will add replacement scripts later.
 - Delete `n-ui-build.config.js` in the app root directory.
 
 ### Client-side
@@ -23,6 +23,7 @@ _NOTE: This is quite a long step and you may need a notepad and pen._
 - Open the client-side JS entry point.
 - Remove any dependency on `n-ui` or `@financial-times/n-ui`.
 - Comment out any references to `flags` imported from n-ui, we will bring them back later.
+- Comment out any references to `tracking` imported from n-ui, we will bring them back later.
 - Delete any references to `allstylesloaded` and hoist the contents of its callback into the parent scope.
 - Delete any `onAppInitialised()` calls.
 
@@ -37,22 +38,23 @@ _NOTE: This is quite a long step and you may need a notepad and pen._
   - const express = require('@financial-times/n-ui');
   + const express = require('@financial-times/n-express');
   ```
-
-- Update the Express server initialisation options, at a minimum set `withFlags`, `withConsent` and `withAnonMiddleware` to `true`.
+- Update the Express server initialisation options, at a minimum add the `appName` and set `withFlags`, `withConsent` and `withAnonMiddleware` to `true`.
   ```diff
   const app = express({
-    ...
+  + appName: 'application name',
   + withFlags: true,
   + withConsent: true,
   + withAnonMiddleware: true
+  ...
   });
   ```
+- Remove the `layout` property (usually `layout: 'wrapper'`).
+- If the `.snyk` file contains a patch for n-ui, delete this now.
 - If any `helpers` are being registered at this time comment out these dependencies and then remove the `helpers` option.
 - Make a note of what features `app.locals.nUiConfig = {}` is configuring and then delete it.
-    - See https://github.com/Financial-Times/n-ui/blob/master/browser/js/app-initializer.js for the complete list of features.
+    - The `preset` value will be either `discrete` or `complete`. Check the list of features included in each one here: https://github.com/Financial-Times/n-ui/blob/master/browser/js/app-initializer.js and make a note of the features being used in your application.
     - _Please note_ that we will need to initialise any client-side components not included in Page Kit later, such as image lazy loading, n-feedback, o-date, etc.
-
-- Finally, search for any references to `n-ui` and `nui` and clean up what's left. Commit your work and have a cup of tea, you've earned it!
+- Finally, search for any references to `n-ui` and `nui` and clean up what's left.
 
 
 ##  Implement Page Kit Handlebars as Express view engine
@@ -68,8 +70,7 @@ _NOTE: This is probably the hardest step and this will vary between applications
     const { PageKitHandlebars, helpers } = require('@financial-times/dotcom-server-handlebars');
     app.engine('.html', new PageKitHandlebars({ helpers }).engine);
     ```
-    If your app was using any additional Handlebars helpers configure them now.
-
+    If your app was using any additional Handlebars helpers (e.g `x-handlebars`) configure them now.
 - Update all `response.render()` calls in the application's controllers to include the `.html` file extension.
 - If your application is using Handlebars directly (`require('handlebars')`):
     - Don't! Handlebars is a singleton...
@@ -80,7 +81,7 @@ _NOTE: This is probably the hardest step and this will vary between applications
     - Comment out the use of any other unsupported helpers for now and make a note of them.
 
   It's important to get the application running and verify that it is delivering the expected HTML at this point as we will verify each of the following stages by running the application and checking it in the browser.
-- Commit your work.
+- Commit your work and have a lovely cup of tea, you've earned it. :relaxed:
 
 
 ## Setup basic build task for client-side JS and Sass
@@ -97,6 +98,8 @@ _NOTE: This is probably the second hardest step and may vary between application
     ```
 - Create a `page-kit.config.js` file in the repository root:
     ```js
+    const path = require('path');
+
     module.exports = {
         plugins: [
             require('@financial-times/dotcom-build-js').plugin(),
@@ -123,7 +126,7 @@ _NOTE: This is probably the second hardest step and may vary between application
     watch:
     +	page-kit build --development --watch
     ```
-- Build the application and check the output in the browser:
+- Build the application:
     - There may be a number of warnings output to the console, inspect these but they can usually be ignored.
     - If there are any errors resolve these now. In our tests the most common cause of problems is CJS/ESM interoperability.
     - Open the `public/` folder and ensure the expected JS and CSS files are being generated along with a `manifest.json` file.
@@ -181,8 +184,9 @@ _NOTE: This is probably the second hardest step and may vary between application
     ...
     res.render('layout.html', templateData, pageKitShell(pageKitArgs));
     ```
+- Add any additional properties that your application needs to `shellProps` alongside `pageTitle`, e.g. `description`, `openGraph` and `jsonLd`.
 - Build and run the application and check the output in the browser.
-   - Bootstrap scripts and meta tags should be present in the rendered HTML.
+   - The expected bootstrap scripts and meta tags should be present in the rendered HTML.
    - The page should have a pink background.
 - Commit your work.
 
@@ -197,29 +201,26 @@ _NOTE: This is probably the second hardest step and may vary between application
    ```
 - Require the navigation middleware in your application's server file and add it to the list of middlewares being used by your application.
   ```diff
+  + const navigationMiddleware = require('@financial-times/dotcom-middleware-navigation');
+  ...
   app.use(
   + navigationMiddleware.init()
     ...
   );
   ```
-- Integrate the layout component with your application controllers.
-   - Create a `layoutProps` object.
-   - Add `layoutProps` to the existing `pageKitArgs`.
-     ```js
-     const layoutProps = {
-       navigationData: response.locals.navigation,
-       headerOptions: { ...response.locals.anon }
-     };
-     ...
-     const pageKitArgs = { request, response, next, shellProps, layoutProps };
-     ```
 - Integrate the layout component with your `page-kit-shell.js` module.
    - Require the module.
-   - Add `layoutProps` to the function arguments.
+   - Create a `layoutProps` object.
    - Pass `layoutProps` to the existing `document` component.
+   - Add `layoutProps` to the function arguments.
      ```diff
      + const { Layout } = require('@financial-times/dotcom-ui-layout');
        ...
+     + const layoutProps = {
+     +  navigationData: response.locals.navigation,
+     +  headerOptions: { ...response.locals.anon }
+     + };
+     ...
      - module.exports = ({ response, next, shellProps }) => {
      + module.exports = ({ response, next, shellProps, layoutProps }) => {
        ...
@@ -232,6 +233,7 @@ _NOTE: This is probably the second hardest step and may vary between application
      ```
 - ​Build and run the application and check the output in the browser.
    - The header, footer and navigation elements should be present in the rendered html.
+   - Site skip-links should be present in the rendered html.
 - Commit your work.
 
 
@@ -239,7 +241,7 @@ _NOTE: This is probably the second hardest step and may vary between application
 
 - Install the bower glob resolver package as a devDependency:
    ```bash
-    npm install -D bower-glob-resolve
+    npm install -D bower-glob-resolver
    ```
 - Add the new resolver to the application's `.bowerrc`:
    ```json
@@ -255,7 +257,7 @@ _NOTE: This is probably the second hardest step and may vary between application
    ```js
     import * as layout from '@financial-times/dotcom-ui-layout'
     ...
-    layout.init()
+    layout.init();
    ```
 - Import the UI styles in the application's client-side styles entrypoint:
    ```scss
@@ -264,8 +266,8 @@ _NOTE: This is probably the second hardest step and may vary between application
     @import '@financial-times/dotcom-ui-footer/styles';
    ```
 - Delete and reinstall the `bower_components` directory.
-- ​Build and run the application and check the output in the browser.
-  - The header and footer elements should be styled.
+- ​Build the application.
+  - If you see errors declaring missing bower modules, these have probably been supplied via n-ui in the past, install them directly in your application now.
 - Commit your work.
 
 
@@ -291,11 +293,11 @@ _NOTE: This is probably the second hardest step and may vary between application
     +  })
     );
     ```
-- Use the assets loader api to add `enhancedScripts` and `stylesheets` properties to the existing `shellProps`​ object:
+- Use the assets loader api to add `scripts` and `stylesheets` properties to the existing `shellProps`​ object:
     ```diff
     const shellProps = {
-    + enhancedScripts: response.locals.assets.loader.getScriptURLsFor(entrypoint),
-    + stylesheets: response.locals.assets.loader.getStylesheetURLsFor(entrypoint
+    + scripts: response.locals.assets.loader.getScriptURLsFor('entrypointJS'),
+    + stylesheets: response.locals.assets.loader.getStylesheetURLsFor('entrypointCSS')
     ...
     }
     ```
@@ -303,6 +305,7 @@ _NOTE: This is probably the second hardest step and may vary between application
     - Bump n-gage to `v3.9.2` or higher.
     - Bump n-heroku-tools to `v8.3.0` or higher.
 - ​Build and run the application and check the output in the browser.
+  - The header and footer elements should be styled.
   - The network tab should show the expected requests for script files and stylesheets.
 - Commit your work.
 
@@ -384,8 +387,10 @@ _NOTE: This is probably the second hardest step and may vary between application
       @financial-times/dotcom-ui-app-context \
       @financial-times/dotcom-middleware-app-context
     ```
-- Add the app context middleware to the list of middlewares used in the application server file.
+- Require the app context middleware and add it to the list of middlewares used in the application server file.
     ```diff
+  + const appContextMiddleware = require('@financial-times/dotcom-middleware-app-context');
+  ...
   app.use(
   + appContextMiddleware.init()
     ...
@@ -427,6 +432,9 @@ _NOTE: This is probably the second hardest step and may vary between application
       ...
     });
     ```
+- Find any commented out uses of tracking.
+  - Decide which uses of tracking are still being actively used or monitored. Check https://sites.google.com/ft.com/ftproductanalytics/tracking-documents and chartio or speak to the data team.
+  - Reinstate any tracking which is still in use.
 - Build and run the application and check the output in the browser.
   - An o-tracking.bundle.js should have been built.
   - An o-tracking script should be present in the bootstrap html.
