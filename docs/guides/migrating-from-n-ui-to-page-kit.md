@@ -149,7 +149,7 @@ _NOTE: This is probably the second hardest step and may vary between application
    npm install -S \
      react \
      react-dom \
-     eslint-plugin-react
+   npm install -D eslint-plugin-react
    ```
 - Create a `page-kit-shell.js` file in the application's `/server` directory with the following content:
    ```js
