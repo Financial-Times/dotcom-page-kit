@@ -151,7 +151,7 @@ _NOTE: This is probably the second hardest step and may vary between application
      react-dom \
    npm install -D eslint-plugin-react
    ```
-- Create a `page-kit-shell.js` file in the application's `/server` directory with the following content:
+- Create a `page-kit.js` file in the application's `/server` directory with the following content:
    ```js
    const React = require('react');
    const ReactDOM = require('react-dom/server');
@@ -172,7 +172,7 @@ _NOTE: This is probably the second hardest step and may vary between application
      };
    };
    ```
-- Integrate the new `page-kit-shell.js` module in the application's controller files.
+- Integrate the new `page-kit.js` module in the application's controller files.
     - Require the module.
     - Create a `shellProps` object.
     - Create a `pageKitArgs` object passing in Express route handler params and `shellProps`.
@@ -211,7 +211,7 @@ _NOTE: This is probably the second hardest step and may vary between application
     ...
   );
   ```
-- Integrate the layout component with your `page-kit-shell.js` module.
+- Integrate the layout component with your `page-kit.js` module.
    - Require the module.
    - Create a `layoutProps` object.
    - Pass `layoutProps` to the existing `document` component.
