@@ -439,3 +439,34 @@ _NOTE: This is probably the second hardest step and may vary between application
   - An o-tracking script should be present in the bootstrap html.
   - Tracking events (spoor-api.ft.com as `ingest?type=`) should be present in the network tab.
 - Commit your work.
+
+
+## Implement the feedback module
+
+- Skip this step if your application does not use n-feedback.
+- Install the n-feedback module:
+  ```
+  npm install -S @financial-times/n-feedback
+  ```
+- Add the feedback container element to the top level of your application HTML:
+  ```
+  <div class="n-feedback__container n-feedback--hidden"></div>
+  ```
+- Implement n-feedback in the client-side JS entrypoint:
+  - Require the module.
+  - Initialise feedback and pass in the application name.
+    ```diff
+    + import feedback from '@financial-times/n-feedback';
+    ...
+    domLoaded.then(() => {
+    + feedback.init({ name: 'application name' });
+    ...
+    }
+    ```
+- Import the n-feedback styles in the application's styles entrypoint:
+  ```
+  @import '@financial-times/n-feedback/main'
+  ```
+- Build and run the application and check the output in the browser.
+  - An expandable feedback component should be present with interactive radios and buttons.
+- Commit your work.
