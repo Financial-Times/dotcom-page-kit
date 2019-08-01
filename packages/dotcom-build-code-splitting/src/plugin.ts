@@ -34,8 +34,8 @@ export function plugin() {
   }
 
   function addComponentCodeSplitting() {
-    // Split each n-, x-, and o- package into a separate bundle files
-    return createBundlesForRegExp('shared-components', /[\\\/](x|o)-/)
+    // Split each o-, n-, and x- packages into a separate bundle files
+    return createBundlesForRegExp('shared-components', /[\\\/](o|n|x)-/)
   }
 
   function addPageKitCodeSplitting() {
