@@ -12,7 +12,7 @@ export function plugin() {
     on(hooks.WEBPACK_CONFIG, addInitialCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addOrigamiCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addPageKitCodeSplitting)
-    on(hooks.WEBPACK_CONFIG, addFrameworkCodeSplitting)
+    on(hooks.WEBPACK_CONFIG, addLibraryCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addBabelRuntimeCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addSharedStableCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addSharedVolatileCodeSplitting)
@@ -48,9 +48,9 @@ export function plugin() {
     return createBundlesForPackages('babel-helpers', ['@babel/runtime', 'regenerator-runtime'])
   }
 
-  function addFrameworkCodeSplitting() {
-    // split any of these JS frameworks into separate bundle files
-    return createBundlesForPackages('js-frameworks', ['react', 'preact'])
+  function addLibraryCodeSplitting() {
+    // split any of these JS frameworks and libraries into separate bundle files
+    return createBundlesForPackages('js-frameworks', ['react', 'preact', 'hyperons'])
   }
 
   function addSharedStableCodeSplitting() {
