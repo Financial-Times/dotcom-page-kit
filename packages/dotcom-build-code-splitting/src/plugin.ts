@@ -10,9 +10,9 @@ import {
 export function plugin() {
   return ({ on }) => {
     on(hooks.WEBPACK_CONFIG, addInitialCodeSplitting)
-    on(hooks.WEBPACK_CONFIG, addOrigamiCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addPageKitCodeSplitting)
-    on(hooks.WEBPACK_CONFIG, addFrameworkCodeSplitting)
+    on(hooks.WEBPACK_CONFIG, addLibraryCodeSplitting)
+    on(hooks.WEBPACK_CONFIG, addComponentCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addBabelRuntimeCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addSharedStableCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addSharedVolatileCodeSplitting)
@@ -33,9 +33,9 @@ export function plugin() {
     }
   }
 
-  function addOrigamiCodeSplitting() {
-    // Split each o- package into a separate bundle files
-    return createBundlesForRegExp('origami-components', /[\\\/]o-/)
+  function addComponentCodeSplitting() {
+    // Split each o-, n-, and x- packages into a separate bundle files
+    return createBundlesForRegExp('shared-components', /[\\\/](o|n|x)-/)
   }
 
   function addPageKitCodeSplitting() {
@@ -48,9 +48,9 @@ export function plugin() {
     return createBundlesForPackages('babel-helpers', ['@babel/runtime', 'regenerator-runtime'])
   }
 
-  function addFrameworkCodeSplitting() {
-    // split any of these JS frameworks into separate bundle files
-    return createBundlesForPackages('js-frameworks', ['react', 'preact'])
+  function addLibraryCodeSplitting() {
+    // split any of these JS frameworks and libraries into separate bundle files
+    return createBundlesForPackages('js-frameworks', ['react', 'preact', 'hyperons', 'dateformat'])
   }
 
   function addSharedStableCodeSplitting() {
@@ -73,6 +73,7 @@ export function plugin() {
     return createBundleWithPackages('shared.volatile', [
       '@financial-times/n-ads',
       '@financial-times/n-tracking',
+      'formdata-polyfill',
       'n-syndication',
       'n-feedback'
     ])
