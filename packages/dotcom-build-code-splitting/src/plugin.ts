@@ -10,9 +10,9 @@ import {
 export function plugin() {
   return ({ on }) => {
     on(hooks.WEBPACK_CONFIG, addInitialCodeSplitting)
-    on(hooks.WEBPACK_CONFIG, addOrigamiCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addPageKitCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addLibraryCodeSplitting)
+    on(hooks.WEBPACK_CONFIG, addComponentCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addBabelRuntimeCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addSharedStableCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addSharedVolatileCodeSplitting)
@@ -33,9 +33,9 @@ export function plugin() {
     }
   }
 
-  function addOrigamiCodeSplitting() {
-    // Split each o- package into a separate bundle files
-    return createBundlesForRegExp('origami-components', /[\\\/]o-/)
+  function addComponentCodeSplitting() {
+    // Split each n-, x-, and o- package into a separate bundle files
+    return createBundlesForRegExp('shared-components', /[\\\/](x|o)-/)
   }
 
   function addPageKitCodeSplitting() {
