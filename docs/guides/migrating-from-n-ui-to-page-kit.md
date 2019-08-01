@@ -470,3 +470,30 @@ _NOTE: This is probably the second hardest step and may vary between application
 - Build and run the application and check the output in the browser.
   - An expandable feedback component should be present with interactive radios and buttons.
 - Commit your work.
+
+
+## Implement the lazy loading module
+
+- Skip this step if your application does not use lazy loading.
+- Install the lazy load module:
+  ```
+  bower install o-lazy-load
+  ```
+- Implement lazy loading in the client-side JS.
+  - Require the module.
+  - Trigger an `o.DOMContentLoaded` event.
+  - Initialise lazy loading with a root element, e.g. document.body.
+    ```diff
+    + import LazyLoad from 'o-lazy-load';
+    ...
+    domLoaded.then(() => {
+    + document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+    ...
+    + new LazyLoad(document.body);
+    ...
+    }
+    ```
+- Replace any instances of the `n-image--lazy-loading` class with `o-lazy-load`.
+- Build and run the application and check the output in the browser.
+  - The expected images should now load.
+- Commit your work.
