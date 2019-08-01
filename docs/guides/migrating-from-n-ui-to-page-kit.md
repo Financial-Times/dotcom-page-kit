@@ -401,7 +401,8 @@ _NOTE: This is probably the second hardest step and may vary between application
     import * as appContext from '@financial-times/dotcom-ui-app-context';
     ...
     domLoaded.then(() => {
-    + const appContextClient = appContext.init(); // eslint-disable-line no-unused-vars
+    + const appContextClient = appContext.init()
+    + const context = appContextClient.getAll();
       ...
     });
     ```
