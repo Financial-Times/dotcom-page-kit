@@ -420,6 +420,7 @@ _NOTE: This is probably the second hardest step and may vary between application
 
 ## Implement n-tracking
 
+- Skip this step if your application does not use n-tracking.
 - Install n-tracking:
     ```
     npm install -S @financial-times/n-tracking
