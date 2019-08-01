@@ -50,7 +50,7 @@ export function plugin() {
 
   function addLibraryCodeSplitting() {
     // split any of these JS frameworks and libraries into separate bundle files
-    return createBundlesForPackages('js-frameworks', ['react', 'preact', 'hyperons'])
+    return createBundlesForPackages('js-frameworks', ['react', 'preact', 'hyperons', 'dateformat'])
   }
 
   function addSharedStableCodeSplitting() {
