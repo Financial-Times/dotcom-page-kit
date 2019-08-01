@@ -373,6 +373,7 @@ _NOTE: This is probably the second hardest step and may vary between application
     }
     ```
 - Find any commented out uses of flags and reinstate them.
+- Find any code relating to Easter eggs and delete it entirely now or in a separate commit.
 - Build and run the application and check the output in the browser.
   - The flags script should be populated with the relevant flags data.
 - Commit your work.
