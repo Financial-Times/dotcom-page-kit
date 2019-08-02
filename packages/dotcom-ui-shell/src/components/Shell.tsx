@@ -2,6 +2,7 @@ import React from 'react'
 import Body, { TBodyProps } from './Body'
 import DocumentHead, { TDocumentHeadProps } from './DocumentHead'
 import StyleSheets, { TStylesheetProps } from './StyleSheets'
+import ResourceHints, { TResourceHintsProps } from './ResourceHints'
 import { AppContextEmbed, TAppContextProps } from '@financial-times/dotcom-ui-app-context'
 import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/dotcom-ui-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/dotcom-ui-bootstrap'
@@ -12,6 +13,7 @@ import CoreTracking from './CoreTracking'
 type TShellProps = TDocumentHeadProps &
   TAppContextProps &
   TStylesheetProps &
+  TResourceHintsProps &
   TBodyProps &
   TFlagsEmbedProps & {
     scripts?: string[]
@@ -27,6 +29,13 @@ function Shell(props: TShellProps) {
     enhancedScripts: [polyfillService.enhanced(), ...props.scripts]
   }
 
+  const resourceHints = [
+    polyfillService.enhanced(),
+    ...props.scripts,
+    ...props.stylesheets,
+    ...props.resourceHints
+  ]
+
   return (
     <html
       {...formatAttributeNames(props.htmlAttributes)}
@@ -41,6 +50,7 @@ function Shell(props: TShellProps) {
       }}>
       <head>
         <DocumentHead {...props} />
+        <ResourceHints resourceHints={resourceHints} />
         {/* TODO: refactor initial props, flags data, and context data to the bottom of body */}
         <script
           id="initial-props"
@@ -61,6 +71,7 @@ function Shell(props: TShellProps) {
 Shell.defaultProps = {
   scripts: [],
   stylesheets: [],
+  resourceHints: [],
   htmlAttributes: {},
   bodyAttributes: {}
 }
