@@ -429,8 +429,10 @@ _NOTE: This is probably the second hardest step and may vary between application
     ```diff
     + import * as tracking from '@financial-times/n-tracking';
     ...
+    const context = appContextClient.getAll();
+    ...
     domLoaded.then(() => {
-    + tracking.init({ appContext })
+    + tracking.init({ appContext: context })
       ...
     });
     ```
