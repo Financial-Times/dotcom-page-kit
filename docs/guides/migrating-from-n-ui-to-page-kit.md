@@ -185,7 +185,7 @@ _NOTE: This is probably the second hardest step and may vary between application
     };
     const pageKitArgs = { request, response, next, shellProps };
     ...
-    res.render('layout.html', templateData, pageKitShell(pageKitArgs));
+    response.render('layout.html', templateData, pageKitShell(pageKitArgs));
     ```
 - Add any additional properties that your application needs to `shellProps` alongside `pageTitle`, e.g. `description`, `openGraph` and `jsonLd`.
 - Build and run the application and check the output in the browser.
