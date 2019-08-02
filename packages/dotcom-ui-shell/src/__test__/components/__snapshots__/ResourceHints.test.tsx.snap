@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dotcom-ui-shell/src/components/ResourceHints renders the given paths and URLs as resource hints 1`] = `
+Array [
+  <link
+    href="https://spoor-api.ft.com"
+    rel="preconnect"
+  />,
+  <link
+    crossOrigin="use-credentials"
+    href="https://session-next.ft.com"
+    rel="preconnect"
+  />,
+  <link
+    href="https://ads-api.ft.com"
+    rel="preconnect"
+  />,
+  <link
+    href="https://polyfill.io"
+    rel="preconnect"
+  />,
+  <link
+    href="https://www.googletagservices.com"
+    rel="preconnect"
+  />,
+  <link
+    href="www.example.com/assets/style.css"
+    rel="preload"
+    type="style"
+  />,
+  <link
+    href="www.example.com/images/graphic.svg#icon"
+    rel="preload"
+    type="image"
+  />,
+  <link
+    href="http://polyfill.io/v3/bundle.min.js?features=es5,es6"
+    rel="preload"
+    type="script"
+  />,
+  <link
+    href="/assets/public/style.as83hd99.css"
+    rel="preload"
+    type="style"
+  />,
+]
+`;
