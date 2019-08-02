@@ -101,6 +101,12 @@ An array of stylesheet URLs to be loaded using `<link rel="stylesheet" />` tags.
 
 An optional string of CSS to embed into the page. Defaults to setting the background colour to FT pink.
 
+#### `resourceHints` (string[])
+
+An optional array of resource URLs to append [resource hints] for. The values provided for the `stylesheets` and `scripts` options will be appended by default.
+
+[resource hints]: https://w3c.github.io/resource-hints
+
 #### `context` (object)
 
 A data object which will be passed to the [FT app context] component.
