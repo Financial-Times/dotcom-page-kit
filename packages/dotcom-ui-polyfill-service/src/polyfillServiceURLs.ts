@@ -3,7 +3,7 @@ import querystring from 'querystring'
 // Please see https://polyfill.io/v3/url-builder/ for information about which
 // features are available and how they may be used.
 
-const polyfillsCore = ['default', 'es5', 'es2015', 'HTMLPictureElement', 'NodeList.prototype.forEach']
+const polyfillsCore = ['HTMLPictureElement']
 
 const polyfillsEnhanced = [
   // What Andrew Betts decided is "default"

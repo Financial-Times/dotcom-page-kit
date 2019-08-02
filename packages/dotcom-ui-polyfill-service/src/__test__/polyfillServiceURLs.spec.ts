@@ -7,7 +7,7 @@ describe('dotcom-ui-polyfill-service', () => {
   })
 
   it('joins all of the configured features', () => {
-    expect(subject.core()).toMatch(/features=default%2Ces5%2Ces2015/)
+    expect(subject.core()).toMatch(/features=HTMLPictureElement/)
     expect(subject.enhanced()).toMatch(/features=default%2Ces5%2Ces2015/)
   })
 
