@@ -14,6 +14,7 @@ export type TDocumentHeadProps = TOpenGraphProps &
     siteTitle?: string
     twitterSite?: string
     canonicalURL?: string
+    additionalMetadata?: React.ReactNode
   }
 
 const DocumentHead = (props: TDocumentHeadProps) => (
@@ -59,6 +60,9 @@ const DocumentHead = (props: TDocumentHeadProps) => (
       href={imageServiceIconURL('ftlogo-v1:brand-ft-logo-square-coloured', 180)}
       sizes="180x180"
     />
+
+    {/* We can't add an option for every single metadata option so allow custom elements to be inserted*/}
+    {props.additionalMetadata}
   </React.Fragment>
 )
 
@@ -71,7 +75,8 @@ DocumentHead.defaultProps = {
   jsonLd: [],
   robots: 'index,follow',
   siteTitle: 'Financial Times',
-  twitterSite: '@FinancialTimes'
+  twitterSite: '@FinancialTimes',
+  additionalMetadata: null
 }
 
 export default DocumentHead
