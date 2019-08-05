@@ -176,7 +176,7 @@ Optional Facebook page ID to associate with the page. Defaults to "8860325749".
 
 Optional Twitter handle to associate with the page. Defaults to "@FinancialTimes".
 
-#### `openGraph` (object[])
+#### `openGraph` (object)
 
 An optional object describing the [Open Graph] metadata to add to the page. The provided objects keys will be collated to create each property name, e.g. `{ og: { title: 'Hello, World' } }` will be rendered as `<meta property="og:title" content="Hello, World" />`.
 
