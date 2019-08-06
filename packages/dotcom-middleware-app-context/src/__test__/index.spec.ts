@@ -1,3 +1,5 @@
+jest.mock('@financial-times/dotcom-server-app-context')
+
 import httpMocks from 'node-mocks-http'
 import { AppContext } from '@financial-times/dotcom-server-app-context'
 import { init } from '../index'
@@ -12,8 +14,6 @@ const headers = {
   'ft-ab': '-'
 }
 
-jest.mock('@financial-times/dotcom-server-app-context')
-
 describe('dotcom-middleware-app-context', () => {
   let instance
   let request
@@ -25,6 +25,10 @@ describe('dotcom-middleware-app-context', () => {
     response = httpMocks.createResponse({ locals: {} })
     next = jest.fn()
     instance = init({ context })
+  })
+
+  afterEach(() => {
+    jest.resetAllMocks()
   })
 
   it('returns a request handler function', () => {
@@ -69,6 +73,24 @@ describe('dotcom-middleware-app-context', () => {
     it('calls the fallthrough function', () => {
       instance(request, response, next)
       expect(next).toHaveBeenCalled()
+    })
+  })
+
+  describe('when the context data is invalid', () => {
+    beforeEach(() => {
+      // NOTE: AppContext has been mocked but we must first
+      // tell TS it's a mock before we can use it like one.
+      const AppContextMock = AppContext as jest.Mock
+
+      AppContextMock.mockImplementation(() => {
+        throw Error('INVALID')
+      })
+    })
+
+    it('calls the fallthrough function with the error', () => {
+      instance(request, response, next)
+
+      expect(next).toHaveBeenCalledWith(expect.any(Error))
     })
   })
 })
