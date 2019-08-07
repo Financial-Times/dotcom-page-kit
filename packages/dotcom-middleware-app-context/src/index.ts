@@ -22,11 +22,15 @@ export function init(options: TMiddlewareOptions = {}) {
       ...options.context
     }
 
+    const appContext = new AppContext({ context })
+
     try {
-      response.locals.appContext = new AppContext({ context })
+      appContext.validate()
     } catch (error) {
       next(error)
     }
+
+    response.locals.appContext = appContext
 
     next()
   }
