@@ -7,7 +7,7 @@ export type TAppContextOptions = {
 }
 
 export class AppContext {
-  public data: Partial<TAppContext>
+  private data: Partial<TAppContext>
 
   constructor(options: TAppContextOptions = {}) {
     this.data = filterEmptyData({ ...options.context })
@@ -19,6 +19,10 @@ export class AppContext {
 
   set(property: string, value: any) {
     this.data[property] = value
+  }
+
+  getAll(): Partial<TAppContext> {
+    return Object.freeze({ ...this.data })
   }
 
   validate() {

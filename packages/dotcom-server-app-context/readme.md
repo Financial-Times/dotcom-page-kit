@@ -31,6 +31,8 @@ try {
 } catch (error) {
   console.error('Application context data is invalid:', error)
 }
+
+const contextData = appContext.getAll()
 ```
 
 
@@ -47,6 +49,10 @@ Sets the value of the specified property.
 ### `validate(): boolean`
 
 Validates the current data against the schema definition. If the data is invalid this method will throw an error with details of the first error encountered.
+
+### `getAll(): object`
+
+Returns an immutable copy of the app context data.
 
 
 ## Options

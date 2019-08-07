@@ -21,7 +21,7 @@ describe('dotcom-server-app-context/src/AppContext', () => {
   describe('.get()', () => {
     let instance
 
-    beforeAll(() => {
+    beforeEach(() => {
       instance = new AppContext({ context: fixtures.validAppContext })
     })
 
@@ -34,7 +34,7 @@ describe('dotcom-server-app-context/src/AppContext', () => {
   describe('.set()', () => {
     let instance
 
-    beforeAll(() => {
+    beforeEach(() => {
       instance = new AppContext({ context: fixtures.validAppContext })
     })
 
@@ -44,10 +44,28 @@ describe('dotcom-server-app-context/src/AppContext', () => {
     })
   })
 
+  describe('.getAll()', () => {
+    let instance
+
+    beforeEach(() => {
+      instance = new AppContext({ context: fixtures.validAppContext })
+    })
+
+    it('returns a clone of the app context data', () => {
+      const result = instance.getAll()
+      expect(result).not.toBe(instance.data)
+    })
+
+    it('freezes the app context data clone', () => {
+      const result = instance.getAll()
+      expect(Object.isFrozen(result)).toBe(true)
+    })
+  })
+
   describe('.validate()', () => {
     let instance
 
-    beforeAll(() => {
+    beforeEach(() => {
       instance = new AppContext({ context: fixtures.validAppContext })
     })
 
