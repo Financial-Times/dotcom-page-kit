@@ -16,11 +16,6 @@ describe('dotcom-server-app-context/src/AppContext', () => {
     it('sets the given context data', () => {
       expect(instance.data).toEqual(fixtures.validAppContext)
     })
-
-    it('throws when initialised with invalid data', () => {
-      // we must coerce the invalid data to prevent TypeScript checking it and noticing it's bad
-      expect(() => new AppContext({ context: fixtures.invalidAppContext as any })).toThrow()
-    })
   })
 
   describe('.get()', () => {
@@ -56,9 +51,14 @@ describe('dotcom-server-app-context/src/AppContext', () => {
       instance = new AppContext({ context: fixtures.validAppContext })
     })
 
+    it('returns true when the data is valid', () => {
+      instance.set('edition', 'uk')
+      expect(instance.validate()).toBe(true)
+    })
+
     it('throws if any data is invalid', () => {
       instance.set('edition', 'Atlantis')
-      expect(() => instance.isValid()).toThrow()
+      expect(() => instance.validate()).toThrow()
     })
   })
 })

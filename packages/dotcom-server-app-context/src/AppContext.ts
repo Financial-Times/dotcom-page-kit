@@ -11,7 +11,6 @@ export class AppContext {
 
   constructor(options: TAppContextOptions = {}) {
     this.data = filterEmptyData({ ...options.context })
-    this.validate()
   }
 
   get(property: string) {
