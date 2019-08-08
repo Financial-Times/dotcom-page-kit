@@ -36,7 +36,7 @@ const ResourceHints = (props: TResourceHintsProps) => {
 
       {props.resourceHints.map((resource, i) => {
         const type = getResourceType(resource)
-        return <link key={`hint-${i}`} rel="preload" type={type} href={resource} />
+        return <link key={`hint-${i}`} rel="preload" as={type} href={resource} />
       })}
     </React.Fragment>
   )
