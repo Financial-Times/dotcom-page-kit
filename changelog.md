@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- Shell UI component: fix incorrect attributes for resource hints `<link />`
+
 ## 0.1.1
 
 - Removed n-ui to Page Kit migration guide (it now lives in the wiki!)
