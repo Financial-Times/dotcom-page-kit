@@ -24,24 +24,24 @@ Array [
     rel="preconnect"
   />,
   <link
+    as="style"
     href="www.example.com/assets/style.css"
     rel="preload"
-    type="style"
   />,
   <link
+    as="image"
     href="www.example.com/images/graphic.svg#icon"
     rel="preload"
-    type="image"
   />,
   <link
+    as="script"
     href="http://polyfill.io/v3/bundle.min.js?features=es5,es6"
     rel="preload"
-    type="script"
   />,
   <link
+    as="style"
     href="/assets/public/style.as83hd99.css"
     rel="preload"
-    type="style"
   />,
 ]
 `;
