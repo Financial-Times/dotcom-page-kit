@@ -28,7 +28,11 @@ export function plugin() {
         },
         splitChunks: {
           chunks: 'all'
-        }
+        },
+        // Generate consistent module and chunk IDs because the default incremental numeric
+        // ones will differ between apps which use different modules in a different order.
+        moduleIds: 'hashed',
+        chunkIds: 'named'
       }
     }
   }

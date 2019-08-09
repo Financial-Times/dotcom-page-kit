@@ -1,4 +1,5 @@
 import get from 'lodash.get'
+import WebpackChunkHash from 'webpack-chunk-hash'
 import { hooks } from '../entities/hooks'
 import { CliContext } from '../entities/CliContext'
 import { getBabelConfig } from './getBabelConfig'
@@ -9,7 +10,7 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
   const isDevMode = options.development
   const entryOptions = get(config, 'settings.build.entry') || options.entryFile
   const outputPath = get(config, 'settings.build.outputPath') || options.outputPath
-  const outputFileName = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
+  const outputFileName = isDevMode ? '[name].bundle.js' : '[name].[chunkhash:12].bundle.js'
   const manifestFileName = get(config, 'settings.build.manifestFileName') || 'manifest.json'
   const manifestPluginOptions = { output: manifestFileName, entrypoints: true }
   const cleanWebpackPluginOptions = { verbose: false }
@@ -42,7 +43,13 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
         })
       ]
     },
-    plugins: [new CleanWebpackPlugin(cleanWebpackPluginOptions), new ManifestPlugin(manifestPluginOptions)],
+    plugins: [
+      new CleanWebpackPlugin(cleanWebpackPluginOptions),
+      new ManifestPlugin(manifestPluginOptions),
+      // By default Webpack's chunk and content hash algorithms include path information
+      // so this plugin is needed to ensure hashes are based on chunk contents instead.
+      new WebpackChunkHash()
+    ],
     devtool: isDevMode ? 'cheap-module-eval-source-map' : 'source-map',
     bail: isDevMode ? false : true
   })
