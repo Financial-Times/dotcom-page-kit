@@ -1,8 +1,12 @@
 # Changelog
 
+## 0.1.3
+
+- Build: fixed path-based chunk hashes resulting in files with the same contents having different names 
+
 ## 0.1.2
 
-- Shell UI component: fix incorrect attributes for resource hints `<link />`
+- Shell UI component: fixed incorrect attributes for `<link />` resource hints 
 
 ## 0.1.1
 
