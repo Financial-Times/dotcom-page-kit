@@ -16,10 +16,6 @@ Array [
     rel="preconnect"
   />,
   <link
-    href="https://polyfill.io"
-    rel="preconnect"
-  />,
-  <link
     href="https://securepubads.g.doubleclick.net"
     rel="preconnect"
   />,
@@ -41,6 +37,12 @@ Array [
   <link
     as="style"
     href="/assets/public/style.as83hd99.css"
+    rel="preload"
+  />,
+  <link
+    as="font"
+    crossOrigin="anonymous"
+    href="/__origami/service/build/v2/files/o-fonts-assets/FontFace.woff"
     rel="preload"
   />,
 ]

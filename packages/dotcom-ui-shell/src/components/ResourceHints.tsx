@@ -29,10 +29,22 @@ const ResourceHints = (props: TResourceHintsProps) => {
       */}
       <link rel="preconnect" href="https://securepubads.g.doubleclick.net" />
 
-
       {props.resourceHints.map((resource, i) => {
         const type = getResourceType(resource)
-        return <link key={`hint-${i}`} rel="preload" as={type} href={resource} />
+
+        const attributes: React.LinkHTMLAttributes<HTMLLinkElement> = {
+          as: type,
+          href: resource
+        }
+
+        // Fonts are expected to be fetched anonymously by the browser, and the preload request is
+        // only made anonymous by using the crossorigin attribute.
+        // <https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content>
+        if (type === 'font') {
+          attributes.crossOrigin = 'anonymous'
+        }
+
+        return <link key={`hint-${i}`} rel="preload" {...attributes} />
       })}
     </React.Fragment>
   )
