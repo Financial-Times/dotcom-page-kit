@@ -1,14 +1,18 @@
 import React from 'react'
 
 export type TBodyProps = {
-  contents?: any
+  contents?: string | React.ReactNode
 }
 
-function Body({ contents, ...bodyAttributes }: TBodyProps) {
+const styles = {
+  display: 'contents'
+}
+
+function Body({ contents }: TBodyProps) {
   if (typeof contents === 'string') {
-    return <body {...bodyAttributes} dangerouslySetInnerHTML={{ __html: contents }} />
+    return <div style={styles} dangerouslySetInnerHTML={{ __html: contents }} />
   } else {
-    return <body {...bodyAttributes}>{contents}</body>
+    return <div style={styles}>{contents}</div>
   }
 }
 

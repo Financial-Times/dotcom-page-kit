@@ -63,7 +63,9 @@ function Shell(props: TShellProps) {
         <Bootstrap {...bootstrapProps} />
         <CoreTracking context={props.context} />
       </head>
-      <Body {...formatAttributeNames(props.bodyAttributes)} contents={props.contents || props.children} />
+      <body {...formatAttributeNames(props.bodyAttributes)}>
+        <Body contents={props.contents || props.children} />
+      </body>
     </html>
   )
 }
