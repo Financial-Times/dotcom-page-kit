@@ -57,14 +57,14 @@ function Shell(props: TShellProps) {
           type="application/json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(props.initialProps) }}
         />
-        <FlagsEmbed flags={props.flags} />
-        <AppContextEmbed context={props.context} />
         <StyleSheets stylesheets={props.stylesheets} criticalStyles={props.criticalStyles} />
         <Bootstrap {...bootstrapProps} />
-        <CoreTracking context={props.context} />
       </head>
       <body {...formatAttributeNames(props.bodyAttributes)}>
         <Body contents={props.contents || props.children} />
+        <AppContextEmbed context={props.context} />
+        <FlagsEmbed flags={props.flags} />
+        <CoreTracking context={props.context} />
       </body>
     </html>
   )
