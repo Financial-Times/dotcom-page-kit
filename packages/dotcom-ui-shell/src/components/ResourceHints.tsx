@@ -24,11 +24,6 @@ const ResourceHints = (props: TResourceHintsProps) => {
       */}
       <link rel="preconnect" href="https://ads-api.ft.com" />
       {/*
-        We use the Polyfill Service to provide browser specific JavaScript polyfills
-        <https://www.npmjs.com/package/@financial-times/dotcom-ui-polyfill-service>
-      */}
-      <link rel="preconnect" href="https://polyfill.io" />
-      {/*
         The Google Publisher Tag library (GPT) is hosted here which is used to deliver ads
         <https://github.com/Financial-Times/o-ads/blob/master/src/js/ad-servers/gpt.js>
       */}
@@ -36,7 +31,20 @@ const ResourceHints = (props: TResourceHintsProps) => {
 
       {props.resourceHints.map((resource, i) => {
         const type = getResourceType(resource)
-        return <link key={`hint-${i}`} rel="preload" as={type} href={resource} />
+
+        const attributes: React.LinkHTMLAttributes<HTMLLinkElement> = {
+          as: type,
+          href: resource
+        }
+
+        // Fonts are expected to be fetched anonymously by the browser, and the preload request is
+        // only made anonymous by using the crossorigin attribute.
+        // <https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content>
+        if (type === 'font') {
+          attributes.crossOrigin = 'anonymous'
+        }
+
+        return <link key={`hint-${i}`} rel="preload" {...attributes} />
       })}
     </React.Fragment>
   )
