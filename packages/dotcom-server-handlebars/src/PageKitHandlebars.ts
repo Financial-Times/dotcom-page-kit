@@ -40,12 +40,16 @@ export type TPageKitHandlebarsOptions = {
 
   /**
    * Enable caching of template files to reduce filesystem I/O
-   * @default false
+   * @default process.env.NODE_ENV !== 'development
    */
   cache?: boolean
 }
 
+// By default NODE_ENV will be undefined so be explicit
+const nodeEnv = process.env.NODE_ENV || 'development'
+
 const defaultOptions: TPageKitHandlebarsOptions = {
+  cache: nodeEnv !== 'development',
   rootDirectory: process.cwd(),
   helpers: {},
   partials: {},

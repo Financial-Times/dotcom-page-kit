@@ -129,7 +129,7 @@ An object listing directories and patterns used to dynamically find and load par
 
 ### `cache`
 
-A boolean which enables the caching of partial file lookup and compiled templates to reduce filesystem I/O. This should be enabled in production environments. Defaults to `false`.
+A boolean which enables the caching of partial file lookup and compiled templates to enable reuse between render calls. This should always be enabled in production environments. Defaults to `process.env.NODE_ENV !== 'development`.
 
 [helper functions]: http://handlebarsjs.com/builtin_helpers.html
 [partial templates]: https://handlebarsjs.com/partials.html
