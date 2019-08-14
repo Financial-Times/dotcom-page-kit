@@ -3,5 +3,9 @@ import loadEmbeddedAppContext from './loadAppContext'
 
 export function init() {
   const context = loadEmbeddedAppContext()
-  return new AppContext({ context })
+  const client = new AppContext({ context })
+
+  console.log('Page Kit app context:', client.getAll()) // eslint-disable-line no-console
+
+  return client
 }
