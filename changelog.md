@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.4
+
+- Handlebars package: added a default value for the `cache` option which will be `true` except in development
+- Shell UI component: removed unnecessary resource hint for the Polyfill Service
+- Shell UI component: added resource hints for font files
+- App context component: added a `console.log()` of the app context data to increase its visibility
+
 ## 0.1.3
 
 - Build: fixed path-based chunk hashes resulting in files with the same contents having different names 
