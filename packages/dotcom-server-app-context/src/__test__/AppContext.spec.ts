@@ -9,12 +9,18 @@ describe('dotcom-server-app-context/src/AppContext', () => {
       instance = new AppContext({ context: fixtures.validAppContext })
     })
 
-    it('clones the given context data', () => {
-      expect(instance.data).not.toBe(fixtures.validAppContext)
-    })
-
     it('sets the given context data', () => {
       expect(instance.data).toEqual(fixtures.validAppContext)
+    })
+
+    describe('invalid data', () => {
+      it('throws if any context data is invalid', () => {
+        const init = () => new AppContext({
+          context: fixtures.invalidAppContext as any
+        })
+
+        expect(init).toThrow()
+      })
     })
   })
 
@@ -35,12 +41,16 @@ describe('dotcom-server-app-context/src/AppContext', () => {
     let instance
 
     beforeEach(() => {
-      instance = new AppContext({ context: fixtures.validAppContext })
+      instance = new AppContext()
     })
 
     it('sets the value of the specified property', () => {
       instance.set('appVersion', 'v12')
       expect(instance.data.appVersion).toBe('v12')
+    })
+
+    it('throws if the given value is invalid', () => {
+      expect(() => instance.set('conceptId', 123)).toThrow()
     })
   })
 
@@ -59,24 +69,6 @@ describe('dotcom-server-app-context/src/AppContext', () => {
     it('freezes the app context data clone', () => {
       const result = instance.getAll()
       expect(Object.isFrozen(result)).toBe(true)
-    })
-  })
-
-  describe('.validate()', () => {
-    let instance
-
-    beforeEach(() => {
-      instance = new AppContext({ context: fixtures.validAppContext })
-    })
-
-    it('returns true when the data is valid', () => {
-      instance.set('edition', 'uk')
-      expect(instance.validate()).toBe(true)
-    })
-
-    it('throws if any data is invalid', () => {
-      instance.set('edition', 'Atlantis')
-      expect(() => instance.validate()).toThrow()
     })
   })
 })

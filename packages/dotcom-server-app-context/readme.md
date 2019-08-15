@@ -20,19 +20,12 @@ import { AppContext } from '@financial-times/dotcom-server-app-context'
 const appContext = new AppContext()
 ```
 
-The app context instance provides methods to get, set, and validate context data:
+The app context instance provides methods to get and set app context data:
 
 ```js
 appContext.set('appName', 'my-application')
 const property = appContext.get('appName') // "my-application"
-
-try {
-  appContext.validate()
-} catch (error) {
-  console.error('Application context data is invalid:', error)
-}
-
-const contextData = appContext.getAll()
+const contextData = appContext.getAll() // { appName: "my-application" }
 ```
 
 
@@ -44,11 +37,7 @@ Returns the value of the requested property.
 
 ### `set(property: string, value: any)`
 
-Sets the value of the specified property.
-
-### `validate(): boolean`
-
-Validates the current data against the schema definition. If the data is invalid this method will throw an error with details of the first error encountered.
+Sets the value of the specified property. The provided value will be validated against the [app context schema](#app-context-data). If the value is invalid this method will throw an error.
 
 ### `getAll(): object`
 
