@@ -80,9 +80,9 @@ describe('dotcom-middleware-app-context', () => {
     beforeEach(() => {
       // NOTE: AppContext has been mocked but we must first
       // tell TS it's a mock before we can use it like one.
-      const validateMock = AppContext.prototype.validate as jest.Mock
+      const AppContextMock = AppContext as jest.Mock
 
-      validateMock.mockImplementation(() => {
+      AppContextMock.mockImplementation(() => {
         throw Error('INVALID')
       })
     })
