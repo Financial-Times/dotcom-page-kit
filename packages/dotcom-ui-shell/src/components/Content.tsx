@@ -1,6 +1,6 @@
 import React from 'react'
 
-export type TBodyProps = {
+export type TContentProps = {
   contents?: string | React.ReactNode
 }
 
@@ -8,7 +8,7 @@ const styles = {
   display: 'contents'
 }
 
-function Body({ contents }: TBodyProps) {
+function Contents({ contents }: TContentProps) {
   if (typeof contents === 'string') {
     return <div style={styles} dangerouslySetInnerHTML={{ __html: contents }} />
   } else {
@@ -16,4 +16,4 @@ function Body({ contents }: TBodyProps) {
   }
 }
 
-export default Body
+export default Contents

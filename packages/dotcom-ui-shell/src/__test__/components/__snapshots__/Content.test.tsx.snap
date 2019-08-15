@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[` 1`] = `
+exports[`dotcom-ui-shell/src/components/Content with component contents renders the components 1`] = `
 <div
   style={
     Object {
@@ -14,22 +14,7 @@ exports[` 1`] = `
 </div>
 `;
 
-exports[` 2`] = `
-<div
-  dangerouslySetInnerHTML={
-    Object {
-      "__html": "",
-    }
-  }
-  style={
-    Object {
-      "display": "contents",
-    }
-  }
-/>
-`;
-
-exports[`dotcom-ui-shell/src/components/Body with stringified contents renders the given HTML string without escaping 1`] = `
+exports[`dotcom-ui-shell/src/components/Content with stringified contents renders the given HTML string without escaping 1`] = `
 <div
   dangerouslySetInnerHTML={
     Object {

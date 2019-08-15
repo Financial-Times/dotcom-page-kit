@@ -1,5 +1,5 @@
 import React from 'react'
-import Body, { TBodyProps } from './Body'
+import Content, { TContentProps } from './Content'
 import DocumentHead, { TDocumentHeadProps } from './DocumentHead'
 import StyleSheets, { TStylesheetProps } from './StyleSheets'
 import ResourceHints, { TResourceHintsProps } from './ResourceHints'
@@ -14,7 +14,7 @@ type TShellProps = TDocumentHeadProps &
   TAppContextProps &
   TStylesheetProps &
   TResourceHintsProps &
-  TBodyProps &
+  TContentProps &
   TFlagsEmbedProps & {
     scripts?: string[]
     children?: any
@@ -61,7 +61,7 @@ function Shell(props: TShellProps) {
         <Bootstrap {...bootstrapProps} />
       </head>
       <body {...formatAttributeNames(props.bodyAttributes)}>
-        <Body contents={props.contents || props.children} />
+        <Content contents={props.contents || props.children} />
         <AppContextEmbed context={props.context} />
         <FlagsEmbed flags={props.flags} />
         <CoreTracking context={props.context} />
