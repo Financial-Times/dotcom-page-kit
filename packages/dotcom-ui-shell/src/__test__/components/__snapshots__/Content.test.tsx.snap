@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dotcom-ui-shell/src/components/Content with component contents renders the components 1`] = `
+<div
+  style={
+    Object {
+      "display": "contents",
+    }
+  }
+>
+  <p>
+    Hello, World!
+  </p>
+</div>
+`;
+
+exports[`dotcom-ui-shell/src/components/Content with stringified contents renders the given HTML string without escaping 1`] = `
+<div
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "<p>Hello, World!</p>",
+    }
+  }
+  style={
+    Object {
+      "display": "contents",
+    }
+  }
+/>
+`;
