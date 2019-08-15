@@ -7,11 +7,14 @@ export type TAppContextOptions = {
 }
 
 export class AppContext {
-  public data: Partial<TAppContext>
+  private data: Partial<TAppContext> = {}
 
   constructor(options: TAppContextOptions = {}) {
-    this.data = filterEmptyData({ ...options.context })
-    this.validate()
+    const data = filterEmptyData({ ...options.context })
+
+    for (const [ property, value ] of Object.entries(data)) {
+      this.set(property, value)
+    }
   }
 
   get(property: string) {
@@ -19,10 +22,12 @@ export class AppContext {
   }
 
   set(property: string, value: any) {
-    this.data[property] = value
+    if (validate(property, value)) {
+      this.data[property] = value
+    }
   }
 
-  validate() {
-    return validate(this.data)
+  getAll(): Partial<TAppContext> {
+    return Object.freeze({ ...this.data })
   }
 }

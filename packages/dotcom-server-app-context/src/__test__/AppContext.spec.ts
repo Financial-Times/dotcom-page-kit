@@ -9,24 +9,25 @@ describe('dotcom-server-app-context/src/AppContext', () => {
       instance = new AppContext({ context: fixtures.validAppContext })
     })
 
-    it('clones the given context data', () => {
-      expect(instance.data).not.toBe(fixtures.validAppContext)
-    })
-
     it('sets the given context data', () => {
       expect(instance.data).toEqual(fixtures.validAppContext)
     })
 
-    it('throws when initialised with invalid data', () => {
-      // we must coerce the invalid data to prevent TypeScript checking it and noticing it's bad
-      expect(() => new AppContext({ context: fixtures.invalidAppContext as any })).toThrow()
+    describe('invalid data', () => {
+      it('throws if any context data is invalid', () => {
+        const init = () => new AppContext({
+          context: fixtures.invalidAppContext as any
+        })
+
+        expect(init).toThrow()
+      })
     })
   })
 
   describe('.get()', () => {
     let instance
 
-    beforeAll(() => {
+    beforeEach(() => {
       instance = new AppContext({ context: fixtures.validAppContext })
     })
 
@@ -39,26 +40,35 @@ describe('dotcom-server-app-context/src/AppContext', () => {
   describe('.set()', () => {
     let instance
 
-    beforeAll(() => {
-      instance = new AppContext({ context: fixtures.validAppContext })
+    beforeEach(() => {
+      instance = new AppContext()
     })
 
     it('sets the value of the specified property', () => {
       instance.set('appVersion', 'v12')
       expect(instance.data.appVersion).toBe('v12')
     })
+
+    it('throws if the given value is invalid', () => {
+      expect(() => instance.set('conceptId', 123)).toThrow()
+    })
   })
 
-  describe('.validate()', () => {
+  describe('.getAll()', () => {
     let instance
 
-    beforeAll(() => {
+    beforeEach(() => {
       instance = new AppContext({ context: fixtures.validAppContext })
     })
 
-    it('throws if any data is invalid', () => {
-      instance.set('edition', 'Atlantis')
-      expect(() => instance.isValid()).toThrow()
+    it('returns a clone of the app context data', () => {
+      const result = instance.getAll()
+      expect(result).not.toBe(instance.data)
+    })
+
+    it('freezes the app context data clone', () => {
+      const result = instance.getAll()
+      expect(Object.isFrozen(result)).toBe(true)
     })
   })
 })
