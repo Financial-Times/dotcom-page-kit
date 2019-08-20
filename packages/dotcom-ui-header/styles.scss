@@ -1,7 +1,12 @@
-$o-header-is-silent: false;
-@import "o-header/main";
-@import "src/header";
-@import "n-topic-search/main";
 @import "n-ui-foundations/main";
 
+$o-header-is-silent: false !default;
+// We don't need the sub-brand or transparent header styles so disable them.
+// TODO: move drawer styles into a separate stylesheet which can be lazy loaded?
+$_o-header-features: ('nav', 'subnav', 'search', 'megamenu', 'drawer', 'anon', 'sticky', 'simple');
+@import "o-header/main";
+
+@import "src/header";
+
+@import "n-topic-search/main";
 @include nTopicSearch;
