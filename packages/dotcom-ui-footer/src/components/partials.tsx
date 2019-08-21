@@ -45,9 +45,9 @@ const SectionTitle = ({ label, submenu, index }: TSectionTitleProps) => {
   // On smaller viewports, submenus which span two columns are collapsed behind toggles
   const ariaControls = { 'aria-controls': submenu.length === 2 ? `o-footer-section-${index}` : null }
   return (
-    <div className="o-footer__matrix-title" {...ariaControls}>
+    <h3 className="o-footer__matrix-title" {...ariaControls}>
       {label}
-    </div>
+    </h3>
   )
 }
 
@@ -57,6 +57,7 @@ type TFooterContentsProps = {
 
 const FooterContents = ({ footerData }: TFooterContentsProps) => (
   <div className="o-footer__row">
+    <h2 className="o-normalise-visually-hidden">Useful links</h2>
     <nav className="o-footer__matrix" role="navigation" aria-label="Useful links">
       {footerData.map((item, index) => {
         // The Next navigation API splits footer links data into "columns"
