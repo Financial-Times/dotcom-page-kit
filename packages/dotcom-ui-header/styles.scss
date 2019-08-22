@@ -5,3 +5,7 @@ $o-header-is-silent: false;
 @import "n-ui-foundations/main";
 
 @include nTopicSearch;
+
+.remove-defualt-logo-styles {
+  background: none;
+}
