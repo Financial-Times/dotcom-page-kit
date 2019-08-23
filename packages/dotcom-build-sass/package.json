@@ -29,7 +29,7 @@
     "node-sass": "^4.12.0",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
-    "webpack-fix-style-only-entries": "0.3.0"
+    "webpack-fix-style-only-entries": "0.3.1"
   },
   "devDependencies": {
     "@financial-times/dotcom-page-kit-cli": "file:../dotcom-page-kit-cli"
