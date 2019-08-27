@@ -23,7 +23,7 @@
   "dependencies": {
     "css-loader": "^3.0.0",
     "mini-css-extract-plugin": "^0.8.0",
-    "webpack-fix-style-only-entries": "0.3.1"
+    "webpack-fix-style-only-entries": "^0.3.1"
   },
   "devDependencies": {
     "@financial-times/dotcom-page-kit-cli": "file:../dotcom-page-kit-cli"
