@@ -106,7 +106,14 @@ const NavListRightAnon = ({ items, variant }: { items: TNavMenuItem[]; variant?:
         </a>
       </li>
       <li className="o-header__nav-item">
-        <a className="o-header__nav-button" href={second.url} data-trackable={second.label} {...setTabIndex}>
+        <a
+          className="o-header__nav-button"
+          // Added as the result of a DAC audit. This will be confusing for users of voice activation software
+          // as it looks like a button but behaves like a link without this role.
+          role="button"
+          href={second.url}
+          data-trackable={second.label}
+          {...setTabIndex}>
           {second.label}
         </a>
       </li>
