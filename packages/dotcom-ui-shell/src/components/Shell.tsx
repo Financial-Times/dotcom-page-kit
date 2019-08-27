@@ -84,3 +84,6 @@ Shell.defaultProps = {
 }
 
 export { Shell, TShellProps }
+
+// Export sub-components to more-easily enable custom integrations
+export { DocumentHead, ResourceHints, Content, CoreTracking }
