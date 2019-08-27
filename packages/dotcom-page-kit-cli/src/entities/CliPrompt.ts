@@ -1,5 +1,4 @@
 import ora, { Ora } from 'ora'
-import inquirer from 'inquirer'
 import CliProgress from 'cli-progress'
 import { clearScreen, cursorShow } from 'ansi-escapes'
 
@@ -72,10 +71,5 @@ export class CliPrompt {
 
   updateProgressBar(value: number) {
     this.progressBar.update(value)
-  }
-
-  async questions(questions: any[]) {
-    this.stopSpinner()
-    return await inquirer.prompt(questions)
   }
 }
