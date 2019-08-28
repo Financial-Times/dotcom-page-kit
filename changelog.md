@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.2.0
+
+- Layout UI component: added header and footer UI component styles
+- Header UI component: refactored o-header integration to reduce number of unused styles
+- Header UI component: accessibility fixes
+- Footer UI component: accessibility fixes
+- Shell UI component: removed fallback tracking implementation, please integrate the components provided by the `n-tracking` package instead
+- Shell UI component: refactored output to reduce cruft in the document `<head>`
+- Shell UI component: added exports for sub-components to enable more flexible integrations
+- App context package: added a `.getAll()` method to retrieve a copy of the context data
+- App context package: refactored to validate all `.set()` calls and therefore removed the separate `.validate()` method
+
 ## 0.1.4
 
 - Handlebars package: added a default value for the `cache` option which will be `true` except in development
@@ -9,11 +21,11 @@
 
 ## 0.1.3
 
-- Build: fixed path-based chunk hashes resulting in files with the same contents having different names 
+- Build: fixed path-based chunk hashes resulting in files with the same contents having different names
 
 ## 0.1.2
 
-- Shell UI component: fixed incorrect attributes for `<link />` resource hints 
+- Shell UI component: fixed incorrect attributes for `<link />` resource hints
 
 ## 0.1.1
 
@@ -34,7 +46,7 @@
 - Shell UI component: added `metaTags` prop
 - Sass build plugin: added configurable `includePaths` option
 - Sass build plugin: changed the default value of the `includePaths` option from `node_modules/@financial-times` to `node_modules`
-- Handlebars package: Renames the `HandlebarsRenderer` class to `PageKitHandlebars` 
+- Handlebars package: Renames the `HandlebarsRenderer` class to `PageKitHandlebars`
 - React JSX package: Renames the `ReactRenderer` class to `PageKitReactJSX`
 
 ## 0.0.x
