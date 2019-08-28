@@ -8,7 +8,6 @@ import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/dotcom-ui-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/dotcom-ui-bootstrap'
 import * as polyfillService from '@financial-times/dotcom-ui-polyfill-service'
 import formatAttributeNames, { TAttributeData } from '../lib/formatAttributeNames'
-import CoreTracking from './CoreTracking'
 
 type TShellProps = TDocumentHeadProps &
   TAppContextProps &
@@ -69,7 +68,6 @@ function Shell(props: TShellProps) {
         <Content contents={props.contents || props.children} />
         <AppContextEmbed context={props.context} />
         <FlagsEmbed flags={props.flags} />
-        <CoreTracking context={props.context} />
       </body>
     </html>
   )
@@ -86,4 +84,4 @@ Shell.defaultProps = {
 export { Shell, TShellProps }
 
 // Export sub-components to more-easily enable custom integrations
-export { DocumentHead, ResourceHints, Content, CoreTracking }
+export { DocumentHead, ResourceHints, Content }
