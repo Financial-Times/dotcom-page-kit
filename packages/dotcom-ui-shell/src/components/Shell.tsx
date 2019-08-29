@@ -30,8 +30,9 @@ function Shell(props: TShellProps) {
 
   const resourceHints = [
     polyfillService.enhanced(),
+    // There is no need to include stylesheets here as any <link rel="stylesheet" /> tags
+    // should be found by the browser's speculative parser.
     ...props.scripts,
-    ...props.stylesheets,
     ...props.resourceHints,
     // TODO: abstract font URLs into 'core branding' package
     '/__origami/service/build/v2/files/o-fonts-assets@1.3.2/MetricWeb-Regular.woff',
