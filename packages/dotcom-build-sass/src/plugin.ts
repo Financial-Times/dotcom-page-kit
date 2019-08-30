@@ -78,10 +78,12 @@ export function plugin({ includePaths }: TPluginOptions = {}) {
 
   function getSassLoaderOptions(includePaths = []) {
     return {
-      // Disable formatting so that we don't spend time pretty printing
-      outputStyle: 'compressed',
-      // Enable Sass to @import source files from installed dependencies
-      includePaths: ['bower_components', 'node_modules', ...includePaths]
+      sassOptions: {
+        // Disable formatting so that we don't spend time pretty printing
+        outputStyle: 'compressed',
+        // Enable Sass to @import source files from installed dependencies
+        includePaths: ['bower_components', 'node_modules', ...includePaths]
+      }
     }
   }
 
