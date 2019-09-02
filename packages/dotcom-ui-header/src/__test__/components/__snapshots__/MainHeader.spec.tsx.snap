@@ -52,7 +52,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
           className="o-header__top-column o-header__top-column--center"
         >
           <a
-            className="o-header__top-logo remove-defualt-logo-styles"
+            className="o-header__top-logo remove-default-logo-styles"
             data-trackable="logo"
             href="/"
             title="Go to Financial Times homepage"
@@ -1891,7 +1891,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
           className="o-header__top-column o-header__top-column--center"
         >
           <a
-            className="o-header__top-logo remove-defualt-logo-styles"
+            className="o-header__top-logo remove-default-logo-styles"
             data-trackable="logo"
             href="/"
             title="Go to Financial Times homepage"
