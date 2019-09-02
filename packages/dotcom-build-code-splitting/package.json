@@ -22,7 +22,8 @@
   },
   "dependencies": {
     "get-package-name": "^1.0.0",
-    "memoize-one": "^5.0.4"
+    "memoize-one": "^5.0.4",
+    "reliable-module-ids-plugin": "^1.0.1"
   },
   "devDependencies": {
     "@financial-times/dotcom-page-kit-cli": "file:../dotcom-page-kit-cli"
