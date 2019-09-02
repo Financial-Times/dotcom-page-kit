@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1
+
+- Page Kit CLI: removed chunk hash plugin from base Webpack configuration as it only included instances of `NormalModule` in its algorithm.
+- Code splitting plugin: configured plugin to generate more consistent module IDs between installs and builds
+- Shell UI component: removed stylesheet resource hints as `<link rel="stylesheet" />` tags will be found by the browser's parser anyway
+
 ## 0.2.0
 
 - Layout UI component: added header and footer UI component styles
