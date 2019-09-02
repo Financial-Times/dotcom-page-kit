@@ -1,5 +1,4 @@
 import get from 'lodash.get'
-import WebpackChunkHash from 'webpack-chunk-hash'
 import { hooks } from '../entities/hooks'
 import { CliContext } from '../entities/CliContext'
 import { getBabelConfig } from './getBabelConfig'
@@ -43,13 +42,7 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
         })
       ]
     },
-    plugins: [
-      new CleanWebpackPlugin(cleanWebpackPluginOptions),
-      new ManifestPlugin(manifestPluginOptions),
-      // By default Webpack's chunk and content hash algorithms include path information
-      // so this plugin is needed to ensure hashes are based on chunk contents instead.
-      new WebpackChunkHash()
-    ],
+    plugins: [new CleanWebpackPlugin(cleanWebpackPluginOptions), new ManifestPlugin(manifestPluginOptions)],
     devtool: isDevMode ? 'cheap-module-eval-source-map' : 'source-map',
     bail: isDevMode ? false : true
   })
