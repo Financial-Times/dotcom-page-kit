@@ -9,7 +9,7 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
   const isDevMode = options.development
   const entryOptions = get(config, 'settings.build.entry') || options.entryFile
   const outputPath = get(config, 'settings.build.outputPath') || options.outputPath
-  const outputFileName = isDevMode ? '[name].bundle.js' : '[name].[chunkhash:12].bundle.js'
+  const outputFileName = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
   const manifestFileName = get(config, 'settings.build.manifestFileName') || 'manifest.json'
   const manifestPluginOptions = { output: manifestFileName, entrypoints: true }
   const cleanWebpackPluginOptions = { verbose: false }
