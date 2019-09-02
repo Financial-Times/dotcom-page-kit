@@ -1,4 +1,5 @@
 import { hooks } from '@financial-times/dotcom-page-kit-cli'
+import ReliableModuleIdsPlugin from 'reliable-module-ids-plugin'
 
 import {
   createBundleWithPackages,
@@ -29,11 +30,11 @@ export function plugin() {
         splitChunks: {
           chunks: 'all'
         },
-        // Generate consistent module and chunk IDs because the default incremental numeric
-        // ones will differ between apps which use different modules in a different order.
-        moduleIds: 'hashed',
+        // We're going to implement our own algorithm so don't double effort
+        moduleIds: false,
         chunkIds: 'named'
-      }
+      },
+      plugins: [new ReliableModuleIdsPlugin()]
     }
   }
 
