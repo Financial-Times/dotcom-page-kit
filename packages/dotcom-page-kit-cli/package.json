@@ -28,6 +28,7 @@
     "@financial-times/dotcom-page-kit-pluggable": "file:../dotcom-page-kit-pluggable",
     "ansi-escapes": "^4.0.0",
     "babel-loader": "^8.0.5",
+    "babel-plugin-transform-async-to-promises": "^0.8.14",
     "clean-webpack-plugin": "^3.0.0",
     "cli-progress": "^3.0.0",
     "commander": "^3.0.0",

@@ -13,16 +13,19 @@ export function getBabelConfig(cli: CliContext) {
 
   const presetEnvOpts = {
     targets: get(cli, 'config.settings.build.targets') || defaultTargets,
-    // Exclude transforms that make all code slower
-    // See https://github.com/facebook/create-react-app/pull/5278
-    exclude: ['transform-typeof-symbol']
+    // Exclude transforms we don't want
+    exclude: [
+      '@babel/plugin-transform-typeof-symbol', // makes all code slower https://github.com/facebook/create-react-app/pull/5278
+      '@babel/plugin-transform-async-to-generator', // we're using transform-async-to-promises instead
+      '@babel/plugin-transform-regenerator'
+    ]
   }
 
   const babelConfig = {
     // By default Babel assumes all source code is ESM so force it to check for CJS
     sourceType: 'unambiguous',
     presets: [[require.resolve('@babel/preset-env'), presetEnvOpts]],
-    plugins: [],
+    plugins: [require.resolve('babel-plugin-transform-async-to-promises')],
     babelrc: true,
     cacheDirectory: true
   }
