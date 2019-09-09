@@ -5,7 +5,8 @@ import * as appContext from '@financial-times/dotcom-ui-app-context'
 import * as tracking from '@financial-times/n-tracking'
 import * as ads from '@financial-times/n-ads'
 
-domLoaded.then(() => {
+async function main() {
+  await domLoaded
   const flagsClient = flags.init()
   const appContextClient = appContext.init()
 
@@ -13,14 +14,13 @@ domLoaded.then(() => {
 
   tracking.init({ appContext: appContextClient.getAll() })
 
-  ads
-    .init(
-      {
-        trackingCallback: console.log // eslint-disable-line no-console
-      },
-      flagsClient
-    )
-    .then(() => {
-      // Ads slots are ready and will request ads
-    })
-})
+  await ads.init(
+    {
+      trackingCallback: console.log // eslint-disable-line no-console
+    },
+    flagsClient
+  )
+  // Ads slots are ready and will request ads
+}
+
+main()
