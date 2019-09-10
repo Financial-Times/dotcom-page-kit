@@ -115,12 +115,12 @@ export class PageKitHandlebars {
     return template
   }
 
-  render(template: string | TemplateDelegate, context: any): string {
+  render(template: string | TemplateDelegate, appContext: any): string {
     if (typeof template === 'string') {
       template = this.loadTemplate(template)
     }
 
-    const html = template(context, {
+    const html = template(appContext, {
       helpers: this.options.helpers,
       partials: { ...this.options.partials, ...this.loadPartials() }
     })
@@ -130,9 +130,9 @@ export class PageKitHandlebars {
 
   // This method is intended to be mounted by Express and used as a view engine.
   // <https://expressjs.com/en/guide/using-template-engines.html>
-  renderView(templatePath: string, context: any, callback: TRenderCallback): void {
+  renderView(templatePath: string, appContext: any, callback: TRenderCallback): void {
     try {
-      const html = this.render(templatePath, context)
+      const html = this.render(templatePath, appContext)
       callback(null, html)
     } catch (error) {
       callback(error)

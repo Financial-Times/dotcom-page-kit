@@ -6,7 +6,7 @@ describe('dotcom-server-app-context/src/AppContext', () => {
     let instance
 
     beforeAll(() => {
-      instance = new AppContext({ context: fixtures.validAppContext })
+      instance = new AppContext({ appContext: fixtures.validAppContext })
     })
 
     it('sets the given context data', () => {
@@ -15,9 +15,10 @@ describe('dotcom-server-app-context/src/AppContext', () => {
 
     describe('invalid data', () => {
       it('throws if any context data is invalid', () => {
-        const init = () => new AppContext({
-          context: fixtures.invalidAppContext as any
-        })
+        const init = () =>
+          new AppContext({
+            appContext: fixtures.invalidAppContext as any
+          })
 
         expect(init).toThrow()
       })
@@ -28,7 +29,7 @@ describe('dotcom-server-app-context/src/AppContext', () => {
     let instance
 
     beforeEach(() => {
-      instance = new AppContext({ context: fixtures.validAppContext })
+      instance = new AppContext({ appContext: fixtures.validAppContext })
     })
 
     it('returns the value of the requested context property', () => {
@@ -58,7 +59,7 @@ describe('dotcom-server-app-context/src/AppContext', () => {
     let instance
 
     beforeEach(() => {
-      instance = new AppContext({ context: fixtures.validAppContext })
+      instance = new AppContext({ appContext: fixtures.validAppContext })
     })
 
     it('returns a clone of the app context data', () => {

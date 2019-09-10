@@ -18,7 +18,7 @@ export function homeController(_, response, next) {
     scripts: ['public/scripts.bundle.js'],
     stylesheets: ['public/styles.css'],
     pageTitle: pageData.title,
-    context: appContext
+    appContext: appContext
   }
 
   const layoutProps = {

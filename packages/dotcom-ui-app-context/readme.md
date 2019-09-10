@@ -20,14 +20,14 @@ If you are using React to render your app you can use the `AppContextEmbed` comp
 
 ```jsx
 import { AppContextEmbed } from '@financial-times/dotcom-ui-app-context'
-const context = {appName:"app-name", contextProperty:"my-property"}
+const appContext = {appName:"app-name", contextProperty:"my-property"}
 
 export default (props) => (
   <html>
     <head>
       <meta charSet="utf-8" />
       <title>My Amazing Website</title>
-      <AppContextEmbed context={context} />
+      <AppContextEmbed appContext={appContext} />
     </head>
     <body>
       ...

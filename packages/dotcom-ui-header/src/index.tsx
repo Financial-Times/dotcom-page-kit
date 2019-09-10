@@ -47,7 +47,7 @@ function MainHeader(props: THeaderProps) {
         <TopColumnCenter />
         <TopColumnRight />
       </TopWrapper>
-      <Search context="primary" />
+      <Search appContext="primary" />
       <MobileNav {...props} />
       <NavDesktop>
         <NavListLeft {...props} />
@@ -68,7 +68,7 @@ function StickyHeader(props: THeaderProps) {
         <TopColumnCenterSticky {...props} />
         <TopColumnRightSticky {...props} />
       </TopWrapperSticky>
-      <Search context="sticky" />
+      <Search appContext="sticky" />
     </StickyHeaderWrapper>
   )
 }
