@@ -2,9 +2,11 @@ import React from 'react'
 import imageServiceIconURL from '../lib/imageServiceIconURL'
 import OpenGraph, { TOpenGraphProps } from './OpenGraph'
 import LinkedData, { TLinkedDataProps } from './LinkedData'
+import GTMHead from './GTMHead'
 
 export type TDocumentHeadProps = TOpenGraphProps &
   TLinkedDataProps & {
+    flags?
     description?: string
     facebookPage?: string
     googleSiteVerification?: string
@@ -63,6 +65,7 @@ const DocumentHead = (props: TDocumentHeadProps) => (
 
     {/* We can't add an option for every single metadata option so allow custom elements to be inserted*/}
     {props.additionalMetadata}
+    <GTMHead flags={props.flags} />
   </React.Fragment>
 )
 
@@ -76,7 +79,8 @@ DocumentHead.defaultProps = {
   robots: 'index,follow',
   siteTitle: 'Financial Times',
   twitterSite: '@FinancialTimes',
-  additionalMetadata: null
+  additionalMetadata: null,
+  flags: {}
 }
 
 export default DocumentHead
