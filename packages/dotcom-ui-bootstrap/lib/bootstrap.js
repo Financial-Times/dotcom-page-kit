@@ -81,8 +81,7 @@
       system: {
         source: 'page-kit'
       },
-      // does the below context need changing???
-      appContext: {
+      context: {
         script: script
       }
     })

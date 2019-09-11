@@ -57,7 +57,7 @@ describe('dotcom-middleware-app-context', () => {
       expect(AppContext).toHaveBeenCalledWith(expected)
     })
 
-    it('initialises app context with provided context overrides', () => {
+    it('initialises app context with provided app context overrides', () => {
       const expected = { appContext: expect.objectContaining(appContext) }
 
       instance(request, response, next)
@@ -76,7 +76,7 @@ describe('dotcom-middleware-app-context', () => {
     })
   })
 
-  describe('when the context data is invalid', () => {
+  describe('when the app context data is invalid', () => {
     beforeEach(() => {
       // NOTE: AppContext has been mocked but we must first
       // tell TS it's a mock before we can use it like one.

@@ -79,9 +79,9 @@ if (appContext.get('my-context-property')) {
 Initialises and returns a new [app context client] which can be used to safely access the status of individual contexts.
 
 
-## App context client API
+## App appContext client API
 
-### `get(context: string)`
+### `get(appContext: string)`
 
 Returns the value of the requested property. If the context is not found this will return `undefined`.
 

@@ -49,8 +49,8 @@ See the [FT app context] package documentation for a complete list of available 
 
 The middleware accepts the following parameters:
 
-### `context`
+### `appContext`
 
-An optional object of context properties. This can be used to append extra properties or override any of the properties automatically inferred from the running application.
+An optional object of appContext properties. This can be used to append extra properties or override any of the properties automatically inferred from the running application.
 
 [`TAppContext`]: ../dotcom-server-app-context/schema.md

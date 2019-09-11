@@ -107,7 +107,7 @@ An optional array of resource URLs to append [resource hints] for. The values pr
 
 [resource hints]: https://w3c.github.io/resource-hints
 
-#### `context` (object)
+#### `appContext` (object)
 
 A data object which will be passed to the [FT app context] component.
 
