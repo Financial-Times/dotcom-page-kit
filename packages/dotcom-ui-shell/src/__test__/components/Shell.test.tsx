@@ -20,4 +20,10 @@ describe('dotcom-ui-shell/src/components/Shell', () => {
     expect(htmlTag.props).toHaveProperty('data-is-production', '')
     expect(htmlTag.props).not.toHaveProperty('data-is-development')
   })
+
+  it('renders the GTM script when the enableGTM flag is on', () => {
+    const tree = renderer.create(<Shell pageTitle="Foo" flags={{ enableGTM: true }} />).toJSON()
+
+    expect(tree).toMatchSnapshot()
+  })
 })

@@ -1,6 +1,7 @@
 import React from 'react'
 import { TFlagsData } from '@financial-times/dotcom-ui-flags/src/types'
 
+// This component is maintained by the ads team
 const GTMHead = ({ flags }: { flags: TFlagsData }) => {
   if (!flags.enableGTM) {
     return null

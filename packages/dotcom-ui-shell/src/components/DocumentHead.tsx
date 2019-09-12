@@ -2,7 +2,6 @@ import React from 'react'
 import imageServiceIconURL from '../lib/imageServiceIconURL'
 import OpenGraph, { TOpenGraphProps } from './OpenGraph'
 import LinkedData, { TLinkedDataProps } from './LinkedData'
-import GTMHead from './GTMHead'
 
 export type TDocumentHeadProps = TOpenGraphProps &
   TLinkedDataProps & {
@@ -65,7 +64,6 @@ const DocumentHead = (props: TDocumentHeadProps) => (
 
     {/* We can't add an option for every single metadata option so allow custom elements to be inserted*/}
     {props.additionalMetadata}
-    <GTMHead flags={props.flags} />
   </React.Fragment>
 )
 

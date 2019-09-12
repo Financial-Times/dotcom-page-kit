@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dotcom-ui-shell/src/components/GTMBody renders null when the enableGTM flag is off 1`] = `null`;
+
+exports[`dotcom-ui-shell/src/components/GTMBody renders null when there is no enableGTM 1`] = `null`;
+
+exports[`dotcom-ui-shell/src/components/GTMBody renders the gtm body script when the enableGTM flag is on 1`] = `
+<noscript>
+  <iframe
+    height="0"
+    src="https://www.googletagmanager.com/ns.html?id=GTM-NWQJW68"
+    style={
+      Object {
+        "display": "none",
+        "visibility": "hidden",
+      }
+    }
+    width="0"
+  />
+</noscript>
+`;
