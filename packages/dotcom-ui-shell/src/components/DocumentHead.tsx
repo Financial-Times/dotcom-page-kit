@@ -5,7 +5,6 @@ import LinkedData, { TLinkedDataProps } from './LinkedData'
 
 export type TDocumentHeadProps = TOpenGraphProps &
   TLinkedDataProps & {
-    flags?
     description?: string
     facebookPage?: string
     googleSiteVerification?: string
@@ -77,8 +76,7 @@ DocumentHead.defaultProps = {
   robots: 'index,follow',
   siteTitle: 'Financial Times',
   twitterSite: '@FinancialTimes',
-  additionalMetadata: null,
-  flags: {}
+  additionalMetadata: null
 }
 
 export default DocumentHead
