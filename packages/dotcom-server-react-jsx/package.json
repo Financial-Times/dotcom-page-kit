@@ -10,7 +10,7 @@
     "clean": "npm run clean:dist && npm run clean:node_modules",
     "clean:dist": "rm -rf dist",
     "clean:node_modules": "rm -rf node_modules",
-    "build:node": "npm run tsc -- --outDir ./dist/node",
+    "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
     "build": "npm run build:node",
     "dev": "npm run clean:dist && npm run build:node -- --watch"
   },
