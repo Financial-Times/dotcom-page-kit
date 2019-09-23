@@ -62,6 +62,7 @@ For a full example for how to use this component please refer to the [FT UI exam
 The dotcom-ui-shell can be loosely defined as encompassing the parts of the webpage that you cannot see, including any elements which are embedded in the document `<head>`, and some core branding decisions.
 
 ### Core branding
+
 Core branding encompases the shared elements which together generate the look and feel of an ft.com page, they are both intrinsic to our brand and required by every page. Core branding includes favicons, fonts, and background colour.
 
 ### HTML skeleton

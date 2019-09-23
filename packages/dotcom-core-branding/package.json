@@ -1,0 +1,34 @@
+{
+  "name": "@financial-times/dotcom-core-branding",
+  "version": "0.0.0",
+  "description": "",
+  "main": "component.js",
+  "browser": "browser.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "../../node_modules/.bin/tsc",
+    "clean": "npm run clean:dist && npm run clean:node_modules",
+    "clean:dist": "rm -rf dist",
+    "clean:node_modules": "rm -rf node_modules",
+    "clean:install": "npm run clean && npm i",
+    "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
+    "build": "npm run build:node",
+    "dev": "npm run build:node -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.8.6"
+  },
+  "engines": {
+    "node": ">= 8.16.0"
+  },
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
+    "directory": "packages/dotcom-core-branding"
+  },
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-core-branding"
+}
