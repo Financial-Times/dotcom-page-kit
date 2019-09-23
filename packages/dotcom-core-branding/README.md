@@ -13,9 +13,22 @@ npm run build
 This component stores favicon information that suppose to be part of the header.
 
 ```jsx
-import Favicon from '@financial-times/dotcom-core-branding/component'
+import { Favicon } from '@financial-times/dotcom-core-branding/component'
 
 class yourClass = () => {
     <Favicon />
 }
 ```
+
+## Title
+
+This component to be used for a page title.
+
+```jsx
+import { Title } from '@financial-times/dotcom-core-branding/component'
+
+class yourClass = () => {
+    <Title pageTitle='your title' siteTitle='your title' />
+}
+```
+where siteTitle is optional.

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dotcom-ui-shell/src/components/Title renders the document title when pageTitle is passed 1`] = `
+<title>
+  test title | Financial Times
+</title>
+`;
+
+exports[`dotcom-ui-shell/src/components/Title renders the document title when siteTitle is passed 1`] = `
+<title>
+  test page title | test site title
+</title>
+`;
