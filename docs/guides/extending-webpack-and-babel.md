@@ -56,7 +56,7 @@ function babelPlugin ({ on }) => {
 }
 ```
 
-See the [Page Kit CLI package] for more information on the `page-kit.config.js` file
+See the [Page Kit CLI package](https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-page-kit-cli) for more information on the `page-kit.config.js` file
 
 ## Amending supplementary resources
 
