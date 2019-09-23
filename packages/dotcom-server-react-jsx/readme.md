@@ -1,6 +1,6 @@
 # @financial-times/dotcom-server-react-jsx
 
-This package provides server-side rendering for React components. It is primarily designed to be used during the transition between n-handlebars and JSX rendering.
+This package provides server-side rendering for React components. It is primarily designed to be used during the transition between [n-handlebars] and JSX rendering.
 
 [n-handlebars]: https://github.com/Financial-Times/n-handlebars
 
