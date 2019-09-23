@@ -17,7 +17,10 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
 
   return async (request: Request, response: Response, next: NextFunction) => {
     try {
-      const currentPath = request.path
+      // The vanity URL will usually be referenced in the navigation data
+      // rather than the underlying path, so prefer that when available.
+      // <https://github.com/Financial-Times/ft.com-cdn/blob/4841fbf100e1c561a2f6729b9921ec12bb6b837c/src/vcl/next-preflight.vcl#L213-L219>
+      const currentPath = request.get('ft-vanity-url') || request.path
       const currentEdition = handleEdition(request, response)
 
       const [menusData, subNavigationData] = await Promise.all([

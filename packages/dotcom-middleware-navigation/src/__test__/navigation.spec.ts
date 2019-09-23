@@ -68,6 +68,18 @@ describe('dotcom-middleware-navigation', () => {
       expect(response.locals.navigation).toEqual(expect.objectContaining(fakeNavigationData))
     })
 
+    it('prefers the vanity URL if set', async () => {
+      const request = httpMocks.createRequest({
+        path: '/path/to/app/1234',
+        headers: {
+          'ft-vanity-url': '/vanity-url'
+        }
+      })
+
+      await instance(request, response, next)
+      expect(FakeNavigation.getMenusFor).toHaveBeenCalledWith('/vanity-url', 'uk')
+    })
+
     it('calls the fallthrough function', async () => {
       await instance(request, response, next)
       expect(next).toHaveBeenCalled()
