@@ -39,8 +39,12 @@ export function plugin() {
   }
 
   function addComponentCodeSplitting() {
-    // Split each o-, n-, and x- packages into a separate bundle files
-    return createBundlesForRegExp('shared-components', /[\\\/](o|n|x)-/)
+    // Split each o-, n-, x- and next- prefixed packages into a separate bundles
+    // NOTE: we need to check we're in a package directory as our apps are usually prefixed with "next-"
+    return createBundlesForRegExp(
+      'shared-components',
+      /(node_modules\/@financial-times|bower_components)\/(o|n|x|next)-/
+    )
   }
 
   function addPageKitCodeSplitting() {
