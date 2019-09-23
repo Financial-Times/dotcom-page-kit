@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dotcom-ui-shell/src/components/Favicon renders the document favicon 1`] = `
+Array [
+  <link
+    href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=32&height=32&format=png"
+    rel="icon"
+    sizes="32x32"
+    type="image/png"
+  />,
+  <link
+    href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=194&height=194&format=png"
+    rel="icon"
+    sizes="194x194"
+    type="image/png"
+  />,
+  <link
+    href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=180&height=180&format=png"
+    rel="apple-touch-icon"
+    sizes="180x180"
+  />,
+]
+`;

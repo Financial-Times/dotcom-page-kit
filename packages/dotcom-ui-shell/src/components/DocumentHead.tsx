@@ -1,7 +1,7 @@
 import React from 'react'
-import imageServiceIconURL from '../lib/imageServiceIconURL'
 import OpenGraph, { TOpenGraphProps } from './OpenGraph'
 import LinkedData, { TLinkedDataProps } from './LinkedData'
+import Favicon from '@financial-times/dotcom-core-branding/component'
 
 export type TDocumentHeadProps = TOpenGraphProps &
   TLinkedDataProps & {
@@ -42,24 +42,7 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     <meta property="twitter:site" content={props.twitterSite} />
     <OpenGraph openGraph={props.openGraph} />
 
-    {/* packaging */}
-    <link
-      rel="icon"
-      type="image/png"
-      href={imageServiceIconURL('ftlogo-v1:brand-ft-logo-square-coloured', 32)}
-      sizes="32x32"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      href={imageServiceIconURL('ftlogo-v1:brand-ft-logo-square-coloured', 194)}
-      sizes="194x194"
-    />
-    <link
-      rel="apple-touch-icon"
-      href={imageServiceIconURL('ftlogo-v1:brand-ft-logo-square-coloured', 180)}
-      sizes="180x180"
-    />
+    <Favicon />
 
     {/* We can't add an option for every single metadata option so allow custom elements to be inserted*/}
     {props.additionalMetadata}

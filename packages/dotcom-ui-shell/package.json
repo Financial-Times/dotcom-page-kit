@@ -23,7 +23,8 @@
     "@financial-times/dotcom-ui-bootstrap": "file:../dotcom-ui-bootstrap",
     "@financial-times/dotcom-ui-app-context": "file:../dotcom-ui-app-context",
     "@financial-times/dotcom-ui-flags": "file:../dotcom-ui-flags",
-    "@financial-times/dotcom-ui-polyfill-service": "file:../dotcom-ui-polyfill-service"
+    "@financial-times/dotcom-ui-polyfill-service": "file:../dotcom-ui-polyfill-service",
+    "@financial-times/dotcom-core-branding": "file:../dotcom-core-branding"
   },
   "peerDependencies": {
     "react": "^16.8.6"
