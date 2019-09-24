@@ -1,7 +1,7 @@
 import React from 'react'
 import OpenGraph, { TOpenGraphProps } from './OpenGraph'
 import LinkedData, { TLinkedDataProps } from './LinkedData'
-import { Favicon, Title } from '@financial-times/dotcom-core-branding/component'
+import { Favicon, Title, Description } from '@financial-times/dotcom-core-branding/component'
 
 export type TDocumentHeadProps = TOpenGraphProps &
   TLinkedDataProps & {
@@ -25,7 +25,7 @@ const DocumentHead = (props: TDocumentHeadProps) => (
 
     <Title pageTitle={props.pageTitle} siteTitle={props.siteTitle} />
 
-    {props.description && <meta name="description" content={props.description} />}
+    <Description description={props.description} />
 
     {props.canonicalURL && <link rel="canonical" href={props.canonicalURL} />}
 

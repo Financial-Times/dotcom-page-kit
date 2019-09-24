@@ -31,4 +31,17 @@ class yourClass = () => {
     <Title pageTitle='your title' siteTitle='your title' />
 }
 ```
-where siteTitle is optional.
+where siteTitle prop is optional.
+
+## Description
+
+This component to be used for a page description.
+
+```jsx
+import { Description } from '@financial-times/dotcom-core-branding/component'
+
+class yourClass = () => {
+    <Description description='your description' />
+}
+```
+where description prop is optional.

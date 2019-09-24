@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dotcom-ui-shell/src/components/Title renders an empty description when description prop is not passed 1`] = `
+<meta
+  content="News, analysis and comment from the Financial Times, the worldʼs leading global business publication"
+  name="description"
+/>
+`;
+
+exports[`dotcom-ui-shell/src/components/Title renders the document description when description prop is passed 1`] = `
+<meta
+  content="test description"
+  name="description"
+/>
+`;
