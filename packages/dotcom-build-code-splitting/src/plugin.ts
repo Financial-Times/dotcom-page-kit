@@ -82,7 +82,6 @@ export function plugin() {
     return createBundleWithPackages('shared.volatile', [
       '@financial-times/n-ads',
       '@financial-times/n-tracking',
-      'formdata-polyfill',
       'n-syndication',
       'n-feedback'
     ])
