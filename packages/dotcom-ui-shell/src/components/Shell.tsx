@@ -7,6 +7,7 @@ import { AppContextEmbed, TAppContextProps } from '@financial-times/dotcom-ui-ap
 import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/dotcom-ui-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/dotcom-ui-bootstrap'
 import * as polyfillService from '@financial-times/dotcom-ui-polyfill-service'
+import { fontURLs } from '@financial-times/dotcom-core-branding'
 import formatAttributeNames, { TAttributeData } from '../lib/formatAttributeNames'
 
 type TShellProps = TDocumentHeadProps &
@@ -34,11 +35,7 @@ function Shell(props: TShellProps) {
     // should be found by the browser's speculative parser.
     ...props.scripts,
     ...props.resourceHints,
-    // TODO: abstract font URLs into 'core branding' package
-    '/__origami/service/build/v2/files/o-fonts-assets@1.3.2/MetricWeb-Regular.woff',
-    '/__origami/service/build/v2/files/o-fonts-assets@1.3.2/MetricWeb-Semibold.woff',
-    '/__origami/service/build/v2/files/o-fonts-assets@1.3.2/FinancierDisplayWeb-Regular.woff',
-    '/__origami/service/build/v2/files/o-fonts-assets@1.3.2/FinancierDisplayWeb-Bold.woff'
+    ...fontURLs
   ]
 
   return (
