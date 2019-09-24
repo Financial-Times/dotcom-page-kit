@@ -15,8 +15,12 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
   const manifestFileName = get(config, 'settings.build.manifestFileName') || 'manifest.json'
   const manifestPluginOptions = { output: manifestFileName, entrypoints: true }
   const cleanWebpackPluginOptions = { verbose: false }
-  const compressionPluginOptions = { algorithm: 'gzip', compressionOptions: { level: 9 } }
-  const brotliPluginOptions = { quality: 11 }
+  const compressionPluginOptions = {
+    test: /\.(js|css)$/,
+    algorithm: 'gzip',
+    compressionOptions: { level: 9 }
+  }
+  const brotliPluginOptions = { test: /\.(js|css)$/, quality: 11 }
 
   publish(hooks.WEBPACK_MANIFEST_PLUGIN_OPTIONS, manifestPluginOptions)
   publish(hooks.WEBPACK_CLEAN_PLUGIN_OPTIONS, cleanWebpackPluginOptions)
