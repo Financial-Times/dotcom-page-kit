@@ -14,6 +14,7 @@ export function plugin() {
     on(hooks.WEBPACK_CONFIG, addPageKitCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addLibraryCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addComponentCodeSplitting)
+    on(hooks.WEBPACK_CONFIG, addSuperstoreCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addSharedStableCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addSharedVolatileCodeSplitting)
   }
@@ -62,6 +63,12 @@ export function plugin() {
     ])
   }
 
+  function addSuperstoreCodeSplitting() {
+    // These packages are a dependency of by ads, marketing, MyFT, syndication, cookie banners
+    // and other components but these are not all direct dependencies of our apps.
+    return createBundlesForPackages('superstore', ['superstore', 'superstore-sync'])
+  }
+
   function addSharedStableCodeSplitting() {
     // split packages used by all pages (i.e. used by Page Kit) into a shared bundle
     return createBundleWithPackages('shared.stable', [
@@ -71,9 +78,7 @@ export function plugin() {
       'ftdomdelegate',
       'morphdom',
       'n-topic-search',
-      'n-ui-foundations',
-      'superstore',
-      'superstore-sync'
+      'n-ui-foundations'
     ])
   }
 
