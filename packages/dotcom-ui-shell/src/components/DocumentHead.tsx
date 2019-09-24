@@ -1,7 +1,7 @@
 import React from 'react'
 import OpenGraph, { TOpenGraphProps } from './OpenGraph'
 import LinkedData, { TLinkedDataProps } from './LinkedData'
-import { Favicon, Title, Description } from '@financial-times/dotcom-core-branding/component'
+import { Favicon, Title, Description, SocialMedia } from '@financial-times/dotcom-core-branding/component'
 
 export type TDocumentHeadProps = TOpenGraphProps &
   TLinkedDataProps & {
@@ -37,9 +37,8 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     ))}
     <LinkedData jsonLd={props.jsonLd} />
 
-    {/* social media */}
-    <meta property="fb:pages" content={props.facebookPage} />
-    <meta property="twitter:site" content={props.twitterSite} />
+    <SocialMedia facebookPage={props.facebookPage} twitterSite={props.twitterSite} />
+
     <OpenGraph openGraph={props.openGraph} />
 
     <Favicon />

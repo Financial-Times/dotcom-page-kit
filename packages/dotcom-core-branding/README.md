@@ -45,3 +45,16 @@ class yourClass = () => {
 }
 ```
 where description prop is optional.
+
+## Social Media
+
+This component to be used for a social media meta.
+
+```jsx
+import { SocialMedia } from '@financial-times/dotcom-core-branding/component'
+
+class yourClass = () => {
+    <SocialMedia facebookPage='page ID' twitterSite='twitter handle' />
+}
+```
+where description prop is optional.

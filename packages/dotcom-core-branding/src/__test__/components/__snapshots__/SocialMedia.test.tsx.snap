@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dotcom-ui-shell/src/components/Title renders a default social media meta when social media props are not passed 1`] = `
+Array [
+  <meta
+    content="8860325749"
+    property="fb:pages"
+  />,
+  <meta
+    content="@FinancialTimes"
+    property="twitter:site"
+  />,
+]
+`;
+
+exports[`dotcom-ui-shell/src/components/Title renders the social media meta when props are passed 1`] = `
+Array [
+  <meta
+    content="test page"
+    property="fb:pages"
+  />,
+  <meta
+    content="test description"
+    property="twitter:site"
+  />,
+]
+`;
