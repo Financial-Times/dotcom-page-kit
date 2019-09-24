@@ -4,6 +4,8 @@ import { CliContext } from '../entities/CliContext'
 import { getBabelConfig } from './getBabelConfig'
 import ManifestPlugin from 'webpack-assets-manifest'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
+import CompressionPlugin from 'compression-webpack-plugin'
+import BrotliPlugin from 'brotli-webpack-plugin'
 
 export function getWebpackConfig({ options, config, publish, cli }: CliContext) {
   const isDevMode = options.development
@@ -13,9 +15,13 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
   const manifestFileName = get(config, 'settings.build.manifestFileName') || 'manifest.json'
   const manifestPluginOptions = { output: manifestFileName, entrypoints: true }
   const cleanWebpackPluginOptions = { verbose: false }
+  const compressionPluginOptions = { algorithm: 'gzip', compressionOptions: { level: 9 } }
+  const brotliPluginOptions = { quality: 11 }
 
   publish(hooks.WEBPACK_MANIFEST_PLUGIN_OPTIONS, manifestPluginOptions)
   publish(hooks.WEBPACK_CLEAN_PLUGIN_OPTIONS, cleanWebpackPluginOptions)
+  publish(hooks.WEBPACK_COMPRESSION_PLUGIN_OPTIONS, compressionPluginOptions)
+  publish(hooks.WEBPACK_BROTLI_PLUGIN_OPTIONS, brotliPluginOptions)
 
   return publish(hooks.WEBPACK_CONFIG, {
     mode: isDevMode ? 'development' : 'production',
@@ -42,7 +48,14 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
         })
       ]
     },
-    plugins: [new CleanWebpackPlugin(cleanWebpackPluginOptions), new ManifestPlugin(manifestPluginOptions)],
+    plugins: isDevMode
+      ? [new CleanWebpackPlugin(cleanWebpackPluginOptions), new ManifestPlugin(manifestPluginOptions)]
+      : [
+          new CleanWebpackPlugin(cleanWebpackPluginOptions),
+          new ManifestPlugin(manifestPluginOptions),
+          new CompressionPlugin(compressionPluginOptions),
+          new BrotliPlugin(brotliPluginOptions)
+        ],
     devtool: isDevMode ? 'cheap-module-eval-source-map' : 'source-map',
     bail: isDevMode ? false : true
   })

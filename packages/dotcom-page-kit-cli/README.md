@@ -132,7 +132,7 @@ module.exports = {
 
 ##### Development and production modes
 
-In production mode the generated output will be optimised, file names hashed, and full source maps generated. Production mode is the default.
+In production mode the generated output will be optimised, file names hashed, and full source maps, gzip and brotli compressed assets generated. Production mode is the default.
 
 To enable development mode you can use the `--development` CLI flag. This will disable several optimisations in favour of providing faster builds and rebuilds. See the [Webpack mode documentation] for further information about modes.
 
@@ -182,6 +182,14 @@ Configuration options for [Babel Preset Env](https://babeljs.io/docs/en/babel-pr
 The Webpack [rule] for handling JavaScript files.
 
 [rule]: https://webpack.js.org/configuration/module/#rule
+
+##### `WEBPACK_COMPRESSION_PLUGIN_OPTIONS`
+
+Configuration options for the [compression plugin](https://github.com/webpack-contrib/compression-webpack-plugin)
+
+##### `WEBPACK_BROTLI_PLUGIN_OPTIONS`
+
+Configuration options for the [brotli compression plugin](https://github.com/mynameiswhm/brotli-webpack-plugin)
 
 ##### `WEBPACK_CONFIG`
 
