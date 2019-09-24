@@ -9,7 +9,7 @@ export type TDocumentHeadProps = TOpenGraphProps &
     facebookPage?: string
     googleSiteVerification?: string
     metaTags?: Array<{ [key: string]: any }>
-    pageTitle: string
+    pageTitle?: string
     robots?: string
     siteTitle?: string
     twitterSite?: string
@@ -49,15 +49,10 @@ const DocumentHead = (props: TDocumentHeadProps) => (
 )
 
 DocumentHead.defaultProps = {
-  description:
-    'News, analysis and comment from the Financial Times, the worldʼs leading global business publication',
-  facebookPage: '8860325749',
   googleSiteVerification: '4-t8sFaPvpO5FH_Gnw1dkM28CQepjzo8UjjAkdDflTw',
   metaTags: [],
   jsonLd: [],
   robots: 'index,follow',
-  siteTitle: 'Financial Times',
-  twitterSite: '@FinancialTimes',
   additionalMetadata: null
 }
 
