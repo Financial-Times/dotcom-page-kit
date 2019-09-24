@@ -7,7 +7,7 @@ import { AppContextEmbed, TAppContextProps } from '@financial-times/dotcom-ui-ap
 import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/dotcom-ui-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/dotcom-ui-bootstrap'
 import * as polyfillService from '@financial-times/dotcom-ui-polyfill-service'
-import { fontURLs } from '@financial-times/dotcom-core-branding'
+import { fontURLs, textColor, backgroundColor } from '@financial-times/dotcom-core-branding'
 import formatAttributeNames, { TAttributeData } from '../lib/formatAttributeNames'
 
 type TShellProps = TDocumentHeadProps &
@@ -44,11 +44,10 @@ function Shell(props: TShellProps) {
       lang="en-GB"
       className="no-js core"
       style={{
-        // TODO: abstract styles into 'core branding' package
         // Enable use of 100vw which does not account for the scroll bar
         overflowX: 'hidden',
-        backgroundColor: '#fff1e5',
-        color: '#33302e'
+        backgroundColor,
+        color: textColor
       }}>
       <head>
         <DocumentHead {...props} />
