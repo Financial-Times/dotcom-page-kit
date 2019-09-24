@@ -54,6 +54,8 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
           new CleanWebpackPlugin(cleanWebpackPluginOptions),
           new ManifestPlugin(manifestPluginOptions),
           new CompressionPlugin(compressionPluginOptions),
+          // TODO: Swap BrotliPlugin for another instance of CompressionPlugin when on node >=11.7.0
+          // https://www.npmjs.com/package/compression-webpack-plugin#using-brotli
           new BrotliPlugin(brotliPluginOptions)
         ],
     devtool: isDevMode ? 'cheap-module-eval-source-map' : 'source-map',
