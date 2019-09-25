@@ -2,7 +2,8 @@
 
 ## 0.2.2
 
-- Code splitting plugin: removed Babel helper bundle and tweaked code splitting bundle configuration to improve consistency of content hashes. 
+- Code splitting plugin: removed Babel helper bundle and updated bundle configuration to improve consistency of content hashes.
+- Code splitting plugin: added `next-` prefixed packages to code splitting configuration
 - Navigation middleware: added support for vanity URL headers appended by the CDN or `next-router`
 - React JSX package: fixed incorrect output format for distributable JS
 
@@ -14,15 +15,15 @@
 
 ## 0.2.0
 
-- Layout UI component: (⚠️ _breaking change_) added header and footer UI component styles
+- Layout UI component: (_breaking change_) added header and footer UI component styles
 - Header UI component: refactored o-header integration to reduce number of unused styles
 - Header UI component: accessibility fixes
 - Footer UI component: accessibility fixes
-- Shell UI component: (⚠️ _breaking change_) removed fallback tracking implementation, please integrate the components provided by the `n-tracking` package instead
+- Shell UI component: (_breaking change_) removed fallback tracking implementation, please integrate the components provided by the `n-tracking` package instead
 - Shell UI component: refactored output to reduce cruft in the document `<head>`
 - Shell UI component: added exports for sub-components to enable more flexible integrations
-- App context package: (⚠️ _breaking change_) added a `.getAll()` method to retrieve a copy of the context data, please use this instead of accessing the data property directly
-- App context package: (⚠️ _breaking change_) refactored to validate all `.set()` calls and therefore removed the separate `.validate()` method
+- App context package: (_breaking change_) added a `.getAll()` method to retrieve a copy of the context data, please use this instead of accessing the data property directly
+- App context package: (_breaking change_) refactored to validate all `.set()` calls and therefore removed the separate `.validate()` method
 
 ## 0.1.4
 
