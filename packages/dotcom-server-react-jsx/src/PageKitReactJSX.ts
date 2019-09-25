@@ -1,7 +1,6 @@
 import { createElement } from 'react'
 import { renderToString, renderToStaticMarkup } from 'react-dom/server'
 import interopRequire from './interopRequire'
-import { Request, Response, NextFunction } from 'express'
 import { Renderable, RenderCallback } from './types'
 
 export interface TPageKitReactJSXOptions {
@@ -46,19 +45,6 @@ export class PageKitReactJSX {
       callback(null, output)
     } catch (error) {
       callback(error)
-    }
-  }
-
-  async createHandler(element: Renderable) {
-    return async (request: Request, response: Response, next: NextFunction): Promise<void> => {
-      try {
-        const context = { request, response }
-        const output = await this.render(element, context, true)
-
-        response.send(output)
-      } catch (error) {
-        next(error)
-      }
     }
   }
 }
