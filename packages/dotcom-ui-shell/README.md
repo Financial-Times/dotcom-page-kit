@@ -1,7 +1,6 @@
 # @financial-times/dotcom-ui-shell
 
-This package provides a skeleton HTML document structure for the user-facing applications which comprise FT.com. It includes all of the things you can't see as well as setting up our [core branding](#core-branding). The shell can render metadata, output dehydrated data, load stylesheets and bootstrap client-side JavaScript.
-
+This package provides a skeleton HTML document structure for the user-facing applications which comprise FT.com. It includes all of the things you can't see. The shell can render metadata, output dehydrated data, load stylesheets and bootstrap client-side JavaScript.
 
 ## Getting started
 
@@ -59,7 +58,7 @@ For a full example for how to use this component please refer to the [FT UI exam
 
 ## Scope
 
-The dotcom-ui-shell can be loosely defined as encompassing the parts of the webpage that you cannot see, including any elements which are embedded in the document `<head>`, and some core branding decisions.
+The dotcom-ui-shell can be loosely defined as encompassing the parts of the webpage that you cannot see, including any elements which are embedded in the document `<head>`.
 
 ### HTML skeleton
 
