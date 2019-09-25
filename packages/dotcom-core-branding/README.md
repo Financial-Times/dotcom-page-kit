@@ -72,3 +72,8 @@ An array of font URLs that load the origami fonts into the application.
 
 Default colors for the the font and the background.
 
+## Font helpers
+
+`fontLoading` provides a script that loads the fonts when.
+`composeFontClass` returns origami classes related to the included typography.
+

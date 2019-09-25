@@ -2,7 +2,7 @@ import React from 'react'
 import { Header, LogoOnly, Drawer, THeaderOptions } from '@financial-times/dotcom-ui-header/component'
 import { TNavigationData } from '@financial-times/dotcom-types-navigation'
 import { Footer, LegalFooter, TFooterOptions } from '@financial-times/dotcom-ui-footer/component'
-import { loadCustomFontsJS } from '@financial-times/dotcom-core-branding'
+import { loadCustomFontsJS, fontLoaderClassNames } from '@financial-times/dotcom-core-branding'
 import Template from './Template'
 
 enum Headers {
@@ -68,9 +68,7 @@ export function Layout({
   const Preset = getLayoutPreset(header, footer)
 
   return (
-    <div
-      className="n-layout o-typography--loading-sans o-typography--loading-sansBold o-typography--loading-display o-typography--loading-displayBold"
-      data-o-component="o-typography">
+    <div className={`n-layout ${fontLoaderClassNames}`} data-o-component="o-typography">
       <EnhanceFonts />
       <a
         data-trackable="a11y-skip-to-help"
