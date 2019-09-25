@@ -14,7 +14,7 @@ export function plugin() {
     on(hooks.WEBPACK_CONFIG, addPageKitCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addLibraryCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addComponentCodeSplitting)
-    on(hooks.WEBPACK_CONFIG, addBabelRuntimeCodeSplitting)
+    on(hooks.WEBPACK_CONFIG, addSuperstoreCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addSharedStableCodeSplitting)
     on(hooks.WEBPACK_CONFIG, addSharedVolatileCodeSplitting)
   }
@@ -52,14 +52,21 @@ export function plugin() {
     return createBundleWithRegExp('page-kit-components', /[\\\/]dotcom-ui-/)
   }
 
-  function addBabelRuntimeCodeSplitting() {
-    // split all Babel shared helpers into one bundle file
-    return createBundlesForPackages('babel-helpers', ['@babel/runtime', 'regenerator-runtime'])
-  }
-
   function addLibraryCodeSplitting() {
     // split any of these JS frameworks and libraries into separate bundle files
-    return createBundlesForPackages('js-frameworks', ['react', 'preact', 'hyperons', 'dateformat'])
+    return createBundlesForPackages('js-frameworks', [
+      'react',
+      'preact',
+      'hyperons',
+      'dateformat',
+      'regenerator-runtime'
+    ])
+  }
+
+  function addSuperstoreCodeSplitting() {
+    // These packages are a dependency of by ads, marketing, MyFT, syndication, cookie banners
+    // and other components but these are not all direct dependencies of our apps.
+    return createBundlesForPackages('superstore', ['superstore', 'superstore-sync'])
   }
 
   function addSharedStableCodeSplitting() {
@@ -71,9 +78,7 @@ export function plugin() {
       'ftdomdelegate',
       'morphdom',
       'n-topic-search',
-      'n-ui-foundations',
-      'superstore',
-      'superstore-sync'
+      'n-ui-foundations'
     ])
   }
 
@@ -82,7 +87,6 @@ export function plugin() {
     return createBundleWithPackages('shared.volatile', [
       '@financial-times/n-ads',
       '@financial-times/n-tracking',
-      'formdata-polyfill',
       'n-syndication',
       'n-feedback'
     ])

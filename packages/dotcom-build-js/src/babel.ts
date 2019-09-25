@@ -16,7 +16,15 @@ export default (options: PluginOptions = {}, cli: CliContext) => {
 
   const pluginClassPropertiesOptions = cli.publish(hooks.BABEL_PLUGIN_CLASS_PROPERTIES_OPTIONS, {})
 
-  const pluginTransformRuntimeOptions = cli.publish(hooks.BABEL_PLUGIN_TRANSFORM_RUNTIME_OPTIONS, {})
+  const pluginTransformRuntimeOptions = cli.publish(hooks.BABEL_PLUGIN_TRANSFORM_RUNTIME_OPTIONS, {
+    // You might think we'd want to abstract the helper functions so they can be reused but doing so
+    // means we generate unstable hashes because the generated helper modules are at the bottom of
+    // the dependency tree but their contents depends on the features each app uses. Inlining them
+    // adds little (usually <1kb) to our total JS payload because the minimizer can usually reduce
+    // them down and actually result in fewer function calls overall!
+    // <https://github.com/Financial-Times/dotcom-page-kit/issues/576>
+    helpers: false
+  })
 
   const config = {
     presets: [
