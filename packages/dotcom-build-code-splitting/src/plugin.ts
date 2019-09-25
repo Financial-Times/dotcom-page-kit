@@ -64,9 +64,9 @@ export function plugin() {
   }
 
   function addSuperstoreCodeSplitting() {
-    // These packages are a dependency of by ads, marketing, MyFT, syndication, cookie banners
-    // and other components but these are not all direct dependencies of our apps.
-    return createBundlesForPackages('superstore', ['superstore', 'superstore-sync'])
+    // These packages are a dependency of ads, marketing, MyFT, syndication, cookie banners
+    // and other components but they are not all dependencies of our apps.
+    return createBundleWithPackages('superstore', ['superstore', 'superstore-sync'])
   }
 
   function addSharedStableCodeSplitting() {
