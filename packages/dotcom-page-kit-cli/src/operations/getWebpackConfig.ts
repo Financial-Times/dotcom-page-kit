@@ -18,9 +18,10 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
   const compressionPluginOptions = {
     test: /\.(js|css)$/,
     algorithm: 'gzip',
-    compressionOptions: { level: 9 }
+    compressionOptions: { level: 9 },
+    minRatio: 1
   }
-  const brotliPluginOptions = { test: /\.(js|css)$/, quality: 11 }
+  const brotliPluginOptions = { test: /\.(js|css)$/, quality: 11, minRatio: 1 }
 
   publish(hooks.WEBPACK_MANIFEST_PLUGIN_OPTIONS, manifestPluginOptions)
   publish(hooks.WEBPACK_CLEAN_PLUGIN_OPTIONS, cleanWebpackPluginOptions)
