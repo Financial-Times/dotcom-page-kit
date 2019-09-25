@@ -11,6 +11,4 @@ function loadCustomFonts() {
   }
 }
 
-const loadCustomFontsJS = `(${loadCustomFonts.toString()}());`
-
-export { loadCustomFontsJS }
+export const loadCustomFontsJS = `(${loadCustomFonts.toString()}());`
