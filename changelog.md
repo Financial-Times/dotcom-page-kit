@@ -1,17 +1,17 @@
 # Changelog
 
+## 0.2.3
+
+- Code splitting plugin: fixed configuration for `superstore` dependencies so they create one chunk
+- Handlebars package: unpinned Handlebars dependency as upstream errors have now been fixed
+
 ## 0.2.2
 
 - Code splitting plugin: removed Babel helper bundle and updated bundle configuration to improve consistency of content hashes.
 - Code splitting plugin: added `next-` prefixed packages to code splitting configuration
 - Navigation middleware: added support for vanity URL headers appended by the CDN or `next-router`
 - React JSX package: fixed incorrect output format for distributable JS
-
-## 0.2.1
-
-- Page Kit CLI: removed chunk hash plugin from base Webpack configuration as it only included instances of `NormalModule` in its algorithm.
-- Code splitting plugin: configured plugin to generate more consistent module IDs between installs and builds
-- Shell UI component: removed stylesheet resource hints as `<link rel="stylesheet" />` tags will be found by the browser's parser anyway
+- Handlebars package: pinned Handlebars dependency to v4.2.x to avoid type errors in latest release
 
 ## 0.2.0
 
