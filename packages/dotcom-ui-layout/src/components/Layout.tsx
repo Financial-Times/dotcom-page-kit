@@ -2,7 +2,7 @@ import React from 'react'
 import { Header, LogoOnly, Drawer, THeaderOptions } from '@financial-times/dotcom-ui-header/component'
 import { TNavigationData } from '@financial-times/dotcom-types-navigation'
 import { Footer, LegalFooter, TFooterOptions } from '@financial-times/dotcom-ui-footer/component'
-import { loadCustomFontsJS, fontLoaderClassNames } from '@financial-times/dotcom-core-branding'
+import { loadCustomFontsJS, fontLoaderClassNames } from '@financial-times/dotcom-ui-core-branding'
 import Template from './Template'
 
 enum Headers {

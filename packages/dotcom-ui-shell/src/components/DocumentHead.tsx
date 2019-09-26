@@ -1,7 +1,7 @@
 import React from 'react'
 import OpenGraph, { TOpenGraphProps } from './OpenGraph'
 import LinkedData, { TLinkedDataProps } from './LinkedData'
-import { Favicon, Title, Description, SocialMedia } from '@financial-times/dotcom-core-branding/component'
+import { Favicon, Title, Description, SocialMedia } from '@financial-times/dotcom-ui-core-branding/component'
 
 export type TDocumentHeadProps = TOpenGraphProps &
   TLinkedDataProps & {

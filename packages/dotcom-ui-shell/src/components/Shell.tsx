@@ -7,7 +7,7 @@ import { AppContextEmbed, TAppContextProps } from '@financial-times/dotcom-ui-ap
 import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/dotcom-ui-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/dotcom-ui-bootstrap'
 import * as polyfillService from '@financial-times/dotcom-ui-polyfill-service'
-import { fontURLs, textColor, backgroundColor } from '@financial-times/dotcom-core-branding'
+import { fontURLs, textColor, backgroundColor } from '@financial-times/dotcom-ui-core-branding'
 import formatAttributeNames, { TAttributeData } from '../lib/formatAttributeNames'
 
 type TShellProps = TDocumentHeadProps &

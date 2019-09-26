@@ -1,4 +1,4 @@
-# @financial-times/dotcom-core-branding
+# @financial-times/dotcom-ui-core-branding
 
 Core branding encompases the shared elements which together generate the look and feel of an ft.com page according to Financial Times brand. These elements are intrinsic to our brand and required by every page.
 
@@ -10,7 +10,7 @@ The package is designed to be used as part of other packages (`dotcom-core-shell
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
-npm install --save @financial-times/dotcom-core-branding
+npm install --save @financial-times/dotcom-ui-core-branding
 ```
 
 ## Favicon
@@ -18,7 +18,7 @@ npm install --save @financial-times/dotcom-core-branding
 This component stores favicon information and is designed to be used as a part of the `<head>`.
 
 ```jsx
-import { Favicon } from '@financial-times/dotcom-core-branding/component'
+import { Favicon } from '@financial-times/dotcom-ui-core-branding/component'
 
 class yourClass = () => {
     <Favicon />
@@ -30,7 +30,7 @@ class yourClass = () => {
 This component provides page title and is designed to be used as a part of the `<head>`.
 
 ```jsx
-import { Title } from '@financial-times/dotcom-core-branding/component'
+import { Title } from '@financial-times/dotcom-ui-core-branding/component'
 
 class yourClass = () => {
     <Title pageTitle='your title' siteTitle='your title' />
@@ -43,7 +43,7 @@ where `siteTitle` prop is optional, and if not provided will be defaulted to 'Fi
 This component provides page description and is designed to be used as a part of the `<head>`.
 
 ```jsx
-import { Description } from '@financial-times/dotcom-core-branding/component'
+import { Description } from '@financial-times/dotcom-ui-core-branding/component'
 
 class yourClass = () => {
     <Description description='your description' />
@@ -56,7 +56,7 @@ where description prop is optional, and if not provided will be defaulted to 'Ne
 This component provides social media meta for the `<head>`.
 
 ```jsx
-import { SocialMedia } from '@financial-times/dotcom-core-branding/component'
+import { SocialMedia } from '@financial-times/dotcom-ui-core-branding/component'
 
 class yourClass = () => {
     <SocialMedia facebookPage='page ID' twitterSite='twitter handle' />
