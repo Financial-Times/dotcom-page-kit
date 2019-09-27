@@ -6,5 +6,6 @@ dist/
 Thumbs.db
 npm-debug.log
 package-lock.json
+yarn.lock
 .vscode
 .cache
