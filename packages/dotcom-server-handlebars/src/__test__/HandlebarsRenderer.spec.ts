@@ -59,10 +59,10 @@ describe('dotcom-server-handlebars/src/PageKitHandlebars', () => {
   })
 
   describe('.render()', () => {
-    const appContext = { title: 'Hello World', aside: 'Lorem ipsum' }
+    const templateContext = { title: 'Hello World', aside: 'Lorem ipsum' }
 
     it('can render a template from disk', () => {
-      const result = instance.render(view, appContext)
+      const result = instance.render(view, templateContext)
 
       expect(result).toContain('<h1>Hello World</h1>')
       expect(result).toContain('<aside>Lorem ipsum</aside>')
@@ -71,7 +71,7 @@ describe('dotcom-server-handlebars/src/PageKitHandlebars', () => {
 
     it('can render a given template function', () => {
       const template = instance.loadTemplate(view)
-      const result = instance.render(template, appContext)
+      const result = instance.render(template, templateContext)
 
       expect(result).toContain('<h1>Hello World</h1>')
       expect(result).toContain('<aside>Lorem ipsum</aside>')
@@ -81,9 +81,9 @@ describe('dotcom-server-handlebars/src/PageKitHandlebars', () => {
 
   describe('.renderView()', () => {
     it('can render a template and fire a callback with the result', (done) => {
-      const appContext = { title: 'Hello World', aside: 'Lorem ipsum' }
+      const templateContext = { title: 'Hello World', aside: 'Lorem ipsum' }
 
-      instance.renderView(view, appContext, (error, result) => {
+      instance.renderView(view, templateContext, (error, result) => {
         expect(error).toBeNull()
 
         expect(result).toContain('<h1>Hello World</h1>')
