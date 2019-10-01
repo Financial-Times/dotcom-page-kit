@@ -1,6 +1,8 @@
 # @financial-times/dotcom-server-react-jsx
 
-This package provides server-side rendering for React components with convenient extras for Express applications.
+This package provides server-side rendering for React components. It is primarily designed to be used during the transition between [n-handlebars] and JSX rendering.
+
+[n-handlebars]: https://github.com/Financial-Times/n-handlebars
 
 
 ## Getting started
@@ -113,8 +115,8 @@ _Option 2_ is a good choice for code used only in your application. If the code 
 
 Whichever option you choose you will need to use a [transpiler]. Some popular options are [Babel], [Bublé], and [Sucrase]:
 
-- **Babel** is the most popular transpiler and is the most capable. It has support for the most recent and upcoming JS standards and syntax extensions and can output ES5 code. It has options to add relevant [polyfills] for features not supported by your target environment and tries to produce spec-compliant code. However, Babel can require significant configuration and has many dependencies. This is usually the best option for transpiling code targeting the browser.
-- **Bublé** can transpile ES2015 and ES2016 syntax and output ES5 code. It does not attempt to polyfill features and favours speed and simplicity over spec-compliance. It supports JSX out of the box and is simple to configure. Bublé is a good choice for projects requiring minimal transformations.
+- **Babel** is the most popular transpiler and is the most capable. It has support for the most recent and upcoming JS standards and syntax extensions and can output ES3 code. It has options to add relevant [polyfills] for features not supported by your target environment and tries to produce spec-compliant code. However, Babel can require significant configuration and has many dependencies. This is usually the best option for transpiling code targeting the browser.
+- **Bublé** can transpile ES2015-16 syntax and output ES5 code. It does not attempt to polyfill features and favours speed and simplicity over spec-compliance. It supports JSX out of the box and is simple to configure. Bublé is a good choice for projects requiring minimal transformations.
 - **Sucrase** is capable of transpiling the latest JS features and syntax extensions to ES2015 code, including JSX. It is fast and lightweight so it is suitable for using in server-side projects.
 
 [JSX syntax]: https://jasonformat.com/wtf-is-jsx/

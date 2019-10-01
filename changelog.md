@@ -1,22 +1,29 @@
 # Changelog
 
-## 0.2.1
+## 0.2.3
 
-- Page Kit CLI: removed chunk hash plugin from base Webpack configuration as it only included instances of `NormalModule` in its algorithm.
-- Code splitting plugin: configured plugin to generate more consistent module IDs between installs and builds
-- Shell UI component: removed stylesheet resource hints as `<link rel="stylesheet" />` tags will be found by the browser's parser anyway
+- Code splitting plugin: fixed configuration for `superstore` dependencies so they create one chunk
+- Handlebars package: unpinned Handlebars dependency as upstream errors have now been fixed
+
+## 0.2.2
+
+- Code splitting plugin: removed Babel helper bundle and updated bundle configuration to improve consistency of content hashes.
+- Code splitting plugin: added `next-` prefixed packages to code splitting configuration
+- Navigation middleware: added support for vanity URL headers appended by the CDN or `next-router`
+- React JSX package: fixed incorrect output format for distributable JS
+- Handlebars package: pinned Handlebars dependency to v4.2.x to avoid type errors in latest release
 
 ## 0.2.0
 
-- Layout UI component: added header and footer UI component styles
+- Layout UI component: (_breaking change_) added header and footer UI component styles
 - Header UI component: refactored o-header integration to reduce number of unused styles
 - Header UI component: accessibility fixes
 - Footer UI component: accessibility fixes
-- Shell UI component: removed fallback tracking implementation, please integrate the components provided by the `n-tracking` package instead
+- Shell UI component: (_breaking change_) removed fallback tracking implementation, please integrate the components provided by the `n-tracking` package instead
 - Shell UI component: refactored output to reduce cruft in the document `<head>`
 - Shell UI component: added exports for sub-components to enable more flexible integrations
-- App context package: added a `.getAll()` method to retrieve a copy of the context data
-- App context package: refactored to validate all `.set()` calls and therefore removed the separate `.validate()` method
+- App context package: (_breaking change_) added a `.getAll()` method to retrieve a copy of the context data, please use this instead of accessing the data property directly
+- App context package: (_breaking change_) refactored to validate all `.set()` calls and therefore removed the separate `.validate()` method
 
 ## 0.1.4
 

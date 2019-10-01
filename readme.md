@@ -7,8 +7,8 @@ Page Kit provides a high quality, well tested, and thoroughly documented set of 
 ---
 
 - [Scope](#scope)
-- [FAQ](#faq)
 - [Getting started](#getting-started)
+- [FAQ](#faq)
 
 ---
 
@@ -27,7 +27,7 @@ Page Kit provides a CLI tool built upon Webpack and Babel which is capable of [t
 
 ### 2. Server-side rendering
 
-Page Kit includes several packages which are designed to help assemble and deliver a Web page. This includes packages for template rendering, utilities to find and load client-side assets, and fetch data needed to render the shared UI components.
+Page Kit includes several packages which are designed to help assemble and render a Web page. This includes packages for template rendering, utilities to find and load client-side assets, and fetch data needed to render the shared UI components.
 
 ### 3. Client-side bootstrapping
 
@@ -40,32 +40,6 @@ Page Kit has packages to help make fast loading websites which include all of th
 ### 4. Shared UI components
 
 Page Kit includes a set of packages which provide the markup, behaviour, and styles for rendering shared interface components such as the FT.com header, navigation, and footer.
-
-
-## FAQ
-
-### Why are you doing this?
-
-All of the user facing applications that together make up FT.com use a package called [`n-ui`]. This package currently provides:- tools to build and load client-side code; client-side bootstrapping; template loading and configuration; shared header, footer, and layout UI; navigation menu data; tracking and analytics setup; ads configuration; global messaging components; and more! Although we rely on this module heavily it is not well understood by the current team and is tightly coupled to technical decisions that were made several years ago.
-
-Page Kit splits all of this functionality into a set of loosely coupled, individually documented, and tested packages. The aim is to provide a flexible foundation which teams can build upon rather than prescribing a whole solution.
-
-See the [original pitch document] for more information.
-
-[`n-ui`]: https://github.com/Financial-Times/n-ui
-[original pitch document]: https://docs.google.com/document/d/1UNRbX-BpPESA4-wSfCb6DRYIijyOUhBJh99iUE95cU0/edit?usp=sharing
-
-### Does this replace `n-ui`?
-
-The intention of this project is to replace `n-ui`.
-
-### How does this relate to Origami?
-
-This project does not include any visual changes to the FT.com so the relationship between FT.com and Origami is unchanged.
-
-### Will this target non-FT.com teams?
-
-Our aim is to build a core set of packages which should be considered usable by the wider JavaScript community. On top of this core we will build FT.com specific modules. We hope that by introducing this conceptual divide we can make fewer assumptions, encourage contributions, and more effectively manage opinionated parts of the codebase.
 
 
 ## Getting started
@@ -131,7 +105,7 @@ If you're interested to know more about our approach of building so many small p
 
 [Storybook]: https://storybook.js.org/
 
-Before starting Storybook you must first run the build script for all packages using this command:
+Before starting Storybook you must first run the build script for all packages (if you have not done so already) using this command:
 
 ```
 npm run build
@@ -144,3 +118,30 @@ npm run storybook
 ```
 
 The Storybook interface should then open in your default browser. Storybook has been configured to automatically find stories inside packages with names prefixed with `dotcom-ui-`.
+
+
+## FAQ
+
+### Why are you doing this?
+
+All of the user facing applications that together make up FT.com use a package called [`n-ui`]. This package currently provides:- tools to build and load client-side code; client-side bootstrapping; template loading and configuration; shared header, footer, and layout UI; navigation menu data; tracking and analytics setup; ads configuration; global messaging components; and more! Although we rely on this module heavily it is not well understood by the current team and is tightly coupled to technical decisions that were made several years ago.
+
+Page Kit splits all of this functionality into a set of loosely coupled, individually documented, and tested packages. The aim is to provide a flexible foundation which teams can build upon rather than prescribing a whole solution.
+
+See the [original pitch document] for more information.
+
+[`n-ui`]: https://github.com/Financial-Times/n-ui
+[original pitch document]: https://docs.google.com/document/d/1UNRbX-BpPESA4-wSfCb6DRYIijyOUhBJh99iUE95cU0/edit?usp=sharing
+
+### Does this replace `n-ui`?
+
+The intention of this project is to replace `n-ui`.
+
+### How does this relate to Origami?
+
+This project does not include any visual changes to the FT.com so the relationship between FT.com and Origami is unchanged.
+
+### Will this target non-FT.com teams?
+
+Our aim is to build a core set of packages which should be considered usable by the wider JavaScript community. On top of this core we will build FT.com specific modules. We hope that by introducing this conceptual divide we can make fewer assumptions, encourage contributions, and more effectively manage opinionated parts of the codebase.
+

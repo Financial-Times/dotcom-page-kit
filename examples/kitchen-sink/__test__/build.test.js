@@ -22,9 +22,8 @@ describe('examples/kitchen-sink/build', () => {
     expect(output).toContain('shared.stable.bundle.js')
   })
 
-  it('creates bundles for Webpack and Babel runtime helpers', () => {
+  it('creates bundles for Webpack runtime', () => {
     expect(output).toContain('webpack-runtime.bundle.js')
-    expect(output).toContain('babel-runtime.bundle.js')
   })
 
   it('creates an app JS bundle', () => {
