@@ -53,7 +53,7 @@ const outputHTML = ReactDOM.renderToString(document)
 
 For a full example for how to use this component please refer to the [FT UI example app][example].
 
-[example]: ../../examples/basic-ft-ui/readme.md
+[example]: ../../examples/ft-ui/readme.md
 
 ### Styles
 
