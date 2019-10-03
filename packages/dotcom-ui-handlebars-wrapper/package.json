@@ -1,0 +1,35 @@
+{
+  "name": "@financial-times/dotcom-ui-handlebars-wrapper",
+  "version": "0.0.0",
+  "main": "component.js",
+  "types": "src/index.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "../../node_modules/.bin/tsc",
+    "clean": "npm run clean:dist && npm run clean:node_modules",
+    "clean:dist": "rm -rf dist",
+    "clean:node_modules": "rm -rf node_modules",
+    "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
+    "build": "npm run build:node",
+    "dev": "npm run build:node -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "description": "",
+  "dependencies": {
+    "@financial-times/dotcom-server-handlebars": "file:../dotcom-server-handlebars"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6"
+  },
+  "engines": {
+    "node": ">= 8.16.0"
+  },
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
+    "directory": "packages/dotcom-ui-handlebars-wrapper"
+  },
+ "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-ui-handlebars-wrapper"
+}
