@@ -1,12 +1,20 @@
 import * as React from 'react'
-import { PageKitHandlebars } from '@financial-times/dotcom-server-handlebars'
+import { PageKitHandlebars, TPageKitHandlebarsOptions } from '@financial-times/dotcom-server-handlebars'
 
-const renderer = new PageKitHandlebars()
+export const createHandlebarsWrapper = (options: TPageKitHandlebarsOptions = {}) => {
+  const renderer = new PageKitHandlebars(options)
 
-export const handlebarsWrapper = (templatePath: string) => (props: Object) => (
-  <div
-    dangerouslySetInnerHTML={{
-      __html: renderer.render(templatePath, props)
-    }}
-  />
-)
+  return (templatePath: string) => {
+    const template = renderer.loadTemplate(templatePath)
+
+    return (props: Object) => (
+      <div
+        dangerouslySetInnerHTML={{
+          __html: template(props)
+        }}
+      />
+    )
+  }
+}
+
+export const handlebarsWrapper = createHandlebarsWrapper()
