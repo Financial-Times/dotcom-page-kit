@@ -1,0 +1,16 @@
+// This will already have been output in blocking.scss
+$n-ui-foundations-applied: true;
+@import "n-ui-foundations/main";
+
+// Output anything which isn't visible on page load
+@import "o-header/main";
+@include oHeader($features: ('drawer', 'megamenu', 'sticky'), $include-base-styles: false);
+
+// Megamenu z-indexes etc.
+@import "@financial-times/dotcom-ui-header/styles";
+
+@import "n-topic-search/main";
+@include nTopicSearch();
+
+$o-footer-is-silent: false;
+@import "o-footer/main";

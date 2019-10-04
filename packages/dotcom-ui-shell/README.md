@@ -101,6 +101,10 @@ An array of stylesheet URLs to be loaded using `<link rel="stylesheet" />` tags.
 
 An optional string of CSS to embed into the page. Defaults to setting the background colour to FT pink.
 
+#### `asyncStylesheets` (string)
+
+An optional array of stylesheet URLs to be loaded using `<link rel="preload" />` tags.
+
 #### `resourceHints` (string[])
 
 An optional array of resource URLs to append [resource hints] for. The values provided for the `stylesheets` and `scripts` options will be appended by default.

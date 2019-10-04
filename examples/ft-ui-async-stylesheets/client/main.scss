@@ -1,10 +1,8 @@
-@import 'dotcom-ui-layout/styles';
+@import "n-ui-foundations/main";
 
-.core .o--if-js,
-.enhanced .o--if-no-js {
-  display: none !important;
-}
+// We don't need the sub-brand or transparent header styles so disable them.
+// NOTE: Don't output anything which isn't visible on page load!
+@import "o-header/main";
+@include oHeader($features: ('nav', 'subnav', 'search', 'anon', 'simple'), $include-base-styles: true);
 
-p {
-  @include oTypographySans($scale: 7);
-}
+@import '@financial-times/dotcom-ui-layout/styles';

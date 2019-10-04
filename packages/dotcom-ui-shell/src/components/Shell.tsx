@@ -62,7 +62,11 @@ function Shell(props: TShellProps) {
           type="application/json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(props.initialProps) }}
         />
-        <StyleSheets stylesheets={props.stylesheets} criticalStyles={props.criticalStyles} />
+        <StyleSheets
+          stylesheets={props.stylesheets}
+          criticalStyles={props.criticalStyles}
+          asyncStylesheets={props.asyncStylesheets}
+        />
         <Bootstrap {...bootstrapProps} />
       </head>
       <body {...formatAttributeNames(props.bodyAttributes)}>

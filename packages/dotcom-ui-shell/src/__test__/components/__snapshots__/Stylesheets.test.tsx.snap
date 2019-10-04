@@ -13,5 +13,10 @@ Array [
     href="path/to/styles.css"
     rel="stylesheet"
   />,
+  <link
+    href="path/to/async.css"
+    media="print"
+    rel="stylesheet"
+  />,
 ]
 `;
