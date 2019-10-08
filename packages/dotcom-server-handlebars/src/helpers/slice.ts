@@ -10,11 +10,11 @@ export function slice(...args) {
   const offset = parseInt(options.hash.offset, 10) || 0
   const limit = parseInt(options.hash.limit, 10) || 1
 
-  const templateContext = Array.from(args[0]).slice(offset, offset + limit)
+  const slicedItems = Array.from(args[0]).slice(offset, offset + limit)
 
   let contents = ''
 
-  templateContext.forEach((item) => {
+  slicedItems.forEach((item) => {
     contents += options.fn(item)
   })
 
