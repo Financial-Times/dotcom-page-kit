@@ -20,19 +20,19 @@ export class PageKitReactJSX {
     this.engine = this.renderView.bind(this)
   }
 
-  async render(component: Renderable, context: any, includeDoctype?: boolean): Promise<string> {
+  async render(component: Renderable, templateContext: any, includeDoctype?: boolean): Promise<string> {
     if (typeof component.getInitialProps === 'function') {
-      context = await component.getInitialProps(context)
+      templateContext = await component.getInitialProps(templateContext)
     }
 
     const outputPrefix = includeDoctype ? '<!DOCTYPE html>' : ''
     const renderMethod = this.options.useStaticRendering ? renderToStaticMarkup : renderToString
-    const outputHTML = renderMethod(createElement(component, context))
+    const outputHTML = renderMethod(createElement(component, templateContext))
 
     return outputPrefix + outputHTML
   }
 
-  async renderView(viewPath: string, context: any, callback: RenderCallback): Promise<void> {
+  async renderView(viewPath: string, templateContext: any, callback: RenderCallback): Promise<void> {
     try {
       const element = interopRequire(viewPath) as Renderable
 
@@ -40,7 +40,7 @@ export class PageKitReactJSX {
         throw Error(`The module ${viewPath} requires a default export.`)
       }
 
-      const output = await this.render(element, context, true)
+      const output = await this.render(element, templateContext, true)
 
       callback(null, output)
     } catch (error) {

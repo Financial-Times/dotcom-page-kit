@@ -27,7 +27,7 @@ type NextComponentClass<P = {}, C = {}> = React.ComponentClass<P> & NextStaticLi
  * @template C Context passed to getInitialProps.
  */
 interface NextStaticLifecycle<P, C> {
-  getInitialProps?: (context: C) => Promise<P> | P
+  getInitialProps?: (templateContext: C) => Promise<P> | P
 }
 
 export type Renderable = NextComponentClass | NextFunctionComponent

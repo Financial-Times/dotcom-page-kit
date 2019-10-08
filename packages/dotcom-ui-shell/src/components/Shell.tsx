@@ -67,7 +67,7 @@ function Shell(props: TShellProps) {
       </head>
       <body {...formatAttributeNames(props.bodyAttributes)}>
         <Content contents={props.contents || props.children} />
-        <AppContextEmbed context={props.context} />
+        <AppContextEmbed appContext={props.appContext} />
         <FlagsEmbed flags={props.flags} />
       </body>
     </html>

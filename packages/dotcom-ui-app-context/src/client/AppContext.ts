@@ -1,20 +1,20 @@
 import { TAppContext } from '../types'
 
 export type TAppContextOptions = {
-  context: TAppContext
+  appContext: TAppContext
 }
 export default class AppContext {
-  private context: TAppContext
+  private appContext: TAppContext
 
   constructor(options: TAppContextOptions) {
-    this.context = Object.freeze(options.context)
+    this.appContext = Object.freeze(options.appContext)
   }
 
   get(property: string): any {
-    return this.context.hasOwnProperty(property) ? this.context[property] : undefined
+    return this.appContext.hasOwnProperty(property) ? this.appContext[property] : undefined
   }
 
   getAll(): TAppContext {
-    return this.context
+    return this.appContext
   }
 }

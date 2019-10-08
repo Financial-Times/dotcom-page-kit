@@ -80,15 +80,15 @@ app.get('/', async (request, response, next) => {
 
 ## API
 
-### `render(component, context[, includeDoctype])`
+### `render(component, templateContext[, includeDoctype])`
 
 Renders the given component to a string.
 
-If the component has a `.getInitialProps()` method then this method will be called with the value of the `context` argument and the resolved value of this method passed to the component as props. If the component does not have this method then the value of `context` will be passed directly to the component instead.
+If the component has a `.getInitialProps()` method then this method will be called with the value of the `templateContext` argument and the resolved value of this method passed to the component as props. If the component does not have this method then the value of `templateContext` will be passed directly to the component instead.
 
 If `includeDoctype` is true then the output will be prefixed with the HTML document pragma.
 
-### `renderView(templatePath: string, context: any, callback: (error, html) => void)`
+### `renderView(templatePath: string, templateContext: any, callback: (error, html) => void)`
 
 This method is intended to be used as a [view engine] for Express.
 

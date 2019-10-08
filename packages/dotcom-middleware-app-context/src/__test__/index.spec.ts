@@ -4,7 +4,7 @@ import httpMocks from 'node-mocks-http'
 import { AppContext } from '@financial-times/dotcom-server-app-context'
 import { init } from '../index'
 
-const context = {
+const appContext = {
   appName: 'my-app-name',
   appVersion: '123'
 }
@@ -24,7 +24,7 @@ describe('dotcom-middleware-app-context', () => {
     request = httpMocks.createRequest({ headers })
     response = httpMocks.createResponse({ locals: {} })
     next = jest.fn()
-    instance = init({ context })
+    instance = init({ appContext })
   })
 
   afterEach(() => {
@@ -39,7 +39,7 @@ describe('dotcom-middleware-app-context', () => {
   describe('when handling a request', () => {
     it('initialises app context with inferred data', () => {
       const expected = {
-        context: expect.objectContaining({ edition: 'international' })
+        appContext: expect.objectContaining({ edition: 'international' })
       }
 
       instance(request, response, next)
@@ -49,7 +49,7 @@ describe('dotcom-middleware-app-context', () => {
 
     it('ignores default "-" header values', () => {
       const expected = {
-        context: expect.not.objectContaining({ abTestState: '-' })
+        appContext: expect.not.objectContaining({ abTestState: '-' })
       }
 
       instance(request, response, next)
@@ -57,8 +57,8 @@ describe('dotcom-middleware-app-context', () => {
       expect(AppContext).toHaveBeenCalledWith(expected)
     })
 
-    it('initialises app context with provided context overrides', () => {
-      const expected = { context: expect.objectContaining(context) }
+    it('initialises app context with provided app context overrides', () => {
+      const expected = { appContext: expect.objectContaining(appContext) }
 
       instance(request, response, next)
 
@@ -76,7 +76,7 @@ describe('dotcom-middleware-app-context', () => {
     })
   })
 
-  describe('when the context data is invalid', () => {
+  describe('when the app context data is invalid', () => {
     beforeEach(() => {
       // NOTE: AppContext has been mocked but we must first
       // tell TS it's a mock before we can use it like one.

@@ -3,16 +3,16 @@ import validate from './validate'
 import filterEmptyData from './filterEmptyData'
 
 export type TAppContextOptions = {
-  context?: Partial<TAppContext>
+  appContext?: Partial<TAppContext>
 }
 
 export class AppContext {
   private data: Partial<TAppContext> = {}
 
   constructor(options: TAppContextOptions = {}) {
-    const data = filterEmptyData({ ...options.context })
+    const data = filterEmptyData({ ...options.appContext })
 
-    for (const [ property, value ] of Object.entries(data)) {
+    for (const [property, value] of Object.entries(data)) {
       this.set(property, value)
     }
   }

@@ -88,11 +88,11 @@ Load and compile all partial templates found with the `partialPaths` option. The
 
 Loads and compiles the requested template file. The provided path will be resolved relative to the `rootDirectory` option if it is not absolute (beginning `/`). The template will be cached if caching is enabled. Returns a template function.
 
-### `.render(template: string | function, context: any)`
+### `.render(template: string | function, templateContext: any)`
 
-Renders the requested template file or template function with `context`. Partial templates and helper functions will be provided to the render context. Returns a string.
+Renders the requested template file or template function with `templateContext`. Partial templates and helper functions will be provided to the render templateContext. Returns a string.
 
-### `.renderView(templatePath: string, context: any, callback: (error, html) => void)`
+### `.renderView(templatePath: string, templateContext: any, callback: (error, html) => void)`
 
 This method is intended to be used as a [view engine] for Express.
 

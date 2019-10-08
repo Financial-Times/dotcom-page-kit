@@ -2,12 +2,12 @@ import { Request, Response, NextFunction } from 'express'
 import { AppContext, TAppContext } from '@financial-times/dotcom-server-app-context'
 
 export type TMiddlewareOptions = {
-  context?: Partial<TAppContext>
+  appContext?: Partial<TAppContext>
 }
 
 export function init(options: TMiddlewareOptions = {}) {
   return (request: Request, response: Response, next: NextFunction) => {
-    const context = {
+    const appContext = {
       // TODO: improve how we retrieve the app name.
       // HACK: this is plucked from the debug headers set by n-express:
       // https://github.com/Financial-Times/n-express/blob/master/main.js#L76-L80
@@ -19,11 +19,11 @@ export function init(options: TMiddlewareOptions = {}) {
       // https://github.com/Financial-Times/ft.com-cdn/blob/master/src/vcl/next-preflight.vcl
       abTestState: request.get('ft-ab') === '-' ? undefined : request.get('ft-ab'),
       isProduction: process.env.NODE_ENV === 'production',
-      ...options.context
+      ...options.appContext
     }
 
     try {
-      response.locals.appContext = new AppContext({ context })
+      response.locals.appContext = new AppContext({ appContext })
     } catch (error) {
       next(error)
     }
