@@ -73,25 +73,9 @@ const NavListLeft = (props: THeaderProps) => (
 )
 
 const NavListRight = (props: THeaderProps) => {
-  if (props.userIsLoggedIn) {
-    return <NavListRightLoggedIn items={props.data['navbar-right'].items} />
-  } else {
+  if (!props.userIsLoggedIn) {
     return <NavListRightAnon items={props.data['navbar-right-anon'].items} />
   }
-}
-
-const NavListRightLoggedIn = ({ items }: { items: TNavMenuItem[] }) => {
-  return (
-    <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
-      {items.map((item, index) => (
-        <li className="o-header__nav-item" key={`link-${index}`}>
-          <a className="o-header__nav-link" href={item.url} data-trackable={item.label}>
-            {item.label}
-          </a>
-        </li>
-      ))}
-    </ul>
-  )
 }
 
 const NavListRightAnon = ({ items, variant }: { items: TNavMenuItem[]; variant?: string }) => {
