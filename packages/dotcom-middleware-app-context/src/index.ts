@@ -19,8 +19,9 @@ export function init(options: TMiddlewareOptions = {}) {
       // https://github.com/Financial-Times/ft.com-cdn/blob/master/src/vcl/next-preflight.vcl
       abTestState: request.get('ft-ab') === '-' ? undefined : request.get('ft-ab'),
       isProduction: process.env.NODE_ENV === 'production',
-      // https://github.com/Financial-Times/n-express/blob/master/src/middleware/anon.js
-      isUserLoggedIn: response.locals.anon ? response.locals.anon.userIsLoggedIn : undefined,
+      // This is set by the membership session service as part of preflight
+      // https://github.com/Financial-Times/next-preflight/blob/master/server/tasks/membership/session.js
+      isUserLoggedIn: request.get('ft-user-uuid') && request.get('ft-user-uuid') !== '-',
       ...options.appContext
     }
 
