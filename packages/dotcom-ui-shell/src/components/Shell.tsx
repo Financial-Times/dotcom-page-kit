@@ -8,6 +8,8 @@ import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/dotcom-ui-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/dotcom-ui-bootstrap'
 import * as polyfillService from '@financial-times/dotcom-ui-polyfill-service'
 import formatAttributeNames, { TAttributeData } from '../lib/formatAttributeNames'
+import GTMHead from './GTMHead'
+import GTMBody from './GTMBody'
 
 type TShellProps = TDocumentHeadProps &
   TAppContextProps &
@@ -64,8 +66,10 @@ function Shell(props: TShellProps) {
         />
         <StyleSheets stylesheets={props.stylesheets} criticalStyles={props.criticalStyles} />
         <Bootstrap {...bootstrapProps} />
+        <GTMHead flags={props.flags} />
       </head>
       <body {...formatAttributeNames(props.bodyAttributes)}>
+        <GTMBody flags={props.flags} />
         <Content contents={props.contents || props.children} />
         <AppContextEmbed appContext={props.appContext} />
         <FlagsEmbed flags={props.flags} />

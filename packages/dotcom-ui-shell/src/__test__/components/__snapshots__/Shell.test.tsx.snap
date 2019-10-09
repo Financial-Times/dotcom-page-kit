@@ -1,0 +1,290 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the enableGTM flag is on 1`] = `
+<html
+  className="no-js core"
+  lang="en-GB"
+  style={
+    Object {
+      "backgroundColor": "#fff1e5",
+      "color": "#33302e",
+      "overflowX": "hidden",
+    }
+  }
+>
+  <head>
+    <meta
+      charSet="utf-8"
+    />
+    <meta
+      content="IE=edge"
+      httpEquiv="X-UA-Compatible"
+    />
+    <meta
+      content="width=device-width, initial-scale=1"
+      name="viewport"
+    />
+    <title>
+      Foo | Financial Times
+    </title>
+    <meta
+      content="News, analysis and comment from the Financial Times, the worldʼs leading global business publication"
+      name="description"
+    />
+    <meta
+      content="index,follow"
+      name="robots"
+    />
+    <meta
+      content="4-t8sFaPvpO5FH_Gnw1dkM28CQepjzo8UjjAkdDflTw"
+      name="google-site-verification"
+    />
+    <script
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"name\\":\\"Financial Times\\",\\"alternateName\\":\\"FT.com\\",\\"url\\":\\"http://www.ft.com\\"}",
+        }
+      }
+      type="application/ld+json"
+    />
+    <meta
+      content="8860325749"
+      property="fb:pages"
+    />
+    <meta
+      content="@FinancialTimes"
+      property="twitter:site"
+    />
+    <link
+      href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=32&height=32&format=png"
+      rel="icon"
+      sizes="32x32"
+      type="image/png"
+    />
+    <link
+      href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=194&height=194&format=png"
+      rel="icon"
+      sizes="194x194"
+      type="image/png"
+    />
+    <link
+      href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=180&height=180&format=png"
+      rel="apple-touch-icon"
+      sizes="180x180"
+    />
+    <link
+      href="https://spoor-api.ft.com"
+      rel="preconnect"
+    />
+    <link
+      crossOrigin="use-credentials"
+      href="https://session-next.ft.com"
+      rel="preconnect"
+    />
+    <link
+      href="https://ads-api.ft.com"
+      rel="preconnect"
+    />
+    <link
+      href="https://securepubads.g.doubleclick.net"
+      rel="preconnect"
+    />
+    <link
+      as="script"
+      href="https://polyfill.io/v3/polyfill.min.js?features=default%2Ces5%2Ces2015%2Ces2016%2Ces2017%2CEventSource%2Cfetch%2CHTMLPictureElement%2CIntersectionObserver%2CNodeList.prototype.forEach&source=next"
+      rel="preload"
+    />
+    <link
+      as="font"
+      crossOrigin="anonymous"
+      href="/__origami/service/build/v2/files/o-fonts-assets@1.3.2/MetricWeb-Regular.woff"
+      rel="preload"
+    />
+    <link
+      as="font"
+      crossOrigin="anonymous"
+      href="/__origami/service/build/v2/files/o-fonts-assets@1.3.2/MetricWeb-Semibold.woff"
+      rel="preload"
+    />
+    <link
+      as="font"
+      crossOrigin="anonymous"
+      href="/__origami/service/build/v2/files/o-fonts-assets@1.3.2/FinancierDisplayWeb-Regular.woff"
+      rel="preload"
+    />
+    <link
+      as="font"
+      crossOrigin="anonymous"
+      href="/__origami/service/build/v2/files/o-fonts-assets@1.3.2/FinancierDisplayWeb-Bold.woff"
+      rel="preload"
+    />
+    <script
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": undefined,
+        }
+      }
+      id="initial-props"
+      type="application/json"
+    />
+    <script
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "{\\"trackErrors\\":true,\\"core\\":[\\"https://polyfill.io/v3/polyfill.min.js?features=HTMLPictureElement&source=next\\"],\\"enhanced\\":[\\"https://polyfill.io/v3/polyfill.min.js?features=default%2Ces5%2Ces2015%2Ces2016%2Ces2017%2CEventSource%2Cfetch%2CHTMLPictureElement%2CIntersectionObserver%2CNodeList.prototype.forEach&source=next\\"]}",
+        }
+      }
+      id="page-kit-bootstrap-config"
+      type="application/json"
+    />
+    <script
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": ";(function() {
+  var doc = document.documentElement
+  var isEnhanced = isEnhancedBrowser()
+  var scriptsConfig = getScriptsConfig()
+  var scriptsToLoad = []
+  var currentScript = document.scripts[document.scripts.length - 1]
+
+  doc.className = doc.className.replace('no-js', 'js')
+
+  if (isEnhanced) {
+    doc.className = doc.className.replace('core', 'enhanced')
+    Array.prototype.push.apply(scriptsToLoad, scriptsConfig.enhanced)
+  } else {
+    Array.prototype.push.apply(scriptsToLoad, scriptsConfig.core)
+  }
+
+  for (var i = 0, len = scriptsToLoad.length; i < len; i++) {
+    loadScript(scriptsToLoad[i])
+  }
+
+  function scriptLoadError(error) {
+    var script = error.target ? error.target.src : null
+
+    if (script) {
+      console.error('The script ' + script + ' failed to load') // eslint-disable-line no-console
+    }
+
+    if (/enhanced/.test(doc.className)) {
+      console.warn('Script loading failed, reverting to core experience') // eslint-disable-line no-console
+      doc.className = doc.className.replace('enhanced', 'core')
+    }
+
+    if (scriptsConfig.trackErrors) {
+      addErrorTrackingPixel(script)
+    }
+  }
+
+  function loadScript(src) {
+    var script = document.createElement('script')
+    script.onerror = scriptLoadError
+    script.async = false
+    script.src = src
+    currentScript.parentNode.insertBefore(script, currentScript)
+  }
+
+  // \\"Cut the mustard\\" test
+  // by Maggie Allen and Matt Hinchliffe November 2018
+  function isEnhancedBrowser() {
+    var script = document.createElement('script')
+    var input = document.createElement('input')
+
+    return (
+      'visibilityState' in document && // not supported by old Android (4.0-4.4) without a prefix
+      'indeterminate' in input && // not supported by BB 10
+      'flex' in doc.style && // not supported by old Safari (< 9) or IE 6-10
+      'async' in script // not supported by old Opera (Presto engine < 15)
+    )
+  }
+
+  function getScriptsConfig() {
+    var scriptsConfigEl = document.getElementById('page-kit-bootstrap-config')
+    var scriptsConfig = { core: [], enhanced: [], trackErrors: false }
+
+    if (scriptsConfigEl) {
+      try {
+        scriptsConfig = JSON.parse(scriptsConfigEl.innerHTML)
+      } catch (error) {
+        console.error('Bootstrap configuration error', error) // eslint-disable-line no-console
+      }
+    }
+
+    return scriptsConfig
+  }
+
+  function addErrorTrackingPixel(script) {
+    var img = new Image()
+
+    var data = JSON.stringify({
+      category: 'javascript',
+      action: 'load-error',
+      system: {
+        source: 'page-kit'
+      },
+      context: {
+        script: script
+      }
+    })
+
+    img.src = 'https://spoor-api.ft.com/px.gif?data=' + encodeURIComponent(data)
+  }
+})()
+",
+        }
+      }
+    />
+    <script
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NWQJW68');",
+        }
+      }
+    />
+  </head>
+  <body>
+    <noscript>
+      <iframe
+        height="0"
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NWQJW68"
+        style={
+          Object {
+            "display": "none",
+            "visibility": "hidden",
+          }
+        }
+        width="0"
+      />
+    </noscript>
+    <div
+      style={
+        Object {
+          "display": "contents",
+        }
+      }
+    />
+    <script
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": undefined,
+        }
+      }
+      id="page-kit-app-context"
+      type="application/json"
+    />
+    <script
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "{\\"enableGTM\\":true}",
+        }
+      }
+      id="page-kit-flags-embed"
+      type="application/json"
+    />
+  </body>
+</html>
+`;
