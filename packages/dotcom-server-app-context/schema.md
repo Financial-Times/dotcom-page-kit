@@ -8,7 +8,7 @@ The A/B test flags data as a comma delimited string
 
 Additional restrictions:
 
-* Regex pattern: `^([0-9A-Za-z]+:[0-9A-Za-z]+,?)+$`
+* Regex pattern: `^,*([0-9A-Za-z-_]+:[0-9A-Za-z-_]+,*)+$`
 
 ## `appName` (string)
 
@@ -69,6 +69,12 @@ Additional restrictions:
 ## `isProduction` (boolean)
 
 If the app is currently running in a production environment
+
+Default: `false`
+
+## `isUserLoggedIn` (boolean)
+
+If the visitor is signed in to an FT account
 
 Default: `false`
 

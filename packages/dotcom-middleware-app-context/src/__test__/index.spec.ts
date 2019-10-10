@@ -11,7 +11,8 @@ const appContext = {
 
 const headers = {
   'ft-edition': 'international',
-  'ft-ab': '-'
+  'ft-ab': '-',
+  'ft-user-uuid': '-'
 }
 
 describe('dotcom-middleware-app-context', () => {
@@ -48,13 +49,18 @@ describe('dotcom-middleware-app-context', () => {
     })
 
     it('ignores default "-" header values', () => {
-      const expected = {
+      const expectedA = {
         appContext: expect.not.objectContaining({ abTestState: '-' })
+      }
+
+      const expectedB = {
+        appContext: expect.objectContaining({ isUserLoggedIn: false })
       }
 
       instance(request, response, next)
 
-      expect(AppContext).toHaveBeenCalledWith(expected)
+      expect(AppContext).toHaveBeenCalledWith(expectedA)
+      expect(AppContext).toHaveBeenCalledWith(expectedB)
     })
 
     it('initialises app context with provided app context overrides', () => {
