@@ -32,7 +32,7 @@ export type TLayoutProps = {
   headerAfter?: string | React.ReactNode
   footerOptions: TFooterOptions
   footerBefore?: string | React.ReactNode
-  footer?: Footers | React.ReactNode | false
+  footerVariant?: Footers | React.ReactNode | false
   footerAfter?: string | React.ReactNode
   children?: React.ReactNode
   contents?: string
@@ -40,10 +40,10 @@ export type TLayoutProps = {
 
 const getLayoutPreset = (
   headerVariant: TLayoutProps['headerVariant'],
-  footer: TLayoutProps['footer']
+  footerVariant: TLayoutProps['footerVariant']
 ) => ({
   headerVariant: typeof headerVariant === 'string' ? Headers[headerVariant] : null,
-  footer: typeof footer === 'string' ? Footers[footer] : null
+  footerVariant: typeof footerVariant === 'string' ? Footers[footerVariant] : null
 })
 
 // EnhanceFonts removes the default o-typography--loading-* styles
@@ -61,7 +61,7 @@ export function Layout({
   headerAfter,
   footerOptions,
   footerBefore,
-  footer,
+  footerVariant,
   footerAfter,
   children,
   contents
@@ -71,7 +71,7 @@ export function Layout({
    * a) Pass in custom components to render as Header or Footer
    * b) Pass false to switch them off
    */
-  const Preset = getLayoutPreset(headerVariant, footer)
+  const Preset = getLayoutPreset(headerVariant, footerVariant)
 
   return (
     <div
@@ -106,7 +106,7 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--footer">
         <Template className="n-layout__footer-before">{footerBefore}</Template>
-        {Preset.footer ? <Preset.footer {...footerOptions} data={navigationData} variant={footer} /> : footer}
+        {Preset.footerVariant ? <Preset.footerVariant {...footerOptions} data={navigationData} variant={footerVariant} /> : footerVariant}
         <Template className="n-layout__footer-after">{footerAfter}</Template>
       </div>
 
@@ -118,7 +118,7 @@ export function Layout({
 
 Layout.defaultProps = {
   headerVariant: 'simple',
-  footer: 'simple',
+  footerVariant: 'simple',
   headerOptions: {},
   footerOptions: {}
 }

@@ -75,7 +75,7 @@ _Please note_ that the exact usage will depend on how you configure your Sass co
 | headerBefore  | string \| ReactElement                                  | true     | undefined | A slot for content to appear before Header                                                   |
 | headerAfter   | string \| ReactElement                                  | true     | undefined | A slot for content to appear after Header                                                    |
 | headerOptions | THeaderProps                                            | true     | undefined | Pass options to the header component                                                         |
-| footer        | 'simple' \| 'legal' \| ReactElement                     | true     | 'simple'  | The type of footer to display                                                                |
+| footerVariant | 'simple' \| 'legal' \| ReactElement                     | true     | 'simple'  | The type of footer to display                                                                |
 | footerBefore  | string \| ReactElement                                  | true     | undefined | A slot for content to appear before Footer                                                   |
 | footerAfter   | string \| ReactElement                                  | true     | undefined | A slot for content to appear after Footer                                                    |
 | footerOptions | TFooterProps                                            | true     | undefined | Pass options to the footer component                                                         |
@@ -94,6 +94,6 @@ const adBannerHTML = getAdBanner(id) // => <iframe>...<iframe>
   headerBefore={adBannerHTML}
   headerVariant={<CustomHeader />}
   headerAfter={adBannerHTML}
-  footer={<CustomFooter />}
+  footerVariant={<CustomFooter />}
 />
 ```
