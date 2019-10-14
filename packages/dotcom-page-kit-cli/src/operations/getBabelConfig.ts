@@ -20,12 +20,16 @@ export function getBabelConfig(cli: CliContext) {
       '@babel/plugin-transform-regenerator'
     ]
   }
+  
+  const pluginAsyncOpts = {
+    inlineHelpers: true
+  }
 
   const babelConfig = {
     // By default Babel assumes all source code is ESM so force it to check for CJS
     sourceType: 'unambiguous',
     presets: [[require.resolve('@babel/preset-env'), presetEnvOpts]],
-    plugins: [require.resolve('babel-plugin-transform-async-to-promises')],
+    plugins: [[require.resolve('babel-plugin-transform-async-to-promises'), pluginAsyncOpts]],
     babelrc: true,
     cacheDirectory: true
   }
