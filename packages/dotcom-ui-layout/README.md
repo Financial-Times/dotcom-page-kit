@@ -71,7 +71,7 @@ _Please note_ that the exact usage will depend on how you configure your Sass co
 
 | PROP          | TYPE                                                    | OPTIONAL | DEFAULT   | DESCRIPTION                                                                                  |
 |---------------|---------------------------------------------------------|----------|-----------|----------------------------------------------------------------------------------------------|
-| header        | 'simple' \| 'large-logo' \| 'logo-only' \| ReactElement | true     | 'simple'  | The type of header to display                                                                |
+| headerVariant | 'simple' \| 'large-logo' \| 'logo-only' \| ReactElement | true     | 'simple'  | The type of header to display                                                                |
 | headerBefore  | string \| ReactElement                                  | true     | undefined | A slot for content to appear before Header                                                   |
 | headerAfter   | string \| ReactElement                                  | true     | undefined | A slot for content to appear after Header                                                    |
 | headerOptions | THeaderProps                                            | true     | undefined | Pass options to the header component                                                         |
@@ -92,7 +92,7 @@ const adBannerHTML = getAdBanner(id) // => <iframe>...<iframe>
 
 <Layout
   headerBefore={adBannerHTML}
-  header={<CustomHeader />}
+  headerVariant={<CustomHeader />}
   headerAfter={adBannerHTML}
   footer={<CustomFooter />}
 />

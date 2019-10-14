@@ -1,5 +1,11 @@
 import React from 'react'
-import { HeaderSimple, LargeLogo, LogoOnly, Drawer, THeaderOptions } from '@financial-times/dotcom-ui-header/component'
+import {
+  HeaderSimple,
+  LargeLogo,
+  LogoOnly,
+  Drawer,
+  THeaderOptions
+} from '@financial-times/dotcom-ui-header/component'
 import { TNavigationData } from '@financial-times/dotcom-types-navigation'
 import { Footer, LegalFooter, TFooterOptions } from '@financial-times/dotcom-ui-footer/component'
 import { loadCustomFontsJS } from '../font-loading'
@@ -22,7 +28,7 @@ export type TLayoutProps = {
   navigationData: TNavigationData
   headerOptions: THeaderOptions
   headerBefore?: string | React.ReactNode
-  header?: Headers | React.ReactNode | false
+  headerVariant?: Headers | React.ReactNode | false
   headerAfter?: string | React.ReactNode
   footerOptions: TFooterOptions
   footerBefore?: string | React.ReactNode
@@ -33,10 +39,10 @@ export type TLayoutProps = {
 }
 
 const getLayoutPreset = (
-  header: TLayoutProps['header'] = 'simple',
-  footer: TLayoutProps['footer'] = 'simple'
+  headerVariant: TLayoutProps['headerVariant'],
+  footer: TLayoutProps['footer']
 ) => ({
-  header: typeof header === 'string' ? Headers[header] : null,
+  headerVariant: typeof headerVariant === 'string' ? Headers[headerVariant] : null,
   footer: typeof footer === 'string' ? Footers[footer] : null
 })
 
@@ -51,7 +57,7 @@ export function Layout({
   navigationData,
   headerOptions,
   headerBefore,
-  header,
+  headerVariant,
   headerAfter,
   footerOptions,
   footerBefore,
@@ -65,7 +71,7 @@ export function Layout({
    * a) Pass in custom components to render as Header or Footer
    * b) Pass false to switch them off
    */
-  const Preset = getLayoutPreset(header, footer)
+  const Preset = getLayoutPreset(headerVariant, footer)
 
   return (
     <div
@@ -90,7 +96,7 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--header">
         <Template className="n-layout__header-before">{headerBefore}</Template>
-        {Preset.header ? <Preset.header {...headerOptions} data={navigationData} variant={header} /> : header}
+        {Preset.headerVariant ? <Preset.headerVariant {...headerOptions} data={navigationData} variant={headerVariant} /> : headerVariant}
         <Template className="n-layout__header-after">{headerAfter}</Template>
       </div>
 
@@ -105,13 +111,13 @@ export function Layout({
       </div>
 
       {/* Always render the drawer if there is a default header being used */}
-      {Preset.header && <Drawer {...headerOptions} data={navigationData} />}
+      {Preset.headerVariant && <Drawer {...headerOptions} data={navigationData} />}
     </div>
   )
 }
 
 Layout.defaultProps = {
-  header: 'simple',
+  headerVariant: 'simple',
   footer: 'simple',
   headerOptions: {},
   footerOptions: {}
