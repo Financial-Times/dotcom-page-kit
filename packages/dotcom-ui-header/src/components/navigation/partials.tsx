@@ -76,6 +76,7 @@ const NavListRight = (props: THeaderProps) => {
   if (!props.userIsLoggedIn) {
     return <NavListRightAnon items={props.data['navbar-right-anon'].items} />
   }
+  return null
 }
 
 const NavListRightAnon = ({ items, variant }: { items: TNavMenuItem[]; variant?: string }) => {
