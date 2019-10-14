@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
 import * as header from '../../browser.js'
 import { OnReady } from '../../../../.storybook/components/OnReady'
-import { HeaderSimple, LargeLogo, Drawer, StickyHeader, LogoOnly } from '../../src'
+import { Header as HeaderSimple, Header as LargeLogo, Drawer, StickyHeader, LogoOnly } from '../../src'
 import storyData from './story-data'
 import '../../styles.scss'
 import './demos.scss'
@@ -40,7 +40,7 @@ storiesOf('FT / Header', module)
       </OnReady>
     )
   })
-  .add('Large logo', () => {
+  .add('Large header with drawer', () => {
     const knobs = {
       showSubNavigation: toggleShowSubNav(),
       showUserNavigation: toggleUserStateOptions(),
