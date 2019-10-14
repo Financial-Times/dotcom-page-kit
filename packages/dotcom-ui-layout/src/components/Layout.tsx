@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeaderSimple, LogoOnly, Drawer, THeaderOptions } from '@financial-times/dotcom-ui-header/component'
+import { HeaderSimple, LargeLogo, LogoOnly, Drawer, THeaderOptions } from '@financial-times/dotcom-ui-header/component'
 import { TNavigationData } from '@financial-times/dotcom-types-navigation'
 import { Footer, LegalFooter, TFooterOptions } from '@financial-times/dotcom-ui-footer/component'
 import { loadCustomFontsJS } from '../font-loading'
@@ -9,7 +9,7 @@ enum Headers {
   simple = HeaderSimple,
   // This is the same as above but removing the "simple" name will set
   // the logo to its default (large) size.
-  'large-logo' = HeaderSimple,
+  'large-logo' = LargeLogo,
   'logo-only' = LogoOnly
 }
 

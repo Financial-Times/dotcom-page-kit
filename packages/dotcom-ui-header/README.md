@@ -67,7 +67,6 @@ All header components with the exception of `<LogoOnly />` require the following
 
 | OPTION             | TYPE                               | OPTIONAL | DEFAULT  | DESCRIPTION                                                                    |
 |--------------------|------------------------------------|----------|----------|--------------------------------------------------------------------------------|
-| variant            | 'simple' \| 'large-logo' \| string | true     | 'simple' | Adds a class name to the header element                                        |
 | userIsAnonymous    | boolean                            | true     | true     | Marks a user as anonymous - can be set by middleware included with n-express   |
 | userIsLoggedIn     | boolean                            | true     | false    | Marks a user as logged in - can be set by middleware included with n-express   |
 | showUserNavigation | boolean                            | true     | true     | Show user navigation options such as `Sign out` or `Subscribe`                 |

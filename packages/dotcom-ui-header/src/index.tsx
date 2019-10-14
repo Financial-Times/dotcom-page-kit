@@ -86,7 +86,18 @@ function HeaderSimple(props: THeaderProps) {
 
 HeaderSimple.defaultProps = defaultProps
 
-function LogoOnly(props: Pick<THeaderProps, 'variant'>) {
+function LargeLogo(props: THeaderProps) {
+  return (
+    <React.Fragment>
+      <MainHeader {...props} />
+      <StickyHeader {...props} />
+    </React.Fragment>
+  )
+}
+
+LargeLogo.defaultProps = defaultProps
+
+function LogoOnly(props: THeaderProps) {
   return (
     <HeaderWrapper {...props}>
       <TopWrapper>
@@ -104,4 +115,4 @@ function Drawer(props: THeaderProps) {
 
 Drawer.defaultProps = defaultProps
 
-export { THeaderProps, HeaderSimple, MainHeader, StickyHeader, LogoOnly, Drawer }
+export { THeaderProps, HeaderSimple, LargeLogo, MainHeader, StickyHeader, LogoOnly, Drawer }
