@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
 import * as header from '../../browser.js'
 import { OnReady } from '../../../../.storybook/components/OnReady'
-import { Header, Drawer, StickyHeader, LogoOnly } from '../../src'
+import { HeaderSimple, Drawer, StickyHeader, LogoOnly } from '../../src'
 import storyData from './story-data'
 import '../../styles.scss'
 import './demos.scss'
@@ -35,7 +35,7 @@ storiesOf('FT / Header', module)
 
     return (
       <OnReady callback={onReadyCallback}>
-        <Header {...storyData} {...knobs} />
+        <HeaderSimple {...storyData} {...knobs} />
         <Drawer {...storyData} {...knobs} />
       </OnReady>
     )
