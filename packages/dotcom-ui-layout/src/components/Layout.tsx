@@ -1,7 +1,7 @@
 import React from 'react'
 import {
-  HeaderSimple,
-  LargeLogo,
+  Header as HeaderSimple,
+  Header as LargeLogo,
   LogoOnly,
   Drawer,
   THeaderOptions
@@ -96,7 +96,11 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--header">
         <Template className="n-layout__header-before">{headerBefore}</Template>
-        {Preset.headerVariant ? <Preset.headerVariant {...headerOptions} data={navigationData} variant={headerVariant} /> : headerVariant}
+        {Preset.headerVariant ? (
+          <Preset.headerVariant {...headerOptions} data={navigationData} variant={headerVariant} />
+        ) : (
+          headerVariant
+        )}
         <Template className="n-layout__header-after">{headerAfter}</Template>
       </div>
 
@@ -106,7 +110,11 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--footer">
         <Template className="n-layout__footer-before">{footerBefore}</Template>
-        {Preset.footerVariant ? <Preset.footerVariant {...footerOptions} data={navigationData} variant={footerVariant} /> : footerVariant}
+        {Preset.footerVariant ? (
+          <Preset.footerVariant {...footerOptions} data={navigationData} variant={footerVariant} />
+        ) : (
+          footerVariant
+        )}
         <Template className="n-layout__footer-after">{footerAfter}</Template>
       </div>
 
