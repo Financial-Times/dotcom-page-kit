@@ -45,7 +45,8 @@ storiesOf('FT / Header', module)
       showSubNavigation: toggleShowSubNav(),
       showUserNavigation: toggleUserStateOptions(),
       userIsLoggedIn: toggleLoggedIn(),
-      currentPath: toggleMobileNav()
+      currentPath: toggleMobileNav(),
+      variant: 'large-logo'
     }
     storyData.data = { ...storyData.data, currentPath: toggleMobileNav() }
 
