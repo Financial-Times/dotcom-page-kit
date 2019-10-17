@@ -121,7 +121,7 @@ const MegaNav = ({ label, meganav, index }: { label: string; meganav: TNavMegana
       <div className="o-header__container">
         <div className="o-header__mega-wrapper">
           {sections ? <SectionList {...(sections as INavMeganavSections)} /> : null}
-          {articles ? <ArticleList {...(articles as INavMeganavArticles)} /> : null}
+          {articles ? <ArticleList {...(articles as INavMeganavArticles)} label={label} /> : null}
         </div>
       </div>
     </div>
@@ -153,12 +153,12 @@ const SectionList = ({ title, data }: INavMeganavSections) => {
   )
 }
 
-const ArticleList = ({ title, data }: INavMeganavArticles) => {
+const ArticleList = ({ title, data }: INavMeganavArticles, label?: string) => {
   return (
     <div className="o-header__mega-column o-header__mega-column--articles" data-trackable="popular">
       <div className="o-header__mega-heading">{title}</div>
       <div className="o-header__mega-content">
-        <ul className="o-header__mega-list">
+        <ul className="o-header__mega-list" data-meganav-list-label={label || null}>
           {data.map((item, index) => (
             <li className="o-header__mega-item" key={`link-${index}`}>
               <a
