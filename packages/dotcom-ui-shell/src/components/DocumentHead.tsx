@@ -73,7 +73,7 @@ DocumentHead.defaultProps = {
   googleSiteVerification: '4-t8sFaPvpO5FH_Gnw1dkM28CQepjzo8UjjAkdDflTw',
   metaTags: [],
   jsonLd: [],
-  robots: 'index,follow',
+  robots: 'index,follow,max-snippet:200,max-image-preview:large',
   siteTitle: 'Financial Times',
   twitterSite: '@FinancialTimes',
   additionalMetadata: null
