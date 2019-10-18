@@ -25,7 +25,7 @@ Array [
     rel="canonical"
   />,
   <meta
-    content="index,follow"
+    content="index,follow,max-snippet:200,max-image-preview:large"
     name="robots"
   />,
   <meta
