@@ -152,7 +152,7 @@ An optional array of custom `<meta>` tags to add to the page. Each array item is
 
 #### `robots` (string)
 
-An optional value for the [`robots` meta tag](https://en.wikipedia.org/wiki/Meta_element#The_robots_attribute). Defaults to "index,follow".
+An optional value for the [`robots` meta tag](https://en.wikipedia.org/wiki/Meta_element#The_robots_attribute). Defaults to "index,follow,max-snippet:200,max-image-preview:large".
 
 #### `jsonLd` (object[])
 

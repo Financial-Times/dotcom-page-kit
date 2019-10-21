@@ -32,7 +32,7 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
       name="description"
     />
     <meta
-      content="index,follow"
+      content="index,follow,max-snippet:200,max-image-preview:large"
       name="robots"
     />
     <meta
