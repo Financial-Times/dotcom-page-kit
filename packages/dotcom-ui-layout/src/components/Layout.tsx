@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   Header as HeaderSimple,
-  Header as LargeLogo,
+  Header as HeaderLarge,
   LogoOnly,
   Drawer,
   THeaderOptions
@@ -15,7 +15,7 @@ enum Headers {
   simple = HeaderSimple,
   // This is the same as above but removing the "simple" name will set
   // the logo to its default (large) size.
-  'large-logo' = LargeLogo,
+  'large-logo' = HeaderLarge,
   'logo-only' = LogoOnly
 }
 
