@@ -3,7 +3,6 @@
 This package demonstrates a react app that renders pages on the server while also hydrating them on the client. Some notable things that it features are as follows:
 
 - The use of `dotcom-ui-shell` `initialProps` functionality
-- Dynamic imports
 - Custom plugins
 
 ### Running the app
