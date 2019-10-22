@@ -28,23 +28,17 @@ export type TLayoutProps = {
   navigationData: TNavigationData
   headerOptions: THeaderOptions
   headerBefore?: string | React.ReactNode
-  headerVariant?: Headers | React.ReactNode | false
+  headerVariant?: Headers
+  headerComponent?: React.ReactNode
   headerAfter?: string | React.ReactNode
   footerOptions: TFooterOptions
   footerBefore?: string | React.ReactNode
-  footerVariant?: Footers | React.ReactNode | false
+  footerVariant?: Footers
+  footerComponent?: React.ReactNode
   footerAfter?: string | React.ReactNode
   children?: React.ReactNode
   contents?: string
 }
-
-const getLayoutPreset = (
-  headerVariant: TLayoutProps['headerVariant'],
-  footerVariant: TLayoutProps['footerVariant']
-) => ({
-  headerVariant: typeof headerVariant === 'string' ? Headers[headerVariant] : null,
-  footerVariant: typeof footerVariant === 'string' ? Footers[footerVariant] : null
-})
 
 // EnhanceFonts removes the default o-typography--loading-* styles
 // allowing the custom fonts Finacier and MetricWeb to be shown.
@@ -58,20 +52,18 @@ export function Layout({
   headerOptions,
   headerBefore,
   headerVariant,
+  headerComponent,
   headerAfter,
   footerOptions,
   footerBefore,
   footerVariant,
+  footerComponent,
   footerAfter,
   children,
   contents
 }: TLayoutProps) {
-  /**
-   * Let consuming apps
-   * a) Pass in custom components to render as Header or Footer
-   * b) Pass false to switch them off
-   */
-  const Preset = getLayoutPreset(headerVariant, footerVariant)
+  const HeaderVariant = Headers[headerVariant]
+  const FooterVariant = Footers[footerVariant]
 
   return (
     <div
@@ -96,10 +88,8 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--header">
         <Template className="n-layout__header-before">{headerBefore}</Template>
-        {Preset.headerVariant ? (
-          <Preset.headerVariant {...headerOptions} data={navigationData} variant={headerVariant} />
-        ) : (
-          headerVariant
+        {headerComponent || (
+          <HeaderVariant {...headerOptions} data={navigationData} variant={headerVariant} />
         )}
         <Template className="n-layout__header-after">{headerAfter}</Template>
       </div>
@@ -110,16 +100,14 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--footer">
         <Template className="n-layout__footer-before">{footerBefore}</Template>
-        {Preset.footerVariant ? (
-          <Preset.footerVariant {...footerOptions} data={navigationData} variant={footerVariant} />
-        ) : (
-          footerVariant
+        {footerComponent || (
+          <FooterVariant {...footerOptions} data={navigationData} variant={footerVariant} />
         )}
         <Template className="n-layout__footer-after">{footerAfter}</Template>
       </div>
 
       {/* Always render the drawer if there is a default header being used */}
-      {Preset.headerVariant && <Drawer {...headerOptions} data={navigationData} />}
+      {HeaderVariant && <Drawer {...headerOptions} data={navigationData} />}
     </div>
   )
 }

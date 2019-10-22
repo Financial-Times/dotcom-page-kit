@@ -32,7 +32,10 @@ storiesOf('FT / Layout', module)
   .add('Default components', () => {
     return (
       <OnReady callback={initUiComponents}>
-        <Layout navigationData={navigationProps} headerVariant={switchHeader()} footerVariant={switchFooter()}>
+        <Layout
+          navigationData={navigationProps}
+          headerVariant={switchHeader()}
+          footerVariant={switchFooter()}>
           <main className="demo">
             <p className="demo__message">Defaults: only passing data</p>
           </main>
@@ -61,8 +64,8 @@ storiesOf('FT / Layout', module)
       <OnReady callback={initUiComponents}>
         <Layout
           navigationData={navigationProps}
-          headerVariant={<Extra>Custom header</Extra>}
-          footerVariant={<Extra>Custom footer</Extra>}>
+          headerComponent={<Extra>Custom header</Extra>}
+          footerComponent={<Extra>Custom footer</Extra>}>
           <main className="demo">
             <p className="demo__message">Custom components</p>
           </main>
