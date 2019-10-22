@@ -13,8 +13,6 @@ import Template from './Template'
 
 enum Headers {
   simple = HeaderSimple,
-  // This is the same as above but removing the "simple" name will set
-  // the logo to its default (large) size.
   'large-logo' = HeaderLarge,
   'logo-only' = LogoOnly
 }
