@@ -53,7 +53,7 @@ const outputHTML = ReactDOM.renderToString(document)
 
 For a full example for how to use this component please refer to the [FT UI example app][example].
 
-[example]: ../../examples/basic-ft-ui/readme.md
+[example]: ../../examples/ft-ui/readme.md
 
 ### Styles
 
@@ -69,16 +69,17 @@ _Please note_ that the exact usage will depend on how you configure your Sass co
 
 ### Props
 
-| PROP         | TYPE                                                    | OPTIONAL | DEFAULT   | DESCRIPTION                                                                                  |
-|--------------|---------------------------------------------------------|----------|-----------|----------------------------------------------------------------------------------------------|
-| props        | THeaderProps                                            | true*    | {}        | Required _unless_ the `header` prop is set to `logo-only`                                    |
-| header       | 'simple' \| 'large-logo' \| 'logo-only' \| ReactElement | true     | 'simple'  | The type of header to display                                                                |
-| headerBefore | string \| ReactElement                                  | true     | undefined | A slot for content to appear before Header                                                   |
-| headerAfter  | string \| ReactElement                                  | true     | undefined | A slot for content to appear after Header                                                    |
-| footer       | 'simple' \| 'legal' \| ReactElement                     | true     | 'simple'  | The type of footer to display                                                                |
-| footerBefore | string \| ReactElement                                  | true     | undefined | A slot for content to appear before Footer                                                   |
-| footerAfter  | string \| ReactElement                                  | true     | undefined | A slot for content to appear after Footer                                                    |
-| contents     | string                                                  | true     | undefined | A prerendered string of HTML used to insert the page contents when not using JSX composition |
+| PROP          | TYPE                                                    | OPTIONAL | DEFAULT   | DESCRIPTION                                                                                  |
+|---------------|---------------------------------------------------------|----------|-----------|----------------------------------------------------------------------------------------------|
+| header        | 'simple' \| 'large-logo' \| 'logo-only' \| ReactElement | true     | 'simple'  | The type of header to display                                                                |
+| headerBefore  | string \| ReactElement                                  | true     | undefined | A slot for content to appear before Header                                                   |
+| headerAfter   | string \| ReactElement                                  | true     | undefined | A slot for content to appear after Header                                                    |
+| headerOptions | THeaderProps                                            | true     | undefined | Pass options to the header component                                                         |
+| footer        | 'simple' \| 'legal' \| ReactElement                     | true     | 'simple'  | The type of footer to display                                                                |
+| footerBefore  | string \| ReactElement                                  | true     | undefined | A slot for content to appear before Footer                                                   |
+| footerAfter   | string \| ReactElement                                  | true     | undefined | A slot for content to appear after Footer                                                    |
+| footerOptions | TFooterProps                                            | true     | undefined | Pass options to the footer component                                                         |
+| contents      | string                                                  | true     | undefined | A prerendered string of HTML used to insert the page contents when not using JSX composition |
 
 ### Custom components
 

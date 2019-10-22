@@ -1,4 +1,5 @@
 export * from './helpers/array'
+export * from './helpers/capture'
 export * from './helpers/concat'
 export * from './helpers/dateformat'
 export * from './helpers/encode'

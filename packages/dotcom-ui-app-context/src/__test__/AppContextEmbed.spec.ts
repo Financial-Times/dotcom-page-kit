@@ -13,7 +13,7 @@ const fakeContext: TAppContext = {
 
 describe('dotcom-ui-app-context/src/components/AppContextEmbed', () => {
   it('renders a script element containing app context properties', () => {
-    const tree = renderer.create(subject({ context: fakeContext }))
+    const tree = renderer.create(subject({ appContext: fakeContext }))
     expect(tree).toMatchSnapshot()
   })
 })

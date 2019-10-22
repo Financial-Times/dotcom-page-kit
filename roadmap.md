@@ -1,6 +1,6 @@
 # Page Kit Roadmap
 
-## Summer 2019
+## Q3 2019
 
 ### v0.0.1
 
@@ -16,13 +16,22 @@
 - This release will include a range of small refactors to:
   - Smooth any rough edges and irritations found during the initial app releases.
   - Address the minor issues we logged during development but deprioritised.
+- Migration guide complete.
+
+
+## Q4 2019
 
 ### v0.3.0
 
-- This release will include any changes required in order to release a two further apps migrated from n-ui to Page Kit.
-- An initial release of some "preset" packages which wrap together the repeated patterns found whilst performing the n-ui to Page Kit migrations so far.
+- This release will include any changes required in order to release the next set of apps migrated from n-ui to Page Kit.
+- Additional refactors based on feedback from initial Page Kit users.
 
 ### v0.4.0
 
-- n-ui to Page Kit migration guide complete.
+- Remaining app migration plan published.
+- Initial performance work to ensure apps using Page Kit are "fast enough".
+
+### v0.5.0
+
+- Webpack configuration refactor and CLI tool removed.
 - Make the repository public.

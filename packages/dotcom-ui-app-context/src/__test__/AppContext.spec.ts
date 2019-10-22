@@ -1,7 +1,7 @@
 import subject from '../client/AppContext'
 
 const fakeContext = {
-  context: {
+  appContext: {
     appName: 'app-name',
     appVersion: '123',
     edition: 'uk',
@@ -19,7 +19,7 @@ describe('dotcom-ui-app-context/src/client/AppContext', () => {
   })
 
   describe('.get()', () => {
-    it('returns the value of an existing context', () => {
+    it('returns the value of an existing app context', () => {
       expect(instance.get('appName')).toBe('app-name')
       expect(instance.get('isProduction')).toBe(true)
     })
@@ -30,11 +30,11 @@ describe('dotcom-ui-app-context/src/client/AppContext', () => {
   })
 
   describe('.getAll()', () => {
-    it('returns all context data', () => {
-      expect(instance.getAll()).toEqual(fakeContext.context)
+    it('returns all app context data', () => {
+      expect(instance.getAll()).toEqual(fakeContext.appContext)
     })
 
-    it('freezes the context data', () => {
+    it('freezes the app context data', () => {
       expect(Object.isFrozen(instance.getAll())).toBe(true)
     })
   })

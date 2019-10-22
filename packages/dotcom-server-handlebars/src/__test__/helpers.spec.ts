@@ -3,6 +3,17 @@ import * as helpers from '../helpers'
 
 describe('dotcom-server-handlebars/src/helpers', () => {
   describe('block helpers', () => {
+    describe('#capture', () => {
+      it('captures the string and assigns it to a variable', () => {
+        const template = compile('{{#capture "myOutput"}}Hello, World!{{/capture}}')
+        const templateData = {} as { [key: string]: any }
+        const result = template(templateData, { helpers })
+
+        expect(templateData.myOutput).toBe('Hello, World!')
+        expect(result).toBe('')
+      })
+    })
+
     describe('#dateformat', () => {
       const date = new Date('2019-04-10 13:40:21 GMT+0100 (BST)')
 

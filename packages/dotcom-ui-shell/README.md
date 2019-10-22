@@ -111,7 +111,7 @@ An optional array of resource URLs to append [resource hints] for. The values pr
 
 [resource hints]: https://w3c.github.io/resource-hints
 
-#### `context` (object)
+#### `appContext` (object)
 
 A data object which will be passed to the [FT app context] component.
 
@@ -156,7 +156,7 @@ An optional array of custom `<meta>` tags to add to the page. Each array item is
 
 #### `robots` (string)
 
-An optional value for the [`robots` meta tag](https://en.wikipedia.org/wiki/Meta_element#The_robots_attribute). Defaults to "index,follow".
+An optional value for the [`robots` meta tag](https://en.wikipedia.org/wiki/Meta_element#The_robots_attribute). Defaults to "index,follow,max-snippet:200,max-image-preview:large".
 
 #### `jsonLd` (object[])
 

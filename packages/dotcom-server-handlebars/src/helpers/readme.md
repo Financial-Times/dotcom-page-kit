@@ -27,6 +27,18 @@ Handlebars.registerHelper(helpers)
 
 ## Block helpers
 
+### capture
+
+Captures the string inside of the opening and closing tags and assigns it to a variable.
+
+Example:
+
+```hbs
+{{#capture "myOutput"}}I am being captured.{{/capture}}
+
+{{myOutput}}
+```
+
 ### dateformat
 
 Formats a [date object] using the [dateformat] library. If no format is specified it will default to the `isoUtcDateTime` format.

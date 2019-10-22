@@ -35,12 +35,6 @@ export function plugin({ includePaths }: TPluginOptions = {}) {
         rules: [
           publish(hooks.WEBPACK_SASS_RULE, {
             test: [/\.s(c|a)ss$/],
-            resolve: {
-              // Required for sass-loader 7.0+
-              // https://github.com/webpack-contrib/sass-loader/issues/556
-              // https://github.com/Financial-Times/dotcom-page-kit/issues/269
-              extensions: ['.scss', '.sass', '.css']
-            },
             use: [
               // Extracts CSS into separate, non-JS files
               // https://github.com/webpack-contrib/mini-css-extract-plugin
@@ -78,10 +72,12 @@ export function plugin({ includePaths }: TPluginOptions = {}) {
 
   function getSassLoaderOptions(includePaths = []) {
     return {
-      // Disable formatting so that we don't spend time pretty printing
-      outputStyle: 'compressed',
-      // Enable Sass to @import source files from installed dependencies
-      includePaths: ['bower_components', 'node_modules', ...includePaths]
+      sassOptions: {
+        // Disable formatting so that we don't spend time pretty printing
+        outputStyle: 'compressed',
+        // Enable Sass to @import source files from installed dependencies
+        includePaths: ['bower_components', 'node_modules', ...includePaths]
+      }
     }
   }
 
