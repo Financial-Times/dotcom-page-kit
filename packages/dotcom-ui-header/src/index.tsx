@@ -86,7 +86,7 @@ function Header(props: THeaderProps) {
 
 Header.defaultProps = defaultProps
 
-function LogoOnly(props: THeaderProps) {
+function LogoOnly(props: Pick<THeaderProps, 'variant'>) {
   return (
     <HeaderWrapper {...props}>
       <TopWrapper>

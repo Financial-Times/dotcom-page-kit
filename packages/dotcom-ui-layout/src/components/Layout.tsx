@@ -26,12 +26,12 @@ export type TLayoutProps = {
   navigationData: TNavigationData
   headerOptions: THeaderOptions
   headerBefore?: string | React.ReactNode
-  headerVariant?: Headers
+  headerVariant?: Headers | false
   headerComponent?: React.ReactNode
   headerAfter?: string | React.ReactNode
   footerOptions: TFooterOptions
   footerBefore?: string | React.ReactNode
-  footerVariant?: Footers
+  footerVariant?: Footers | false
   footerComponent?: React.ReactNode
   footerAfter?: string | React.ReactNode
   children?: React.ReactNode
@@ -60,8 +60,19 @@ export function Layout({
   children,
   contents
 }: TLayoutProps) {
-  const HeaderVariant = Headers[headerVariant]
-  const FooterVariant = Footers[footerVariant]
+  let header = null
+
+  if (headerVariant && Headers[headerVariant] && !headerComponent) {
+    const Header = Headers[headerVariant]
+    header = <Header {...headerOptions} data={navigationData} variant={headerVariant} />
+  }
+
+  let footer = null
+
+  if (footerVariant && Footers[footerVariant] && !footerComponent) {
+    const Footer = Footers[footerVariant]
+    footer = <Footer {...footerOptions} data={navigationData} variant={footerVariant} />
+  }
 
   return (
     <div
@@ -86,9 +97,7 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--header">
         <Template className="n-layout__header-before">{headerBefore}</Template>
-        {headerComponent || (
-          <HeaderVariant {...headerOptions} data={navigationData} variant={headerVariant} />
-        )}
+        {headerComponent || header}
         <Template className="n-layout__header-after">{headerAfter}</Template>
       </div>
 
@@ -98,14 +107,12 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--footer">
         <Template className="n-layout__footer-before">{footerBefore}</Template>
-        {footerComponent || (
-          <FooterVariant {...footerOptions} data={navigationData} variant={footerVariant} />
-        )}
+        {footerComponent || footer}
         <Template className="n-layout__footer-after">{footerAfter}</Template>
       </div>
 
       {/* Always render the drawer if there is a default header being used */}
-      {HeaderVariant && <Drawer {...headerOptions} data={navigationData} />}
+      {header && <Drawer {...headerOptions} data={navigationData} />}
     </div>
   )
 }

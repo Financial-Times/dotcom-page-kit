@@ -71,14 +71,16 @@ _Please note_ that the exact usage will depend on how you configure your Sass co
 
 | PROP          | TYPE                                                    | OPTIONAL | DEFAULT   | DESCRIPTION                                                                                  |
 |---------------|---------------------------------------------------------|----------|-----------|----------------------------------------------------------------------------------------------|
-| headerVariant | 'simple' \| 'large-logo' \| 'logo-only' \| ReactElement | true     | 'simple'  | The type of header to display                                                                |
-| headerBefore  | string \| ReactElement                                  | true     | undefined | A slot for content to appear before Header                                                   |
-| headerAfter   | string \| ReactElement                                  | true     | undefined | A slot for content to appear after Header                                                    |
+| headerVariant | 'simple' \| 'large-logo' \| 'logo-only'               | true     | 'simple'  | The type of header to display                                                               |
+| headerBefore  | string \| ReactElement                                  | true     | undefined | A slot for content to appear before Header                                                     |
+| headerAfter   | string \| ReactElement                                  | true     | undefined | A slot for content to appear after Header                                                      |
 | headerOptions | THeaderProps                                            | true     | undefined | Pass options to the header component                                                         |
-| footerVariant | 'simple' \| 'legal' \| ReactElement                     | true     | 'simple'  | The type of footer to display                                                                |
-| footerBefore  | string \| ReactElement                                  | true     | undefined | A slot for content to appear before Footer                                                   |
-| footerAfter   | string \| ReactElement                                  | true     | undefined | A slot for content to appear after Footer                                                    |
+| headerComponent | ReactElement                                          | true     | undefined | Pass a custom header                                                 |
+| footerVariant | 'simple' \| 'legal'                                    | true     | 'simple'  | The type of footer to display                                                               |
+| footerBefore  | string \| ReactElement                                  | true     | undefined | A slot for content to appear before Footer                                                     |
+| footerAfter   | string \| ReactElement                                  | true     | undefined | A slot for content to appear after Footer                                                      |
 | footerOptions | TFooterProps                                            | true     | undefined | Pass options to the footer component                                                         |
+| footerComponent | ReactElement                                          | true     | undefined | Pass a custom footer                                                  |
 | contents      | string                                                  | true     | undefined | A prerendered string of HTML used to insert the page contents when not using JSX composition |
 
 ### Custom components
@@ -92,8 +94,8 @@ const adBannerHTML = getAdBanner(id) // => <iframe>...<iframe>
 
 <Layout
   headerBefore={adBannerHTML}
-  headerVariant={<CustomHeader />}
+  headerComponent={<CustomHeader />}
   headerAfter={adBannerHTML}
-  footerVariant={<CustomFooter />}
+  footerComponent={<CustomFooter />}
 />
 ```
