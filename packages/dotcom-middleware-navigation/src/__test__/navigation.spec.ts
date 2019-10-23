@@ -97,6 +97,14 @@ describe('dotcom-middleware-navigation', () => {
       await instance(request, response, next)
       expect(response.locals.navigation).toEqual(expect.objectContaining(fakeSubNavigationData))
     })
+
+    it('fails silently if the the sub-navigation request fails', async () => {
+      FakeNavigation.getSubNavigationFor.mockRejectedValueOnce(new Error('Fail'))
+
+      await instance(request, response, next)
+
+      expect(next).not.toHaveBeenCalledWith(expect.any(Error))
+    })
   })
 
   describe('when something goes wrong', () => {
