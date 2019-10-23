@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express'
 import { TNavigationData } from '@financial-times/dotcom-types-navigation'
 import { Navigation, TNavOptions } from '@financial-times/dotcom-server-navigation'
 import handleEdition from './handleEdition'
+import normalizePath from './normalizePath'
 
 type MiddlewareOptions = TNavOptions & {
   enableSubNavigation?: boolean
@@ -24,7 +25,8 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
       // The vanity URL will usually be referenced in the navigation data
       // rather than the underlying path, so prefer that when available.
       // <https://github.com/Financial-Times/ft.com-cdn/blob/4841fbf100e1c561a2f6729b9921ec12bb6b837c/src/vcl/next-preflight.vcl#L213-L219>
-      const currentPath = request.get('ft-vanity-url') || request.path
+      // NOTE: Next router sets the vanity header inc. any query string so it must be normalized.
+      const currentPath = normalizePath(request.get('ft-vanity-url') || request.path)
       const currentEdition = handleEdition(request, response)
 
       const [menusData, subNavigationData] = await Promise.all([
