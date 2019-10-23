@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dotcom-ui-footer/src/components, LegalFooter renders a legal footer component 1`] = `
+<footer
+  className="o-footer o-footer--theme-dark"
+  data-o-component="o-footer"
+  id="site-footer"
+>
+  <div
+    className="o-footer__container"
+  >
+    <div>
+      <ul
+        className="o-footer__legal-links"
+      >
+        <li>
+          <a
+            data-o-tracking-do-not-track={null}
+            data-trackable="Terms & Conditions"
+            href="http://help.ft.com/help/legal-privacy/terms-conditions/"
+          >
+            Terms & Conditions
+          </a>
+        </li>
+        <li>
+          <a
+            data-o-tracking-do-not-track={null}
+            data-trackable="Privacy"
+            href="http://help.ft.com/help/legal-privacy/privacy/"
+          >
+            Privacy
+          </a>
+        </li>
+        <li>
+          <a
+            data-o-tracking-do-not-track={null}
+            data-trackable="Cookies"
+            href="http://help.ft.com/help/legal-privacy/cookies/"
+          >
+            Cookies
+          </a>
+        </li>
+        <li>
+          <a
+            data-o-tracking-do-not-track={null}
+            data-trackable="Copyright"
+            href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/"
+          >
+            Copyright
+          </a>
+        </li>
+        <li>
+          <a
+            data-o-tracking-do-not-track={null}
+            data-trackable="Slavery Statement & Policies"
+            href="https://help.ft.com/help/legal/slavery-statement/"
+          >
+            Slavery Statement & Policies
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      className="o-footer__copyright"
+      role="contentinfo"
+    >
+      <small>
+         © The Financial Times LTD.
+        <abbr
+          aria-label="F T"
+          title="Financial Times"
+        >
+          FT
+        </abbr>
+         
+        and ‘Financial Times’ are trademarks of The Financial Times Ltd.
+        <br />
+        The Financial Times and its journalism are subject to a self-regulation regime under the
+         
+        <a
+          aria-label="F T Editorial Code of Practice"
+          href="http://aboutus.ft.com/en-gb/ft-editorial-code/"
+        >
+          FT Editorial Code of Practice
+        </a>
+        .
+      </small>
+    </div>
+  </div>
+  <div
+    className="o-footer__brand"
+  >
+    <div
+      className="o-footer__container"
+    >
+      <div
+        className="o-footer__brand-logo"
+      />
+    </div>
+  </div>
+</footer>
+`;

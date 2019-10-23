@@ -1,0 +1,402 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dotcom-ui-footer/src/components, Footer renders a standard footer component 1`] = `
+<footer
+  className="o-footer o-footer--theme-dark"
+  data-o-component="o-footer"
+  id="site-footer"
+>
+  <div
+    className="o-footer__container"
+  >
+    <div
+      className="o-footer__row"
+    >
+      <h2
+        className="o-normalise-visually-hidden"
+      >
+        Useful links
+      </h2>
+      <nav
+        aria-label="Useful links"
+        className="o-footer__matrix"
+        role="navigation"
+      >
+        <div
+          className="o-footer__matrix-group o-footer__matrix-group--1"
+        >
+          <h3
+            aria-controls={null}
+            className="o-footer__matrix-title"
+          >
+            Support
+          </h3>
+          <div
+            className="o-footer__matrix-content"
+            id="o-footer-section-0"
+          >
+            <div
+              className="o-footer__matrix-column"
+            >
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="View Site Tips"
+                href="/tour"
+              >
+                View Site Tips
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Help Centre"
+                href="http://help.ft.com"
+              >
+                Help Centre
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="About Us"
+                href="http://www.ft.com/aboutus"
+              >
+                About Us
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Accessibility"
+                href="/accessibility"
+              >
+                Accessibility
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="myFT Tour"
+                href="/tour/myft"
+              >
+                myFT Tour
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          className="o-footer__matrix-group o-footer__matrix-group--1"
+        >
+          <h3
+            aria-controls={null}
+            className="o-footer__matrix-title"
+          >
+            Legal & Privacy
+          </h3>
+          <div
+            className="o-footer__matrix-content"
+            id="o-footer-section-1"
+          >
+            <div
+              className="o-footer__matrix-column"
+            >
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Terms & Conditions"
+                href="http://help.ft.com/help/legal-privacy/terms-conditions/"
+              >
+                Terms & Conditions
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Privacy"
+                href="http://help.ft.com/help/legal-privacy/privacy/"
+              >
+                Privacy
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Cookies"
+                href="http://help.ft.com/help/legal-privacy/cookies/"
+              >
+                Cookies
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Copyright"
+                href="http://help.ft.com/help/legal-privacy/copyright/copyright-policy/"
+              >
+                Copyright
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Slavery Statement & Policies"
+                href="https://help.ft.com/help/legal/slavery-statement/"
+              >
+                Slavery Statement & Policies
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          className="o-footer__matrix-group o-footer__matrix-group--2"
+        >
+          <h3
+            aria-controls="o-footer-section-2"
+            className="o-footer__matrix-title"
+          >
+            Services
+          </h3>
+          <div
+            className="o-footer__matrix-content"
+            id="o-footer-section-2"
+          >
+            <div
+              className="o-footer__matrix-column"
+            >
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="FT Live"
+                href="http://live.ft.com/"
+              >
+                FT Live
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={true}
+                data-trackable="Share News Tips Securely"
+                href="/securedrop"
+              >
+                Share News Tips Securely
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Individual Subscriptions"
+                href="http://www.ft.com/products"
+              >
+                Individual Subscriptions
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Group Subscriptions"
+                href="https://enterprise.ft.com/en-gb/services/group-subscriptions/group-contact-us/?segmentId=383c7f63-abf4-b62d-cb33-4c278e6fdf61&cpccampaign=B2B_link_ft.com_footer"
+              >
+                Group Subscriptions
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Republishing"
+                href="https://enterprise.ft.com/en-gb/services/republishing/"
+              >
+                Republishing
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Contracts & Tenders"
+                href="http://www.businessesforsale.com/ft2/notices"
+              >
+                Contracts & Tenders
+              </a>
+            </div>
+            <div
+              className="o-footer__matrix-column"
+            >
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Executive Job Search"
+                href="https://www.exec-appointments.com/"
+              >
+                Executive Job Search
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Advertise with the FT"
+                href="http://fttoolkit.co.uk/"
+              >
+                Advertise with the FT
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Follow the FT on Twitter"
+                href="https://twitter.com/financialtimes"
+              >
+                Follow the FT on Twitter
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="FT Transact"
+                href="https://transact.ft.com/en-gb/"
+              >
+                FT Transact
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Secondary Schools"
+                href="https://enterprise.ft.com/en-gb/services/group-subscriptions/education/"
+              >
+                Secondary Schools
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          className="o-footer__matrix-group o-footer__matrix-group--2"
+        >
+          <h3
+            aria-controls="o-footer-section-3"
+            className="o-footer__matrix-title"
+          >
+            Tools
+          </h3>
+          <div
+            className="o-footer__matrix-content"
+            id="o-footer-section-3"
+          >
+            <div
+              className="o-footer__matrix-column"
+            >
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Portfolio"
+                href="https://markets.ft.com/data/portfolio/dashboard"
+              >
+                Portfolio
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Today's Newspaper (ePaper)"
+                href="https://www.ft.com/todaysnewspaper"
+              >
+                Today's Newspaper (ePaper)
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Alerts Hub"
+                href="http://markets.ft.com/data/alerts/"
+              >
+                Alerts Hub
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Lexicon"
+                href="http://lexicon.ft.com/"
+              >
+                Lexicon
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="MBA Rankings"
+                href="http://rankings.ft.com/businessschoolrankings/global-mba-ranking-2016?ft_site=falcon"
+              >
+                MBA Rankings
+              </a>
+            </div>
+            <div
+              className="o-footer__matrix-column"
+            >
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Economic Calendar"
+                href="https://markets.ft.com/data/world/economic-calendar"
+              >
+                Economic Calendar
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="News feed"
+                href="/news-feed"
+              >
+                News feed
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Newsletters"
+                href="/newsletters"
+              >
+                Newsletters
+              </a>
+              <a
+                className="o-footer__matrix-link"
+                data-o-tracking-do-not-track={null}
+                data-trackable="Currency Converter"
+                href="https://markets.ft.com/research/Markets/Currencies?segid=70113"
+              >
+                Currency Converter
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div
+      className="o-footer__external-link o-footer__matrix-title"
+    >
+      <a
+        className="o-footer__more-from-ft o-footer__matrix-title"
+        data-trackable="more-from-ft"
+        href="http://ft.com/more-from-ft-group"
+      >
+        More from the FT Group
+      </a>
+    </div>
+    <div
+      className="o-footer__copyright"
+      role="contentinfo"
+    >
+      <small>
+        Markets data delayed by at least 15 minutes.
+         © The Financial Times LTD.
+        <abbr
+          aria-label="F T"
+          title="Financial Times"
+        >
+          FT
+        </abbr>
+         
+        and ‘Financial Times’ are trademarks of The Financial Times Ltd.
+        <br />
+        The Financial Times and its journalism are subject to a self-regulation regime under the
+         
+        <a
+          aria-label="F T Editorial Code of Practice"
+          href="http://aboutus.ft.com/en-gb/ft-editorial-code/"
+        >
+          FT Editorial Code of Practice
+        </a>
+        .
+      </small>
+    </div>
+  </div>
+  <div
+    className="o-footer__brand"
+  >
+    <div
+      className="o-footer__container"
+    >
+      <div
+        className="o-footer__brand-logo"
+      />
+    </div>
+  </div>
+</footer>
+`;
