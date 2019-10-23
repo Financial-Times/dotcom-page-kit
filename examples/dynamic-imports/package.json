@@ -2,32 +2,16 @@
   "name": "example-dynamic-imports",
   "private": true,
   "version": "0.0.0",
-  "main": "app.js",
   "license": "MIT",
   "scripts": {
-    "build": "page-kit build -d",
-    "start": "node start.js",
-    "start:dev": "nodemon start.js --ext js",
-    "test:app": "../../node_modules/.bin/jest",
-    "pretest": "npm run build"
+    "start": "node server/app.js",
+    "test": "../../node_modules/.bin/jest"
   },
   "dependencies": {
-    "@financial-times/dotcom-build-code-splitting": "file:../../packages/dotcom-build-code-splitting",
-    "@financial-times/dotcom-middleware-assets": "file:../../packages/dotcom-middleware-assets",
-    "@financial-times/dotcom-server-asset-loader": "file:../../packages/dotcom-server-asset-loader",
-    "@financial-times/dotcom-ui-shell": "file:../../packages/dotcom-ui-shell",
-    "express": "^4.16.2",
-    "isomorphic-fetch": "^2.2.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "sucrase": "^3.10.1"
+    "@financial-times/dotcom-server-handlebars": "file:../../packages/dotcom-server-handlebars",
+    "express": "^4.16.2"
   },
-  "devDependencies": {
-    "@babel/preset-react": "^7.0.0",
-    "@financial-times/dotcom-page-kit-cli": "file:../../packages/dotcom-page-kit-cli",
-    "@financial-times/dotcom-build-esnext": "file:../../packages/dotcom-build-esnext",
-    "nodemon": "^1.18.7"
-  },
+  "devDependencies": {},
   "jest": {
     "preset": "jest-puppeteer"
   }

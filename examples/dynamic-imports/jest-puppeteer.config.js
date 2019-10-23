@@ -1,6 +1,6 @@
 module.exports = {
   server: {
-    command: 'npm run start',
+    command: 'npm start',
     port: 3000
   },
   launch: {
