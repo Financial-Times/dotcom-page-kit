@@ -1,25 +1,28 @@
-const element = {
-  nav: {
-    homepageLink: '#homepageNavLink',
-    dogsPageLink: '#dogsPageNavLink'
-  }
-}
-
 describe('examples/dynamic-imports', () => {
   beforeEach(async () => {
     await page.goto('http://localhost:3000', { waitUntil: 'load' })
   })
 
-  it('dynamically imports component by navigating to another page via client-side routing', async () => {
-    expect(await page.title()).toBe('Home | Page Kit')
-    expect(await pageDescription()).toBe('The homepage')
+  it('responds to button click by adding an image to DOM via dynamically imported module', async () => {
+    expect(await page.title()).toBe('Dynamically-loaded dogs | Good Dogs')
 
-    await page.click(element.nav.dogsPageLink)
+    expect(await pageDescription()).toBe('Dynamically-loaded dogs')
 
-    expect(await page.title()).toBe('Dogs | Page Kit')
-    expect(await pageDescription()).toBe('The dogs page')
+    expect(await getTotalImages()).toBe(0)
+
+    await page.click('#button')
+
+    await page.waitForSelector("img[data-component='image']")
+
+    expect(await getTotalImages()).toBe(1)
   })
 })
+
+async function getTotalImages() {
+  return page.evaluate(async () => {
+    return document.querySelectorAll('img').length
+  })
+}
 
 function pageDescription() {
   return page.$eval("head > meta[name='description']", (element) => element.content)
