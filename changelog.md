@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.3.0
+
+- Sass plugin: Upgraded to use `sass-loader` v8
+- Handlebars package: added a new `{{#capture}}` helper to aid JSX and Handlebars interoperability
+- Navigation middleware: refactored to fail silently when fetching sub-navigation data
+- Navigation middleware: refactored to normalize URLs before fetching sub-navigation data
+- App context package: added `isUserLoggedIn` property to schema
+- App context middleware: added `isUserLoggedIn` property based on header data
+- App context middleware: (_breaking change_) renamed `context` option to `appContext` to disambiguate
+- App context UI component: (_breaking change_) renamed `context` prop to `appContext` to disambiguate
+- Shell UI component: (_breaking change_) renamed `context` prop to `appContext` to disambiguate
+- Shell UI component: updated the default `robots` prop to include new preview settings
+- Shell UI component: added Google Tag Manager initialisation scripts (behind the `enableGTM` flag)
+
 ## 0.2.3
 
 - Code splitting plugin: fixed configuration for `superstore` dependencies so they create one chunk
