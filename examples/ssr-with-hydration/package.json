@@ -8,7 +8,7 @@
     "build": "page-kit build -d",
     "start": "node start.js",
     "start:dev": "nodemon start.js --ext js",
-    "test:app": "../../node_modules/.bin/jest",
+    "test": "../../node_modules/.bin/jest",
     "pretest": "npm run build"
   },
   "dependencies": {
