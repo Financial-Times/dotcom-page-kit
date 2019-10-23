@@ -93,7 +93,36 @@ describe('dotcom-middleware-navigation', () => {
       instance = subject.init({ enableSubNavigation: true })
     })
 
-    it('appends the sub-navigation properties on response.locals', async () => {
+    it('prefers the path provided by the vanity URL header when available', async () => {
+      request = httpMocks.createRequest({
+        path: '/path/to/page/123',
+        headers: {
+          'ft-vanity-url': '/vanity-url'
+        }
+      })
+
+      await instance(request, response, next)
+
+      expect(FakeNavigation.getSubNavigationFor).toHaveBeenCalledWith('/vanity-url')
+    })
+
+    it('normalizes the current path', async () => {
+      request = httpMocks.createRequest({
+        path: '/path/to/page/123',
+        query: {
+          page: 2
+        },
+        headers: {
+          'ft-vanity-url': '/vanity-url?page=2'
+        }
+      })
+
+      await instance(request, response, next)
+
+      expect(FakeNavigation.getSubNavigationFor).toHaveBeenCalledWith('/vanity-url')
+    })
+
+    it('appends the sub-navigation properties on response.locals for the current path', async () => {
       await instance(request, response, next)
       expect(response.locals.navigation).toEqual(expect.objectContaining(fakeSubNavigationData))
     })
