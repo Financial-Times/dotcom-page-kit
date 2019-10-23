@@ -15,6 +15,10 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
   const options = { ...defaultOptions, ...userOptions }
   const navigation = new Navigation(options)
 
+  // Not all pages appear in the navigation so this request will fail often.
+  // Because it's not critical, ignore the error and move on.
+  const getSubNavigationFor = (currentPath) => navigation.getSubNavigationFor(currentPath).catch(() => {})
+
   return async (request: Request, response: Response, next: NextFunction) => {
     try {
       // The vanity URL will usually be referenced in the navigation data
@@ -25,7 +29,7 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
 
       const [menusData, subNavigationData] = await Promise.all([
         navigation.getMenusFor(currentPath, currentEdition),
-        options.enableSubNavigation ? navigation.getSubNavigationFor(currentPath) : null
+        options.enableSubNavigation ? getSubNavigationFor(currentPath) : null
       ])
 
       const editions = navigation.getEditionsFor(currentEdition)
