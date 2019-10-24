@@ -21,14 +21,14 @@ describe('examples/ft-ui', () => {
 
   describe('UI components', () => {
     it('renders a11y skip links', async () => {
-      await expect(page).toMatchElement('a[href="#site-navigation"]')
-      await expect(page).toMatchElement('a[href="#site-content"]')
-      await expect(page).toMatchElement('a[href="#site-footer"]')
+      await expect(page).toMatchElement('a[href="#site-navigation"]', { text: 'Skip to navigation' })
+      await expect(page).toMatchElement('a[href="#site-content"]', { text: 'Skip to content' })
+      await expect(page).toMatchElement('a[href="#site-footer"]', { text: 'Skip to footer' })
     })
 
     it('renders the site header', async () => {
-      await expect(page).toMatchElement('#site-navigation .o-header__top')
-      await expect(page).toMatchElement('#site-navigation .o-header__top-logo')
+      await expect(page).toMatchElement('#site-navigation .o-header__top a[href="/"]')
+      await expect(page).toMatchElement('#site-navigation .o-header__top-logo', { text: 'Financial Times' })
     })
 
     it('renders the desktop navigation elements', async () => {
@@ -39,6 +39,7 @@ describe('examples/ft-ui', () => {
 
     it('renders the desktop search bar', async () => {
       await expect(page).toMatchElement('#o-header-search-primary')
+      await expect(page).toMatchElement('.o-header__search-submit', { text: 'Search' })
     })
 
     it('renders the small screen navigation elements', async () => {
@@ -51,24 +52,30 @@ describe('examples/ft-ui', () => {
 
     it('renders the site footer', async () => {
       await expect(page).toMatchElement('#site-footer')
+      await expect(page).toMatchElement(
+        '.o-footer__matrix',
+        { text: 'Support' },
+        { text: 'Legal & Privacy' },
+        { text: 'Services' }
+      )
+      await expect(page).toMatchElement('#site-footer .o-footer__copyright')
     })
 
     it('renders the drawer menu', async () => {
-      await expect(page).toMatchElement('#o-header-drawer')
+      await expect(page).toMatchElement('#o-header-drawer', { text: 'Switch to International Edition' })
+      await expect(page).toMatchElement(
+        '#o-header-drawer',
+        { text: 'Top sections' },
+        { text: 'FT recommends' }
+      )
     })
   })
 
-  describe('basic UI interactivity', () => {
-    it('enables the drawer menu to be toggled', async () => {
-      await expect(page).toMatchElement('#o-header-drawer[aria-hidden="true"]')
-      await page.click('a[aria-controls="o-header-drawer"]')
-      await expect(page).toMatchElement('#o-header-drawer[aria-hidden="false"]')
-    })
-
-    it('enables the search bar to be toggled', async () => {
-      await expect(page).toMatchElement('#o-header-search-primary[aria-hidden="true"]')
-      await page.click('a[aria-controls="o-header-search-primary"]')
-      await expect(page).toMatchElement('#o-header-search-primary[aria-hidden="false"]')
+  describe('Page links', () => {
+    it('renders the expected header link elements', async () => {
+      await expect(page).toMatchElement('a[href="/login?location=/"]', { text: 'Sign In' })
+      await expect(page).toMatchElement('a[href="/myft"]', { text: 'myFT' })
+      await expect(page).toMatchElement(`a[href^="/products?"]`, { text: 'Subscribe' })
     })
   })
 })
