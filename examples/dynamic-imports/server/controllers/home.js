@@ -1,6 +1,9 @@
+const polyfillService = require('@financial-times/dotcom-ui-polyfill-service')
+
 module.exports = async (request, response, next) => {
   const renderOptions = {
-    pageTitle: 'Dynamically-loaded dogs'
+    pageTitle: 'Dynamically-loaded dogs',
+    polyfillServiceUrl: polyfillService.enhanced()
   }
 
   try {
