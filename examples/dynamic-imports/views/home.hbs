@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta name="description" content="Dynamically-loaded dogs">
-  <meta charset="utf-8">
-  <title>{{#if pageTitle}}{{pageTitle}} | {{/if}}{{siteName}}</title>
-</head>
-<body>
-  <main role="main">
-    Dynamically-loaded dogs
-    <button id="button">
-      Click me
-    </button>
-  </main>
-<script src="public/script.js"></script>
-</body>
+  <head>
+    <meta name="description" content="Dynamically-loaded dogs">
+    <meta charset="utf-8">
+    <title>{{#if pageTitle}}{{pageTitle}} | {{/if}}{{siteName}}</title>
+  </head>
+  <body>
+    <main role="main">
+      Dynamically-loaded dogs
+      <button id="button">
+        Click me
+      </button>
+    </main>
+  <script src="{{polyfillServiceUrl}}"></script>
+  <script src="public/scripts.bundle.js"></script>
+  </body>
 </html>

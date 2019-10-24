@@ -4,14 +4,20 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "build": "page-kit build -d",
     "start": "node server/app.js",
+    "pretest": "npm run build",
     "test": "../../node_modules/.bin/jest"
   },
   "dependencies": {
     "@financial-times/dotcom-server-handlebars": "file:../../packages/dotcom-server-handlebars",
+    "@financial-times/dotcom-ui-polyfill-service": "file:../../packages/dotcom-ui-polyfill-service",
     "express": "^4.16.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@financial-times/dotcom-page-kit-cli": "file:../../packages/dotcom-page-kit-cli",
+    "@financial-times/dotcom-build-js": "file:../../packages/dotcom-build-js"
+  },
   "jest": {
     "preset": "jest-puppeteer"
   }
