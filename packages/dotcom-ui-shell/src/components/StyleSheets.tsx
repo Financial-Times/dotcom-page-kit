@@ -1,4 +1,5 @@
 import React from 'react'
+import loadAsyncStylesheetsString from '../lib/loadAsyncStylesheets'
 
 export type TStylesheetProps = {
   stylesheets?: string[]
@@ -9,17 +10,22 @@ export type TStylesheetProps = {
 const Stylesheets = ({ stylesheets, criticalStyles, asyncStylesheets }: TStylesheetProps) => (
   <React.Fragment>
     {criticalStyles && <style dangerouslySetInnerHTML={{ __html: criticalStyles }} />}
+
     {Array.isArray(stylesheets) &&
       stylesheets.map((stylesheet, i) => <link rel="stylesheet" key={`stylesheet-${i}`} href={stylesheet} />)}
-    {/*
-      Load stylesheets asyncronously. See: 
-      https://www.filamentgroup.com/lab/load-css-simpler/
-      https://w3c.github.io/preload/#example-5
-    */}
-    {Array.isArray(asyncStylesheets) &&
-      asyncStylesheets.map((stylesheet, i) => (
-        <link rel="stylesheet" key={`async-stylesheet-${i}`} href={stylesheet} media="print" />
-      ))}
+
+    {Array.isArray(asyncStylesheets) && (
+      <React.Fragment>
+        <noscript>
+          {asyncStylesheets.map((stylesheet, i) => (
+            <link rel="stylesheet" href={stylesheet} key={`async-stylesheet-${i}`} />
+          ))}
+        </noscript>
+        <script
+          data-stylesheets={asyncStylesheets.join()}
+          dangerouslySetInnerHTML={{ __html: loadAsyncStylesheetsString }}></script>
+      </React.Fragment>
+    )}
   </React.Fragment>
 )
 
