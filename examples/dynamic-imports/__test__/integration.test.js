@@ -18,10 +18,8 @@ describe('examples/dynamic-imports', () => {
   })
 })
 
-async function getTotalImages() {
-  return page.evaluate(async () => {
-    return document.querySelectorAll('img').length
-  })
+function getTotalImages() {
+  return page.evaluate(() => document.querySelectorAll('img').length)
 }
 
 function pageDescription() {
