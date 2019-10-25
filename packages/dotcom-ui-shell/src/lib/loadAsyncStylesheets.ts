@@ -15,14 +15,13 @@ function loadAsyncStylesheets() {
   for (var i = 0, len = stylesheets.length; i < len; i++) {
     var link = document.createElement('link')
     link.href = stylesheets[i]
-    link.key = 'stylesheet-' + stylesheets[i]
     link.rel = 'stylesheet'
     link.media = 'print' // <-- 'print' is intentional; on load, it changes to 'all'.
     link.onload = function(event) {
-      event.target.media = 'all'
+      var target = event.target as HTMLLinkElement
+      target.media = 'all'
     }
     currentScript.parentNode.insertBefore(link, currentScript)
   }
 }
-
-module.exports = '(' + loadAsyncStylesheets.toString() + ')()'
+export default '(' + loadAsyncStylesheets.toString() + ')()'
