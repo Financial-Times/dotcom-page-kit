@@ -26,30 +26,6 @@ describe('examples/ft-ui', () => {
       await expect(page).toMatchElement('a[href="#site-footer"]', { text: 'Skip to footer' })
     })
 
-    it('renders the site header', async () => {
-      await expect(page).toMatchElement('#site-navigation .o-header__top a[href="/"]')
-      await expect(page).toMatchElement('#site-navigation .o-header__top-logo', { text: 'Financial Times' })
-    })
-
-    it('renders the desktop navigation elements', async () => {
-      await expect(page).toMatchElement('.o-header__nav--desktop')
-      await expect(page).toMatchElement('.o-header__mega-column--articles')
-      await expect(page).toMatchElement('.o-header__mega-column--subsections')
-    })
-
-    it('renders the desktop search bar', async () => {
-      await expect(page).toMatchElement('#o-header-search-primary')
-      await expect(page).toMatchElement('.o-header__search-submit', { text: 'Search' })
-    })
-
-    it('renders the small screen navigation elements', async () => {
-      await expect(page).toMatchElement('#site-navigation .o-header__nav--mobile')
-    })
-
-    it('renders the sticky header', async () => {
-      await expect(page).toMatchElement('.o-header--sticky')
-    })
-
     it('renders the site footer', async () => {
       await expect(page).toMatchElement('#site-footer')
       await expect(page).toMatchElement(
@@ -68,14 +44,6 @@ describe('examples/ft-ui', () => {
         { text: 'Top sections' },
         { text: 'FT recommends' }
       )
-    })
-  })
-
-  describe('Page links', () => {
-    it('renders the expected header link elements', async () => {
-      await expect(page).toMatchElement('a[href="/login?location=/"]', { text: 'Sign In' })
-      await expect(page).toMatchElement('a[href="/myft"]', { text: 'myFT' })
-      await expect(page).toMatchElement(`a[href^="/products?"]`, { text: 'Subscribe' })
     })
   })
 })
