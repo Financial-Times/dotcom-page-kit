@@ -4,7 +4,8 @@ import { storiesOf } from '@storybook/react'
 import { withKnobs, select } from '@storybook/addon-knobs'
 
 import './demos.scss'
-import '../../styles.scss'
+import '../../shared-blocking-styles.scss'
+import '../../shared-non-blocking-styles.scss'
 
 import * as layout from '../../browser'
 

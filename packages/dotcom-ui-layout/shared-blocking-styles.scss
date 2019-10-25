@@ -1,0 +1,15 @@
+@import "n-ui-foundations/main";
+
+// We don't need the sub-brand or transparent header styles so disable them.
+// NOTE: Don't output anything which isn't visible on page load!
+@import "o-header/main";
+@include oHeader($features: ('nav', 'subnav', 'search', 'anon', 'simple'), $include-base-styles: true);
+
+.core .o--if-js,
+.enhanced .o--if-no-js {
+  display: none !important;
+}
+
+p {
+  @include oTypographySans($scale: 7);
+}

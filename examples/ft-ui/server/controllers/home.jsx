@@ -16,7 +16,7 @@ export function homeController(_, response, next) {
 
   const shellProps = {
     scripts: ['public/scripts.bundle.js'],
-    stylesheets: ['public/styles.css'],
+    stylesheets: ['public/shared-blocking-styles.css', 'public/shared-non-blocking-styles.css'],
     pageTitle: pageData.title,
     appContext: appContext
   }
