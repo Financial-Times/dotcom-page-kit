@@ -6,6 +6,7 @@ This package demonstrates dynamic module importing, i.e. usage of the [`import()
 ### Running the app
 
 ```
+npm run build
 npm start
 ```
 
