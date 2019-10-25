@@ -8,7 +8,7 @@ The Page Kit CLI provides a suite of actions to assemble modern Web projects. Th
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
-npm install --save-dev @Financial-Times/dotcom-page-kit
+npm install --save-dev @financial-times/dotcom-page-kit-cli
 ```
 
 Configuration is provided to the CLI by a `page-kit.config.js` file placed in your project root (next to `package.json`). Create this file now, including the fields defined below:
