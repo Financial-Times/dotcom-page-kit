@@ -33,5 +33,9 @@
 
 ### v0.5.0
 
+- Origami major version work
+
+### v0.6.0
+
 - Webpack configuration refactor and CLI tool removed.
 - Make the repository public.
