@@ -1,4 +1,4 @@
-# Assets Middleware
+# @financial-times/dotcom-middleware-assets
 
 This package provides an [Express] compatible middleware which integrates the [asset loader] and [resource hints] packages into your application and adds it to each response making it available to your application's route handlers. The asset loader helps applications to locate their static assets from wherever they are stored and resource hints enable developers to optimise the delivery of certain resources.
 
