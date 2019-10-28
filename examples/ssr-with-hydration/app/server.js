@@ -10,7 +10,7 @@ import { getInitialProps, getDependencies } from '../libs/ssr/server'
 const app = express()
 const port = 3000
 const assets = new AssetLoader({
-  publicPath: '/assets',
+  publicPath: '/assets/',
   fileSystemPath: path.resolve('./dist'),
   manifestFileName: 'manifest.json'
 })
