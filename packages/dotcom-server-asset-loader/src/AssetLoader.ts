@@ -59,7 +59,7 @@ export class AssetLoader {
   public options: AssetLoaderOptions
   public manifest: TManifest
 
-  constructor(userOptions: AssetLoaderOptions) {
+  constructor(userOptions?: AssetLoaderOptions) {
     this.options = { ...defaultOptions, ...userOptions }
     this.manifest =
       this.options.manifest ||

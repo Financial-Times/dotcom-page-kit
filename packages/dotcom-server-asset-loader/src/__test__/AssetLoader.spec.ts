@@ -106,7 +106,7 @@ describe('dotcom-server-asset-loader/src/AssetLoader', () => {
   describe('.getPublicURL()', () => {
     const tests = [
       { expected: '/styles.12345.bundle.css' },
-      { publicPath: '', expected: '/styles.12345.bundle.css' },
+      { publicPath: '', expected: 'styles.12345.bundle.css' },
       { publicPath: '/', expected: '/styles.12345.bundle.css' },
       { publicPath: '/lib', expected: '/lib/styles.12345.bundle.css' },
       { publicPath: '/lib/', expected: '/lib/styles.12345.bundle.css' },
@@ -115,7 +115,7 @@ describe('dotcom-server-asset-loader/src/AssetLoader', () => {
 
     tests.forEach(({ publicPath, expected }) => {
       it(`publicPath: ${publicPath}`, () => {
-        const loader = publicPath ? createAssetLoader({ publicPath }) : createAssetLoader()
+        const loader = typeof publicPath === 'undefined' ? new AssetLoader() : new AssetLoader({ publicPath })
         const result = loader.getPublicURL('styles.css')
         expect(result).toEqual(expected)
       })
