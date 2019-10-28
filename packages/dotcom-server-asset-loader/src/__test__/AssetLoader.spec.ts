@@ -15,19 +15,18 @@ jest.mock('../helpers/loadFile', () => {
   }
 })
 
-function createAssetLoader({
-  publicPath = 'public/assets',
-  fileSystemPath = '/internal/path/to/assets',
-  ...otherOptions
-}: AssetLoaderOptions = {}) {
-  return new AssetLoader({ publicPath, fileSystemPath, ...otherOptions })
+function createAssetLoader(options?: AssetLoaderOptions) {
+  return new AssetLoader(options)
 }
 
 describe('dotcom-server-asset-loader/src/AssetLoader', () => {
   let loader
 
   beforeEach(() => {
-    loader = createAssetLoader()
+    loader = createAssetLoader({
+      publicPath: '/public/assets/',
+      fileSystemPath: '/internal/path/to/assets'
+    })
   })
 
   afterEach(() => {
@@ -55,6 +54,8 @@ describe('dotcom-server-asset-loader/src/AssetLoader', () => {
       }).toThrow(Error('Couldn\'t find asset "test" in manifest'))
     })
   })
+
+
 
   describe('.matchAssets()', () => {
     it('returns an array of matching file names from the manifest', () => {
@@ -85,13 +86,13 @@ describe('dotcom-server-asset-loader/src/AssetLoader', () => {
   describe('getPublicURLOfHashedAssetsMatching(pattern', () => {
     it('returns the public urls of hashed assets whose entry file name matches the supplied pattern', () => {
       const a = loader.getPublicURLOfHashedAssetsMatching(/main/)
-      expect(a).toEqual(['public/assets/main.12345.bundle.js'])
+      expect(a).toEqual(['/public/assets/main.12345.bundle.js'])
 
       const b = loader.getPublicURLOfHashedAssetsMatching('main')
-      expect(b).toEqual(['public/assets/main.12345.bundle.js'])
+      expect(b).toEqual(['/public/assets/main.12345.bundle.js'])
 
       const c = loader.getPublicURLOfHashedAssetsMatching((filename) => filename === 'main.js')
-      expect(c).toEqual(['public/assets/main.12345.bundle.js'])
+      expect(c).toEqual(['/public/assets/main.12345.bundle.js'])
     })
   })
 
@@ -103,15 +104,21 @@ describe('dotcom-server-asset-loader/src/AssetLoader', () => {
   })
 
   describe('.getPublicURL()', () => {
-    it('returns the public path for the requested file', () => {
-      const result = loader.getPublicURL('styles.css')
-      expect(result).toEqual('public/assets/styles.12345.bundle.css')
-    })
+    const tests = [
+      { expected: '/styles.12345.bundle.css' },
+      { publicPath: '', expected: '/styles.12345.bundle.css' },
+      { publicPath: '/', expected: '/styles.12345.bundle.css' },
+      { publicPath: '/lib', expected: '/lib/styles.12345.bundle.css' },
+      { publicPath: '/lib/', expected: '/lib/styles.12345.bundle.css' },
+      { publicPath: '../', expected: '../styles.12345.bundle.css' }
+    ]
 
-    it('should correctly format the url when the public path has not been set', () => {
-      const loader = createAssetLoader({ publicPath: '' })
-      const result = loader.getPublicURL('styles.css')
-      expect(result).toEqual('styles.12345.bundle.css')
+    tests.forEach(({ publicPath, expected }) => {
+      it(`publicPath: ${publicPath}`, () => {
+        const loader = publicPath ? createAssetLoader({ publicPath }) : createAssetLoader()
+        const result = loader.getPublicURL('styles.css')
+        expect(result).toEqual(expected)
+      })
     })
   })
 
@@ -196,7 +203,7 @@ describe('dotcom-server-asset-loader/src/AssetLoader', () => {
       expect(result.length).toBe(3)
 
       result.forEach((item) => {
-        expect(item).toMatch(/^\public\/assets\/.+\.js$/)
+        expect(item).toMatch(/^\/public\/assets\/.+\.js$/)
       })
     })
   })
@@ -208,7 +215,7 @@ describe('dotcom-server-asset-loader/src/AssetLoader', () => {
       expect(result.length).toBe(2)
 
       result.forEach((item) => {
-        expect(item).toMatch(/^\public\/assets\/.+\.css$/)
+        expect(item).toMatch(/^\/public\/assets\/.+\.css$/)
       })
     })
   })

@@ -33,7 +33,7 @@ export interface AssetLoaderOptions {
 }
 
 const defaultOptions: AssetLoaderOptions = {
-  publicPath: '',
+  publicPath: '/',
   manifestFileName: 'manifest.json',
   fileSystemPath: path.resolve('./public'),
   cacheFileContents: false
@@ -62,7 +62,7 @@ export class AssetLoader {
   constructor(userOptions: AssetLoaderOptions) {
     this.options = { ...defaultOptions, ...userOptions }
     this.manifest =
-      userOptions.manifest ||
+      this.options.manifest ||
       loadManifest(path.resolve(this.options.fileSystemPath, this.options.manifestFileName))
   }
 
@@ -117,8 +117,7 @@ export class AssetLoader {
   //
 
   formatPublicURL(hashedAsset: string): string {
-    // Do not use path.join() as separator is platform specific, e.g. "\" on Windows
-    return this.options.publicPath ? `${this.options.publicPath}/${hashedAsset}` : hashedAsset
+    return path.posix.join(this.options.publicPath, hashedAsset)
   }
 
   formatFileSystemPath(hashedAsset: string): string {
