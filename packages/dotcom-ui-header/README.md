@@ -111,3 +111,11 @@ To support a non-JS, or core experience, the drawer component should be rendered
 ### Sticky header
 
 If enabled the sticky header is shown when users scroll down on both small and large screens. It combines similar components to the [top](#top) and [navigation](#navigation) elements.
+
+### SVG logos
+
+These are SVG logos as React components, which can be imported for inclusion by other components.
+
+Rendering logos as SVGs allows them to be visible faster than as external images, so is an approach best applied to logos that need to be displayed as quickly as possible upon visiting a page.
+
+The React components are auto-generated using a script - `npm run build:svg-to-react` - which converts the source SVG file acquired from dev dependency `@financial-times/logo-images`.

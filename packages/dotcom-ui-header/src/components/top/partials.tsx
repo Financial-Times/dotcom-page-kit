@@ -1,4 +1,5 @@
 import React from 'react'
+import BrandFtMastheadSvg from '../svg-components/BrandFtMasthead'
 
 const HeaderWrapper = (props) => (
   <header
@@ -61,7 +62,13 @@ const TopColumnLeft = () => (
 
 const TopColumnCenter = () => (
   <div className="o-header__top-column o-header__top-column--center">
-    <a className="o-header__top-logo" data-trackable="logo" href="/" title="Go to Financial Times homepage">
+    <a
+      className="o-header__top-logo"
+      style={{ backgroundImage: 'none' }}
+      data-trackable="logo"
+      href="/"
+      title="Go to Financial Times homepage">
+      <BrandFtMastheadSvg />
       <span className="o-header__visually-hidden">Financial Times</span>
     </a>
   </div>

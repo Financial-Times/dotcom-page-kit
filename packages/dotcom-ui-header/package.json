@@ -15,6 +15,7 @@
     "clean:install": "npm run clean && npm i",
     "build": "npm run build:node",
     "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
+    "build:svg-to-react": "node scripts/convertSvgsToReactComponents.js",
     "dev": "npm run build:node -- --watch"
   },
   "style": "./src/components/drawer/drawer.scss",
@@ -23,6 +24,11 @@
   "license": "MIT",
   "dependencies": {
     "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation"
+  },
+  "devDependencies": {
+    "@financial-times/logo-images": "^1.10.1",
+    "@svgr/core": "^4.3.3",
+    "camelcase": "^5.3.1"
   },
   "peerDependencies": {
     "react": "^16.8.6"
