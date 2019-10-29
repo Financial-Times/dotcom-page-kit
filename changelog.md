@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.1
+
+- Asset loader: fixed URL path concatenation to avoid double slashes
+- Layout UI component: fixed accidental usage of ES6 syntax in font loading snippet
+
 ## 0.3.0
 
 - Sass plugin: Upgraded to use `sass-loader` v8
