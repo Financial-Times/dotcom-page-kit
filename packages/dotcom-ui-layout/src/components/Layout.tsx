@@ -97,7 +97,7 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--header">
         <Template className="n-layout__header-before">{headerBefore}</Template>
-        {headerComponent || header}
+        {headerComponent || header || null}
         <Template className="n-layout__header-after">{headerAfter}</Template>
       </div>
 
@@ -107,7 +107,7 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--footer">
         <Template className="n-layout__footer-before">{footerBefore}</Template>
-        {footerComponent || footer}
+        {footerComponent || footer || null}
         <Template className="n-layout__footer-after">{footerAfter}</Template>
       </div>
 
