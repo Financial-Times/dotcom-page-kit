@@ -80,17 +80,19 @@ describe('dotcom-server-handlebars/src/PageKitHandlebars', () => {
   })
 
   describe('.renderView()', () => {
-    it('can render a template and fire a callback with the result', (done) => {
-      const templateContext = { title: 'Hello World', aside: 'Lorem ipsum' }
+    it('can render a template and fire a callback with the result', () => {
+      return new Promise((done) => {
+        const templateContext = { title: 'Hello World', aside: 'Lorem ipsum' }
 
-      instance.renderView(view, templateContext, (error, result) => {
-        expect(error).toBeNull()
+        instance.renderView(view, templateContext, (error, result) => {
+          expect(error).toBeNull()
 
-        expect(result).toContain('<h1>Hello World</h1>')
-        expect(result).toContain('<aside>Lorem ipsum</aside>')
-        expect(result).toMatch(/<main>.+<\/main>/s)
+          expect(result).toContain('<h1>Hello World</h1>')
+          expect(result).toContain('<aside>Lorem ipsum</aside>')
+          expect(result).toMatch(/<main>.+<\/main>/s)
 
-        done()
+          done()
+        })
       })
     })
   })
