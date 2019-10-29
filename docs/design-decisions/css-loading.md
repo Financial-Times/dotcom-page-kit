@@ -15,20 +15,20 @@ The CSS for some prevalent components (e.g. header, footer) is provided by Page 
 
 ## Blocking and non-blocking styles
 
-Downloading and parsing CSS files will halt page rendering, which is well demonstrated by this app: [css-link-tags-in-body]. Therefore it pays to be strategic about prioritising when in the page render process various stylesheets are downloaded.
+Downloading and parsing CSS files will halt page rendering, which is well described by this article: [Google Developers - Web Fundamentals: Render Blocking CSS by Ilya Grigorik]. Therefore it pays to be strategic about prioritising when in the page render process various stylesheets are downloaded.
 
 Some styles can be considered as 'blocking': we want them downloaded before we begin to parse the DOM so that they will be readily present when elements they are responsible for styling are rendered. 'Blocking' styles should style elements that are immediately viewable upon visiting the page, e.g. those contained in the browser viewport, such as the header.
 
-Some styles can be considered as 'non-blocking': there is less urgency when they are downloaded as they style elements that will not be immediately viewable upon visiting the page, e.g. those that require user interaction to appear (e.g. mega nav) or are below what is initially contained in the browser viewport (e.g. footer).
+Some styles can be considered as 'non-blocking': there is less urgency when they are downloaded as they style elements that will not be immediately viewable upon visiting the page, e.g. those that require user interaction to appear (e.g. drop-down menu) or are below what is initially contained in the browser viewport (e.g. footer).
 
-[css-link-tags-in-body]: https://css-link-tags-in-body.herokuapp.com/
+[Google Developers - Web Fundamentals: Render Blocking CSS by Ilya Grigorik]: https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css
 
 
 ## Methods of delaying the download of non-blocking stylesheets
 
 There are methods to download non-blocking stylesheets asynchronously without delaying page rendering, detailed in this article: [Filament Group: The Simplest Way to Load CSS Asynchronously by Scott Jehl].
 
-We have opted for the hacky but succinct method of setting the stylesheet `link`'s `media` attribute to`print` (which will load the stylesheet asynchronously without delaying page rendering), and then using the `onload` attribute to switch the `media` attribute to `all` that stylesheet has loaded.
+We have opted for the hacky but succinct method of setting the stylesheet `link`'s `media` attribute to `print` (which will load the stylesheet asynchronously without delaying page rendering), and then using the `onload` attribute to switch the `media` attribute to `all` that stylesheet has loaded.
 
 [Filament Group: The Simplest Way to Load CSS Asynchronously by Scott Jehl]: https://www.filamentgroup.com/lab/load-css-simpler
 
