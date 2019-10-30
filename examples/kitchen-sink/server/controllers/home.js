@@ -9,8 +9,19 @@ module.exports = (_, response, next) => {
     const flags = { ads: true, tracking: true }
     const appContext = response.locals.appContext
     const styleBundles = response.locals.assets.loader.getStylesheetURLsFor('styles')
+    const sharedBlockingStylesBundles = response.locals.assets.loader.getStylesheetURLsFor(
+      'shared-blocking-styles'
+    )
+    const stylsharedNonBlockingStylesBundles = response.locals.assets.loader.getStylesheetURLsFor(
+      'shared-non-blocking-styles'
+    )
     const scriptBundles = response.locals.assets.loader.getScriptURLsFor('scripts')
-    const forHints = [...scriptBundles, ...styleBundles]
+    const forHints = [
+      ...scriptBundles,
+      ...styleBundles,
+      ...sharedBlockingStylesBundles,
+      ...sharedNonBlockingStylesBundles
+    ]
 
     forHints.forEach((file) => {
       response.locals.assets.resourceHints.add(file)

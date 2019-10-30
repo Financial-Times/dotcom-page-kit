@@ -32,6 +32,8 @@ describe('examples/kitchen-sink/build', () => {
 
   it('creates an app CSS bundle', () => {
     expect(output).toContain('styles.css')
+    expect(output).toContain('shared-blocking-styles.css')
+    expect(output).toContain('shared-non-blocking-styles.css')
   })
 
   it('creates a manifest file', () => {
