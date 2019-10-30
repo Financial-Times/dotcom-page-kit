@@ -69,8 +69,6 @@
     "jest-environment-enzyme": "^7.1.1",
     "jest-enzyme": "^7.1.1",
     "jest-puppeteer": "^4.2.0",
-    "jsdom": "^15.2.0",
-    "jsdom-global": "^3.0.2",
     "lint-staged": "^9.0.0",
     "node-sass": "^4.11.0",
     "prettier": "^1.16.4",
