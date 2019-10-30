@@ -10,8 +10,19 @@ module.exports = (_, response, next) => {
     const appContext = response.locals.appContext
     const styleBundles = response.locals.assets.loader.getStylesheetURLsFor('styles')
     const asyncStyleBundles = response.locals.assets.loader.getStylesheetURLsFor('async')
+    const sharedBlockingStylesBundles = response.locals.assets.loader.getStylesheetURLsFor(
+      'shared-blocking-styles'
+    )
+    const sharedNonBlockingStylesBundles = response.locals.assets.loader.getStylesheetURLsFor(
+      'shared-non-blocking-styles'
+    )
     const scriptBundles = response.locals.assets.loader.getScriptURLsFor('scripts')
-    const forHints = [...scriptBundles, ...styleBundles]
+    const forHints = [
+      ...scriptBundles,
+      ...styleBundles,
+      ...sharedBlockingStylesBundles,
+      ...sharedNonBlockingStylesBundles
+    ]
 
     forHints.forEach((file) => {
       response.locals.assets.resourceHints.add(file)

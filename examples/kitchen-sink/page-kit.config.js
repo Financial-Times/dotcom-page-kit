@@ -16,7 +16,9 @@ module.exports = {
       entry: {
         scripts: './client/main.js',
         styles: './client/main.scss',
-        async: './client/async.scss'
+        async: './client/async.scss',
+        'shared-blocking-styles': '../../packages/dotcom-ui-layout/shared-blocking-styles.scss',
+        'shared-non-blocking-styles': '../../packages/dotcom-ui-layout/shared-non-blocking-styles.scss'
       },
       outputPath: path.resolve('./public')
     }

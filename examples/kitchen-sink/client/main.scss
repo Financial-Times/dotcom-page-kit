@@ -1,9 +1,5 @@
-@import 'dotcom-ui-layout/styles';
-
-.core .o--if-js,
-.enhanced .o--if-no-js {
-  display: none !important;
-}
+$n-ui-foundations-applied: true;
+@import "n-ui-foundations/main";
 
 .hello {
   @include oTypographySans($scale: 7);
