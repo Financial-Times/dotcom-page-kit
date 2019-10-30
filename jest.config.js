@@ -1,7 +1,11 @@
 module.exports = {
   preset: 'ts-jest',
   roots: ['./packages'],
-  testEnvironment: 'node',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
-  testPathIgnorePatterns: ['/bower_components/', '/node_modules/']
+  testPathIgnorePatterns: ['/bower_components/', '/node_modules/'],
+  setupFilesAfterEnv: ['./setupTests.ts'],
+  testEnvironment: 'enzyme',
+  testEnvironmentOptions: {
+    enzymeAdapter: 'react16'
+  }
 }
