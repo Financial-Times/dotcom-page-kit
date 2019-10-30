@@ -16,12 +16,12 @@ const Extra = ({ children }) => <p className="extra">{children}</p>
 
 const switchHeader = () =>
   select('Switch header', {
-    Standard: 'simple',
+    Simple: 'simple',
     'Large Logo': 'large-logo',
     'Logo Only': 'logo-only',
     None: ''
   })
-const switchFooter = () => select('Switch footer', { Standard: 'simple', Legal: 'legal', None: '' })
+const switchFooter = () => select('Switch footer', { Simple: 'simple', Legal: 'legal', None: '' })
 
 const initUiComponents = () => {
   layout.init()
@@ -32,7 +32,10 @@ storiesOf('FT / Layout', module)
   .add('Default components', () => {
     return (
       <OnReady callback={initUiComponents}>
-        <Layout navigationData={navigationProps} header={switchHeader()} footer={switchFooter()}>
+        <Layout
+          navigationData={navigationProps}
+          headerVariant={switchHeader()}
+          footerVariant={switchFooter()}>
           <main className="demo">
             <p className="demo__message">Defaults: only passing data</p>
           </main>
@@ -61,8 +64,8 @@ storiesOf('FT / Layout', module)
       <OnReady callback={initUiComponents}>
         <Layout
           navigationData={navigationProps}
-          header={<Extra>Custom header</Extra>}
-          footer={<Extra>Custom footer</Extra>}>
+          headerComponent={<Extra>Custom header</Extra>}
+          footerComponent={<Extra>Custom footer</Extra>}>
           <main className="demo">
             <p className="demo__message">Custom components</p>
           </main>
