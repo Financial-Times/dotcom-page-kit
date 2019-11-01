@@ -1,12 +1,9 @@
 /**
  * @jest-environment jsdom
  */
+import './setup'
 import React from 'react'
-import Enzyme, { mount } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-import 'jest-enzyme'
-
-Enzyme.configure({ adapter: new Adapter() })
+import { mount } from 'enzyme'
 
 import navigationData from '../../__stories__/story-data/index'
 import { IncludeDrawer as Subject } from '../../components/drawer/topLevelPartials'

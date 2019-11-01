@@ -1,12 +1,9 @@
 /**
  * @jest-environment jsdom
  */
+import './setup'
 import React from 'react'
-import Enzyme, { mount } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-import 'jest-enzyme'
-
-Enzyme.configure({ adapter: new Adapter() })
+import { mount } from 'enzyme'
 
 import dataFixture from '../../__stories__/story-data/index'
 import { Header } from '../../index'
@@ -47,7 +44,9 @@ describe('dotcom-ui-header', () => {
 
   it('renders an inlined SVG logo image', () => {
     expect(header.find('div[data-trackable="header-top"] .o-header__top-logo svg')).toExist()
-    expect(header.find('div[data-trackable="header-top"] .o-header__top-logo title')).toHaveText('Financial Times')
+    expect(header.find('div[data-trackable="header-top"] .o-header__top-logo title')).toHaveText(
+      'Financial Times'
+    )
   })
 
   it('renders the sticky header', () => {
