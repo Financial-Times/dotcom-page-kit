@@ -12,7 +12,7 @@ const toggleUserStateOptions = () => boolean('Enable user nav actions', true)
 const toggleVariantOptions = () => radios('Choose variant', { simple: 'simple', normal: 'normal' }, 'simple')
 const toggleLoggedIn = () => boolean('User is logged in', false)
 const toggleShowSubNav = () => boolean('Show the sub-navigation component', true)
-const toggleDisableSticky = () => boolean('Disable sticky header', false)
+const toggleShowStickyHeader = () => boolean('Show the sticky header', true)
 const toggleShowMegaNav = () => boolean('Show the drop-down "mega nav"', true)
 const toggleMobileNav = () => radios('Show mobile nav', { show: '/', hide: '/404' }, '/')
 
@@ -64,7 +64,7 @@ storiesOf('FT / Header', module)
     const knobs = {
       showUserNavigation: toggleUserStateOptions(),
       userIsLoggedIn: toggleLoggedIn(),
-      disableSticky: toggleDisableSticky()
+      showStickyHeader: toggleShowStickyHeader()
     }
 
     return (
