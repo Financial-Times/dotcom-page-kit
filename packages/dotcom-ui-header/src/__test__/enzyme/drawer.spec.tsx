@@ -6,7 +6,7 @@ import React from 'react'
 import { mount } from 'enzyme'
 
 import navigationData from '../../__stories__/story-data/index'
-import { IncludeDrawer as Subject } from '../../components/drawer/topLevelPartials'
+import { Drawer as Subject } from '../../'
 
 const fixture = {
   data: { ...navigationData.data, currentPath: '/world' }
@@ -15,15 +15,13 @@ const fixture = {
 const loggedInUserFixture = {
   ...fixture,
   userIsAnonymous: false,
-  userIsLoggedIn: true,
-  showUserNavigation: true
+  userIsLoggedIn: true
 }
 
 const anonymousUserFixture = {
   ...fixture,
   userIsAnonymous: true,
-  userIsLoggedIn: false,
-  showUserNavigation: true
+  userIsLoggedIn: false
 }
 
 describe('dotcom-ui-header/src/components/drawer', () => {
@@ -67,9 +65,7 @@ describe('dotcom-ui-header/src/components/drawer', () => {
     it('renders primary link subsections', () => {
       const section = result
         .find('.o-header__drawer-menu-item')
-        .findWhere((node) => {
-          return node.key() === '/companies'
-        })
+        .findWhere((node) => node.key() === '/companies')
         .at(0)
 
       expect(section.find('.o-header__drawer-menu-link--parent')).toHaveText('Companies')
