@@ -13,6 +13,7 @@ const toggleVariantOptions = () => radios('Choose variant', { simple: 'simple', 
 const toggleLoggedIn = () => boolean('User is logged in', false)
 const toggleShowSubNav = () => boolean('Show the sub-navigation component', true)
 const toggleDisableSticky = () => boolean('Disable sticky header', false)
+const toggleShowMegaNav = () => boolean('Show the drop-down "mega nav"', true)
 const toggleMobileNav = () => radios('Show mobile nav', { show: '/', hide: '/404' }, '/')
 
 const onReadyCallback = () => {
@@ -28,6 +29,7 @@ storiesOf('FT / Header', module)
     const knobs = {
       showSubNavigation: toggleShowSubNav(),
       showUserNavigation: toggleUserStateOptions(),
+      showMegaNav: toggleShowMegaNav(),
       userIsLoggedIn: toggleLoggedIn(),
       currentPath: toggleMobileNav()
     }
@@ -44,6 +46,7 @@ storiesOf('FT / Header', module)
     const knobs = {
       showSubNavigation: toggleShowSubNav(),
       showUserNavigation: toggleUserStateOptions(),
+      showMegaNav: toggleShowMegaNav(),
       userIsLoggedIn: toggleLoggedIn(),
       currentPath: toggleMobileNav(),
       variant: 'large-logo'
