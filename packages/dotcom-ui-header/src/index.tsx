@@ -32,7 +32,7 @@ const defaultProps: Partial<THeaderOptions> = {
   showUserNavigation: true,
   userIsAnonymous: true,
   userIsLoggedIn: false,
-  disableSticky: false,
+  showStickyHeader: true,
   showMegaNav: true
 }
 
@@ -62,7 +62,7 @@ function MainHeader(props: THeaderProps) {
 MainHeader.defaultProps = defaultProps
 
 function StickyHeader(props: THeaderProps) {
-  return props.disableSticky ? null : (
+  return props.showStickyHeader ? (
     <StickyHeaderWrapper {...props}>
       <TopWrapperSticky>
         <TopColumnLeftSticky />
@@ -71,7 +71,7 @@ function StickyHeader(props: THeaderProps) {
       </TopWrapperSticky>
       <Search instance="sticky" />
     </StickyHeaderWrapper>
-  )
+  ) : null
 }
 
 StickyHeader.defaultProps = defaultProps
