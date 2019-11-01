@@ -26,30 +26,4 @@ describe('examples/ft-ui', () => {
       )
     })
   })
-
-  describe('Header UI components', () => {
-    it('renders the FT logo component', async () => {
-      await expect(page).toMatchElement('#site-navigation .o-header__top a[href="/"]')
-      await expect(page).toMatchElement('#site-navigation .o-header__top-logo', { text: 'Financial Times' })
-    })
-
-    it('renders the desktop navigation elements', async () => {
-      await expect(page).toMatchElement('.o-header__nav--desktop')
-      await expect(page).toMatchElement('.o-header__mega-column--articles')
-      await expect(page).toMatchElement('.o-header__mega-column--subsections')
-    })
-
-    it('renders the desktop search bar', async () => {
-      await expect(page).toMatchElement('#o-header-search-primary')
-      await expect(page).toMatchElement('.o-header__search-submit', { text: 'Search' })
-    })
-
-    it('renders the small screen navigation elements', async () => {
-      await expect(page).toMatchElement('#site-navigation .o-header__nav--mobile')
-    })
-
-    it('renders the sticky header', async () => {
-      await expect(page).toMatchElement('.o-header--sticky')
-    })
-  })
 })
