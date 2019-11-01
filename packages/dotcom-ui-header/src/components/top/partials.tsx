@@ -68,8 +68,7 @@ const TopColumnCenter = () => (
       data-trackable="logo"
       href="/"
       title="Go to Financial Times homepage">
-      <BrandFtMastheadSvg />
-      <span className="o-header__visually-hidden">Financial Times</span>
+      <BrandFtMastheadSvg title="Financial Times" />
     </a>
   </div>
 )
