@@ -11,11 +11,9 @@ Enzyme.configure({ adapter: new Adapter() })
 import dataFixture from '../../__stories__/story-data/index'
 import { Header } from '../../index'
 
-// disableSticky to enable the sticky header
 // data.currentPath to enable the mobile header
 const headerFixture = {
   ...dataFixture,
-  disableSticky: false,
   data: { ...dataFixture.data, currentPath: '/' }
 }
 const loggedInUserFixture = { ...dataFixture, showUserNavigation: true }
@@ -47,7 +45,9 @@ describe('dotcom-ui-header', () => {
 
   it('renders an inlined SVG logo image', () => {
     expect(header.find('div[data-trackable="header-top"] .o-header__top-logo svg')).toExist()
-    expect(header.find('div[data-trackable="header-top"] .o-header__top-logo title')).toHaveText('Financial Times')
+    expect(header.find('div[data-trackable="header-top"] .o-header__top-logo title')).toHaveText(
+      'Financial Times'
+    )
   })
 
   it('renders the sticky header', () => {
