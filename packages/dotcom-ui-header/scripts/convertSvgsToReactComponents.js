@@ -12,7 +12,7 @@ logoNames.forEach((logoName) => {
 
   const componentName = camelCase(logoName, { pascalCase: true })
 
-  svgr(svgString, {}, { componentName }).then((jsCode) => {
+  svgr(svgString, { titleProp: true }, { componentName }).then((jsCode) => {
     const comment =
       '// **THIS IS AN AUTO-GENERATED FILE (`npm run build:svg-to-react`) - DO NOT EDIT MANUALLY.**\n\n'
 

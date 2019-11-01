@@ -45,6 +45,11 @@ describe('dotcom-ui-header', () => {
     expect(header.find('div[data-trackable="header-top"] .o-header__top-link--myft')).toExist()
   })
 
+  it('renders an inlined SVG logo image', () => {
+    expect(header.find('div[data-trackable="header-top"] .o-header__top-logo svg')).toExist()
+    expect(header.find('div[data-trackable="header-top"] .o-header__top-logo title')).toHaveText('Financial Times')
+  })
+
   it('renders the sticky header', () => {
     expect(header.find('.o-header--sticky')).toExist()
   })
