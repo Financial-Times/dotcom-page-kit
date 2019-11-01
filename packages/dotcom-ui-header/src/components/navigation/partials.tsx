@@ -64,7 +64,7 @@ const NavListLeft = (props: THeaderProps) => (
           data-trackable={item.label}>
           {item.label}
         </a>
-        {Array.isArray(item.meganav) ? (
+        {props.showMegaNav && Array.isArray(item.meganav) ? (
           <MegaNav meganav={item.meganav} label={item.label} index={index} />
         ) : null}
       </li>

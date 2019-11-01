@@ -73,6 +73,7 @@ All header components with the exception of `<LogoOnly />` require the following
 | showUserNavigation | boolean                            | true     | true     | Show user navigation options such as `Sign out` or `Subscribe`                 |
 | showSubNavigation  | boolean                            | true     | true     | Show the sub-navigation component which may include the crumbtrail             |
 | disableSticky      | boolean                            | true     | false    | Prevents the sticky header component from rendering                            |
+| showMegaNav        | boolean                            | true     | true     | Enable rendering of the drop-down "mega-nav"                            |
 | data               | object                             | false    |          | Navigation data for rendering the header links fetched from the navigation API |
 
 

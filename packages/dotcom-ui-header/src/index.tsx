@@ -32,7 +32,8 @@ const defaultProps: Partial<THeaderOptions> = {
   showUserNavigation: true,
   userIsAnonymous: true,
   userIsLoggedIn: false,
-  disableSticky: false
+  disableSticky: false,
+  showMegaNav: true
 }
 
 function MainHeader(props: THeaderProps) {
