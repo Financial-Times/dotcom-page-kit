@@ -2,7 +2,6 @@
 
 This package provides a skeleton HTML document structure for the user-facing applications which comprise FT.com. It includes all of the things you can't see as well as setting up our [core branding](#core-branding). The shell can render metadata, output dehydrated data, load stylesheets and bootstrap client-side JavaScript.
 
-
 ## Getting started
 
 This package is compatible with Node 8+ and is distributed on npm.
@@ -24,7 +23,7 @@ import { Shell } from '@financial-times/dotcom-ui-shell'
 const document = <Shell {...options}><App /></Shell>
 ```
 
-_Please note_ that the shell component is designed to be used on the server-side and cannot be rendered on the client-side. For this reason you should always consider `<App />` your application root and client-side mounting point.
+_Please note_: The shell component is designed to be used on the server-side and cannot be rendered on the client-side. For this reason you should always consider using `<App />` for your application root and client-side mounting point.
 
 ### Usage without React
 
@@ -56,7 +55,6 @@ For a full example for how to use this component please refer to the [FT UI exam
 
 [example]: ../../examples/basic-ft-ui/readme.md
 
-
 ## Scope
 
 The dotcom-ui-shell can be loosely defined as encompassing the parts of the webpage that you cannot see, including any elements which are embedded in the document `<head>`, and some core branding decisions.
@@ -72,14 +70,38 @@ The shell contains a HTML document structure which wraps application HTML. It de
 
 The shell adds a collection of `<meta>` tags to the document `<head>` element. These include handles which associate the page with our social media accounts, page context in [Open Graph] format and [linked data] in [JSON-LD] format. The available metadata [options](#metadata-and-seo) are expanded below.
 
-### Stylesheets
-
-Background colour, font colour and fallback fonts are included in the shell as critical styles. Additional stylesheet URLs which are passed to the application shell will be inserted as `<link>` tags in the document `<head>`.
-
 ### JavaScript bootstrap
 
-Each page is served a bootstrap script including a "cuts the mustard" test via the [JavaScript bootstrap] package. Additional scripts for core and enhanced browsers which are passed to the shell  will be inserted as `<script>` tags in the document `<head>`. The available bootstrap [options](#app-bootstrapping) are expanded below.
+Each page is served a bootstrap script including a "cuts the mustard" test via the [JavaScript bootstrap] package. Additional scripts for core and enhanced browsers which are passed to the shell  are inserted as `<script>` tags in the document `<head>`. The available bootstrap [options](#app-bootstrapping) are expanded below.
 
+### CSS Styles & Stylesheets
+
+This component supports critical CSS styles, normal (blocking) stylesheets and asynchronous (non-blocking) stylesheets. For an example for how to use `async` stylesheets please refer to the [Kitchen Sink example app][kitchen-sink-example].
+
+[kitchen-sink-example]: ../../examples/kitchen-sink/readme.md
+
+There are three ways to include your app's CSS styles. Each option affects page-load performance. 
+
+#### 1. Critical
+
+CSS styles that load as part of the webpage HTML (inside a `<style>` tag) and which render before all other styles. These are for displaying instant results such as background colour, font colour and fallback (browser-friendly) fonts.
+
+Page Kit is optimised for browser caching; that is, it's preferable to use linked stylesheets (which different web pages can load from cache) rather than inserting CSS directly into the HTML (which _can't_ be used by other web pages). 
+
+#### 2. Blocking
+
+These are standard stylesheet `<link rel="stylesheet" />`s. They stop the browser from rendering until they've finished loading.
+
+#### 3. Asynchronous
+
+These stylesheets **do not** block rendering. They're applied as soon as they load.
+
+Further reading for explanation and implementation details:
+* [The Simplest Way to Load CSS Asynchronously — Scott Jehl][load-css-simpler]
+* [Render Blocking CSS — Ilya Grigorik][render-blocking-css]
+
+[load-css-simpler]: https://www.filamentgroup.com/lab/load-css-simpler/
+[render-blocking-css]: https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css
 
 ## Options
 
@@ -91,29 +113,33 @@ An optional string of HTML to insert into the document `<body>`. This should be 
 
 #### `scripts` (string[])
 
-An array of script URLs which will be passed to the [JavaScript bootstrap] and loaded if the visitor's browser succeeds in passing the cut the mustard test.
-
-#### `stylesheets` (string[])
-
-An array of stylesheet URLs to be loaded using `<link rel="stylesheet" />` tags.
+An array of script URLs which are passed to the [JavaScript bootstrap] and loaded if the visitor's browser succeeds in passing the cut the mustard test.
 
 #### `criticalStyles` (string)
 
-An optional string of CSS to embed into the page. Defaults to setting the background colour to FT pink.
+An optional string of CSS to embed into the page. Defaults to setting the background colour to FT pink. See "CSS Styles & Stylesheets" above.
+
+#### `stylesheets` (string[])
+
+An array of stylesheet URLs to be loaded using `<link rel="stylesheet" />` tags. See "CSS Styles & Stylesheets" above.
+
+#### `asyncStylesheets` (string[])
+
+An array of stylesheet URLs to be loaded asynchronously. See "CSS Styles & Stylesheets" above.
 
 #### `resourceHints` (string[])
 
-An optional array of resource URLs to append [resource hints] for. The values provided for the `stylesheets` and `scripts` options will be appended by default.
+An optional array of resource URLs to append [resource hints] for. The values provided for the `stylesheets` and `scripts` options are appended by default.
 
 [resource hints]: https://w3c.github.io/resource-hints
 
 #### `appContext` (object)
 
-A data object which will be passed to the [FT app context] component.
+A data object which are passed to the [FT app context] component.
 
 #### `flags` (object)
 
-A data object which will be passed to the [feature flags] component.
+A data object which are passed to the [feature flags] component.
 
 #### `initialProps` (object)
 
@@ -121,12 +147,11 @@ An optional data object to serialise and embed in the page which can be used to 
 
 #### `htmlAttributes` (object)
 
-An optional data object of attributes to append to the `<html>` element. Any `camelCase` property names will be converted to `kebab-case`, e.g. `{ dataVersion: 123 }` will be rendered as `data-version="123"`.
+An optional data object of attributes to append to the `<html>` element. Any `camelCase` property names are converted to `kebab-case`, e.g. `{ dataVersion: 123 }` are rendered as `data-version="123"`.
 
 #### `bodyAttributes` (object)
 
-An optional data object of attributes to append to the `<body>` element. Any `camelCase` property names will be converted to `kebab-case`, e.g. `{ dataVersion: 123 }` will be rendered as `data-version="123"`.
-
+An optional data object of attributes to append to the `<body>` element. Any `camelCase` property names are converted to `kebab-case`, e.g. `{ dataVersion: 123 }` are rendered as `data-version="123"`.
 
 ### Metadata and SEO
 
@@ -178,8 +203,7 @@ Optional Twitter handle to associate with the page. Defaults to "@FinancialTimes
 
 #### `openGraph` (object)
 
-An optional object describing the [Open Graph] metadata to add to the page. The provided objects keys will be collated to create each property name, e.g. `{ og: { title: 'Hello, World' } }` will be rendered as `<meta property="og:title" content="Hello, World" />`.
-
+An optional object describing the [Open Graph] metadata to add to the page. The provided objects keys are collated to create each property name, e.g. `{ og: { title: 'Hello, World' } }` are rendered as `<meta property="og:title" content="Hello, World" />`.
 
 [JavaScript bootstrap]: ../dotcom-ui-bootstrap/readme.md
 [feature flags]: ../dotcom-ui-flags/readme.md
