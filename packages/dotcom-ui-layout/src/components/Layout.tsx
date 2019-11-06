@@ -61,10 +61,15 @@ export function Layout({
   contents
 }: TLayoutProps) {
   let header = null
+  let drawer = null
 
   if (headerVariant && Headers[headerVariant] && !headerComponent) {
     const Header = Headers[headerVariant]
     header = <Header {...headerOptions} data={navigationData} variant={headerVariant} />
+
+    if (Header === HeaderSimple || Header === HeaderLarge) {
+      drawer = <Drawer {...headerOptions} data={navigationData} />
+    }
   }
 
   let footer = null
@@ -111,8 +116,7 @@ export function Layout({
         <Template className="n-layout__footer-after">{footerAfter}</Template>
       </div>
 
-      {/* Always render the drawer if there is a default header being used */}
-      {header && <Drawer {...headerOptions} data={navigationData} />}
+      {drawer}
     </div>
   )
 }
