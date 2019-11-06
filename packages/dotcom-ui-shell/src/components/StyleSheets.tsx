@@ -12,7 +12,7 @@ const Stylesheets = ({ criticalStyles, stylesheets, asyncStylesheets }: TStylesh
     {criticalStyles && <style dangerouslySetInnerHTML={{ __html: criticalStyles }} />}
     {Array.isArray(stylesheets) &&
       stylesheets.map((stylesheet, i) => <link rel="stylesheet" key={`stylesheet-${i}`} href={stylesheet} />)}
-    {Array.isArray(asyncStylesheets) && (
+    {Array.isArray(asyncStylesheets) && !!asyncStylesheets.length && (
       <React.Fragment>
         <noscript>
           {asyncStylesheets.map((stylesheet, i) => (

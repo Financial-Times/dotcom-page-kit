@@ -127,29 +127,6 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
       id="initial-props"
       type="application/json"
     />
-    <noscript />
-    <script
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "(function loadAsyncStylesheets() {
-    var currentScript = document.scripts[document.scripts.length - 1];
-    var stylesheets = currentScript.getAttribute('data-stylesheets').split(',');
-    for (var i = 0, len = stylesheets.length; i < len; i++) {
-        var link = document.createElement('link');
-        link.href = stylesheets[i];
-        link.rel = 'stylesheet';
-        link.media = 'print'; // <-- 'print' is intentional; on load, it changes to 'all'.
-        link.onload = function (event) {
-            var target = event.target;
-            target.media = 'all';
-        };
-        currentScript.parentNode.insertBefore(link, currentScript);
-    }
-})()",
-        }
-      }
-      data-stylesheets=""
-    />
     <script
       dangerouslySetInnerHTML={
         Object {
