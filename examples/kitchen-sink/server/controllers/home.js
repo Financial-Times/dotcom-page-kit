@@ -9,6 +9,7 @@ module.exports = (_, response, next) => {
     const flags = { ads: true, tracking: true }
     const appContext = response.locals.appContext
     const styleBundles = response.locals.assets.loader.getStylesheetURLsFor('styles')
+    const asyncStyleBundles = response.locals.assets.loader.getStylesheetURLsFor('async')
     const scriptBundles = response.locals.assets.loader.getScriptURLsFor('scripts')
     const forHints = [...scriptBundles, ...styleBundles]
 
@@ -44,18 +45,32 @@ module.exports = (_, response, next) => {
         pageTitle="Hello World"
         scripts={scriptBundles}
         stylesheets={styleBundles}
+        asyncStylesheets={asyncStyleBundles}
         appContext={appContext.data}>
         <AdsOptionsEmbed {...adOptions} />
         <Layout navigationData={response.locals.navigation} headerBefore={<Slot {...adSlotProps} />}>
-          <div align="center">
-            <p className="hello">Hello, welcome to Page Kit.</p>
-          </div>
-          <div>
-            <p className="project-aim">
-              The aim of this project is to provide a high quality, well tested, and thoroughly documented set
-              of tools for assembling and delivering modern websites with Node.js based upon the best industry
-              standards.
-            </p>
+          <div className="content">
+            <div align="center">
+              <p className="hello">Hello, welcome to Page Kit.</p>
+            </div>
+            <div>
+              <p>
+                The aim of this project is to provide a high quality, well tested, and thoroughly documented
+                set of tools for assembling and delivering modern websites with Node.js based upon the best
+                industry standards.
+              </p>
+            </div>
+            <section className="asynchronous-example">
+              <h3>A note on asynchronous CSS</h3>
+              <p>
+                The CSS for this section was loaded asynchonously; that is, the stylesheet didn't block the
+                browser from rendering while it loaded.{' '}
+                <a href="https://github.com/Financial-Times/dotcom-page-kit/blob/master/packages/dotcom-ui-shell/README.md">
+                  See the README for details
+                </a>
+                .
+              </p>
+            </section>
           </div>
         </Layout>
       </Shell>
