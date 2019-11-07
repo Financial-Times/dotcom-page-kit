@@ -1,0 +1,8 @@
+// This stylesheet is loaded asynchonously; that is, it doesn't block the browser from rendering while it loads. 
+// See: https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css
+
+.asynchronous-example {
+    font-size: medium;
+    border: 1px solid lightgrey;
+    margin: 20px;
+}
