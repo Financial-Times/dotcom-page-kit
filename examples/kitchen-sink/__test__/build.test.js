@@ -34,6 +34,10 @@ describe('examples/kitchen-sink/build', () => {
     expect(output).toContain('styles.css')
   })
 
+  it('creates an app async CSS bundle', () => {
+    expect(output).toContain('async.css')
+  })
+
   it('creates a manifest file', () => {
     expect(output).toContain('manifest.json')
   })

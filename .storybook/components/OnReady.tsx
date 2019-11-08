@@ -28,12 +28,12 @@ export class OnReady extends React.Component<TOnReadyProps> {
   }
 
   render() {
-    // HACK: By appending an attribute with a value that will change this will force a
-    // rerender of this component and its children unless they use React.PureComponent
+    // HACK: By ensuring the key for the rendered element changes this will force a
+    // render of the entire component and children unless they use React.PureComponent
     // or implement .shouldComponentUpdate().
     // <https://github.com/Financial-Times/dotcom-page-kit/pull/283>
     return (
-      <div data-rerender-hack={Date.now()} style={{ display: 'contents' }} ref={this.mounted}>
+      <div key={Date.now()} style={{ display: 'contents' }} ref={this.mounted}>
         {this.props.children || null}
       </div>
     )

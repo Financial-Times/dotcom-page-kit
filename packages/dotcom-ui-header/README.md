@@ -67,12 +67,13 @@ All header components with the exception of `<LogoOnly />` require the following
 
 | OPTION             | TYPE                               | OPTIONAL | DEFAULT  | DESCRIPTION                                                                    |
 |--------------------|------------------------------------|----------|----------|--------------------------------------------------------------------------------|
-| variant            | 'simple' \| 'large-logo' \| string | true     | 'simple' | Adds a class name to the header element                                        |
+| variant            | 'simple' \| 'large-logo' \| string | true     | 'simple' | Adds a class name to the header element
 | userIsAnonymous    | boolean                            | true     | true     | Marks a user as anonymous - can be set by middleware included with n-express   |
 | userIsLoggedIn     | boolean                            | true     | false    | Marks a user as logged in - can be set by middleware included with n-express   |
 | showUserNavigation | boolean                            | true     | true     | Show user navigation options such as `Sign out` or `Subscribe`                 |
 | showSubNavigation  | boolean                            | true     | true     | Show the sub-navigation component which may include the crumbtrail             |
-| disableSticky      | boolean                            | true     | false    | Prevents the sticky header component from rendering                            |
+| showStickyHeader   | boolean                            | true     | true     | Enable rendering of the sticky header component                            |
+| showMegaNav        | boolean                            | true     | true     | Enable rendering of the drop-down "mega-nav"                            |
 | data               | object                             | false    |          | Navigation data for rendering the header links fetched from the navigation API |
 
 
@@ -111,3 +112,11 @@ To support a non-JS, or core experience, the drawer component should be rendered
 ### Sticky header
 
 If enabled the sticky header is shown when users scroll down on both small and large screens. It combines similar components to the [top](#top) and [navigation](#navigation) elements.
+
+### SVG logos
+
+These are SVG logos as React components, which can be imported for inclusion by other components.
+
+Rendering logos as SVGs allows them to be visible faster than as external images, so is an approach best applied to logos that need to be displayed as quickly as possible upon visiting a page.
+
+The React components are auto-generated using a script - `npm run build:svg-to-react` - which converts the source SVG file acquired from dev dependency `@financial-times/logo-images`.

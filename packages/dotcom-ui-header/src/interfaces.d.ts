@@ -6,7 +6,8 @@ export type THeaderOptions = {
   userIsLoggedIn?: boolean
   showSubNavigation?: boolean
   showUserNavigation?: boolean
-  disableSticky?: boolean
+  showStickyHeader?: boolean
+  showMegaNav?: boolean
 }
 
 export type THeaderProps = THeaderOptions & {
