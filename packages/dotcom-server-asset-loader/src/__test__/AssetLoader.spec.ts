@@ -55,47 +55,6 @@ describe('dotcom-server-asset-loader/src/AssetLoader', () => {
     })
   })
 
-
-
-  describe('.matchAssets()', () => {
-    it('returns an array of matching file names from the manifest', () => {
-      const a = loader.matchAssets(/main/)
-      expect(a).toEqual(['main.js'])
-
-      const b = loader.matchAssets('main')
-      expect(b).toEqual(['main.js'])
-
-      const c = loader.matchAssets((filename) => filename === 'main.js')
-      expect(c).toEqual(['main.js'])
-    })
-  })
-
-  describe('.getHashedAssetsMatching(pattern)', () => {
-    it('returns an array of matching hashed file names from the manifest', () => {
-      const a = loader.getHashedAssetsMatching(/main/)
-      expect(a).toEqual(['main.12345.bundle.js'])
-
-      const b = loader.getHashedAssetsMatching('main')
-      expect(b).toEqual(['main.12345.bundle.js'])
-
-      const c = loader.getHashedAssetsMatching((filename) => filename === 'main.js')
-      expect(c).toEqual(['main.12345.bundle.js'])
-    })
-  })
-
-  describe('getPublicURLOfHashedAssetsMatching(pattern', () => {
-    it('returns the public urls of hashed assets whose entry file name matches the supplied pattern', () => {
-      const a = loader.getPublicURLOfHashedAssetsMatching(/main/)
-      expect(a).toEqual(['/public/assets/main.12345.bundle.js'])
-
-      const b = loader.getPublicURLOfHashedAssetsMatching('main')
-      expect(b).toEqual(['/public/assets/main.12345.bundle.js'])
-
-      const c = loader.getPublicURLOfHashedAssetsMatching((filename) => filename === 'main.js')
-      expect(c).toEqual(['/public/assets/main.12345.bundle.js'])
-    })
-  })
-
   describe('.getFileSystemPath()', () => {
     it('returns the file system path for the requested file', () => {
       const result = loader.getFileSystemPath('styles.css')

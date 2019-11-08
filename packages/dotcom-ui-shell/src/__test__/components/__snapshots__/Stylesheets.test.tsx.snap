@@ -1,5 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`dotcom-ui-shell/src/components/StyleSheets renders JavaScript for adding asyncronous stylesheets if appropriate 1`] = `
+Array [
+  <noscript>
+    <link
+      href="path/to/async-styles.css"
+      rel="stylesheet"
+    />
+  </noscript>,
+  <script
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "(function loadAsyncStylesheets() {
+    var currentScript = document.scripts[document.scripts.length - 1];
+    var stylesheets = currentScript.getAttribute('data-stylesheets').split(',');
+    for (var i = 0, len = stylesheets.length; i < len; i++) {
+        var link = document.createElement('link');
+        link.href = stylesheets[i];
+        link.rel = 'stylesheet';
+        link.media = 'print'; // <-- 'print' is intentional; on load, it changes to 'all'.
+        link.onload = function (event) {
+            var target = event.target;
+            target.media = 'all';
+        };
+        currentScript.parentNode.insertBefore(link, currentScript);
+    }
+})()",
+      }
+    }
+    data-stylesheets="path/to/async-styles.css"
+  />,
+]
+`;
+
 exports[`dotcom-ui-shell/src/components/StyleSheets renders the given stylesheets and critical styles 1`] = `
 Array [
   <style

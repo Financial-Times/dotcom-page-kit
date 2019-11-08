@@ -66,28 +66,6 @@ export class AssetLoader {
       loadManifest(path.resolve(this.options.fileSystemPath, this.options.manifestFileName))
   }
 
-  matchAssets(pattern: string | RegExp | Function): string[] {
-    return Object.keys(this.manifest).reduce((matches: string[], key: string) => {
-      if (typeof pattern === 'string' && key.includes(pattern)) {
-        matches.push(key)
-      }
-
-      if (pattern instanceof RegExp && pattern.test(key)) {
-        matches.push(key)
-      }
-
-      if (pattern instanceof Function && pattern(key)) {
-        matches.push(key)
-      }
-
-      return matches
-    }, [])
-  }
-
-  getHashedAssetsMatching(pattern: string | RegExp | Function): string[] {
-    return this.matchAssets(pattern).map((asset) => this.getHashedAsset(asset))
-  }
-
   getHashedAsset(asset: string): string {
     if (this.manifest.hasOwnProperty(asset)) {
       return this.manifest[asset]
@@ -106,10 +84,6 @@ export class AssetLoader {
 
   getPublicURL(asset: string): string {
     return this.formatPublicURL(this.getHashedAsset(asset))
-  }
-
-  getPublicURLOfHashedAssetsMatching(pattern: string | RegExp | Function): string[] {
-    return this.matchAssets(pattern).map((asset) => this.getPublicURL(asset))
   }
 
   //

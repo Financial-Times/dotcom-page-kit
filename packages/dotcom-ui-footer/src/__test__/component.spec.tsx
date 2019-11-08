@@ -1,0 +1,64 @@
+/**
+ * @jest-environment jsdom
+ */
+import React from 'react'
+import Enzyme, { mount } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
+import 'jest-enzyme'
+
+Enzyme.configure({ adapter: new Adapter() })
+
+import dataFixture from '../__stories__/story-data'
+import { Footer, LegalFooter } from '../index'
+
+describe('dotcom-ui-footer', () => {
+  const footer = mount(<Footer {...dataFixture} />)
+  const legalFooter = mount(<LegalFooter {...dataFixture} />)
+
+  it('renders the available footer variants', () => {
+    expect(footer).not.toBeEmptyRender()
+    expect(legalFooter).not.toBeEmptyRender()
+  })
+
+  it('renders the copyright section', () => {
+    expect(footer.find('.o-footer__copyright')).toExist()
+    expect(legalFooter.find('.o-footer__copyright')).toExist()
+  })
+
+  it('renders the Nikkei banner', () => {
+    expect(footer.find('.o-footer__copyright')).toExist()
+    expect(legalFooter.find('.o-footer__brand-logo')).toExist()
+  })
+
+  describe('standard footer', () => {
+    it('renders the navigation sections', () => {
+      expect(footer).not.toBeEmptyRender()
+      expect(footer.find('.o-footer__matrix')).toIncludeText('Support')
+      expect(footer.find('.o-footer__matrix')).toIncludeText('Legal & Privacy')
+      expect(footer.find('.o-footer__matrix')).toIncludeText('Services')
+      expect(footer.find('.o-footer__matrix')).toIncludeText('Tools')
+    })
+
+    it('does not render the legal links section', () => {
+      expect(footer.find('.o-footer__legal-links')).not.toExist()
+    })
+
+    it('renders the More from FT section', () => {
+      expect(footer.find('.o-footer__more-from-ft')).toExist()
+    })
+  })
+
+  describe('legal footer', () => {
+    it('does not render the navigation sections', () => {
+      expect(legalFooter.find('.o-footer__matrix')).not.toExist()
+    })
+
+    it('renders the legal links section', () => {
+      expect(legalFooter.find('.o-footer__legal-links')).toExist()
+    })
+
+    it('does not render the More from FT section', () => {
+      expect(legalFooter.find('.o-footer__more-from-ft')).not.toExist()
+    })
+  })
+})

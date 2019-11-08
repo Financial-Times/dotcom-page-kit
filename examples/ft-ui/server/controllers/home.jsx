@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/server'
 import { Shell } from '@financial-times/dotcom-ui-shell'
 import { Layout } from '@financial-times/dotcom-ui-layout'
 
-export function homeController(_, response, next) {
+export function homeController(request, response, next) {
   const appContext = {
     appName: 'ft-ui',
     edition: response.locals.navigation.editions.current.id
@@ -21,8 +21,13 @@ export function homeController(_, response, next) {
     appContext: appContext
   }
 
+  const userIsLoggedIn = request.query.userIsLoggedIn
+
   const layoutProps = {
-    navigationData: response.locals.navigation
+    navigationData: response.locals.navigation,
+    headerOptions: userIsLoggedIn
+      ? { userIsAnonymous: false, userIsLoggedIn: true }
+      : { userIsAnonymous: true, userIsLoggedIn: false }
   }
 
   try {
