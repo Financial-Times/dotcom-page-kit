@@ -67,6 +67,12 @@ export function Layout({
    */
   const Preset = getLayoutPreset(header, footer)
 
+  let drawer = null
+
+  if (header === Header) {
+    drawer = <Drawer {...headerOptions} data={navigationData} />
+  }
+
   return (
     <div
       className="n-layout o-typography--loading-sans o-typography--loading-sansBold o-typography--loading-display o-typography--loading-displayBold"
@@ -105,7 +111,7 @@ export function Layout({
       </div>
 
       {/* Always render the drawer if there is a default header being used */}
-      {Preset.header && <Drawer {...headerOptions} data={navigationData} />}
+      {drawer}
     </div>
   )
 }
