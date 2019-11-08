@@ -104,8 +104,9 @@ export function Layout({
         <Template className="n-layout__footer-after">{footerAfter}</Template>
       </div>
 
-      {/* Always render the drawer if there is a default header being used */}
-      {Preset.header && <Drawer {...headerOptions} data={navigationData} />}
+      {(header === 'large-logo' || header === 'simple') && (
+        <Drawer {...headerOptions} data={navigationData} />
+      )}
     </div>
   )
 }
