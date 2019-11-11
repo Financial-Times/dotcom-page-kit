@@ -23,13 +23,13 @@ enum Footers {
 }
 
 export type TLayoutProps = {
-  navigationData: TNavigationData
-  headerOptions: THeaderOptions
+  navigationData?: TNavigationData
+  headerOptions?: THeaderOptions
   headerBefore?: string | React.ReactNode
   headerVariant?: Headers | false
   headerComponent?: React.ReactNode
   headerAfter?: string | React.ReactNode
-  footerOptions: TFooterOptions
+  footerOptions?: TFooterOptions
   footerBefore?: string | React.ReactNode
   footerVariant?: Footers | false
   footerComponent?: React.ReactNode
@@ -129,5 +129,6 @@ Layout.defaultProps = {
   headerVariant: 'simple',
   footerVariant: 'simple',
   headerOptions: {},
-  footerOptions: {}
+  footerOptions: {},
+  navigationData: {}
 }
