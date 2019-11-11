@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.2
+
+- Layout UI component: fixed output of header drawer component when an incompatible header is used
+
 ## 0.3.1
 
 - Asset loader: fixed URL path concatenation to avoid double slashes
