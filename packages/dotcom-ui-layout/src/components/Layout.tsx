@@ -61,10 +61,15 @@ export function Layout({
   contents
 }: TLayoutProps) {
   let header = null
+  let drawer = null
 
   if (headerVariant && Headers[headerVariant] && !headerComponent) {
     const Header = Headers[headerVariant]
     header = <Header {...headerOptions} data={navigationData} variant={headerVariant} />
+
+    if (Header === HeaderSimple || Header === HeaderLarge) {
+      drawer = <Drawer {...headerOptions} data={navigationData} />
+    }
   }
 
   let footer = null
@@ -85,34 +90,37 @@ export function Layout({
         href="https://www.ft.com/accessibility">
         Accessibility help
       </a>
-      <a data-trackable="a11y-skip-to-navigation" className="n-layout__skip-link" href="#site-navigation">
-        Skip to navigation
-      </a>
+
+      {drawer ? (
+        <a data-trackable="a11y-skip-to-navigation" className="n-layout__skip-link" href="#site-navigation">
+          Skip to navigation
+        </a>
+      ) : null}
+
       <a data-trackable="a11y-skip-to-content" className="n-layout__skip-link" href="#site-content">
         Skip to content
       </a>
-      <a data-trackable="a11y-skip-to-footer" className="n-layout__skip-link" href="#site-footer">
-        Skip to footer
-      </a>
+
+      {footer ? (
+        <a data-trackable="a11y-skip-to-footer" className="n-layout__skip-link" href="#site-footer">
+          Skip to footer
+        </a>
+      ) : null}
 
       <div className="n-layout__row n-layout__row--header">
         <Template className="n-layout__header-before">{headerBefore}</Template>
         {headerComponent || header || null}
         <Template className="n-layout__header-after">{headerAfter}</Template>
       </div>
-
       <div className="n-layout__row n-layout__row--content">
         <Template>{contents || children}</Template>
       </div>
-
       <div className="n-layout__row n-layout__row--footer">
         <Template className="n-layout__footer-before">{footerBefore}</Template>
         {footerComponent || footer || null}
         <Template className="n-layout__footer-after">{footerAfter}</Template>
       </div>
-
-      {/* Always render the drawer if there is a default header being used */}
-      {header && <Drawer {...headerOptions} data={navigationData} />}
+      {drawer}
     </div>
   )
 }
