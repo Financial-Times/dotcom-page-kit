@@ -126,9 +126,9 @@ export function Layout({
 }
 
 Layout.defaultProps = {
+  navigationData: {},
   headerVariant: 'simple',
   footerVariant: 'simple',
   headerOptions: {},
-  footerOptions: {},
-  navigationData: {}
+  footerOptions: {}
 }
