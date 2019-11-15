@@ -18,7 +18,6 @@
     "build:svg-to-react": "node scripts/convertSvgsToReactComponents.js",
     "dev": "npm run build:node -- --watch"
   },
-  "style": "./src/components/drawer/drawer.scss",
   "keywords": [],
   "author": "",
   "license": "MIT",
