@@ -13,7 +13,8 @@ module.exports = {
     build: {
       entry: {
         scripts: './client/main.js',
-        styles: './client/main.scss'
+        styles: './client/main.scss',
+        shared: require.resolve('@financial-times/dotcom-ui-layout/styles.scss')
       },
       outputPath: path.resolve('./public')
     }
