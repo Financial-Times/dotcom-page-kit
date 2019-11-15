@@ -2,7 +2,8 @@
   "name": "dotcom-ui-header",
   "dependencies": {
     "o-header": "^7.7.0",
-    "n-topic-search": "^1.1.0"
+    "n-topic-search": "^1.1.0",
+    "n-ui-foundations": "^3.2.0"
   },
   "main": ["browser.js", "styles.scss"]
 }
