@@ -18,3 +18,36 @@
 @mixin nUiStylesheetEnd($name) {
 	/*! end:#{$name}.css*/
 }
+
+// Base unit to standardize spacing
+// Decide where it's gonna live later
+$spacing-unit: 20px;
+
+$o-assets-global-path: 'https://www.ft.com/__origami/service/build/v2/files/';
+
+// Primitives
+@import 'colors/main';
+@import 'grid/main';
+//BREAKING CHANGE: $apply-width-height removed (unused)
+//BREAKING CHANGE: $apply-base-styles removed (unused)
+@import 'images/main';
+@import 'typography/main';
+@import 'util/main';
+@import 'o-normalise/main';
+@import 'o-visual-effects/main';
+
+@mixin nUiFoundations {
+	//BREAKING CHANGE: HTML data attribute [hide] -> [n-ui-hide]
+
+	// We have to use the o- mixins here (rather than have silent mode off)
+	// because of the way our critical CSS approach works
+	@include oNormaliseHTML($box-sizing: false);
+	@include oNormaliseLinks;
+	@include oNormaliseText;
+	@include oNormaliseImages;
+	@include oNormaliseForms;
+
+	@include nUiGrid;
+	@include nUiTypography;
+	@include nUiUtil;
+}
