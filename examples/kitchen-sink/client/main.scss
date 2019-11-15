@@ -2,11 +2,6 @@
 // only include the required mixins and variables.
 @import 'n-ui-foundations/mixins';
 
-.core .o--if-js,
-.enhanced .o--if-no-js {
-  display: none !important;
-}
-
 .hello {
   @include oTypographySans($scale: 7);
 }
