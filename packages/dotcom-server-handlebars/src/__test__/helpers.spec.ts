@@ -207,7 +207,7 @@ describe('dotcom-server-handlebars/src/helpers', () => {
     })
 
     describe('#buildLink', () => {
-      const url = 'https://ft.com/somePath'
+      const url = 'https://ft.com/some-path'
       const queryParams = {
         foo: 'bar',
         baz: 'qux'
@@ -216,7 +216,7 @@ describe('dotcom-server-handlebars/src/helpers', () => {
       it('correctly generates links', () => {
         const template = compile('{{buildLink url queryParams}}')
         const result = template({ url, queryParams }, { helpers })
-        expect(result).toBe('https://ft.com/somePath?foo&#x3D;bar&amp;baz&#x3D;qux')
+        expect(result).toBe('https://ft.com/some-path?foo&#x3D;bar&amp;baz&#x3D;qux')
       })
 
       it('returns an empty string if no URL or query params are provided', () => {
@@ -235,7 +235,7 @@ describe('dotcom-server-handlebars/src/helpers', () => {
         const urlWithParam = `${url}?baz=new`
         const template = compile('{{buildLink urlWithParam queryParams}}')
         const result = template({ urlWithParam, queryParams }, { helpers })
-        expect(result).toBe('https://ft.com/somePath?baz&#x3D;qux&amp;foo&#x3D;bar')
+        expect(result).toBe('https://ft.com/some-path?baz&#x3D;qux&amp;foo&#x3D;bar')
       })
     })
 
