@@ -3,39 +3,6 @@ import * as helpers from '../helpers'
 
 describe('dotcom-server-handlebars/src/helpers', () => {
   describe('block helpers', () => {
-    describe('#buildLink', () => {
-      const url = 'https://ft.com/somePath'
-      const queryParams = {
-        foo: 'bar',
-        baz: 'qux'
-      }
-
-      it('correctly generates links', () => {
-        const template = compile('{{buildLink url queryParams}}')
-        const result = template({ url, queryParams }, { helpers })
-        expect(result).toBe('https://ft.com/somePath?foo&#x3D;bar&amp;baz&#x3D;qux')
-      })
-
-      it('returns an empty string if no URL or query params are provided', () => {
-        const template = compile('{{buildLink url queryParams}}')
-        const result = template({}, { helpers })
-        expect(result).toBe('')
-      })
-
-      it('generates links using the URL alone if no query params are provided', () => {
-        const template = compile('{{buildLink url queryParams}}')
-        const result = template({ url }, { helpers })
-        expect(result).toBe(url)
-      })
-
-      it('does not generate link with duplicate query params', () => {
-        const urlWithParam = `${url}?baz=new`
-        const template = compile('{{buildLink urlWithParam queryParams}}')
-        const result = template({ urlWithParam, queryParams }, { helpers })
-        expect(result).toBe('https://ft.com/somePath?baz&#x3D;qux&amp;foo&#x3D;bar')
-      })
-    })
-
     describe('#capture', () => {
       it('captures the string and assigns it to a variable', () => {
         const template = compile('{{#capture "myOutput"}}Hello, World!{{/capture}}')
@@ -236,6 +203,39 @@ describe('dotcom-server-handlebars/src/helpers', () => {
       it('throws if the incorrect number of parameters are provided', () => {
         const template = compile('{{array}}')
         expect(() => template({}, { helpers })).toThrow()
+      })
+    })
+
+    describe('#buildLink', () => {
+      const url = 'https://ft.com/somePath'
+      const queryParams = {
+        foo: 'bar',
+        baz: 'qux'
+      }
+
+      it('correctly generates links', () => {
+        const template = compile('{{buildLink url queryParams}}')
+        const result = template({ url, queryParams }, { helpers })
+        expect(result).toBe('https://ft.com/somePath?foo&#x3D;bar&amp;baz&#x3D;qux')
+      })
+
+      it('returns an empty string if no URL or query params are provided', () => {
+        const template = compile('{{buildLink url queryParams}}')
+        const result = template({}, { helpers })
+        expect(result).toBe('')
+      })
+
+      it('generates links using the URL alone if no query params are provided', () => {
+        const template = compile('{{buildLink url queryParams}}')
+        const result = template({ url }, { helpers })
+        expect(result).toBe(url)
+      })
+
+      it('does not generate link with duplicate query params', () => {
+        const urlWithParam = `${url}?baz=new`
+        const template = compile('{{buildLink urlWithParam queryParams}}')
+        const result = template({ urlWithParam, queryParams }, { helpers })
+        expect(result).toBe('https://ft.com/somePath?baz&#x3D;qux&amp;foo&#x3D;bar')
       })
     })
 
