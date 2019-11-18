@@ -158,6 +158,17 @@ Example:
 {{>partial parameter=(array foo bar baz)}}
 ```
 
+### buildLink
+
+Returns a URL (from `url` parameter) with optional query params (from `queryParams` object parameter).
+
+Example:
+
+```hbs
+'{{buildLink url queryParams}}'
+{{>partial parameter=(buildLink url queryParams)}}
+```
+
 ### concat
 
 Concatenates multiple parameters into a single string.
