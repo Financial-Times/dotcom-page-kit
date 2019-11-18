@@ -6,14 +6,14 @@ describe('dotcom-server-handlebars/src/helpers', () => {
     describe('#buildLink', () => {
       const url = 'https://ft.com/somePath'
       const queryParams = {
-        cpccampaign: 'test',
-        something: 'else'
+        foo: 'bar',
+        baz: 'qux'
       }
 
       it('correctly generates links', () => {
         const template = compile('{{buildLink url queryParams}}')
         const result = template({ url, queryParams }, { helpers })
-        expect(result).toBe('https://ft.com/somePath?cpccampaign&#x3D;test&amp;something&#x3D;else')
+        expect(result).toBe('https://ft.com/somePath?foo&#x3D;bar&amp;baz&#x3D;qux')
       })
 
       it('returns an empty string if no URL or query params are provided', () => {
@@ -29,10 +29,10 @@ describe('dotcom-server-handlebars/src/helpers', () => {
       })
 
       it('does not generate link with duplicate query params', () => {
-        const urlWithParam = `${url}?something=new`
+        const urlWithParam = `${url}?baz=new`
         const template = compile('{{buildLink urlWithParam queryParams}}')
         const result = template({ urlWithParam, queryParams }, { helpers })
-        expect(result).toBe('https://ft.com/somePath?something&#x3D;else&amp;cpccampaign&#x3D;test')
+        expect(result).toBe('https://ft.com/somePath?baz&#x3D;qux&amp;foo&#x3D;bar')
       })
     })
 
