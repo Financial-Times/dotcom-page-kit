@@ -128,9 +128,9 @@ export function plugin({ includePaths }: TPluginOptions = {}) {
 
   function getCssLoaderOptions() {
     return {
-      // Disable Webpack from resolving @import because Sass should
-      // have already resolved and concatenated these files.
-      import: false,
+      // Allow css-loader to resolve @import because the sass-loader
+      // does not successfully resolve files with a .css extension.
+      import: true,
       // Disable Webpack from resolving url() because we do not
       // currently use this functionality.
       url: false
