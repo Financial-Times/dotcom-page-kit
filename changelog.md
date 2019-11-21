@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.3.5
+
+- Handlebars package: Add `'views'` folder name to default partial view glob
+
+## 0.3.4
+
+- Sass build plugin: Updates `cssLoaderOptions` to enable `@import` to include CSS files
+
+## 0.3.3 ❌
+
+Please do not use this version, we accidentally included some breaking changes intended for the v0.4.0 release. Upgrade from v0.3.2 directly to v0.3.4.
+
 ## 0.3.2
 
 - Layout UI component: fixed output of header drawer component when an incompatible header is used
