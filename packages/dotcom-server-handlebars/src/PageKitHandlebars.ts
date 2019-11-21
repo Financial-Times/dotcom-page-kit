@@ -56,7 +56,7 @@ const defaultOptions: TPageKitHandlebarsOptions = {
   partialPaths: {
     './views/partials': '**/*.{hbs,html}',
     './bower_components': '*/{templates,components,partials}/**/*.{hbs,html}',
-    './node_modules/@financial-times': '*/{templates,components,partials}/**/*.{hbs,html}'
+    './node_modules/@financial-times': '*/{templates,components,partials,views}/**/*.{hbs,html}'
   }
 }
 
