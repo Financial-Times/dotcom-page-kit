@@ -37,6 +37,8 @@ page-kit --help
 
 This action can be used to assemble the static assets for your application using Webpack. By default this action includes only a barebones Webpack configuration to bundle JavaScript source code but this can be extended via plugins to add additional functionality.
 
+The action also creates a `manifest.json` (the file name is default but can be [configured](#Manifest-file-name)). It includes the hashed output names for the generated `.js` and `.css` chunks
+
 #### Options
 
 ##### Entry points
@@ -93,7 +95,7 @@ Files will be created using the pattern `[name].js` in development mode and `[na
 
 ##### Manifest file name
 
-The name of the generated manifest file can be changed via the configuration file. The default file name is `"manifest.json"`.
+The generated manifest file details the hashed output names for the emitted `.js` and `.css` chunks. The file name can be changed via the configuration file. The default file name is `"manifest.json"`.
 
 Usage via configuration file:
 
@@ -132,7 +134,7 @@ module.exports = {
 
 ##### Development and production modes
 
-In production mode the generated output will be optimised, file names hashed, and full source maps generated. Production mode is the default.
+In production mode the generated output will be optimised, file names hashed, and full source maps, gzip and brotli compressed assets generated. Production mode is the default.
 
 To enable development mode you can use the `--development` CLI flag. This will disable several optimisations in favour of providing faster builds and rebuilds. See the [Webpack mode documentation] for further information about modes.
 
@@ -161,13 +163,21 @@ import { hooks } from '@financial-times/dotcom-page-kit-cli'
 
 _Please note: The hooks below are listed in the order they will be executed._
 
-##### `WEBPACK_MANIFEST_PLUGIN_OPTIONS`
-
-Configuration options for the [assets manifest plugin](https://github.com/webdeveric/webpack-assets-manifest).
-
 ##### `WEBPACK_CLEAN_PLUGIN_OPTIONS`
 
 Configuration options for the [clean plugin](https://github.com/johnagan/clean-webpack-plugin).
+
+##### `WEBPACK_COMPRESSION_PLUGIN_OPTIONS`
+
+Configuration options for the [compression plugin](https://github.com/webpack-contrib/compression-webpack-plugin)
+
+##### `WEBPACK_BROTLI_PLUGIN_OPTIONS`
+
+Configuration options for the [brotli compression plugin](https://github.com/mynameiswhm/brotli-webpack-plugin)
+
+##### `WEBPACK_MANIFEST_PLUGIN_OPTIONS`
+
+Configuration options for the [assets manifest plugin](https://github.com/webdeveric/webpack-assets-manifest) which provides the compilation entrypoints for each bundle by asset type e.g. `scripts` and `styles`.
 
 ##### `BABEL_CONFIG`
 
