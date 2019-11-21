@@ -17,7 +17,7 @@ module.exports = {
         scripts: './client/main.js',
         styles: './client/main.scss',
         async: './client/async.scss',
-        shared: require.resolve('@financial-times/dotcom-ui-layout/styles.scss')
+        'page-kit-layout-styles': require.resolve('@financial-times/dotcom-ui-layout/styles.scss')
       },
       outputPath: path.resolve('./public')
     }

@@ -9,7 +9,7 @@ module.exports = (_, response, next) => {
     const flags = { ads: true, tracking: true }
     const { appContext, assets } = response.locals
     const styleBundles = [
-      ...assets.loader.getStylesheetURLsFor('shared'),
+      ...assets.loader.getStylesheetURLsFor('page-kit-layout-styles'),
       ...assets.loader.getStylesheetURLsFor('styles')
     ]
     const asyncStyleBundles = assets.loader.getStylesheetURLsFor('async')
