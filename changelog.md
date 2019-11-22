@@ -1,5 +1,39 @@
 # Changelog
 
+## 0.4.0
+
+- Page Kit CLI: added compression plugins to enable generation of compressed assets using the gzip and Brotli algorithms.
+- Asset loader: (_breaking change_) removed `match*` methods
+- Shell UI component: added `asyncStylesheets` prop to enable non-blocking stylesheet loading.
+- Shell UI component: added `manifestFile` prop to add a meta element linking to a web app manifest
+- Layout UI component: (_breaking change_) refactored the `header` prop into separate `headerVariant` and `headerComponent` props.
+- Layout UI component: (_breaking change_) refactored the `footer` prop into separate `footerVariant` and `footerComponent` props.
+- Layout UI component: we have updated our integration guide to encourage the styles for this component to be compiled separately.
+- Header UI component: (_breaking change_) renamed `disableSticky` prop to `showStickyHeader` for consistency
+- Header UI component: added `showMegaNav` prop to enable the mega nav to be disabled
+- Header UI component: refactored the logo as an inline SVG
+- Footer UI component: updated legal text to match `o-footer` demo
+- (_breaking change_) removed the unused CSS build package
+- (_breaking change_) removed the unused esnext build package
+
+Please refer to the [0.3.x to 0.4.x migration guide](https://github.com/Financial-Times/dotcom-page-kit/wiki/Upgrading-from-0.3.x-to-0.4.x) for more details.
+
+## 0.3.5
+
+- Handlebars package: Add `'views'` folder name to default partial view glob
+
+## 0.3.4
+
+- Sass build plugin: Updates `cssLoaderOptions` to enable `@import` to include CSS files
+
+## 0.3.3 ❌
+
+Please do not use this version, we accidentally included some breaking changes intended for the v0.4.0 release. Upgrade from v0.3.2 directly to v0.3.4.
+
+## 0.3.2
+
+- Layout UI component: fixed output of header drawer component when an incompatible header is used
+
 ## 0.3.1
 
 - Asset loader: fixed URL path concatenation to avoid double slashes
@@ -18,6 +52,9 @@
 - Shell UI component: (_breaking change_) renamed `context` prop to `appContext` to disambiguate
 - Shell UI component: updated the default `robots` prop to include new preview settings
 - Shell UI component: added Google Tag Manager initialisation scripts (behind the `enableGTM` flag)
+
+Please refer to the [0.2.x to 0.3.x migration guide](https://github.com/Financial-Times/dotcom-page-kit/wiki/Upgrading-from-0.2.x-to-0.3.x) for more details.
+
 
 ## 0.2.3
 
@@ -53,7 +90,7 @@
 
 ## 0.1.3
 
-- Build: fixed path-based chunk hashes resulting in files with the same contents having different names
+- Page Kit CLI: fixed path-based chunk hashes resulting in files with the same contents having different names
 
 ## 0.1.2
 
