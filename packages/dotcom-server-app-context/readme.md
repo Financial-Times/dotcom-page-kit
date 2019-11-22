@@ -48,7 +48,7 @@ Returns an immutable copy of the app context data.
 
 The `AppContext` class accepts the following parameters. All parameters are optional:
 
-### `context`
+### `appContext`
 
 An app context data object, see [app context data](#app-context-data) for more information. Defaults to `{}`.
 
