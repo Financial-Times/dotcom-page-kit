@@ -73,6 +73,10 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
       sizes="180x180"
     />
     <link
+      href="/__assets/creatives/manifest/manifest-v6.json"
+      rel="manifest"
+    />
+    <link
       href="https://spoor-api.ft.com"
       rel="preconnect"
     />

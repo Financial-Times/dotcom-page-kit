@@ -7,11 +7,14 @@ describe('examples/ft-ui', () => {
   describe('Header link elements', () => {
     it('renders the expected loggin-in user Header link elements', async () => {
       await expect(page).toMatchElement('.o-header__top-column--right a[href="/myft"]', { text: 'myFT' })
-      await expect(page).toMatchElement(
-        '.o-header__nav-list--right a[href="https://myaccount.ft.com/details/core/view"]',
-        { text: 'Account Settings' }
-      )
-      await expect(page).toMatchElement(
+      await expect(
+        page
+      ).toMatchElement('.o-header__nav-list--right a[href="https://myaccount.ft.com/details/core/view"]', {
+        text: 'Account Settings'
+      })
+      await expect(
+        page
+      ).toMatchElement(
         '.o-header__nav-list--right a[href="https://markets.ft.com/data/portfolio/dashboard"]',
         { text: 'Portfolio' }
       )

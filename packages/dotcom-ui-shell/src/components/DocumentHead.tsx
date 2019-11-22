@@ -14,6 +14,7 @@ export type TDocumentHeadProps = TOpenGraphProps &
     siteTitle?: string
     twitterSite?: string
     canonicalURL?: string
+    manifestFile?: string
     additionalMetadata?: React.ReactNode
   }
 
@@ -61,6 +62,8 @@ const DocumentHead = (props: TDocumentHeadProps) => (
       sizes="180x180"
     />
 
+    {props.manifestFile ? <link rel="manifest" href={props.manifestFile} /> : null}
+
     {/* We can't add an option for every single metadata option so allow custom elements to be inserted*/}
     {props.additionalMetadata}
   </React.Fragment>
@@ -76,6 +79,7 @@ DocumentHead.defaultProps = {
   robots: 'index,follow,max-snippet:200,max-image-preview:large',
   siteTitle: 'Financial Times',
   twitterSite: '@FinancialTimes',
+  manifestFile: '/__assets/creatives/manifest/manifest-v6.json',
   additionalMetadata: null
 }
 

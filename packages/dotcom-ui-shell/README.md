@@ -187,6 +187,10 @@ An optional array of [JSON-LD] objects to be serialised and embedded in the page
 
 An optional key which can be added to the page to validate access to the [Google Search Console](https://search.google.com/search-console/about).
 
+#### `manifestFile` (string)
+
+An optional URL to a [web app manifest file](https://developers.google.com/web/fundamentals/web-app-manifest/). Defaults to `"/__assets/creatives/manifest/manifest-v6.json"`.
+
 #### `additionalMetadata` (ReactNode)
 
 An optional property to insert additional metadata elements into the document `<head>`. This should only be used as a last-resort when you need to add information to the page which is not covered by any other option.
