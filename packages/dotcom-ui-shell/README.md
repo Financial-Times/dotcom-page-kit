@@ -80,13 +80,13 @@ This component supports critical CSS styles, normal (blocking) stylesheets and a
 
 [kitchen-sink-example]: ../../examples/kitchen-sink/readme.md
 
-There are three ways to include your app's CSS styles. Each option affects page-load performance. 
+There are three ways to include your app's CSS styles. Each option affects page-load performance.
 
 #### 1. Critical
 
 CSS styles that load as part of the webpage HTML (inside a `<style>` tag) and which render before all other styles. These are for displaying instant results such as background colour, font colour and fallback (browser-friendly) fonts.
 
-Page Kit is optimised for browser caching; that is, it's preferable to use linked stylesheets (which different web pages can load from cache) rather than inserting CSS directly into the HTML (which _can't_ be used by other web pages). 
+Page Kit is optimised for browser caching; that is, it's preferable to use linked stylesheets (which different web pages can load from cache) rather than inserting CSS directly into the HTML (which _can't_ be used by other web pages).
 
 #### 2. Blocking
 
@@ -186,6 +186,10 @@ An optional array of [JSON-LD] objects to be serialised and embedded in the page
 #### `googleSiteVerification` (string)
 
 An optional key which can be added to the page to validate access to the [Google Search Console](https://search.google.com/search-console/about).
+
+#### `manifestFile` (string)
+
+An optional URL to a [web app manifest file](https://developers.google.com/web/fundamentals/web-app-manifest/). Defaults to `"/__assets/creatives/manifest/manifest-v6.json"`.
 
 #### `additionalMetadata` (ReactNode)
 
