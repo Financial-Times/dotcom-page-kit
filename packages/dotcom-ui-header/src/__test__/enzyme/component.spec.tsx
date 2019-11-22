@@ -1,12 +1,9 @@
 /**
  * @jest-environment jsdom
  */
+import './setup'
 import React from 'react'
-import Enzyme, { mount } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-16'
-import 'jest-enzyme'
-
-Enzyme.configure({ adapter: new Adapter() })
+import { mount } from 'enzyme'
 
 import dataFixture from '../../__stories__/story-data/index'
 import { Header } from '../../index'
