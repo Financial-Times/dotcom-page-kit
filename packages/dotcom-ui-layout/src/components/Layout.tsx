@@ -120,6 +120,7 @@ export function Layout({
         {footerComponent || footer || null}
         <Template className="n-layout__footer-after">{footerAfter}</Template>
       </div>
+
       {drawer}
     </div>
   )
