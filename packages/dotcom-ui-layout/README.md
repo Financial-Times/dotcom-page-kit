@@ -10,7 +10,7 @@ This package is compatible with Node 8+ and is distributed on npm.
 npm install --save @financial-times/dotcom-ui-layout
 ```
 
-After installing the package you can use it to wrap your application views and pages. The layout includes all shared UI elements so you can focus on the contents of your pages.
+After installing the package you can use it to wrap your application views and pages. The layout includes the global UI elements so you can focus on the contents of your pages.
 
 ### Usage with React
 

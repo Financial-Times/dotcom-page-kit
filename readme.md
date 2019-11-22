@@ -27,7 +27,7 @@ Page Kit provides a CLI tool built upon Webpack and Babel which is capable of [t
 
 ### 2. Server-side rendering
 
-Page Kit includes several packages which are designed to help assemble and render a Web page. This includes packages for template rendering, utilities to find and load client-side assets, and fetch data needed to render the shared UI components.
+Page Kit includes several packages which are designed to help assemble and render a Web page. This includes packages for template rendering, utilities to find and load client-side assets, and fetch data needed to render the global UI components.
 
 ### 3. Client-side bootstrapping
 
@@ -37,9 +37,9 @@ Page Kit has packages to help make fast loading websites which include all of th
 [Open Graph]: http://ogp.me/
 [Linked Data]: https://json-ld.org/
 
-### 4. Shared UI components
+### 4. Global UI components
 
-Page Kit includes a set of packages which provide the markup, behaviour, and styles for rendering shared interface components such as the FT.com header, navigation, and footer.
+Page Kit includes a set of packages which provide the markup, behaviour, and styles for rendering global interface components such as the FT.com header, navigation, and footer.
 
 
 ## Getting started
@@ -124,7 +124,7 @@ The Storybook interface should then open in your default browser. Storybook has 
 
 ### Why are you doing this?
 
-All of the user facing applications that together make up FT.com use a package called [`n-ui`]. This package currently provides:- tools to build and load client-side code; client-side bootstrapping; template loading and configuration; shared header, footer, and layout UI; navigation menu data; tracking and analytics setup; ads configuration; global messaging components; and more! Although we rely on this module heavily it is not well understood by the current team and is tightly coupled to technical decisions that were made several years ago.
+All of the user facing applications that together make up FT.com use a package called [`n-ui`]. This package currently provides:- tools to build and load client-side code; client-side bootstrapping; template loading and configuration; global header, footer, and layout UI; navigation menu data; tracking and analytics setup; ads configuration; global messaging components; and more! Although we rely on this module heavily it is not well understood by the current team and is tightly coupled to technical decisions that were made several years ago.
 
 Page Kit splits all of this functionality into a set of loosely coupled, individually documented, and tested packages. The aim is to provide a flexible foundation which teams can build upon rather than prescribing a whole solution.
 
