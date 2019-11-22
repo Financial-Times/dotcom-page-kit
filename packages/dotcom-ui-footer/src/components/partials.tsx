@@ -93,7 +93,7 @@ const CopyrightNotice = ({ withoutMarketsData = false }) => {
   return (
     <div className="o-footer__copyright" role="contentinfo">
       <small>
-        {`${marketsData} © The Financial Times Ltd., `}
+        {`${marketsData} © THE FINANCIAL TIMES LTD. `}
         <abbr title="Financial Times" aria-label="F T">
           FT
         </abbr>{' '}
