@@ -3,3 +3,4 @@ node_modules
 .eslintrc.js
 .editorconfig
 .stylelintrc
+test/styles.css

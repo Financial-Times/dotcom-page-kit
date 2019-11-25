@@ -10,17 +10,17 @@
     "tests"
   ],
   "dependencies": {
-    "ftdomdelegate": "^3.0.0",
-    "o-buttons": ">=4.0.0 <6",
-    "o-colors": "^4.0.1",
-    "o-date": ">=2.14.0 <4",
-    "o-grid": "^4.4.4",
-    "o-icons": ">=4.0.0 <6",
-    "o-normalise": "^1.4.2",
-    "o-typography": "^5.0.3",
-    "o-viewport": "^3.1.0",
-    "o-visual-effects": "^2.0.0",
-    "o-utils": "^1.0.3",
+    "ftdomdelegate": "^4.0.0",
+    "o-buttons": "^6.0.2",
+    "o-colors": "^5.0.2",
+    "o-fonts": "^4.0.0",
+    "o-grid": "^5.0.0",
+    "o-icons": "^6.0.0",
+    "o-normalise": "^2.0.0",
+    "o-typography": "^6.0.0",
+    "o-viewport": "^4.0.0",
+    "o-visual-effects": "^3.0.0",
+    "o-utils": "^1.1.0",
     "superstore": "^2.1.0",
     "superstore-sync": "^2.1.1"
   }

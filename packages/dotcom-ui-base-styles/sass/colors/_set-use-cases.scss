@@ -1,58 +1,25 @@
-@include oColorsSetColor('fastft-brand', #cf191d);
-@include oColorsSetColor('fastft-highlight', #f5dfd9);
-
-// Article theme colors
-@include oColorsSetUseCase(article-standard, border, 'black-80');
-@include oColorsSetUseCase(article-standard, text, 'black-80');
-@include oColorsSetUseCase(article-standard, background, 'black-80');
-@include oColorsSetUseCase(article-analysis, border, 'black-80');
-@include oColorsSetUseCase(article-analysis, text, 'black-80');
-@include oColorsSetUseCase(article-analysis, background, 'black-80');
-@include oColorsSetUseCase(article-comment, border, 'oxford-30');
-@include oColorsSetUseCase(article-comment, text, 'oxford-30');
-@include oColorsSetUseCase(article-comment, background, 'oxford-30');
-@include oColorsSetUseCase(article-lifestyle, border, 'velvet');
-@include oColorsSetUseCase(article-lifestyle, text, 'velvet');
-@include oColorsSetUseCase(article-lifestyle, background, 'velvet');
-
-// Lists
-@include oColorsSetUseCase(n-lists, background, 'transparent');
-@include oColorsSetUseCase(n-lists, border, 'black');
-@include oColorsSetUseCase(n-lists-hover, border, 'black');
-@include oColorsSetUseCase(n-lists-hover, background, 'black-20');
-@include oColorsSetUseCase(n-lists-inversed, background, 'black-80');
-@include oColorsSetUseCase(n-lists-inversed, border, 'white');
-@include oColorsSetUseCase(n-lists-inversed-hover, border, 'white');
-@include oColorsSetUseCase(n-lists-inversed-hover, background, 'white');
-@include oColorsSetUseCase(n-lists-top-level, background, 'black-80');
-@include oColorsSetUseCase(n-lists-top-level, text, 'white');
-@include oColorsSetUseCase(n-lists-top-level, border, 'white');
-@include oColorsSetUseCase(n-lists-top-level-hover, border, 'white');
-@include oColorsSetUseCase(n-lists-top-level-hover, background, 'white');
-
 // Topics
-@include oColorsSetUseCase(topic, text, 'claret');
-@include oColorsSetUseCase(topic-inversed, text, 'claret-30');
-@include oColorsSetUseCase(topic-block, background, 'claret');
-@include oColorsSetUseCase(topic-block, text, 'white');
-@include oColorsSetUseCase(myft, all, 'claret');
+@include oColorsSetUseCase('topic/regular', (
+	'text': 'claret'
+));
 
-@include oColorsSetUseCase(link, text, 'teal-40');
-@include oColorsSetUseCase(link-hover, text, 'black-70');
+@include oColorsSetUseCase('topic/inversed', (
+	'text': 'claret-30'
+));
 
-@include oColorsSetUseCase(link-inversed, text, 'teal-80');
-@include oColorsSetUseCase(link-inversed-hover, text, 'black-5');
+// Links
+@include oColorsSetUseCase('link/regular', (
+	'text': 'teal-40'
+));
 
-// Page
-@include oColorsSetUseCase(page, background, 'paper');
-@include oColorsSetUseCase(page, text, 'black-80');
+@include oColorsSetUseCase('link/hover', (
+	'text': 'black-70'
+));
 
-// Card
-@include oColorsSetUseCase(card, background, 'paper');
-@include oColorsSetUseCase(card, border, 'black-20');
+@include oColorsSetUseCase('link/inversed', (
+	'text': 'teal-80'
+));
 
-@include oColorsSetUseCase(timestamp, text, 'black-80');
-
-@include oColorsSetUseCase(fast-ft, text, 'fastft-brand');
-@include oColorsSetUseCase(fast-ft, border, 'fastft-brand');
-@include oColorsSetUseCase(fast-ft, background, 'fastft-highlight');
+@include oColorsSetUseCase('link/inversed-hover', (
+	'text': 'black-5'
+));

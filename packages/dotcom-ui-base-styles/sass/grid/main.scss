@@ -1,27 +1,19 @@
-// Set gutters to be slightly smaller than the default on larger screens
-$o-grid-gutters: (
-	default: 10px,
-	M: 20px
-);
-
-$o-grid-ie8-rules: none !default;
-$o-grid-mode: snappy !default;
-
-// Need to turn this on as `hide` gets disabled otherwise.
-$o-grid-human-friendly-selectors: false;
-$o-grid-shuffle-selectors: false;
+$o-grid-mode: snappy;
 
 @import 'o-grid/main';
 @import 'mixins';
 
 @mixin nUiGrid {
-	// scss-lint:disable NameFormat, PlaceholderInExtend
-	@include oGridSurfaceCurrentLayout;
-	@include oGridGenerate;
+	@include oGrid($opts: (
+		'bleed': true,
+		'shuffle-selectors': false,
+		'friendly-selectors': false,
+		'surface': ('current-layout'),
+		'rows': ('compact')
+	));
 
-	//BREAKING CHANGE: data-o-grid-colspan="hide Shide Mhide Lhide XLhide" -> data-o-grid-colspan="0 S0 M0 L0 XL0" (HTML change only—leave Sass mixins as they are)
-
+	// We have disabled "friendly selectors" but output this one as it's useful
 	[data-o-grid-colspan~="center"] {
-		@include oGridCenter;
+		@include oGridCenter();
 	}
 }

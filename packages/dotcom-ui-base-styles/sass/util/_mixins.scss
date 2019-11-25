@@ -18,16 +18,6 @@ $n-ui-z-index-order: (
 	'notification'
 );
 
-//BREAKING CHANGE: @include clearfix -> @include oNormaliseClearfix
-@mixin clearfix() {
-	@error "The clearfix mixin has been removed. Please use oNormaliseClearfix instead (straight swap)";
-}
-
-//BREAKING CHANGE: @include nUtilsVisuallyHidden -> @include oNormaliseVisuallyHidden
-@mixin nUtilsVisuallyHidden() {
-	@error "The nUtilsVisuallyHidden mixin has been removed. Please use oNormaliseVisuallyHidden instead (straight swap)";
-}
-
 @mixin nUiZIndexFor($use-case) {
 	// scss-lint:disable ImportantRule
 	$index: index($n-ui-z-index-order, $use-case);
