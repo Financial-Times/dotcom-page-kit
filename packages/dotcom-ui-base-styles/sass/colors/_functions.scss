@@ -1,7 +1,0 @@
-@function getColor($args...) {
-	@return oColorsByName($args...);
-}
-
-@function getColorFor($args...) {
-	@return oColorsByUsecase($args...);
-}
