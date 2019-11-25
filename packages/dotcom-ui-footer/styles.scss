@@ -1,2 +1,4 @@
-$o-footer-is-silent: false;
-@import "o-footer/main";
+$system-code: 'dotcom-page-kit' !default;
+
+@import 'o-footer/main';
+@include oFooter();
