@@ -39,10 +39,6 @@ _Please note_ if your application is using Page Kit this feature is not availabl
 
 ### Caveats and customisations
 
-#### o-colors
-
-Some additional use cases are defined by this package. See [`colors/_set-use-cases.scss`](colors/_set-use-cases.scss) for details.
-
 #### o-grid
 
 Human readable classes (e.g. `data-o-grid-colspan="half"`) have all been disabled to minimise the output size of `o-grid`, with the exception of `center`.
@@ -120,7 +116,6 @@ Delete the given cookie by setting the expiry to the past.
 
 ### v3 to v4
 
-- All `article-`, `n-lists`, `page`, and `fast-ft` color use cases have been removed as many of these are already defined by `o-` components.
-- Remaining color use cases have been updated to use `o-colors` namespacing, e.g. `link` is now `link/regular`.
+- All color use cases have been removed as many of these are already defined by `o-` components and should be used instead.
 - The `.n-ui-text-*` rules have been removed, use `o-typography` instead.
 - The `getColor()` and `getColorFor()` Sass functions have been removed, use the equivalent functions provided by `o-colors` instead.

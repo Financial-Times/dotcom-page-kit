@@ -26,11 +26,11 @@ $spacing-unit: 20px;
 $o-assets-global-path: 'https://www.ft.com/__origami/service/build/v2/files/';
 
 // Primitives
-@import 'colors/main';
 @import 'grid/main';
 @import 'images/main';
 @import 'typography/main';
 @import 'util/main';
+@import 'o-colors/main';
 @import 'o-normalise/main';
 @import 'o-visual-effects/main';
 
