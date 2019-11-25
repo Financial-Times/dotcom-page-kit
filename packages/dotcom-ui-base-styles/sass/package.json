@@ -7,8 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "make test-unit",
-    "commit": "commit-wizard",
+    "test": "make test",
+    "sass": "node-sass main.scss --include-path bower_components > test/styles.css",
     "precommit": "node_modules/.bin/secret-squirrel",
     "prepush": "make verify -j3",
     "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
@@ -47,6 +47,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.2",
     "lintspaces-cli": "^0.6.0",
+    "node-sass": "^4.13.0",
     "sinon": "^1.17.7",
     "sinon-chai": "^2.8.0",
     "snyk": "^1.168.0",
