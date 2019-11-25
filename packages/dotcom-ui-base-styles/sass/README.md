@@ -45,8 +45,8 @@ Many additional use cases are defined by this package. See [`colors/_set-use-cas
 
 Two shorthand functions are also provided as aliases for `o-colors`:
 
-- `getColor()` - shorthand for `oColorsGetPaletteColor()`
-- `getColorFor()` - shorthand for `oColorsGetColorFor()`
+- `getColor()` - shorthand for `oColorsByName()`
+- `getColorFor()` - shorthand for `oColorsByUsecase()`
 
 #### o-grid
 
@@ -119,3 +119,11 @@ Returns true if the given cookie exists.
 #### `remove(name)`
 
 Delete the given cookie by setting the expiry to the past.
+
+
+## Migration guides
+
+### v3 to v4
+
+- All `article-`, `n-lists`, `page`, and `fast-ft` color use cases have been removed
+- Remaining color use cases have been updated to use `o-colors` namespacing, e.g. `link` is now `link/regular`.
