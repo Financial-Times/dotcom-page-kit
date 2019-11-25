@@ -125,5 +125,6 @@ Delete the given cookie by setting the expiry to the past.
 
 ### v3 to v4
 
-- All `article-`, `n-lists`, `page`, and `fast-ft` color use cases have been removed
+- All `article-`, `n-lists`, `page`, and `fast-ft` color use cases have been removed.
 - Remaining color use cases have been updated to use `o-colors` namespacing, e.g. `link` is now `link/regular`.
+- The `.n-ui-text-*` rules have been removed.

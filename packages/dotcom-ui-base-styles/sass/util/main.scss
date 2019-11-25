@@ -38,29 +38,6 @@
 		display: none;
 	}
 
-	//
-	// Text
-	//
-	.n-ui-text-center {
-		text-align: center;
-	}
-
-	.n-ui-text-left {
-		text-align: left;
-	}
-
-	.n-ui-text-right {
-		text-align: right;
-	}
-
-	.n-ui-truncate {
-		max-width: 100%;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		word-wrap: normal;
-	}
-
 	// Output o-normalise’s helper classes
 	.o-normalise-clearfix {
 		@include oNormaliseClearfix;
