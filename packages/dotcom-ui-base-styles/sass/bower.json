@@ -13,7 +13,6 @@
     "ftdomdelegate": "^4.0.0",
     "o-buttons": ">=4.0.0 <6",
     "o-colors": "^4.0.1",
-    "o-date": ">=2.14.0 <4",
     "o-grid": "^5.0.0",
     "o-icons": ">=4.0.0 <6",
     "o-normalise": "^1.4.2",
