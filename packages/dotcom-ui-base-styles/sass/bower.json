@@ -23,9 +23,5 @@
     "o-utils": "^1.1.0",
     "superstore": "^2.1.0",
     "superstore-sync": "^2.1.1"
-  },
-  "resolutions": {
-    "o-grid": "^5.0.0",
-    "o-colors": "^5.0.2"
   }
 }
