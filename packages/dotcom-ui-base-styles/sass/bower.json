@@ -14,7 +14,7 @@
     "o-buttons": ">=4.0.0 <6",
     "o-colors": "^4.0.1",
     "o-date": ">=2.14.0 <4",
-    "o-grid": "^4.4.4",
+    "o-grid": "^5.0.0",
     "o-icons": ">=4.0.0 <6",
     "o-normalise": "^1.4.2",
     "o-typography": "^5.0.3",
@@ -23,5 +23,8 @@
     "o-utils": "^1.0.3",
     "superstore": "^2.1.0",
     "superstore-sync": "^2.1.1"
+  },
+  "resolutions": {
+    "o-grid": "^5.0.0"
   }
 }
