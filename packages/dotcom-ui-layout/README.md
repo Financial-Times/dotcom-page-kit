@@ -82,7 +82,7 @@ _Please note_ that the exact usage will depend on how you configure your Sass co
 
 | PROP            | TYPE                                            | OPTIONAL | DEFAULT     | DESCRIPTION                                                                                  |
 |-----------------|-------------------------------------------------|----------|-------------|----------------------------------------------------------------------------------------------|
-| navigationData  | [TNavigationData]                               | true*    | `{}`        | Required if using the built in header and/or footer components. See note below.              |
+| navigationData  | [TNavigationData]                               | true*    | `undefined` | Required if using the built in header and/or footer components. See note below.              |
 | headerVariant   | 'simple' \| 'large-logo' \| 'logo-only'\| false | true     | `"simple"`  | The type of built in [header] to display                                                     |
 | headerBefore    | string \| ReactElement                          | true     | `undefined` | A slot for content to appear before Header                                                   |
 | headerAfter     | string \| ReactElement                          | true     | `undefined` | A slot for content to appear after Header                                                    |
@@ -95,11 +95,12 @@ _Please note_ that the exact usage will depend on how you configure your Sass co
 | footerComponent | ReactElement                                    | true     | `undefined` | Pass a custom footer                                                                         |
 | contents        | string                                          | true     | `undefined` | A prerendered string of HTML used to insert the page contents when not using JSX composition |
 
-\* Navigation data is required to render all [header] variants except for `"logo-only"`. Navigation data is required to render all built in [footer] components.
+\* Navigation data is required to render all [header] variants except for `"logo-only"`. Navigation data is required to render all built in [footer] components. It is recommended to integrate the [navigation package] with your application to get navigation data.
 
 [header]: ../dotcom-ui-header/README.md
 [footer]: ../dotcom-ui-footer/README.md
 [TNavigationData]: ../dotcom-types-navigation/README.md
+[navigation package]: ../dotcom-server-navigation/readme.md
 
 ### Custom components
 
