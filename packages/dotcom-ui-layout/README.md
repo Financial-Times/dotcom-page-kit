@@ -82,21 +82,24 @@ _Please note_ that the exact usage will depend on how you configure your Sass co
 
 | PROP            | TYPE                                            | OPTIONAL | DEFAULT     | DESCRIPTION                                                                                  |
 |-----------------|-------------------------------------------------|----------|-------------|----------------------------------------------------------------------------------------------|
-| navigationData  | [TNavigationData]                               | true     | `{}`        | Required if using the built in header and/or footer components.                              |
-| headerVariant   | 'simple' \| 'large-logo' \| 'logo-only'\| false | true     | `"simple"`  | The type of header to display                                                                |
+| navigationData  | [TNavigationData]                               | true*    | `{}`        | Required if using the built in header and/or footer components. See note below.              |
+| headerVariant   | 'simple' \| 'large-logo' \| 'logo-only'\| false | true     | `"simple"`  | The type of built in [header] to display                                                     |
 | headerBefore    | string \| ReactElement                          | true     | `undefined` | A slot for content to appear before Header                                                   |
 | headerAfter     | string \| ReactElement                          | true     | `undefined` | A slot for content to appear after Header                                                    |
 | headerOptions   | THeaderProps                                    | true     | `undefined` | Pass options to the header component                                                         |
 | headerComponent | ReactElement                                    | true     | `undefined` | Pass a custom header                                                                         |
-| footerVariant   | 'simple' \| 'legal' \| false                    | true     | `"simple"`  | The type of footer to display                                                                |
+| footerVariant   | 'simple' \| 'legal' \| false                    | true     | `"simple"`  | The type of built in [footer] to display                                                     |
 | footerBefore    | string \| ReactElement                          | true     | `undefined` | A slot for content to appear before Footer                                                   |
 | footerAfter     | string \| ReactElement                          | true     | `undefined` | A slot for content to appear after Footer                                                    |
 | footerOptions   | TFooterProps                                    | true     | `undefined` | Pass options to the footer component                                                         |
 | footerComponent | ReactElement                                    | true     | `undefined` | Pass a custom footer                                                                         |
 | contents        | string                                          | true     | `undefined` | A prerendered string of HTML used to insert the page contents when not using JSX composition |
 
-[TNavigationData]: ../dotcom-types-navigation/README.md
+\* Navigation data is required to render all [header] variants except for `"logo-only"`. Navigation data is required to render all built in [footer] components.
 
+[header]: ../dotcom-ui-header/README.md
+[footer]: ../dotcom-ui-footer/README.md
+[TNavigationData]: ../dotcom-types-navigation/README.md
 
 ### Custom components
 
