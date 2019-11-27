@@ -1,8 +1,8 @@
 {
   "name": "dotcom-ui-layout",
   "dependencies": {
-    "n-ui-foundations": "^3.2.0",
-    "o-typography": "^5.11.3"
+    "n-ui-foundations": "^4.0.0-beta.2",
+    "o-typography": "^6.1.0"
   },
   "main": ["browser.js", "styles.scss"]
 }
