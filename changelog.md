@@ -1,6 +1,10 @@
 # Changelog
 
-## 0.4.0
+## 0.4.1
+
+This release is only required due to the partially failed publish of v0.4.0 packages.
+
+## 0.4.0 ❌
 
 - Page Kit CLI: added compression plugins to enable generation of compressed assets using the gzip and Brotli algorithms.
 - Asset loader: (_breaking change_) removed `match*` methods
