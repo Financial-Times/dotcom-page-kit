@@ -104,7 +104,14 @@ jobs:
           command: npx athloi version ${CIRCLE_TAG} --filter "dotcom-*"
       - run:
           name: NPM publish
-          command: npx athloi publish -- --access=public
+          command: |
+            # https://circleci.com/docs/2.0/env-vars/#using-bash_env-to-set-environment-variables
+            export PRERELEASE_IDENTIFIER="-[a-z-]+"
+            export RELEASE_TAG="latest"
+
+            if [[ $CIRCLE_TAG =~ $PRERELEASE_IDENTIFIER ]]; then RELEASE_TAG="pre-release"; fi
+
+            npx athloi publish -- --access=public --tag=${RELEASE_TAG}
 
 workflows:
 
