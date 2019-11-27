@@ -1,3 +1,6 @@
+// This is needed by Origami components that speak to the image service. Setting
+// it here means it'll be the same no matter which app generates it and it will
+// be reused from the CDN
 $system-code: 'page-kit-layout' !default;
 
 @import 'n-ui-foundations/main';
