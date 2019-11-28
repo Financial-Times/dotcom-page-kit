@@ -1,12 +1,12 @@
 
 // Drawer
 .o-header__drawer-current-edition {
-  color: oColorsGetPaletteColor('black-60');
+  color: oColorsByName('black-60');
   margin: 0.5em 0;
 }
 
 .o-header__drawer-search {
-  border-top: 2px solid oColorsGetPaletteColor('black-10');
+  border-top: 2px solid oColorsByName('black-10');
 }
 
 // Sticky header
