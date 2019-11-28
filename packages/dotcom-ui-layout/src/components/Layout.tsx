@@ -8,7 +8,7 @@ import {
 } from '@financial-times/dotcom-ui-header/component'
 import { TNavigationData } from '@financial-times/dotcom-types-navigation'
 import { Footer, LegalFooter, TFooterOptions } from '@financial-times/dotcom-ui-footer/component'
-import { loadCustomFontsJS } from '../font-loading'
+import { fontLoadingClassNames, loadCustomFontsJS } from '../font-loading'
 import Template from './Template'
 
 enum Headers {
@@ -81,7 +81,7 @@ export function Layout({
 
   return (
     <div
-      className="n-layout o-typography--loading-sans o-typography--loading-sansBold o-typography--loading-display o-typography--loading-displayBold"
+      className={`n-layout ${fontLoadingClassNames.join(' ')}`}
       data-o-component="o-typography">
       <EnhanceFonts />
       <a
