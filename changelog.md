@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.5.0
+
+- Layout UI component: (_breaking change_) updates all Origami bower dependencies to their latest major version
+- Header UI component: (_breaking change_) updates all Origami bower dependencies to their latest major version
+- Footer UI component: (_breaking change_) updates all Origami bower dependencies to their latest major version
+
 ## 0.4.1
 
 This release is only required due to the partially failed publish of v0.4.0 packages.
