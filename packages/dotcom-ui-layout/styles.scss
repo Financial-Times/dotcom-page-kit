@@ -26,7 +26,7 @@ $system-code: 'page-kit-layout' !default;
 }
 
 .n-layout__header-before {
-  background-color: oColorsGetPaletteColor('black-20')
+  background-color: oColorsByName('black-20')
 }
 
 .n-layout__skip-link {
@@ -35,12 +35,12 @@ $system-code: 'page-kit-layout' !default;
   top: 1em;
   left: -9999px;
   padding: 0.5em 1em;
-  background: getColor('velvet');
-  color: getColor('white');
+  background: oColorsByName('velvet');
+  color: oColorsByName('white');
 
   &:focus {
     left: 0;
-    color: getColor('white');
+    color: oColorsByName('white');
   }
 }
 
