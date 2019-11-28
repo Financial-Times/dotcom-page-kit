@@ -1,2 +1,5 @@
-$o-footer-is-silent: false;
-@import "o-footer/main";
+// This will be overridden by dotcom-ui-layout, it's necessary here for storybook builds
+$system-code: 'page-kit-footer' !default;
+
+@import 'o-footer/main';
+@include oFooter();
