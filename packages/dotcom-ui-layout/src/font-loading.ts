@@ -8,7 +8,7 @@ function loadCustomFonts() {
   var rootElement = document.querySelector('.n-layout')
 
   if (/(^|\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
-    var fontLabels = ['sans', 'sansBold', 'display', 'displayBold']
+    var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold']
     for (var i = 0; i < fontLabels.length; i++) {
       rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '')
     }
@@ -19,7 +19,7 @@ export const loadCustomFontsJS = `(${loadCustomFonts.toString()}());`
 
 export const fontLoadingClassNames = [
   'o-typography--loading-sans',
-  'o-typography--loading-sansBold',
+  'o-typography--loading-sans-bold',
   'o-typography--loading-display',
-  'o-typography--loading-displayBold'
+  'o-typography--loading-display-bold'
 ]
