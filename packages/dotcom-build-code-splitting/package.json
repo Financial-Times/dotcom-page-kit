@@ -21,7 +21,8 @@
     "@financial-times/dotcom-page-kit-cli": "file:../dotcom-page-kit-cli"
   },
   "dependencies": {
-    "get-package-name": "^1.0.0",
+    "disable-tree-shaking-for-chunk-plugin": "^1.1.0",
+    "get-package-name": "^1.1.0",
     "memoize-one": "^5.0.4",
     "reliable-module-ids-plugin": "^1.0.1"
   },
