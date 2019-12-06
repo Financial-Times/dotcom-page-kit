@@ -18,6 +18,7 @@
     "@financial-times/dotcom-ui-flags": "file:../../packages/dotcom-ui-flags",
     "@financial-times/dotcom-ui-layout": "file:../../packages/dotcom-ui-layout",
     "@financial-times/dotcom-ui-shell": "file:../../packages/dotcom-ui-shell",
+    "@financial-times/dotcom-ui-real-user-monitoring": "file:../../packages/dotcom-ui-real-user-monitoring",
     "@financial-times/n-ads": "^1.0.2",
     "@financial-times/n-tracking": "^1.0.0-beta.1",
     "express": "^4.16.2",
