@@ -2,7 +2,8 @@
   "name": "@financial-times/dotcom-ui-real-user-monitoring",
   "version": "0.0.0",
   "description": "",
-  "main": "./dist/node",
+  "main": "./dist/node/component.js",
+  "browser": "./dist/node/browser.js",
   "styles": "styles.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,7 +20,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation"
+    "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation",
+    "tti-polyfill": "^0.2.2"
   },
   "peerDependencies": {
     "react": "^16.8.6"

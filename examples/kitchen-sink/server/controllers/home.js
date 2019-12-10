@@ -1,7 +1,7 @@
 const React = require('react')
 const ReactDOM = require('react-dom/server')
-const { Shell } = require('@financial-times/dotcom-ui-shell')
 const { RealUserMonitoring } = require('@financial-times/dotcom-ui-real-user-monitoring')
+const { Shell } = require('@financial-times/dotcom-ui-shell')
 const { Layout } = require('@financial-times/dotcom-ui-layout')
 const { Slot, AdsOptionsEmbed } = require('@financial-times/n-ads')
 
@@ -51,7 +51,7 @@ module.exports = (_, response, next) => {
         stylesheets={styleBundles}
         asyncStylesheets={asyncStyleBundles}
         appContext={appContext.data}
-        additionalMetadata={<RealUserMonitoring/>}>
+        additionalMetadata={<RealUserMonitoring />}>
         <AdsOptionsEmbed {...adOptions} />
         <Layout navigationData={response.locals.navigation} headerBefore={<Slot {...adSlotProps} />}>
           <div className="content">
