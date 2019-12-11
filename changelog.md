@@ -1,10 +1,18 @@
 # Changelog
 
+## 0.5.1
+
+- Shell UI component: Add base URL to font + manifest URLs
+
 ## 0.5.0
 
 - Layout UI component: (_breaking change_) updates all Origami bower dependencies to their latest major version
 - Header UI component: (_breaking change_) updates all Origami bower dependencies to their latest major version
 - Footer UI component: (_breaking change_) updates all Origami bower dependencies to their latest major version
+
+## 0.4.2
+
+- Backport of v0.5.1
 
 ## 0.4.1
 
