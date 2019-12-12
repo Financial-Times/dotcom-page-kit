@@ -30,11 +30,6 @@ describe('dotcom-middleware-asset-loader/src/createMiddleware', () => {
 
   it('adds an instance of the asset loader to response.locals', () => {
     instance(request, response, next)
-    expect(response.locals.assets.loader).toBeDefined()
-  })
-
-  it('adds an instance of resource hints to response.locals', () => {
-    instance(request, response, next)
-    expect(response.locals.assets.resourceHints).toBeDefined()
+    expect(response.locals.assetLoader).toBeDefined()
   })
 })
