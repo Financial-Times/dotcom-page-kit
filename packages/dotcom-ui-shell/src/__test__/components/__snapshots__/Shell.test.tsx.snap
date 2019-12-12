@@ -73,7 +73,7 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
       sizes="180x180"
     />
     <link
-      href="/__assets/creatives/manifest/manifest-v6.json"
+      href="https://www.ft.com/__assets/creatives/manifest/manifest-v6.json"
       rel="manifest"
     />
     <link
@@ -101,25 +101,25 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
     <link
       as="font"
       crossOrigin="anonymous"
-      href="/__origami/service/build/v2/files/o-fonts-assets@1.3.2/MetricWeb-Regular.woff"
+      href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.2/MetricWeb-Regular.woff"
       rel="preload"
     />
     <link
       as="font"
       crossOrigin="anonymous"
-      href="/__origami/service/build/v2/files/o-fonts-assets@1.3.2/MetricWeb-Semibold.woff"
+      href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.2/MetricWeb-Semibold.woff"
       rel="preload"
     />
     <link
       as="font"
       crossOrigin="anonymous"
-      href="/__origami/service/build/v2/files/o-fonts-assets@1.3.2/FinancierDisplayWeb-Regular.woff"
+      href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.2/FinancierDisplayWeb-Regular.woff"
       rel="preload"
     />
     <link
       as="font"
       crossOrigin="anonymous"
-      href="/__origami/service/build/v2/files/o-fonts-assets@1.3.2/FinancierDisplayWeb-Bold.woff"
+      href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.2/FinancierDisplayWeb-Bold.woff"
       rel="preload"
     />
     <script

@@ -37,10 +37,10 @@ function Shell(props: TShellProps) {
     ...props.scripts,
     ...props.resourceHints,
     // TODO: abstract font URLs into 'core branding' package
-    '/__origami/service/build/v2/files/o-fonts-assets@1.3.2/MetricWeb-Regular.woff',
-    '/__origami/service/build/v2/files/o-fonts-assets@1.3.2/MetricWeb-Semibold.woff',
-    '/__origami/service/build/v2/files/o-fonts-assets@1.3.2/FinancierDisplayWeb-Regular.woff',
-    '/__origami/service/build/v2/files/o-fonts-assets@1.3.2/FinancierDisplayWeb-Bold.woff'
+    'https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.2/MetricWeb-Regular.woff',
+    'https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.2/MetricWeb-Semibold.woff',
+    'https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.2/FinancierDisplayWeb-Regular.woff',
+    'https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.2/FinancierDisplayWeb-Bold.woff'
   ]
 
   return (

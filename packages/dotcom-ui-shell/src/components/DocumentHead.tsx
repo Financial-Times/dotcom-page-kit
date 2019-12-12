@@ -79,7 +79,7 @@ DocumentHead.defaultProps = {
   robots: 'index,follow,max-snippet:200,max-image-preview:large',
   siteTitle: 'Financial Times',
   twitterSite: '@FinancialTimes',
-  manifestFile: '/__assets/creatives/manifest/manifest-v6.json',
+  manifestFile: 'https://www.ft.com/__assets/creatives/manifest/manifest-v6.json',
   additionalMetadata: null
 }
 
