@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/dotcom-middleware-assets",
+  "name": "@financial-times/dotcom-middleware-asset-loader",
   "version": "0.0.0",
   "description": "",
   "main": "dist/node/index.js",
@@ -32,7 +32,7 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
-    "directory": "packages/dotcom-middleware-assets"
+    "directory": "packages/dotcom-middleware-asset-loader"
   },
-  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-middleware-assets"
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-middleware-asset-loader"
 }

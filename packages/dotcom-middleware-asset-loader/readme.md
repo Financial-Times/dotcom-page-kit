@@ -1,4 +1,4 @@
-# @financial-times/dotcom-middleware-assets
+# @financial-times/dotcom-middleware-asset-loader
 
 This package provides an [Express] compatible middleware which integrates the [asset loader] and [resource hints] packages into your application and adds it to each response making it available to your application's route handlers. The asset loader helps applications to locate their static assets from wherever they are stored and resource hints enable developers to optimise the delivery of certain resources.
 
@@ -15,7 +15,7 @@ In addition this package can also be used to [serve static files].
 This package is compatible with Node 8+ and is distributed on npm.
 
 ```sh
-npm install --save @financial-times/dotcom-middleware-assets
+npm install --save @financial-times/dotcom-middleware-asset-loader
 ```
 
 After installing the package create a new instance of the middleware and register it with your application. The middleware can be configured with several [options](#options):
@@ -24,7 +24,7 @@ After installing the package create a new instance of the middleware and registe
 const express = require('express')
 const app = express()
 
-+ const assetLoader = require('@financial-times/dotcom-middleware-assets')
++ const assetLoader = require('@financial-times/dotcom-middleware-asset-loader')
 + app.use(assetLoader.init())
 ```
 
