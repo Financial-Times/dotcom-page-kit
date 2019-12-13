@@ -7,20 +7,14 @@ const { Slot, AdsOptionsEmbed } = require('@financial-times/n-ads')
 module.exports = (_, response, next) => {
   try {
     const flags = { ads: true, tracking: true }
-    const { appContext, assets } = response.locals
+    const { appContext, assetLoader } = response.locals
     const styleBundles = [
-      ...assets.loader.getStylesheetURLsFor('page-kit-layout-styles'),
-      ...assets.loader.getStylesheetURLsFor('styles')
+      ...assetLoader.getStylesheetURLsFor('page-kit-layout-styles'),
+      ...assetLoader.getStylesheetURLsFor('styles')
     ]
-    const asyncStyleBundles = assets.loader.getStylesheetURLsFor('async')
-    const scriptBundles = assets.loader.getScriptURLsFor('scripts')
+    const asyncStyleBundles = assetLoader.getStylesheetURLsFor('async')
+    const scriptBundles = assetLoader.getScriptURLsFor('scripts')
     const forHints = [...scriptBundles, ...styleBundles]
-
-    forHints.forEach((file) => {
-      assets.resourceHints.add(file)
-    })
-
-    response.set('Link', assets.resourceHints.toString())
 
     const adOptions = {
       ...appContext.data,

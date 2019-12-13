@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@financial-times/dotcom-middleware-app-context": "file:../../packages/dotcom-middleware-app-context",
-    "@financial-times/dotcom-middleware-assets": "file:../../packages/dotcom-middleware-assets",
+    "@financial-times/dotcom-middleware-asset-loader": "file:../../packages/dotcom-middleware-asset-loader",
     "@financial-times/dotcom-middleware-navigation": "file:../../packages/dotcom-middleware-navigation",
     "@financial-times/dotcom-ui-app-context": "file:../../packages/dotcom-ui-app-context",
     "@financial-times/dotcom-ui-flags": "file:../../packages/dotcom-ui-flags",
