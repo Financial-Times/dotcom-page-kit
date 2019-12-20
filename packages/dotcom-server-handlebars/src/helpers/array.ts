@@ -1,4 +1,4 @@
-export function array(...args) {
+export default function array(...args) {
   if (args.length < 2) {
     throw Error('At least one parameter must be provided')
   }
