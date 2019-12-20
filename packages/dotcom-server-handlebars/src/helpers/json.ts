@@ -1,4 +1,4 @@
-export function json(...args) {
+export default function json(...args) {
   if (args.length !== 2) {
     throw Error('Incorrect number of parameters provided')
   }
