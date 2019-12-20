@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.3
+
+- Handlebars package: Refactor helpers to use default exports for compatibility with `handlebars-loader`
+
+## 0.5.2
+
+- Footer UI component: Fix output of `null` as a string in small print
+
 ## 0.5.1
 
 - Shell UI component: Add base URL to font + manifest URLs
