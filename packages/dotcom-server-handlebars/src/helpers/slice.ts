@@ -1,6 +1,6 @@
 import { HelperOptions } from 'handlebars'
 
-export function slice(...args) {
+export default function slice(...args) {
   if (args.length !== 2) {
     throw Error('Incorrect number of parameters provided')
   }
