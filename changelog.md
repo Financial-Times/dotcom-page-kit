@@ -18,6 +18,14 @@
 - Header UI component: (_breaking change_) updates all Origami bower dependencies to their latest major version
 - Footer UI component: (_breaking change_) updates all Origami bower dependencies to their latest major version
 
+## 0.4.4
+
+- Backport of v0.5.3
+
+## 0.4.3
+
+- Backport of v0.5.2
+
 ## 0.4.2
 
 - Backport of v0.5.1
