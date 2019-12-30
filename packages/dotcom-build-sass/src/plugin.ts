@@ -72,6 +72,9 @@ export function plugin({ includePaths }: TPluginOptions = {}) {
 
   function getSassLoaderOptions(includePaths = []) {
     return {
+      // This enables the use of enhanced-resolve for @import statements prefixed with ~
+      // but we don't use this feature and disabling it can speed up builds by up to 20%.
+      webpackImporter: false,
       sassOptions: {
         // Disable formatting so that we don't spend time pretty printing
         outputStyle: 'compressed',
