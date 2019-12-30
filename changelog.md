@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.3
+
+- Handlebars package: Refactor helpers to use default exports for compatibility with `handlebars-loader`
+
+## 0.5.2
+
+- Footer UI component: Fix output of `null` as a string in small print
+
 ## 0.5.1
 
 - Shell UI component: Add base URL to font + manifest URLs
@@ -9,6 +17,14 @@
 - Layout UI component: (_breaking change_) updates all Origami bower dependencies to their latest major version
 - Header UI component: (_breaking change_) updates all Origami bower dependencies to their latest major version
 - Footer UI component: (_breaking change_) updates all Origami bower dependencies to their latest major version
+
+## 0.4.4
+
+- Backport of v0.5.3
+
+## 0.4.3
+
+- Backport of v0.5.2
 
 ## 0.4.2
 

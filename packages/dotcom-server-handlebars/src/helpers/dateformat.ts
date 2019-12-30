@@ -1,7 +1,7 @@
 import formatter from 'dateformat'
 import { HelperOptions } from 'handlebars'
 
-export function dateformat(...args) {
+export default function dateformat(...args) {
   if (args.length > 2) {
     throw Error('Incorrect number of parameters provided')
   }

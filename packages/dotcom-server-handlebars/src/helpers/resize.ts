@@ -5,7 +5,7 @@ const host = 'https://www.ft.com/__origami/service/image/v2/images/raw'
 
 const defaults = { source: 'next', fit: 'scale-down' }
 
-export function resize(...args) {
+export default function resize(...args) {
   if (args.length !== 2) {
     throw Error('Incorrect number of parameters provided')
   }

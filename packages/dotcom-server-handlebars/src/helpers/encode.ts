@@ -1,6 +1,6 @@
 import { HelperOptions } from 'handlebars'
 
-export function encode(...args) {
+export default function encode(...args) {
   if (args.length !== 2) {
     throw Error('Incorrect number of parameters provided')
   }

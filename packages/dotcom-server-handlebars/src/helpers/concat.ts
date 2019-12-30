@@ -1,4 +1,4 @@
-export function concat(...args) {
+export default function concat(...args) {
   if (args.length < 3) {
     throw Error('At least two parameters must be provided')
   }

@@ -1,6 +1,6 @@
 import { HelperOptions } from 'handlebars'
 
-export function unlessSome(...args) {
+export default function unlessSome(...args) {
   if (args.length < 2) {
     throw Error('At least one parameter must be provided')
   }
