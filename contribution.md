@@ -7,7 +7,7 @@ So you'd like to contribute some code, report a bug, or request a feature? You'r
   - [Opening a Pull Request](#opening-a-pull-request)
   - [Code Style](#code-style)
   - [Testing](#testing)
-  - [Releasing/Versioning](#releasingversioning)
+  - [Releasing and versioning](#releasing-and-versioning)
 
 
 ## Reporting bugs
@@ -121,3 +121,8 @@ We use [Jest] for testing packages. We enforce code quality with [ESLint].
 
 [Jest]: https://jestjs.io/
 [ESLint]: https://eslint.org/
+
+
+## Releasing and versioning
+
+Please refer to [the release guidelines](release-guidelines.md).
