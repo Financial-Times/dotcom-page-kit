@@ -49,27 +49,25 @@ function getDistTag(newVersion, highestVersion) {
 }
 
 async function run(tag) {
-  try {
-    const newVersion = semver.clean(tag)
+  const newVersion = semver.clean(tag)
 
-    if (newVersion) {
-      const registryData = await getRegistryData()
+  if (newVersion) {
+    const registryData = await getRegistryData()
 
-      if (registryData.versions[newVersion]) {
-        throw Error(`The version "${newVersion}" already exists on npm`)
-      }
-
-      const highestVersion = getHighestVersion(registryData)
-      const distTag = getDistTag(newVersion, highestVersion)
-
-      console.log(distTag) // eslint-disable-line no-console
-    } else {
-      throw Error(`The tag "${tag}" could not be coerced into a valid version number`)
+    if (registryData.versions[newVersion]) {
+      throw Error(`The version "${newVersion}" already exists on npm`)
     }
-  } catch (error) {
-    console.error(error.toString()) // eslint-disable-line no-console
-    process.exit(1)
+
+    const highestVersion = getHighestVersion(registryData)
+    const distTag = getDistTag(newVersion, highestVersion)
+
+    console.log(distTag) // eslint-disable-line no-console
+  } else {
+    throw Error(`The tag "${tag}" could not be coerced into a valid version number`)
   }
 }
 
-run(process.argv[process.argv.length - 1] || '')
+run(process.argv[process.argv.length - 1] || '').catch((error) => {
+  console.error(error.toString()) // eslint-disable-line no-console
+  process.exit(1)
+})
