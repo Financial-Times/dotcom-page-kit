@@ -124,6 +124,8 @@ We use [Jest] as the test runner and assertion library for all code. To run test
 
 The applications in the `examples/` folder are all used as integration tests which are always run on CI. You can run the integration tests locally using the `npm test:examples` command. Integration tests may use [Supertest] or [Puppeteer].
 
+Components are rendered in tests using [Enzyme] with specific assertions provided by the [enzyme-matchers] library for Jest.
+
 Code style is enforced with Prettier and non-compliant code should be automatically formatted when committing.
 
 We have implemented [ESLint] to statically analyse code for problems.
@@ -131,6 +133,9 @@ We have implemented [ESLint] to statically analyse code for problems.
 [Jest]: https://jestjs.io/
 [Supertest]: https://github.com/visionmedia/supertest
 [Puppeteer]: https://github.com/smooth-code/jest-puppeteer
+[Enzyme]: https://github.com/airbnb/enzyme
+[enzyme-matchers]: https://github.com/FormidableLabs/enzyme-matchers/blob/master/packages/jest-enzyme
+[ESLint]: https://eslint.org/
 
 
 ## Releasing and versioning
