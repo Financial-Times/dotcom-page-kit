@@ -22,7 +22,7 @@ _Please note_ for apps using [Renovate] we have configured Page Kit dependencies
 
   3. Release the changes. Create a release using the GitHub UI (note there should be a "v" preceding the version number). This will automatically kick off a new build and publish each package.
 
-  4. If necessary, port the changes to any old `release-vX.X.X` branches which are still supported. To do this use the `git cherry-pick` command to apply relevant commits from the `master` branch to the appropriate `release-vX.X.X` branch.
+  4. You may need to also port the changes to an older release branch. See [maintenance releases](#maintenance-versions) below for more information.
 
   5. **Celebrate**. :tada::beer::cake::cocktail:
 
@@ -37,5 +37,23 @@ _Please note_ for apps using [Renovate] we have configured Page Kit dependencies
   4. Release the changes. Create a release using the GitHub UI (note there should be a "v" preceding the version number) and include the list of changes in the release notes. This will automatically kick off a new build and publish each package.
 
   5. **Celebrate**. :tada::beer::cake::cocktail:
+
+### Maintenance versions
+
+When we need to fix a production bug we will normally raise a PR against the `master` branch and make a patch release once it is merged.
+
+Sometimes that fix will also be needed by apps which are still running an older version of Page Kit. Because we can't always immediately upgrade apps to use the latest version we'd have to make a new maintenance release for the older version as well.
+
+For example, imagine that some production apps are running Page Kit `1.0.0` and others `2.0.0`. The same bug is present in both versions.
+
+  1. After following the [patch versions](#patch-versions) guide a new `2.0.1` release is made.
+
+  2. Find the last v1 release and copy its commit hash (`git show-ref --tags`.)
+
+  3. Create a new branch from this commit (`git checkout -b release-v1.x <hash>`.)
+
+  4. Cherry pick the relevant commits from the `master` branch onto the branch that has just been created (`git cherry-pick <hash>`.)
+
+  5. Push the branch and create a new `1.0.1` release.
 
 [semantic versioning]: http://semver.org/
