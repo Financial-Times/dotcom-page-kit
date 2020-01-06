@@ -34,8 +34,19 @@
 ### v0.5.0
 
 - Origami major version work
+- Make the repository public.
+
+## Q1 2020
 
 ### v0.6.0
 
+- Remove features and packages not used by migrated apps.
+
+### v0.7.0
+
 - Webpack configuration refactor and CLI tool removed.
-- Make the repository public.
+- Initial changes based on RUM performance data
+
+### v1.0.0
+
+TBD

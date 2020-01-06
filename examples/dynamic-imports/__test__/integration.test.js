@@ -3,23 +3,23 @@ describe('examples/dynamic-imports', () => {
     await page.goto('http://localhost:3000', { waitUntil: 'load' })
   })
 
-  it('responds to button click by adding an image to DOM via dynamically imported module', async () => {
+  it('responds to button click by adding a div to DOM via dynamically imported module', async () => {
     expect(await page.title()).toBe('Dynamically-loaded dogs | Good Dogs')
 
     expect(await pageDescription()).toBe('Dynamically-loaded dogs')
 
-    expect(await getTotalImages()).toBe(0)
+    expect(await getTotalDivs()).toBe(0)
 
     await page.click('#button')
 
-    await page.waitForSelector("img[data-component='image']")
+    await page.waitForSelector("div[data-component='dog-emoji']")
 
-    expect(await getTotalImages()).toBe(1)
+    expect(await getTotalDivs()).toBe(1)
   })
 })
 
-function getTotalImages() {
-  return page.evaluate(() => document.querySelectorAll('img').length)
+function getTotalDivs() {
+  return page.evaluate(() => document.querySelectorAll('div').length)
 }
 
 function pageDescription() {

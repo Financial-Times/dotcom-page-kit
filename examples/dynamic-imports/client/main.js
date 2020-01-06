@@ -1,5 +1,5 @@
 document.getElementById('button').onclick = async function handleClick() {
-  const dogImageModule = await import('./dogImage.js')
+  const dogEmojiModule = await import('./dogEmoji.js')
 
-  dogImageModule.addDogImageToDOM()
+  dogEmojiModule.addDogEmojiToDOM()
 }
