@@ -7,7 +7,7 @@ So you'd like to contribute some code, report a bug, or request a feature? You'r
   - [Opening a Pull Request](#opening-a-pull-request)
   - [Code Style](#code-style)
   - [Testing](#testing)
-  - [Releasing/Versioning](#releasingversioning)
+  - [Releasing and versioning](#releasing-and-versioning)
 
 
 ## Reporting bugs
@@ -54,13 +54,13 @@ It's important to note that we can't accept _every_ feature request, we'll alway
 Please do! All of the code in Page Kit is peer-reviewed by members of the FT customer products team. Here are some things you can do to help this review go smoothly:
 
   - ### Discuss features first
-    If you're thinking of opening a pull request that adds a feature, you'll save yourself some time and effort if you [discuss it in a feature request first](#requesting-features). The review is guaranteed to go more smoothly if we've chatted about it beforehand.
+    If you're thinking of opening a pull request that adds a feature, you'll save yourself some time and effort if you [discuss it in a feature request first](#requesting-features) or contact the team on Slack (via the `#dotcom-page-kit` channel. The review is guaranteed to go more smoothly if we've chatted about it beforehand.
 
   - ### Check the workflow and release guidelines
     The project follows a scheduled release workflow so we encourage the separation of stable, development, and experimental code. See the [Git workflow](#git-workflow) and the [release guidelines](release-guidelines.md) for more information.
 
   - ### Update the documentation
-    The user documentation should be kept up to date with any changes made. Use inline code comments as developer documentation, focusing more on _why_ your code does something than _what_ it's doing.
+    The user documentation must be kept up to date with any changes made. Use inline code comments as developer documentation, focusing more on _why_ your code does something than _what_ it's doing.
 
   - ### Avoid hacks or temporary workarounds
     The stability of Page Kit is vital for it to be successful and sustainable. As well as maintaining quality it is important to consider that applications can have very different lifespans; a "quick hack" may remain in production for several months longer than it is required. If you need a hack try to keep it in your app!
@@ -79,11 +79,14 @@ Please do! All of the code in Page Kit is peer-reviewed by members of the FT cus
 
 This project follows a workflow designed around project releases. It is less strict than [Gitflow] but we encourage the separation of stable, development, and experimental branches in order to follow a scheduled release cycle.
 
-- The `master` branch is for the current stable release. Bugfixes are merged into this branch.
-- The `development` branch is for upcoming major or minor releases. This branch tracks `master` and new features are merged into it.
-- Branches for new features should track and raise pull requests against the `development` branch or `master` branch if there are not any upcoming releases planned.
+- The `master` branch is for the current stable release. Bug fixes should be merged into this branch.
+
+- The `development-` branches are for upcoming major or minor releases. New features and refactors should be merged into this branch. The `master` branch should be merged into it periodically.
+
+- The `release-vX.X.X` branches are for old releases which are still used in production. Important bug fixes should be [cherry-picked] from the `master` branch as required.
 
 [Gitflow]: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+[cherry-picked]: https://git-scm.com/docs/git-cherry-pick
 
 
 ## Code style
@@ -97,7 +100,7 @@ The best way to ensure you stick to the Page Kit code style is to make your work
 
   - 2 spaces for indentation
   - 100 characters per line
-  - Avoid abbreviating names (`request` is better than `req`)
+  - Avoid abbreviating names (e.g. `request` is better than `req`)
 
 ### JavaScript style
 
@@ -117,7 +120,24 @@ The best way to ensure you stick to the Page Kit code style is to make your work
 
 ## Testing
 
-We use [Jest] for testing packages. We enforce code quality with [ESLint].
+We use [Jest] as the test runner and assertion library for all code. To run tests for all packages in the repository use the command `npm test` or to run tests only for an individual package the command is `npm test -- --testPathPattern <package name>`.
+
+The applications in the `examples/` folder are all used as integration tests which are always run on CI. You can run the integration tests locally using the `npm test:examples` command. Integration tests may use [Supertest] or [Puppeteer].
+
+Components are rendered in tests using [Enzyme] with specific assertions provided by the [enzyme-matchers] library for Jest.
+
+Code style is enforced with Prettier and non-compliant code should be automatically formatted when committing.
+
+We have implemented [ESLint] to statically analyse code for problems.
 
 [Jest]: https://jestjs.io/
+[Supertest]: https://github.com/visionmedia/supertest
+[Puppeteer]: https://github.com/smooth-code/jest-puppeteer
+[Enzyme]: https://github.com/airbnb/enzyme
+[enzyme-matchers]: https://github.com/FormidableLabs/enzyme-matchers/blob/master/packages/jest-enzyme
 [ESLint]: https://eslint.org/
+
+
+## Releasing and versioning
+
+Please refer to [the release guidelines](release-guidelines.md).
