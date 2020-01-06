@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import './helpers/configureEnzyme'
+import 'jest-enzyme'
 import React from 'react'
 import { mount } from 'enzyme'
 
