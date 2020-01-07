@@ -1,0 +1,20 @@
+{
+  "name": "example-combined-hbs-jsx",
+  "private": true,
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server/start.js",
+    "test": "../../node_modules/.bin/jest"
+  },
+  "dependencies": {
+    "@financial-times/dotcom-server-handlebars": "file:../../packages/dotcom-server-handlebars",
+    "@financial-times/dotcom-server-react-jsx": "file:../../packages/dotcom-server-react-jsx",
+    "express": "^4.16.2",
+    "handlebars": "^4.5.3",
+    "sucrase": "^3.10.1"
+  },
+  "jest": {
+    "preset": "jest-puppeteer"
+  }
+}
