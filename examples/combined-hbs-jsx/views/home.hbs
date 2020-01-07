@@ -1,0 +1,10 @@
+<div style="background-color:#FFF1EF; padding:20px">
+  <h1>{{pageTitle}}</h1>
+  <p>This page has been rendered using Handlebars as the view engine</p>
+
+  {{#capture "myCapturedPartial"}}
+    {{> partial title="This is a Handlebars partial"}}
+  {{/capture}}
+
+  {{{loadJsxComponent partial=myCapturedPartial}}}
+</div>
