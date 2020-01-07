@@ -4,7 +4,7 @@ This package provides rendering for [Handlebars] templates with additional suppo
 
 [Handlebars]: https://handlebarsjs.com/
 [n-handlebars]: https://github.com/Financial-Times/n-handlebars
-[helper functions]: helpers/readme.md
+[helper functions]: src/helpers/readme.md
 
 
 ## Getting started
@@ -132,5 +132,5 @@ An object listing directories and patterns used to dynamically find and load par
 A boolean which enables the caching of partial file lookup and compiled templates to enable reuse between render calls. This should always be enabled in production environments. Defaults to `process.env.NODE_ENV !== 'development`.
 
 [helper functions]: http://handlebarsjs.com/builtin_helpers.html
-[partial templates]: https://handlebarsjs.com/partials.html
+[partial templates]: https://handlebarsjs.com/guide/partials.html
 [n-express]: https://github.com/Financial-Times/n-express
