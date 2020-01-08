@@ -167,13 +167,13 @@ _Please note: The hooks below are listed in the order they will be executed._
 
 Configuration options for the [clean plugin](https://github.com/johnagan/clean-webpack-plugin).
 
-##### `WEBPACK_COMPRESSION_PLUGIN_OPTIONS`
+##### `WEBPACK_GZIP_COMPRESSION_PLUGIN_OPTIONS`
 
-Configuration options for the [compression plugin](https://github.com/webpack-contrib/compression-webpack-plugin)
+Configuration options for the [compression plugin](https://github.com/webpack-contrib/compression-webpack-plugin) set to use the gzip algorithm.
 
-##### `WEBPACK_BROTLI_PLUGIN_OPTIONS`
+##### `WEBPACK_BROTLI_COMPRESSION_PLUGIN_OPTIONS`
 
-Configuration options for the [brotli compression plugin](https://github.com/mynameiswhm/brotli-webpack-plugin)
+Configuration options for the [compression plugin](https://github.com/webpack-contrib/compression-webpack-plugin) set to use the Brotli algorithm.
 
 ##### `WEBPACK_MANIFEST_PLUGIN_OPTIONS`
 
