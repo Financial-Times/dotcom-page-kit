@@ -29,7 +29,7 @@
     "@financial-times/dotcom-page-kit-cli": "file:../dotcom-page-kit-cli"
   },
   "engines": {
-    "node": ">= 8.16.0"
+    "node": ">= 12.0.0"
   },
   "repository": {
     "type": "git",
