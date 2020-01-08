@@ -1,6 +1,6 @@
 const dogData = require('../lib/data.json')
 
-module.exports = async (request, response, next) => {
+module.exports = (request, response, next) => {
   const renderOptions = {
     pageTitle: 'Welcome',
     dogData
