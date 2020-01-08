@@ -6,14 +6,12 @@ import ReactDOMServer from 'react-dom/server'
 
 import Component from './components/Component'
 
+const fileContent = fs.readFileSync(path.join(__dirname, './partials/partial-with-jsx-component.hbs'), 'utf8')
+
 export default function Home({ pageTitle }) {
   function createMarkup(markup) {
     return { __html: markup }
   }
-
-  const fileContent = String(
-    fs.readFileSync(path.join(__dirname, './partials/partial-with-jsx-component.hbs'))
-  )
 
   const template = Handlebars.compile(fileContent)
 
