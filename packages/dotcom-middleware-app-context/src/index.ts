@@ -21,7 +21,7 @@ export function init(options: TMiddlewareOptions = {}) {
       isProduction: process.env.NODE_ENV === 'production',
       // This is set by the membership session service as part of preflight
       // https://github.com/Financial-Times/next-preflight/blob/master/server/tasks/membership/session.js
-      isUserLoggedIn: request.get('ft-user-uuid') && request.get('ft-user-uuid') !== '-',
+      isUserLoggedIn: request.get('ft-anonymous-user') === 'false',
       ...options.appContext
     }
 
