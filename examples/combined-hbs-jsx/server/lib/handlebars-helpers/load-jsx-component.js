@@ -1,9 +1,9 @@
 import ReactDOMServer from 'react-dom/server'
 
-import ComponentWithHbsPartial from '../../../views/components/ComponentWithHbsPartial.jsx'
+import ComponentWithHbsOutput from '../../../views/components/ComponentWithHbsOutput.jsx'
 
 export default function(options = {}) {
-  const handlebarsPartial = options.hash.partial
+  const { handlebarsOutput } = options.hash
 
-  return ReactDOMServer.renderToString(ComponentWithHbsPartial({ handlebarsPartial }))
+  return ReactDOMServer.renderToString(ComponentWithHbsOutput({ handlebarsOutput }))
 }

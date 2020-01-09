@@ -8,7 +8,7 @@ describe('examples/combined-hbs-jsx', () => {
       // Cannot use direct child selector `>` because React dangerouslySetInnerHTML
       // creates containing element tags which create an intermediary between the parent and child elements.
       const instancesOfHbsPartialWithinJsxComponent = await page.evaluate(
-        () => document.querySelectorAll('.jsx-component-with-hbs-partial .hbs-partial').length
+        () => document.querySelectorAll('.jsx-component-with-hbs-output .hbs-output').length
       )
 
       expect(instancesOfHbsPartialWithinJsxComponent).toBe(1)
@@ -22,7 +22,7 @@ describe('examples/combined-hbs-jsx', () => {
 
     it('renders the Handlebars partial as a parent of the JSX component', async () => {
       const instancesOfJsxComponentWithinHbsPartial = await page.evaluate(
-        () => document.querySelectorAll('.hbs-partial-with-jsx-component > .jsx-component').length
+        () => document.querySelectorAll('.hbs-partial-template-with-jsx-output > .jsx-output').length
       )
 
       expect(instancesOfJsxComponentWithinHbsPartial).toBe(1)

@@ -6,16 +6,19 @@ import ReactDOMServer from 'react-dom/server'
 
 import Component from './components/Component'
 
-const fileContent = fs.readFileSync(path.join(__dirname, './partials/partial-with-jsx-component.hbs'), 'utf8')
+const fileContent = fs.readFileSync(
+  path.join(__dirname, './partials/partial-template-with-jsx-output.hbs'),
+  'utf8'
+)
 
 export default function Home({ pageTitle }) {
   function createMarkup(markup) {
     return { __html: markup }
   }
 
-  const template = Handlebars.compile(fileContent)
+  const handlebarsPartialTemplate = Handlebars.compile(fileContent)
 
-  const myAssignedComponent = <Component title="This is a JSX component" />
+  const myAssignedOutput = <Component title="This is JSX output" />
 
   return (
     <div style={{ backgroundColor: '#FFF1EF', padding: '20px' }}>
@@ -24,7 +27,7 @@ export default function Home({ pageTitle }) {
 
       <div
         dangerouslySetInnerHTML={createMarkup(
-          template({ jsxComponent: ReactDOMServer.renderToString(myAssignedComponent) })
+          handlebarsPartialTemplate({ jsxOutput: ReactDOMServer.renderToString(myAssignedOutput) })
         )}
       />
     </div>
