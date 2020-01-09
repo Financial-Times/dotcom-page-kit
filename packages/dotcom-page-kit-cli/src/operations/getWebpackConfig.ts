@@ -4,7 +4,6 @@ import { CliContext } from '../entities/CliContext'
 import { getBabelConfig } from './getBabelConfig'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import CompressionPlugin from 'compression-webpack-plugin'
-import BrotliPlugin from 'brotli-webpack-plugin'
 import ManifestPlugin from 'webpack-assets-manifest'
 
 export function getWebpackConfig({ options, config, publish, cli }: CliContext) {
@@ -13,13 +12,20 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
   const outputPath = get(config, 'settings.build.outputPath') || options.outputPath
   const outputFileName = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
   const cleanWebpackPluginOptions = { verbose: false }
-  const compressionPluginOptions = {
+  const gzipCompressionPluginOptions = {
     test: /\.(js|css)$/,
+    filename: '[path].gz',
     algorithm: 'gzip',
     compressionOptions: { level: 9 },
     minRatio: 1
   }
-  const brotliPluginOptions = { test: /\.(js|css)$/, quality: 11, minRatio: 1 }
+  const brotliCompressionPluginOptions = {
+    test: /\.(js|css)$/,
+    filename: '[path].br',
+    algorithm: 'brotliCompress',
+    compressionOptions: { level: 11 },
+    minRatio: 1
+  }
   const manifestFileName = get(config, 'settings.build.manifestFileName') || 'manifest.json'
   const manifestPluginOptions = {
     output: manifestFileName,
@@ -27,8 +33,8 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
   }
 
   publish(hooks.WEBPACK_CLEAN_PLUGIN_OPTIONS, cleanWebpackPluginOptions)
-  publish(hooks.WEBPACK_COMPRESSION_PLUGIN_OPTIONS, compressionPluginOptions)
-  publish(hooks.WEBPACK_BROTLI_PLUGIN_OPTIONS, brotliPluginOptions)
+  publish(hooks.WEBPACK_GZIP_COMPRESSION_PLUGIN_OPTIONS, gzipCompressionPluginOptions)
+  publish(hooks.WEBPACK_BROTLI_COMPRESSION_PLUGIN_OPTIONS, brotliCompressionPluginOptions)
   publish(hooks.WEBPACK_MANIFEST_PLUGIN_OPTIONS, manifestPluginOptions)
 
   return publish(hooks.WEBPACK_CONFIG, {
@@ -60,10 +66,8 @@ export function getWebpackConfig({ options, config, publish, cli }: CliContext) 
       ? [new CleanWebpackPlugin(cleanWebpackPluginOptions), new ManifestPlugin(manifestPluginOptions)]
       : [
           new CleanWebpackPlugin(cleanWebpackPluginOptions),
-          new CompressionPlugin(compressionPluginOptions),
-          // TODO: Swap BrotliPlugin for another instance of CompressionPlugin when on node >=11.7.0
-          // https://www.npmjs.com/package/compression-webpack-plugin#using-brotli
-          new BrotliPlugin(brotliPluginOptions),
+          new CompressionPlugin(gzipCompressionPluginOptions),
+          new CompressionPlugin(brotliCompressionPluginOptions),
           new ManifestPlugin(manifestPluginOptions)
         ],
     devtool: isDevMode ? 'cheap-module-eval-source-map' : 'source-map',
