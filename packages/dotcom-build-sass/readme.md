@@ -41,8 +41,10 @@ This plugin adds a [rule] to the Webpack configuration to handle `.scss` files. 
 Sass has been configured to find packages installed with Bower and or npm by looking in the `'bower_components'` and `'node_modules/@financial-times'` directories. It can be configured to look in additional locations by passing the relevant paths to the plugin as absolute paths.
 
 ```js
-sass.plugin({includePaths: [path.resolve('./path-to-sass-files')]})
+sass.plugin({ includePaths: [path.resolve('./path-to-sass-files')] })
 ```
+
+_Please note_ that by default Sass will resolve all bare `@import` statements from the current working directory rather than relative to the file being processed. This means it will not find dependencies in nested `node_modules` directories.
 
 [PostCSS] is configured with the [Autoprefixer] and [cssnano] transforms.
 
@@ -63,7 +65,10 @@ Several [hooks](#hooks) are provided in order to access and modify the configura
 
 ## Options
 
-There are currently no additional options for this plugin.
+| Option            | Type     | Default | Description                                                        |
+|-------------------|----------|---------|--------------------------------------------------------------------|
+| `webpackImporter` | Boolean  | `false` | See https://github.com/webpack-contrib/sass-loader#webpackimporter |
+| `includePaths`    | String[] | `[]`    | See https://github.com/sass/node-sass/#includepaths                |
 
 
 ## Hooks
