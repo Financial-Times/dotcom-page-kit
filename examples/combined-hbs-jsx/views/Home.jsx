@@ -11,12 +11,12 @@ const fileContent = fs.readFileSync(
   'utf8'
 )
 
+const handlebarsPartialTemplate = Handlebars.compile(fileContent)
+
 export default function Home({ pageTitle }) {
   function createMarkup(markup) {
     return { __html: markup }
   }
-
-  const handlebarsPartialTemplate = Handlebars.compile(fileContent)
 
   const myAssignedOutput = <Component title="This is JSX output" />
 
