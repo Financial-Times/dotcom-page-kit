@@ -12,7 +12,7 @@ const appContext = {
 const headers = {
   'ft-edition': 'international',
   'ft-ab': '-',
-  'ft-user-uuid': '-'
+  'ft-anonymous-user': '-'
 }
 
 describe('dotcom-middleware-app-context', () => {
