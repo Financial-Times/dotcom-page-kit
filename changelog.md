@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.4
+
+- App context middleware: Fixed the incorrect assumption that user IDs were equivalent to having a valid session
+
 ## 0.5.3
 
 - Handlebars package: Refactor helpers to use default exports for compatibility with `handlebars-loader`
@@ -17,6 +21,10 @@
 - Layout UI component: (_breaking change_) updates all Origami bower dependencies to their latest major version
 - Header UI component: (_breaking change_) updates all Origami bower dependencies to their latest major version
 - Footer UI component: (_breaking change_) updates all Origami bower dependencies to their latest major version
+
+## 0.4.5
+
+- Backport of v0.5.4
 
 ## 0.4.4
 
