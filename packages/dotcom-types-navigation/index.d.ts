@@ -47,6 +47,7 @@ export type TNavMenuItem = {
   label: string
   url: string | null
   submenu?: TNavMenu | TNavMenuWithColumns
+  id?: string
   selected?: boolean
   meganav?: TNavMeganav[]
   disableTracking?: boolean

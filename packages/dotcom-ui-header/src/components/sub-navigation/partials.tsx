@@ -73,9 +73,10 @@ const SubSections = ({ items }: { items: TNavMenuItem[] }) => {
       data-trackable="subsections">
       {items.map((item, index) => {
         const selected = item.selected ? 'o-header__subnav-link--highlight' : ''
+        const subnavItemId = { 'data-id': item.id ? `subnav-${item.id}` : null }
 
         return (
-          <li className="o-header__subnav-item" key={`item-${index}`}>
+          <li className="o-header__subnav-item" key={`item-${index}`} {...subnavItemId}>
             <a
               className={`o-header__subnav-link ${selected}`}
               href={item.url}

@@ -1785,6 +1785,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
             >
               <li
                 className="o-header__subnav-item"
+                data-id={null}
               >
                 <a
                   className="o-header__subnav-link "
@@ -1796,6 +1797,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
               </li>
               <li
                 className="o-header__subnav-item"
+                data-id={null}
               >
                 <a
                   className="o-header__subnav-link "
@@ -1807,6 +1809,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
               </li>
               <li
                 className="o-header__subnav-item"
+                data-id={null}
               >
                 <a
                   className="o-header__subnav-link "
@@ -3624,6 +3627,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
             >
               <li
                 className="o-header__subnav-item"
+                data-id={null}
               >
                 <a
                   className="o-header__subnav-link "
@@ -3635,6 +3639,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
               </li>
               <li
                 className="o-header__subnav-item"
+                data-id={null}
               >
                 <a
                   className="o-header__subnav-link "
@@ -3646,6 +3651,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
               </li>
               <li
                 className="o-header__subnav-item"
+                data-id={null}
               >
                 <a
                   className="o-header__subnav-link "
