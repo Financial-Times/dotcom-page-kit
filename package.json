@@ -45,7 +45,7 @@
   },
   "homepage": "https://github.com/Financial-Times/dotcom-page-kit#readme",
   "devDependencies": {
-    "@babel/core": "^7.4.4",
+    "@babel/core": "^7.8.0",
     "@babel/preset-react": "^7.8.0",
     "@babel/preset-typescript": "^7.8.0",
     "@financial-times/athloi": "^1.0.0-beta.17",
