@@ -30,7 +30,7 @@ module.exports = ({ config }) => {
     test: /\.(ts|tsx)$/,
     loader: require.resolve('babel-loader'),
     options: {
-      presets: [['react-app', { flow: false, typescript: true }]]
+      presets: [require.resolve('@babel/preset-react'), require.resolve('@babel/preset-typescript')]
     },
     exclude: excludePaths
   })
