@@ -12,11 +12,12 @@ npm install --save @financial-times/dotcom-ui-layout
 
 After installing the package you can use it to wrap your application views and pages. The layout includes the global UI elements so you can focus on the contents of your pages.
 
-### Usage with React
+### Usage with JSX
 
-If you're using React you can use the `<Layout />` component to wrap your existing component tree.
+If you're using React and JSX you can use the `<Layout />` component to wrap your existing component tree.
 
 ```jsx
+import React from 'react'
 import Home from './pages/Home'
 import { Layout } from '@financial-times/dotcom-ui-layout'
 
@@ -25,25 +26,26 @@ const page = <Layout {...options}><App /></Layout>
 
 _Please note_ that the layout component is designed to be used on the server-side. It can be rendered on the client-side but there is not usually a good reason to do so. If possible you should consider `<App />` as your application root and client-side mounting point.
 
-### Usage without React
+### Usage without JSX
 
-If your application is not using React then you can use the `Layout()` component as a regular JavaScript function, without using JSX. In this case the `contents` option is used to pass in a prerendered string of HTML.
+If your application is not using React or JSX then you can still use the `Layout` component via React's `createElement()` function to wrap your existing HTML. In this case the `contents` option is used to pass in a pre-rendered string of HTML.
 
 ```js
+const React = require('react')
 const renderApp = require('./lib/render-app')
 const { Layout } = require('@financial-times/dotcom-ui-layout')
 
-const prerenderedHTML = renderApp()
-const page = Layout({ contents: prerenderedHTML, ...options })
+const html = renderApp()
+const page = React.createElement(Layout, { contents: html, ...options })
 ```
 
 ### Rendering to a string
 
-However you are integrating the shell component with your applicaton you will need to convert the output from a [React element] to a string or stream of HTML to send to your application's users. You should use the [`react-dom`] package for this:
+However you are integrating the layout component with your application you will need to convert the output from a [React element] to a string or stream of HTML to send to your application's users. You need to use the [`react-dom`] package for this:
 
 ```js
 const ReactDOM = require('react-dom/server')
-const outputHTML = ReactDOM.renderToString(document)
+const outputHTML = ReactDOM.renderToStaticMarkup(document)
 ```
 
 [React element]: https://reactjs.org/docs/rendering-elements.html
