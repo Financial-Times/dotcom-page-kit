@@ -12,11 +12,12 @@ npm install --save @financial-times/dotcom-ui-shell
 
 After installing the package you can use it to wrap your application output. The shell provides a [HTML skeleton](#HTML-skeleton) which includes the `<html>`, `<head>`, and `<body>` elements so you only need to think about what's visible to your users.
 
-### Usage with React
+### Usage with JSX
 
-If you're using React you can use the `<Shell />` component to wrap your existing component tree.
+If you're using React and JSX you can use the `<Shell />` component to wrap your existing component tree.
 
 ```jsx
+import React from 'react'
 import App from './components/App'
 import { Shell } from '@financial-times/dotcom-ui-shell'
 
@@ -25,25 +26,26 @@ const document = <Shell {...options}><App /></Shell>
 
 _Please note_: The shell component is designed to be used on the server-side and cannot be rendered on the client-side. For this reason you should always consider using `<App />` for your application root and client-side mounting point.
 
-### Usage without React
+### Usage without JSX
 
-If your application is not using React then you can use the `Shell()` component as a regular JavaScript function, without using JSX. In this case the `contents` option is used to pass in a prerendered string of HTML.
+If your application is not using React or JSX then you can still use the `Shell` component via React's `createElement()` function to wrap your existing HTML. In this case the `contents` option is used to pass in a pre-rendered string of HTML.
 
 ```js
+const React = require('react')
 const renderApp = require('./lib/render-app')
 const { Shell } = require('@financial-times/dotcom-ui-shell')
 
-const prerenderedHTML = renderApp()
-const document = Shell({ contents: prerenderedHTML, ...options })
+const html = renderApp()
+const document = React.createElement(Shell, { contents: html, ...options })
 ```
 
 ### Rendering to a string
 
-However you are integrating the shell component with your application you will need to convert the output from a [React element] to a string or stream of HTML to send to your application's users. You should use the [`react-dom`] package for this:
+However you are integrating the shell component with your application you will need to convert the output from a [React element] to a string or stream of HTML to send to your application's users. You need to use the [`react-dom`] package for this:
 
 ```js
 const ReactDOM = require('react-dom/server')
-const outputHTML = ReactDOM.renderToString(document)
+const outputHTML = ReactDOM.renderToStaticMarkup(document)
 ```
 
 [React element]: https://reactjs.org/docs/rendering-elements.html
