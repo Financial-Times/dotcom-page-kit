@@ -21,7 +21,7 @@ After installing the package you must add it to the list of plugins in your proj
 
 module.exports {
   "plugins": [
-+    bowerResolvePlugin.plugin()
++    bowerResolve.plugin()
   ]
 }
 ```
