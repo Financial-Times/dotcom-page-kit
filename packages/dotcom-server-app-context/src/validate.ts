@@ -11,6 +11,6 @@ export default function validate(field: string, value): boolean {
   if (isValid(data)) {
     return true
   } else {
-    throw Error(`Validation error: ${ajv.errorsText(isValid.errors)}`)
+    throw Error(`Validation error: ${ajv.errorsText(isValid.errors)}, received "${value}"`)
   }
 }
