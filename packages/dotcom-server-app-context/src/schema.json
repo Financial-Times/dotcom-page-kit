@@ -70,8 +70,8 @@
     "publishReference": {
       "type": "string",
       "description": "The publish reference of the content on the current page",
-      "examples": ["tid_17wmwszvk3"],
-      "pattern": "^tid_.+$"
+      "examples": ["tid_17wmwszvk3", "SYNTHETIC-REQ-MONtid_UrnYVM6Waz_carousel_1534570047"],
+      "pattern": "tid_"
     }
   }
 }
