@@ -94,4 +94,4 @@ The publish reference of the content on the current page
 
 Additional restrictions:
 
-* Regex pattern: `tid_`
+* Regex pattern: `^.+$`
