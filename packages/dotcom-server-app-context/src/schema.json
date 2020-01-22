@@ -42,8 +42,8 @@
     "contentType": {
       "type": "string",
       "description": "The type or sub-type of the content on the current page",
-      "examples": ["article", "video", "audio", "podcast", "package"],
-      "pattern": "^(article|video|audio|podcast|package)$"
+      "examples": ["article", "video", "audio", "podcast", "package", "live-blog"],
+      "pattern": "^(article|video|audio|podcast|package|live-blog)$"
     },
     "edition": {
       "type": "string",
