@@ -1,4 +1,7 @@
-//__PLACEHOLDER:NOTE__//
+/*
+  NOTE: This file is auto generated so don't add anything to it.
+  Make your changes to ./config.template.js instead.
+*/
 
 import { withOptions } from '@storybook/addon-options'
 import { addDecorator, configure } from '@storybook/react'
@@ -12,5 +15,5 @@ addDecorator(
 configure(loadStories, module)
 
 function loadStories() {
-  //__PLACEHOLDER:STORIES__//
+  /* PLACEHOLDER */
 }
