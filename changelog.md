@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.8
+
+- Asset loader package: Fixed issue with concatenation of absolute URLs when used as the `publicPath`
+
 ## 0.5.7
 
 - Header UI component: Fixed issue with missing `o-header` styles
