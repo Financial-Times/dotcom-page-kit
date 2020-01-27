@@ -19,9 +19,9 @@
     "postinstall": "athloi exec npm i -- --no-package-lock && npm run bower:install",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
     "script:update": "node scripts/update-dep",
-    "storybook": "npm run storybook:generate && npm run storybook:start",
-    "storybook:ci": "npm run storybook:generate && npm run storybook:start:ci",
-    "storybook:generate": "node ./.storybook/scripts/generateConfig",
+    "storybook": "npm run storybook:config && npm run storybook:start",
+    "storybook:ci": "npm run storybook:config && npm run storybook:start:ci",
+    "storybook:config": "node scripts/generate-storybook-config",
     "storybook:start": "start-storybook -p 9001 -c .storybook",
     "storybook:start:ci": "start-storybook -c .storybook --ci --smoke-test"
   },
