@@ -1,4 +1,5 @@
 import path from 'path'
+import urlJoin from 'url-join'
 import { loadFile } from './helpers/loadFile'
 import { loadManifest } from './helpers/loadManifest'
 
@@ -91,7 +92,7 @@ export class AssetLoader {
   //
 
   formatPublicURL(hashedAsset: string): string {
-    return path.posix.join(this.options.publicPath, hashedAsset)
+    return urlJoin(this.options.publicPath, hashedAsset)
   }
 
   formatFileSystemPath(hashedAsset: string): string {
