@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.6.0
+
+- JS build plugin: (_breaking change_) Removed `enableRequireDefault` option
+- Sass build plugin: (_breaking change_) Disabled the `webpackImporter` option for `sass-loader` and added an option to re-enable it
+- App context middleware: Added `pageKitVersion` property
+- Assets middleware: (_breaking change_) replaced by `dotcom-middleware-asset-loader` package
+- (_breaking change_) Node v12 is now the minimum supported version
+- (_breaking change_) Removed the unused resource hints package
+
+Please refer to the [0.5.x to 0.6.x migration guide](https://github.com/Financial-Times/dotcom-page-kit/wiki/Upgrading-from-0.5.x-to-0.6.x) for more details.
+
 ## 0.5.8
 
 - Asset loader package: Fixed issue with concatenation of absolute URLs when used as the `publicPath`
