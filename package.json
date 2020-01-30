@@ -18,7 +18,6 @@
     "bower:install": "npm run bower:link && bower install",
     "postinstall": "athloi exec npm i -- --no-package-lock && npm run bower:install",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
-    "script:update": "node scripts/update-dep",
     "storybook": "npm run storybook:config && npm run storybook:start",
     "storybook:ci": "npm run storybook:config && npm run storybook:start:ci",
     "storybook:config": "node scripts/generate-storybook-config",
