@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.5.8
+
+- Asset loader package: Fixed issue with concatenation of absolute URLs when used as the `publicPath`
+
+## 0.5.7
+
+- Header UI component: Fixed issue with missing `o-header` styles
+- App context package: Removed validation pattern for `publishReference` field
+
+## 0.5.6
+
+- App context package: Added alternative pattern for `contentType` field
+
+## 0.5.5
+
+- App context package: Added alternative pattern for `publishReference` field
+
 ## 0.5.4
 
 - App context middleware: Fixed the incorrect assumption that user IDs were equivalent to having a valid session

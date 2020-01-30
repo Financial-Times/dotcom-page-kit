@@ -16,7 +16,8 @@ domLoaded.then(() => {
   ads
     .init(
       {
-        trackingCallback: console.log // eslint-disable-line no-console
+        trackingCallback: console.log, // eslint-disable-line no-console,
+        appContext: appContextClient.getAll()
       },
       flagsClient
     )

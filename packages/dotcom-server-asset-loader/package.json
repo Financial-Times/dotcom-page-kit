@@ -25,5 +25,8 @@
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
     "directory": "packages/dotcom-server-asset-loader"
   },
-  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-server-asset-loader"
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-server-asset-loader",
+  "dependencies": {
+    "url-join": "^4.0.1"
+  }
 }

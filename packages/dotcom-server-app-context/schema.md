@@ -56,7 +56,7 @@ The type or sub-type of the content on the current page
 
 Additional restrictions:
 
-* Regex pattern: `^(article|video|audio|podcast|package)$`
+* Regex pattern: `^(article|video|audio|podcast|package|live-blog)$`
 
 ## `edition` (string)
 
@@ -94,4 +94,4 @@ The publish reference of the content on the current page
 
 Additional restrictions:
 
-* Regex pattern: `^tid_.+$`
+* Regex pattern: `^.+$`
