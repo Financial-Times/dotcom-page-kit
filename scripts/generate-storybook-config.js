@@ -31,4 +31,3 @@ function prepareConfigFileContents(paths) {
     .readFileSync(TEMPLATE_FILE, { encoding: 'utf8' })
     .replace('/* PLACEHOLDER */', storiesContents)
 }
-

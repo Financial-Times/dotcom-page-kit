@@ -1,6 +1,6 @@
-import domLoaded from 'dom-loaded'
+import readyState from 'ready-state'
 import * as layout from '@financial-times/dotcom-ui-layout'
 
-domLoaded.then(() => {
+readyState.domready.then(() => {
   layout.init()
 })

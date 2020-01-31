@@ -72,13 +72,13 @@ export function plugin() {
   function addSharedStableCodeSplitting() {
     // split packages used by all pages (i.e. used by Page Kit) into a shared bundle
     return createBundleWithPackages('shared.stable', [
-      'dom-loaded',
       'focus-visible',
       'fontfaceobserver',
       'ftdomdelegate',
       'morphdom',
       'n-topic-search',
-      'n-ui-foundations'
+      'n-ui-foundations',
+      'ready-state'
     ])
   }
 
