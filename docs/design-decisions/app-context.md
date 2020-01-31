@@ -9,9 +9,14 @@ Previously metadata was embedded into the HTML as data attributes on the documen
 - We did not know who or what relies on this data meaning we were scared to change it, or fix it.
 - Several properties had changed in scope, either the name became irrelevant or the type of data had changed.
 
-To help resolve this our implementation of app context is based upon a schema which documents and guarantees the data. The schema also defines how the feature can be used to reduce the chance of it being re-purposed or misused. Because we don't always know who or what may be using the data the schema enables us communicate an official point of reference for them to follow.
+To help resolve this our implementation of app context is based upon a schema which documents and guarantees the data. The schema also defines how the feature can be used to reduce the chances of it being re-purposed or misused. The schema also enables us provide an official reference for people to follow because we don't always know who or what may be using the data.
 
-The new app context feature has also enabled us to refactor the [ads] and [tracking] component configuration to be deterministic rather than have each separately and arbitrarily scraping pages for information.
+Finally, the app context feature has enabled us to refactor the [ads] and [tracking] components. They now provide their own, separate options, and are deterministic rather than each arbitrarily scraping pages for information.
 
 [ads]: https://github.com/Financial-Times/n-ads/
 [tracking]: https://github.com/Financial-Times/n-tracking/
+
+## Decision owners
+
+- Matt Hinchliffe
+- Ifeanyi Isitor
