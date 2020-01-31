@@ -8,6 +8,7 @@ export type THeaderOptions = {
   showUserNavigation?: boolean
   showStickyHeader?: boolean
   showMegaNav?: boolean
+  showLogoLink?: boolean
 }
 
 export type THeaderProps = THeaderOptions & {

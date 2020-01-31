@@ -87,11 +87,11 @@ function Header(props: THeaderProps) {
 
 Header.defaultProps = defaultProps
 
-function LogoOnly(props: Pick<THeaderProps, 'variant'>) {
+function LogoOnly(props: Pick<THeaderProps, 'variant' | 'showLogoLink'>) {
   return (
     <HeaderWrapper {...props}>
       <TopWrapper>
-        <TopColumnCenterNoLink />
+        {props.showLogoLink ? <TopColumnCenter /> : <TopColumnCenterNoLink />}
       </TopWrapper>
     </HeaderWrapper>
   )
