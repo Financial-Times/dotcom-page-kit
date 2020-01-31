@@ -23,17 +23,17 @@ After installing the package you should add `no-js` and `core` class names to yo
 + <html class="no-js core">
 ```
 
-Because the bootstrap is intended to load scripts asynchronously and as early as possible you should always check that the DOM is ready before initialising your client-side code. We recommend using the [dom-ready] library which provides a promise-based interface for this:
+Because the bootstrap is intended to load scripts asynchronously and as early as possible you should always check that the DOM is ready before initialising your client-side code. We recommend using the [ready-state] library which provides a promise-based interface for this:
 
 ```js
-import domLoaded from 'dom-loaded'
+import readyState from 'ready-state'
 
-domLoaded.then(() => {
+readyState.domready.then(() => {
   console.log('Ready!')
 })
 ```
 
-[dom-loaded]: https://github.com/sindresorhus/dom-loaded
+[ready-state]: https://www.npmjs.com/package/ready-state
 
 ### Server-side integration
 
