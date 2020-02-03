@@ -2,7 +2,11 @@
 
 This package provides tools to define FT app context data and a [JSON schema] definition to validate it with.
 
+To learn more about why this feature exists please review the [design document]. To find out which properties can be defined please refer to the [app context schema].
+
 [JSON schema]: https://json-schema.org/
+[design document]: ../../docs/design-decisions/app-context.md
+[app context schema]: schema.md
 
 
 ## Getting started
@@ -37,7 +41,7 @@ Returns the value of the requested property.
 
 ### `set(property: string, value: any)`
 
-Sets the value of the specified property. The provided value will be validated against the [app context schema](#app-context-data). If the value is invalid this method will throw an error.
+Sets the value of the specified property. The provided value will be validated against the [app context schema]. If the value is invalid this method will throw an error.
 
 ### `getAll(): object`
 
@@ -50,9 +54,4 @@ The `AppContext` class accepts the following parameters. All parameters are opti
 
 ### `appContext`
 
-An app context data object, see [app context data](#app-context-data) for more information. Defaults to `{}`.
-
-
-## App Context Data
-
-Please refer to the [JSON schema definition](schema.md) for more information.
+An app context data object, see the [app context schema] for more information. Defaults to `{}`.
