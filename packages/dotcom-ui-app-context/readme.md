@@ -2,7 +2,7 @@
 
 This package provides methods for embedding [app context data] into your server-side rendered pages and safely retrieving it again in the browser.
 
-[app context data]: ../dotcom-server-app-context/readme.md
+[app context data]: ../dotcom-server-app-context/schema.md
 
 
 ## Getting started
@@ -83,9 +83,9 @@ Initialises and returns a new [app context client](#app-context-client-api) whic
 
 ## App context client API
 
-### `get(appContext: string)`
+### `get(property: string)`
 
-Returns the value of the requested property. If the context is not found this will return `undefined`.
+Returns the value of the requested property. If the property is not found this will return `undefined`.
 
 ### `getAll()`
 
