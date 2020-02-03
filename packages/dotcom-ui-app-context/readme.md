@@ -2,6 +2,8 @@
 
 This package provides methods for embedding [app context data] into your server-side rendered pages and safely retrieving it again in the browser.
 
+[app context data]: ../dotcom-server-app-context/readme.md
+
 
 ## Getting started
 
@@ -20,7 +22,7 @@ If you are using React to render your app you can use the `AppContextEmbed` comp
 
 ```jsx
 import { AppContextEmbed } from '@financial-times/dotcom-ui-app-context'
-const appContext = {appName:"app-name", contextProperty:"my-property"}
+const appContext = { appName: 'app-name', contextProperty: 'my-property' }
 
 export default (props) => (
   <html>
@@ -59,7 +61,7 @@ function page() {
 
 ### Client-side integration
 
-Once you are delivering the [app context data] with your pages you can use the [app context client] in your client-side code. The client provides methods for safely retrieving the status of individual context properties.
+Once you are delivering the [app context data] with your pages you can use the [app context client](#client-side-api) in your client-side code. The client provides methods for safely retrieving the status of individual context properties.
 
 ```js
 import * as appContext from '@financial-times/dotcom-ui-app-context'
@@ -76,10 +78,10 @@ if (appContext.get('my-context-property')) {
 
 ### `init()`
 
-Initialises and returns a new [app context client] which can be used to safely access the status of individual contexts.
+Initialises and returns a new [app context client](#app-context-client-api) which can be used to safely access the status of individual contexts.
 
 
-## App appContext client API
+## App context client API
 
 ### `get(appContext: string)`
 
@@ -90,6 +92,3 @@ Returns the value of the requested property. If the context is not found this wi
 Returns all app context data.
 
 _Please note_ that the [app context data] object is frozen so it cannot be modified.
-
-[app context client]: #app-context-client-api
-[app context data]: ../dotcom-server-app-context
