@@ -24,26 +24,18 @@ const app = express()
 +app.use(appContext.init())
 ```
 
-Once registered an `appContext` property will be added to the [response locals] object which provides a preconfigured instance of [FT app context].
+Once registered an `appContext` property will be added to the [response locals]:
 
 ```js
 app.get('/', (request, response) => {
-  const { appContext } = response.locals
-
-  res.send(`
-    <!DOCTYPE html>
-    <html>
-      <head>
-        ${appContext.toEmbedString()}
-      </head>
-    </html>
-  `)
+  const appContextData = response.locals.appContext.getAll()
 })
 ```
 
-See the [FT app context] package documentation for a complete list of available methods.
+See the [app context] package documentation for more information.
 
 [response locals]: https://expressjs.com/en/api.html#res.locals
+
 
 ## Options
 
@@ -51,6 +43,6 @@ The middleware accepts the following parameters:
 
 ### `appContext`
 
-An optional object of appContext properties. This can be used to append extra properties or override any of the properties automatically inferred from the running application.
+An app context data object, see the [app context schema] for more information. This can be used to append extra properties or override any of the properties automatically inferred from the running application.
 
-[`TAppContext`]: ../dotcom-server-app-context/schema.md
+[app context schema]: ../dotcom-server-app-context/schema.md

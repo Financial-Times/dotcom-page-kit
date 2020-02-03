@@ -83,10 +83,6 @@ Finds and parses the formatted flags data embedded in the page and returns the f
 
 _Please note_ the formatted flags data must be present in a `<script>` element with an ID of `page-kit-flags-embed`.
 
-### `new Flags(flagsData: object)`
-
-Creates a [flags client](#flags-client-api) with the given data.
-
 
 ## Server-side API
 
