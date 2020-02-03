@@ -26,7 +26,7 @@ This package provides several UI components to render different parts and styles
 
 - `<Header />` the full header with navigation with lots of options. See [header elements](#header-elements) for a breakdown of its parts.
 - `<Drawer />` the navigation drawer which should be rendered separately from the header, preferably near the bottom of the document.
-- `<LogoOnly />` a simple masthead displaying the logo image which does require any configuration. Doesn't link to the homepage by default, pass in a `showLogoLink={true}` prop to make it link through.
+- `<LogoOnly />` a simple masthead displaying the logo image which doesn't require any configuration. Doesn't link to the homepage by default, pass in a `showLogoLink={true}` prop to make it link through.
 
 
 ```jsx
