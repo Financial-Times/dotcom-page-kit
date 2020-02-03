@@ -27,9 +27,16 @@ export default function Home({ pageTitle }) {
 
       <div
         dangerouslySetInnerHTML={createMarkup(
-          handlebarsPartialTemplate({ jsxOutput: ReactDOMServer.renderToString(myAssignedOutput) })
+          handlebarsPartialTemplate({
+            title: 'This is Handlebars output',
+            jsxOutput: ReactDOMServer.renderToString(myAssignedOutput)
+          })
         )}
       />
+      <p>
+        The above Handlebars partial template was imported from a local route and output via React’s
+        dangerouslySetInnerHTML prop
+      </p>
     </div>
   )
 }

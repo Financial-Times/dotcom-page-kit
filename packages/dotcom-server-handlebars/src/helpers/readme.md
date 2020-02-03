@@ -88,6 +88,18 @@ Example:
 {{#ifSome foo bar baz}}A parameter is truthy{{else}}All parameters are falsy{{/ifSome}}
 ```
 
+### renderJsxComponent
+
+Outputs a JSX component specified by its local route (relative to the root of the app consuming `dotcom-server-handlebars`) or the package name of the node module, with specification of a named export if required, as well as any other props.
+
+Example:
+
+```hbs
+{{{renderJsxComponent localRoute="views/components/ComponentWithHbsOutput" title="This is a React component"}}}
+
+{{{renderJsxComponent package="@financial-times/dotcom-ui-header" namedExport="LogoOnly" variant="large-logo"}}}
+```
+
 ### resize
 
 Deliver an image via the [Origami Image Service] and resize it to the specified width. Additional named parameters will be appended to the URL query string.

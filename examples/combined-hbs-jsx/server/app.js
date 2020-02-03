@@ -4,17 +4,13 @@ import express from 'express'
 
 import hbsToJsxController from './controllers/hbs-to-jsx'
 import jsxToHbsController from './controllers/jsx-to-hbs'
-import loadJsxComponent from './lib/handlebars-helpers/load-jsx-component'
 
 export const app = express()
 
 // Add Handlebars as a view engine so controllers may use response.render()
 const hbsRenderer = new PageKitHandlebars({
   cache: process.env.NODE_ENV === 'production',
-  helpers: {
-    ...helpers,
-    loadJsxComponent
-  }
+  helpers
 })
 
 // Add React as a view engine so controllers may use response.render()

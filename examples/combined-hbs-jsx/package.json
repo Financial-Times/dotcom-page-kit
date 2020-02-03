@@ -10,6 +10,7 @@
   "dependencies": {
     "@financial-times/dotcom-server-handlebars": "file:../../packages/dotcom-server-handlebars",
     "@financial-times/dotcom-server-react-jsx": "file:../../packages/dotcom-server-react-jsx",
+    "@financial-times/dotcom-ui-header": "file:../../packages/dotcom-ui-header",
     "express": "^4.16.2",
     "handlebars": "^4.5.3",
     "sucrase": "^3.10.1"
