@@ -136,6 +136,36 @@ describe('dotcom-middleware-navigation', () => {
     })
   })
 
+  describe('when handling a request with a custom getCurrentPath', () => {
+    it('executes the provided getCurrentPath function', async () => {
+      request = httpMocks.createRequest({
+        path: '/path/to/page/123',
+        headers: {
+          'ft-vanity-url': '/vanity-url?page=2'
+        }
+      })
+      const dummyPath = '/foo'
+      const instance = subject.init({ getCurrentPath: () => dummyPath })
+      await instance(request, response, next)
+
+      expect(FakeNavigation.getSubNavigationFor).toHaveBeenCalledWith(dummyPath)
+    })
+
+    it('allows overriding of how to calculate current path logic', async () => {
+      request = httpMocks.createRequest({
+        path: '/path/to/page/123',
+        headers: {
+          'ft-blocked-url': '/ig-content-test'
+        }
+      })
+
+      const instance = subject.init({ getCurrentPath: (request) => request.get('ft-blocked-url') })
+      await instance(request, response, next)
+
+      expect(FakeNavigation.getSubNavigationFor).toHaveBeenCalledWith('/ig-content-test')
+    })
+  })
+
   describe('when something goes wrong', () => {
     beforeEach(() => {
       FakeNavigation.getMenusFor = jest.fn(() => {
