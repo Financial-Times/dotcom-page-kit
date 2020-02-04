@@ -148,7 +148,7 @@ describe('dotcom-middleware-navigation', () => {
       const instance = subject.init({ getCurrentPath: () => dummyPath })
       await instance(request, response, next)
 
-      expect(FakeNavigation.getSubNavigationFor).toHaveBeenCalledWith(dummyPath)
+      expect(FakeNavigation.getMenusFor).toHaveBeenCalledWith(dummyPath, 'uk')
     })
 
     it('allows overriding of how to calculate current path logic', async () => {
@@ -162,7 +162,7 @@ describe('dotcom-middleware-navigation', () => {
       const instance = subject.init({ getCurrentPath: (request) => request.get('ft-blocked-url') })
       await instance(request, response, next)
 
-      expect(FakeNavigation.getSubNavigationFor).toHaveBeenCalledWith('/ig-content-test')
+      expect(FakeNavigation.getMenusFor).toHaveBeenCalledWith('/ig-content-test', 'uk')
     })
   })
 

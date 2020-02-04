@@ -80,9 +80,7 @@ export function Layout({
   }
 
   return (
-    <div
-      className={`n-layout ${fontLoadingClassNames.join(' ')}`}
-      data-o-component="o-typography">
+    <div className={`n-layout ${fontLoadingClassNames.join(' ')}`} data-o-component="o-typography">
       <EnhanceFonts />
       <a
         data-trackable="a11y-skip-to-help"
