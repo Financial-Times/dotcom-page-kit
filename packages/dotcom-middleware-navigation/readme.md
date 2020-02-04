@@ -45,6 +45,14 @@ The middleware accepts the following parameters. All options will be passed alon
 
 Enables fetching hierarchical navigation data for the current path including any parent and child pages. Defaults to `false`.
 
+### `getCurrentPath`
+
+Enables overriding of the default current path logic. Defaults to:
+
+```js
+  (request) => normalizePath(request.get('ft-vanity-url') || request.path)
+```
+
 ### `interval`
 
 See the [FT navigation documentation] for more details.
