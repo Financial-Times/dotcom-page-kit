@@ -22,7 +22,9 @@ export default function renderJsxComponent({ hash }) {
 
   const Component = hash.hasOwnProperty('namedExport')
     ? importedModule[hash.namedExport]
-    : importedModule.default
+    : importedModule.__esModule
+    ? importedModule.default
+    : importedModule
 
   const props = { ...this, ...hash }
 
