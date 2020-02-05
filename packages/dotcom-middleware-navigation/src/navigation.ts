@@ -6,10 +6,12 @@ import normalizePath from './normalizePath'
 
 type MiddlewareOptions = TNavOptions & {
   enableSubNavigation?: boolean
+  getCurrentPath?: Function
 }
 
 const defaultOptions: MiddlewareOptions = {
-  enableSubNavigation: false
+  enableSubNavigation: false,
+  getCurrentPath: (request) => normalizePath(request.get('ft-vanity-url') || request.path)
 }
 
 export const init = (userOptions: MiddlewareOptions = {}) => {
@@ -26,7 +28,7 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
       // rather than the underlying path, so prefer that when available.
       // <https://github.com/Financial-Times/ft.com-cdn/blob/4841fbf100e1c561a2f6729b9921ec12bb6b837c/src/vcl/next-preflight.vcl#L213-L219>
       // NOTE: Next router sets the vanity header inc. any query string so it must be normalized.
-      const currentPath = normalizePath(request.get('ft-vanity-url') || request.path)
+      const currentPath = options.getCurrentPath(request)
       const currentEdition = handleEdition(request, response)
 
       const [menusData, subNavigationData] = await Promise.all([

@@ -27,8 +27,5 @@ function getPaths() {
 function prepareConfigFileContents(paths) {
   const storiesContents = paths.map((p) => `require('${p}')`).join('\n\t')
 
-  return fs
-    .readFileSync(TEMPLATE_FILE, { encoding: 'utf8' })
-    .replace('/* PLACEHOLDER */', storiesContents)
+  return fs.readFileSync(TEMPLATE_FILE, { encoding: 'utf8' }).replace('/* PLACEHOLDER */', storiesContents)
 }
-
