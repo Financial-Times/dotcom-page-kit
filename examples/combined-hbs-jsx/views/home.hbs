@@ -6,9 +6,9 @@
     {{> partial-template title="This is Handlebars output"}}
   {{/capture}}
 
-  {{{renderJsxComponent localRoute="views/components/ComponentWithHbsOutput" title="This is JSX output" handlebarsOutput=myCapturedOutput}}}
-  <p style="margin-bottom:50px">The above JSX component was imported from a local route and output via the renderJsxComponent Handlebars helper</p>
+  {{{renderReactComponent localRoute="views/components/ComponentWithHbsOutput" title="This is JSX output" handlebarsOutput=myCapturedOutput}}}
+  <p style="margin-bottom:50px">The above JSX component was imported from a local route and output via the renderReactComponent Handlebars helper</p>
 
-  {{{renderJsxComponent package="@financial-times/dotcom-ui-header" namedExport="LogoOnly" variant="large-logo"}}}
-  <p>The above JSX component was imported from Page Kit as an external dependency and output via the renderJsxComponent Handlebars helper</p>
+  {{{renderReactComponent package="@financial-times/dotcom-ui-header" namedExport="LogoOnly" variant="large-logo"}}}
+  <p>The above JSX component was imported from Page Kit as an external dependency and output via the renderReactComponent Handlebars helper</p>
 </div>

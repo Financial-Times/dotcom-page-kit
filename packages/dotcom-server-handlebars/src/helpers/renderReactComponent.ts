@@ -2,7 +2,7 @@ import path from 'path'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 
-export default function renderJsxComponent({ hash }) {
+export default function renderReactComponent({ hash }) {
   let modulePath
 
   if (hash.hasOwnProperty('package')) {
