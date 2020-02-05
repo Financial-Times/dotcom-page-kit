@@ -6,12 +6,12 @@ export default function renderJsxComponent({ hash }) {
   let modulePath
 
   if (hash.hasOwnProperty('package')) {
-    modulePath = path.join(process.cwd(), `node_modules/${hash.package}`)
+    modulePath = path.resolve(`node_modules/${hash.package}`)
   }
 
   // localRoute is relative to root of app consuming dotcom-server-handlebars.
   if (hash.hasOwnProperty('localRoute')) {
-    modulePath = path.resolve(process.cwd(), `./${hash.localRoute}`)
+    modulePath = path.resolve(hash.localRoute)
   }
 
   if (!modulePath) {
