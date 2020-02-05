@@ -6,7 +6,9 @@ export default function renderReactComponent({ hash }) {
   let modulePath
 
   if (hash.hasOwnProperty('package')) {
-    modulePath = path.resolve(`node_modules/${hash.package}`)
+    // `paths` argument provided to ensure package lookup is made
+    // within context of consuming app rather than dependency.
+    modulePath = require.resolve(hash.package, { paths: [process.cwd()] })
   }
 
   // localRoute is relative to root of app consuming dotcom-server-handlebars.
