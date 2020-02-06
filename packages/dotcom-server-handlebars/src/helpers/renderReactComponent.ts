@@ -11,8 +11,8 @@ export default function renderReactComponent({ hash }) {
     modulePath = require.resolve(hash.package, { paths: [process.cwd()] })
   }
 
-  // localPath is relative to root of app consuming dotcom-server-handlebars.
   if (hash.hasOwnProperty('localPath')) {
+    // localPath is relative to root of app consuming dotcom-server-handlebars.
     modulePath = path.resolve(hash.localPath)
   }
 
