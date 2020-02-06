@@ -30,11 +30,5 @@ export default function renderReactComponent({ hash }) {
 
   const props = { ...this, ...hash }
 
-  if (props.hasOwnProperty('_locals')) {
-    throw new Error(
-      `The root handlebars context shouldn't be passed to a component, as it may contain sensitive data.`
-    )
-  }
-
   return ReactDOMServer.renderToString(React.createElement(Component, props))
 }
