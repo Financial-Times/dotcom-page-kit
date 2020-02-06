@@ -1,12 +1,5 @@
-import memoize from 'memoize-one'
-import getPackageName from 'get-package-name'
+import extractPackageName from './extractPackageName'
 import DisableTreeShakingForChunk from 'disable-tree-shaking-for-chunk-plugin'
-
-// Memoize these calls as modules often need to be resolved many times.
-const extractPackageName = memoize((modulePath: string) => {
-  const type = modulePath.match(/(node_modules|bower_components)/)
-  return type ? getPackageName(modulePath, type[type.length - 1]) : null
-})
 
 const createChunkName = (moduleName: string) => {
   // Remove or replace any non-safe filename characters
