@@ -11,13 +11,13 @@ export default function renderReactComponent({ hash }) {
     modulePath = require.resolve(hash.package, { paths: [process.cwd()] })
   }
 
-  // localRoute is relative to root of app consuming dotcom-server-handlebars.
-  if (hash.hasOwnProperty('localRoute')) {
-    modulePath = path.resolve(hash.localRoute)
+  // localPath is relative to root of app consuming dotcom-server-handlebars.
+  if (hash.hasOwnProperty('localPath')) {
+    modulePath = path.resolve(hash.localPath)
   }
 
   if (!modulePath) {
-    throw new Error('You must specify a "package" or "localRoute" argument to load a module')
+    throw new Error('You must specify a "package" or "localPath" argument to load a module')
   }
 
   const importedModule = require(modulePath)

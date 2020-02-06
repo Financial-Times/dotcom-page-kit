@@ -34,7 +34,7 @@ export default function Home({ pageTitle }) {
         )}
       />
       <p>
-        The above Handlebars partial template was imported from a local route and output via React’s
+        The above Handlebars partial template was imported from a local path and output via React’s
         dangerouslySetInnerHTML prop
       </p>
     </div>

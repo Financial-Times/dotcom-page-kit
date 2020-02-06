@@ -90,12 +90,12 @@ Example:
 
 ### renderReactComponent
 
-Outputs a JSX component specified by its local route (relative to the root of the app consuming `dotcom-server-handlebars`) or the package name of the node module, with specification of a named export if required, as well as any other props.
+Outputs a JSX component specified by its local path (relative to the root of the app consuming `dotcom-server-handlebars`) or the package name of the node module, with specification of a named export if required, as well as any other props.
 
 Example:
 
 ```hbs
-{{{renderReactComponent localRoute="views/components/ComponentWithHbsOutput" title="This is a React component"}}}
+{{{renderReactComponent localPath="views/components/ComponentWithHbsOutput" title="This is a React component"}}}
 
 {{{renderReactComponent package="@financial-times/dotcom-ui-header" namedExport="LogoOnly" variant="large-logo"}}}
 ```
