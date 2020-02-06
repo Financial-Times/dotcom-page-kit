@@ -28,8 +28,8 @@
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
       "npm run test -- --no-cache --findRelatedTests",
-      "npm run prettier",
-      "npm run lint -- --fix",
+      "prettier --write",
+      "eslint --fix",
       "git add"
     ]
   },
