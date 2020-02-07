@@ -21,7 +21,7 @@ export default function Home({ pageTitle }) {
   const myAssignedOutput = <Component title="This is JSX output" />
 
   return (
-    <div style={{ backgroundColor: '#FFF1EF', padding: '20px' }}>
+    <div style={{ backgroundColor: '#FFF1E5', padding: '20px' }}>
       <h1>{pageTitle}</h1>
       <p>This page has been rendered using JSX as the view engine</p>
 
