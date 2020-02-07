@@ -1,10 +1,6 @@
 import extractPackageName from './extractPackageName'
+import createSafeChunkName from './createSafeChunkName'
 import DisableTreeShakingForChunk from 'disable-tree-shaking-for-chunk-plugin'
-
-const createChunkName = (moduleName: string) => {
-  // Remove or replace any non-safe filename characters
-  return moduleName.replace('@', '').replace('/', '-')
-}
 
 /**
  * Create a chunk which includes all packages in the given list of names
@@ -68,7 +64,7 @@ export function createBundlesForPackages(group: string, packageNames: string[]) 
           [group]: {
             name(module) {
               const packageName = extractPackageName(module.context)
-              const chunkName = createChunkName(packageName)
+              const chunkName = createSafeChunkName(packageName)
 
               // Because we're generating chunk names dynamically we need to append
               // each name to the list of names used by the disable tree-shaking plugin.
@@ -107,7 +103,7 @@ export function createBundlesForRegExp(group: string, pattern: RegExp) {
           [group]: {
             name(module) {
               const packageName = extractPackageName(module.context)
-              const chunkName = createChunkName(packageName)
+              const chunkName = createSafeChunkName(packageName)
 
               // Because we're generating chunk names dynamically we need to append
               // each name to the list of names used by the disable tree-shaking plugin.
