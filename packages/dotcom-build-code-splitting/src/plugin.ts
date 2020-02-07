@@ -43,7 +43,8 @@ export function plugin() {
     // NOTE: we need to check we're in a package directory as our apps are usually prefixed with "next-"
     return createBundlesForRegExp({
       name: 'shared-components',
-      pattern: /(node_modules\/@financial-times|bower_components)\/(o|n|x|next)-/
+      pattern: /(node_modules\/@financial-times|bower_components)\/(o|n|x|next)-/,
+      usedInUnknownWay: true
     })
   }
 
@@ -51,7 +52,8 @@ export function plugin() {
     // split all dotcom-ui- packages into one bundle file
     return createBundleWithRegExp({
       name: 'page-kit-components',
-      pattern: /[\\\/]dotcom-ui-/
+      pattern: /[\\\/]dotcom-ui-/,
+      usedInUnknownWay: true
     })
   }
 
@@ -68,7 +70,8 @@ export function plugin() {
     // and other components but they are not all dependencies of our apps.
     return createBundleWithPackages({
       name: 'superstore',
-      packages: ['superstore', 'superstore-sync']
+      packages: ['superstore', 'superstore-sync'],
+      usedInUnknownWay: true
     })
   }
 
@@ -84,7 +87,8 @@ export function plugin() {
         'n-topic-search',
         'n-ui-foundations',
         'ready-state'
-      ]
+      ],
+      usedInUnknownWay: true
     })
   }
 
@@ -92,7 +96,8 @@ export function plugin() {
     // split packages which are commonly used together around FT.com into a shared bundle
     return createBundleWithPackages({
       name: 'shared.volatile',
-      packages: ['@financial-times/n-ads', '@financial-times/n-tracking', 'n-syndication', 'n-feedback']
+      packages: ['@financial-times/n-ads', '@financial-times/n-tracking', 'n-syndication', 'n-feedback'],
+      usedInUnknownWay: true
     })
   }
 }
