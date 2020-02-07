@@ -94,6 +94,55 @@ describe('dotcom-server-handlebars/src/helpers', () => {
       })
     })
 
+    describe('#renderReactComponent', () => {
+      it('renders the specified component (exported as a default CJS Module export) from a local path', () => {
+        const template = compile(`{{{renderReactComponent
+          localPath="packages/dotcom-server-handlebars/src/__test__/__fixtures__/components/DefaultExportComponentCJS"
+          text="foo"
+        }}}`)
+        const result = template({}, { helpers })
+
+        expect(result).toBe('<div data-reactroot="">foo</div>')
+      })
+
+      it('renders the specified component (exported as a default ES Module export) from a local path', () => {
+        const template = compile(`{{{renderReactComponent
+          localPath="packages/dotcom-server-handlebars/src/__test__/__fixtures__/components/DefaultExportComponentES"
+          text="bar"
+        }}}`)
+        const result = template({}, { helpers })
+
+        expect(result).toBe('<div data-reactroot="">bar</div>')
+      })
+
+      it('renders the specified component (exported as a named CJS Module export) from a local path', () => {
+        const template = compile(`{{{renderReactComponent
+          localPath="packages/dotcom-server-handlebars/src/__test__/__fixtures__/components/NamedExportComponentCJS"
+          namedExport="Component"
+          text="baz"
+        }}}`)
+        const result = template({}, { helpers })
+
+        expect(result).toBe('<div data-reactroot="">baz</div>')
+      })
+
+      it('renders the specified component (exported as a named ES Module export) from a local path', () => {
+        const template = compile(`{{{renderReactComponent
+          localPath="packages/dotcom-server-handlebars/src/__test__/__fixtures__/components/NamedExportComponentES"
+          namedExport="Component"
+          text="qux"
+        }}}`)
+        const result = template({}, { helpers })
+
+        expect(result).toBe('<div data-reactroot="">qux</div>')
+      })
+
+      it('throws if mandatory parameters are not provided', () => {
+        const template = compile('{{{renderReactComponent}}}')
+        expect(() => template({}, { helpers })).toThrow()
+      })
+    })
+
     describe('#resize', () => {
       it('formats the image as an image service URL', () => {
         const template = compile('{{#resize 640}}http://website.com/picture.jpg{{/resize}}')
