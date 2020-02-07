@@ -102,7 +102,7 @@ describe('dotcom-server-handlebars/src/helpers', () => {
         }}}`)
         const result = template({}, { helpers })
 
-        expect(result).toBe('<div data-reactroot="">foo</div>')
+        expect(result).toBe('<div>foo</div>')
       })
 
       it('renders the specified component (exported as a default ES Module export) from a local path', () => {
@@ -112,7 +112,7 @@ describe('dotcom-server-handlebars/src/helpers', () => {
         }}}`)
         const result = template({}, { helpers })
 
-        expect(result).toBe('<div data-reactroot="">bar</div>')
+        expect(result).toBe('<div>bar</div>')
       })
 
       it('renders the specified component (exported as a named CJS Module export) from a local path', () => {
@@ -123,7 +123,7 @@ describe('dotcom-server-handlebars/src/helpers', () => {
         }}}`)
         const result = template({}, { helpers })
 
-        expect(result).toBe('<div data-reactroot="">baz</div>')
+        expect(result).toBe('<div>baz</div>')
       })
 
       it('renders the specified component (exported as a named ES Module export) from a local path', () => {
@@ -134,7 +134,7 @@ describe('dotcom-server-handlebars/src/helpers', () => {
         }}}`)
         const result = template({}, { helpers })
 
-        expect(result).toBe('<div data-reactroot="">qux</div>')
+        expect(result).toBe('<div>qux</div>')
       })
 
       it('throws if mandatory parameters are not provided', () => {
