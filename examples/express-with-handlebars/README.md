@@ -4,4 +4,4 @@ This example demonstrates how to render Handlebars templates in an Express appli
 
 To start the example app enter this directory and run `npm start` or `npm start:dev`.
 
-[Handlebars]: ../../packages/dotcom-server-handlebars/readme.md
+[Handlebars]: ../../packages/dotcom-server-handlebars/README.md

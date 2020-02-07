@@ -3,7 +3,7 @@
 This package provides an [Express] compatible middleware which appends an instance of [app context] to each request and configures it with details automatically inferred from the running application.
 
 [Express]: https://expressjs.com/
-[app context]: ../dotcom-server-app-context/readme.md
+[app context]: ../dotcom-server-app-context/README.md
 
 
 ## Getting started

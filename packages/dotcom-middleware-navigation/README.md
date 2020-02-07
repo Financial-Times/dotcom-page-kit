@@ -3,9 +3,9 @@
 This package provides an [Express] compatible middleware which integrates the [FT Navigation] package into your application and adds the navigation data, including editions data, to each response making it available to your application's route handlers. This data is required to render the navigation components [header] and [footer].
 
 [Express]: https://expressjs.com/
-[FT Navigation]: ../dotcom-server-navigation/readme.md
-[header]: ../dotcom-ui-header/readme.md
-[footer]: ../dotcom-ui-footer/readme.md
+[FT Navigation]: ../dotcom-server-navigation/README.md
+[header]: ../dotcom-ui-header/README.md
+[footer]: ../dotcom-ui-footer/README.md
 
 
 ## Getting started

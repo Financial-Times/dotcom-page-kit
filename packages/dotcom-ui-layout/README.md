@@ -55,7 +55,7 @@ const outputHTML = ReactDOM.renderToStaticMarkup(document)
 
 For a full example for how to use this component please refer to the [FT UI example app][example].
 
-[example]: ../../examples/ft-ui/readme.md
+[example]: ../../examples/ft-ui/README.md
 
 ### Styles
 
@@ -74,8 +74,8 @@ It is also possible to build the layout styles individually, for example to impr
 _Please note_ that the exact usage will depend on how you configure your Sass compiler and whether or not you are using Bower to install dependencies.
 
 [n-ui-foundations]: https://github.com/Financial-Times/n-ui-foundations/
-[header]: ../dotcom-ui-header/readme.md
-[footer]: ../dotcom-ui-footer/readme.md
+[header]: ../dotcom-ui-header/README.md
+[footer]: ../dotcom-ui-footer/README.md
 
 
 ## Options
@@ -102,7 +102,7 @@ _Please note_ that the exact usage will depend on how you configure your Sass co
 [header]: ../dotcom-ui-header/README.md
 [footer]: ../dotcom-ui-footer/README.md
 [TNavigationData]: ../dotcom-types-navigation/README.md
-[navigation package]: ../dotcom-server-navigation/readme.md
+[navigation package]: ../dotcom-server-navigation/README.md
 
 ### Custom components
 

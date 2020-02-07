@@ -9,7 +9,7 @@ It would help others to learn about Page Kit if you add an example. If you have 
 
 Here's what you should be aiming for:
 
-1. A very short readme that explains the point of the example and notes the most interesting things to look for
+1. A very short README that explains the point of the example and notes the most interesting things to look for
 2. Demonstrate only one or two ideas
 3. the code should contain only essentials so the reader can easily see what you're demonstrating
 4. comment your code

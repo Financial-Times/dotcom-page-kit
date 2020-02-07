@@ -17,8 +17,8 @@ After installing the package you will need to configure your application to fetc
 2. [`dotcom-server-navigation`] (if you are not using Express)
 
 [Next Navigation API]: http://github.com/Financial-Times/next-navigation-api
-[`dotcom-middleware-navigation`]: ../dotcom-middleware-navigation/readme.md
-[`dotcom-server-navigation`]: ../dotcom-server-navigation/readme.md
+[`dotcom-middleware-navigation`]: ../dotcom-middleware-navigation/README.md
+[`dotcom-server-navigation`]: ../dotcom-server-navigation/README.md
 
 ### Server-side
 

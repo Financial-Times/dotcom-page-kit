@@ -41,6 +41,6 @@ The [ft-js-code-splitting] plugin bundles application code as follows:
  - A webpack runtime bundle. Webpack generates a webpack runtime which contains all of the code webpack needs to load your chunked code in the browser.
 
 
-[ft-js-code-splitting]: ../../packages/dotcom-build-code-splitting/readme.md
+[ft-js-code-splitting]: ../../packages/dotcom-build-code-splitting/README.md
 [chunked]:https://webpack.js.org/glossary/#c
 [bundles]:https://webpack.js.org/glossary/#b

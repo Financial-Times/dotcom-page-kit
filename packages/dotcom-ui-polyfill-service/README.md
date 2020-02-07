@@ -14,7 +14,7 @@ npm install --save @financial-times/dotcom-ui-polyfill-service
 
 After installing the package you can use it to create `<script>` tags or integrate it with the [JavaScript bootstrap].
 
-[JavaScript bootstrap]: ../dotcom-ui-bootstrap/readme.md
+[JavaScript bootstrap]: ../dotcom-ui-bootstrap/README.md
 
 
 ## Client-side API
@@ -32,5 +32,5 @@ A script bundle URL configured to provide a limited set of features intended to 
 
 A script bundle URL configured to provide a full set of features (up to ES2017) intended to be loaded by browsers which successfully [cut the mustard] and should receive an "enhanced" experience.
 
-[cut the mustard]: ../dotcom-ui-bootstrap/readme.md#cutting-the-mustard
-[shell component]: ../dotcom-ui-shell/readme.md
+[cut the mustard]: ../dotcom-ui-bootstrap/README.md#cutting-the-mustard
+[shell component]: ../dotcom-ui-shell/README.md
