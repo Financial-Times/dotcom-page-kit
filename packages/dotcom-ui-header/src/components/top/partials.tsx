@@ -75,8 +75,8 @@ const TopColumnCenter = () => (
 
 const TopColumnCenterNoLink = () => (
   <div className="o-header__top-column o-header__top-column--center">
-    <div className="o-header__top-logo">
-      <span className="o-header__visually-hidden">Financial Times</span>
+    <div className="o-header__top-logo" style={{ backgroundImage: 'none' }}>
+      <BrandFtMastheadSvg title="Financial Times" />
     </div>
   </div>
 )
