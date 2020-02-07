@@ -4,7 +4,7 @@ describe('examples/combined-hbs-jsx', () => {
       await page.goto('http://localhost:3456/hbs-to-jsx', { waitUntil: 'load' })
     })
 
-    it('renders the JSX component as a parent of the Handlebars partial', async () => {
+    it('renders the JSX component (imported from local path) as a parent of the Handlebars partial', async () => {
       // Cannot use direct child selector `>` because React dangerouslySetInnerHTML
       // creates containing element tags which create an intermediary between the parent and child elements.
       const instancesOfHbsPartialWithinJsxComponent = await page.evaluate(
@@ -12,6 +12,12 @@ describe('examples/combined-hbs-jsx', () => {
       )
 
       expect(instancesOfHbsPartialWithinJsxComponent).toBe(1)
+    })
+
+    it('renders the JSX component imported from Page Kit as an external dependency', async () => {
+      const siteNavigationElement = await page.evaluate(() => document.getElementById('site-navigation'))
+
+      expect(siteNavigationElement).not.toBe(null)
     })
   })
 
