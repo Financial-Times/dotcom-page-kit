@@ -2,10 +2,22 @@ import extractPackageName from './extractPackageName'
 import createSafeChunkName from './createSafeChunkName'
 import DisableTreeShakingForChunk from 'disable-tree-shaking-for-chunk-plugin'
 
+interface IBundleWithPackageNames {
+  name: string
+  packages: string[]
+  disableTreeShaking?: boolean
+}
+
+interface IBundleWithRegExp {
+  name: string
+  pattern: RegExp
+  disableTreeShaking?: boolean
+}
+
 /**
  * Create a chunk which includes all packages in the given list of names
  */
-export function createBundleWithPackages(name: string, packageNames: string[]) {
+export function createBundleWithPackages({ name, packages }: IBundleWithPackageNames) {
   return {
     optimization: {
       splitChunks: {
@@ -14,7 +26,7 @@ export function createBundleWithPackages(name: string, packageNames: string[]) {
             name,
             test: (module) => {
               const packageName = extractPackageName(module.context)
-              return packageName ? packageNames.includes(packageName) : false
+              return packageName ? packages.includes(packageName) : false
             },
             enforce: true
           }
@@ -27,7 +39,7 @@ export function createBundleWithPackages(name: string, packageNames: string[]) {
 /**
  * Create a chunk which includes all modules which match the given pattern
  */
-export function createBundleWithRegExp(name: string, pattern: RegExp) {
+export function createBundleWithRegExp({ name, pattern }: IBundleWithRegExp) {
   return {
     optimization: {
       splitChunks: {
@@ -48,7 +60,7 @@ export function createBundleWithRegExp(name: string, pattern: RegExp) {
 /**
  * Create a chunk for each package in the given list of names
  */
-export function createBundlesForPackages(group: string, packageNames: string[]) {
+export function createBundlesForPackages({ name, packages }: IBundleWithPackageNames) {
   // Because we want these individual chunks to be reused between apps as much
   // as possible we're disabling tree shaking to maximise the chance of apps
   // generating identical files and content hashes.
@@ -61,7 +73,7 @@ export function createBundlesForPackages(group: string, packageNames: string[]) 
     optimization: {
       splitChunks: {
         cacheGroups: {
-          [group]: {
+          [name]: {
             name(module) {
               const packageName = extractPackageName(module.context)
               const chunkName = createSafeChunkName(packageName)
@@ -74,7 +86,7 @@ export function createBundlesForPackages(group: string, packageNames: string[]) 
             },
             test(module) {
               const packageName = extractPackageName(module.context)
-              return packageName ? packageNames.includes(packageName) : false
+              return packageName ? packages.includes(packageName) : false
             },
             enforce: true
           }
@@ -87,7 +99,7 @@ export function createBundlesForPackages(group: string, packageNames: string[]) 
 /**
  * Create a chunk for each group of modules which match the given pattern
  */
-export function createBundlesForRegExp(group: string, pattern: RegExp) {
+export function createBundlesForRegExp({ name, pattern }: IBundleWithRegExp) {
   // Because we want these individual chunks to be reused between apps as much
   // as possible we're disabling tree shaking to maximise the chance of apps
   // generating identical files and content hashes.
@@ -100,7 +112,7 @@ export function createBundlesForRegExp(group: string, pattern: RegExp) {
     optimization: {
       splitChunks: {
         cacheGroups: {
-          [group]: {
+          [name]: {
             name(module) {
               const packageName = extractPackageName(module.context)
               const chunkName = createSafeChunkName(packageName)
