@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@financial-times/dotcom-middleware-app-context": "file:../../packages/dotcom-middleware-app-context",
-    "@financial-times/dotcom-middleware-assets": "file:../../packages/dotcom-middleware-assets",
+    "@financial-times/dotcom-middleware-asset-loader": "file:../../packages/dotcom-middleware-asset-loader",
     "@financial-times/dotcom-middleware-navigation": "file:../../packages/dotcom-middleware-navigation",
     "@financial-times/dotcom-ui-app-context": "file:../../packages/dotcom-ui-app-context",
     "@financial-times/dotcom-ui-flags": "file:../../packages/dotcom-ui-flags",
@@ -32,8 +32,8 @@
     "@financial-times/dotcom-build-code-splitting": "file:../../packages/dotcom-build-code-splitting",
     "@financial-times/dotcom-build-sass": "file:../../packages/dotcom-build-sass",
     "@sucrase/jest-plugin": "^2.0.0",
-    "dom-loaded": "^1.2.0",
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "ready-state": "^2.0.5"
   },
   "jest": {
     "transform": {

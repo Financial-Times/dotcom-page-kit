@@ -4,8 +4,7 @@ import { PluginOptions } from './types'
 
 const defaultOptions: PluginOptions = {
   jsxPragma: 'h',
-  jsxPragmaFrag: 'Fragment',
-  enableRequireDefault: false
+  jsxPragmaFrag: 'Fragment'
 }
 
 export function plugin(userOptions: PluginOptions = {}) {

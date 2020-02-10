@@ -1,11 +1,11 @@
-import domLoaded from 'dom-loaded'
+import readyState from 'ready-state'
 import * as flags from '@financial-times/dotcom-ui-flags'
 import * as layout from '@financial-times/dotcom-ui-layout'
 import * as appContext from '@financial-times/dotcom-ui-app-context'
 import * as tracking from '@financial-times/n-tracking'
 import * as ads from '@financial-times/n-ads'
 
-domLoaded.then(() => {
+readyState.domready.then(() => {
   const flagsClient = flags.init()
   const appContextClient = appContext.init()
 

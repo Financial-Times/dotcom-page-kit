@@ -41,54 +41,63 @@ export function plugin() {
   function addComponentCodeSplitting() {
     // Split each o-, n-, x- and next- prefixed packages into a separate bundles
     // NOTE: we need to check we're in a package directory as our apps are usually prefixed with "next-"
-    return createBundlesForRegExp(
-      'shared-components',
-      /(node_modules\/@financial-times|bower_components)\/(o|n|x|next)-/
-    )
+    return createBundlesForRegExp({
+      name: 'shared-components',
+      pattern: /(node_modules\/@financial-times|bower_components)\/(o|n|x|next)-/,
+      usedInUnknownWay: true
+    })
   }
 
   function addPageKitCodeSplitting() {
     // split all dotcom-ui- packages into one bundle file
-    return createBundleWithRegExp('page-kit-components', /[\\\/]dotcom-ui-/)
+    return createBundleWithRegExp({
+      name: 'page-kit-components',
+      pattern: /[\\\/]dotcom-ui-/,
+      usedInUnknownWay: true
+    })
   }
 
   function addLibraryCodeSplitting() {
     // split any of these JS frameworks and libraries into separate bundle files
-    return createBundlesForPackages('js-frameworks', [
-      'react',
-      'preact',
-      'hyperons',
-      'dateformat',
-      'regenerator-runtime'
-    ])
+    return createBundlesForPackages({
+      name: 'js-frameworks',
+      packages: ['react', 'preact', 'hyperons', 'dateformat', 'regenerator-runtime']
+    })
   }
 
   function addSuperstoreCodeSplitting() {
     // These packages are a dependency of ads, marketing, MyFT, syndication, cookie banners
     // and other components but they are not all dependencies of our apps.
-    return createBundleWithPackages('superstore', ['superstore', 'superstore-sync'])
+    return createBundleWithPackages({
+      name: 'superstore',
+      packages: ['superstore', 'superstore-sync'],
+      usedInUnknownWay: true
+    })
   }
 
   function addSharedStableCodeSplitting() {
     // split packages used by all pages (i.e. used by Page Kit) into a shared bundle
-    return createBundleWithPackages('shared.stable', [
-      'dom-loaded',
-      'focus-visible',
-      'fontfaceobserver',
-      'ftdomdelegate',
-      'morphdom',
-      'n-topic-search',
-      'n-ui-foundations'
-    ])
+    return createBundleWithPackages({
+      name: 'shared.stable',
+      packages: [
+        'focus-visible',
+        'fontfaceobserver',
+        'ftdomdelegate',
+        'morphdom',
+        'n-topic-search',
+        'n-ui-foundations',
+        'ready-state'
+      ],
+      usedInUnknownWay: true
+    })
   }
 
   function addSharedVolatileCodeSplitting() {
     // split packages which are commonly used together around FT.com into a shared bundle
-    return createBundleWithPackages('shared.volatile', [
-      '@financial-times/n-ads',
-      '@financial-times/n-tracking',
-      'n-syndication',
-      'n-feedback'
-    ])
+    return createBundleWithPackages({
+      name: 'shared.volatile',
+      packages: ['@financial-times/n-ads', '@financial-times/n-tracking', 'n-syndication', 'n-feedback'],
+      usedInUnknownWay: true
+    })
   }
 }

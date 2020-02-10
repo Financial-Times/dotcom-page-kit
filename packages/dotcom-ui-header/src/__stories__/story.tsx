@@ -10,6 +10,7 @@ import './demos.scss'
 
 const toggleUserStateOptions = () => boolean('Enable user nav actions', true)
 const toggleVariantOptions = () => radios('Choose variant', { default: 'simple', large: 'large' }, 'simple')
+const toggleShowLogoLink = () => boolean('Render with the logo having a link', false)
 const toggleLoggedIn = () => boolean('User is logged in', false)
 const toggleShowSubNav = () => boolean('Show the sub-navigation component', true)
 const toggleShowStickyHeader = () => boolean('Show the sticky header', true)
@@ -75,6 +76,6 @@ storiesOf('FT / Header', module)
     )
   })
   .add('Logo only', () => {
-    const knobs = { variant: toggleVariantOptions() }
+    const knobs = { variant: toggleVariantOptions(), showLogoLink: toggleShowLogoLink() }
     return <LogoOnly {...knobs} />
   })

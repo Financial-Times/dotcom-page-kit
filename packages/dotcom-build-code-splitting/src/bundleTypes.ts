@@ -1,22 +1,37 @@
-import memoize from 'memoize-one'
-import getPackageName from 'get-package-name'
+import extractPackageName from './extractPackageName'
+import createSafeChunkName from './createSafeChunkName'
+import DisableTreeShakingForChunk from 'disable-tree-shaking-for-chunk-plugin'
 
-// Memoize these calls as modules often need to be resolved many times.
-const extractPackageName = memoize((modulePath: string) => {
-  const type = modulePath.match(/(node_modules|bower_components)/)
-  return type ? getPackageName(modulePath, type[type.length - 1]) : null
-})
+interface IBundleWithPackageNames {
+  name: string
+  packages: string[]
+  // This prevents the tracking of named exports and their usage
+  usedInUnknownWay?: boolean
+}
 
-const createSafeFileName = (moduleName: string) => {
-  // Remove or replace any non-safe filename characters
-  return moduleName.replace('@', '').replace('/', '-')
+interface IBundleWithRegExp {
+  name: string
+  pattern: RegExp
+  // This prevents the tracking of named exports and their usage
+  usedInUnknownWay?: boolean
 }
 
 /**
- * Create a single bundle which includes all packages in the given list
+ * Create a chunk which includes all packages in the given list of names
  */
-export function createBundleWithPackages(name: string, packageNames: string[]) {
+export function createBundleWithPackages({ name, packages, usedInUnknownWay }: IBundleWithPackageNames) {
+  const plugins = []
+
+  if (usedInUnknownWay) {
+    const disableTreeShakingPlugin = new DisableTreeShakingForChunk({
+      test: name
+    })
+
+    plugins.push(disableTreeShakingPlugin)
+  }
+
   return {
+    plugins,
     optimization: {
       splitChunks: {
         cacheGroups: {
@@ -24,7 +39,7 @@ export function createBundleWithPackages(name: string, packageNames: string[]) {
             name,
             test: (module) => {
               const packageName = extractPackageName(module.context)
-              return packageName ? packageNames.includes(packageName) : false
+              return packageName ? packages.includes(packageName) : false
             },
             enforce: true
           }
@@ -35,10 +50,21 @@ export function createBundleWithPackages(name: string, packageNames: string[]) {
 }
 
 /**
- * Create a single bundle which includes all packages which match the given pattern
+ * Create a chunk which includes all modules which match the given pattern
  */
-export function createBundleWithRegExp(name: string, pattern: RegExp) {
+export function createBundleWithRegExp({ name, pattern, usedInUnknownWay }: IBundleWithRegExp) {
+  const plugins = []
+
+  if (usedInUnknownWay) {
+    const disableTreeShakingPlugin = new DisableTreeShakingForChunk({
+      test: name
+    })
+
+    plugins.push(disableTreeShakingPlugin)
+  }
+
   return {
+    plugins,
     optimization: {
       splitChunks: {
         cacheGroups: {
@@ -56,21 +82,37 @@ export function createBundleWithRegExp(name: string, pattern: RegExp) {
 }
 
 /**
- * Create individual bundles for each package in the given list
+ * Create a chunk for each package in the given list of names
  */
-export function createBundlesForPackages(group: string, packageNames: string[]) {
+export function createBundlesForPackages({ name, packages, usedInUnknownWay }: IBundleWithPackageNames) {
+  const plugins = []
+  const generatedChunkNames = new Set()
+
+  if (usedInUnknownWay) {
+    const disableTreeShakingPlugin = new DisableTreeShakingForChunk({
+      test: generatedChunkNames
+    })
+
+    plugins.push(disableTreeShakingPlugin)
+  }
+
   return {
+    plugins,
     optimization: {
       splitChunks: {
         cacheGroups: {
-          [group]: {
-            name: (module) => {
+          [name]: {
+            name(module) {
               const packageName = extractPackageName(module.context)
-              return createSafeFileName(packageName)
+              const chunkName = createSafeChunkName(packageName)
+
+              generatedChunkNames.add(chunkName)
+
+              return chunkName
             },
-            test: (module) => {
+            test(module) {
               const packageName = extractPackageName(module.context)
-              return packageName ? packageNames.includes(packageName) : false
+              return packageName ? packages.includes(packageName) : false
             },
             enforce: true
           }
@@ -81,19 +123,35 @@ export function createBundlesForPackages(group: string, packageNames: string[]) 
 }
 
 /**
- * Create individual bundles for each package which matches the given pattern
+ * Create a chunk for each group of modules which match the given pattern
  */
-export function createBundlesForRegExp(group: string, pattern: RegExp) {
+export function createBundlesForRegExp({ name, pattern, usedInUnknownWay }: IBundleWithRegExp) {
+  const plugins = []
+  const generatedChunkNames = new Set()
+
+  if (usedInUnknownWay) {
+    const disableTreeShakingPlugin = new DisableTreeShakingForChunk({
+      test: generatedChunkNames
+    })
+
+    plugins.push(disableTreeShakingPlugin)
+  }
+
   return {
+    plugins,
     optimization: {
       splitChunks: {
         cacheGroups: {
-          [group]: {
-            name: (module) => {
+          [name]: {
+            name(module) {
               const packageName = extractPackageName(module.context)
-              return createSafeFileName(packageName)
+              const chunkName = createSafeChunkName(packageName)
+
+              generatedChunkNames.add(chunkName)
+
+              return chunkName
             },
-            test: (module) => {
+            test(module) {
               return pattern.test(module.context)
             },
             enforce: true

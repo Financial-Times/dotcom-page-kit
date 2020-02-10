@@ -3,6 +3,4 @@ export interface PluginOptions {
   jsxPragma?: string
   /** Replace the component used when compiling JSX fragments */
   jsxPragmaFrag?: string
-  /** Enable usage of babel-plugin-transform-require-default */
-  enableRequireDefault?: boolean
 }

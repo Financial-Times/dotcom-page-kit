@@ -6,9 +6,10 @@ import { HandlerArgs, CliContext } from '@financial-times/dotcom-page-kit-cli'
 
 export type TPluginOptions = {
   includePaths?: Array<string>
+  webpackImporter?: boolean
 }
 
-export function plugin({ includePaths }: TPluginOptions = {}) {
+export function plugin(options: TPluginOptions = {}) {
   return ({ on }) => {
     on('webpackConfig', getWebpackConfigToMerge)
   }
@@ -16,7 +17,7 @@ export function plugin({ includePaths }: TPluginOptions = {}) {
   function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
     const autoprefixerOptions = getAutoPrefixerOptions(cli)
     const cssnanoOptions = getCssNanoOptions()
-    const sassLoaderOptions = getSassLoaderOptions(includePaths)
+    const sassLoaderOptions = getSassLoaderOptions(options)
     const postcssLoaderOptions = getPostCssLoaderOptions(autoprefixerOptions, cssnanoOptions)
     const cssLoaderOptions = getCssLoaderOptions()
     const miniCssExtractPluginOptions = getMiniCssExtractPluginOptions(cli)
@@ -70,8 +71,11 @@ export function plugin({ includePaths }: TPluginOptions = {}) {
     }
   }
 
-  function getSassLoaderOptions(includePaths = []) {
+  function getSassLoaderOptions({ includePaths = [], webpackImporter = false }) {
     return {
+      // This enables the use of enhanced-resolve for @import statements prefixed with ~
+      // but we don't usually use this and disabling it can speed up builds by up to 20%.
+      webpackImporter,
       sassOptions: {
         // Disable formatting so that we don't spend time pretty printing
         outputStyle: 'compressed',

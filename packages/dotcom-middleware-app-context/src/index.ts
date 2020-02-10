@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from 'express'
+import pkg from '@financial-times/dotcom-server-app-context/package.json'
 import { AppContext, TAppContext } from '@financial-times/dotcom-server-app-context'
 
 export type TMiddlewareOptions = {
@@ -22,6 +23,7 @@ export function init(options: TMiddlewareOptions = {}) {
       // This is set by the membership session service as part of preflight
       // https://github.com/Financial-Times/next-preflight/blob/master/server/tasks/membership/session.js
       isUserLoggedIn: request.get('ft-anonymous-user') === 'false',
+      pageKitVersion: pkg.version === '0.0.0' ? 'development' : pkg.version,
       ...options.appContext
     }
 
