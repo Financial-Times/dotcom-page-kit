@@ -45,7 +45,7 @@ function MainHeader(props: THeaderProps) {
       {includeUserActionsNav ? <UserActionsNav {...props} /> : null}
       <TopWrapper>
         <TopColumnLeft />
-        <TopColumnCenter />
+        {props.showLogoLink ? <TopColumnCenter /> : <TopColumnCenterNoLink />}
         <TopColumnRight />
       </TopWrapper>
       <Search instance="primary" />
@@ -59,7 +59,7 @@ function MainHeader(props: THeaderProps) {
   )
 }
 
-MainHeader.defaultProps = defaultProps
+MainHeader.defaultProps = { ...defaultProps, showLogoLink: true }
 
 function StickyHeader(props: THeaderProps) {
   return props.showStickyHeader ? (
