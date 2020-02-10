@@ -83,6 +83,8 @@ All header components with the exception of `<LogoOnly />` require the following
 
 The topmost element - or masthead - contains the logo, toggle buttons for the [drawer](#drawer) and search bar, and the MyFT indicator if logged in.
 
+By default the logo serves as a home page link, which can be deactivated by providing prop `showLogoLink: false`.
+
 ![Example header top element](./screenshots/header-top-search.png)
 
 _Please note_ that the myFT unread articles indicator code lives outside this package in [`n-myft-ui`].
