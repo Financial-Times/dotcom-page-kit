@@ -38,6 +38,10 @@ describe('examples/kitchen-sink/build', () => {
     expect(output).toContain('async.css')
   })
 
+  it('creates a global layout CSS bundle', () => {
+    expect(output).toContain('page-kit-layout-styles.css')
+  })
+
   it('creates a manifest file', () => {
     expect(output).toContain('manifest.json')
   })
