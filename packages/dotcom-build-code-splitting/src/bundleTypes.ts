@@ -16,6 +16,8 @@ interface IBundleWithRegExp {
   usedInUnknownWay?: boolean
 }
 
+const isJS = (module) => module.type && module.type.startsWith('javascript/')
+
 /**
  * Create a chunk which includes all packages in the given list of names
  */
@@ -38,10 +40,8 @@ export function createBundleWithPackages({ name, packages, usedInUnknownWay }: I
           [name]: {
             name,
             test: (module) => {
-              if (module.type && module.type.startsWith('javascript/')) {
-                const packageName = extractPackageName(module.context)
-                return packageName ? packages.includes(packageName) : false
-              }
+              const packageName = isJS(module) && extractPackageName(module.context)
+              return packageName ? packages.includes(packageName) : false
             },
             enforce: true
           }
@@ -73,9 +73,7 @@ export function createBundleWithRegExp({ name, pattern, usedInUnknownWay }: IBun
           [name]: {
             name,
             test: (module) => {
-              if (module.type && module.type.startsWith('javascript/')) {
-                return pattern.test(module.context)
-              }
+              return isJS(module) && pattern.test(module.context)
             },
             enforce: true
           }
@@ -115,10 +113,8 @@ export function createBundlesForPackages({ name, packages, usedInUnknownWay }: I
               return chunkName
             },
             test(module) {
-              if (module.type && module.type.startsWith('javascript/')) {
-                const packageName = extractPackageName(module.context)
-                return packageName ? packages.includes(packageName) : false
-              }
+              const packageName = isJS(module) && extractPackageName(module.context)
+              return packageName ? packages.includes(packageName) : false
             },
             enforce: true
           }
@@ -158,9 +154,7 @@ export function createBundlesForRegExp({ name, pattern, usedInUnknownWay }: IBun
               return chunkName
             },
             test(module) {
-              if (module.type && module.type.startsWith('javascript/')) {
-                return pattern.test(module.context)
-              }
+              return isJS(module) && pattern.test(module.context)
             },
             enforce: true
           }
