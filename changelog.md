@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.1
+
+- Code splitting plugin: Tweaks code splitting to rules to ensure CSS modules are not included in output chunks
+
 ## 0.6.0
 
 - JS build plugin: (_breaking change_) Removed `enableRequireDefault` option
