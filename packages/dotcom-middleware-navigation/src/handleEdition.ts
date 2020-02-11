@@ -22,7 +22,7 @@ export default (request: Request, response: Response): string => {
 
   // NOTE: n-express overrides res.set() and res.vary() in order to merge all vary headers together.
   // <https://github.com/Financial-Times/n-express/blob/master/src/middleware/vary.js>
-  response.vary(currentEdition)
+  response.vary('FT-Edition')
 
   return currentEdition
 }

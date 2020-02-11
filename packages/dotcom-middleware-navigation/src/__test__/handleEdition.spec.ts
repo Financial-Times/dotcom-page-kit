@@ -17,8 +17,8 @@ describe('dotcom-middleware-navigation/src/handleEdition', () => {
       expect(result).toEqual('uk')
     })
 
-    it('sets a vary header with the default edition', () => {
-      expect(response.getHeader('vary')).toBe('uk')
+    it('sets a edition vary header', () => {
+      expect(response.getHeader('vary')).toBe('FT-Edition')
     })
   })
 
@@ -37,8 +37,8 @@ describe('dotcom-middleware-navigation/src/handleEdition', () => {
       expect(result).toEqual('international')
     })
 
-    it('sets a vary header with the set edition', () => {
-      expect(response.getHeader('vary')).toBe('international')
+    it('sets a edition vary header', () => {
+      expect(response.getHeader('vary')).toBe('FT-Edition')
     })
   })
 
@@ -59,10 +59,6 @@ describe('dotcom-middleware-navigation/src/handleEdition', () => {
 
     it('sets a next-edition cookie with the selected edition', () => {
       expect(response.cookies['next-edition'].value).toBe('international')
-    })
-
-    it('sets a vary header with the selected edition', () => {
-      expect(response.getHeader('vary')).toBe('international')
     })
   })
 })
