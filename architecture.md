@@ -37,7 +37,7 @@ The `packages/` directory of the project is like a "table of contents" providing
 
 ### Avoiding feature creep
 
-Each package readme begins with a one or two sentence summary defining what it is. When unable to achieve this brief summary we chose to split the package into separate pieces. These descriptions can be used when deciding whether or not new features should be added to a package.
+Each package README begins with a one or two sentence summary defining what it is. When unable to achieve this brief summary we chose to split the package into separate pieces. These descriptions can be used when deciding whether or not new features should be added to a package.
 
 ### It's like a Lego kit
 

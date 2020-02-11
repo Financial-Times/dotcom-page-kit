@@ -55,7 +55,7 @@ const outputHTML = ReactDOM.renderToStaticMarkup(document)
 
 For a full example for how to use this component please refer to the [FT UI example app][example].
 
-[example]: ../../examples/basic-ft-ui/readme.md
+[example]: ../../examples/basic-ft-ui/README.md
 
 ## Scope
 
@@ -80,7 +80,7 @@ Each page is served a bootstrap script including a "cuts the mustard" test via t
 
 This component supports critical CSS styles, normal (blocking) stylesheets and asynchronous (non-blocking) stylesheets. For an example for how to use `async` stylesheets please refer to the [Kitchen Sink example app][kitchen-sink-example].
 
-[kitchen-sink-example]: ../../examples/kitchen-sink/readme.md
+[kitchen-sink-example]: ../../examples/kitchen-sink/README.md
 
 There are three ways to include your app's CSS styles. Each option affects page-load performance.
 
@@ -211,10 +211,10 @@ Optional Twitter handle to associate with the page. Defaults to "@FinancialTimes
 
 An optional object describing the [Open Graph] metadata to add to the page. The provided objects keys are collated to create each property name, e.g. `{ og: { title: 'Hello, World' } }` are rendered as `<meta property="og:title" content="Hello, World" />`.
 
-[JavaScript bootstrap]: ../dotcom-ui-bootstrap/readme.md
-[feature flags]: ../dotcom-ui-flags/readme.md
-[FT app context]: ../dotcom-ui-app-context/readme.md
-[polyfill service]: ../dotcom-ui-polyfill-service/readme.md
+[JavaScript bootstrap]: ../dotcom-ui-bootstrap/README.md
+[feature flags]: ../dotcom-ui-flags/README.md
+[FT app context]: ../dotcom-ui-app-context/README.md
+[polyfill service]: ../dotcom-ui-polyfill-service/README.md
 [Open Graph]: http://ogp.me/
 [linked data]: https://w3.org/standards/semanticweb/data
 [JSON-LD]: https://json-ld.org/

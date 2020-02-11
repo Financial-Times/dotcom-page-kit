@@ -31,7 +31,7 @@ Once setup, this plugin will enable you to use Sass files (`.scss` and `.sass`) 
 page-kit build --entryFile path/to/styles.scss
 ```
 
-[entry points]: ../dotcom-page-kit-cli/readme.md#entry-points
+[entry points]: ../dotcom-page-kit-cli/README.md#entry-points
 
 
 ## Scope

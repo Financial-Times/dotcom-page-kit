@@ -4,7 +4,7 @@ This package provides rendering for [Handlebars] templates with additional suppo
 
 [Handlebars]: https://handlebarsjs.com/
 [n-handlebars]: https://github.com/Financial-Times/n-handlebars
-[helper functions]: src/helpers/readme.md
+[helper functions]: src/helpers/README.md
 
 
 ## Getting started

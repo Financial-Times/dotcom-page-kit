@@ -88,7 +88,7 @@ Webpack [rules] and [plugin] options are the supplementary resources that are co
 [rules]: https://webpack.js.org/configuration/module/#modulerules
 [plugin]: https://webpack.js.org/plugins/
 [unsafe]: #array-items-of-note-should-be-published-for-amendment
-[Page Kit CLI]: ../../packages/dotcom-page-kit-cli/readme.md
+[Page Kit CLI]: ../../packages/dotcom-page-kit-cli/README.md
 [clean-webpack-plugin]: https://github.com/johnagan/clean-webpack-plugin
 
 ## Publishing resources from plugins
@@ -146,7 +146,7 @@ Because strings are immutable in JavaScript, it's not possible to mutate the str
 > See the [Page Kit pluggable] package documentation for more information on the `publish` method as well as the `Publisher`
 
 [hard to reach]: #amending-supplementary-resources
-[Page Kit pluggable]: ../../packages/dotcom-page-kit-pluggable/readme.md
+[Page Kit pluggable]: ../../packages/dotcom-page-kit-pluggable/README.md
 
 ## Returning values from handlers
 
