@@ -17,7 +17,7 @@ describe('dotcom-middleware-navigation/src/handleEdition', () => {
       expect(result).toEqual('uk')
     })
 
-    it('sets a edition vary header', () => {
+    it('sets an edition vary header', () => {
       expect(response.getHeader('vary')).toBe('FT-Edition')
     })
   })
