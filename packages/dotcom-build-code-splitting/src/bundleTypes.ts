@@ -38,8 +38,10 @@ export function createBundleWithPackages({ name, packages, usedInUnknownWay }: I
           [name]: {
             name,
             test: (module) => {
-              const packageName = extractPackageName(module.context)
-              return packageName ? packages.includes(packageName) : false
+              if (module.type && module.type.startsWith('javascript/')) {
+                const packageName = extractPackageName(module.context)
+                return packageName ? packages.includes(packageName) : false
+              }
             },
             enforce: true
           }
@@ -71,7 +73,9 @@ export function createBundleWithRegExp({ name, pattern, usedInUnknownWay }: IBun
           [name]: {
             name,
             test: (module) => {
-              return pattern.test(module.context)
+              if (module.type && module.type.startsWith('javascript/')) {
+                return pattern.test(module.context)
+              }
             },
             enforce: true
           }
@@ -111,8 +115,10 @@ export function createBundlesForPackages({ name, packages, usedInUnknownWay }: I
               return chunkName
             },
             test(module) {
-              const packageName = extractPackageName(module.context)
-              return packageName ? packages.includes(packageName) : false
+              if (module.type && module.type.startsWith('javascript/')) {
+                const packageName = extractPackageName(module.context)
+                return packageName ? packages.includes(packageName) : false
+              }
             },
             enforce: true
           }
@@ -152,7 +158,9 @@ export function createBundlesForRegExp({ name, pattern, usedInUnknownWay }: IBun
               return chunkName
             },
             test(module) {
-              return pattern.test(module.context)
+              if (module.type && module.type.startsWith('javascript/')) {
+                return pattern.test(module.context)
+              }
             },
             enforce: true
           }
