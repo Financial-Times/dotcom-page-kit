@@ -28,7 +28,10 @@ export function plugin() {
           name: 'webpack-runtime'
         },
         splitChunks: {
-          chunks: 'all'
+          chunks: 'all',
+          cacheGroups: {
+            vendors: false
+          }
         },
         // We're going to implement our own algorithm so don't double effort
         moduleIds: false,
