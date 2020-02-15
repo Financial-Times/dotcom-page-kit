@@ -8,7 +8,10 @@ const fakeContext = {
     product: 'next',
     abTestState: 'someCohort:on',
     isProduction: true
-  }
+  },
+  customContext1: undefined,
+  customContext2: null,
+  customContext3: {}
 }
 
 describe('dotcom-ui-app-context/src/client/AppContext', () => {
