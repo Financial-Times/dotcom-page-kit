@@ -12,7 +12,9 @@ describe('dotcom-ui-app-context/src/client/loadAppContext', () => {
         <script type="application/json" data-page-kit-context="appContext">
           {"appName":"app-name","appVersion":"123"}
         </script>
-        <script type="application/json" data-page-kit-context>
+        <script type="application/json" data-page-kit-context></script>
+        <script type="application/json" data-page-kit-context="empty"></script>
+        <script type="application/json" data-page-kit-context="whitespace">
         </script>
         <script type="application/json" data-page-kit-context="custom1">
           {"customValue":"custom-value-1","customData":["a", "b", "c"]}
@@ -44,6 +46,8 @@ describe('dotcom-ui-app-context/src/client/loadAppContext', () => {
 
       expect(result).toEqual({
         appContext: { appName: 'app-name', appVersion: '123' },
+        empty: {},
+        whitespace: {},
         custom1: { customValue: 'custom-value-1', customData: ['a', 'b', 'c'] },
         custom2: {},
         custom3: { customValue: 'custom-value-3', customData: ['d', 'e', 'f'] }
