@@ -6,7 +6,71 @@ import querystring from 'querystring'
 const polyfillsCore = ['HTMLPictureElement']
 
 const polyfillsEnhanced = [
-  // What Andrew Betts decided is "default"
+  // What Andrew Betts decided is "default":
+  /*
+    Array.from
+    Array.isArray
+    Array.of
+    Array.prototype.every
+    Array.prototype.fill
+    Array.prototype.filter
+    Array.prototype.forEach
+    Array.prototype.indexOf
+    Array.prototype.lastIndexOf
+    Array.prototype.map
+    Array.prototype.reduce
+    Array.prototype.reduceRight
+    Array.prototype.some
+    CustomEvent
+    DOMTokenList
+    Date.now
+    Date.prototype.toISOString
+    DocumentFragment.prototype.append
+    DocumentFragment.prototype.prepend
+    Element.prototype.after
+    Element.prototype.append
+    Element.prototype.before
+    Element.prototype.classList
+    Element.prototype.cloneNode
+    Element.prototype.closest
+    Element.prototype.matches
+    Element.prototype.prepend
+    Element.prototype.remove
+    Element.prototype.replaceWith
+    Element
+    Event.focusin
+    Event.hashchange
+    Event
+    Function.prototype.bind
+    JSON
+    Map
+    Node.prototype.contains
+    Number.isNaN
+    Object.assign
+    Object.create
+    Object.defineProperties
+    Object.defineProperty
+    Object.getOwnPropertyDescriptor
+    Object.getOwnPropertyNames
+    Object.getPrototypeOf
+    Object.keys
+    Promise
+    Set
+    String.prototype.endsWith
+    String.prototype.includes
+    String.prototype.startsWith
+    String.prototype.trim
+    URL
+    Window
+    XMLHttpRequest
+    atob
+    document.querySelector
+    document.visibilityState
+    document
+    location.origin
+    requestAnimationFrame
+    ~html5-elements
+  */
   'default',
 
   // ECMAScript presets
