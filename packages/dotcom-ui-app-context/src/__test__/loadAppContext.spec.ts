@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import subject from '../client/loadAppContext'
+import loadAppContext from '../client/loadAppContext'
 import AppContext from '../client/AppContext'
 
 describe('dotcom-ui-app-context/src/client/loadAppContext', () => {
@@ -26,7 +26,7 @@ describe('dotcom-ui-app-context/src/client/loadAppContext', () => {
     })
 
     it('processes multiple contexts', () => {
-      const allContexts = subject()
+      const allContexts = loadAppContext()
       const client = new AppContext(allContexts)
 
       expect(client.getAll()).toEqual({
@@ -40,7 +40,7 @@ describe('dotcom-ui-app-context/src/client/loadAppContext', () => {
     })
 
     it('returns a frozen object', () => {
-      const result = subject()
+      const result = loadAppContext()
 
       expect(result).toEqual({
         appContext: { appName: 'app-name', appVersion: '123' },
@@ -58,7 +58,7 @@ describe('dotcom-ui-app-context/src/client/loadAppContext', () => {
     })
 
     it('returns a frozen empty object', () => {
-      const result = subject()
+      const result = loadAppContext()
 
       expect(result).toEqual({})
       expect(Object.isFrozen(result)).toBe(true)
