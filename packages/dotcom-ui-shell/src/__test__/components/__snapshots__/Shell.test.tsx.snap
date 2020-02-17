@@ -2,7 +2,7 @@
 
 exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the enableGTM flag is on 1`] = `
 <html
-  className="no-js core"
+  className="no-js core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold"
   lang="en-GB"
   style={
     Object {
@@ -246,6 +246,21 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-NWQJW68');",
+        }
+      }
+    />
+    <script
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "(function loadCustomFonts() {
+    var rootElement = document.querySelector('.n-layout');
+    if (/(^|\\\\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+        var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold'];
+        for (var i = 0; i < fontLabels.length; i++) {
+            rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '');
+        }
+    }
+}());",
         }
       }
     />
