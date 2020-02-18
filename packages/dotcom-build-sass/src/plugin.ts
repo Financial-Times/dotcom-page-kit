@@ -76,11 +76,14 @@ export function plugin(options: TPluginOptions = {}) {
       // This enables the use of enhanced-resolve for @import statements prefixed with ~
       // but we don't usually use this and disabling it can speed up builds by up to 20%.
       webpackImporter,
+      // Prefer `dart-sass`.
+      implementation: require('sass'),
       sassOptions: {
         // Disable formatting so that we don't spend time pretty printing
         outputStyle: 'compressed',
         // Enable Sass to @import source files from installed dependencies
-        includePaths: ['bower_components', 'node_modules', ...includePaths]
+        includePaths: ['bower_components', 'node_modules', ...includePaths],
+        fiber: require('fibers')
       }
     }
   }
