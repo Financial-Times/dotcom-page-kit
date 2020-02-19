@@ -97,30 +97,35 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
       as="script"
       href="https://polyfill.io/v3/polyfill.min.js?features=default%2Ces5%2Ces2015%2Ces2016%2Ces2017%2CEventSource%2Cfetch%2CHTMLPictureElement%2CIntersectionObserver%2CNodeList.prototype.forEach&source=next"
       rel="preload"
+      type={null}
     />
     <link
       as="font"
       crossOrigin="anonymous"
       href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.2/MetricWeb-Regular.woff"
       rel="preload"
+      type="font/woff"
     />
     <link
       as="font"
       crossOrigin="anonymous"
       href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.2/MetricWeb-Semibold.woff"
       rel="preload"
+      type="font/woff"
     />
     <link
       as="font"
       crossOrigin="anonymous"
       href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.2/FinancierDisplayWeb-Regular.woff"
       rel="preload"
+      type="font/woff"
     />
     <link
       as="font"
       crossOrigin="anonymous"
       href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.2/FinancierDisplayWeb-Bold.woff"
       rel="preload"
+      type="font/woff"
     />
     <script
       dangerouslySetInnerHTML={

@@ -1,4 +1,5 @@
 import React from 'react'
+import mimeTypes from 'mime-types'
 import getResourceType from '../lib/getResourceType'
 
 export type TResourceHintsProps = {
@@ -30,17 +31,19 @@ const ResourceHints = (props: TResourceHintsProps) => {
       <link rel="preconnect" href="https://securepubads.g.doubleclick.net" />
 
       {props.resourceHints.map((resource, i) => {
-        const type = getResourceType(resource)
+        const contentType = getResourceType(resource)
+        const mimeType = mimeTypes.lookup(resource) || null
 
         const attributes: React.LinkHTMLAttributes<HTMLLinkElement> = {
-          as: type,
-          href: resource
+          as: contentType,
+          href: resource,
+          type: mimeType
         }
 
         // Fonts are expected to be fetched anonymously by the browser, and the preload request is
         // only made anonymous by using the crossorigin attribute.
         // <https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content>
-        if (type === 'font') {
+        if (contentType === 'font') {
           attributes.crossOrigin = 'anonymous'
         }
 
