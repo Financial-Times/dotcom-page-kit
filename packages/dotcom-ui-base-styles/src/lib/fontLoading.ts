@@ -18,3 +18,11 @@ function loadCustomFonts() {
 }
 
 export const loadCustomFontsJS = `(${loadCustomFonts.toString()}());`
+
+// These class names should be added to the document element (<html>)
+export const loadCustomFontsClassNames = [
+  'o-typography--loading-sans',
+  'o-typography--loading-sans-bold',
+  'o-typography--loading-display',
+  'o-typography--loading-display-bold'
+].join(' ')
