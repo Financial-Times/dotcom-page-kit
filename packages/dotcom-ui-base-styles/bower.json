@@ -1,5 +1,8 @@
 {
   "name": "dotcom-ui-base-styles",
-  "dependencies": {},
+  "dependencies": {
+    "n-ui-foundations": "^4.0.0",
+    "o-typography": "^6.1.0"
+  },
   "main": ["browser.js", "styles.scss"]
 }
