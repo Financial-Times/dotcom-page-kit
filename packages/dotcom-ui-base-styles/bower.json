@@ -1,0 +1,5 @@
+{
+  "name": "dotcom-ui-base-styles",
+  "dependencies": {},
+  "main": ["browser.js", "styles.scss"]
+}
