@@ -82,8 +82,7 @@ export function plugin(options: TPluginOptions = {}) {
         // Disable formatting so that we don't spend time pretty printing
         outputStyle: 'compressed',
         // Enable Sass to @import source files from installed dependencies
-        includePaths: ['bower_components', 'node_modules', ...includePaths],
-        fiber: require('fibers')
+        includePaths: ['bower_components', 'node_modules', ...includePaths]
       }
     }
   }
