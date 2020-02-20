@@ -68,7 +68,7 @@ Several [hooks](#hooks) are provided in order to access and modify the configura
 | Option            | Type     | Default | Description                                                        |
 |-------------------|----------|---------|--------------------------------------------------------------------|
 | `webpackImporter` | Boolean  | `false` | See https://github.com/webpack-contrib/sass-loader#webpackimporter |
-| `includePaths`    | String[] | `[]`    | See https://github.com/sass/node-sass/#includepaths                |
+| `includePaths`    | String[] | `[]`    | See https://sass-lang.com/documentation/js-api#includepaths        |
 
 
 ## Hooks
