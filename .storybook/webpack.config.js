@@ -50,6 +50,8 @@ module.exports = ({ config }) => {
       {
         loader: require.resolve('sass-loader'),
         options: {
+          // Use `dart-sass` rather than `node-sass`
+          implementation: require('sass'),
           sassOptions: {
             includePaths: ['bower_components', 'node_modules/@financial-times']
           }
