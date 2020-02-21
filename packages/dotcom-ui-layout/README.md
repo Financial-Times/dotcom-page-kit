@@ -1,6 +1,6 @@
 # @financial-times/dotcom-ui-layout
 
-This package provides and an abstraction over the header and footer navigation UI components for FT.com.
+This package provides an abstraction over the header and footer navigation UI components for FT.com.
 
 ## Getting started
 
