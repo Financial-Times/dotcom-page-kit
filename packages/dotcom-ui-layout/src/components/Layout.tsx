@@ -8,7 +8,6 @@ import {
 } from '@financial-times/dotcom-ui-header/component'
 import { TNavigationData } from '@financial-times/dotcom-types-navigation'
 import { Footer, LegalFooter, TFooterOptions } from '@financial-times/dotcom-ui-footer/component'
-import { fontLoadingClassNames, loadCustomFontsJS } from '../font-loading'
 import Template from './Template'
 
 enum Headers {
@@ -36,13 +35,6 @@ export type TLayoutProps = {
   footerAfter?: string | React.ReactNode
   children?: React.ReactNode
   contents?: string
-}
-
-// EnhanceFonts removes the default o-typography--loading-* styles
-// allowing the custom fonts Finacier and MetricWeb to be shown.
-// An immediately invoked function expression is embedded in the DOM as a string
-const EnhanceFonts = () => {
-  return <script dangerouslySetInnerHTML={{ __html: loadCustomFontsJS }} />
 }
 
 export function Layout({
@@ -80,8 +72,7 @@ export function Layout({
   }
 
   return (
-    <div className={`n-layout ${fontLoadingClassNames.join(' ')}`} data-o-component="o-typography">
-      <EnhanceFonts />
+    <div className="n-layout">
       <a
         data-trackable="a11y-skip-to-help"
         className="n-layout__skip-link"

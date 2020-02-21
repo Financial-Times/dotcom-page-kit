@@ -4,6 +4,7 @@ import DocumentHead, { TDocumentHeadProps } from './DocumentHead'
 import StyleSheets, { TStylesheetProps } from './StyleSheets'
 import ResourceHints, { TResourceHintsProps } from './ResourceHints'
 import { AppContextEmbed, TAppContextProps } from '@financial-times/dotcom-ui-app-context'
+import { LoadFontsEmbed, loadCustomFontsClassNames, fontFaceURLs } from '@financial-times/dotcom-ui-base-styles'
 import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/dotcom-ui-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/dotcom-ui-bootstrap'
 import * as polyfillService from '@financial-times/dotcom-ui-polyfill-service'
@@ -37,17 +38,14 @@ function Shell(props: TShellProps) {
     ...props.scripts,
     ...props.resourceHints,
     // TODO: abstract font URLs into 'core branding' package
-    'https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.2/MetricWeb-Regular.woff',
-    'https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.2/MetricWeb-Semibold.woff',
-    'https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.2/FinancierDisplayWeb-Regular.woff',
-    'https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.3.2/FinancierDisplayWeb-Bold.woff'
+    ...fontFaceURLs
   ]
 
   return (
     <html
       {...formatAttributeNames(props.htmlAttributes)}
       lang="en-GB"
-      className="no-js core"
+      className={`no-js core ${loadCustomFontsClassNames}`}
       style={{
         // TODO: abstract styles into 'core branding' package
         // Enable use of 100vw which does not account for the scroll bar
@@ -77,6 +75,7 @@ function Shell(props: TShellProps) {
         <Content contents={props.contents || props.children} />
         <AppContextEmbed appContext={props.appContext} />
         <FlagsEmbed flags={props.flags} />
+        <LoadFontsEmbed />
       </body>
     </html>
   )
