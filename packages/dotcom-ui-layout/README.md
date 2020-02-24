@@ -1,6 +1,6 @@
 # @financial-times/dotcom-ui-layout
 
-This package provides an abstraction over the header and footer navigation UI components for FT.com.
+This package composes the basic page layout, including selection of the header and footer variants, and insertion of elements that prepend/append them.
 
 ## Getting started
 
