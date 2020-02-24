@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.6.2
+
+Add `server/templates` to the default list of Handlebar partial directories to search. The upcoming n-messaging-client release uses `server/templates` not `templates`.
+
 ## 0.6.1
 
 - Code splitting plugin: Tweaks code splitting to rules to ensure CSS modules are not included in output chunks
