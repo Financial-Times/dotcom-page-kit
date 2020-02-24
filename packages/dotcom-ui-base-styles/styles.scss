@@ -1,5 +1,8 @@
 $system-code: 'page-kit-base-styles' !default;
 
+// TODO: Migrate into this package existing usage of n-ui-foundations that
+// falls under definition of this package, with the intention of ideally
+// being able to decommission n-ui-foundations.
 @import 'n-ui-foundations/main';
 
 .core .o--if-js,
