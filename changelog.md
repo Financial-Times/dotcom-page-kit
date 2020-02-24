@@ -2,7 +2,9 @@
 
 ## 0.6.2
 
-Add `server/templates` to the default list of Handlebar partial directories to search. The upcoming n-messaging-client release uses `server/templates` not `templates`.
+- Handlebars package: Added `server/templates` to the default list of partial directories to search
+- Navigation middleware: Fixed incorrect edition vary header value
+- Shell UI component: Added mime types to resource hints and support for WOFF 2.0 files
 
 ## 0.6.1
 
