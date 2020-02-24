@@ -72,13 +72,13 @@ function Shell(props: TShellProps) {
         />
         <Bootstrap {...bootstrapProps} />
         <GTMHead flags={props.flags} />
+        <LoadFontsEmbed />
       </head>
       <body {...formatAttributeNames(props.bodyAttributes)}>
         <GTMBody flags={props.flags} />
         <Content contents={props.contents || props.children} />
         <AppContextEmbed appContext={props.appContext} />
         <FlagsEmbed flags={props.flags} />
-        <LoadFontsEmbed />
       </body>
     </html>
   )
