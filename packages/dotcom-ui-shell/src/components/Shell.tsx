@@ -4,7 +4,11 @@ import DocumentHead, { TDocumentHeadProps } from './DocumentHead'
 import StyleSheets, { TStylesheetProps } from './StyleSheets'
 import ResourceHints, { TResourceHintsProps } from './ResourceHints'
 import { AppContextEmbed, TAppContextProps } from '@financial-times/dotcom-ui-app-context'
-import { LoadFontsEmbed, loadCustomFontsClassNames, fontFaceURLs } from '@financial-times/dotcom-ui-base-styles'
+import {
+  LoadFontsEmbed,
+  loadCustomFontsClassNames,
+  fontFaceURLs
+} from '@financial-times/dotcom-ui-base-styles'
 import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/dotcom-ui-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/dotcom-ui-bootstrap'
 import * as polyfillService from '@financial-times/dotcom-ui-polyfill-service'
@@ -37,7 +41,6 @@ function Shell(props: TShellProps) {
     // should be found by the browser's speculative parser.
     ...props.scripts,
     ...props.resourceHints,
-    // TODO: abstract font URLs into 'core branding' package
     ...fontFaceURLs
   ]
 
