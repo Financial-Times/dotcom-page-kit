@@ -3,12 +3,7 @@
 // be reused from the CDN
 $system-code: 'page-kit-layout' !default;
 
-@import 'n-ui-foundations/main';
-
-.core .o--if-js,
-.enhanced .o--if-no-js {
-  display: none !important;
-}
+@import '@financial-times/dotcom-ui-base-styles/styles';
 
 .n-layout {
   display: table;
