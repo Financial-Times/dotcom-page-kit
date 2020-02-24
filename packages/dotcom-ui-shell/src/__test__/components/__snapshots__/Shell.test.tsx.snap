@@ -139,6 +139,21 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
     <script
       dangerouslySetInnerHTML={
         Object {
+          "__html": "(function loadCustomFonts() {
+    var rootElement = document.documentElement;
+    if (/(^|\\\\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+        var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold'];
+        for (var i = 0; i < fontLabels.length; i++) {
+            rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '');
+        }
+    }
+}());",
+        }
+      }
+    />
+    <script
+      dangerouslySetInnerHTML={
+        Object {
           "__html": "{\\"trackErrors\\":true,\\"core\\":[\\"https://polyfill.io/v3/polyfill.min.js?features=HTMLPictureElement&source=next\\"],\\"enhanced\\":[\\"https://polyfill.io/v3/polyfill.min.js?features=default%2Ces5%2Ces2015%2Ces2016%2Ces2017%2CEventSource%2Cfetch%2CHTMLPictureElement%2CIntersectionObserver%2CNodeList.prototype.forEach&source=next\\"]}",
         }
       }
@@ -251,21 +266,6 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-NWQJW68');",
-        }
-      }
-    />
-    <script
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "(function loadCustomFonts() {
-    var rootElement = document.documentElement;
-    if (/(^|\\\\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
-        var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold'];
-        for (var i = 0; i < fontLabels.length; i++) {
-            rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '');
-        }
-    }
-}());",
         }
       }
     />
