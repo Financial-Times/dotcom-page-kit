@@ -5,9 +5,10 @@ import StyleSheets, { TStylesheetProps } from './StyleSheets'
 import ResourceHints, { TResourceHintsProps } from './ResourceHints'
 import { AppContextEmbed, TAppContextProps } from '@financial-times/dotcom-ui-app-context'
 import {
+  fontFaceURLs,
+  documentStyles,
   LoadFontsEmbed,
   loadCustomFontsClassNames,
-  fontFaceURLs
 } from '@financial-times/dotcom-ui-base-styles'
 import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/dotcom-ui-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/dotcom-ui-bootstrap'
@@ -49,13 +50,7 @@ function Shell(props: TShellProps) {
       {...formatAttributeNames(props.htmlAttributes)}
       lang="en-GB"
       className={`no-js core ${loadCustomFontsClassNames}`}
-      style={{
-        // TODO: abstract styles into 'core branding' package
-        // Enable use of 100vw which does not account for the scroll bar
-        overflowX: 'hidden',
-        backgroundColor: '#fff1e5',
-        color: '#33302e'
-      }}>
+      style={documentStyles}>
       <head>
         <DocumentHead {...props} />
         <ResourceHints resourceHints={resourceHints} />
