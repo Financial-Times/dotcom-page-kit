@@ -7,7 +7,7 @@ This package provides server-side rendering for React components. It is primaril
 
 ## Getting started
 
-This package is compatible with Node 8+ and is distributed on npm.
+This package is compatible with Node 12+ and is distributed on npm.
 
 ```sh
 npm install --save-dev @financial-times/dotcom-server-react-jsx

@@ -5,7 +5,7 @@ This package provides methods for integrating flags data into your server-side r
 
 ## Getting started
 
-This package is compatible with Node 8+ and is distributed on npm.
+This package is compatible with Node 12+ and is distributed on npm.
 
 ```sh
 npm install --save @financial-times/dotcom-ui-flags

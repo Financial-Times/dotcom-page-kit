@@ -4,7 +4,7 @@ A lightweight library for facilitating pluggability within apps and libraries.
 
 ## Installation
 
-This package is compatible with Node 8+ and is distributed via npm
+This package is compatible with Node 12+ and is distributed via npm
 
 ```
 npm install --save-dev @financial-times/dotcom-page-kit-pluggable

@@ -5,7 +5,7 @@ This package provides components which render variations on the footer component
 
 ## Getting started
 
-This package is compatible with Node 8+ and is distributed on npm.
+This package is compatible with Node 12+ and is distributed on npm.
 
 ```bash
 npm install --save @financial-times/dotcom-ui-footer
