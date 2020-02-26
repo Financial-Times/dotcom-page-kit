@@ -8,7 +8,7 @@ This package extends the [Page Kit CLI build action][cli] (`page-kit build`) wit
 
 ## Getting started
 
-This package is compatible with Node 8+ and is distributed on npm.
+This package is compatible with Node 12+ and is distributed on npm.
 
 ```sh
 npm install --save-dev @financial-times/dotcom-build-bower-resolve

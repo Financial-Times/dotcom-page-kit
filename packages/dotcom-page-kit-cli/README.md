@@ -5,7 +5,7 @@ The Page Kit CLI provides a suite of actions to assemble modern Web projects. Th
 
 ## Getting started
 
-This package is compatible with Node 8+ and is distributed on npm.
+This package is compatible with Node 12+ and is distributed on npm.
 
 ```sh
 npm install --save-dev @financial-times/dotcom-page-kit-cli
