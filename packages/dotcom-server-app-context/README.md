@@ -11,7 +11,7 @@ To learn more about why this feature exists please review the [design document].
 
 ## Getting started
 
-This package is compatible with Node 8+ and is distributed on npm.
+This package is compatible with Node 12+ and is distributed on npm.
 
 ```bash
 npm install -S @financial-times/dotcom-server-app-context

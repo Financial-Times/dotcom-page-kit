@@ -11,7 +11,7 @@ In addition this package can also be used to [serve static files].
 
 ### Getting started
 
-This package is compatible with Node 8+ and is distributed on npm.
+This package is compatible with Node 12+ and is distributed on npm.
 
 ```sh
 npm install --save @financial-times/dotcom-middleware-asset-loader

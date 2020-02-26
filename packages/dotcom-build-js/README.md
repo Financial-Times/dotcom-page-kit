@@ -8,7 +8,7 @@ This module extends the [Page Kit CLI build action][cli] (`page-kit build`) with
 
 ## Getting started
 
-This module is compatible with Node 8+ and is distributed on npm.
+This module is compatible with Node 12+ and is distributed on npm.
 
 ```
 npm install --save-dev @financial-times/dotcom-build-js

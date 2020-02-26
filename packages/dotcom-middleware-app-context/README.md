@@ -8,7 +8,7 @@ This package provides an [Express] compatible middleware which appends an instan
 
 ## Getting started
 
-This package is compatible with Node 8+ and is distributed on npm.
+This package is compatible with Node 12+ and is distributed on npm.
 
 ```sh
 npm install --save @financial-times/dotcom-middleware-app-context

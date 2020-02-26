@@ -9,7 +9,7 @@ Data for the menus will be periodically fetched and updated from the [Next Navig
 
 ## Getting started
 
-This package is compatible with Node 8+ and is distributed on npm.
+This package is compatible with Node 12+ and is distributed on npm.
 
 ```bash
 npm install -S @financial-times/dotcom-server-navigation

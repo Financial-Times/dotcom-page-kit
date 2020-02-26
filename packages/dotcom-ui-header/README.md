@@ -5,7 +5,7 @@ This package provides templates which render variants of the FT.com header and n
 
 ## Getting started
 
-This package is compatible with Node 8+ and is distributed on npm.
+This package is compatible with Node 12+ and is distributed on npm.
 
 ```bash
 npm install --save @financial-times/dotcom-ui-header
