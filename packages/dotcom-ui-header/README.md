@@ -89,7 +89,7 @@ By default the logo serves as a home page link, which can be deactivated by prov
 
 _Please note_ that the myFT unread articles indicator code lives outside this package in [`n-myft-ui`].
 
-[`n-myft-ui`]: https://github.com/Financial-Times/n-myft-ui/blob/master/components/unread-articles-indicator/index.js#L55
+[`n-myft-ui`]: https://github.com/Financial-Times/n-myft-ui/blob/master/components/unread-articles-indicator
 
 ### Navigation
 
