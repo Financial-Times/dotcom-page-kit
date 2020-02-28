@@ -154,7 +154,7 @@ export function plugin(options: TPluginOptions = {}) {
   function getMiniCssExtractPluginOptions(cli: CliContext) {
     return {
       // only include content hash in filename when compiling production assets
-      filename: cli.options.development ? '[name].css' : '[name].[contenthash:12].css'
+      filename: cli.isDevMode ? '[name].css' : '[name].[contenthash:12].css'
     }
   }
 }

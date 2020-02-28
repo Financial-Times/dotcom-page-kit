@@ -1,29 +1,21 @@
-import { CliPrompt } from './CliPrompt'
-import { TArguments, TOptions } from '../types/CliConfig'
 import { PageKitConfig } from '../types/PageKitConfig'
-import { Pluggable, Plugin } from '@financial-times/dotcom-page-kit-pluggable'
+import { Pluggable } from '@financial-times/dotcom-page-kit-pluggable'
 
 interface ConstructorArgs {
   config: PageKitConfig
-  plugins: Plugin[]
-  prompt?: CliPrompt
-  workingDir: string
+  isDevMode: Boolean
 }
 
 export class CliContext extends Pluggable {
   cli = this
-  args: TArguments
-  prompt: CliPrompt
   config: PageKitConfig
-  options: TOptions
-  workingDir: string
+  isDevMode: Boolean
 
-  constructor({ prompt = new CliPrompt(), workingDir, plugins, config }: ConstructorArgs) {
-    super({ alias: 'cli', plugins })
+  constructor({ config, isDevMode }: ConstructorArgs) {
+    super({ alias: 'cli', plugins: config.plugins })
 
-    this.prompt = prompt
-    this.workingDir = workingDir
     this.config = normaliseConfig(config)
+    this.isDevMode = isDevMode
   }
 }
 

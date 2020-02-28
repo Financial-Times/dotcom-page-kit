@@ -2,7 +2,7 @@ import get from 'lodash.get'
 import { hooks } from '../entities/hooks'
 import { CliContext } from '../entities/CliContext'
 
-export function getBabelConfig(cli: CliContext) {
+export function getBabelConfig({ config, publish }: CliContext) {
   const defaultTargets = [
     'last 2 Chrome versions',
     'ie 11',
@@ -12,7 +12,7 @@ export function getBabelConfig(cli: CliContext) {
   ]
 
   const presetEnvOpts = {
-    targets: get(cli, 'config.settings.build.targets') || defaultTargets,
+    targets: get(config, 'settings.build.targets') || defaultTargets,
     // Exclude transforms that make all code slower
     // See https://github.com/facebook/create-react-app/pull/5278
     exclude: ['transform-typeof-symbol']
@@ -27,8 +27,8 @@ export function getBabelConfig(cli: CliContext) {
     cacheDirectory: true
   }
 
-  cli.publish(hooks.BABEL_CONFIG, babelConfig)
-  cli.publish(hooks.BABEL_PRESET_ENV_OPTIONS, presetEnvOpts)
+  publish(hooks.BABEL_CONFIG, babelConfig)
+  publish(hooks.BABEL_PRESET_ENV_OPTIONS, presetEnvOpts)
 
   return babelConfig
 }
