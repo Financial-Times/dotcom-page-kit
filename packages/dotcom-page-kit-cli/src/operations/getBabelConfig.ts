@@ -1,8 +1,8 @@
 import get from 'lodash.get'
 import { hooks } from '../entities/hooks'
-import { CliContext } from '../entities/CliContext'
+import { ConfigContext } from '../entities/ConfigContext'
 
-export function getBabelConfig({ config, publish }: CliContext) {
+export function getBabelConfig({ config, publish }: ConfigContext) {
   const defaultTargets = [
     'last 2 Chrome versions',
     'ie 11',

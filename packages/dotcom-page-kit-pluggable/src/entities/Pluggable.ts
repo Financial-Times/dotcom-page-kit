@@ -174,16 +174,16 @@ It is for this reason that the `pluggable` property exists
 The alias is there to allow for accessing the `Pluggable` instance via a more appropriate name than `pluggable` when the
 instance is destructured as follows:
 
-class CliContext extends Pluggable {
+class ConfigContext extends Pluggable {
   constructor() {
     super()
-    this.setAliasTo('cli)
+    this.setAliasTo('config)
   }
 }
 
-function doSomething({ publish, cli }: CliContext) {
+function doSomething({ publish, config }: ConfigContext) {
   publish('foo', {})
-  doSomeOtherThing(cli)
+  doSomeOtherThing(config)
 }
 
 It is also used to alias the `Pluggable` instance on the `args` that are supplied to resource handlers, as follows

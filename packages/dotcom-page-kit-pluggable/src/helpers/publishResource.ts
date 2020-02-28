@@ -146,13 +146,13 @@ The requirements for resource publishing are as follows:
     a key that is equivalent to the alias. This is to allow for the `Pluggable` instance to be available under a more
     appropriate name that `pluggable`.
 
-    class CliContext extends Plugin {
-      alias = 'cli'
+    class ConfigContext extends Plugin {
+      alias = 'config'
     }
 
     const plugin = ({on}) => {
-      on('foo', ({ cli }) => {
-        return getBar(cli)
+      on('foo', ({ config }) => {
+        return getBar(config)
       })
     }
 

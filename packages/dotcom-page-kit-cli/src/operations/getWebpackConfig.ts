@@ -1,7 +1,7 @@
 import get from 'lodash.get'
 import { hooks } from '../entities/hooks'
 import { PageKitConfig } from '../types/PageKitConfig'
-import { CliContext } from '../entities/CliContext'
+import { ConfigContext } from '../entities/ConfigContext'
 import { getBabelConfig } from './getBabelConfig'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import CompressionPlugin from 'compression-webpack-plugin'
@@ -11,7 +11,7 @@ export function getWebpackConfig(baseConfig: PageKitConfig) {
   return function (_, argv) {
     const isDevMode = argv.mode === 'development'
 
-    const { config, publish, cli } = new CliContext({ config: baseConfig, isDevMode })
+    const { context, publish, config } = new ConfigContext({ config: baseConfig, isDevMode })
 
     const entryOptions = get(config, 'settings.build.entry')
     const outputPath = get(config, 'settings.build.outputPath')
@@ -64,7 +64,7 @@ export function getWebpackConfig(baseConfig: PageKitConfig) {
             exclude: [],
             use: {
               loader: require.resolve('babel-loader'),
-              options: getBabelConfig(cli)
+              options: getBabelConfig(context)
             }
           })
         ]

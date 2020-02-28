@@ -1,22 +1,22 @@
 import { hooks } from './hooks'
 import { PluginOptions } from './types'
-import { CliContext } from '@financial-times/dotcom-page-kit-cli'
+import { ConfigContext } from '@financial-times/dotcom-page-kit-cli'
 
-export default (options: PluginOptions = {}, cli: CliContext) => {
-  const presetReactOptions = cli.publish(hooks.BABEL_PRESET_REACT_OPTIONS, {
+export default (options: PluginOptions = {}, context: ConfigContext) => {
+  const presetReactOptions = context.publish(hooks.BABEL_PRESET_REACT_OPTIONS, {
     pragma: options.jsxPragma,
     pragmaFrag: options.jsxPragmaFrag
   })
 
-  const presetTypescriptOptions = cli.publish(hooks.BABEL_PRESET_TYPESCRIPT_OPTIONS, {
+  const presetTypescriptOptions = context.publish(hooks.BABEL_PRESET_TYPESCRIPT_OPTIONS, {
     jsxPragma: options.jsxPragma
   })
 
-  const pluginSyntaxDynamicImportOptions = cli.publish(hooks.BABEL_PLUGIN_SYNTAX_DYNAMIC_IMPORT_OPTIONS, {})
+  const pluginSyntaxDynamicImportOptions = context.publish(hooks.BABEL_PLUGIN_SYNTAX_DYNAMIC_IMPORT_OPTIONS, {})
 
-  const pluginClassPropertiesOptions = cli.publish(hooks.BABEL_PLUGIN_CLASS_PROPERTIES_OPTIONS, {})
+  const pluginClassPropertiesOptions = context.publish(hooks.BABEL_PLUGIN_CLASS_PROPERTIES_OPTIONS, {})
 
-  const pluginTransformRuntimeOptions = cli.publish(hooks.BABEL_PLUGIN_TRANSFORM_RUNTIME_OPTIONS, {
+  const pluginTransformRuntimeOptions = context.publish(hooks.BABEL_PLUGIN_TRANSFORM_RUNTIME_OPTIONS, {
     // You might think we'd want to abstract the helper functions so they can be reused but doing so
     // means we generate unstable hashes because the generated helper modules are at the bottom of
     // the dependency tree but their contents depends on the features each app uses. Inlining them

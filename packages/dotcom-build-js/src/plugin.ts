@@ -25,7 +25,7 @@ export function plugin(userOptions: PluginOptions = {}) {
     scriptsRule.test.push(/\.(ts|tsx)$/)
   }
 
-  function addBabelPreset({ cli, resource: babelConfig }: HandlerArgs) {
-    babelConfig.presets.push(babelPreset(options, cli))
+  function addBabelPreset({ context, resource: babelConfig }: HandlerArgs) {
+    babelConfig.presets.push(babelPreset(options, context))
   }
 }

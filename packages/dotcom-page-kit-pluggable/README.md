@@ -81,13 +81,13 @@ Sets the alias of the `Pluggable` instance. The alias is used to allow for acces
 instance on the args that are supplied to resource handlers, as follows:
 
 ```ts
-class CliContext extends Pluggable {
+class ConfigContext extends Pluggable {
   alias = 'cli'
   args = {}
   options = {}
 }
 
-function getWebpackConfig({ publish, cli }: CliContext) {
+function getWebpackConfig({ publish, cli }: ConfigContext) {
   const babelConfig = getBabelConfig(cli)
   const webpackConfig = { babelConfig }
   publish('webpackConfig', webpackConfig)

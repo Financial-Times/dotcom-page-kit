@@ -3,16 +3,16 @@ import { Pluggable } from '@financial-times/dotcom-page-kit-pluggable'
 
 interface ConstructorArgs {
   config: PageKitConfig
-  isDevMode: Boolean
+  isDevMode: boolean
 }
 
-export class CliContext extends Pluggable {
-  cli = this
+export class ConfigContext extends Pluggable {
+  context = this
   config: PageKitConfig
-  isDevMode: Boolean
+  isDevMode: boolean
 
   constructor({ config, isDevMode }: ConstructorArgs) {
-    super({ alias: 'cli', plugins: config.plugins })
+    super({ alias: 'config', plugins: config.plugins })
 
     this.config = normaliseConfig(config)
     this.isDevMode = isDevMode

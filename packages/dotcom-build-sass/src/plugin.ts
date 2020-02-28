@@ -2,7 +2,7 @@ import dlv from 'dlv'
 import { hooks } from './hooks'
 import StylesOnlyPlugin from 'webpack-fix-style-only-entries'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import { HandlerArgs, CliContext } from '@financial-times/dotcom-page-kit-cli'
+import { ConfigContext } from '@financial-times/dotcom-page-kit-cli'
 
 export type TPluginOptions = {
   includePaths?: Array<string>
@@ -14,13 +14,13 @@ export function plugin(options: TPluginOptions = {}) {
     on('webpackConfig', getWebpackConfigToMerge)
   }
 
-  function getWebpackConfigToMerge({ cli, publish }: HandlerArgs) {
-    const autoprefixerOptions = getAutoPrefixerOptions(cli)
+  function getWebpackConfigToMerge({ context, publish }: ConfigContext) {
+    const autoprefixerOptions = getAutoPrefixerOptions(context)
     const cssnanoOptions = getCssNanoOptions()
     const sassLoaderOptions = getSassLoaderOptions(options)
     const postcssLoaderOptions = getPostCssLoaderOptions(autoprefixerOptions, cssnanoOptions)
     const cssLoaderOptions = getCssLoaderOptions()
-    const miniCssExtractPluginOptions = getMiniCssExtractPluginOptions(cli)
+    const miniCssExtractPluginOptions = getMiniCssExtractPluginOptions(context)
     const stylesOnlyPluginOptions = getStylesOnlyPluginOptions()
 
     publish(hooks.POSTCSS_AUTOPREFIXER_OPTIONS, autoprefixerOptions)
@@ -87,7 +87,7 @@ export function plugin(options: TPluginOptions = {}) {
     }
   }
 
-  function getAutoPrefixerOptions(cli) {
+  function getAutoPrefixerOptions(context) {
     // https://github.com/browserslist/browserslist
     const defaultTargets = [
       'last 2 Chrome versions',
@@ -98,7 +98,7 @@ export function plugin(options: TPluginOptions = {}) {
     ]
 
     return {
-      overrideBrowserslist: dlv(cli, 'config.settings.build.targets', defaultTargets),
+      overrideBrowserslist: dlv(context, 'config.settings.build.targets', defaultTargets),
       grid: true
     }
   }
@@ -151,10 +151,10 @@ export function plugin(options: TPluginOptions = {}) {
     }
   }
 
-  function getMiniCssExtractPluginOptions(cli: CliContext) {
+  function getMiniCssExtractPluginOptions(context: ConfigContext) {
     return {
       // only include content hash in filename when compiling production assets
-      filename: cli.isDevMode ? '[name].css' : '[name].[contenthash:12].css'
+      filename: context.isDevMode ? '[name].css' : '[name].[contenthash:12].css'
     }
   }
 }
