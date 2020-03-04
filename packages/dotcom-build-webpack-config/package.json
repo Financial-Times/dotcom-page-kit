@@ -4,10 +4,6 @@
   "description": "The Page Kit CLI",
   "main": "dist/node/index.js",
   "types": "src/index.ts",
-  "bin": {
-    "page-kit": "bin/cli.js",
-    "pagekit": "bin/cli.js"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "../../node_modules/.bin/tsc --incremental",
