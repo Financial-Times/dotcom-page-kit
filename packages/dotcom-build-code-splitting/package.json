@@ -18,7 +18,7 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
-    "@financial-times/dotcom-page-kit-cli": "file:../dotcom-page-kit-cli"
+    "@financial-times/dotcom-build-webpack-config": "file:../dotcom-build-webpack-config"
   },
   "dependencies": {
     "disable-tree-shaking-for-chunk-plugin": "^1.1.0",
@@ -27,7 +27,7 @@
     "reliable-module-ids-plugin": "^1.0.1"
   },
   "devDependencies": {
-    "@financial-times/dotcom-page-kit-cli": "file:../dotcom-page-kit-cli"
+    "@financial-times/dotcom-build-webpack-config": "file:../dotcom-build-webpack-config"
   },
   "engines": {
     "node": ">= 12.0.0"

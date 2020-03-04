@@ -2,7 +2,7 @@
 
 This module extends the [Page Kit CLI build action][cli] (`page-kit build`) with the ability to build JavaScript that makes use of features that are specific to [ft.com]
 
-[cli]: https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-page-kit-cli#build
+[cli]: https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-build-webpack-config#build
 [ft.com]: https://www.ft.com/
 
 

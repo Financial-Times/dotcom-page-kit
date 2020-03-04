@@ -18,7 +18,7 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
-    "@financial-times/dotcom-page-kit-cli": "file:../dotcom-page-kit-cli"
+    "@financial-times/dotcom-build-webpack-config": "file:../dotcom-build-webpack-config"
   },
   "dependencies": {
     "bower-resolve-webpack-plugin": "^1.0.5"

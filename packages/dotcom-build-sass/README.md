@@ -2,7 +2,7 @@
 
 This package extends the [Page Kit CLI build action][cli] (`page-kit build`) with a way to load and generate CSS files from [Sass] source code.
 
-[cli]: https://github.com/Financial-Times/dotcom-page-kit/blob/master/packages/dotcom-page-kit-cli/README.md#actions
+[cli]: https://github.com/Financial-Times/dotcom-page-kit/blob/master/packages/dotcom-build-webpack-config/README.md#actions
 [Sass]: https://sass-lang.com/
 
 ## Getting started
@@ -31,7 +31,7 @@ Once setup, this plugin will enable you to use Sass files (`.scss` and `.sass`) 
 page-kit build --entryFile path/to/styles.scss
 ```
 
-[entry points]: ../dotcom-page-kit-cli/README.md#entry-points
+[entry points]: ../dotcom-build-webpack-config/README.md#entry-points
 
 
 ## Scope

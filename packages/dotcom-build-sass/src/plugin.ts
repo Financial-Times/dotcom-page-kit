@@ -2,7 +2,7 @@ import dlv from 'dlv'
 import { hooks } from './hooks'
 import StylesOnlyPlugin from 'webpack-fix-style-only-entries'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import { ConfigContext } from '@financial-times/dotcom-page-kit-cli'
+import { ConfigContext } from '@financial-times/dotcom-build-webpack-config'
 
 export type TPluginOptions = {
   includePaths?: Array<string>

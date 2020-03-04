@@ -23,7 +23,7 @@
     "@financial-times/dotcom-build-bower-resolve": "file:../../packages/dotcom-build-bower-resolve",
     "@financial-times/dotcom-build-js": "file:../../packages/dotcom-build-js",
     "@financial-times/dotcom-build-sass": "file:../../packages/dotcom-build-sass",
-    "@financial-times/dotcom-page-kit-cli": "file:../../packages/dotcom-page-kit-cli",
+    "@financial-times/dotcom-build-webpack-config": "file:../../packages/dotcom-build-webpack-config",
     "nodemon": "^1.18.9",
     "ready-state": "^2.0.5"
   }

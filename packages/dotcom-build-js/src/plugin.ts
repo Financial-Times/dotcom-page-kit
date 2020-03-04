@@ -1,5 +1,5 @@
 import babelPreset from './babel'
-import { HandlerArgs, hooks } from '@financial-times/dotcom-page-kit-cli'
+import { HandlerArgs, hooks } from '@financial-times/dotcom-build-webpack-config'
 import { PluginOptions } from './types'
 
 const defaultOptions: PluginOptions = {

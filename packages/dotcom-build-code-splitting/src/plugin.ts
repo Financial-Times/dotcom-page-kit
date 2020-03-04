@@ -1,4 +1,4 @@
-import { hooks } from '@financial-times/dotcom-page-kit-cli'
+import { hooks } from '@financial-times/dotcom-build-webpack-config'
 import ReliableModuleIdsPlugin from 'reliable-module-ids-plugin'
 
 import {

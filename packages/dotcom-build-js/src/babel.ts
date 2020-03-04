@@ -1,6 +1,6 @@
 import { hooks } from './hooks'
 import { PluginOptions } from './types'
-import { ConfigContext } from '@financial-times/dotcom-page-kit-cli'
+import { ConfigContext } from '@financial-times/dotcom-build-webpack-config'
 
 export default (options: PluginOptions = {}, context: ConfigContext) => {
   const presetReactOptions = context.publish(hooks.BABEL_PRESET_REACT_OPTIONS, {

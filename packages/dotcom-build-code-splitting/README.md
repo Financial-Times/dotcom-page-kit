@@ -2,7 +2,7 @@
 
 This package extends the [Page Kit CLI build action][cli] (`page-kit build`) with code splitting functionality in accordance with the [FT.com code splitting] strategy.
 
-[cli]: https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-page-kit-cli#build
+[cli]: https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-build-webpack-config#build
 [FT.com code splitting]: ../../docs/design-decisions/code-splitting-strategy.md
 
 

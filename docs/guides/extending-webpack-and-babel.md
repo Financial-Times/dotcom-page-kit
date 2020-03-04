@@ -56,7 +56,7 @@ function babelPlugin ({ on }) => {
 }
 ```
 
-See the [Page Kit CLI package](https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-page-kit-cli) for more information on the `page-kit.config.js` file
+See the [Page Kit CLI package](https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-build-webpack-config) for more information on the `page-kit.config.js` file
 
 ## Amending supplementary resources
 
@@ -88,7 +88,7 @@ Webpack [rules] and [plugin] options are the supplementary resources that are co
 [rules]: https://webpack.js.org/configuration/module/#modulerules
 [plugin]: https://webpack.js.org/plugins/
 [unsafe]: #array-items-of-note-should-be-published-for-amendment
-[Page Kit CLI]: ../../packages/dotcom-page-kit-cli/README.md
+[Page Kit CLI]: ../../packages/dotcom-build-webpack-config/README.md
 [clean-webpack-plugin]: https://github.com/johnagan/clean-webpack-plugin
 
 ## Publishing resources from plugins
