@@ -88,17 +88,15 @@ export function plugin(options: TPluginOptions = {}) {
   }
 
   function getAutoPrefixerOptions(context) {
-    // https://github.com/browserslist/browserslist
-    const defaultTargets = [
-      'last 2 Chrome versions',
-      'ie 11',
-      'Safari >= 9.1',
-      'ff ESR',
-      'last 2 Edge versions'
-    ]
-
     return {
-      overrideBrowserslist: dlv(context, 'config.settings.build.targets', defaultTargets),
+      // https://github.com/browserslist/browserslist
+      overrideBrowserslist: [
+        'last 2 Chrome versions',
+        'ie 11',
+        'Safari >= 9.1',
+        'ff ESR',
+        'last 2 Edge versions'
+      ],
       grid: true
     }
   }

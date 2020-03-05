@@ -1,18 +1,17 @@
-import get from 'lodash.get'
 import { hooks } from '../entities/hooks'
 import { ConfigContext } from '../entities/ConfigContext'
 
 export function getBabelConfig({ config, publish }: ConfigContext) {
-  const defaultTargets = [
-    'last 2 Chrome versions',
-    'ie 11',
-    'Safari >= 9.1',
-    'ff ESR',
-    'last 2 Edge versions'
-  ]
+  const defaultTargets =
 
   const presetEnvOpts = {
-    targets: get(config, 'settings.build.targets') || defaultTargets,
+    targets: [
+      'last 2 Chrome versions',
+      'ie 11',
+      'Safari >= 9.1',
+      'ff ESR',
+      'last 2 Edge versions'
+    ],
     // Exclude transforms that make all code slower
     // See https://github.com/facebook/create-react-app/pull/5278
     exclude: ['transform-typeof-symbol']
