@@ -1,24 +1,21 @@
-import { PageKitConfig } from '../types/PageKitConfig'
-import { Pluggable } from '@financial-times/dotcom-page-kit-pluggable'
+import webpack from 'webpack'
+import { Pluggable, Plugin } from '@financial-times/dotcom-page-kit-pluggable'
 
 interface ConstructorArgs {
-  config: PageKitConfig
+  config: webpack.Configuration
   isDevMode: boolean
+  plugins: Plugin[]
 }
 
 export class ConfigContext extends Pluggable {
   context = this
-  config: PageKitConfig
+  config: webpack.Configuration
   isDevMode: boolean
 
   constructor({ config, isDevMode, plugins }: ConstructorArgs) {
     super({ alias: 'config', plugins })
 
-    this.config = normaliseConfig(config)
+    this.config = config
     this.isDevMode = isDevMode
   }
-}
-
-function normaliseConfig(config: Partial<PageKitConfig> = {}) {
-  return { plugins: [], settings: {}, ...config }
 }

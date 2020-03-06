@@ -1,9 +1,7 @@
 import { hooks } from '../entities/hooks'
 import { ConfigContext } from '../entities/ConfigContext'
 
-export function getBabelConfig({ config, publish }: ConfigContext) {
-  const defaultTargets =
-
+export function getBabelConfig({ publish }: ConfigContext) {
   const presetEnvOpts = {
     targets: [
       'last 2 Chrome versions',

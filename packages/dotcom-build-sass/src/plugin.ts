@@ -1,4 +1,3 @@
-import dlv from 'dlv'
 import { hooks } from './hooks'
 import StylesOnlyPlugin from 'webpack-fix-style-only-entries'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
@@ -15,7 +14,7 @@ export function plugin(options: TPluginOptions = {}) {
   }
 
   function getWebpackConfigToMerge({ context, publish }: ConfigContext) {
-    const autoprefixerOptions = getAutoPrefixerOptions(context)
+    const autoprefixerOptions = getAutoPrefixerOptions()
     const cssnanoOptions = getCssNanoOptions()
     const sassLoaderOptions = getSassLoaderOptions(options)
     const postcssLoaderOptions = getPostCssLoaderOptions(autoprefixerOptions, cssnanoOptions)
@@ -87,7 +86,7 @@ export function plugin(options: TPluginOptions = {}) {
     }
   }
 
-  function getAutoPrefixerOptions(context) {
+  function getAutoPrefixerOptions() {
     return {
       // https://github.com/browserslist/browserslist
       overrideBrowserslist: [

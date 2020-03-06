@@ -1,6 +1,6 @@
 import webpack from 'webpack'
+import path from 'path'
 import { Plugin } from '@financial-times/dotcom-page-kit-pluggable'
-import get from 'lodash.get'
 import { hooks } from '../entities/hooks'
 import { ConfigContext } from '../entities/ConfigContext'
 import { getBabelConfig } from './getBabelConfig'
@@ -14,7 +14,7 @@ export function getWebpackConfig(userConfig: webpack.Configuration, plugins: Plu
   return function (_, argv) {
     const isDevMode = argv.mode === 'development'
 
-    const { context, publish, config } = new ConfigContext({ config: userConfig, isDevMode, plugins })
+    const { context, publish } = new ConfigContext({ config: userConfig, isDevMode, plugins })
 
     const outputFileName = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
 
@@ -78,6 +78,6 @@ export function getWebpackConfig(userConfig: webpack.Configuration, plugins: Plu
           ],
       devtool: isDevMode ? 'cheap-module-eval-source-map' : 'source-map',
       bail: isDevMode ? false : true
-    }, userConfig)
+    }, userConfig))
   }
 }
