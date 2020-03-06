@@ -1,145 +1,44 @@
-# @financial-times/dotcom-page-kit-cli
+# @financial-times/dotcom-build-webpack-config
 
-The Page Kit CLI provides a suite of actions to assemble modern Web projects. The CLI can be extended via plugins to provide additional functionality.
-
+This package generates a [Webpack](https://webpack.org) configuration for apps to use to build client-side assets to Page Kit conventions.
 
 ## Getting started
 
 This package is compatible with Node 12+ and is distributed on npm.
 
 ```sh
-npm install --save-dev @financial-times/dotcom-page-kit-cli
+npm install --save-dev @financial-times/dotcom-build-webpack-config
 ```
 
-Configuration is provided to the CLI by a `page-kit.config.js` file placed in your project root (next to `package.json`). Create this file now, including the fields defined below:
+This package provides a function, `getWebpackConfig`, which can be configured with [options](#options), and should be used in a `webpack.config.js` file.
 
 ```js
-module.exports = {
-  plugins: [],
-  settings: {}
-}
+const { getWebpackConfig } = require('@financial-times/dotcom-build-webpack-config');
+
+module.exports = getWebpackConfig(userConfig, plugins);
 ```
 
-The `plugins` property is used to supply the plugins that should be loaded by the Page Kit CLI. These plugins should be installed in your project as development dependencies. Plugins by convention are namespaced with `dotcom-build-`.
+`userConfig` is a [Webpack configuration object](https://webpack.js.org/configuration/) to extend with Page Kit-specific options. It should include at least the [`entry` option](#entry-points).
 
-The `settings` property is used to provide specific configuration for the individual CLI actions. These settings are covered below (see [actions](#actions).)
+The `plugins` argument is used to provide [`dotcom-page-kit-pluggable`](../dotcom-page-kit-pluggable/README.md) plugins for modifying the generated Webpack configuration. These plugins should be installed in your project as development dependencies. Plugins by convention are namespaced with `dotcom-build-`.
 
-To view the available actions and global options provided by the CLI, run the `page-kit` command with the `--help` flag:
+## Usage with Webpack
 
-```sh
-page-kit --help
-```
+This package includes a base Webpack configuration to do:
 
+- Basic Javascript compilation and bundling
+- [Brotli and gzip compression](https://webpack.js.org/plugins/compression-webpack-plugin/) of output files
+- Generating a [manifest of the output files](https://github.com/danethurber/webpack-manifest-plugin) for other tools such as [`dotcom-server-asset-loader`](../dotcom-server-asset-loader/README.md) to consume
+- [Cleaning up out-of-date output files](https://github.com/johnagan/clean-webpack-plugin)
 
-## Actions
-
-### `build`
-
-This action can be used to assemble the static assets for your application using Webpack. By default this action includes only a barebones Webpack configuration to bundle JavaScript source code but this can be extended via plugins to add additional functionality.
-
-The action also creates a `manifest.json` (the file name is default but can be [configured](#Manifest-file-name)). It includes the hashed output names for the generated `.js` and `.css` chunks
-
-#### Options
-
-##### Entry points
-
-The path for the entry point into your source code can be provided via the `--entryFile` CLI flag or via the configuration file. The default entry point is `"src/index.js"`. Multiple entry points can only be defined using the configuration file. See the [Webpack entry documentation] for more information about entry points. The configuration file will take precedence over the CLI flag.
-
-[Webpack entry documentation]: https://webpack.js.org/concepts/entry-points/
-
-Usage via CLI flag:
-
-```sh
-page-kit build --entryFile ./path/to/entry.js
-```
-
-Usage via configuration file:
-
-```js
-module.exports = {
-  plugins: [...],
-  settings: {
-    build: {
-      entry: {
-        main: './path/to/entry.js'
-      }
-    }
-  }
-}
-```
-
-##### Output path
-
-The generated output can be directed to a destination directory using the `--outputPath` CLI flag or via the configuration file. The default destination is `"./dist"`. The configuration file will take precedence over the CLI flag.
-
-Usage via CLI flag:
-
-```sh
-page-kit build --outputPath ./path/to/dist
-```
-
-Usage via configuration file:
-
-```js
-module.exports = {
-  plugins: [...],
-  settings: {
-    build: {
-      outputPath: './path/to/dist'
-    }
-  }
-}
-```
-
-Files will be created using the pattern `[name].js` in development mode and `[name].[contenthash].js` in production mode.
-
-##### Manifest file name
-
-The generated manifest file details the hashed output names for the emitted `.js` and `.css` chunks. The file name can be changed via the configuration file. The default file name is `"manifest.json"`.
-
-Usage via configuration file:
-
-```js
-module.exports = {
-  plugins: [...],
-  settings: {
-    build: {
-      manifestFileName: 'asset-hashes.json'
-    }
-  }
-}
-```
-
-##### Targets
-
-A [browserslist-compatible] query that describes the environments you support / target for your project. It defaults to: `last 2 Chrome versions, ie 11, Safari >= 9.1, ff ESR, last 2 Edge versions`.
-
-Usage via configuration file:
-
-```js
-module.exports = {
-  plugins: [...],
-  settings: {
-    build: {
-      targets: {
-        chrome: '58',
-        ie: '11'
-      }
-    }
-  }
-}
-```
-
-[browserslist-compatible]: https://github.com/browserslist/browserslist
-
-##### Development and production modes
+### Development and production modes
 
 In production mode the generated output will be optimised, file names hashed, and full source maps, gzip and brotli compressed assets generated. Production mode is the default.
 
-To enable development mode you can use the `--development` CLI flag. This will disable several optimisations in favour of providing faster builds and rebuilds. See the [Webpack mode documentation] for further information about modes.
+To enable development mode you can use the `--mode` Webpack flag. This will disable several optimisations in favour of providing faster builds and rebuilds. See the [Webpack mode documentation] for further information about modes.
 
 ```sh
-page-kit build --development
+webpack --mode=development
 ```
 
 [Webpack mode documentation]: https://webpack.js.org/concepts/mode/
@@ -149,16 +48,15 @@ page-kit build --development
 For convenience the build action can watch source files and trigger a rebuild whenever they change. To enable watch mode use the `--watch` CLI flag.
 
 ```sh
-page-kit build --watch
+webpack --watch
 ```
-
 
 ## Hooks
 
 This plugin exposes the following hooks as extension points. They are available as constants on the exported `hooks` object.
 
 ```js
-import { hooks } from '@financial-times/dotcom-page-kit-cli'
+import { hooks } from '@financial-times/dotcom-build-webpack-config'
 ```
 
 _Please note: The hooks below are listed in the order they will be executed._
