@@ -11,8 +11,8 @@ export class ConfigContext extends Pluggable {
   config: PageKitConfig
   isDevMode: boolean
 
-  constructor({ config, isDevMode }: ConstructorArgs) {
-    super({ alias: 'config', plugins: config.plugins })
+  constructor({ config, isDevMode, plugins }: ConstructorArgs) {
+    super({ alias: 'config', plugins })
 
     this.config = normaliseConfig(config)
     this.isDevMode = isDevMode

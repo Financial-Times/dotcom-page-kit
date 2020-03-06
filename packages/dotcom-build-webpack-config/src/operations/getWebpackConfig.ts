@@ -1,17 +1,19 @@
+import webpack from 'webpack'
+import { Plugin } from '@financial-times/dotcom-page-kit-pluggable'
 import get from 'lodash.get'
 import { hooks } from '../entities/hooks'
-import { PageKitConfig } from '../types/PageKitConfig'
 import { ConfigContext } from '../entities/ConfigContext'
 import { getBabelConfig } from './getBabelConfig'
+
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import CompressionPlugin from 'compression-webpack-plugin'
 import ManifestPlugin from 'webpack-assets-manifest'
 
-export function getWebpackConfig(baseConfig: PageKitConfig) {
+export function getWebpackConfig(baseConfig: webpack.Configuration, plugins: Plugin[] = []) {
   return function (_, argv) {
     const isDevMode = argv.mode === 'development'
 
-    const { context, publish, config } = new ConfigContext({ config: baseConfig, isDevMode })
+    const { context, publish, config } = new ConfigContext({ config: baseConfig, isDevMode, plugins })
 
     const entryOptions = get(config, 'settings.build.entry')
     const outputPath = get(config, 'settings.build.outputPath')
