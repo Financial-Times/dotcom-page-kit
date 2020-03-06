@@ -10,11 +10,11 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import CompressionPlugin from 'compression-webpack-plugin'
 import ManifestPlugin from 'webpack-assets-manifest'
 
-export function getWebpackConfig(baseConfig: webpack.Configuration, plugins: Plugin[] = []) {
+export function getWebpackConfig(userConfig: webpack.Configuration, plugins: Plugin[] = []) {
   return function (_, argv) {
     const isDevMode = argv.mode === 'development'
 
-    const { context, publish, config } = new ConfigContext({ config: baseConfig, isDevMode, plugins })
+    const { context, publish, config } = new ConfigContext({ config: userConfig, isDevMode, plugins })
 
     const outputFileName = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
 
@@ -78,6 +78,6 @@ export function getWebpackConfig(baseConfig: webpack.Configuration, plugins: Plu
           ],
       devtool: isDevMode ? 'cheap-module-eval-source-map' : 'source-map',
       bail: isDevMode ? false : true
-    }, baseConfig)
+    }, userConfig)
   }
 }
