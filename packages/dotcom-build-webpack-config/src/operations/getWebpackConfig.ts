@@ -4,6 +4,7 @@ import get from 'lodash.get'
 import { hooks } from '../entities/hooks'
 import { ConfigContext } from '../entities/ConfigContext'
 import { getBabelConfig } from './getBabelConfig'
+import merge from 'webpack-merge'
 
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import CompressionPlugin from 'compression-webpack-plugin'
@@ -15,9 +16,8 @@ export function getWebpackConfig(baseConfig: webpack.Configuration, plugins: Plu
 
     const { context, publish, config } = new ConfigContext({ config: baseConfig, isDevMode, plugins })
 
-    const entryOptions = get(config, 'settings.build.entry')
-    const outputPath = get(config, 'settings.build.outputPath')
     const outputFileName = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
+
     const cleanWebpackPluginOptions = { verbose: false }
 
     const gzipCompressionPluginOptions = {
@@ -36,9 +36,7 @@ export function getWebpackConfig(baseConfig: webpack.Configuration, plugins: Plu
       minRatio: 1
     }
 
-    const manifestFileName = get(config, 'settings.build.manifestFileName') || 'manifest.json'
     const manifestPluginOptions = {
-      output: manifestFileName,
       entrypoints: true
     }
 
@@ -47,12 +45,11 @@ export function getWebpackConfig(baseConfig: webpack.Configuration, plugins: Plu
     publish(hooks.WEBPACK_BROTLI_COMPRESSION_PLUGIN_OPTIONS, brotliCompressionPluginOptions)
     publish(hooks.WEBPACK_MANIFEST_PLUGIN_OPTIONS, manifestPluginOptions)
 
-    return publish(hooks.WEBPACK_CONFIG, {
-      entry: entryOptions,
+    return publish(hooks.WEBPACK_CONFIG, merge({
       output: {
         filename: outputFileName,
         chunkFilename: outputFileName,
-        path: outputPath
+        path: path.resolve('public')
       },
       resolve: {
         extensions: ['.js', '.jsx', '.mjs', '.json']
@@ -81,6 +78,6 @@ export function getWebpackConfig(baseConfig: webpack.Configuration, plugins: Plu
           ],
       devtool: isDevMode ? 'cheap-module-eval-source-map' : 'source-map',
       bail: isDevMode ? false : true
-    })
+    }, baseConfig)
   }
 }
