@@ -1239,10 +1239,10 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
         >
           <a
             className="o-header__drawer-menu-link"
-            data-trackable="Account Settings"
+            data-trackable="Settings & Account"
             href="https://www.ft.com/myaccount"
           >
-            Account Settings
+            Settings & Account
           </a>
         </li>
         <li

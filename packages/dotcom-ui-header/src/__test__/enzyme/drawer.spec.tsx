@@ -90,8 +90,8 @@ describe('dotcom-ui-header/src/components/drawer', () => {
         expect(result.find('a[data-trackable="Sign Out"]')).toExist()
       })
 
-      it('renders account settings link', () => {
-        expect(result.find('a[data-trackable="Account Settings"]')).toExist()
+      it('renders settings and account link', () => {
+        expect(result.find('a[data-trackable="Settings & Account"]')).toExist()
       })
     })
 
