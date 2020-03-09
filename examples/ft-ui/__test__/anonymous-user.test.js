@@ -19,7 +19,7 @@ describe('examples/ft-ui', () => {
       await expect(
         page
       ).not.toMatchElement(
-        '.o-header__nav-list--right a[href="https://myaccount.ft.com/details/core/view"]',
+        '.o-header__nav-list--right a[href="https://www.ft.com/myaccount"]',
         { text: 'Account Settings' }
       )
       await expect(
