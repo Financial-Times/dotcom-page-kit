@@ -1,8 +1,10 @@
 import extractPackageName from './extractPackageName'
 import createSafeChunkName from './createSafeChunkName'
 import DisableTreeShakingForChunk from 'disable-tree-shaking-for-chunk-plugin'
+import type webpack from 'webpack'
 
 interface IBundleWithPackageNames {
+  compiler: webpack.Compiler
   name: string
   packages: string[]
   // This prevents the tracking of named exports and their usage
@@ -10,6 +12,7 @@ interface IBundleWithPackageNames {
 }
 
 interface IBundleWithRegExp {
+  compiler: webpack.Compiler
   name: string
   pattern: RegExp
   // This prevents the tracking of named exports and their usage
@@ -21,19 +24,16 @@ const isJS = (module) => module.type && module.type.startsWith('javascript/')
 /**
  * Create a chunk which includes all packages in the given list of names
  */
-export function createBundleWithPackages({ name, packages, usedInUnknownWay }: IBundleWithPackageNames) {
-  const plugins = []
-
+export function createBundleWithPackages({ compiler, name, packages, usedInUnknownWay }: IBundleWithPackageNames) {
   if (usedInUnknownWay) {
     const disableTreeShakingPlugin = new DisableTreeShakingForChunk({
       test: name
     })
 
-    plugins.push(disableTreeShakingPlugin)
+    disableTreeShakingPlugin.apply(compiler)
   }
 
   return {
-    plugins,
     optimization: {
       splitChunks: {
         cacheGroups: {
@@ -54,19 +54,18 @@ export function createBundleWithPackages({ name, packages, usedInUnknownWay }: I
 /**
  * Create a chunk which includes all modules which match the given pattern
  */
-export function createBundleWithRegExp({ name, pattern, usedInUnknownWay }: IBundleWithRegExp) {
-  const plugins = []
+export function createBundleWithRegExp({ compiler, name, pattern, usedInUnknownWay }: IBundleWithRegExp) {
 
   if (usedInUnknownWay) {
     const disableTreeShakingPlugin = new DisableTreeShakingForChunk({
       test: name
     })
 
-    plugins.push(disableTreeShakingPlugin)
+    disableTreeShakingPlugin.apply(compiler)
+
   }
 
   return {
-    plugins,
     optimization: {
       splitChunks: {
         cacheGroups: {
@@ -86,8 +85,7 @@ export function createBundleWithRegExp({ name, pattern, usedInUnknownWay }: IBun
 /**
  * Create a chunk for each package in the given list of names
  */
-export function createBundlesForPackages({ name, packages, usedInUnknownWay }: IBundleWithPackageNames) {
-  const plugins = []
+export function createBundlesForPackages({ compiler, name, packages, usedInUnknownWay }: IBundleWithPackageNames) {
   const generatedChunkNames = new Set()
 
   if (usedInUnknownWay) {
@@ -95,11 +93,11 @@ export function createBundlesForPackages({ name, packages, usedInUnknownWay }: I
       test: generatedChunkNames
     })
 
-    plugins.push(disableTreeShakingPlugin)
+    disableTreeShakingPlugin.apply(compiler)
+
   }
 
   return {
-    plugins,
     optimization: {
       splitChunks: {
         cacheGroups: {
@@ -127,8 +125,7 @@ export function createBundlesForPackages({ name, packages, usedInUnknownWay }: I
 /**
  * Create a chunk for each group of modules which match the given pattern
  */
-export function createBundlesForRegExp({ name, pattern, usedInUnknownWay }: IBundleWithRegExp) {
-  const plugins = []
+export function createBundlesForRegExp({ compiler, name, pattern, usedInUnknownWay }: IBundleWithRegExp) {
   const generatedChunkNames = new Set()
 
   if (usedInUnknownWay) {
@@ -136,11 +133,11 @@ export function createBundlesForRegExp({ name, pattern, usedInUnknownWay }: IBun
       test: generatedChunkNames
     })
 
-    plugins.push(disableTreeShakingPlugin)
+    disableTreeShakingPlugin.apply(compiler)
+
   }
 
   return {
-    plugins,
     optimization: {
       splitChunks: {
         cacheGroups: {

@@ -21,6 +21,7 @@
     "@financial-times/dotcom-build-webpack-config": "file:../dotcom-build-webpack-config"
   },
   "dependencies": {
+    "assign-deep": "^1.0.1",
     "disable-tree-shaking-for-chunk-plugin": "^1.1.0",
     "get-package-name": "^1.1.0",
     "memoize-one": "^5.0.4",

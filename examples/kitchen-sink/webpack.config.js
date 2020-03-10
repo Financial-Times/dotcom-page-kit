@@ -12,10 +12,12 @@ module.exports = getWebpackConfig(
       styles: './client/main.scss',
       async: './client/async.scss',
       'page-kit-layout-styles': require.resolve('@financial-times/dotcom-ui-layout/styles.scss')
-    }
+    },
+    plugins: [
+       codeSplitting.plugin(),
+    ]
   },
   [
-    codeSplitting.plugin(),
     bower.plugin(),
     sass.plugin({
       // Enabling webpackImporter because Sass itself can only resolve partial files based on the

@@ -1,5 +1,6 @@
-import { hooks } from '@financial-times/dotcom-build-webpack-config'
+import assignDeep from 'assign-deep'
 import ReliableModuleIdsPlugin from 'reliable-module-ids-plugin'
+import type webpack from 'webpack'
 
 import {
   createBundleWithPackages,
@@ -9,18 +10,9 @@ import {
 } from './bundleTypes'
 
 export function plugin() {
-  return ({ on }) => {
-    on(hooks.WEBPACK_CONFIG, addInitialCodeSplitting)
-    on(hooks.WEBPACK_CONFIG, addPageKitCodeSplitting)
-    on(hooks.WEBPACK_CONFIG, addLibraryCodeSplitting)
-    on(hooks.WEBPACK_CONFIG, addComponentCodeSplitting)
-    on(hooks.WEBPACK_CONFIG, addSuperstoreCodeSplitting)
-    on(hooks.WEBPACK_CONFIG, addSharedStableCodeSplitting)
-    on(hooks.WEBPACK_CONFIG, addSharedVolatileCodeSplitting)
-  }
-
-  function addInitialCodeSplitting() {
     return {
+    apply(compiler: webpack.Compiler) {
+      const addInitialCodeSplitting = {
       optimization: {
         // Creates a separate bundle for webpack runtime.
         // Specifying the name prevents multiple runtime bundles from being created.
@@ -36,51 +28,45 @@ export function plugin() {
         // We're going to implement our own algorithm so don't double effort
         moduleIds: false,
         chunkIds: 'named'
-      },
-      plugins: [new ReliableModuleIdsPlugin()]
     }
   }
 
-  function addComponentCodeSplitting() {
     // Split each o-, n-, x- and next- prefixed packages into a separate bundles
     // NOTE: we need to check we're in a package directory as our apps are usually prefixed with "next-"
-    return createBundlesForRegExp({
+      const addComponentCodeSplitting = createBundlesForRegExp({
+        compiler,
       name: 'shared-components',
       pattern: /(node_modules\/@financial-times|bower_components)\/(o|n|x|next)-/,
       usedInUnknownWay: true
     })
-  }
 
-  function addPageKitCodeSplitting() {
     // split all dotcom-ui- packages into one bundle file
-    return createBundleWithRegExp({
+      const addPageKitCodeSplitting = createBundleWithRegExp({
+        compiler,
       name: 'page-kit-components',
       pattern: /[\\\/]dotcom-ui-/,
       usedInUnknownWay: true
     })
-  }
 
-  function addLibraryCodeSplitting() {
     // split any of these JS frameworks and libraries into separate bundle files
-    return createBundlesForPackages({
+      const addLibraryCodeSplitting = createBundlesForPackages({
+        compiler,
       name: 'js-frameworks',
       packages: ['react', 'preact', 'hyperons', 'dateformat', 'regenerator-runtime']
     })
-  }
 
-  function addSuperstoreCodeSplitting() {
     // These packages are a dependency of ads, marketing, MyFT, syndication, cookie banners
     // and other components but they are not all dependencies of our apps.
-    return createBundleWithPackages({
+      const addSuperstoreCodeSplitting = createBundleWithPackages({
+        compiler,
       name: 'superstore',
       packages: ['superstore', 'superstore-sync'],
       usedInUnknownWay: true
     })
-  }
 
-  function addSharedStableCodeSplitting() {
-    // split packages used by all pages (i.e. used by Page Kit) into a shared bundle
-    return createBundleWithPackages({
+      // split packages used by all pages (i.e. used y Page Kit) into a shared bundle
+      const addSharedStableCodeSplitting = createBundleWithPackages({
+        compiler,
       name: 'shared.stable',
       packages: [
         'focus-visible',
@@ -93,14 +79,27 @@ export function plugin() {
       ],
       usedInUnknownWay: true
     })
-  }
 
-  function addSharedVolatileCodeSplitting() {
     // split packages which are commonly used together around FT.com into a shared bundle
-    return createBundleWithPackages({
+      const addSharedVolatileCodeSplitting = createBundleWithPackages({
+        compiler,
       name: 'shared.volatile',
       packages: ['@financial-times/n-ads', '@financial-times/n-tracking', 'n-syndication', 'n-feedback'],
       usedInUnknownWay: true
     })
+
+      new ReliableModuleIdsPlugin().apply(compiler)
+
+      assignDeep(
+        compiler.options,
+        addInitialCodeSplitting,
+        addPageKitCodeSplitting,
+        addLibraryCodeSplitting,
+        addComponentCodeSplitting,
+        addSuperstoreCodeSplitting,
+        addSharedStableCodeSplitting,
+        addSharedVolatileCodeSplitting
+      )
+    }
   }
 }
