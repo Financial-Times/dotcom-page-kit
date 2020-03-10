@@ -13,7 +13,7 @@ export class ConfigContext extends Pluggable {
   isDevMode: boolean
 
   constructor({ config, isDevMode, plugins }: ConstructorArgs) {
-    super({ alias: 'config', plugins })
+    super({ alias: 'context', plugins })
 
     this.config = config
     this.isDevMode = isDevMode
