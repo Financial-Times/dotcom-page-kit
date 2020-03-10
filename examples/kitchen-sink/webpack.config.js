@@ -1,11 +1,20 @@
 const path = require('path')
+const { getWebpackConfig } = require('@financial-times/dotcom-build-webpack-config')
 const codeSplitting = require('@financial-times/dotcom-build-code-splitting')
 const bower = require('@financial-times/dotcom-build-bower-resolve')
 const sass = require('@financial-times/dotcom-build-sass')
 const js = require('@financial-times/dotcom-build-js')
 
-module.exports = {
-  plugins: [
+module.exports = getWebpackConfig(
+  {
+    entry: {
+      scripts: './client/main.js',
+      styles: './client/main.scss',
+      async: './client/async.scss',
+      'page-kit-layout-styles': require.resolve('@financial-times/dotcom-ui-layout/styles.scss')
+    }
+  },
+  [
     codeSplitting.plugin(),
     bower.plugin(),
     sass.plugin({
@@ -19,16 +28,5 @@ module.exports = {
       ]
     }),
     js.plugin()
-  ],
-  settings: {
-    build: {
-      entry: {
-        scripts: './client/main.js',
-        styles: './client/main.scss',
-        async: './client/async.scss',
-        'page-kit-layout-styles': require.resolve('@financial-times/dotcom-ui-layout/styles.scss')
-      },
-      outputPath: path.resolve('./public')
-    }
-  }
-}
+  ]
+)

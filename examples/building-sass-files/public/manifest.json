@@ -1,0 +1,10 @@
+{
+  "entrypoints": {
+    "styles": {
+      "css": [
+        "styles.css"
+      ]
+    }
+  },
+  "styles.css": "styles.css"
+}
