@@ -1,8 +1,7 @@
 # @financial-times/dotcom-build-sass
 
-This package extends the [Page Kit CLI build action][cli] (`page-kit build`) with a way to load and generate CSS files from [Sass] source code.
+This package exports a Webpack plugin to configure it with a way to load and generate CSS files from [Sass] source code.
 
-[cli]: https://github.com/Financial-Times/dotcom-page-kit/blob/master/packages/dotcom-build-webpack-config/README.md#actions
 [Sass]: https://sass-lang.com/
 
 ## Getting started
@@ -13,7 +12,7 @@ This package is compatible with Node 12+ and is distributed on npm.
 npm install --save-dev @financial-times/dotcom-build-sass
 ```
 
-After installing the package you must add it to the list of plugins in your project's `page-kit.config.js` configuration file:
+After installing the package you must add it to the list of plugins in your project's `webpack.config.js` configuration file:
 
 ```diff
 + const sass = require('@financial-times/dotcom-build-sass')
@@ -25,14 +24,18 @@ module.exports = {
 }
 ```
 
-Once setup, this plugin will enable you to use Sass files (`.scss` and `.sass`) as [entry points] into your source code.
+Once setup, this plugin will enable you to use Sass files (`.scss` and `.sass`) as entry points into your source code.
 
-```sh
-page-kit build --entryFile path/to/styles.scss
+```js
+const sass = require('@financial-times/dotcom-build-sass')
+
+module.exports = {
+   entry: {
+      styles: path/to/styles.scss
+   },
+   plugins: [sass.plugin()]
+}
 ```
-
-[entry points]: ../dotcom-build-webpack-config/README.md#entry-points
-
 
 ## Scope
 
@@ -49,8 +52,6 @@ _Please note_ that by default Sass will resolve all bare `@import` statements fr
 [PostCSS] is configured with the [Autoprefixer] and [cssnano] transforms.
 
 The CSS loader has `@import` and `url()` resolution disabled as these should be handled by Sass.
-
-Several [hooks](#hooks) are provided in order to access and modify the configuration.
 
 [rule]: https://webpack.js.org/configuration/module/#rule
 [sass-loader]: https://github.com/webpack-contrib/sass-loader
@@ -69,46 +70,3 @@ Several [hooks](#hooks) are provided in order to access and modify the configura
 |-------------------|----------|---------|--------------------------------------------------------------------|
 | `webpackImporter` | Boolean  | `false` | See https://github.com/webpack-contrib/sass-loader#webpackimporter |
 | `includePaths`    | String[] | `[]`    | See https://sass-lang.com/documentation/js-api#includepaths        |
-
-
-## Hooks
-
-This plugin exposes the following hooks as extension points. They are available as constants on the exported `hooks` object.
-
-```js
-import { hooks } from '@financial-times/dotcom-build-sass'
-```
-
-_Please note: The hooks below are listed in the order they will be executed._
-
-### `POSTCSS_AUTOPREFIXER_OPTIONS`
-
-Configuration options for the [Autoprefixer] PostCSS plugin.
-
-### `POSTCSS_CSSNANO_OPTIONS`
-
-Configuration options for the [cssnano] PostCSS plugin.
-
-### `WEBPACK_SASS_LOADER_OPTIONS`
-
-Configuration options for the [sass-loader].
-
-### `WEBPACK_POSTCSS_LOADER_OPTIONS`
-
-Configuration options for the [postcss-loader].
-
-### `WEBPACK_CSS_LOADER_OPTIONS`
-
-Configuration options for the [css-loader].
-
-### `WEBPACK_MINI_CSS_EXTRACT_PLUGIN_OPTIONS`
-
-Configuration options for the [mini-css-extract-plugin].
-
-### `WEBPACK_STYLES_ONLY_PLUGIN_OPTIONS`
-
-Configuration options for the [webpack-fix-style-only-entries].
-
-### `WEBPACK_SASS_RULE`
-
-Provides the entire [rule] to be appended by this plugin.

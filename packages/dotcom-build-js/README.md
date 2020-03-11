@@ -24,7 +24,7 @@ module.exports = {
 }
 ```
 
-Once setup, this plugin will enable you to use the following features within your JavaScript code.
+Once setup, this plugin will enable you to use the following features within your JavaScript code:
 
 * [JSX](https://reactjs.org/docs/introducing-jsx.html)
 * [Typescript](https://www.typescriptlang.org/)
