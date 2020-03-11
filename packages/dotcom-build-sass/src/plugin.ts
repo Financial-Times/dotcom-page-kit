@@ -1,5 +1,6 @@
 import StylesOnlyPlugin from 'webpack-fix-style-only-entries'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import type webpack from 'webpack'
 
 export type TPluginOptions = {
   includePaths?: Array<string>
@@ -8,7 +9,7 @@ export type TPluginOptions = {
 
 export function plugin({ includePaths, webpackImporter }: TPluginOptions = {}) {
   return {
-    apply(compiler) {
+    apply(compiler: webpack.Compiler) {
       const sassLoaderOptions = {
         // This enables the use of enhanced-resolve for @import statements prefixed with ~
         // but we don't usually use this and disabling it can speed up builds by up to 20%.

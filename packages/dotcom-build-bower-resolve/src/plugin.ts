@@ -1,8 +1,9 @@
 import BowerResolvePlugin from 'bower-resolve-webpack-plugin'
+import type webpack from 'webpack'
 
 export function plugin() {
   return {
-    apply(compiler) {
+    apply(compiler: webpack.Compiler) {
       compiler.options.resolve = {
         // This will find .js files if a bower.json specifies a list of "main" files
         plugins: [new BowerResolvePlugin()],
