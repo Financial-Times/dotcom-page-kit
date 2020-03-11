@@ -1,6 +1,6 @@
 # @financial-times/dotcom-build-webpack-config
 
-This package generates a [Webpack](https://webpack.org) configuration for apps to use to build client-side assets to Page Kit conventions.
+This package exports a Webpack plugin to configure it with the ability to build client-side assets to Page Kit conventions.
 
 ## Getting started
 
@@ -10,21 +10,19 @@ This package is compatible with Node 12+ and is distributed on npm.
 npm install --save-dev @financial-times/dotcom-build-webpack-config
 ```
 
-This package provides a function, `getWebpackConfig`, which can be configured with [options](#options), and should be used in a `webpack.config.js` file.
+After installing the module you must add it to the list of plugins in your project's `webpack.config.js` configuration file:
 
 ```js
-const { getWebpackConfig } = require('@financial-times/dotcom-build-webpack-config');
+const pageKitWebpack = require('@financial-times/dotcom-build-webpack-config');
 
-module.exports = getWebpackConfig(userConfig, plugins);
+module.exports = {
+	plugins: [
+		pageKitWebpack.plugin()
+	]
+}
 ```
 
-`userConfig` is a [Webpack configuration object](https://webpack.js.org/configuration/) to extend with Page Kit-specific options. It should include at least the [`entry` option](#entry-points).
-
-The `plugins` argument is used to provide [`dotcom-page-kit-pluggable`](../dotcom-page-kit-pluggable/README.md) plugins for modifying the generated Webpack configuration. These plugins should be installed in your project as development dependencies. Plugins by convention are namespaced with `dotcom-build-`.
-
-## Usage with Webpack
-
-This package includes a base Webpack configuration to do:
+This package enhances your Webpack config to do:
 
 - Basic Javascript compilation and bundling
 - [Brotli and gzip compression](https://webpack.js.org/plugins/compression-webpack-plugin/) of output files
@@ -42,41 +40,3 @@ webpack --mode=development
 ```
 
 [Webpack mode documentation]: https://webpack.js.org/concepts/mode/
-
-##### Watch mode
-
-For convenience the build action can watch source files and trigger a rebuild whenever they change. To enable watch mode use the `--watch` CLI flag.
-
-```sh
-webpack --watch
-```
-
-## Hooks
-
-This plugin exposes the following hooks as extension points. They are available as constants on the exported `hooks` object.
-
-```js
-import { hooks } from '@financial-times/dotcom-build-webpack-config'
-```
-
-_Please note: The hooks below are listed in the order they will be executed._
-
-##### `WEBPACK_CLEAN_PLUGIN_OPTIONS`
-
-Configuration options for the [clean plugin](https://github.com/johnagan/clean-webpack-plugin).
-
-##### `WEBPACK_GZIP_COMPRESSION_PLUGIN_OPTIONS`
-
-Configuration options for the [compression plugin](https://github.com/webpack-contrib/compression-webpack-plugin) set to use the gzip algorithm.
-
-##### `WEBPACK_BROTLI_COMPRESSION_PLUGIN_OPTIONS`
-
-Configuration options for the [compression plugin](https://github.com/webpack-contrib/compression-webpack-plugin) set to use the Brotli algorithm.
-
-##### `WEBPACK_MANIFEST_PLUGIN_OPTIONS`
-
-Configuration options for the [assets manifest plugin](https://github.com/webdeveric/webpack-assets-manifest) which provides the compilation entrypoints for each bundle by asset type e.g. `scripts` and `styles`.
-
-##### `WEBPACK_CONFIG`
-
-The complete Webpack configuration object.
