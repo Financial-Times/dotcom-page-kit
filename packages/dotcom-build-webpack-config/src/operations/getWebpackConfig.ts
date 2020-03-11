@@ -3,7 +3,6 @@ import path from 'path'
 import { Plugin } from '@financial-times/dotcom-page-kit-pluggable'
 import { hooks } from '../entities/hooks'
 import { ConfigContext } from '../entities/ConfigContext'
-import { getBabelConfig } from './getBabelConfig'
 import merge from 'webpack-merge'
 
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
@@ -14,7 +13,7 @@ export function getWebpackConfig(userConfig: webpack.Configuration, plugins: Plu
   return function (_, argv) {
     const isDevMode = argv.mode === 'development'
 
-    const { context, publish } = new ConfigContext({ config: userConfig, isDevMode, plugins })
+    const { publish } = new ConfigContext({ config: userConfig, isDevMode, plugins })
 
     const outputFileName = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
 
@@ -50,23 +49,6 @@ export function getWebpackConfig(userConfig: webpack.Configuration, plugins: Plu
         filename: outputFileName,
         chunkFilename: outputFileName,
         path: path.resolve('public')
-      },
-      resolve: {
-        extensions: ['.js', '.jsx', '.mjs', '.json']
-      },
-      module: {
-        rules: [
-          publish(hooks.WEBPACK_JS_RULE, {
-            test: [/\.(js|jsx|mjs)$/],
-            // NOTE: Do not exclude bower_components or node_modules directories
-            // https://github.com/Financial-Times/dotcom-page-kit/issues/366
-            exclude: [],
-            use: {
-              loader: require.resolve('babel-loader'),
-              options: getBabelConfig(context)
-            }
-          })
-        ]
       },
       plugins: isDevMode
         ? [new CleanWebpackPlugin(cleanWebpackPluginOptions), new ManifestPlugin(manifestPluginOptions)]

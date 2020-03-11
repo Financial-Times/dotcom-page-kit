@@ -77,20 +77,6 @@ Configuration options for the [compression plugin](https://github.com/webpack-co
 
 Configuration options for the [assets manifest plugin](https://github.com/webdeveric/webpack-assets-manifest) which provides the compilation entrypoints for each bundle by asset type e.g. `scripts` and `styles`.
 
-##### `BABEL_CONFIG`
-
-Configuration options for [Babel](https://babeljs.io/docs/en/options).
-
-##### `BABEL_PRESET_ENV_OPTIONS`
-
-Configuration options for [Babel Preset Env](https://babeljs.io/docs/en/babel-preset-env#options).
-
-##### `WEBPACK_JS_RULE`
-
-The Webpack [rule] for handling JavaScript files.
-
-[rule]: https://webpack.js.org/configuration/module/#rule
-
 ##### `WEBPACK_CONFIG`
 
 The complete Webpack configuration object.

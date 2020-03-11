@@ -25,10 +25,12 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.5.0",
     "@babel/preset-react": "^7.0.0",
-    "@babel/preset-typescript": "^7.3.3"
+    "@babel/preset-typescript": "^7.3.3",
+    "assign-deep": "^1.0.1"
   },
   "devDependencies": {
-    "@financial-times/dotcom-build-webpack-config": "file:../dotcom-build-webpack-config"
+    "@financial-times/dotcom-build-webpack-config": "file:../dotcom-build-webpack-config",
+    "@types/webpack": "^4.41.7"
   },
   "engines": {
     "node": ">= 12.0.0"
