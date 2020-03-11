@@ -1,4 +1,4 @@
-export * from './entities/ConfigContext'
-export * from './operations/getWebpackConfig'
-export * from './types/HandlerArgs'
-export * from './entities/hooks'
+import plugin from './plugin'
+
+export {plugin}
+export default plugin
