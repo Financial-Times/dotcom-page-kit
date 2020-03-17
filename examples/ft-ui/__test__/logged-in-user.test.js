@@ -8,9 +8,9 @@ describe('examples/ft-ui', () => {
     it('renders the expected loggin-in user Header link elements', async () => {
       await expect(page).toMatchElement('.o-header__top-column--right a[href="/myft"]', { text: 'myFT' })
       await expect(page).toMatchElement(
-        '.o-header__nav-list--right a[href="https://myaccount.ft.com/details/core/view"]',
+        '.o-header__nav-list--right a[href="https://www.ft.com/myaccount"]',
         {
-          text: 'Account Settings'
+          text: 'Settings & Account'
         }
       )
       await expect(
