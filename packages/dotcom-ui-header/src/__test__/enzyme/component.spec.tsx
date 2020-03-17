@@ -60,7 +60,7 @@ describe('dotcom-ui-header', () => {
 
     it('renders the expected logged in user header links', () => {
       expect(header.find('a[data-trackable="Portfolio"]')).toExist()
-      expect(header.find('a[data-trackable="Account Settings"]')).toExist()
+      expect(header.find('a[data-trackable="Settings & Account"]')).toExist()
     })
 
     it('does not render the anonymous user header links', () => {
@@ -79,7 +79,7 @@ describe('dotcom-ui-header', () => {
 
     it('does not render the logged in user header links', () => {
       expect(header.find('a[data-trackable="Portfolio"]')).not.toExist()
-      expect(header.find('a[data-trackable="Account Settings"]')).not.toExist()
+      expect(header.find('a[data-trackable="Settings & Account"]')).not.toExist()
     })
   })
 })
