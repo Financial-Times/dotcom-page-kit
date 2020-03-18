@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.3
+
+- CLI package: Modify WebpackError to handle undefined `stats` value.
+- Handlebars package: Add missing `react` and `react-dom` dependencies.
+
 ## 0.6.2
 
 - Handlebars package: Added `server/templates` to the default list of partial directories to search
