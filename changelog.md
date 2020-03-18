@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.6.3
+
+- CLI package: Modify WebpackError to handle undefined `stats` value.
+- Header package: Relabel "Account Settings" as "Settings and Accounts" to be more consistent with mobile app terminology; redirect old account settings page to new Manage My Account page.
+- Handlebars package: Add missing `react` and `react-dom` dependencies.
+- Multiple packages: Remove incremental compiler option from root TS config to prevent conflict
+
 ## 0.6.2
 
 - Handlebars package: Added `server/templates` to the default list of partial directories to search
