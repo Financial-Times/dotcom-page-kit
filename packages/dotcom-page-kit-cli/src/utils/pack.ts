@@ -106,7 +106,7 @@ class WebpackError extends Error {
     if (error && error.stack) {
       this.stack = error.stack
     }
-    if (stats.hasErrors()) {
+    if (stats && stats.hasErrors()) {
       const info = stats.toJson()
       this.statsError = info.errors
       this.message = info.errors.join(' - ')
