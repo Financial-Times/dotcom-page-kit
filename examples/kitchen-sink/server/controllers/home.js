@@ -14,7 +14,6 @@ module.exports = (_, response, next) => {
     ]
     const asyncStyleBundles = assetLoader.getStylesheetURLsFor('async')
     const scriptBundles = assetLoader.getScriptURLsFor('scripts')
-    const forHints = [...scriptBundles, ...styleBundles]
 
     const adOptions = {
       ...appContext.data,
