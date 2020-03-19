@@ -29,10 +29,6 @@ module.exports = (_, response, next) => {
       formatsExtra: 'Billboard,SuperLeaderboard,Leaderboard,Responsive',
       targeting: {
         pos: 'top'
-      },
-      style: {
-        width: '100%',
-        textAlign: 'center'
       }
     }
 
