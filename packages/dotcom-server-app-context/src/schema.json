@@ -76,6 +76,13 @@
         "republish_-453878e5-94e5-4e52-bfba-b16b024f31f8_carousel_1577700591"
       ],
       "pattern": "^.+$"
+    },
+    "pageKitVersion": {
+      "type": "string",
+      "description": "The version of Page Kit powering the app",
+      "examples": ["1.0.0"],
+      "pattern": "^.+$"
     }
-  }
+  },
+  "additionalProperties": false
 }

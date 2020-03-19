@@ -14,10 +14,8 @@ module.exports = (_, response, next) => {
     ]
     const asyncStyleBundles = assetLoader.getStylesheetURLsFor('async')
     const scriptBundles = assetLoader.getScriptURLsFor('scripts')
-    const forHints = [...scriptBundles, ...styleBundles]
 
     const adOptions = {
-      ...appContext.data,
       dfp_site: 'ft.com',
       dfp_zone: 'Home/UK'
     }
@@ -29,10 +27,6 @@ module.exports = (_, response, next) => {
       formatsExtra: 'Billboard,SuperLeaderboard,Leaderboard,Responsive',
       targeting: {
         pos: 'top'
-      },
-      style: {
-        width: '100%',
-        textAlign: 'center'
       }
     }
 
