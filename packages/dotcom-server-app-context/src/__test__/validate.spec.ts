@@ -10,4 +10,10 @@ describe('dotcom-server-app-context/src/validate', () => {
       'Validation error: data.isProduction should be boolean'
     )
   })
+
+  it('throws an error when given an unknown property/value', () => {
+    expect(() => subject('thisProperty', 'isNotInTheSchema')).toThrow(
+      'Validation error: data should NOT have additional properties, received "isNotInTheSchema"'
+    )
+  })
 })

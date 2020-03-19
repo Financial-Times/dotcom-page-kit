@@ -77,5 +77,6 @@
       ],
       "pattern": "^.+$"
     }
-  }
+  },
+  "additionalProperties": false
 }
