@@ -16,7 +16,6 @@ module.exports = (_, response, next) => {
     const scriptBundles = assetLoader.getScriptURLsFor('scripts')
 
     const adOptions = {
-      ...appContext.data,
       dfp_site: 'ft.com',
       dfp_zone: 'Home/UK'
     }
