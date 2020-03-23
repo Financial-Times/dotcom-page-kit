@@ -17,7 +17,7 @@ function loadAsyncStylesheets() {
     link.href = stylesheets[i]
     link.rel = 'stylesheet'
     link.media = 'print' // <-- 'print' is intentional; on load, it changes to 'all'.
-    link.onload = function(event) {
+    link.onload = function (event) {
       var target = event.target as HTMLLinkElement
       target.media = 'all'
     }
