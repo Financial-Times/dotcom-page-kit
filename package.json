@@ -28,8 +28,7 @@
     "**/*.{ts,tsx,js,jsx}": [
       "npm run test -- --no-cache --findRelatedTests",
       "prettier --write",
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   },
   "repository": {
