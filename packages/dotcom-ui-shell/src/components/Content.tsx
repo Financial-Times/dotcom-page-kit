@@ -8,12 +8,16 @@ const styles = {
   display: 'contents'
 }
 
-function Contents({ contents }: TContentProps) {
+function Content({ contents }: TContentProps) {
   if (typeof contents === 'string') {
     return <div style={styles} dangerouslySetInnerHTML={{ __html: contents }} />
-  } else {
+  }
+
+  if (React.isValidElement(contents)) {
     return contents
   }
+
+  return null
 }
 
-export default Contents
+export default Content
