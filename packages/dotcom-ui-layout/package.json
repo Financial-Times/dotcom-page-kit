@@ -22,6 +22,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@financial-times/dotcom-ui-base-styles": "file:../dotcom-ui-base-styles",
     "@financial-times/dotcom-ui-header": "file:../dotcom-ui-header",
     "@financial-times/dotcom-ui-footer": "file:../dotcom-ui-footer",
     "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation",

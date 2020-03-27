@@ -1,10 +1,11 @@
 {
-  "name": "@financial-times/dotcom-ui-shell",
+  "name": "@financial-times/dotcom-ui-base-styles",
   "version": "0.0.0",
   "description": "",
   "main": "component.js",
   "browser": "browser.js",
   "types": "src/index.ts",
+  "styles": "styles.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "../../node_modules/.bin/tsc --incremental",
@@ -13,19 +14,18 @@
     "clean:node_modules": "rm -rf node_modules",
     "clean:install": "npm run clean && npm i",
     "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
-    "build": "npm run build:node",
-    "dev": "npm run build:node -- --watch"
+    "build:browser": "npm run tsc -- --module es2015 --outDir ./dist/browser",
+    "build": "npm run build:node && npm run build:browser",
+    "dev": "echo -n node browser | parallel -u -d ' ' npm run build:{} -- --watch"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@financial-times/dotcom-ui-app-context": "file:../dotcom-ui-app-context",
-    "@financial-times/dotcom-ui-base-styles": "file:../dotcom-ui-base-styles",
-    "@financial-times/dotcom-ui-bootstrap": "file:../dotcom-ui-bootstrap",
-    "@financial-times/dotcom-ui-flags": "file:../dotcom-ui-flags",
-    "@financial-times/dotcom-ui-polyfill-service": "file:../dotcom-ui-polyfill-service",
-    "mime-types": "^2.1.26"
+    "focus-visible": "^5.0.0"
+  },
+  "devDependencies": {
+    "react": "^16.8.6"
   },
   "peerDependencies": {
     "react": "^16.8.6"
@@ -36,7 +36,7 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
-    "directory": "packages/dotcom-ui-shell"
+    "directory": "packages/dotcom-ui-base-styles"
   },
-  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-ui-shell"
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-ui-base-styles"
 }

@@ -2,7 +2,7 @@
 
 exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the enableGTM flag is on 1`] = `
 <html
-  className="no-js core"
+  className="no-js core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold"
   lang="en-GB"
   style={
     Object {
@@ -135,6 +135,21 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
       }
       id="initial-props"
       type="application/json"
+    />
+    <script
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "(function loadCustomFonts() {
+    var rootElement = document.documentElement;
+    if (/(^|\\\\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+        var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold'];
+        for (var i = 0; i < fontLabels.length; i++) {
+            rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '');
+        }
+    }
+}());",
+        }
+      }
     />
     <script
       dangerouslySetInnerHTML={
