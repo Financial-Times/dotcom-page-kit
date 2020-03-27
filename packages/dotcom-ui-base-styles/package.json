@@ -24,6 +24,9 @@
   "dependencies": {
     "focus-visible": "^5.0.0"
   },
+  "devDependencies": {
+    "react": "^16.8.6"
+  },
   "peerDependencies": {
     "react": "^16.8.6"
   },
