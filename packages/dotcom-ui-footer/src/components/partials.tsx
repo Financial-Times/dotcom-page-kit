@@ -91,7 +91,7 @@ const MoreFromFT = () => (
 const CopyrightNotice = ({ withoutMarketsData = false }) => {
   const marketsData = withoutMarketsData ? '' : 'Markets data delayed by at least 15 minutes. '
   return (
-    <div className="o-footer__copyright" role="contentinfo">
+    <div className="o-footer__copyright">
       <small>
         {`${marketsData}© THE FINANCIAL TIMES LTD ${new Date().getFullYear()}. `}
         <abbr title="Financial Times" aria-label="F T">
