@@ -119,7 +119,9 @@ An array of script URLs which are passed to the [JavaScript bootstrap] and loade
 
 #### `criticalStyles` (string)
 
-An optional string of CSS to embed into the page. Defaults to setting the background colour to FT pink. See "CSS Styles & Stylesheets" above.
+An optional string of CSS to embed into the page. Defaults to using the styles provided by the [base styles package]. See "CSS Styles & Stylesheets" above.
+
+[base styles package]: ../dotcom-ui-base-styles/README.md
 
 #### `stylesheets` (string[])
 
@@ -131,17 +133,17 @@ An array of stylesheet URLs to be loaded asynchronously. See "CSS Styles & Style
 
 #### `resourceHints` (string[])
 
-An optional array of resource URLs to append [resource hints] for. The values provided for the `stylesheets` and `scripts` options are appended by default.
+An optional array of resource URLs to append [resource hints] for. The values provided for the `scripts` option are appended by default.
 
 [resource hints]: https://w3c.github.io/resource-hints
 
 #### `appContext` (object)
 
-A data object which are passed to the [FT app context] component.
+A data object which is passed to the [FT app context] component.
 
 #### `flags` (object)
 
-A data object which are passed to the [feature flags] component.
+A data object which is passed to the [feature flags] component.
 
 #### `initialProps` (object)
 
@@ -149,11 +151,11 @@ An optional data object to serialise and embed in the page which can be used to 
 
 #### `htmlAttributes` (object)
 
-An optional data object of attributes to append to the `<html>` element. Any `camelCase` property names are converted to `kebab-case`, e.g. `{ dataVersion: 123 }` are rendered as `data-version="123"`.
+An optional data object of attributes to append to the `<html>` element. Any `camelCase` property names are converted to `kebab-case`, e.g. `{ dataVersion: 123 }` will be rendered as `data-version="123"`.
 
 #### `bodyAttributes` (object)
 
-An optional data object of attributes to append to the `<body>` element. Any `camelCase` property names are converted to `kebab-case`, e.g. `{ dataVersion: 123 }` are rendered as `data-version="123"`.
+An optional data object of attributes to append to the `<body>` element. Any `camelCase` property names are converted to `kebab-case`, e.g. `{ dataVersion: 123 }` will be rendered as `data-version="123"`.
 
 ### Metadata and SEO
 
@@ -167,7 +169,7 @@ An optional title for the current page.
 
 #### `description` (string)
 
-An optional meta description for the current page. Defaults to: "News, analysis and comment from the Financial Times, the worldʼs leading global business publication".
+An optional meta description for the current page. Defaults to: `"News, analysis and comment from the Financial Times, the worldʼs leading global business publication"`.
 
 #### `canonicalURL` (string)
 
@@ -201,15 +203,15 @@ An optional property to insert additional metadata elements into the document `<
 
 #### `facebookPage` (string)
 
-Optional Facebook page ID to associate with the page. Defaults to "8860325749".
+Optional Facebook page ID to associate with the page. Defaults to `"8860325749"`.
 
 #### `twitterSite` (string)
 
-Optional Twitter handle to associate with the page. Defaults to "@FinancialTimes".
+Optional Twitter handle to associate with the page. Defaults to `"@FinancialTimes"`.
 
 #### `openGraph` (object)
 
-An optional object describing the [Open Graph] metadata to add to the page. The provided objects keys are collated to create each property name, e.g. `{ og: { title: 'Hello, World' } }` are rendered as `<meta property="og:title" content="Hello, World" />`.
+An optional object describing the [Open Graph] metadata to add to the page. The provided objects keys are collated to create each property name, e.g. `{ og: { title: 'Hello, World' } }` will be rendered as `<meta property="og:title" content="Hello, World" />`.
 
 [JavaScript bootstrap]: ../dotcom-ui-bootstrap/README.md
 [feature flags]: ../dotcom-ui-flags/README.md
