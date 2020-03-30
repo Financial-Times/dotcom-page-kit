@@ -8,12 +8,18 @@ const styles = {
   display: 'contents'
 }
 
-function Contents({ contents }: TContentProps) {
+function Content({ contents }: TContentProps) {
   if (typeof contents === 'string') {
     return <div style={styles} dangerouslySetInnerHTML={{ __html: contents }} />
-  } else {
-    return <div style={styles}>{contents}</div>
   }
+
+  // We could try and validate this but there are so many possibilities
+  // of node types and potentially nested arrays etc.
+  if (contents) {
+    return <React.Fragment>{contents}</React.Fragment>
+  }
+
+  return null
 }
 
-export default Contents
+export default Content

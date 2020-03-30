@@ -284,13 +284,6 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
         width="0"
       />
     </noscript>
-    <div
-      style={
-        Object {
-          "display": "contents",
-        }
-      }
-    />
     <script
       dangerouslySetInnerHTML={
         Object {
