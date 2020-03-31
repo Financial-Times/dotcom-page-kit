@@ -1,4 +1,4 @@
-# @financial-times/dotcom-build-webpack-config
+# @financial-times/dotcom-build-base
 
 This package exports a Webpack plugin to configure it with the ability to build client-side assets to Page Kit conventions.
 
@@ -7,13 +7,13 @@ This package exports a Webpack plugin to configure it with the ability to build 
 This package is compatible with Node 12+ and is distributed on npm.
 
 ```sh
-npm install --save-dev @financial-times/dotcom-build-webpack-config
+npm install --save-dev @financial-times/dotcom-build-base
 ```
 
 After installing the module you must add it to the list of plugins in your project's `webpack.config.js` configuration file:
 
 ```js
-const pageKitWebpack = require('@financial-times/dotcom-build-webpack-config');
+const pageKitWebpack = require('@financial-times/dotcom-build-base');
 
 module.exports = {
 	plugins: [

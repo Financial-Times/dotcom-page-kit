@@ -1,5 +1,5 @@
 const path = require('path')
-const pageKitConfig = require('@financial-times/dotcom-build-webpack-config')
+const base = require('@financial-times/dotcom-build-base')
 const codeSplitting = require('@financial-times/dotcom-build-code-splitting')
 const bower = require('@financial-times/dotcom-build-bower-resolve')
 const sass = require('@financial-times/dotcom-build-sass')
@@ -13,7 +13,7 @@ module.exports = {
     'page-kit-layout-styles': require.resolve('@financial-times/dotcom-ui-layout/styles.scss')
   },
   plugins: [
-    pageKitConfig.plugin(),
+    base.plugin(),
     codeSplitting.plugin(),
     bower.plugin(),
     sass.plugin({

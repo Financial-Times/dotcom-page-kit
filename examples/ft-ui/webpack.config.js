@@ -1,5 +1,5 @@
 const path = require('path')
-const pageKitConfig = require('@financial-times/dotcom-build-webpack-config')
+const base = require('@financial-times/dotcom-build-base')
 const bower = require('@financial-times/dotcom-build-bower-resolve')
 const sass = require('@financial-times/dotcom-build-sass')
 const js = require('@financial-times/dotcom-build-js')
@@ -11,7 +11,7 @@ module.exports = {
     'page-kit-layout-styles': require.resolve('@financial-times/dotcom-ui-layout/styles.scss')
   },
   plugins: [
-    pageKitConfig.plugin(),
+    base.plugin(),
     bower.plugin(),
     sass.plugin({
       // Enabling webpackImporter because Sass itself can only resolve partial files based on the

@@ -1,5 +1,5 @@
 const path = require('path')
-const pageKitConfig = require('@financial-times/dotcom-build-webpack-config')
+const base = require('@financial-times/dotcom-build-base')
 const js = require('@financial-times/dotcom-build-js')
 
 module.exports = {
@@ -9,5 +9,5 @@ module.exports = {
   output: {
     publicPath: '/public/'
   },
-  plugins: [pageKitConfig.plugin(), js.plugin()]
+  plugins: [base.plugin(), js.plugin()]
 }
