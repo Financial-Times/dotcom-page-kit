@@ -1,9 +1,9 @@
-const { PageKitBase } = require('@financial-times/dotcom-build-base')
-const { PageKitSass } = require('@financial-times/dotcom-build-sass')
+const { PageKitBasePlugin } = require('@financial-times/dotcom-build-base')
+const { PageKitSassPlugin } = require('@financial-times/dotcom-build-sass')
 
 module.exports = {
   entry: {
     styles: './src/main.scss'
   },
-  plugins: [new PageKitBase(), new PageKitSass()]
+  plugins: [new PageKitBasePlugin(), new PageKitSassPlugin()]
 }

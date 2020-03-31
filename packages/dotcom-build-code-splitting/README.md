@@ -15,11 +15,11 @@ npm install --save-dev @financial-times/dotcom-build-code-splitting
 After installing the package you must add it to the list of plugins in your project's `webpack.config.js` configuration file:
 
 ```diff
-+ const { PageKitCodeSplitting } = require('@financial-times/dotcom-build-code-splitting')
++ const { PageKitCodeSplittingPlugin } = require('@financial-times/dotcom-build-code-splitting')
 
 module.export = {
   plugins: [
-+    new PageKitCodeSplitting()
++    new PageKitCodeSplittingPlugin()
   ]
 }
 ```

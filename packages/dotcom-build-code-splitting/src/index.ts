@@ -9,7 +9,7 @@ import {
   createBundlesForRegExp
 } from './bundleTypes'
 
-export class PageKitCodeSplitting {
+export class PageKitCodeSplittingPlugin {
   apply(compiler: webpack.Compiler) {
     const addInitialCodeSplitting = {
       optimization: {
@@ -37,7 +37,7 @@ export class PageKitCodeSplitting {
     })
 
     // split all dotcom-ui- packages into one bundle file
-    const addPageKitCodeSplitting = createBundleWithRegExp({
+    const addPageKitCodeSplittingPlugin = createBundleWithRegExp({
       compiler,
       name: 'page-kit-components',
       pattern: /[\\\/]dotcom-ui-/,
@@ -89,7 +89,7 @@ export class PageKitCodeSplitting {
     assignDeep(
       compiler.options,
       addInitialCodeSplitting,
-      addPageKitCodeSplitting,
+      addPageKitCodeSplittingPlugin,
       addLibraryCodeSplitting,
       addComponentCodeSplitting,
       addSuperstoreCodeSplitting,

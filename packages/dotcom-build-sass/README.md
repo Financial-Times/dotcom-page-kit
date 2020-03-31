@@ -15,11 +15,11 @@ npm install --save-dev @financial-times/dotcom-build-sass
 After installing the package you must add it to the list of plugins in your project's `webpack.config.js` configuration file:
 
 ```diff
-+ const { PageKitSass } = require('@financial-times/dotcom-build-sass')
++ const { PageKitSassPlugin } = require('@financial-times/dotcom-build-sass')
 
 module.exports = {
   plugins: [
-+    new PageKitSass()
++    new PageKitSassPlugin()
   ]
 }
 ```
@@ -27,13 +27,13 @@ module.exports = {
 Once setup, this plugin will enable you to use Sass files (`.scss` and `.sass`) as entry points into your source code.
 
 ```js
-const { PageKitSass } = require('@financial-times/dotcom-build-sass')
+const { PageKitSassPlugin } = require('@financial-times/dotcom-build-sass')
 
 module.exports = {
    entry: {
       styles: path/to/styles.scss
    },
-   plugins: [new PageKitSass()]
+   plugins: [new PageKitSassPlugin()]
 }
 ```
 
@@ -44,7 +44,7 @@ This plugin adds a [rule] to the Webpack configuration to handle `.scss` files. 
 Sass has been configured to find packages installed with Bower and or npm by looking in the `'bower_components'` and `'node_modules/@financial-times'` directories. It can be configured to look in additional locations by passing the relevant paths to the plugin as absolute paths.
 
 ```js
-new PageKitSass({ includePaths: [path.resolve('./path-to-sass-files')] })
+new PageKitSassPlugin({ includePaths: [path.resolve('./path-to-sass-files')] })
 ```
 
 _Please note_ that by default Sass will resolve all bare `@import` statements from the current working directory rather than relative to the file being processed. This means it will not find dependencies in nested `node_modules` directories.

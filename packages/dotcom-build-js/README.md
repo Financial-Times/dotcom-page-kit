@@ -15,11 +15,11 @@ npm install --save-dev @financial-times/dotcom-build-js
 After installing the module you must add it to the list of plugins in your project's `webpack.config.js` configuration file:
 
 ```diff
-+ const { PageKitJs } = require('@financial-times/dotcom-build-js')
++ const { PageKitJsPlugin } = require('@financial-times/dotcom-build-js')
 
 module.exports = {
   plugins: [
-+    new PageKitJs(options)
++    new PageKitJsPlugin(options)
   ]
 }
 ```

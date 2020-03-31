@@ -7,7 +7,7 @@ export type TPluginOptions = {
   webpackImporter?: boolean
 }
 
-export class PageKitSass {
+export class PageKitSassPlugin {
   includePaths: string[]
   webpackImporter: boolean
 

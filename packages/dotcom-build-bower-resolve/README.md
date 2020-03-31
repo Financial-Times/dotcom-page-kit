@@ -15,11 +15,11 @@ npm install --save-dev @financial-times/dotcom-build-bower-resolve
 After installing the package you must add it to the list of plugins in your project's `webpack.config.js` configuration file:
 
 ```diff
-+ const { PageKitBowerResolve } = require('@financial-times/dotcom-build-bower-resolve')
++ const { PageKitBowerResolvePlugin } = require('@financial-times/dotcom-build-bower-resolve')
 
 module.exports {
   "plugins": [
-+    new PageKitBowerResolve()
++    new PageKitBowerResolvePlugin()
   ]
 }
 ```

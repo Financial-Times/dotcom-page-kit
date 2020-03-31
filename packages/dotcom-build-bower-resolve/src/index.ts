@@ -1,7 +1,7 @@
 import BowerResolvePlugin from 'bower-resolve-webpack-plugin'
 import type webpack from 'webpack'
 
-export class PageKitBowerResolve {
+export class PageKitBowerResolvePlugin {
   apply(compiler: webpack.Compiler) {
     compiler.options.resolve = {
       // This will find .js files if a bower.json specifies a list of "main" files

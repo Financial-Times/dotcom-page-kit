@@ -4,7 +4,7 @@ import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import CompressionPlugin from 'compression-webpack-plugin'
 import ManifestPlugin from 'webpack-assets-manifest'
 
-export class PageKitBase {
+export class PageKitBasePlugin {
   apply(compiler: webpack.Compiler) {
     const isDevMode = compiler.options.mode === 'development'
 

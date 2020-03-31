@@ -7,7 +7,7 @@ const defaultOptions: PluginOptions = {
   jsxPragmaFrag: 'Fragment'
 }
 
-export class PageKitJs {
+export class PageKitJsPlugin {
   options: PluginOptions
 
   constructor(userOptions: PluginOptions = {}) {

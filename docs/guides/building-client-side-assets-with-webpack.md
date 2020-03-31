@@ -15,13 +15,13 @@ npm install --save-dev webpack webpack-cli @financial-times/dotcom-build-base
 Create a `webpack.config.js` file in the root of your app. This is the default [Webpack configuration file]. You should add an `entry` option pointing at your client-side entry point (usually `client/main.js`), and `plugins` array initialising the Page Kit config plugin:
 
 ```js
-const { PageKitBase } = require('@financial-times/dotcom-build-base')
+const { PageKit$1Plugin } = require('@financial-times/dotcom-build-base')
 
 module.exports = {
   entry: {
     scripts: 'client/main.js',
   },
-  plugins: [new PageKitBase()],
+  plugins: [new PageKit$1Plugin()],
 }
 ```
 
@@ -36,16 +36,16 @@ All Webpack configuration is allowed, but some options may conflict with Page Ki
 If your app uses features like ECMAScript modules, JSX, or other things not supported in (all) browsers, you should use the [`@financial-times/dotcom-build-js`](../../packages/dotcom-build-js/README.md) plugin:
 
 ```diff
-const { PageKitBase } = require('@financial-times/dotcom-build-base')
-+ const { PageKitJs } = require('@financial-times/dotcom-build-js')
+const { PageKit$1Plugin } = require('@financial-times/dotcom-build-base')
++ const { PageKit$1Plugin } = require('@financial-times/dotcom-build-js')
 
 module.exports = {
 	entry: {
 		scripts: 'client/main.js'
 	},
 	plugins: [
-		new PageKitBase(),
-+		new PageKitJs()
+		new PageKit$1Plugin(),
++		new PageKit$1Plugin()
 	]
 }
 ```
@@ -55,8 +55,8 @@ module.exports = {
 Apps that use [Sass] should install the [`@financial-times/dotcom-build-sass`](../../packages/dotcom-build-sass/README.md) plugin, which allows you to specify a Sass file as a separate entry point:
 
 ```diff
-const { PageKitBase } = require('@financial-times/dotcom-build-base')
-+ const { PageKitSass } = require('@financial-times/dotcom-build-sass')
+const { PageKit$1Plugin } = require('@financial-times/dotcom-build-base')
++ const { PageKit$1Plugin } = require('@financial-times/dotcom-build-sass')
 
 module.exports = {
 	entry: {
@@ -64,8 +64,8 @@ module.exports = {
 +		styles: 'client/main.scss',
 	},
 	plugins: [
-		new PageKitBase(),
-+		new PageKitSass()
+		new PageKit$1Plugin(),
++		new PageKit$1Plugin()
 	]
 }
 ```
@@ -79,16 +79,16 @@ Running `webpack --mode=development` again should output the file `public/styles
 Apps that need packages from [Bower] should install the [`@financial-times/dotcom-build-bower-resolve`](../../packages/dotcom-build-bower-resolve/README.md) plugin:
 
 ```diff
-const { PageKitBase } = require('@financial-times/dotcom-build-base')
-+ const { PageKitBowerResolve } = require('@financial-times/dotcom-build-bower-resolve')
+const { PageKit$1Plugin } = require('@financial-times/dotcom-build-base')
++ const { PageKit$1Plugin } = require('@financial-times/dotcom-build-bower-resolve')
 
 module.exports = {
 	entry: {
 		scripts: 'client/main.js',
 	},
 	plugins: [
-		new PageKitBase(),
-+		new PageKitBowerResolve()
+		new PageKit$1Plugin(),
++		new PageKit$1Plugin()
 	]
 }
 ```
@@ -100,16 +100,16 @@ module.exports = {
 FT.com apps should use the [`@financial-times/dotcom-build-code-splitting`](../../packages/dotcom-build-code-splitting/README.md) plugin to take advantage of shared cached dependencies between apps.
 
 ```diff
-const { PageKitBase } = require('@financial-times/dotcom-build-base')
-+ const { PageKitCodeSplitting } = require('@financial-times/dotcom-build-code-splitting')
+const { PageKit$1Plugin } = require('@financial-times/dotcom-build-base')
++ const { PageKit$1Plugin } = require('@financial-times/dotcom-build-code-splitting')
 
 module.exports = {
 	entry: {
 		scripts: 'client/main.js',
 	},
 	plugins: [
-		new PageKitBase(),
-+		new PageKitCodeSplitting()
+		new PageKit$1Plugin(),
++		new PageKit$1Plugin()
 	]
 }
 ```
