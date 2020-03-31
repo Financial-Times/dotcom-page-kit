@@ -7,7 +7,7 @@ export type TPluginOptions = {
   webpackImporter?: boolean
 }
 
-export function plugin({ includePaths, webpackImporter }: TPluginOptions = {}) {
+export function plugin({ includePaths = [], webpackImporter }: TPluginOptions = {}) {
   return {
     apply(compiler: webpack.Compiler) {
       const sassLoaderOptions = {
