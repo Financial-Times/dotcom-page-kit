@@ -1,12 +1,12 @@
 const fs = require('fs')
 const path = require('path')
 
-const outputFile = path.join(__dirname, '../dist/styles.css')
+const outputFile = path.join(__dirname, '../public/styles.css')
 const outputContents = fs.readFileSync(outputFile).toString()
 
 describe('examples/building-sass-files', () => {
   it('does not output any JS files', () => {
-    const targetFile = path.join(__dirname, '../dist/styles.js')
+    const targetFile = path.join(__dirname, '../public/styles.js')
     expect(fs.existsSync(targetFile)).toBe(false)
   })
 
