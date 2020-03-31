@@ -1,6 +1,6 @@
 const path = require('path')
-const base = require('@financial-times/dotcom-build-base')
-const js = require('@financial-times/dotcom-build-js')
+const { PageKitBase } = require('@financial-times/dotcom-build-base')
+const { PageKitJs } = require('@financial-times/dotcom-build-js')
 
 module.exports = {
   entry: {
@@ -9,5 +9,5 @@ module.exports = {
   output: {
     publicPath: '/public/'
   },
-  plugins: [base.plugin(), js.plugin()]
+  plugins: [new PageKitBase(), new PageKitJs()]
 }

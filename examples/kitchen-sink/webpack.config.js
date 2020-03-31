@@ -1,9 +1,9 @@
 const path = require('path')
-const base = require('@financial-times/dotcom-build-base')
-const codeSplitting = require('@financial-times/dotcom-build-code-splitting')
-const bower = require('@financial-times/dotcom-build-bower-resolve')
-const sass = require('@financial-times/dotcom-build-sass')
-const js = require('@financial-times/dotcom-build-js')
+const { PageKitBase } = require('@financial-times/dotcom-build-base')
+const { PageKitCodeSplitting } = require('@financial-times/dotcom-build-code-splitting')
+const { PageKitBowerResolve } = require('@financial-times/dotcom-build-bower-resolve')
+const { PageKitSass } = require('@financial-times/dotcom-build-sass')
+const { PageKitJs } = require('@financial-times/dotcom-build-js')
 
 module.exports = {
   entry: {
@@ -13,10 +13,10 @@ module.exports = {
     'page-kit-layout-styles': require.resolve('@financial-times/dotcom-ui-layout/styles.scss')
   },
   plugins: [
-    base.plugin(),
-    codeSplitting.plugin(),
-    bower.plugin(),
-    sass.plugin({
+    new PageKitBase(),
+    new PageKitCodeSplitting(),
+    new PageKitBowerResolve(),
+    new PageKitSass({
       // Enabling webpackImporter because Sass itself can only resolve partial files based on the
       // CWD and not relative to the current file being processed. This means Sass can't find the
       // nested dependencies created when symlinking.
@@ -26,6 +26,6 @@ module.exports = {
         path.resolve('../../bower_components')
       ]
     }),
-    js.plugin()
+    new PageKitJs()
   ]
 }

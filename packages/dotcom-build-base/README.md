@@ -13,11 +13,11 @@ npm install --save-dev @financial-times/dotcom-build-base
 After installing the module you must add it to the list of plugins in your project's `webpack.config.js` configuration file:
 
 ```js
-const pageKitWebpack = require('@financial-times/dotcom-build-base');
+const { PageKitBase } = require('@financial-times/dotcom-build-base');
 
 module.exports = {
 	plugins: [
-		pageKitWebpack.plugin()
+		new PageKitBase()
 	]
 }
 ```
