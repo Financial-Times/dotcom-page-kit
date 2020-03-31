@@ -12,11 +12,9 @@ export function plugin(userOptions: PluginOptions = {}) {
 
   return {
     apply(compiler: webpack.Compiler) {
-      compiler.options.resolve = {
-        extensions: ['.js', '.jsx', '.mjs', '.json', '.ts', '.tsx']
-  }
+      compiler.options.resolve.extensions = ['.js', '.jsx', '.mjs', '.json', '.ts', '.tsx']
 
       compiler.options.module.rules.push(getBabelRule(options))
-  }
+    }
   }
 }

@@ -34,6 +34,7 @@ export default function plugin() {
          }
 
          compiler.options.output = {
+            ...compiler.options.output,
             filename: outputFileName,
             chunkFilename: outputFileName,
             path: path.resolve('public')
