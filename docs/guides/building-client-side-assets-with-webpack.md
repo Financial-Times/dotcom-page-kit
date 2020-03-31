@@ -37,7 +37,7 @@ If your app uses features like ECMAScript modules, JSX, or other things not supp
 
 ```diff
 const { PageKitBase } = require('@financial-times/dotcom-build-base')
-+ const PageKitJs = require('@financial-times/dotcom-build-js')
++ const { PageKitJs } = require('@financial-times/dotcom-build-js')
 
 module.exports = {
 	entry: {
