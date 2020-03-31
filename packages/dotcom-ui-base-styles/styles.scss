@@ -1,5 +1,9 @@
 $system-code: 'page-kit-base-styles' !default;
 
+// NOTE: please also update ./src/lib/fontFaces.ts when updating the URL below. They
+// need to stay in-sync to ensure our CSS output matches the resource hints we set.
+$o-fonts-path: 'https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.4.1/';
+
 // TODO: Migrate into this package existing usage of n-ui-foundations that
 // falls under definition of this package, with the intention of ideally
 // being able to decommission n-ui-foundations.
