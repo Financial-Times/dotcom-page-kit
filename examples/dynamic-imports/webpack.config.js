@@ -9,8 +9,5 @@ module.exports = {
   output: {
     publicPath: '/public/'
   },
-  plugins: [
-    pageKitConfig.plugin(),
-    js.plugin()
-  ]
+  plugins: [pageKitConfig.plugin(), js.plugin()]
 }

@@ -24,7 +24,12 @@ const isJS = (module) => module.type && module.type.startsWith('javascript/')
 /**
  * Create a chunk which includes all packages in the given list of names
  */
-export function createBundleWithPackages({ compiler, name, packages, usedInUnknownWay }: IBundleWithPackageNames) {
+export function createBundleWithPackages({
+  compiler,
+  name,
+  packages,
+  usedInUnknownWay
+}: IBundleWithPackageNames) {
   if (usedInUnknownWay) {
     const disableTreeShakingPlugin = new DisableTreeShakingForChunk({
       test: name
@@ -55,14 +60,12 @@ export function createBundleWithPackages({ compiler, name, packages, usedInUnkno
  * Create a chunk which includes all modules which match the given pattern
  */
 export function createBundleWithRegExp({ compiler, name, pattern, usedInUnknownWay }: IBundleWithRegExp) {
-
   if (usedInUnknownWay) {
     const disableTreeShakingPlugin = new DisableTreeShakingForChunk({
       test: name
     })
 
     disableTreeShakingPlugin.apply(compiler)
-
   }
 
   return {
@@ -85,7 +88,12 @@ export function createBundleWithRegExp({ compiler, name, pattern, usedInUnknownW
 /**
  * Create a chunk for each package in the given list of names
  */
-export function createBundlesForPackages({ compiler, name, packages, usedInUnknownWay }: IBundleWithPackageNames) {
+export function createBundlesForPackages({
+  compiler,
+  name,
+  packages,
+  usedInUnknownWay
+}: IBundleWithPackageNames) {
   const generatedChunkNames = new Set()
 
   if (usedInUnknownWay) {
@@ -94,7 +102,6 @@ export function createBundlesForPackages({ compiler, name, packages, usedInUnkno
     })
 
     disableTreeShakingPlugin.apply(compiler)
-
   }
 
   return {
@@ -134,7 +141,6 @@ export function createBundlesForRegExp({ compiler, name, pattern, usedInUnknownW
     })
 
     disableTreeShakingPlugin.apply(compiler)
-
   }
 
   return {

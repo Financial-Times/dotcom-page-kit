@@ -5,8 +5,5 @@ module.exports = {
   entry: {
     styles: './src/main.scss'
   },
-  plugins: [
-    pageKitConfig.plugin(),
-    sass.plugin()
-  ]
+  plugins: [pageKitConfig.plugin(), sass.plugin()]
 }

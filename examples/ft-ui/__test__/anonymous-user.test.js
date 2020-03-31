@@ -16,11 +16,12 @@ describe('examples/ft-ui', () => {
     })
 
     it('does not render the logged-in user Header link elements', async () => {
-      await expect(
-        page
-      ).not.toMatchElement('.o-header__nav-list--right a[href="https://www.ft.com/myaccount"]', {
-        text: 'Settings & Account'
-      })
+      await expect(page).not.toMatchElement(
+        '.o-header__nav-list--right a[href="https://www.ft.com/myaccount"]',
+        {
+          text: 'Settings & Account'
+        }
+      )
       await expect(
         page
       ).not.toMatchElement(

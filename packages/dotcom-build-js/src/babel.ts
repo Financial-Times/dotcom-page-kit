@@ -2,13 +2,7 @@ import { PluginOptions } from './types'
 
 function getBabelConfig(options: PluginOptions = {}) {
   const presetEnvOpts = {
-    targets: [
-      'last 2 Chrome versions',
-      'ie 11',
-      'Safari >= 9.1',
-      'ff ESR',
-      'last 2 Edge versions'
-    ],
+    targets: ['last 2 Chrome versions', 'ie 11', 'Safari >= 9.1', 'ff ESR', 'last 2 Edge versions'],
     // Exclude transforms that make all code slower
     // See https://github.com/facebook/create-react-app/pull/5278
     exclude: ['transform-typeof-symbol']
@@ -59,13 +53,13 @@ function getBabelConfig(options: PluginOptions = {}) {
 
 export default function getBabelRule(userOptions: PluginOptions) {
   return {
-     test: [/\.(js|jsx|mjs|ts|tsx)$/],
-     // NOTE: Do not exclude bower_components or node_modules directories
-     // https://github.com/Financial-Times/dotcom-page-kit/issues/366
-     exclude: [],
-     use: {
-       loader: require.resolve('babel-loader'),
-       options: getBabelConfig(userOptions)
-     }
-   }
+    test: [/\.(js|jsx|mjs|ts|tsx)$/],
+    // NOTE: Do not exclude bower_components or node_modules directories
+    // https://github.com/Financial-Times/dotcom-page-kit/issues/366
+    exclude: [],
+    use: {
+      loader: require.resolve('babel-loader'),
+      options: getBabelConfig(userOptions)
+    }
+  }
 }

@@ -8,7 +8,7 @@ import {
   fontFaceURLs,
   documentStyles,
   LoadFontsEmbed,
-  loadCustomFontsClassNames,
+  loadCustomFontsClassNames
 } from '@financial-times/dotcom-ui-base-styles'
 import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/dotcom-ui-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/dotcom-ui-bootstrap'
