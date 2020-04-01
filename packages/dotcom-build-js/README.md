@@ -24,12 +24,24 @@ module.exports = {
 }
 ```
 
-Once setup, this plugin will enable you to use the following features within your JavaScript code:
+## Babel
+
+This plugin configures [Babel](https://babeljs.io/) to compile JavaScript syntax and features that aren't supported by every browser into JavaScript that is. The browsers we target are:
+
+* the last 2 versions of Chrome
+* the last 2 versions of Edge
+* Safari 9.1
+* Firefox Extended Support Release (currently v68)
+* Internet Explorer 11
+
+As well as features in current JavaScript standards, we also compile these non-standard features:
 
 * [JSX](https://reactjs.org/docs/introducing-jsx.html)
 * [Typescript](https://www.typescriptlang.org/)
 * [Class properties](https://github.com/tc39/proposal-class-public-fields)
 * [Dynamic import syntax](https://developers.google.com/web/updates/2017/11/dynamic-import)
+
+`dotcom-build-js` can be configured with [options](#options). Other methods of configuring Babel are not supported by Page Kit, because it's possible to produce output that doesn't work in the browsers we support, or to hurt performance by producing inconsistent output between apps, reducing caching effectiveness.
 
 ## Options
 
