@@ -14,6 +14,7 @@ module.exports = {
   },
   plugins: [
     new PageKitBasePlugin(),
+    new PageKitJsPlugin(),
     new PageKitCodeSplittingPlugin(),
     new PageKitBowerResolvePlugin(),
     new PageKitSassPlugin({
@@ -25,7 +26,6 @@ module.exports = {
         // All Bower components are installed at the repo root
         path.resolve('../../bower_components')
       ]
-    }),
-    new PageKitJsPlugin()
+    })
   ],
 }

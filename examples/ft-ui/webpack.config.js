@@ -12,6 +12,7 @@ module.exports = {
   },
   plugins: [
     new PageKitBasePlugin(),
+    new PageKitJsPlugin(),
     new PageKitBowerResolvePlugin(),
     new PageKitSassPlugin({
       // Enabling webpackImporter because Sass itself can only resolve partial files based on the
@@ -22,7 +23,6 @@ module.exports = {
         // All Bower components are installed at the repo root
         path.resolve('../../bower_components')
       ]
-    }),
-    new PageKitJsPlugin()
+    })
   ],
 }
