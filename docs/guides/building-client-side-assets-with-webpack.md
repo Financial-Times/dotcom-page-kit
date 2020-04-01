@@ -9,7 +9,10 @@ Page Kit apps use [Webpack] to build client-side assets. We provide a handful of
 Install the Webpack CLI, and the base Page Kit Webpack config plugin:
 
 ```
-npm install --save-dev webpack webpack-cli @financial-times/dotcom-build-base
+npm install --save-dev \
+   webpack \
+   webpack-cli \
+   @financial-times/dotcom-build-base
 ```
 
 Create a `webpack.config.js` file in the root of your app. This is the default [Webpack configuration file]. You should add an `entry` option pointing at your client-side entry point (usually `client/main.js`), and `plugins` array initialising the Page Kit config plugin:
