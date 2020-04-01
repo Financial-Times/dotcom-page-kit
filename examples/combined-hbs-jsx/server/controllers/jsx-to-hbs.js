@@ -1,4 +1,4 @@
-export default function(request, response, next) {
+export default function (request, response, next) {
   try {
     response.render('Home.jsx', {
       pageTitle:

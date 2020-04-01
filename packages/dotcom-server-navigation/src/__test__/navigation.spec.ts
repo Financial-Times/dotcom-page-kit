@@ -103,9 +103,7 @@ describe('dotcom-server-navigation', () => {
 
     describe('when things go wrong', () => {
       it('throws an HTTP error when fetch fails', async () => {
-        nock('http://next-navigation.ft.com')
-          .get('/v2/hierarchy/streamPage')
-          .reply(500)
+        nock('http://next-navigation.ft.com').get('/v2/hierarchy/streamPage').reply(500)
 
         await expect(navigationInstance.getSubNavigationFor('streamPage')).rejects.toMatchObject({
           message: 'Sub-navigation for streamPage could not be found.'

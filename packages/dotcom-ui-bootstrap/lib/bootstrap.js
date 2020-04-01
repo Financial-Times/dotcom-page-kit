@@ -1,4 +1,4 @@
-;(function() {
+;(function () {
   var doc = document.documentElement
   var isEnhanced = isEnhancedBrowser()
   var scriptsConfig = getScriptsConfig()
