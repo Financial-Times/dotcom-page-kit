@@ -26,7 +26,6 @@ export function plugin(userOptions: PluginOptions = {}) {
   }
 
   function addBabelPreset({ context, resource: babelConfig }: HandlerArgs) {
-     console.log(arguments)
     babelConfig.presets.push(babelPreset(options, context))
   }
 }
