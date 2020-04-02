@@ -120,13 +120,6 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
       rel="preload"
       type="font/woff"
     />
-	<link
-      as="font"
-      crossOrigin="anonymous"
-      href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.4.1/FinancierDisplayWeb-Medium.woff"
-      rel="preload"
-      type="font/woff"
-    />
     <link
       as="font"
       crossOrigin="anonymous"
