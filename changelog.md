@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.7.0
+
+- Sass build plugin: (_breaking change_) Switched from `node-sass` to `dart-sass` for Sass compilation
+- Base build plugin: Added a new package to provide the base Webpack configuration for building Page Kit apps
+- App context package: (_breaking change_) Refactored to throw an error when unrecognised properties are added
+- Base styles UI component: Added a new package which centralises all of our global base styles including basic typography, grid, and font loading.
+- Shell UI component: Refactored to avoid output of additional `<div>` elements when providing React components as contents
+- (_breaking change_) Refactored all build plugins into regular Webpack plugins
+- (_breaking change_) Removed the CLI package
+- (_breaking change_) Removed the Pluggable package
+
+Please refer to the [0.6.x to 0.7.x migration guide](https://github.com/Financial-Times/dotcom-page-kit/wiki/Upgrading-from-0.6.x-to-0.7.x) for more details.
+
 ## 0.6.3
 
 - CLI package: Modify WebpackError to handle undefined `stats` value.
