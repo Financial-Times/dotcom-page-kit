@@ -15,20 +15,20 @@ npm install --save-dev \
    @financial-times/dotcom-build-base
 ```
 
-Create a `webpack.config.js` file in the root of your app. This is the default [Webpack configuration file]. You should add an `entry` option pointing at your client-side entry point (usually `client/main.js`), and `plugins` array initialising the Page Kit config plugin:
+Create a `webpack.config.js` file in the root of your app. This is the default [Webpack configuration file]. Add an `entry` option pointing at your client-side entry point (usually `client/main.js`), and `plugins` array initialising the Page Kit config plugin:
 
 ```js
 const { PageKitBasePlugin } = require('@financial-times/dotcom-build-base')
 
 module.exports = {
   entry: {
-    scripts: 'client/main.js',
+    scripts: 'client/main.js'
   },
-  plugins: [new PageKitBasePlugin()],
+  plugins: [new PageKitBasePlugin()]
 }
 ```
 
-Run `webpack --mode=development`. It should output the file `public/scripts.bundle.js`, containing the bundled output.
+Run `webpack --mode=development`. It'll output the file `public/scripts.bundle.js`, containing the bundled output.
 
 All Webpack configuration is allowed, but some options may conflict with Page Kit plugins, and it's better to have more things standard between Page Kit apps for developer familiarity and to improve performance and caching across all apps. So, try to avoid custom configuration, preferring the Page Kit plugins instead.
 
@@ -73,13 +73,13 @@ module.exports = {
 }
 ```
 
-Running `webpack --mode=development` again should output the file `public/styles.bundle.css`.
+Running `webpack --mode=development` again outputs the file `public/styles.bundle.css`.
 
 [sass]: https://sass-lang.com/
 
 ## Using Bower packages
 
-Apps that need packages from [Bower] should install the [`@financial-times/dotcom-build-bower-resolve`](../../packages/dotcom-build-bower-resolve/README.md) plugin:
+Apps that need packages from [Bower] should install the [`@financial-times/dotcom-build-bower-resolve`](../../packages/dotcom-build-bower-resolve/README.md) plugin, which enables Webpack to resolve packages installed with Bower:
 
 ```diff
 const { PageKitBasePlugin } = require('@financial-times/dotcom-build-base')
