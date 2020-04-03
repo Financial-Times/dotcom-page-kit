@@ -8,7 +8,7 @@
   },
   "devDependencies": {
     "@financial-times/dotcom-build-sass": "file:../../packages/dotcom-build-sass",
-    "@financial-times/dotcom-build-webpack-config": "file:../../packages/dotcom-build-webpack-config",
+    "@financial-times/dotcom-build-base": "file:../../packages/dotcom-build-base",
     "@financial-times/o-normalise": "^1.7.2",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11"

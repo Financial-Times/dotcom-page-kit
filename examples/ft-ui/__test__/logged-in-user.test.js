@@ -10,6 +10,7 @@ describe('examples/ft-ui', () => {
       await expect(page).toMatchElement('.o-header__nav-list--right a[href="https://www.ft.com/myaccount"]', {
         text: 'Settings & Account'
       })
+
       await expect(
         page
       ).toMatchElement(

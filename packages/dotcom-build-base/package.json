@@ -1,7 +1,7 @@
 {
-  "name": "@financial-times/dotcom-page-kit-pluggable",
+  "name": "@financial-times/dotcom-page-kit-cli",
   "version": "0.0.0",
-  "description": "A lightweight library for facilitating pluggability within apps and libraries.",
+  "description": "The Page Kit CLI",
   "main": "dist/node/index.js",
   "types": "src/index.ts",
   "scripts": {
@@ -18,7 +18,15 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "lodash.mergewith": "^4.6.1"
+    "clean-webpack-plugin": "^3.0.0",
+    "compression-webpack-plugin": "^3.0.0",
+    "webpack-assets-manifest": "^3.1.1"
+  },
+  "devDependencies": {
+    "@types/webpack": "^4.41.7"
+  },
+  "peerDependencies": {
+    "webpack": "^4.39.2"
   },
   "engines": {
     "node": ">= 12.0.0"
@@ -26,7 +34,7 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
-    "directory": "packages/dotcom-page-kit-pluggable"
+    "directory": "packages/dotcom-page-kit-cli"
   },
-  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-page-kit-pluggable"
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-page-kit-cli"
 }

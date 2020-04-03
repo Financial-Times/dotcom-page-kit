@@ -1,11 +1,9 @@
-const { getWebpackConfig } = require('@financial-times/dotcom-build-webpack-config')
-const sass = require('@financial-times/dotcom-build-sass')
+const { PageKitBasePlugin } = require('@financial-times/dotcom-build-base')
+const { PageKitSassPlugin } = require('@financial-times/dotcom-build-sass')
 
-module.exports = getWebpackConfig(
-  {
-    entry: {
-      styles: './src/main.scss'
-    }
+module.exports = {
+  entry: {
+    styles: './src/main.scss'
   },
-  [sass.plugin()]
-)
+  plugins: [new PageKitBasePlugin(), new PageKitSassPlugin()]
+}
