@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/dotcom-page-kit-cli",
+  "name": "@financial-times/dotcom-build-base",
   "version": "0.0.0",
   "description": "The Page Kit CLI",
   "main": "dist/node/index.js",
@@ -34,7 +34,7 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
-    "directory": "packages/dotcom-page-kit-cli"
+    "directory": "packages/dotcom-build-base"
   },
-  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-page-kit-cli"
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-build-base"
 }
