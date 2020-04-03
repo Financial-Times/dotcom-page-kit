@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "page-kit build -d",
+    "build": "webpack --mode=development",
     "dev": "nodemon start.js",
     "start": "node start.js",
     "pretest": "npm run build",
@@ -26,14 +26,16 @@
     "sucrase": "^3.10.1"
   },
   "devDependencies": {
-    "@financial-times/dotcom-page-kit-cli": "file:../../packages/dotcom-page-kit-cli",
     "@financial-times/dotcom-build-bower-resolve": "file:../../packages/dotcom-build-bower-resolve",
-    "@financial-times/dotcom-build-js": "file:../../packages/dotcom-build-js",
     "@financial-times/dotcom-build-code-splitting": "file:../../packages/dotcom-build-code-splitting",
+    "@financial-times/dotcom-build-js": "file:../../packages/dotcom-build-js",
     "@financial-times/dotcom-build-sass": "file:../../packages/dotcom-build-sass",
+    "@financial-times/dotcom-build-base": "file:../../packages/dotcom-build-base",
     "@sucrase/jest-plugin": "^2.0.0",
     "nodemon": "^1.18.9",
-    "ready-state": "^2.0.5"
+    "ready-state": "^2.0.5",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
   },
   "jest": {
     "transform": {

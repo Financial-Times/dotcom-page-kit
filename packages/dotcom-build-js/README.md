@@ -1,10 +1,8 @@
 # @financial-times/dotcom-build-js
 
-This module extends the [Page Kit CLI build action][cli] (`page-kit build`) with the ability to build JavaScript that makes use of features that are specific to [ft.com]
+This package exports a Webpack plugin to configure it with the ability to build JavaScript that makes use of features that are specific to [ft.com].
 
-[cli]: https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-page-kit-cli#build
 [ft.com]: https://www.ft.com/
-
 
 ## Getting started
 
@@ -14,27 +12,36 @@ This module is compatible with Node 12+ and is distributed on npm.
 npm install --save-dev @financial-times/dotcom-build-js
 ```
 
-After installing the module you must add it to the list of plugins in your project's `page-kit.config.js` configuration file:
+After installing the module you must add it to the list of plugins in your project's `webpack.config.js` configuration file:
 
 ```diff
-+ const js = require('@financial-times/dotcom-build-js')
++ const { PageKitJsPlugin } = require('@financial-times/dotcom-build-js')
 
 module.exports = {
   plugins: [
-+    js.plugin(options)
++    new PageKitJsPlugin(options)
   ]
 }
 ```
 
-Once setup, this plugin will enable you to use the following features within your JavaScript code.
+## Babel
+
+This plugin configures [Babel](https://babeljs.io/) to compile JavaScript syntax and features that aren't supported by every browser into JavaScript that is. The browsers we target are:
+
+* the last 2 versions of Chrome
+* the last 2 versions of Edge
+* Safari 9.1
+* Firefox Extended Support Release (currently v68)
+* Internet Explorer 11
+
+As well as features in current JavaScript standards, we also compile these non-standard features:
 
 * [JSX](https://reactjs.org/docs/introducing-jsx.html)
 * [Typescript](https://www.typescriptlang.org/)
 * [Class properties](https://github.com/tc39/proposal-class-public-fields)
 * [Dynamic import syntax](https://developers.google.com/web/updates/2017/11/dynamic-import)
 
-Several [hooks](#hooks) are provided in order to access and modify the configuration.
-
+`dotcom-build-js` can be configured with [options](#options). Other methods of configuring Babel are not supported by Page Kit, because it's possible to produce output that doesn't work in the browsers we support, or to hurt performance by producing inconsistent output between apps, reducing caching effectiveness.
 
 ## Options
 
@@ -44,43 +51,3 @@ Several [hooks](#hooks) are provided in order to access and modify the configura
 | `jsxPragmaFrag`        | String  | `"Fragment"` | See https://babeljs.io/docs/en/babel-preset-react#pragmafrag         |
 
 [1]: https://www.npmjs.com/package/babel-plugin-transform-require-default
-
-## Hooks
-
-This plugin exposes the following hooks as extension points. They are available as constants on the exported `hooks` object.
-
-```js
-import { hooks } from '@financial-times/dotcom-build-js'
-```
-
-_Please note: The hooks below are listed in the order they will be executed._
-
-### `BABEL_PRESET_REACT_OPTIONS`
-
-Configuration options for the [@babel/preset-react] plugin.
-
-[@babel/preset-react]: https://babeljs.io/docs/en/babel-preset-react
-
-### `BABEL_PRESET_TYPESCRIPT_OPTIONS`
-
-Configuration options for the [@babel/preset-typescript] plugin.
-
-[@babel/preset-typescript]: https://babeljs.io/docs/en/babel-preset-typescript
-
-### `BABEL_PLUGIN_CLASS_PROPERTIES_OPTIONS`
-
-Configuration options for the [@babel/plugin-proposal-class-properties] plugin.
-
-[@babel/plugin-proposal-class-properties]: https://babeljs.io/docs/en/babel-plugin-proposal-class-properties
-
-### `BABEL_PLUGIN_TRANSFORM_RUNTIME_OPTIONS`
-
-Configuration options for the [@babel/plugin-transform-runtime] plugin.
-
-[@babel/plugin-transform-runtime]: https://babeljs.io/docs/en/babel-plugin-transform-runtime
-
-### `BABEL_PLUGIN_SYNTAX_DYNAMIC_IMPORT_OPTIONS`
-
-Configuration options for the [@babel/plugin-syntax-dynamic-import] plugin.
-
-[@babel/plugin-syntax-dynamic-import]: https://babeljs.io/docs/en/babel-plugin-syntax-dynamic-import

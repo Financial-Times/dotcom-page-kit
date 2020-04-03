@@ -19,14 +19,13 @@ With Page Kit, applications are responsible for bundling both their own code and
 
 ## Enabling code splitting
 
-Apps which are serving client-side code should include the [ft-js-code-splitting] plugin in their `page-kit.config.js` files to enable code-splitting.
+Apps which are serving client-side code should include the [dotcom-build-code-splitting] plugin in their `webpack.config.js` files to enable code-splitting.
 
-Once the webpackConfig has been successfully loaded the plugin will execute a number of code-splitting rules to chunk the application code into bundles.
-
+Once the webpack config has been successfully loaded the plugin will execute a number of code-splitting rules to chunk the application code into bundles.
 
 ## Strategy
 
-The [ft-js-code-splitting] plugin bundles application code as follows:
+The [dotcom-build-code-splitting] plugin bundles application code as follows:
 
  - A single bundle consisting of application-specific code.
 
@@ -41,6 +40,6 @@ The [ft-js-code-splitting] plugin bundles application code as follows:
  - A webpack runtime bundle. Webpack generates a webpack runtime which contains all of the code webpack needs to load your chunked code in the browser.
 
 
-[ft-js-code-splitting]: ../../packages/dotcom-build-code-splitting/README.md
+[dotcom-build-code-splitting]: ../../packages/dotcom-build-code-splitting/README.md
 [chunked]:https://webpack.js.org/glossary/#c
 [bundles]:https://webpack.js.org/glossary/#b
