@@ -27,7 +27,7 @@
   "devDependencies": {
     "@financial-times/logo-images": "^1.10.1",
     "@svgr/core": "^5.0.0",
-    "camelcase": "^5.3.1"
+    "camelcase": "^6.0.0"
   },
   "peerDependencies": {
     "react": "^16.8.6"
