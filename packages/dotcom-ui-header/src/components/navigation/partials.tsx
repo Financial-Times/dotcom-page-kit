@@ -105,7 +105,7 @@ const NavListRightAnon = ({ items, variant }: { items: TNavMenuItem[]; variant?:
           {first.label}
         </a>
       </li>
-      <li className="o-header__nav-item">
+      <li className="o-header__nav-item o-header__nav-item--hide-s">
         <a
           className="o-header__nav-button"
           // Added as the result of a DAC audit. This will be confusing for users of voice activation software
