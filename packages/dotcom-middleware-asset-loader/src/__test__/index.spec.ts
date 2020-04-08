@@ -21,7 +21,6 @@ describe('dotcom-middleware-asset-loader', () => {
 
     instanceWithStaticHost.forEach((item) => {
       expect(item).toBeInstanceOf(Function)
-      expect(item).toHaveLength(3)
     })
   })
 
