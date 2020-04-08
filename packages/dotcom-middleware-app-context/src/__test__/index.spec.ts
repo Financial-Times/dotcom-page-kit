@@ -34,7 +34,6 @@ describe('dotcom-middleware-app-context', () => {
 
   it('returns a request handler function', () => {
     expect(instance).toBeInstanceOf(Function)
-    expect(instance).toHaveLength(3)
   })
 
   describe('when handling a request', () => {
