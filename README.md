@@ -124,9 +124,9 @@ The Storybook interface should then open in your default browser. Storybook has 
 
 ### Why are you doing this?
 
-All of the user facing applications that together make up FT.com use a package called [`n-ui`]. This package currently provides:- tools to build and load client-side code; client-side bootstrapping; template loading and configuration; global header, footer, and layout UI; navigation menu data; tracking and analytics setup; ads configuration; global messaging components; and more! Although we rely on this module heavily it is not well understood by the current team and is tightly coupled to technical decisions that were made several years ago.
+All of the user facing applications that together make up FT.com used to use a package called [`n-ui`]. This package provided:- tools to build and load client-side code; client-side bootstrapping; template loading and configuration; global header, footer, and layout UI; navigation menu data; tracking and analytics setup; ads configuration; global messaging components; and more! Although we relied on this module heavily it was not well understood by the current team and was tightly coupled to technical decisions that were made several years ago.
 
-Page Kit splits all of this functionality into a set of loosely coupled, individually documented, and tested packages. The aim is to provide a flexible foundation which teams can build upon rather than prescribing a whole solution.
+Page Kit splits all of this functionality into a set of loosely coupled, individually documented, and tested packages. They provide a flexible foundation which teams can build upon rather than prescribing a whole solution.
 
 See the [original pitch document] for more information.
 
@@ -135,7 +135,7 @@ See the [original pitch document] for more information.
 
 ### Does this replace `n-ui`?
 
-The intention of this project is to replace `n-ui`.
+Page Kit has completely replaced `n-ui` on FT.com.
 
 ### How does this relate to Origami?
 
@@ -143,5 +143,4 @@ This project does not include any visual changes to the FT.com so the relationsh
 
 ### Will this target non-FT.com teams?
 
-Our aim is to build a core set of packages which should be considered usable by the wider JavaScript community. On top of this core we will build FT.com specific modules. We hope that by introducing this conceptual divide we can make fewer assumptions, encourage contributions, and more effectively manage opinionated parts of the codebase.
-
+Page Kit has been designed to work on FT.com applications and should not be used outside this team.
