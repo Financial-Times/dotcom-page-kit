@@ -1,0 +1,7 @@
+// The base styles will be output in the shared css bundle, so
+// only include the required mixins and variables.
+@import 'n-ui-foundations/mixins';
+
+p {
+  @include oTypographySans($scale: 7);
+}
