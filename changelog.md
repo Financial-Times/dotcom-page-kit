@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.1
+
+- Navigation middleware package: Fixes TypeScript errors that occur when consuming apps transpile.
+- Header UI package: Hide subscribe sticky nav button when viewport is at narrow width.
+
 ## 0.7.0
 
 - Sass build plugin: (_breaking change_) Switched from `node-sass` to `dart-sass` for Sass compilation
