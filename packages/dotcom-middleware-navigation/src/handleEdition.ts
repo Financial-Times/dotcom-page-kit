@@ -11,7 +11,7 @@ export default (request: Request, response: Response): string => {
   // <https://github.com/Financial-Times/next-router/blob/master/server/middleware/editions.js>
   let currentEdition = request.get('FT-Edition') || defaultEdition
 
-  if (request.query.edition && isEdition(request.query.edition)) {
+  if (typeof request.query.edition === 'string' && isEdition(request.query.edition)) {
     currentEdition = request.query.edition
 
     response.cookie('next-edition', currentEdition, {
