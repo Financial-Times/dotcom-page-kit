@@ -60,7 +60,6 @@ function Shell(props: TShellProps) {
           type="application/json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(props.initialProps) }}
         />
-        <LoadFontsEmbed />
         <StyleSheets
           criticalStyles={props.criticalStyles}
           stylesheets={props.stylesheets}
@@ -68,6 +67,7 @@ function Shell(props: TShellProps) {
         />
         <Bootstrap {...bootstrapProps} />
         <GTMHead flags={props.flags} />
+        <LoadFontsEmbed />
       </head>
       <body {...formatAttributeNames(props.bodyAttributes)}>
         <GTMBody flags={props.flags} />
