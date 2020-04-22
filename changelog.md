@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.2
+
+- UI shell package: Prevent font-loading race condition in Chrome browser (that resulted in fallback fonts displaying).
+
 ## 0.7.1
 
 - Navigation middleware package: Fixes TypeScript errors that occur when consuming apps transpile.
