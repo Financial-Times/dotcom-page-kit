@@ -50,6 +50,7 @@ function Shell(props: TShellProps) {
       {...formatAttributeNames(props.htmlAttributes)}
       lang="en-GB"
       className={`no-js core ${loadCustomFontsClassNames}`}
+      data-o-component="o-typography"
       style={documentStyles}>
       <head>
         <DocumentHead {...props} />

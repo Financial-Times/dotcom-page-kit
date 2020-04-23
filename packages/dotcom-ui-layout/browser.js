@@ -8,8 +8,7 @@ import oTypography from 'o-typography'
 import 'focus-visible'
 
 export function init({ headerOptions = {}, footerOptions = {} } = {}) {
-  const rootElement = document.querySelector('.n-layout')
-  oTypography.init(rootElement)
+  oTypography.init()
   header.init(headerOptions)
   footer.init(footerOptions)
 }
