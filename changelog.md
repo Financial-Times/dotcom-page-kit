@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.7.3
+
+- UI layout + shell packages: Fixes font loading issue.
+
 ## 0.7.2
 
 - UI shell package: Prevent font-loading race condition in Chrome browser (that resulted in fallback fonts displaying).
