@@ -3,6 +3,7 @@
 exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the enableGTM flag is on 1`] = `
 <html
   className="no-js core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold"
+  data-o-component="o-typography"
   lang="en-GB"
   style={
     Object {
