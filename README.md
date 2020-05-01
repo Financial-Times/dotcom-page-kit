@@ -49,7 +49,7 @@ Page Kit includes a set of packages which provide the markup, behaviour, and sty
 To get started with Page Kit, you'll need to make sure you have the following software tools installed.
 
 1. [Git](https://git-scm.com/)
-2. [Node.js](https://nodejs.org/en/) (version 8 or higher is required)
+2. [Node.js](https://nodejs.org/en/) (version 12 or higher is required)
 3. [npm](http://npmjs.com/)
 4. [GNU Parallel](https://www.gnu.org/software/parallel/) (Optional, for running parallel `watch` scripts)
 
