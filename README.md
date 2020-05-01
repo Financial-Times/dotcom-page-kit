@@ -19,7 +19,7 @@ Page Kit is not a single part but a set of packages which provide the different 
 
 ### 1. Compiling client-side assets
 
-Page Kit provides a CLI tool built upon Webpack and Babel which is capable of [transpiling], [bundling], and [optimising] client-side JavaScript code. The CLI tool can be configured and extended to suit your requirements and several plugins are provided which enable support for Sass, code splitting, and more.
+Page Kit provides Webpack and Babel configuration which is capable of [transpiling], [bundling], and [optimising] client-side JavaScript code. The config can be configured and extended to suit your requirements and several plugins are provided which enable support for Sass, code splitting, and more.
 
 [transpiling]: https://scotch.io/tutorials/javascript-transpilers-what-they-are-why-we-need-them
 [bundling]: https://nolanlawson.com/2017/05/22/a-brief-and-incomplete-history-of-javascript-bundlers/
