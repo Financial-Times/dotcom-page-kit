@@ -10,6 +10,7 @@ import {
 
 export type TFooterOptions = {
   theme?: 'dark' | 'light' | string
+  customClass?: string
 }
 
 export type TFooterProps = TFooterOptions & {
@@ -20,7 +21,10 @@ export function Footer(props: TFooterProps) {
   const footerData = props.data.footer.items
   const theme = props.theme ? `${props.theme}` : 'dark'
   return (
-    <footer id="site-footer" className={`o-footer o-footer--theme-${theme}`} data-o-component="o-footer">
+    <footer
+      id="site-footer"
+      className={`o-footer o-footer--theme-${theme} ${props.customClass}`}
+      data-o-component="o-footer">
       <div className="o-footer__container">
         <FooterContents footerData={footerData} />
         <MoreFromFT />
@@ -35,7 +39,10 @@ export function LegalFooter(props: TFooterProps) {
   const footerData = props.data.footer.items
   const theme = props.theme ? props.theme : 'dark'
   return (
-    <footer id="site-footer" className={`o-footer o-footer--theme-${theme}`} data-o-component="o-footer">
+    <footer
+      id="site-footer"
+      className={`o-footer o-footer--theme-${theme} ${props.customClass}`}
+      data-o-component="o-footer">
       <div className="o-footer__container">
         <CompressedLegal footerData={footerData} />
         <CopyrightNotice withoutMarketsData={true} />

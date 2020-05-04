@@ -27,6 +27,14 @@ describe('dotcom-ui-footer', () => {
     expect(legalFooter.find('.o-footer__brand-logo')).toExist()
   })
 
+  it('renders a custom class on the footer', () => {
+    dataFixture.customClass = 'foo'
+    const footer = mount(<Footer {...dataFixture} />)
+    const legalFooter = mount(<Footer {...dataFixture} />)
+    expect(footer.find('.o-footer').hasClass('foo')).toBe(true)
+    expect(legalFooter.find('.o-footer').hasClass('foo')).toBe(true)
+  })
+
   describe('standard footer', () => {
     it('renders the navigation sections', () => {
       expect(footer).not.toBeEmptyRender()

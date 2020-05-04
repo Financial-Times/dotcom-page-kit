@@ -16,7 +16,8 @@ const fixture: TFooterProps = {
     'navbar-simple': null,
     subsections: null,
     user: null
-  }
+  },
+  customClass: ''
 }
 
 export default fixture

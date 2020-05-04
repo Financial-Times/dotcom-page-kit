@@ -67,3 +67,4 @@ All variants require a props object to be passed to the footer component. The co
 | theme      | string  | 'dark'  | Serve the specified variant of the footer - the `light` theme is a valid alternative. |
 | legal-only | boolean | false   | Serve the shorter, 'legal-only' variant of the footer                                 |
 | data       | object  |         | Navigation data for rendering the footer links fetched from the navigation API        |
+| customClass | string | | Add a custom class to the footer element 
