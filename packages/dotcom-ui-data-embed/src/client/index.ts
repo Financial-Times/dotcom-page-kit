@@ -1,0 +1,2 @@
+const noop = () => {}
+export { noop }
