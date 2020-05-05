@@ -29,5 +29,7 @@
     "directory": "packages/dotcom-ui-app-context"
   },
   "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-ui-app-context",
-  "dependencies": {}
+  "dependencies": {
+    "@financial-times/dotcom-ui-data-embed": "file:../dotcom-ui-data-embed"
+  }
 }
