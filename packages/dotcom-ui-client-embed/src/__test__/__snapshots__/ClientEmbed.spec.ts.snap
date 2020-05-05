@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dotcom-ui-client-embed/src/components/clientEmbed renders a script element containing data 1`] = `
+<script
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "{\\"property\\":\\"value\\",\\"secondProperty\\":\\"secondValue\\"}",
+    }
+  }
+  id="TEST"
+  type="application/json"
+/>
+`;
