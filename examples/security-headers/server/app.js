@@ -1,12 +1,19 @@
-import express from 'express'
-import * as navigation from '@financial-times/dotcom-middleware-navigation'
-import * as featurePolicyMiddleware from '@financial-times/dotcom-middleware-feature-policy'
-import { homeController } from './controllers/home.jsx'
+const express = require('express')
+const { PageKitHandlebars } = require('@financial-times/dotcom-server-handlebars')
+const featurePolicyMiddleware = require('@financial-times/dotcom-middleware-feature-policy')
+const homeController = require('./controllers/home')
 
-export const app = express()
+const app = (module.exports = express())
 
-app.use(navigation.init(), featurePolicyMiddleware.init())
+// Add Handlebars as a view engine so controllers may use response.render()
+const renderer = new PageKitHandlebars({
+  cache: process.env.NODE_ENV === 'production'
+})
+
+app.engine('.hbs', renderer.engine)
 
 app.use('/public', express.static('./public'))
+
+app.use(featurePolicyMiddleware.init())
 
 app.get('/', homeController)
