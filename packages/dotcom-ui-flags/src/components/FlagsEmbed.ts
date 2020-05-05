@@ -1,4 +1,4 @@
-import React from 'react'
+import { ClientEmbed } from '@financial-times/dotcom-ui-client-embed'
 import { formatFlagsJSON } from '../server'
 import { TFlagsData } from '../types'
 import { SCRIPT_ELEMENT_ID } from '../constants'
@@ -8,13 +8,7 @@ type TFlagsEmbedProps = {
 }
 
 function FlagsEmbed({ flags }: TFlagsEmbedProps) {
-  return (
-    <script
-      type="application/json"
-      id={SCRIPT_ELEMENT_ID}
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(formatFlagsJSON(flags)) }}
-    />
-  )
+  return ClientEmbed({ id: SCRIPT_ELEMENT_ID, data: formatFlagsJSON(flags) })
 }
 
 FlagsEmbed.defaultProps = {
