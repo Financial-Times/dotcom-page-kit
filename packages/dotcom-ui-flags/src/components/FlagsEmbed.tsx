@@ -12,7 +12,7 @@ function FlagsEmbed({ flags }: TFlagsEmbedProps) {
     <script
       type="application/json"
       id={SCRIPT_ELEMENT_ID}
-      dangerouslySetInnerHTML={{ __html: formatFlagsJSON(flags) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(formatFlagsJSON(flags)) }}
     />
   )
 }
