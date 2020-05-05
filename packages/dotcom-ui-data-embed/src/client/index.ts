@@ -1,2 +1,3 @@
-const noop = () => {}
-export { noop }
+import loadDataEmbed from './loadDataEmbed'
+
+export { loadDataEmbed }
