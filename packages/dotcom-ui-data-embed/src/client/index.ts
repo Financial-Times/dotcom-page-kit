@@ -1,3 +1,9 @@
 import loadDataEmbed from './loadDataEmbed'
+import DataEmbedStore from './DataEmbedStore'
 
-export { loadDataEmbed }
+const init = ({ id }: { id: string }) => {
+  const data = loadDataEmbed(id)
+  return new DataEmbedStore(data)
+}
+
+export { loadDataEmbed, init }
