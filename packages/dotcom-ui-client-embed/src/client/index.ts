@@ -1,3 +1,9 @@
 import loadClientEmbed from './loadClientEmbed'
+import ClientEmbedData from './ClientEmbedData'
 
-export { loadClientEmbed }
+const init = (id: string) => {
+  const data = loadClientEmbed(id)
+  return new ClientEmbedData(data)
+}
+
+export { loadClientEmbed, ClientEmbedData, init }
