@@ -4,6 +4,7 @@ const { Shell } = require('@financial-times/dotcom-ui-shell')
 const { Layout } = require('@financial-times/dotcom-ui-layout')
 const { Slot, AdsOptionsEmbed } = require('@financial-times/n-ads')
 const { ClientEmbed } = require('@financial-times/dotcom-ui-client-embed')
+const { CLIENT_EMBED_ID } = require('../../constants.js')
 
 module.exports = (_, response, next) => {
   try {
@@ -65,7 +66,7 @@ module.exports = (_, response, next) => {
             </section>
           </div>
         </Layout>
-        <ClientEmbed id="custom-context" data={{ foo: true, bar: 'qux' }} />
+        <ClientEmbed id={CLIENT_EMBED_ID} data={{ foo: true, bar: 'qux' }} />
       </Shell>
     )
 
