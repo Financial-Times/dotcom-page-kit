@@ -4,15 +4,16 @@ import * as layout from '@financial-times/dotcom-ui-layout'
 import * as appContext from '@financial-times/dotcom-ui-app-context'
 import * as tracking from '@financial-times/n-tracking'
 import * as ads from '@financial-times/n-ads'
-import * as clientEmbed from '@financial-times/dotcom-ui-client-embed'
+import { ClientEmbedClient } from '@financial-times/dotcom-ui-client-embed'
 import { CLIENT_EMBED_ID } from '../constants.js'
 
 readyState.domready.then(() => {
   const flagsClient = flags.init()
   const appContextClient = appContext.init()
 
-  const clientEmbedClient = clientEmbed.init(CLIENT_EMBED_ID)
-  console.log(clientEmbedClient.getAll()) // eslint-disable-line no-console
+  const clientEmbedClientInstance = new ClientEmbedClient(CLIENT_EMBED_ID)
+  const clientEmbedClient = clientEmbedClientInstance.init()
+  console.log('Shared data', clientEmbedClient.getAll()) // eslint-disable-line no-console
 
   layout.init()
 
