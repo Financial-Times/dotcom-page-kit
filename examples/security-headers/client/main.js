@@ -1,7 +1,8 @@
 import readyState from 'ready-state'
-import { geolocation } from '../../security-headers/client/geolocation.js'
-import { fullscreen } from '../../security-headers/client/fullscreen.js'
+import { geolocation } from '../client/geolocation'
+import { fullscreen } from '../client/fullscreen'
+import { wakeLock } from '../client/wake-lock'
 
 readyState.domready.then(() => {
-  geolocation(), fullscreen()
+  geolocation(), fullscreen(), wakeLock()
 })
