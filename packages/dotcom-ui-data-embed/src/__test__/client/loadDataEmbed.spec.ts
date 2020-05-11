@@ -2,10 +2,10 @@
  * @jest-environment jsdom
  */
 
-import subject from '../../client/loadClientEmbed'
+import subject from '../../client/loadDataEmbed'
 const SCRIPT_ELEMENT_ID = 'TEST'
 
-describe('dotcom-ui-flags/src/client/loadClientEmbed', () => {
+describe('dotcom-ui-flags/src/client/loadDataEmbed', () => {
   describe('when there is a configuration object', () => {
     beforeEach(() => {
       document.body.innerHTML = `

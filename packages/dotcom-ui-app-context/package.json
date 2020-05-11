@@ -24,7 +24,7 @@
     "node": ">= 12.0.0"
   },
   "dependencies": {
-    "@financial-times/dotcom-ui-client-embed": "file:../dotcom-ui-client-embed"
+    "@financial-times/dotcom-ui-data-embed": "file:../dotcom-ui-data-embed"
   },
   "repository": {
     "type": "git",

@@ -1,1 +1,1 @@
-export const CLIENT_EMBED_ID = 'client-embed'
+export const DATA_EMBED_ID = 'data-embed'

@@ -1,4 +1,4 @@
-export default class ClientEmbedData {
+export default class DataEmbedStore {
   private data
 
   constructor(data) {

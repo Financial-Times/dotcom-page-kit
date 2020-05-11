@@ -1,5 +1,5 @@
 import renderer from 'react-test-renderer'
-import { ClientEmbed as subject } from '../../components/ClientEmbed'
+import { DataEmbed as subject } from '../../components/DataEmbed'
 
 const data = {
   id: 'TEST',
@@ -9,7 +9,7 @@ const data = {
   }
 }
 
-describe('dotcom-ui-client-embed/src/components/clientEmbed', () => {
+describe('dotcom-ui-data-embed/src/components/DataEmbed', () => {
   it('renders a script element containing data', () => {
     const tree = renderer.create(subject(data))
     expect(tree).toMatchSnapshot()

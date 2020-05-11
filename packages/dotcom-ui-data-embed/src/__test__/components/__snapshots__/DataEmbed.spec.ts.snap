@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`dotcom-ui-client-embed/src/components/clientEmbed renders a script element containing data 1`] = `
+exports[`dotcom-ui-data-embed/src/components/DataEmbed renders a script element containing data 1`] = `
 <script
   dangerouslySetInnerHTML={
     Object {

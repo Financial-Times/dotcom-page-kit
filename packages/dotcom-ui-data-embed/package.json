@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/dotcom-ui-client-embed",
+  "name": "@financial-times/dotcom-ui-data-embed",
   "version": "0.0.0",
   "description": "",
   "main": "component.js",
@@ -29,8 +29,8 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
-    "directory": "packages/dotcom-ui-client-embed"
+    "directory": "packages/dotcom-ui-data-embed"
   },
-  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-ui-client-embed",
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-ui-data-embed",
   "devDependencies": {}
 }

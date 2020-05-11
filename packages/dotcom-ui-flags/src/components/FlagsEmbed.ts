@@ -1,4 +1,4 @@
-import { ClientEmbed } from '@financial-times/dotcom-ui-client-embed'
+import { DataEmbed } from '@financial-times/dotcom-ui-data-embed'
 import { formatFlagsJSON } from '../server'
 import { TFlagsData } from '../types'
 import { SCRIPT_ELEMENT_ID } from '../constants'
@@ -8,7 +8,7 @@ type TFlagsEmbedProps = {
 }
 
 function FlagsEmbed({ flags }: TFlagsEmbedProps) {
-  return ClientEmbed({ id: SCRIPT_ELEMENT_ID, data: formatFlagsJSON(flags) })
+  return DataEmbed({ id: SCRIPT_ELEMENT_ID, data: formatFlagsJSON(flags) })
 }
 
 FlagsEmbed.defaultProps = {
