@@ -1,5 +1,5 @@
 import renderer from 'react-test-renderer'
-import { ClientEmbed as subject } from '../components/ClientEmbed'
+import { ClientEmbed as subject } from '../../components/ClientEmbed'
 
 const data = {
   id: 'TEST',
