@@ -4,6 +4,7 @@ This package provides methods for embedding [app context data] into your server-
 
 [app context data]: ../dotcom-server-app-context/schema.md
 
+If you want to share application specific data with the client, consider using [@financial-times/dotcom-ui-data-embed](../dotcom-ui-data-embed).
 
 ## Getting started
 
