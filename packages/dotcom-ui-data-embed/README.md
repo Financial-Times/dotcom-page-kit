@@ -71,7 +71,7 @@ if (dataEmbedClient.get('property')) {
 
 ### `init({ id }:{ id: string })`
 
-Initialises and returns a new [data embed client](#data-embed-client-api) which can be used to safely access the status of individual contexts.
+Initialises and returns a new [data embed client](#data-embed-client-api) which can be used to safely access the data.
 
 This method requires an `id` parameter within an options object.
 This `id` should match the `id` attribute on the embed element within the page.

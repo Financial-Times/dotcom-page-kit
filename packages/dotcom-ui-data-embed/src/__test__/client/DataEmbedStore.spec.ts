@@ -20,7 +20,7 @@ describe('dotcom-ui-data-embed/src/client/DataEmbedStore', () => {
       expect(instance.get('baz')).toBe('qux')
     })
 
-    it('returns undefined for contexts which do not exist', () => {
+    it('returns undefined for properties that do not exist', () => {
       expect(instance.get('buzz')).toBeUndefined()
     })
   })
