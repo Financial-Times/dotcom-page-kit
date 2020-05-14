@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`dotcom-ui-flags/src/components/FlagsEmbed renders a script element containing flags 1`] = `
+<script
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "{\\"foo\\":1,\\"baz\\":\\"qux\\"}",
+    }
+  }
+  id="page-kit-flags-embed"
+  type="application/json"
+/>
+`;

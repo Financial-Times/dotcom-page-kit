@@ -13,7 +13,8 @@ describe('dotcom-server-app-context/src/validate', () => {
 
   it('throws an error when given an unknown property/value', () => {
     expect(() => subject('thisProperty', 'isNotInTheSchema')).toThrow(
-      'Validation error: data should NOT have additional properties, received "isNotInTheSchema"'
+      'Validation error: data should NOT have additional properties, received "isNotInTheSchema"' +
+        '\nIf you want to share application specific data with the client, consider using @financial-times/dotcom-ui-data-embed.'
     )
   })
 })

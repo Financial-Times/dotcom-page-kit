@@ -1,4 +1,4 @@
-import React from 'react'
+import { DataEmbed } from '@financial-times/dotcom-ui-data-embed'
 import { formatFlagsJSON } from '../server'
 import { TFlagsData } from '../types'
 import { SCRIPT_ELEMENT_ID } from '../constants'
@@ -8,13 +8,7 @@ type TFlagsEmbedProps = {
 }
 
 function FlagsEmbed({ flags }: TFlagsEmbedProps) {
-  return (
-    <script
-      type="application/json"
-      id={SCRIPT_ELEMENT_ID}
-      dangerouslySetInnerHTML={{ __html: formatFlagsJSON(flags) }}
-    />
-  )
+  return DataEmbed({ id: SCRIPT_ELEMENT_ID, data: formatFlagsJSON(flags) })
 }
 
 FlagsEmbed.defaultProps = {

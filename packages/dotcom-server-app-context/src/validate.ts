@@ -11,6 +11,14 @@ export default function validate(field: string, value): boolean {
   if (isValid(data)) {
     return true
   } else {
-    throw Error(`Validation error: ${ajv.errorsText(isValid.errors)}, received "${value}"`)
+    let errorMessage = `Validation error: ${ajv.errorsText(isValid.errors)}, received "${value}"`
+    const hasErrorsForAdditionProperties = isValid.errors.some(
+      (error) => error.keyword === 'additionalProperties'
+    )
+    if (hasErrorsForAdditionProperties) {
+      errorMessage +=
+        '\nIf you want to share application specific data with the client, consider using @financial-times/dotcom-ui-data-embed.'
+    }
+    throw Error(errorMessage)
   }
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import { DataEmbed } from '@financial-times/dotcom-ui-data-embed'
 import { TAppContext } from '../types'
 import { APP_CONTEXT_ELEMENT_ID } from '../constants'
 
@@ -7,11 +7,5 @@ export type TAppContextProps = {
 }
 
 export function AppContextEmbed({ appContext }: TAppContextProps) {
-  return (
-    <script
-      type="application/json"
-      id={APP_CONTEXT_ELEMENT_ID}
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(appContext) }}
-    />
-  )
+  return DataEmbed({ id: APP_CONTEXT_ELEMENT_ID, data: appContext })
 }

@@ -4,7 +4,7 @@ This package provides tools to define FT app context data and a [JSON schema] de
 
 To learn more about why this feature exists please review the [design document]. To find out which properties can be defined please refer to the [app context schema].
 
-_Please note_ that all app context properties will be appended to every tracking event sent to Spoor. For this reason it is very important not to pollute the schema.
+If you want to share application specific data with the client, consider using [@financial-times/dotcom-ui-data-embed](../dotcom-ui-data-embed).
 
 [JSON schema]: https://json-schema.org/
 [design document]: ../../docs/design-decisions/app-context.md

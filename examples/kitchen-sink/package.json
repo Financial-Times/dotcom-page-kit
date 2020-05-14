@@ -15,6 +15,7 @@
     "@financial-times/dotcom-middleware-asset-loader": "file:../../packages/dotcom-middleware-asset-loader",
     "@financial-times/dotcom-middleware-navigation": "file:../../packages/dotcom-middleware-navigation",
     "@financial-times/dotcom-ui-app-context": "file:../../packages/dotcom-ui-app-context",
+    "@financial-times/dotcom-ui-data-embed": "file:../../packages/dotcom-ui-data-embed",
     "@financial-times/dotcom-ui-flags": "file:../../packages/dotcom-ui-flags",
     "@financial-times/dotcom-ui-layout": "file:../../packages/dotcom-ui-layout",
     "@financial-times/dotcom-ui-shell": "file:../../packages/dotcom-ui-shell",

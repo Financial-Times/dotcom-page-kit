@@ -2,7 +2,6 @@ import { TFlagsData, TFlag } from '../types'
 
 export default class Flags {
   private flags: TFlagsData
-
   constructor(flags: TFlagsData) {
     this.flags = Object.freeze(flags)
   }

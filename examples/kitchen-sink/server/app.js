@@ -11,6 +11,12 @@ app.use(
   appContext.init({ appContext: { appName: 'kitchen-sink' } })
 )
 
+// Embed custom data into every view
+app.use((request, response, next) => {
+  response.locals.embeddedData = { foo: true, bar: 'qux' }
+  next()
+})
+
 app.get('/', require('./controllers/home'))
 
 module.exports = app

@@ -1,13 +1,16 @@
 const React = require('react')
 const ReactDOM = require('react-dom/server')
+const { DataEmbed } = require('@financial-times/dotcom-ui-data-embed')
 const { Shell } = require('@financial-times/dotcom-ui-shell')
 const { Layout } = require('@financial-times/dotcom-ui-layout')
 const { Slot, AdsOptionsEmbed } = require('@financial-times/n-ads')
 
+const { DATA_EMBED_ID } = require('../../constants.js')
+
 module.exports = (_, response, next) => {
   try {
     const flags = { ads: true, tracking: true }
-    const { appContext, assetLoader } = response.locals
+    const { appContext, assetLoader, embeddedData } = response.locals
     const styleBundles = [
       ...assetLoader.getStylesheetURLsFor('page-kit-layout-styles'),
       ...assetLoader.getStylesheetURLsFor('styles')
@@ -64,6 +67,7 @@ module.exports = (_, response, next) => {
             </section>
           </div>
         </Layout>
+        <DataEmbed id={DATA_EMBED_ID} data={embeddedData} />
       </Shell>
     )
 
