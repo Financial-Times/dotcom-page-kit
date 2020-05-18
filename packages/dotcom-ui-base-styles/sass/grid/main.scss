@@ -1,11 +1,10 @@
-$o-grid-mode: snappy;
-
 @import 'o-grid/main';
 @import 'mixins';
 
 @mixin nUiGrid {
 	@include oGrid($opts: (
 		'bleed': true,
+		'snappy': true,
 		'shuffle-selectors': false,
 		'friendly-selectors': false,
 		'surface': ('current-layout'),

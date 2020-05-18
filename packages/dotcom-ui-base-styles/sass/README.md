@@ -114,6 +114,22 @@ Delete the given cookie by setting the expiry to the past.
 
 ## Migration guides
 
+### v4 to v5
+
+v5 of n-ui-foundations no longer outputs a [snappy grid](https://github.com/Financial-Times/o-grid#snappy-mode) by default, as it is deprecated. This means your grid container elements will be wider when the viewport width is at a [grid breakpoint](https://github.com/Financial-Times/o-grid#layout-sizes). Where the grid CSS class `o-grid-container` or Sass mixin `oGridContainer` is used check your project at different breakpoints for visual regressions. If your project looks good no action is needed.
+
+If your project looks broken, you may choose to switch to a `snappy` grid. This will allow us to find where the snappy grid is used and remove it in the future:
+- Find and replace `o-grid-container` classes with `o-grid-container o-grid-container--snappy`.
+```diff
+-<div class="o-grid-container"></div>
++<div class="o-grid-container o-grid-container--snappy"></div>
+```
+- Find `oGridContainer` mixin uses and pass `snappy` as the first argument.
+```diff
+-@include oGridContainer();
++@include oGridContainer($grid-mode: 'snappy');
+```
+
 ### v3 to v4
 
 - All color use cases have been removed as many of these are already defined by `o-` components and should be used instead.
