@@ -10,5 +10,7 @@ export const fullscreen = async () => {
     } catch {
       console.log('fullscreen api permission denied')
     }
+  } else {
+    console.log('fullscreen api not found in navigator')
   }
 }

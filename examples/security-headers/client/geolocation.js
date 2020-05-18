@@ -9,6 +9,6 @@ export function geolocation() {
       (error) => console.log(error.code == 1 ? 'geolocation api permission denied' : 'other')
     )
   } else {
-    console.log('api not found in navigator')
+    console.log('geolocation api not found in navigator')
   }
 }

@@ -1,9 +1,13 @@
 import { Request, Response, NextFunction } from 'express'
 
-const FeaturesToRestrict = ["geolocation 'none'", "fullscreen 'none'"]
+// "wake-lock 'none'"
+// "ambient-light-sensor 'none'"
+// "document-write 'none'" // doesn't work :/
+
+const FeaturesToRestrict = ["geolocation 'none'", "fullscreen 'none'", "usb 'none'", "accelerometer 'none'", "camera 'none'", "document-domain 'none'", "gyroscope 'none'", "microphone 'none'", "midi 'none'", "payment 'none'", "speaker 'none'", "sync-xhr 'none'" ]
 
 export function init() {
-  return async (_: Request, response: Response, next: NextFunction) => {
+  return (_: Request, response: Response, next: NextFunction) => {
     try {
       response.set('Feature-Policy', FeaturesToRestrict.join(','))
       next()
