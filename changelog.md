@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.8.0 (Feature release)
+
+### Data Embed plugin: Added a new package to allow sharing of data between the server and client.
+
+If you are using `@financial-times/dotcom-ui-app-context` to share data with the client you should now use the `@financial-times/dotcom-ui-data-embed` package instead.
+
+Please refer to the [`@financial-times/dotcom-ui-app-context` readme](https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-ui-data-embed#financial-timesdotcom-ui-data-embed) for more details.
+
+[Pull request #812: Add `dotcom-ui-data-embed`](https://github.com/Financial-Times/dotcom-page-kit/pull/812)
+
 ## 0.7.3
 
 - UI layout + shell packages: Fixes font loading issue.
