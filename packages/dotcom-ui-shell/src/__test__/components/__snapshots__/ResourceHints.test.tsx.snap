@@ -48,7 +48,7 @@ Array [
     crossOrigin="anonymous"
     href="/__origami/service/build/v2/files/o-fonts-assets/FontFace.woff2"
     rel="preload"
-    type="font/woff"
+    type="font/woff2"
   />,
 ]
 `;

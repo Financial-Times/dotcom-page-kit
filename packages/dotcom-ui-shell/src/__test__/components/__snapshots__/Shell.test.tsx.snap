@@ -105,28 +105,28 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
       crossOrigin="anonymous"
       href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.5.0/MetricWeb-Regular.woff2"
       rel="preload"
-      type="font/woff"
+      type="font/woff2"
     />
     <link
       as="font"
       crossOrigin="anonymous"
       href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.5.0/MetricWeb-Semibold.woff2"
       rel="preload"
-      type="font/woff"
+      type="font/woff2"
     />
     <link
       as="font"
       crossOrigin="anonymous"
       href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.5.0/FinancierDisplayWeb-Regular.woff2"
       rel="preload"
-      type="font/woff"
+      type="font/woff2"
     />
     <link
       as="font"
       crossOrigin="anonymous"
       href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.5.0/FinancierDisplayWeb-Bold.woff2"
       rel="preload"
-      type="font/woff"
+      type="font/woff2"
     />
     <script
       dangerouslySetInnerHTML={
