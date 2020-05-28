@@ -7,7 +7,7 @@ const ScriptFiles = new Set(['.js', '.mjs'])
 
 const ImageFiles = new Set(['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp'])
 
-const FontFiles = new Set(['.woff2', '.woff22', '.otf', '.ttf', '.eot'])
+const FontFiles = new Set(['.woff', '.woff2', '.otf', '.ttf', '.eot'])
 
 export default (file: string): string => {
   // Always parse the file so that we can ignore any domain names, query strings etc.
