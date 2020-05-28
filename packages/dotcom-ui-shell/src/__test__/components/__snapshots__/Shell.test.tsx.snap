@@ -103,28 +103,28 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
     <link
       as="font"
       crossOrigin="anonymous"
-      href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.4.1/MetricWeb-Regular.woff"
+      href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.5.0/MetricWeb-Regular.woff2"
       rel="preload"
       type="font/woff"
     />
     <link
       as="font"
       crossOrigin="anonymous"
-      href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.4.1/MetricWeb-Semibold.woff"
+      href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.5.0/MetricWeb-Semibold.woff2"
       rel="preload"
       type="font/woff"
     />
     <link
       as="font"
       crossOrigin="anonymous"
-      href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.4.1/FinancierDisplayWeb-Regular.woff"
+      href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.5.0/FinancierDisplayWeb-Regular.woff2"
       rel="preload"
       type="font/woff"
     />
     <link
       as="font"
       crossOrigin="anonymous"
-      href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.4.1/FinancierDisplayWeb-Bold.woff"
+      href="https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.5.0/FinancierDisplayWeb-Bold.woff2"
       rel="preload"
       type="font/woff"
     />

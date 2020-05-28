@@ -9,7 +9,7 @@ describe('dotcom-ui-shell/src/components/ResourceHints', () => {
       'www.example.com/images/graphic.svg#icon',
       'http://polyfill.io/v3/bundle.min.js?features=es5,es6',
       '/assets/public/style.as83hd99.css',
-      '/__origami/service/build/v2/files/o-fonts-assets/FontFace.woff'
+      '/__origami/service/build/v2/files/o-fonts-assets/FontFace.woff2'
     ]
 
     const tree = renderer.create(<Subject resourceHints={fixture} />).toJSON()
