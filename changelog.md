@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.1
+
+- UI base styles, UI layout, and UI shell packages: Use the latest version of `o-fonts-assets` and `o-typography`, which prevents a duplicate download of fonts.
+
 ## 0.8.0 (Feature release)
 
 ### Data Embed plugin: Added a new package to allow sharing of data between the server and client.
