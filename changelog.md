@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.0
+
+- This is the first major stable release of Page Kit. N.B. It includes no changes since the last v0.x release.
+
 ## 0.8.1
 
 - UI base styles, UI layout, and UI shell packages: Use the latest version of `o-fonts-assets` and `o-typography`, which prevents a duplicate download of fonts.
