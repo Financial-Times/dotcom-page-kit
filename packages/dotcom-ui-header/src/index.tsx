@@ -103,4 +103,24 @@ function Drawer(props: THeaderProps) {
 
 Drawer.defaultProps = defaultProps
 
-export { THeaderProps, Header, MainHeader, StickyHeader, LogoOnly, Drawer }
+function NoOutboundLinksHeader(props: THeaderProps) {
+  const includeUserActionsNav = props.showUserNavigation && !props.userIsLoggedIn
+  const includeSubNavigation = props.showSubNavigation && (props.data.breadcrumb || props.data.subsections)
+
+  return (
+    <HeaderWrapper {...props}>
+      {includeUserActionsNav ? <UserActionsNav {...props} /> : null}
+      <TopWrapper>
+        {props.showLogoLink ? <TopColumnCenter /> : <TopColumnCenterNoLink />}
+      </TopWrapper>
+      <NavDesktop>
+        {props.showUserNavigation ? <NavListRight {...props} /> : null}
+      </NavDesktop>
+      {includeSubNavigation ? <SubNavigation {...props} /> : null}
+    </HeaderWrapper>
+  )
+}
+
+NoOutboundLinksHeader.defaultProps = defaultProps
+
+export { THeaderProps, Header, MainHeader, StickyHeader, LogoOnly, NoOutboundLinksHeader, Drawer }

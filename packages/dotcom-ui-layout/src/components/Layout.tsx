@@ -3,6 +3,7 @@ import {
   Header as HeaderSimple,
   Header as HeaderLarge,
   LogoOnly,
+  NoOutboundLinksHeader,
   Drawer,
   THeaderOptions
 } from '@financial-times/dotcom-ui-header/component'
@@ -13,7 +14,8 @@ import Template from './Template'
 enum Headers {
   simple = HeaderSimple,
   'large-logo' = HeaderLarge,
-  'logo-only' = LogoOnly
+  'logo-only' = LogoOnly,
+  'no-outbound-links' = NoOutboundLinksHeader
 }
 
 enum Footers {

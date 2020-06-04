@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react'
 import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
 import * as header from '../../browser.js'
 import { OnReady } from '../../../../.storybook/components/OnReady'
-import { Header as HeaderSimple, Header as HeaderLarge, Drawer, StickyHeader, LogoOnly } from '../../src'
+import { Header as HeaderSimple, Header as HeaderLarge, Drawer, StickyHeader, LogoOnly, NoOutboundLinksHeader } from '../../src'
 import storyData from './story-data'
 import '../../styles.scss'
 import './demos.scss'
@@ -79,4 +79,14 @@ storiesOf('FT / Header', module)
   .add('Logo only', () => {
     const knobs = { variant: toggleVariantOptions(), showLogoLink: toggleShowLogoLink() }
     return <LogoOnly {...knobs} />
+  })
+  .add('No Outbound links', () => {
+    const knobs = {
+      userIsLoggedIn: toggleLoggedIn(),
+      showLogoLink: toggleShowLogoLink(),
+      showUserNavigation: toggleUserStateOptions(),
+      showSubNavigation: toggleShowSubNav(),
+    }
+
+    return <NoOutboundLinksHeader {...storyData} {...knobs} />
   })

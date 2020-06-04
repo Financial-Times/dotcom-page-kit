@@ -6,7 +6,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import { Layout as Subject } from '../Layout'
-import { Header, Drawer, LogoOnly } from '@financial-times/dotcom-ui-header'
+import { Header, Drawer, LogoOnly, NoOutboundLinksHeader } from '@financial-times/dotcom-ui-header'
 import { Footer, LegalFooter } from '@financial-times/dotcom-ui-footer'
 
 describe('dotcom-ui-layout/src/components/Layout', () => {
@@ -77,6 +77,26 @@ describe('dotcom-ui-layout/src/components/Layout', () => {
 
       it('renders the logo only header component', () => {
         expect(result.find(LogoOnly)).toExist()
+      })
+
+      it('does not render the drawer component', () => {
+        expect(result.find(Drawer)).not.toExist()
+      })
+
+      it('does not render the navigation skip link', () => {
+        expect(result.find('a[href="#site-navigation"]')).not.toExist()
+      })
+    })
+
+    describe('with the no-outbound-links variant', () => {
+      let result
+
+      beforeAll(() => {
+        result = shallow(<Subject headerVariant={'no-outbound-links' as any} />)
+      })
+
+      it('renders the no-outbound-links header component', () => {
+        expect(result.find(NoOutboundLinksHeader)).toExist()
       })
 
       it('does not render the drawer component', () => {
