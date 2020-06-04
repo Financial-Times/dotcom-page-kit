@@ -51,10 +51,10 @@
 
 - Refactor sharing data between the server and client into a new package.
 
-### v0.9.0
-
-- Implement uploading static assets via Page Kit.
-
 ### v1.0.0
 
-TBD
+- First major stable release.
+
+### v2.0.0
+
+- Implement uploading static assets via Page Kit.
