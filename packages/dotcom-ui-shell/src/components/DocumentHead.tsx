@@ -46,12 +46,17 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     {/* packaging */}
     <link
       rel="icon"
+      type="image/svg+xml"
+      href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos"
+    />
+    <link
+      rel="alternate icon"
       type="image/png"
       href={imageServiceIconURL('ftlogo-v1:brand-ft-logo-square-coloured', 32)}
       sizes="32x32"
     />
     <link
-      rel="icon"
+      rel="alternate icon"
       type="image/png"
       href={imageServiceIconURL('ftlogo-v1:brand-ft-logo-square-coloured', 194)}
       sizes="194x194"

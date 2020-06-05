@@ -54,14 +54,19 @@ Array [
     property="twitter:site"
   />,
   <link
-    href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=32&height=32&format=png"
+    href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos"
     rel="icon"
+    type="image/svg+xml"
+  />,
+  <link
+    href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=32&height=32&format=png"
+    rel="alternate icon"
     sizes="32x32"
     type="image/png"
   />,
   <link
     href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos&width=194&height=194&format=png"
-    rel="icon"
+    rel="alternate icon"
     sizes="194x194"
     type="image/png"
   />,
