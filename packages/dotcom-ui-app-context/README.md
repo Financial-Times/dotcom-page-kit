@@ -30,10 +30,10 @@ export default (props) => (
     <head>
       <meta charSet="utf-8" />
       <title>My Amazing Website</title>
-      <AppContextEmbed appContext={appContext} />
     </head>
     <body>
       ...
+      <AppContextEmbed appContext={appContext} />
     </body>
   </html>
 )
@@ -48,12 +48,12 @@ function page() {
     <head>
       <meta charset="utf-8">
       <title>My Amazing Website</title>
-      <script type="application/json" id="page-kit-app-context">
-        {"appName":"app-name","contextProperty":"my-property"}
-      </script>
     </head>
     <body>
       ...
+      <script type="application/json" id="page-kit-app-context">
+        {"appName":"app-name","contextProperty":"my-property"}
+      </script>
     </body>
   </html>`
 }
