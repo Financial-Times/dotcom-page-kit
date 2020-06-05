@@ -85,7 +85,7 @@ _Please note_ that the exact usage will depend on how you configure your Sass co
 | PROP            | TYPE                                            | OPTIONAL | DEFAULT     | DESCRIPTION                                                                                  |
 |-----------------|-------------------------------------------------|----------|-------------|----------------------------------------------------------------------------------------------|
 | navigationData  | [TNavigationData]                               | true*    | `undefined` | Required if using the built in header and/or footer components. See note below.              |
-| headerVariant   | 'simple' \| 'large-logo' \| 'logo-only'\| false | true     | `"simple"`  | The type of built in [header] to display                                                     |
+| headerVariant   | 'simple' \| 'large-logo' \| 'logo-only'\| 'no-outbound-links'\| false | true     | `"simple"`  | The type of built in [header] to display                                                     |
 | headerBefore    | string \| ReactElement                          | true     | `undefined` | A slot for content to appear before Header                                                   |
 | headerAfter     | string \| ReactElement                          | true     | `undefined` | A slot for content to appear after Header                                                    |
 | headerOptions   | THeaderProps                                    | true     | `undefined` | Pass options to the header component                                                         |
