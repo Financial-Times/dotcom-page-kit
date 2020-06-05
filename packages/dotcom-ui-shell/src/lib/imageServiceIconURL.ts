@@ -1,11 +1,11 @@
 import querystring from 'querystring'
 
-function imageServiceIconURL(image: string, size: number, format: string): string {
+function imageServiceIconURL(image: string, size: number, format = 'png'): string {
   const serviceURL = 'https://www.ft.com/__origami/service/image/v2/images/raw/'
 
   const serviceParameters = {
     source: 'update-logos',
-    format: format || 'png'
+    format: format
   }
 
   // Do not add width and height if format is svg because svg files scale automatically
