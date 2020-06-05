@@ -5,13 +5,15 @@ function imageServiceIconURL(image: string, size: number, format = 'png'): strin
 
   const serviceParameters = {
     source: 'update-logos',
-    format: format
+    format: format,
+    width: size,
+    height: size
   }
 
   // Do not add width and height if format is svg because svg files scale automatically
-  if (format !== 'svg') {
-    serviceParameters.width = size
-    serviceParameters.height = size
+  if (format === 'svg') {
+    delete serviceParameters.width
+    delete serviceParameters.height
   }
 
   const queryString = querystring.stringify(serviceParameters)
