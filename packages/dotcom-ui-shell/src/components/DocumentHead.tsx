@@ -47,7 +47,7 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     <link
       rel="icon"
       type="image/svg+xml"
-      href="https://www.ft.com/__origami/service/image/v2/images/raw/ftlogo-v1%3Abrand-ft-logo-square-coloured?source=update-logos"
+      href={imageServiceIconURL('ftlogo-v1:brand-ft-logo-square-coloured', 0, 'svg')}
     />
     <link
       rel="alternate icon"
