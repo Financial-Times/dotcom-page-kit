@@ -3,12 +3,18 @@ import querystring from 'querystring'
 function imageServiceIconURL(image: string, size: number, format: string): string {
   const serviceURL = 'https://www.ft.com/__origami/service/image/v2/images/raw/'
 
-  const queryString = querystring.stringify({
+  const serviceParameters = {
     source: 'update-logos',
-    width: size,
-    height: size,
     format: format || 'png'
-  })
+  }
+
+  // Do not add width and height if format is svg because svg files scale automatically
+  if (format !== 'svg') {
+    serviceParameters.width = size
+    serviceParameters.height = size
+  }
+
+  const queryString = querystring.stringify(serviceParameters)
 
   return `${serviceURL}${encodeURIComponent(image)}?${queryString}`
 }
