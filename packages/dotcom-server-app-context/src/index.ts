@@ -1,2 +1,2 @@
 export * from './AppContext'
-export * from './types'
+export { TAppContext } from './types'
