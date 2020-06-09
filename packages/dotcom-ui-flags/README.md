@@ -25,10 +25,10 @@ export default (props) => (
     <head>
       <meta charSet="utf-8" />
       <title>My Amazing Website</title>
-      <FlagsEmbed flags={props.flagsData} />
     </head>
     <body>
       ...
+      <FlagsEmbed flags={props.flagsData} />
     </body>
   </html>
 )
@@ -45,12 +45,12 @@ function page() {
     <head>
       <meta charset="utf-8">
       <title>My Amazing Website</title>
-      <script type="application/json" id="page-kit-flags-embed">
-        ${formatFlagsJSON(flagsData)}
-      </script>
     </head>
     <body>
       ...
+      <script type="application/json" id="page-kit-flags-embed">
+        ${formatFlagsJSON(flagsData)}
+      </script>
     </body>
   </html>`
 }

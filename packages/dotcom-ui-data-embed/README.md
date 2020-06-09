@@ -26,10 +26,10 @@ export default (props) => (
     <head>
       <meta charSet="utf-8" />
       <title>My Amazing Website</title>
-      <DataEmbed id={DATA_EMBED_ID} data={data} />
     </head>
     <body>
       ...
+      <DataEmbed id={DATA_EMBED_ID} data={data} />
     </body>
   </html>
 )
@@ -43,12 +43,12 @@ Otherwise you can insert a JSON formatted string into a `<script>` element with 
     <head>
         <meta charset="utf-8">
         <title>My Amazing Website</title>
-        <script type="application/json" id="data-embed">
-        {"property":"value","secondProperty":"second-value"}
-        </script>
     </head>
     <body>
         ...
+        <script type="application/json" id="data-embed">
+        {"property":"value","secondProperty":"second-value"}
+        </script>
     </body>
 </html>
 ```
