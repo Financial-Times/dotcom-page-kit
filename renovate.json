@@ -1,3 +1,5 @@
 {
-  "extends": ["config:base", "schedule:nonOfficeHours", ":preserveSemverRanges"]
+  "extends": [
+    "github>financial-times/renovate-config-next"
+  ]
 }
