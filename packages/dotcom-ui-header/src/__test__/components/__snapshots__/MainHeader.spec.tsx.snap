@@ -26,12 +26,12 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
             className="o-header__top-link o-header__top-link--menu"
             data-trackable="drawer-toggle"
             href="#o-header-drawer"
-            title="Open drawer menu"
+            title="Open side navigation menu"
           >
             <span
               className="o-header__top-link-label"
             >
-              Open drawer menu
+              Open side navigation menu
             </span>
           </a>
           <a
@@ -1865,12 +1865,12 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
             className="o-header__top-link o-header__top-link--menu"
             data-trackable="drawer-toggle"
             href="#o-header-drawer"
-            title="Open drawer menu"
+            title="Open side navigation menu"
           >
             <span
               className="o-header__top-link-label"
             >
-              Open drawer menu
+              Open side navigation menu
             </span>
           </a>
           <a
