@@ -17,9 +17,9 @@ const DrawerIcon = () => (
     href="#o-header-drawer"
     className="o-header__top-link o-header__top-link--menu"
     aria-controls="o-header-drawer"
-    title="Open drawer menu"
+    title="Open side navigation menu"
     data-trackable="drawer-toggle">
-    <span className="o-header__top-link-label">Open drawer menu</span>
+    <span className="o-header__top-link-label">Open side navigation menu</span>
   </a>
 )
 
