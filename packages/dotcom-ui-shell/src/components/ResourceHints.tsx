@@ -16,7 +16,7 @@ const ResourceHints = (props: TResourceHintsProps) => {
       <link rel="preconnect" href="https://spoor-api.ft.com" />
       {/*
         The session API is used to validate users and retrieve information about them
-        <https://github.com/Financial-Times/next-session-client>
+        <https://github.com/Financial-Times/next-session>
       */}
       <link rel="preconnect" href="https://session-next.ft.com" crossOrigin="use-credentials" />
       {/*
