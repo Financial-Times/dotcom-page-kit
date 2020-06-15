@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.1.1
+
+- Header UI Component: Update drawer menu accessible name for plain english alternative
+- Shell UI Component: Use an svg icon and fallback to png
+
+## 1.1.0
+
+-  Header UI Component, Layout UI Component: Add new header variant aimed at app users
+
 ## 1.0.0
 
 - This is the first major stable release of Page Kit. N.B. It includes no changes since the last v0.x release.
