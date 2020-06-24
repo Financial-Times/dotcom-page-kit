@@ -55,6 +55,6 @@
 
 - First major stable release.
 
-### v2.0.0
+### Future major releases
 
 - Implement uploading static assets via Page Kit.
