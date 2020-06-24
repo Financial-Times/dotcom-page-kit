@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.0.0
+
+- Shell UI Component: use an SVG icon in header and fallback to PNG, thanks @JakeChampion
+- Header UI Component: Update drawer menu accessible name for plain english alternative
+- (Breaking change) Header, Layout and Base styles UI Components: Small breaking release to update `n-ui-foundation` to version 6.
+
+Follow the [`n-ui-foundation` v5 to v6 migration guide](https://github.com/Financial-Times/n-ui-foundations#user-content-v5-to-v6) to check if you need to update anything in your application.
+
+## 1.1.0
+
+- Header UI Component: add new header variant aimed at app users
+
 ## 1.0.0
 
 - This is the first major stable release of Page Kit. N.B. It includes no changes since the last v0.x release.
