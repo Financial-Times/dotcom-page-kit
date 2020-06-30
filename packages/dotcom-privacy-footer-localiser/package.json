@@ -1,0 +1,32 @@
+{
+  "name": "@financial-times/dotcom-privacy-footer-localiser",
+  "version": "0.0.0",
+  "description": "",
+  "browser": "src/main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "../../node_modules/.bin/tsc --incremental",
+    "clean": "npm run clean:dist && npm run clean:node_modules",
+    "clean:dist": "rm -rf dist",
+    "clean:node_modules": "rm -rf node_modules",
+    "clean:install": "npm run clean && npm i",
+    "build": "npm run build:node",
+    "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
+    "dev": "npm run build:node -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@financial-times/privacy-legislation-client": "^0.3.7"
+  },
+  "engines": {
+    "node": ">= 12.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
+    "directory": "packages/dotcom-privacy-footer-localiser"
+  },
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-privacy-footer-localiser"
+}
