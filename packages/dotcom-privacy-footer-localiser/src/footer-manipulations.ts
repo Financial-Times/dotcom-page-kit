@@ -30,5 +30,5 @@ export function changePrivacyLinkText(newText: string): void {
     throw new Error('A Privacy link could not be found in the footer')
   }
 
-  termsLink.innerText = newText
+  termsLink.innerHTML = newText
 }

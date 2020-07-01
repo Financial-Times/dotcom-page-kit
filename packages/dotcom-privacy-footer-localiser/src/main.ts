@@ -25,7 +25,7 @@ export async function adaptPrivacyLinkToLegislation(): Promise<void> {
 
     // If the user is in California update our UI to meet CCPA requirements
     if (legislation.has('ccpa')) {
-      changePrivacyLinkText('Privacy - CCPA Updates')
+      changePrivacyLinkText('Privacy - CCPA UPDATES')
     }
   } catch (err) {
     console.error(err) //eslint-disable-line no-console
