@@ -1,6 +1,8 @@
 # @financial-times/dotcom-privacy-footer-localiser
 
-This package is meant to modify the default footer of dotcom pages based on the requirements of any local legislation that might apply to a user.
+This package provides utilities to adapt the default footer of dotcom pages based on the specific requirements of the legislation that applies to each user.
+
+This module relies on `@financial-times/privacy-legislation-client` for determining the legislation that applies to the user.
 
 
 ## Getting started
