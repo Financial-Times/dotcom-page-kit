@@ -20,22 +20,22 @@ This module doesn't export any server-side functionality.
 
 This package exports two methods to manipulate the footer 
 
-- `addDNSLinkToFooter`: adds a "Do Not Sell My Info" Link above the "Privacy" if the CCPA legislation applies to the user.
-- `adaptPrivacyLinkToLegislation`: replaces the text of the "Privacy" link with one that matches the requirements of the legislation that applies to the user.
+- `addDNSLinkToFooter`: adds a "Do Not Sell My Info" link above the "Privacy" if the CCPA legislation applies to the user.
+- `adaptPrivacyLinkToLegislation`: replaces the text of the "Privacy" link according to the legislation that applies to the user, if needed.
 
-Neither of those two methods accept any parameters.
+Neither of those two methods accept any parameters. Both methods rely on the presence of a DOM element that matches the selector: `#site-footer [href='http://help.ft.com/help/legal-privacy/privacy/']`
 
 #### Examples
 
 ```js
-import { addDNSLinkToFooter } from '../main'
+import { addDNSLinkToFooter } from '@financial-times/dotcom-privacy-footer-localiser'
 
 // ... JS operations with higher priority 
 addDNSLinkToFooter()
 ```
 
 ```js
-import { adaptPrivacyLinkToLegislation } from '../main'
+import { adaptPrivacyLinkToLegislation } from '@financial-times/dotcom-privacy-footer-localiser'
 
 // ... JS operations with higher priority 
 adaptPrivacyLinkToLegislation()
