@@ -69,4 +69,5 @@ The CSS loader has `@import` and `url()` resolution disabled as these should be 
 | Option            | Type     | Default | Description                                                        |
 |-------------------|----------|---------|--------------------------------------------------------------------|
 | `webpackImporter` | Boolean  | `false` | See https://github.com/webpack-contrib/sass-loader#webpackimporter |
+| `prependData`     | String   | `''`    | See https://webpack.js.org/loaders/sass-loader/#prependdata        |
 | `includePaths`    | String[] | `[]`    | See https://sass-lang.com/documentation/js-api#includepaths        |
