@@ -1,6 +1,6 @@
 # FT UI
 
-This example demonstrates all the FT.com layout which includes the header, navigation and footer components. It uses [Sucrase] to provide support for JSX syntax and ESM.
+This example demonstrates all the FT.com layout which includes the header, navigation, and footer components. It uses [Sucrase] to provide support for JSX syntax and ESM.
 
 It also shows how to use the utils exposed by privacy-footer-localiser on the client-side.
 
