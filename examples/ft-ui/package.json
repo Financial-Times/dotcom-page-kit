@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@financial-times/dotcom-middleware-navigation": "file:../../packages/dotcom-middleware-navigation",
+    "@financial-times/dotcom-privacy-footer-localiser": "file:../../packages/dotcom-privacy-footer-localiser",
     "@financial-times/dotcom-ui-layout": "file:../../packages/dotcom-ui-layout",
     "@financial-times/dotcom-ui-shell": "file:../../packages/dotcom-ui-shell",
     "express": "^4.16.2",
