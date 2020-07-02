@@ -15,6 +15,9 @@ describe('examples/building-sass-files', () => {
       // Styles should be defined by the o-normalise package
       expect(outputContents).toContain('.o-normalise-visually-hidden')
     })
+    it('can prepend data to the output', () => {
+      expect(outputContents).toContain('.prepended-flag-exists')
+    })
   })
 
   describe('PostCSS', () => {
