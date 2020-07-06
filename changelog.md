@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1
+
+- Sass build plugin: accept prependData option to include in sassLoaderOptions
+
 ## 2.0.0
 
 - Shell UI Component: use an SVG icon in header and fallback to PNG, thanks @JakeChampion
