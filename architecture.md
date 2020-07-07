@@ -55,7 +55,7 @@ There are several example applications in the `examples/` folder which serve two
 
 ## Releasing changes
 
-All Page Kit packages have their version numbers pinned together and use a single release process. Releases are currently planned according to [the roadmap](roadmap.md) and changes should be recorded in [the changelog](changelog.md). When planning a new release please consult the [release guidelines](release-guidelines.md).
+All Page Kit packages have their version numbers pinned together and use a single release process. Releases are currently planned according to [the roadmap](roadmap.md). When planning a new release please consult the [release guidelines](release-guidelines.md).
 
 
 ## Application integration diagrams
