@@ -130,6 +130,12 @@ If your project looks broken, you may choose to switch to a `snappy` grid. This 
 +@include oGridContainer($grid-mode: 'snappy');
 ```
 
+If your app uses Page Kit's `dotcom-build-sass` package and needs to maintain a `snappy` grid, then ensure you are using Page Kit >= v2.0.1 and make the following change in the app's `webpack.config.js`:
+```diff
+-new PageKitSassPlugin()
++new PageKitSassPlugin({ prependData: '$o-grid-mode: \'snappy\';' })
+```
+
 ### v4 to v5
 
 - No manual changes required, but font changes will occur:
