@@ -60,7 +60,15 @@ export class PageKitCodeSplittingPlugin {
       usedInUnknownWay: true
     })
 
-    // split packages used by all pages (i.e. used y Page Kit) into a shared bundle
+    // split all privacy- packages into one bundle file
+    const addPrivacyCodeSplitting = createBundleWithRegExp({
+      compiler,
+      name: 'privacy',
+      pattern: /[\\\/]privacy-/,
+      usedInUnknownWay: true
+    });
+
+    // split packages used by all pages (i.e. used by Page Kit) into a shared bundle
     const addSharedStableCodeSplitting = createBundleWithPackages({
       compiler,
       name: 'shared.stable',
@@ -93,6 +101,7 @@ export class PageKitCodeSplittingPlugin {
       addLibraryCodeSplitting,
       addComponentCodeSplitting,
       addSuperstoreCodeSplitting,
+      addPrivacyCodeSplitting,
       addSharedStableCodeSplitting,
       addSharedVolatileCodeSplitting
     )
