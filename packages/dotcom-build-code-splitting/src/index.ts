@@ -63,7 +63,7 @@ export class PageKitCodeSplittingPlugin {
     // split all privacy- packages into one bundle file
     const addPrivacyCodeSplitting = createBundleWithRegExp({
       compiler,
-      name: 'privacy',
+      name: 'privacy-components',
       pattern: /[\\\/]privacy-/,
       usedInUnknownWay: true
     });
