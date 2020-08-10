@@ -16,7 +16,7 @@ _Please note_ for apps using [Renovate] we have configured Page Kit dependencies
 
 ### Patch versions
 
-  1. Pull requests for bug fixes should be raised against the `master` branch. Label the PR with the "bug" label and tag Core UI team members to review it.
+  1. Pull requests for bug fixes should be raised against the `master` branch. Label the PR with the "bug" label and tag the Platforms team to review it.
 
   2. Release the changes. Create a release using the GitHub UI (note there should be a "v" preceding the version number). This will automatically kick off a new build and publish each package.
 
