@@ -64,7 +64,7 @@ export class PageKitCodeSplittingPlugin {
     const addPrivacyCodeSplitting = createBundleWithRegExp({
       compiler,
       name: 'privacy-components',
-      pattern: /[\\\/]privacy-/,
+      pattern: /@financial-times\/privacy-/,
       usedInUnknownWay: true
     });
 
