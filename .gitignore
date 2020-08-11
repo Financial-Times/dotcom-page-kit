@@ -9,4 +9,4 @@ package-lock.json
 yarn.lock
 .vscode
 .cache
-/**/__tests__/tmp
+/**/__fixtures__/tmp
