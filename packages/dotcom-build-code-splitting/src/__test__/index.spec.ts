@@ -17,9 +17,9 @@ describe('Code Splitting', () => {
           },
           plugins: [new PageKitCodeSplittingPlugin()]
         },
-        function (err, stats) {
-          if (err) {
-            throw err
+        function (error, stats) {
+          if (error) {
+            throw error
           } else if (stats.hasErrors()) {
             throw stats.toString()
           }
