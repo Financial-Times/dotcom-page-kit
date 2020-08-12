@@ -24,7 +24,7 @@ describe('Code Splitting', () => {
             throw stats.toString()
           }
 
-          const files = stats.toJson().assets.map((x) => x.name)
+          const files = stats.toJson().assets.map(asset => asset.name)
 
           expect(files).toEqual(expect.arrayContaining(['privacy-components.js']))
 
