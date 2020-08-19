@@ -61,5 +61,3 @@ The image files are hashed in production.
 
 - It is possible to use the copy plugin, but that would mean swapping the
   manifest plugin: https://gist.github.com/i-like-robots/9a460b55bcc34a38866b9cc163787639
-
-Credit to @i-like-robots, @apaleslimghost and @simonplend
