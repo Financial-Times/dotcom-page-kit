@@ -2,8 +2,8 @@ import { PageKitImagesPlugin } from '../index'
 import webpack from 'webpack'
 import path from 'path'
 
-describe('Image Uploader', () => {
-  it('copy images', async () => {
+describe('dotcom-build-images', () => {
+  it('build images', async () => {
     await new Promise((resolve) =>
       webpack(
         {

@@ -2,8 +2,8 @@ import { PageKitCodeSplittingPlugin } from '../index'
 import webpack from 'webpack'
 import path from 'path'
 
-describe('Code Splitting', () => {
-  it('chunk privacy modules', async () => {
+describe('dotcom-build-code-splitting', () => {
+  it('create chunk for privacy modules', async () => {
     await new Promise((resolve) =>
       webpack(
         {
@@ -24,7 +24,7 @@ describe('Code Splitting', () => {
             throw stats.toString()
           }
 
-          const files = stats.toJson().assets.map(asset => asset.name)
+          const files = stats.toJson().assets.map((asset) => asset.name)
 
           expect(files).toEqual(expect.arrayContaining(['privacy-components.js']))
 
