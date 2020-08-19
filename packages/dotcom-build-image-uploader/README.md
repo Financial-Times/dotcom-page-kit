@@ -29,11 +29,10 @@ module.export = {
 }
 ```
 
-## Options
+## Arguments
 
-- `options` -  Options object. Default to empty object.
-  - `basePath` - Directory to look in for images. Defaults to `./client/`.
-  - `globPattern` - Glob pattern for finding images. Defaults to `.{png,jpg,jpeg,gif,webp,ico,svg}`.
+- `basePath` - Directory to look in for images. Defaults to `./client/`.
+
 
 ## Notes
 

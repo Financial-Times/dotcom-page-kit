@@ -16,7 +16,7 @@ describe('Image Uploader', () => {
             filename: '[name].js',
             path: path.join(__dirname, '/tmp')
           },
-          plugins: [new PageKitImageUploaderPlugin({ basePath: path.join(__dirname, '/client') })]
+          plugins: [new PageKitImageUploaderPlugin(path.join(__dirname, '/__fixtures__', '/images'))]
         },
         function (error, stats) {
           if (error) {
@@ -28,7 +28,7 @@ describe('Image Uploader', () => {
           const files = stats.toJson().assets.map((asset) => asset.name)
 
           expect(files).toEqual(
-            expect.arrayContaining(['scripts.js', '__images__.js', 'images/vectors/square.469177db7c8b.svg'])
+            expect.arrayContaining(['scripts.js', '__images__.js', 'vectors/square.469177db7c8b.svg'])
           )
 
           resolve()

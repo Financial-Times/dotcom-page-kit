@@ -3,20 +3,16 @@ const glob = require('glob')
 const MultiEntryPlugin = require('webpack/lib/MultiEntryPlugin')
 
 export class PageKitImageUploaderPlugin {
-  options: { basePath: string; globPattern: string }
+  basePath: string
 
-  constructor(options = {}) {
-    this.options = {
-      basePath: './client',
-      globPattern: '**/*.{png,jpg,jpeg,gif,webp,ico,svg}',
-      ...options
-    }
+  constructor(directory = './client') {
+    this.basePath = directory
   }
 
   apply(compiler) {
-    const imageFiles = glob.sync(this.options.globPattern, {
+    const imageFiles = glob.sync('**/*.{png,jpg,jpeg,gif,webp,ico,svg}', {
       absolute: true,
-      cwd: path.resolve(this.options.basePath)
+      cwd: path.resolve(this.basePath)
     })
 
     new MultiEntryPlugin(compiler.context, imageFiles, '__images__').apply(compiler)
@@ -33,7 +29,7 @@ export class PageKitImageUploaderPlugin {
             name: (resourcePath) => {
               const dirname = path.dirname(resourcePath)
 
-              const relativePath = path.relative(this.options.basePath, dirname)
+              const relativePath = path.relative(this.basePath, dirname)
 
               return path.join(relativePath, outputFileName)
             }
