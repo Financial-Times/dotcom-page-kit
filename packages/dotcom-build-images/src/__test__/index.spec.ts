@@ -16,7 +16,7 @@ describe('dotcom-build-images', () => {
             filename: '[name].js',
             path: path.join(__dirname, '/tmp')
           },
-          plugins: [new PageKitImagesPlugin(path.join(__dirname, '/__fixtures__', '/images'))]
+          plugins: [new PageKitImagesPlugin({ basePath: path.join(__dirname, '/__fixtures__', '/images') })]
         },
         function (error, stats) {
           if (error) {
