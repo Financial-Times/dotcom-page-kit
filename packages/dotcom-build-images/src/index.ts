@@ -2,7 +2,7 @@ const path = require('path')
 const glob = require('glob')
 const MultiEntryPlugin = require('webpack/lib/MultiEntryPlugin')
 
-export class PageKitImageUploaderPlugin {
+export class PageKitImagesPlugin {
   basePath: string
 
   constructor(directory = './client') {

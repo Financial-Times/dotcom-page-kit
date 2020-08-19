@@ -1,4 +1,4 @@
-import { PageKitImageUploaderPlugin } from '../index'
+import { PageKitImagesPlugin } from '../index'
 import webpack from 'webpack'
 import path from 'path'
 
@@ -16,7 +16,7 @@ describe('Image Uploader', () => {
             filename: '[name].js',
             path: path.join(__dirname, '/tmp')
           },
-          plugins: [new PageKitImageUploaderPlugin(path.join(__dirname, '/__fixtures__', '/images'))]
+          plugins: [new PageKitImagesPlugin(path.join(__dirname, '/__fixtures__', '/images'))]
         },
         function (error, stats) {
           if (error) {

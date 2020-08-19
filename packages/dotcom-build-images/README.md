@@ -1,4 +1,4 @@
-# @financial-times/dotcom-build-image-uploader
+# @financial-times/dotcom-build-images
 
 This package exports a Webpack plugin to provide support for static image assets in our asset pipeline.
 The plugin will copy all image files contained in the `client/` directory, and any of its subdirectories, into the configured public directory. 
@@ -12,7 +12,7 @@ The plugin will copy all image files contained in the `client/` directory, and a
 ## Installation
 
 ```sh
-npm install --save-dev @financial-times/dotcom-build-image-uploader
+npm install --save-dev @financial-times/dotcom-build-images
 ```
 
 ## Usage
@@ -20,11 +20,11 @@ npm install --save-dev @financial-times/dotcom-build-image-uploader
 After installing the package you must add it to the list of plugins in your project's `webpack.config.js` configuration file:
 
 ```diff
-+ const { PageKitImageUploaderPlugin } = require('@financial-times/dotcom-build-image-uploader')
++ const { PageKitImagesPlugin } = require('@financial-times/dotcom-build-images')
 
 module.export = {
   plugins: [
-+    new PageKitImageUploaderPlugin()
++    new PageKitImagesPlugin()
   ]
 }
 ```
