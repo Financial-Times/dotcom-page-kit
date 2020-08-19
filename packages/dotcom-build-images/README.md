@@ -3,29 +3,23 @@
 This package exports a Webpack plugin to provide support for static image assets in our asset pipeline.
 The plugin will copy all image files contained in the `client/` directory, and any of its subdirectories, into the configured public directory. 
 
+## Getting started
 
-## Requirements
-
-* Node 12.x
-
-
-## Installation
+This package is compatible with Node 12+ and is distributed on npm.
 
 ```sh
 npm install --save-dev @financial-times/dotcom-build-images
 ```
 
-## Usage
+After installing the module you must add it to the list of plugins in your project's `webpack.config.js` configuration file:
 
-After installing the package you must add it to the list of plugins in your project's `webpack.config.js` configuration file:
+```js
+const { PageKitImagesPlugin } = require('@financial-times/dotcom-build-base');
 
-```diff
-+ const { PageKitImagesPlugin } = require('@financial-times/dotcom-build-images')
-
-module.export = {
-  plugins: [
-+    new PageKitImagesPlugin()
-  ]
+module.exports = {
+	plugins: [
+		new PageKitImagesPlugin()
+	]
 }
 ```
 
@@ -34,7 +28,7 @@ module.export = {
 - `basePath` - Directory to look in for images. Defaults to `./client/`.
 
 
-## Notes
+## Scope
 
 The directory path for each image will be retained e.g.
 
