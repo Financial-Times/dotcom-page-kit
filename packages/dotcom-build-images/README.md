@@ -23,9 +23,11 @@ module.exports = {
 }
 ```
 
-## Arguments
+## Options
 
-- `basePath` - Directory to look in for images. Defaults to `./client/`.
+| Option     | Type    | Default       | Description                                                          |
+|------------|---------|---------------|---------------------------------|
+| `basePath` | String  | `"./client/"` | Directory to look in for images |
 
 
 ## Scope
@@ -43,7 +45,7 @@ meaning that they're available via the `dotcom-server-asset-loader` e.g.
 assetLoader.getPublicURL('images/subdir/image.jpg')
 ```
 
-The image files are hashed in production.
+The image file names are hashed in production, e.g. `image.76f59deb1275.jpg`, to allow us to set longer cache times.
 
 ## Caveats
 
