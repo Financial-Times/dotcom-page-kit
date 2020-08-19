@@ -25,7 +25,7 @@ module.exports = {
 
 ## Options
 
-| Option     | Type    | Default       | Description                                                          |
+| Option     | Type    | Default       | Description                     |
 |------------|---------|---------------|---------------------------------|
 | `basePath` | String  | `"./client/"` | Directory to look in for images |
 
