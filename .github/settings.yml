@@ -1,5 +1,4 @@
 _extends: github-apps-config-next
-
 branches:
   - name: master
     protection:
@@ -10,10 +9,10 @@ branches:
       required_status_checks:
         strict: false
         contexts:
-          - "ci/circleci: test"
-          - "build-test"
-          - "ci/circleci: build"
-      enforce_admins: false
+          - 'ci/circleci: test'
+          - build-test
+          - 'ci/circleci: build'
+      enforce_admins: true
       restrictions:
         users: []
         teams: []
