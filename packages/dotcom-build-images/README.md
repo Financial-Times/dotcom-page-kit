@@ -22,14 +22,6 @@ module.exports = {
 	]
 }
 ```
-
-## Options
-
-| Option     | Type    | Default       | Description                     |
-|------------|---------|---------------|---------------------------------|
-| `basePath` | String  | `"./client/"` | Directory to look in for images |
-
-
 ## Scope
 
 The directory path for each image will be retained e.g.
@@ -38,14 +30,25 @@ The directory path for each image will be retained e.g.
 `images/image.jpg` -> `images/image.jpg`
 `images/subdir/image.jpg` -> `images/subdir/image.jpg`
 
-The public image paths are automatically added to the generated `manifest.json`,
-meaning that they're available via the `dotcom-server-asset-loader` e.g.
+The public image paths are automatically added to the generated `manifest.json`, meaning that they're available via the `dotcom-server-asset-loader` e.g.
 
 ```
 assetLoader.getPublicURL('images/subdir/image.jpg')
 ```
 
 The image file names are hashed in production, e.g. `image.76f59deb1275.jpg`, to allow us to set longer cache times.
+
+The plugin can be configured to look in a custom location for the images by passing in the relevant base path:
+
+```js
+new PageKitImagesPlugin({ basePath: path.join(__dirname, '/path', '/to', '/images') })
+```
+
+## Options
+
+| Option     | Type    | Default       | Description                     |
+|------------|---------|---------------|---------------------------------|
+| `basePath` | String  | `"./client/"` | Directory to look in for images |
 
 ## Caveats
 
