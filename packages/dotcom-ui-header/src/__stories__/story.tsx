@@ -3,8 +3,16 @@ import { storiesOf } from '@storybook/react'
 import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
 import * as header from '../../browser.js'
 import { OnReady } from '../../../../.storybook/components/OnReady'
-import { Header as HeaderSimple, Header as HeaderLarge, Drawer, StickyHeader, LogoOnly, NoOutboundLinksHeader } from '../../src'
+import {
+  Header as HeaderSimple,
+  Header as HeaderLarge,
+  Drawer,
+  StickyHeader,
+  LogoOnly,
+  NoOutboundLinksHeader
+} from '../../src'
 import storyData from './story-data'
+import profileStoryData from './story-data/profile'
 import '../../styles.scss'
 import './demos.scss'
 
@@ -29,7 +37,6 @@ storiesOf('FT / Header', module)
   .add('Default header with drawer', () => {
     const knobs = {
       showSubNavigation: toggleShowSubNav(),
-      showUserNavigation: toggleUserStateOptions(),
       showMegaNav: toggleShowMegaNav(),
       userIsLoggedIn: toggleLoggedIn(),
       currentPath: toggleMobileNav(),
@@ -41,6 +48,25 @@ storiesOf('FT / Header', module)
       <OnReady callback={onReadyCallback}>
         <HeaderSimple {...storyData} {...knobs} />
         <Drawer {...storyData} {...knobs} />
+      </OnReady>
+    )
+  })
+  .add('Default header with right aligned subnav', () => {
+    const knobs = {
+      showMegaNav: toggleShowMegaNav(),
+      currentPath: toggleMobileNav(),
+      showLogoLink: toggleShowLogoLink(),
+      showUserNavigation: true,
+      showSubNavigation: true,
+      userIsLoggedIn: true
+    }
+
+    profileStoryData.data = { ...profileStoryData.data, currentPath: toggleMobileNav() }
+
+    return (
+      <OnReady callback={onReadyCallback}>
+        <HeaderSimple {...profileStoryData} {...knobs} />
+        <Drawer {...profileStoryData} {...knobs} />
       </OnReady>
     )
   })
@@ -85,7 +111,7 @@ storiesOf('FT / Header', module)
       userIsLoggedIn: toggleLoggedIn(),
       showLogoLink: toggleShowLogoLink(),
       showUserNavigation: toggleUserStateOptions(),
-      showSubNavigation: toggleShowSubNav(),
+      showSubNavigation: toggleShowSubNav()
     }
 
     return <NoOutboundLinksHeader {...storyData} {...knobs} />

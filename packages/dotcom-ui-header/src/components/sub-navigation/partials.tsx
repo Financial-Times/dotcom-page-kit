@@ -7,6 +7,7 @@ const SubNavigation = (props: THeaderProps) => (
   <SubNavigationWrapper>
     <BreadCrumb items={props.data.breadcrumb} />
     <SubSections items={props.data.subsections} />
+    <SubSections items={props.data.subsectionsRight} rightAlignment={true} />
   </SubNavigationWrapper>
 )
 
@@ -65,11 +66,18 @@ const BreadCrumb = ({ items }: { items: TNavMenuItem[] }) => (
   </ol>
 )
 
-const SubSections = ({ items }: { items: TNavMenuItem[] }) => {
+const SubSections = ({ items, rightAlignment }: { items: TNavMenuItem[]; rightAlignment?: boolean }) => {
+  if (!items || items.length === 0) {
+    return null
+  }
+
   return (
     <ul
-      className="o-header__subnav-list o-header__subnav-list--children"
-      aria-label="Subsections"
+      className={
+        'o-header__subnav-list o-header__subnav-list--children' +
+        (rightAlignment ? ' o-header__subnav-list--right' : '')
+      }
+      aria-label={rightAlignment ? 'Additional Sub Navigation' : 'Subsections'}
       data-trackable="subsections">
       {items.map((item, index) => {
         const selected = item.selected ? 'o-header__subnav-link--highlight' : ''
