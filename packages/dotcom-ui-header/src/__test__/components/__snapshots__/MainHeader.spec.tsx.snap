@@ -1780,7 +1780,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
             </ol>
             <ul
               aria-label="Subsections"
-              className="o-header__subnav-list o-header__subnav-list--subsections"
+              className="o-header__subnav-list o-header__subnav-list--children"
               data-trackable="subsections"
             >
               <li
@@ -3619,7 +3619,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
             </ol>
             <ul
               aria-label="Subsections"
-              className="o-header__subnav-list o-header__subnav-list--subsections"
+              className="o-header__subnav-list o-header__subnav-list--children"
               data-trackable="subsections"
             >
               <li
