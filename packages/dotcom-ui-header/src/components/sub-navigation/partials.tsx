@@ -7,7 +7,7 @@ const SubNavigation = (props: THeaderProps) => (
   <SubNavigationWrapper>
     <BreadCrumb items={props.data.breadcrumb} />
     <SubSections items={props.data.subsections} />
-    <SubSections items={props.data.subsectionsRight} rightAlignment={true} />
+    <SubSections items={props.data['subsections-right']} rightAlignment={true} />
   </SubNavigationWrapper>
 )
 

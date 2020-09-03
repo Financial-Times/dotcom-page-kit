@@ -72,7 +72,7 @@ export interface INavMeganavArticles {
 export type TNavSubNavigation = {
   breadcrumb?: TNavMenuItem[]
   subsections?: TNavMenuItem[]
-  subsectionsRight?: TNavMenuItem[]
+  'subsections-right'?: TNavMenuItem[]
 }
 
 export type TNavEditions = {
