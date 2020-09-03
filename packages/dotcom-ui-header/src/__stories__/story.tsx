@@ -38,6 +38,7 @@ storiesOf('FT / Header', module)
     const knobs = {
       showSubNavigation: toggleShowSubNav(),
       showMegaNav: toggleShowMegaNav(),
+      showUserNavigation: toggleUserStateOptions(),
       userIsLoggedIn: toggleLoggedIn(),
       currentPath: toggleMobileNav(),
       showLogoLink: toggleShowLogoLink()
