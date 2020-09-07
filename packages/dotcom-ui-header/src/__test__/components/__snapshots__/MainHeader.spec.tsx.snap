@@ -1805,10 +1805,10 @@ exports[`dotcom-ui-header/src/components/MainHeader renders a right aligned subn
               >
                 <a
                   className="o-header__subnav-link "
-                  data-trackable="sign out"
+                  data-trackable="Sign Out"
                   href="#"
                 >
-                  sign out
+                  Sign Out
                 </a>
               </li>
             </ul>
