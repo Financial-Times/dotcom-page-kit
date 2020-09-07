@@ -109,7 +109,7 @@ exports[`dotcom-ui-header/src/components/NoOutboundLinksHeader renders as a logg
             </ol>
             <ul
               aria-label="Subsections"
-              className="o-header__subnav-list o-header__subnav-list--subsections"
+              className="o-header__subnav-list o-header__subnav-list--children"
               data-trackable="subsections"
             >
               <li
@@ -277,7 +277,7 @@ exports[`dotcom-ui-header/src/components/NoOutboundLinksHeader renders as an ano
             </ol>
             <ul
               aria-label="Subsections"
-              className="o-header__subnav-list o-header__subnav-list--subsections"
+              className="o-header__subnav-list o-header__subnav-list--children"
               data-trackable="subsections"
             >
               <li

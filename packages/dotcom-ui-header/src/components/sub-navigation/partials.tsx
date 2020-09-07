@@ -68,7 +68,7 @@ const BreadCrumb = ({ items }: { items: TNavMenuItem[] }) => (
 const SubSections = ({ items }: { items: TNavMenuItem[] }) => {
   return (
     <ul
-      className="o-header__subnav-list o-header__subnav-list--subsections"
+      className="o-header__subnav-list o-header__subnav-list--children"
       aria-label="Subsections"
       data-trackable="subsections">
       {items.map((item, index) => {
