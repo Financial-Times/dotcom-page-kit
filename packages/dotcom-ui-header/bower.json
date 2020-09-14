@@ -1,7 +1,7 @@
 {
   "name": "dotcom-ui-header",
   "dependencies": {
-    "o-header": "^8.2.0",
+    "o-header": "^8.4.0",
     "n-topic-search": "^3.0.0",
     "n-ui-foundations": "^6.0.0"
   },
