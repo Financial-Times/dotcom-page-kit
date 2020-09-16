@@ -14,6 +14,7 @@ import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/dotcom-ui-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/dotcom-ui-bootstrap'
 import * as polyfillService from '@financial-times/dotcom-ui-polyfill-service'
 import formatAttributeNames, { TAttributeData } from '../lib/formatAttributeNames'
+import OptimizelyHead from './OptimizelyHead'
 import GTMHead from './GTMHead'
 import GTMBody from './GTMBody'
 
@@ -68,6 +69,7 @@ function Shell(props: TShellProps) {
         />
         <Bootstrap {...bootstrapProps} />
         <GTMHead flags={props.flags} />
+        <OptimizelyHead />
         <LoadFontsEmbed />
       </head>
       <body {...formatAttributeNames(props.bodyAttributes)}>
