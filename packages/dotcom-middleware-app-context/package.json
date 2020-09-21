@@ -25,7 +25,7 @@
     "@financial-times/dotcom-server-app-context": "file:../dotcom-server-app-context"
   },
   "engines": {
-    "node": ">= 12.0.0"
+    "node": "14.x"
   },
   "repository": {
     "type": "git",
