@@ -1,20 +1,8 @@
-
-// Drawer
-.o-header__drawer-current-edition {
-  color: oColorsByName('black-60');
-  margin: 0.5em 0;
-}
-
-.o-header__drawer-search {
-  border-top: 2px solid oColorsByName('black-10');
-}
-
-// Sticky header
-.o-header--sticky {
-  display: none;
-}
-
 // Search
+// At the time of writing o-header duplicates search markup.
+// Once for the a experience, once for an enhanced experience.
+// Instead since we can rely on the `core` class we can use the
+// one core experience search block and reveal it if needed.
 .core [data-o-header-search] {
   display: block;
 }
@@ -31,19 +19,6 @@
 
 .o-header--sticky {
   @include nUiZIndexFor('sticky-header');
-  display: block;
-}
-
-// myFT
-.o-header__top-link--myft {
-  position: relative;
-}
-
-// Print view
-@media print {
-  .o-header--sticky {
-    display: none;
-  }
 }
 
 // Search typeahead
