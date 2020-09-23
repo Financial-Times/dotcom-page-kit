@@ -1,8 +1,10 @@
 // Search
 // At the time of writing o-header duplicates search markup.
-// Once for the a experience, once for an enhanced experience.
+// Once for a core experience, once for an enhanced experience.
+// The enhanced version is hidden until toggled with JavaScript.
 // Instead since we can rely on the `core` class we can use the
-// one core experience search block and reveal it if needed.
+// one enhanced experience search block and reveal for the core 
+// experience if needed.
 .core [data-o-header-search] {
   display: block;
 }
@@ -25,4 +27,3 @@
 .n-typeahead {
   display: none;
 }
-
