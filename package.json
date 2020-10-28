@@ -18,11 +18,8 @@
     "bower:install": "npm run bower:link && bower install",
     "postinstall": "athloi exec npm i -- --no-package-lock && npm run bower:install",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
-    "storybook": "npm run storybook:config && npm run storybook:start",
-    "storybook:ci": "npm run storybook:config && npm run storybook:start:ci",
-    "storybook:config": "node scripts/generate-storybook-config",
-    "storybook:start": "start-storybook -p 9001 -c .storybook",
-    "storybook:start:ci": "start-storybook -c .storybook --ci --smoke-test"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "storybook:ci": "start-storybook -c .storybook --ci --smoke-test"
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
