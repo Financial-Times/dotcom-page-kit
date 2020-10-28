@@ -83,6 +83,9 @@ export const CustomSlots = () => {
 CustomSlots.story = {
   name: 'Custom slots'
 }
+CustomSlots.parameters = {
+  controls: { hideNoControlsWarning: true }
+}
 
 export const CustomComponents = () => {
   return (
@@ -101,4 +104,7 @@ export const CustomComponents = () => {
 
 CustomComponents.story = {
   name: 'Custom components'
+}
+CustomComponents.parameters = {
+  controls: { hideNoControlsWarning: true }
 }
