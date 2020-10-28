@@ -1,5 +1,4 @@
 import React from 'react'
-import { storiesOf } from '@storybook/react'
 import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
 import * as header from '../../browser.js'
 import { OnReady } from '../../../../.storybook/components/OnReady'
@@ -32,88 +31,120 @@ const onReadyCallback = () => {
   header.init({ hostName: 'cors-anywhere.herokuapp.com/www.ft.com' })
 }
 
-storiesOf('FT / Header', module)
-  .addDecorator(withKnobs)
-  .add('Default header with drawer', () => {
-    const knobs = {
-      showSubNavigation: toggleShowSubNav(),
-      showMegaNav: toggleShowMegaNav(),
-      showUserNavigation: toggleUserStateOptions(),
-      userIsLoggedIn: toggleLoggedIn(),
-      currentPath: toggleMobileNav(),
-      showLogoLink: toggleShowLogoLink()
-    }
-    storyData.data = { ...storyData.data, currentPath: toggleMobileNav() }
+export default {
+  title: 'FT / Header',
+  decorators: [withKnobs]
+}
 
-    return (
-      <OnReady callback={onReadyCallback}>
-        <HeaderSimple {...storyData} {...knobs} />
-        <Drawer {...storyData} {...knobs} />
-      </OnReady>
-    )
-  })
-  .add('Default header with right aligned subnav', () => {
-    const knobs = {
-      showMegaNav: toggleShowMegaNav(),
-      currentPath: toggleMobileNav(),
-      showLogoLink: toggleShowLogoLink(),
-      showUserNavigation: true,
-      showSubNavigation: true,
-      userIsLoggedIn: true
-    }
+export const DefaultHeaderWithDrawer = () => {
+  const knobs = {
+    showSubNavigation: toggleShowSubNav(),
+    showMegaNav: toggleShowMegaNav(),
+    showUserNavigation: toggleUserStateOptions(),
+    userIsLoggedIn: toggleLoggedIn(),
+    currentPath: toggleMobileNav(),
+    showLogoLink: toggleShowLogoLink()
+  }
+  storyData.data = { ...storyData.data, currentPath: toggleMobileNav() }
 
-    profileStoryData.data = { ...profileStoryData.data, currentPath: toggleMobileNav() }
+  return (
+    <OnReady callback={onReadyCallback}>
+      <HeaderSimple {...storyData} {...knobs} />
+      <Drawer {...storyData} {...knobs} />
+    </OnReady>
+  )
+}
 
-    return (
-      <OnReady callback={onReadyCallback}>
-        <HeaderSimple {...profileStoryData} {...knobs} />
-        <Drawer {...profileStoryData} {...knobs} />
-      </OnReady>
-    )
-  })
-  .add('Large header with drawer', () => {
-    const knobs = {
-      showSubNavigation: toggleShowSubNav(),
-      showUserNavigation: toggleUserStateOptions(),
-      showMegaNav: toggleShowMegaNav(),
-      userIsLoggedIn: toggleLoggedIn(),
-      currentPath: toggleMobileNav(),
-      variant: 'large-logo'
-    }
-    storyData.data = { ...storyData.data, currentPath: toggleMobileNav() }
+DefaultHeaderWithDrawer.story = {
+  name: 'Default header with drawer'
+}
 
-    return (
-      <OnReady callback={onReadyCallback}>
-        <HeaderLarge {...storyData} {...knobs} />
-        <Drawer {...storyData} {...knobs} />
-      </OnReady>
-    )
-  })
-  .add('Sticky header', () => {
-    const knobs = {
-      showUserNavigation: toggleUserStateOptions(),
-      userIsLoggedIn: toggleLoggedIn(),
-      showStickyHeader: toggleShowStickyHeader()
-    }
+export const DefaultHeaderWithRightAlignedSubnav = () => {
+  const knobs = {
+    showMegaNav: toggleShowMegaNav(),
+    currentPath: toggleMobileNav(),
+    showLogoLink: toggleShowLogoLink(),
+    showUserNavigation: true,
+    showSubNavigation: true,
+    userIsLoggedIn: true
+  }
 
-    return (
-      <OnReady callback={() => header.init()}>
-        <StickyHeader {...storyData} {...knobs} />
-        <p className="demo-sticky-message demo-sticky-message--scroll">Scroll down</p>
-      </OnReady>
-    )
-  })
-  .add('Logo only', () => {
-    const knobs = { variant: toggleVariantOptions(), showLogoLink: toggleShowLogoLink() }
-    return <LogoOnly {...knobs} />
-  })
-  .add('No Outbound links', () => {
-    const knobs = {
-      userIsLoggedIn: toggleLoggedIn(),
-      showLogoLink: toggleShowLogoLink(),
-      showUserNavigation: toggleUserStateOptions(),
-      showSubNavigation: toggleShowSubNav()
-    }
+  profileStoryData.data = { ...profileStoryData.data, currentPath: toggleMobileNav() }
 
-    return <NoOutboundLinksHeader {...storyData} {...knobs} />
-  })
+  return (
+    <OnReady callback={onReadyCallback}>
+      <HeaderSimple {...profileStoryData} {...knobs} />
+      <Drawer {...profileStoryData} {...knobs} />
+    </OnReady>
+  )
+}
+
+DefaultHeaderWithRightAlignedSubnav.story = {
+  name: 'Default header with right aligned subnav'
+}
+
+export const LargeHeaderWithDrawer = () => {
+  const knobs = {
+    showSubNavigation: toggleShowSubNav(),
+    showUserNavigation: toggleUserStateOptions(),
+    showMegaNav: toggleShowMegaNav(),
+    userIsLoggedIn: toggleLoggedIn(),
+    currentPath: toggleMobileNav(),
+    variant: 'large-logo'
+  }
+  storyData.data = { ...storyData.data, currentPath: toggleMobileNav() }
+
+  return (
+    <OnReady callback={onReadyCallback}>
+      <HeaderLarge {...storyData} {...knobs} />
+      <Drawer {...storyData} {...knobs} />
+    </OnReady>
+  )
+}
+
+LargeHeaderWithDrawer.story = {
+  name: 'Large header with drawer'
+}
+
+export const _StickyHeader = () => {
+  const knobs = {
+    showUserNavigation: toggleUserStateOptions(),
+    userIsLoggedIn: toggleLoggedIn(),
+    showStickyHeader: toggleShowStickyHeader()
+  }
+
+  return (
+    <OnReady callback={() => header.init()}>
+      <StickyHeader {...storyData} {...knobs} />
+      <p className="demo-sticky-message demo-sticky-message--scroll">Scroll down</p>
+    </OnReady>
+  )
+}
+
+_StickyHeader.story = {
+  name: 'Sticky header'
+}
+
+export const _LogoOnly = () => {
+  const knobs = { variant: toggleVariantOptions(), showLogoLink: toggleShowLogoLink() }
+  return <LogoOnly {...knobs} />
+}
+
+_LogoOnly.story = {
+  name: 'Logo only'
+}
+
+export const NoOutboundLinks = () => {
+  const knobs = {
+    userIsLoggedIn: toggleLoggedIn(),
+    showLogoLink: toggleShowLogoLink(),
+    showUserNavigation: toggleUserStateOptions(),
+    showSubNavigation: toggleShowSubNav()
+  }
+
+  return <NoOutboundLinksHeader {...storyData} {...knobs} />
+}
+
+NoOutboundLinks.story = {
+  name: 'No Outbound links'
+}

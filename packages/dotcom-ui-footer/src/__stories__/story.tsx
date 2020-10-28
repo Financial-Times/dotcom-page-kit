@@ -1,7 +1,6 @@
 import React from 'react'
 import { OnReady } from '../../../../.storybook/components/OnReady'
 
-import { storiesOf } from '@storybook/react'
 import { withKnobs, radios } from '@storybook/addon-knobs'
 import storyData from './story-data'
 
@@ -19,19 +18,31 @@ const toggleTheme = () =>
     'dark'
   )
 
-storiesOf('FT / Footer', module)
-  .addDecorator(withKnobs)
-  .add('footer', () => {
-    return (
-      <OnReady callback={() => footer.init()}>
-        <Footer {...storyData} theme={toggleTheme()} />
-      </OnReady>
-    )
-  })
-  .add('legal footer', () => {
-    return (
-      <OnReady callback={() => footer.init()}>
-        <LegalFooter {...storyData} theme={toggleTheme()} />
-      </OnReady>
-    )
-  })
+export default {
+  title: 'FT / Footer',
+  decorators: [withKnobs]
+}
+
+export const _Footer = () => {
+  return (
+    <OnReady callback={() => footer.init()}>
+      <Footer {...storyData} theme={toggleTheme()} />
+    </OnReady>
+  )
+}
+
+_Footer.story = {
+  name: 'footer'
+}
+
+export const _LegalFooter = () => {
+  return (
+    <OnReady callback={() => footer.init()}>
+      <LegalFooter {...storyData} theme={toggleTheme()} />
+    </OnReady>
+  )
+}
+
+_LegalFooter.story = {
+  name: 'legal footer'
+}
