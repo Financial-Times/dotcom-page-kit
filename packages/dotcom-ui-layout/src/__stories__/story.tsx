@@ -1,6 +1,5 @@
 import React from 'react'
 import { OnReady } from '../../../../.storybook/components/OnReady'
-import { withKnobs, select } from '@storybook/addon-knobs'
 
 import './demos.scss'
 import '../../styles.scss'
@@ -13,28 +12,18 @@ import { Layout } from '..'
 
 const Extra = ({ children }) => <p className="extra">{children}</p>
 
-const switchHeader = () =>
-  select('Switch header', {
-    Simple: 'simple',
-    'Large Logo': 'large-logo',
-    'Logo Only': 'logo-only',
-    None: ''
-  })
-const switchFooter = () => select('Switch footer', { Simple: 'simple', Legal: 'legal', None: '' })
-
 const initUiComponents = () => {
   layout.init()
 }
 
 export default {
-  title: 'FT / Layout',
-  decorators: [withKnobs]
+  title: 'FT / Layout'
 }
 
-export const DefaultComponents = () => {
+export const DefaultComponents = (args) => {
   return (
     <OnReady callback={initUiComponents}>
-      <Layout navigationData={navigationProps} headerVariant={switchHeader()} footerVariant={switchFooter()}>
+      <Layout navigationData={navigationProps} {...args}>
         <main className="demo">
           <p className="demo__message">Defaults: only passing data</p>
         </main>
@@ -45,6 +34,33 @@ export const DefaultComponents = () => {
 
 DefaultComponents.story = {
   name: 'Default components'
+}
+DefaultComponents.args = {
+  headerVariant: 'simple',
+  footerVariant: 'simple'
+}
+DefaultComponents.argTypes = {
+  headerVariant: {
+    control: {
+      type: 'select',
+      options: {
+        Simple: 'simple',
+        'Large Logo': 'large-logo',
+        'Logo Only': 'logo-only',
+        None: ''
+      }
+    }
+  },
+  footerVariant: {
+    control: {
+      type: 'select',
+      options: {
+        Simple: 'simple',
+        Legal: 'legal',
+        None: ''
+      }
+    }
+  }
 }
 
 export const CustomSlots = () => {
