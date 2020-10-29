@@ -68,13 +68,13 @@ Please note that Page Kit has only been tested in Mac and Linux environments. If
 2. Install all of the project dependencies (this may take a few minutes if you are running this for the first time):
 
     ```bash
-    npm install
+    make install
     ```
 
 3. Compile all of the packages (again, this may take a while if you are running this for the first time):
 
     ```bash
-    npm run build
+    make build
     ```
 
 4. You can now choose to run an example application or start Storybook to view UI component demos. Examples are located in the `examples/` directory and each have their own instructions. To use Storybook you can follow [the guide below](#using-storybook).
@@ -108,13 +108,13 @@ If you're interested to know more about our approach of building so many small p
 Before starting Storybook you must first run the build script for all packages (if you have not done so already) using this command:
 
 ```
-npm run build
+make build
 ```
 
 Once all of the packages have been built you can run Storybook using the following the command:
 
 ```
-npm run storybook
+make storybook
 ```
 
 The Storybook interface should then open in your default browser. Storybook has been configured to automatically find stories inside packages with names prefixed with `dotcom-ui-`.

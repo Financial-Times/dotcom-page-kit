@@ -64,6 +64,9 @@ jobs:
       - checkout
       - *restore_cache
       - run:
+          name: Install npm version 7
+          command: sudo npm install --global npm@7
+      - run:
           name: Install project dependencies
           command: npm install
       - run:
