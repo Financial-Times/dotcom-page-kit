@@ -21,7 +21,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation"
+    "@financial-times/dotcom-types-navigation": "0.0.0"
   },
   "peerDependencies": {
     "react": "^16.8.6"

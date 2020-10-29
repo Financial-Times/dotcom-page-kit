@@ -11,19 +11,19 @@
     "test": "../../node_modules/.bin/jest"
   },
   "dependencies": {
-    "@financial-times/dotcom-middleware-navigation": "file:../../packages/dotcom-middleware-navigation",
-    "@financial-times/dotcom-ui-layout": "file:../../packages/dotcom-ui-layout",
-    "@financial-times/dotcom-ui-shell": "file:../../packages/dotcom-ui-shell",
+    "@financial-times/dotcom-middleware-navigation": "0.0.0",
+    "@financial-times/dotcom-ui-layout": "0.0.0",
+    "@financial-times/dotcom-ui-shell": "0.0.0",
     "express": "^4.16.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "sucrase": "^3.10.1"
   },
   "devDependencies": {
-    "@financial-times/dotcom-build-bower-resolve": "file:../../packages/dotcom-build-bower-resolve",
-    "@financial-times/dotcom-build-js": "file:../../packages/dotcom-build-js",
-    "@financial-times/dotcom-build-sass": "file:../../packages/dotcom-build-sass",
-    "@financial-times/dotcom-build-base": "file:../../packages/dotcom-build-base",
+    "@financial-times/dotcom-build-bower-resolve": "0.0.0",
+    "@financial-times/dotcom-build-js": "0.0.0",
+    "@financial-times/dotcom-build-sass": "0.0.0",
+    "@financial-times/dotcom-build-base": "0.0.0",
     "nodemon": "^1.18.9",
     "ready-state": "^2.0.5",
     "webpack": "^4.42.0",

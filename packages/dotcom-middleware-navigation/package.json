@@ -18,8 +18,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@financial-times/dotcom-server-navigation": "file:../../packages/dotcom-server-navigation",
-    "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation"
+    "@financial-times/dotcom-server-navigation": "0.0.0",
+    "@financial-times/dotcom-types-navigation": "0.0.0"
   },
   "devDependencies": {
     "node-mocks-http": "^1.7.3"

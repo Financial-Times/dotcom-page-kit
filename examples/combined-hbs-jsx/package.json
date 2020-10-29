@@ -8,9 +8,9 @@
     "test": "../../node_modules/.bin/jest"
   },
   "dependencies": {
-    "@financial-times/dotcom-server-handlebars": "file:../../packages/dotcom-server-handlebars",
-    "@financial-times/dotcom-server-react-jsx": "file:../../packages/dotcom-server-react-jsx",
-    "@financial-times/dotcom-ui-header": "file:../../packages/dotcom-ui-header",
+    "@financial-times/dotcom-server-handlebars": "0.0.0",
+    "@financial-times/dotcom-server-react-jsx": "0.0.0",
+    "@financial-times/dotcom-ui-header": "0.0.0",
     "express": "^4.16.2",
     "handlebars": "^4.5.3",
     "sucrase": "^3.10.1"

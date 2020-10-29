@@ -22,10 +22,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@financial-times/dotcom-ui-base-styles": "file:../dotcom-ui-base-styles",
-    "@financial-times/dotcom-ui-header": "file:../dotcom-ui-header",
-    "@financial-times/dotcom-ui-footer": "file:../dotcom-ui-footer",
-    "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation",
+    "@financial-times/dotcom-ui-base-styles": "0.0.0",
+    "@financial-times/dotcom-ui-header": "0.0.0",
+    "@financial-times/dotcom-ui-footer": "0.0.0",
+    "@financial-times/dotcom-types-navigation": "0.0.0",
     "focus-visible": "^5.0.0"
   },
   "peerDependencies": {

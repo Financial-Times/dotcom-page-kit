@@ -30,6 +30,6 @@
   },
   "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-ui-app-context",
   "dependencies": {
-    "@financial-times/dotcom-ui-data-embed": "file:../dotcom-ui-data-embed"
+    "@financial-times/dotcom-ui-data-embed": "0.0.0"
   }
 }

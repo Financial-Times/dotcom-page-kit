@@ -24,7 +24,7 @@
     "node": ">= 12.0.0"
   },
   "dependencies": {
-    "@financial-times/dotcom-ui-data-embed": "file:../dotcom-ui-data-embed"
+    "@financial-times/dotcom-ui-data-embed": "0.0.0"
   },
   "peerDependencies": {
     "react": "^16.8.6"
