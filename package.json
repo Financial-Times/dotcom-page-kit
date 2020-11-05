@@ -18,11 +18,8 @@
     "bower:install": "npm run bower:link && bower install",
     "postinstall": "athloi exec npm i -- --no-package-lock && npm run bower:install",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
-    "storybook": "npm run storybook:config && npm run storybook:start",
-    "storybook:ci": "npm run storybook:config && npm run storybook:start:ci",
-    "storybook:config": "node scripts/generate-storybook-config",
-    "storybook:start": "start-storybook -p 9001 -c .storybook",
-    "storybook:start:ci": "start-storybook -c .storybook --ci --smoke-test"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "storybook:ci": "start-storybook -c .storybook --ci --smoke-test"
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
@@ -47,10 +44,8 @@
     "@babel/preset-react": "^7.8.0",
     "@babel/preset-typescript": "^7.8.0",
     "@financial-times/athloi": "^1.0.0-beta.28",
-    "@storybook/addon-knobs": "^5.3.12",
-    "@storybook/addon-options": "^5.3.12",
-    "@storybook/addon-viewport": "^5.3.12",
-    "@storybook/react": "^5.3.12",
+    "@storybook/addon-essentials": "^6.0.27",
+    "@storybook/react": "^6.0.27",
     "@types/jest": "^26.0.0",
     "@types/node": "^10.12.26",
     "@types/react": "^16.8.20",
