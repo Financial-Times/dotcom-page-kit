@@ -37,12 +37,15 @@ references:
   #
   # Filters
   #
-  filters_branch_build: &filters_branch_build
+  filters_only_renovate_nori: &filters_only_renovate_nori
     branches:
-      ignore:
-        - gh-pages
+      only: /(^renovate-.*|^nori\/.*)/
+
+  filters_ignore_tags_renovate_nori_build: &filters_ignore_tags_renovate_nori_build
     tags:
       ignore: /.*/
+    branches:
+      ignore: /(^renovate-.*|^nori\/.*|^gh-pages)/
 
   filters_master_branch: &filters_master_branch
     branches:
@@ -116,12 +119,23 @@ workflows:
     jobs:
       - build:
           filters:
-            <<: *filters_branch_build
+            <<: *filters_ignore_tags_renovate_nori_build
       - test:
-          filters:
-            <<: *filters_branch_build
           requires:
             - build
+
+  renovate-nori-build-test:
+    jobs:
+      - waiting-for-approval:
+          type: approval
+          filters:
+              <<: *filters_only_renovate_nori
+      - build:
+          requires:
+              - waiting-for-approval
+      - test:
+          requires:
+              - build
 
   build-test-publish:
     jobs:
