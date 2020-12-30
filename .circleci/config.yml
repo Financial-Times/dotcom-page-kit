@@ -110,6 +110,14 @@ jobs:
           command: |
             export DIST_TAG=$(node scripts/get-npm-dist-tag.js $CIRCLE_TAG)
             if [[ $DIST_TAG ]]; then npx athloi publish -- --access=public --tag=${DIST_TAG}; fi
+  
+  deploy:
+    <<: *container_config_node
+    steps:
+      - *attach_workspace
+      - run:
+          name: Deploy Storybook
+          command: npm run deploy-storybook:ci
 
 workflows:
 
@@ -123,6 +131,9 @@ workflows:
       - test:
           requires:
             - build
+      - deploy:
+          requires:
+            - test
 
   renovate-nori-build-test:
     jobs:
