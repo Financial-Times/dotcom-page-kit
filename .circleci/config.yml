@@ -65,6 +65,9 @@ jobs:
     <<: *container_config_node
     steps:
       - checkout
+      - run:
+          name: Checkout next-ci-shared-helpers
+          command: git clone --depth 1 git@github.com:Financial-Times/next-ci-shared-helpers.git .circleci/shared-helpers
       - *restore_cache
       - run:
           name: Install project dependencies
@@ -111,6 +114,17 @@ jobs:
             export DIST_TAG=$(node scripts/get-npm-dist-tag.js $CIRCLE_TAG)
             if [[ $DIST_TAG ]]; then npx athloi publish -- --access=public --tag=${DIST_TAG}; fi
 
+  deploy:
+    <<: *container_config_node
+    steps:
+      - *attach_workspace
+      - add_ssh_keys:
+          fingerprints:
+            - "63:e5:c6:6c:a0:b0:5a:a0:cc:48:ed:45:df:dc:65:9f"
+      - run:
+          name: shared-helper / publish-github-pages
+          command: .circleci/shared-helpers/helper-publish-github-pages
+
 workflows:
 
   version: 2
@@ -123,6 +137,11 @@ workflows:
       - test:
           requires:
             - build
+      - deploy:
+        filters:
+            <<: *filters_master_branch
+          requires:
+            - test
 
   renovate-nori-build-test:
     jobs:
@@ -137,7 +156,7 @@ workflows:
           requires:
               - build
 
-  build-test-publish:
+  build-test-publish-deploy:
     jobs:
       - build:
           filters:
@@ -152,3 +171,8 @@ workflows:
             <<: *filters_release_build
           requires:
             - test
+      - deploy:
+          filters:
+            <<: *filters_release_build
+          requires:
+            - publish
