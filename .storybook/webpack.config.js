@@ -21,7 +21,9 @@ module.exports = ({ config }) => {
 
   // HACK: Instruct Babel to check module type before injecting Core JS polyfills
   // https://github.com/i-like-robots/broken-webpack-bundle-test-case
-  const babelConfig = jsRule.use.find(({ loader }) => loader === 'babel-loader')
+  const babelConfig = jsRule.use.find(({ loader }) => loader === 'babel-loader') || {
+    options: { presets: [] }
+  }
   babelConfig.options.sourceType = 'unambiguous'
 
   // Add support for TypeScript source code
