@@ -138,8 +138,6 @@ workflows:
           requires:
             - build
       - deploy:
-        filters:
-            <<: *filters_master_branch
           requires:
             - test
 
