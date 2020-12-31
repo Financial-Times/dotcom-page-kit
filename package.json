@@ -21,7 +21,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook:ci": "start-storybook -c .storybook --ci --smoke-test",
     "deploy-storybook": "storybook-to-ghpages",
-    "deploy-storybook:ci": "storybook-to-ghpages -- --ci"
+    "deploy-storybook:ci": "storybook-to-ghpages --ci"
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
