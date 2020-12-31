@@ -30,6 +30,11 @@
       "eslint --fix"
     ]
   },
+  "storybook-deployer": {
+    "gitUsername": "emortong",
+    "gitEmail": "estefania.morton@ft.com",
+    "commitMessage": "Deploy Storybook"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Financial-Times/dotcom-page-kit.git"
