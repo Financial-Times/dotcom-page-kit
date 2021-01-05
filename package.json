@@ -19,7 +19,8 @@
     "postinstall": "athloi exec npm i -- --no-package-lock && npm run bower:install",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "storybook:ci": "start-storybook -c .storybook --ci --smoke-test"
+    "storybook:ci": "start-storybook -c .storybook --ci --smoke-test",
+    "deploy-storybook:ci": "storybook-to-ghpages --ci"
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
@@ -27,6 +28,11 @@
       "prettier --write",
       "eslint --fix"
     ]
+  },
+  "storybook-deployer": {
+    "gitUsername": "next-team",
+    "gitEmail": "next.team@ft.com",
+    "commitMessage": "Deploy Storybook [skip ci]"
   },
   "repository": {
     "type": "git",
@@ -46,6 +52,7 @@
     "@financial-times/athloi": "^1.0.0-beta.28",
     "@storybook/addon-essentials": "^6.0.27",
     "@storybook/react": "^6.0.27",
+    "@storybook/storybook-deployer": "^2.8.7",
     "@types/jest": "^26.0.0",
     "@types/node": "^10.12.26",
     "@types/react": "^16.8.20",

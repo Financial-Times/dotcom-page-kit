@@ -37,6 +37,11 @@ references:
   #
   # Filters
   #
+  filters_only_master: &filters_only_master
+    branches:
+      only:
+        - master
+
   filters_only_renovate_nori: &filters_only_renovate_nori
     branches:
       only: /(^renovate-.*|^nori\/.*)/
@@ -110,6 +115,14 @@ jobs:
           command: |
             export DIST_TAG=$(node scripts/get-npm-dist-tag.js $CIRCLE_TAG)
             if [[ $DIST_TAG ]]; then npx athloi publish -- --access=public --tag=${DIST_TAG}; fi
+  
+  deploy:
+    <<: *container_config_node
+    steps:
+      - *attach_workspace
+      - run:
+          name: Deploy Storybook
+          command: npm run deploy-storybook:ci
 
 workflows:
 
@@ -123,6 +136,11 @@ workflows:
       - test:
           requires:
             - build
+      - deploy:
+          filters:
+            <<: *filters_only_master
+          requires:
+            - test
 
   renovate-nori-build-test:
     jobs:
