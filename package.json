@@ -31,8 +31,8 @@
     ]
   },
   "storybook-deployer": {
-    "gitUsername": "emortong",
-    "gitEmail": "estefania.morton@ft.com",
+    "gitUsername": "next-team",
+    "gitEmail": "next.team@ft.com",
     "commitMessage": "Deploy Storybook"
   },
   "repository": {
