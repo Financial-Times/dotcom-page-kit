@@ -37,6 +37,11 @@ references:
   #
   # Filters
   #
+  filters_only_master: &filters_only_master
+    branches:
+      only:
+        - master
+
   filters_only_renovate_nori: &filters_only_renovate_nori
     branches:
       only: /(^renovate-.*|^nori\/.*)/
@@ -132,6 +137,8 @@ workflows:
           requires:
             - build
       - deploy:
+          filters:
+            <<: *filters_only_master
           requires:
             - test
 
