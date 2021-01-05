@@ -32,7 +32,7 @@
   "storybook-deployer": {
     "gitUsername": "next-team",
     "gitEmail": "next.team@ft.com",
-    "commitMessage": "Deploy Storybook"
+    "commitMessage": "Deploy Storybook [skip ci]"
   },
   "repository": {
     "type": "git",
