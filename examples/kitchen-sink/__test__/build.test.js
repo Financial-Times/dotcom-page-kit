@@ -2,12 +2,16 @@ const fs = require('fs')
 
 const expected = [
   'async.css',
+  'financial-times-n-ads.bundle.js',
+  'financial-times-n-tracking.bundle.js',
   'financial-times-o-ads.bundle.js',
   'financial-times-o-grid.bundle.js',
   'financial-times-o-tracking.bundle.js',
   'financial-times-o-utils.bundle.js',
   'financial-times-o-viewport.bundle.js',
   'manifest.json',
+  'n-topic-search.bundle.js',
+  'n-ui-foundations.bundle.js',
   'o-footer.bundle.js',
   'o-grid.bundle.js',
   'o-header.bundle.js',
@@ -20,7 +24,6 @@ const expected = [
   'regenerator-runtime.bundle.js',
   'scripts.bundle.js',
   'shared.stable.bundle.js',
-  'shared.volatile.bundle.js',
   'styles.css',
   'webpack-runtime.bundle.js'
 ]

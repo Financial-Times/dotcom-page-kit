@@ -75,6 +75,35 @@ describe('dotcom-server-handlebars/src/helpers', () => {
       })
     })
 
+    describe('#ifEqualsSome', () => {
+      const template = compile('{{#ifEqualsSome foo bar baz}}yes{{else}}no{{/ifEqualsSome}}')
+
+      it('outputs the contents if parameters are strictly equal', () => {
+        const result = template({ foo: true, bar: true, baz: true }, { helpers })
+        expect(result).toBe('yes')
+      })
+
+      it('outputs true if first parameter is equal', () => {
+        const result = template({ foo: true, bar: false, baz: true }, { helpers })
+        expect(result).toBe('yes')
+      })
+
+      it('outputs true if second parameter is equal', () => {
+        const result = template({ foo: true, bar: true, baz: false }, { helpers })
+        expect(result).toBe('yes')
+      })
+
+      it('outputs false if neither parameter is equal', () => {
+        const result = template({ foo: true, bar: false, baz: false }, { helpers })
+        expect(result).toBe('no')
+      })
+
+      it('throws if the incorrect number of parameters are provided', () => {
+        const template = compile('{{#ifEqualsSome}}yes{{/ifEqualsSome}}')
+        expect(() => template({}, { helpers })).toThrow()
+      })
+    })
+
     describe('#ifSome', () => {
       const template = compile('{{#ifSome foo bar baz}}yes{{else}}no{{/ifSome}}')
 

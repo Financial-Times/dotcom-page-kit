@@ -68,7 +68,7 @@ Example:
 
 ### ifEquals
 
-Outputs the content if all of the parameters are [strictly equal].
+Outputs the content if all of the parameters are [strictly equal]. The first parameter is used as the control and all parameters are tested against it.
 
 Example:
 
@@ -77,6 +77,16 @@ Example:
 ```
 
 [strictly equal]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
+
+### ifEqualsSome
+
+Outputs the content if some of the parameters are [strictly equal]. The first parameter is used as the control and all parameters are tested against it.
+
+Example:
+
+```hbs
+{{#ifEqualsSome foo bar baz}}Some parameters are all equal{{else}}No parameters match{{/ifEqualsSome}}
+```
 
 ### ifSome
 
