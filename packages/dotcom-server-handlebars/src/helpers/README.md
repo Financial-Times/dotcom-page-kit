@@ -78,6 +78,16 @@ Example:
 
 [strictly equal]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness
 
+### ifEqualsSome
+
+Outputs the content if some of the parameters are [strictly equal].
+
+Example:
+
+```hbs
+{{#ifEqualsSome foo bar baz}}Some parameters are all equal{{else}}No parameters match{{/ifEqualsSome}}
+```
+
 ### ifSome
 
 Outputs the content if at least one of the parameters is [truthy].
