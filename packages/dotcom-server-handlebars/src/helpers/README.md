@@ -68,7 +68,7 @@ Example:
 
 ### ifEquals
 
-Outputs the content if all of the parameters are [strictly equal].
+Outputs the content if all of the parameters are [strictly equal]. The first parameter is used as the control and all parameters are tested against it.
 
 Example:
 
@@ -80,7 +80,7 @@ Example:
 
 ### ifEqualsSome
 
-Outputs the content if some of the parameters are [strictly equal].
+Outputs the content if some of the parameters are [strictly equal]. The first parameter is used as the control and all parameters are tested against it.
 
 Example:
 
