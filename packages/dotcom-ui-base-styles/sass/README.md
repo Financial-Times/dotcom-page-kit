@@ -65,7 +65,7 @@ A mixin for getting logos (or other Origami imageset images)
 
 #### utilities
 
-See https://github.com/Financial-Times/n-ui-foundations/blob/master/util/README.md for a full list of utility classes.
+See https://github.com/Financial-Times/n-ui-foundations/blob/HEAD/util/README.md for a full list of utility classes.
 
 
 ### JS
