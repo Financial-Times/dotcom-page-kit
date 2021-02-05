@@ -61,7 +61,7 @@ const FooterContents = ({ footerData }: TFooterContentsProps) => (
     <nav className="o-footer__matrix" role="navigation" aria-label="Useful links">
       {footerData.map((item, index) => {
         // The Next navigation API splits footer links data into "columns"
-        // <https://github.com/Financial-Times/next-navigation-api/blob/master/server/transforms/footer.js>
+        // <https://github.com/Financial-Times/next-navigation-api/blob/HEAD/server/transforms/footer.js>
         const submenu = item.submenu.items as TNavMenuItem[][]
 
         return (
@@ -121,7 +121,7 @@ const CompressedLegal = ({ footerData }: TCompressedLegalProps) => {
     <React.Fragment>
       {data.map((legal, index) => (
         // The Next navigation API splits footer links data into "columns"
-        // <https://github.com/Financial-Times/next-navigation-api/blob/master/server/transforms/footer.js>
+        // <https://github.com/Financial-Times/next-navigation-api/blob/HEAD/server/transforms/footer.js>
         <div key={`column-${index}`}>
           {(legal.submenu.items as TNavMenuItem[][]).map((items, index) => (
             <ul className="o-footer__legal-links" key={`list-${index}`}>

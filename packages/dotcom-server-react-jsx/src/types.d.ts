@@ -2,7 +2,7 @@ import React from 'react'
 
 // Extend @types/react to support optional additional .getInitialProps() method.
 // This is adapted from the @types/next:
-// <https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/next/index.d.ts>
+// <https://github.com/DefinitelyTyped/DefinitelyTyped/blob/HEAD/types/next/index.d.ts>
 
 /**
  * Next.js style counterpart of React.FunctionComponent.

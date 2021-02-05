@@ -1,6 +1,6 @@
 # Release Guidelines
 
-All of our packages are versioned using [Semantic Versioning]. The following guide will outline how to tag and release a new version of all packages, it assumes that all the code you wish to release is now on the `master` branch.
+All of our packages are versioned using [Semantic Versioning]. The following guide will outline how to tag and release a new version of all packages, it assumes that all the code you wish to release is now on the `main` branch.
 
 
 ## When to release
@@ -16,7 +16,7 @@ _Please note_ for apps using [Renovate] we have configured Page Kit dependencies
 
 ### Patch versions
 
-  1. Pull requests for bug fixes should be raised against the `master` branch. Label the PR with the "bug" label and tag the Platforms team to review it.
+  1. Pull requests for bug fixes should be raised against the `main` branch. Label the PR with the "bug" label and tag the Platforms team to review it.
 
   2. Release the changes. Create a release using the GitHub UI (note there should be a "v" preceding the version number). This will automatically kick off a new build and publish each package.
 
@@ -26,7 +26,7 @@ _Please note_ for apps using [Renovate] we have configured Page Kit dependencies
 
 ### Major and minor versions
 
-  1. Raise a pull request for the current `development` branch against the `master` branch if there is not one already.
+  1. Raise a pull request for the current `development` branch against the `main` branch if there is not one already.
 
   2. Review the commits and work out whether this should be a major or minor version. Check with the team if you are not sure. Major releases are generally planned out; if a breaking change has snuck in without prior-planning it may be worth removing it or attempting to make it backwards-compatible.
 
@@ -36,7 +36,7 @@ _Please note_ for apps using [Renovate] we have configured Page Kit dependencies
 
 ### Maintenance versions
 
-When we need to fix a production bug we will normally raise a PR against the `master` branch and make a patch release once it is merged.
+When we need to fix a production bug we will normally raise a PR against the `main` branch and make a patch release once it is merged.
 
 Sometimes that fix will also be needed by apps which are still running an older version of Page Kit. Because we can't always immediately upgrade apps to use the latest version we'd have to make a new maintenance release for the older version as well.
 
@@ -48,7 +48,7 @@ For example, imagine that some production apps are running Page Kit `1.0.0` and 
 
   3. Create a new branch from this commit (`git checkout -b release-v1.x <hash>`.)
 
-  4. Cherry pick the relevant commits from the `master` branch onto the branch that has just been created (`git cherry-pick <hash>`.)
+  4. Cherry pick the relevant commits from the `main` branch onto the branch that has just been created (`git cherry-pick <hash>`.)
 
   5. Push the branch and create a new `1.0.1` release.
 

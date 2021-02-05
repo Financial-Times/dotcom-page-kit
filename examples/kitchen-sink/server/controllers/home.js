@@ -59,7 +59,7 @@ module.exports = (_, response, next) => {
               <p>
                 The CSS for this section was loaded asynchonously; that is, the stylesheet didn't block the
                 browser from rendering while it loaded.{' '}
-                <a href="https://github.com/Financial-Times/dotcom-page-kit/blob/master/packages/dotcom-ui-shell/README.md">
+                <a href="https://github.com/Financial-Times/dotcom-page-kit/blob/HEAD/packages/dotcom-ui-shell/README.md">
                   See the README for details
                 </a>
                 .

@@ -26,7 +26,7 @@ const ResourceHints = (props: TResourceHintsProps) => {
       <link rel="preconnect" href="https://ads-api.ft.com" />
       {/*
         The Google Publisher Tag library (GPT) is hosted here which is used to deliver ads
-        <https://github.com/Financial-Times/o-ads/blob/master/src/js/ad-servers/gpt.js>
+        <https://github.com/Financial-Times/o-ads/blob/HEAD/src/js/ad-servers/gpt.js>
       */}
       <link rel="preconnect" href="https://securepubads.g.doubleclick.net" />
 

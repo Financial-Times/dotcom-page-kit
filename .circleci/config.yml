@@ -37,10 +37,10 @@ references:
   #
   # Filters
   #
-  filters_only_master: &filters_only_master
+  filters_only_main: &filters_only_main
     branches:
       only:
-        - master
+        - main
 
   filters_only_renovate_nori: &filters_only_renovate_nori
     branches:
@@ -52,10 +52,10 @@ references:
     branches:
       ignore: /(^renovate-.*|^nori\/.*|^gh-pages)/
 
-  filters_master_branch: &filters_master_branch
+  filters_main_branch: &filters_main_branch
     branches:
       only:
-        - master
+        - main
 
   filters_release_build: &filters_release_build
     tags:
@@ -138,7 +138,7 @@ workflows:
             - build
       - deploy:
           filters:
-            <<: *filters_only_master
+            <<: *filters_only_main
           requires:
             - test
 

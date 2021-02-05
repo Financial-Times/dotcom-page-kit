@@ -79,11 +79,11 @@ Please do! All of the code in Page Kit is peer-reviewed by members of the FT cus
 
 This project follows a workflow designed around project releases. It is less strict than [Gitflow] but we encourage the separation of stable, development, and experimental branches in order to follow a scheduled release cycle.
 
-- The `master` branch is for the current stable release. Bug fixes should be merged into this branch.
+- The `main` branch is for the current stable release. Bug fixes should be merged into this branch.
 
-- The `development-` branches are for upcoming major or minor releases. New features and refactors should be merged into this branch. The `master` branch should be merged into it periodically.
+- The `development-` branches are for upcoming major or minor releases. New features and refactors should be merged into this branch. The `main` branch should be merged into it periodically.
 
-- The `release-vX.X.X` branches are for old releases which are still used in production. Important bug fixes should be [cherry-picked] from the `master` branch as required.
+- The `release-vX.X.X` branches are for old releases which are still used in production. Important bug fixes should be [cherry-picked] from the `main` branch as required.
 
 [Gitflow]: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
 [cherry-picked]: https://git-scm.com/docs/git-cherry-pick
@@ -134,7 +134,7 @@ We have implemented [ESLint] to statically analyse code for problems.
 [Supertest]: https://github.com/visionmedia/supertest
 [Puppeteer]: https://github.com/smooth-code/jest-puppeteer
 [Enzyme]: https://github.com/airbnb/enzyme
-[enzyme-matchers]: https://github.com/FormidableLabs/enzyme-matchers/blob/master/packages/jest-enzyme
+[enzyme-matchers]: https://github.com/FormidableLabs/enzyme-matchers/blob/HEAD/packages/jest-enzyme
 [ESLint]: https://eslint.org/
 
 
