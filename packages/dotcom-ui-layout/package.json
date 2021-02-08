@@ -39,5 +39,5 @@
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
     "directory": "packages/dotcom-ui-layout"
   },
-  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-ui-layout"
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/HEAD/packages/dotcom-ui-layout"
 }

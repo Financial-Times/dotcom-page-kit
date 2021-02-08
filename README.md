@@ -1,6 +1,6 @@
 # FT.com Page Kit
 
-[![CircleCI](https://circleci.com/gh/Financial-Times/dotcom-page-kit/tree/master.svg?style=svg&circle-token=2149091698510f3908776e16620b30494fdca26c)](https://circleci.com/gh/Financial-Times/dotcom-page-kit/tree/master)
+[![CircleCI](https://circleci.com/gh/Financial-Times/dotcom-page-kit/tree/main.svg?style=svg&circle-token=2149091698510f3908776e16620b30494fdca26c)](https://circleci.com/gh/Financial-Times/dotcom-page-kit/tree/main)
 
 Page Kit provides a high quality, well tested, and thoroughly documented set of tools for assembling and delivering FT.com based upon the best industry standards.
 

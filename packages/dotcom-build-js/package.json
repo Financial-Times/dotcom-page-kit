@@ -42,5 +42,5 @@
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
     "directory": "packages/dotcom-build-js"
   },
-  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-build-js"
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/HEAD/packages/dotcom-build-js"
 }

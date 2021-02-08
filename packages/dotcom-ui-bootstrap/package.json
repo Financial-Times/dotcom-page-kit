@@ -33,5 +33,5 @@
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
     "directory": "packages/dotcom-ui-bootstrap"
   },
-  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/master/packages/dotcom-ui-bootstrap"
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/HEAD/packages/dotcom-ui-bootstrap"
 }
