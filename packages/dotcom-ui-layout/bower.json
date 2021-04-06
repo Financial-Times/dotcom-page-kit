@@ -2,7 +2,7 @@
   "name": "dotcom-ui-layout",
   "dependencies": {
     "n-ui-foundations": "^6.0.0",
-    "o-typography": "^6.4.0"
+    "o-typography": "^6.4.6"
   },
   "main": ["browser.js", "styles.scss"]
 }
