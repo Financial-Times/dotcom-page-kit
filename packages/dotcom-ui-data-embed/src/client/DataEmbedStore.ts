@@ -1,7 +1,7 @@
 export default class DataEmbedStore {
-  private data
+  private data: any;
 
-  constructor(data) {
+  constructor(data: any) {
     this.data = Object.freeze(data)
   }
 
