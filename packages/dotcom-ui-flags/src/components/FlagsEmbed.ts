@@ -3,7 +3,7 @@ import { formatFlagsJSON } from '../server'
 import { TFlagsData } from '../types'
 import { SCRIPT_ELEMENT_ID } from '../constants'
 
-type TFlagsEmbedProps = {
+export type TFlagsEmbedProps = {
   flags?: TFlagsData
 }
 
@@ -15,4 +15,4 @@ FlagsEmbed.defaultProps = {
   flags: {}
 }
 
-export { FlagsEmbed, TFlagsEmbedProps }
+export { FlagsEmbed }
