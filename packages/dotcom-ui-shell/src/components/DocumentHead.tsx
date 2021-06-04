@@ -43,12 +43,6 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     <meta property="twitter:site" content={props.twitterSite} />
     <OpenGraph openGraph={props.openGraph} />
 
-    {/* native apps */}
-    <meta
-      name="apple-itunes-app"
-      content={props.canonicalURL ? `app-id=1200842933, app-argument=${props.canonicalURL}` : 'app-id=1200842933'}
-    />
-
     {/* packaging */}
     <link
       rel="icon"
