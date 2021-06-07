@@ -110,12 +110,8 @@ function NoOutboundLinksHeader(props: THeaderProps) {
   return (
     <HeaderWrapper {...props}>
       {includeUserActionsNav ? <UserActionsNav {...props} /> : null}
-      <TopWrapper>
-        {props.showLogoLink ? <TopColumnCenter /> : <TopColumnCenterNoLink />}
-      </TopWrapper>
-      <NavDesktop>
-        {props.showUserNavigation ? <NavListRight {...props} /> : null}
-      </NavDesktop>
+      <TopWrapper>{props.showLogoLink ? <TopColumnCenter /> : <TopColumnCenterNoLink />}</TopWrapper>
+      <NavDesktop>{props.showUserNavigation ? <NavListRight {...props} /> : null}</NavDesktop>
       {includeSubNavigation ? <SubNavigation {...props} /> : null}
     </HeaderWrapper>
   )
@@ -123,4 +119,5 @@ function NoOutboundLinksHeader(props: THeaderProps) {
 
 NoOutboundLinksHeader.defaultProps = defaultProps
 
-export { THeaderProps, Header, MainHeader, StickyHeader, LogoOnly, NoOutboundLinksHeader, Drawer }
+export { Header, MainHeader, StickyHeader, LogoOnly, NoOutboundLinksHeader, Drawer }
+export type { THeaderProps }
