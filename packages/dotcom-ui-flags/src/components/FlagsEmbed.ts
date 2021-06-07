@@ -15,4 +15,5 @@ FlagsEmbed.defaultProps = {
   flags: {}
 }
 
-export { FlagsEmbed, TFlagsEmbedProps }
+export { FlagsEmbed }
+export type { TFlagsEmbedProps }

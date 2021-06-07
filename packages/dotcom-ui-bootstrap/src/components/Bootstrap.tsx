@@ -26,4 +26,5 @@ Bootstrap.defaultProps = {
   enhancedScripts: []
 }
 
-export { Bootstrap, TBootstrapProps }
+export { Bootstrap }
+export type { TBootstrapProps }

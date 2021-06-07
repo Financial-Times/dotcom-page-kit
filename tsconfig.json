@@ -61,7 +61,8 @@
     "forceConsistentCasingInFileNames": true,
 
     // Required to import JSON files
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
   "exclude": [
     "**/__test__",

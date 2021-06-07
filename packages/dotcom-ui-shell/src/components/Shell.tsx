@@ -89,7 +89,8 @@ Shell.defaultProps = {
   bodyAttributes: {}
 }
 
-export { Shell, TShellProps }
+export { Shell }
+export type { TShellProps }
 
 // Export sub-components to more-easily enable custom integrations
 export { DocumentHead, ResourceHints, Content }
