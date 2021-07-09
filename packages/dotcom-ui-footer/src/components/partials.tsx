@@ -84,17 +84,6 @@ const FooterContents = ({ footerData }: TFooterContentsProps) => (
   </div>
 )
 
-// const MoreFromFT = () => (
-//   <div className="o-footer__external-link o-footer__matrix-title">
-//     <a
-//       className="o-footer__more-from-ft o-footer__matrix-title"
-//       href="http://ft.com/more-from-ft-group"
-//       data-trackable="more-from-ft">
-//       More from the FT Group
-//     </a>
-//   </div>
-// )
-
 const CopyrightNotice = ({ withoutMarketsData = false }) => {
   const marketsData = withoutMarketsData ? '' : 'Markets data delayed by at least 15 minutes. '
   return (
