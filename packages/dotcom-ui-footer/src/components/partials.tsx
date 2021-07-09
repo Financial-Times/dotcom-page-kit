@@ -11,7 +11,7 @@ const Link = ({ item, ...props }: TLinkProps) => {
 
   return (
     <a {...props} href={item.url} data-trackable={item.label} {...disableTracking}>
-      {item.label}
+      <span className="o-footer__matrix-link__copy">{item.label}</span>
     </a>
   )
 }
@@ -73,20 +73,30 @@ const FooterContents = ({ footerData }: TFooterContentsProps) => (
           </div>
         )
       })}
+      <div className="o-footer__matrix-group o-footer__matrix-group--1">
+        <h3 className="o-footer__matrix-title o-footer__matrix-title--external-link">
+          <a
+            className="o-footer__matrix-link o-footer__matrix-link--more"
+            id="o-footer-section-5"
+            href="https://ft.com/more-from-ft-group">
+            <span className="o-footer__matrix-link__copy">More from the FT Group</span>
+          </a>≈
+        </h3>
+      </div>
     </nav>
   </div>
 )
 
-const MoreFromFT = () => (
-  <div className="o-footer__external-link o-footer__matrix-title">
-    <a
-      className="o-footer__more-from-ft o-footer__matrix-title"
-      href="http://ft.com/more-from-ft-group"
-      data-trackable="more-from-ft">
-      More from the FT Group
-    </a>
-  </div>
-)
+// const MoreFromFT = () => (
+//   <div className="o-footer__external-link o-footer__matrix-title">
+//     <a
+//       className="o-footer__more-from-ft o-footer__matrix-title"
+//       href="http://ft.com/more-from-ft-group"
+//       data-trackable="more-from-ft">
+//       More from the FT Group
+//     </a>
+//   </div>
+// )
 
 const CopyrightNotice = ({ withoutMarketsData = false }) => {
   const marketsData = withoutMarketsData ? '' : 'Markets data delayed by at least 15 minutes. '
@@ -146,12 +156,4 @@ const NikkeiBrandLogo = () => (
   </div>
 )
 
-export {
-  SectionLinks,
-  SectionTitle,
-  FooterContents,
-  MoreFromFT,
-  CompressedLegal,
-  CopyrightNotice,
-  NikkeiBrandLogo
-}
+export { SectionLinks, SectionTitle, FooterContents, CompressedLegal, CopyrightNotice, NikkeiBrandLogo }
