@@ -64,7 +64,9 @@ const FooterContents = ({ footerData }: TFooterContentsProps) => (
         // <https://github.com/Financial-Times/next-navigation-api/blob/HEAD/server/transforms/footer.js>
         const submenu = item.submenu.items as TNavMenuItem[][]
         return (
-          <div key={`group-${index}`} className={`o-footer__matrix-group o-footer__matrix-group--1`}>
+          <div
+            key={`group-${index}`}
+            className={`o-footer__matrix-group o-footer__matrix-group--${submenu.length}`}>
             <SectionTitle label={item.label} submenu={submenu} index={index} />
             <SectionLinks submenu={submenu} index={index} />
           </div>
@@ -74,7 +76,7 @@ const FooterContents = ({ footerData }: TFooterContentsProps) => (
         <h3 className="o-footer__matrix-title o-footer__matrix-title--external-link">
           <a
             className="o-footer__matrix-link o-footer__matrix-link--more"
-            id="o-footer-section-5"
+            id={`o-footer-${footerData.length}`}
             href="https://ft.com/more-from-ft-group">
             <span className="o-footer__matrix-link__copy">More from the FT Group</span>
           </a>
