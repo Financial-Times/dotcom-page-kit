@@ -63,11 +63,8 @@ const FooterContents = ({ footerData }: TFooterContentsProps) => (
         // The Next navigation API splits footer links data into "columns"
         // <https://github.com/Financial-Times/next-navigation-api/blob/HEAD/server/transforms/footer.js>
         const submenu = item.submenu.items as TNavMenuItem[][]
-
         return (
-          <div
-            key={`group-${index}`}
-            className={`o-footer__matrix-group o-footer__matrix-group--${submenu.length}`}>
+          <div key={`group-${index}`} className={`o-footer__matrix-group o-footer__matrix-group--1`}>
             <SectionTitle label={item.label} submenu={submenu} index={index} />
             <SectionLinks submenu={submenu} index={index} />
           </div>
@@ -80,7 +77,7 @@ const FooterContents = ({ footerData }: TFooterContentsProps) => (
             id="o-footer-section-5"
             href="https://ft.com/more-from-ft-group">
             <span className="o-footer__matrix-link__copy">More from the FT Group</span>
-          </a>≈
+          </a>
         </h3>
       </div>
     </nav>
