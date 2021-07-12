@@ -38,12 +38,11 @@ const SectionLinks = ({ submenu, index }: TSectionLinksProps) => {
 type TSectionTitleProps = {
   index: number
   label: string
-  submenu: TNavMenuItem[][]
 }
 
-const SectionTitle = ({ label, submenu, index }: TSectionTitleProps) => {
-  // On smaller viewports, submenus which span two columns are collapsed behind toggles
-  const ariaControls = { 'aria-controls': submenu.length === 2 ? `o-footer-section-${index}` : null }
+const SectionTitle = ({ label, index }: TSectionTitleProps) => {
+  // On smaller viewports, submenu which span one column is collapsed behind toggles
+  const ariaControls = { 'aria-controls': `o-footer-section-${index}` }
   return (
     <h3 className="o-footer__matrix-title" {...ariaControls}>
       {label}
@@ -67,7 +66,7 @@ const FooterContents = ({ footerData }: TFooterContentsProps) => (
           <div
             key={`group-${index}`}
             className={`o-footer__matrix-group o-footer__matrix-group--${submenu.length}`}>
-            <SectionTitle label={item.label} submenu={submenu} index={index} />
+            <SectionTitle label={item.label} index={index} />
             <SectionLinks submenu={submenu} index={index} />
           </div>
         )
