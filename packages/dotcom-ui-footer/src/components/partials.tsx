@@ -11,7 +11,7 @@ const Link = ({ item, ...props }: TLinkProps) => {
 
   return (
     <a {...props} href={item.url} data-trackable={item.label} {...disableTracking}>
-      <span className="o-footer__matrix-link__copy">{item.label}</span>
+      <span>{item.label}</span>
     </a>
   )
 }
@@ -72,7 +72,7 @@ const FooterContents = ({ footerData }: TFooterContentsProps) => (
         )
       })}
       <div className="o-footer__matrix-group o-footer__matrix-group--1">
-        <h3 className="o-footer__matrix-title o-footer__matrix-title--external-link">
+        <h3 className="o-footer__matrix-title o-footer__matrix-title--link">
           <a
             className="o-footer__matrix-link o-footer__matrix-link--more"
             id={`o-footer-${footerData.length}`}
