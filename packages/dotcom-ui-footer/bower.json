@@ -1,7 +1,7 @@
 {
   "name": "dotcom-ui-footer",
   "dependencies": {
-    "o-footer": "^9.0.0-bower"
+    "o-footer": "^9.0.1-bower"
   },
   "main": [
     "browser.js",
