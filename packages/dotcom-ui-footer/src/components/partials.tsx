@@ -11,7 +11,7 @@ const Link = ({ item, ...props }: TLinkProps) => {
 
   return (
     <a {...props} href={item.url} data-trackable={item.label} {...disableTracking}>
-      <span class="o-footer__matrix-link__copy">{item.label}</span>
+      <span className="o-footer__matrix-link__copy">{item.label}</span>
     </a>
   )
 }
