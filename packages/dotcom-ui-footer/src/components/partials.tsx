@@ -11,7 +11,7 @@ const Link = ({ item, ...props }: TLinkProps) => {
 
   return (
     <a {...props} href={item.url} data-trackable={item.label} {...disableTracking}>
-      {item.label}
+      <span className="o-footer__matrix-link__copy">{item.label}</span>
     </a>
   )
 }
@@ -38,12 +38,11 @@ const SectionLinks = ({ submenu, index }: TSectionLinksProps) => {
 type TSectionTitleProps = {
   index: number
   label: string
-  submenu: TNavMenuItem[][]
 }
 
-const SectionTitle = ({ label, submenu, index }: TSectionTitleProps) => {
-  // On smaller viewports, submenus which span two columns are collapsed behind toggles
-  const ariaControls = { 'aria-controls': submenu.length === 2 ? `o-footer-section-${index}` : null }
+const SectionTitle = ({ label, index }: TSectionTitleProps) => {
+  // On smaller viewports, submenu which span one column is collapsed behind toggles
+  const ariaControls = { 'aria-controls': `o-footer-section-${index}` }
   return (
     <h3 className="o-footer__matrix-title" {...ariaControls}>
       {label}
@@ -63,28 +62,26 @@ const FooterContents = ({ footerData }: TFooterContentsProps) => (
         // The Next navigation API splits footer links data into "columns"
         // <https://github.com/Financial-Times/next-navigation-api/blob/HEAD/server/transforms/footer.js>
         const submenu = item.submenu.items as TNavMenuItem[][]
-
         return (
           <div
             key={`group-${index}`}
             className={`o-footer__matrix-group o-footer__matrix-group--${submenu.length}`}>
-            <SectionTitle label={item.label} submenu={submenu} index={index} />
+            <SectionTitle label={item.label} index={index} />
             <SectionLinks submenu={submenu} index={index} />
           </div>
         )
       })}
+      <div className="o-footer__matrix-group o-footer__matrix-group--1">
+        <h3 className="o-footer__matrix-title o-footer__matrix-title--link">
+          <a
+            className="o-footer__matrix-link o-footer__matrix-link--more"
+            id={`o-footer-${footerData.length}`}
+            href="https://ft.com/more-from-ft-group">
+            <span className="o-footer__matrix-link__copy">More from the FT Group</span>
+          </a>
+        </h3>
+      </div>
     </nav>
-  </div>
-)
-
-const MoreFromFT = () => (
-  <div className="o-footer__external-link o-footer__matrix-title">
-    <a
-      className="o-footer__more-from-ft o-footer__matrix-title"
-      href="http://ft.com/more-from-ft-group"
-      data-trackable="more-from-ft">
-      More from the FT Group
-    </a>
   </div>
 )
 
@@ -146,12 +143,4 @@ const NikkeiBrandLogo = () => (
   </div>
 )
 
-export {
-  SectionLinks,
-  SectionTitle,
-  FooterContents,
-  MoreFromFT,
-  CompressedLegal,
-  CopyrightNotice,
-  NikkeiBrandLogo
-}
+export { SectionLinks, SectionTitle, FooterContents, CompressedLegal, CopyrightNotice, NikkeiBrandLogo }

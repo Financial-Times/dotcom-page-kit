@@ -41,7 +41,7 @@ describe('dotcom-ui-footer', () => {
     })
 
     it('renders the More from FT section', () => {
-      expect(footer.find('.o-footer__more-from-ft')).toExist()
+      expect(footer.find('.o-footer__matrix-link__copy')).toExist()
     })
   })
 

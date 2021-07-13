@@ -100,8 +100,7 @@ const data: TNavMenu = {
             },
             {
               label: 'Group Subscriptions',
-              url:
-                'https://enterprise.ft.com/en-gb/services/group-subscriptions/group-contact-us/?segmentId=383c7f63-abf4-b62d-cb33-4c278e6fdf61&cpccampaign=B2B_link_ft.com_footer',
+              url: 'https://enterprise.ft.com/en-gb/services/group-subscriptions/group-contact-us/?segmentId=383c7f63-abf4-b62d-cb33-4c278e6fdf61&cpccampaign=B2B_link_ft.com_footer',
               submenu: null
             },
             {
@@ -113,9 +112,7 @@ const data: TNavMenu = {
               label: 'Contracts & Tenders',
               url: 'http://www.businessesforsale.com/ft2/notices',
               submenu: null
-            }
-          ],
-          [
+            },
             {
               label: 'Executive Job Search',
               url: 'https://www.exec-appointments.com/',
@@ -176,9 +173,7 @@ const data: TNavMenu = {
               label: 'MBA Rankings',
               url: 'http://rankings.ft.com/businessschoolrankings/global-mba-ranking-2016?ft_site=falcon',
               submenu: null
-            }
-          ],
-          [
+            },
             {
               label: 'Economic Calendar',
               url: 'https://markets.ft.com/data/world/economic-calendar',
@@ -197,6 +192,29 @@ const data: TNavMenu = {
             {
               label: 'Currency Converter',
               url: 'https://markets.ft.com/research/Markets/Currencies?segid=70113',
+              submenu: null
+            }
+          ]
+        ]
+      }
+    },
+    {
+      label: 'Community & Events',
+      url: null,
+      submenu: {
+        label: null,
+        items: [
+          [
+            { label: 'FT Community', url: 'https://www.ft.com/tour/community', submenu: null },
+            { label: 'FT Live', url: 'http://live.ft.com/', submenu: null },
+            {
+              label: 'FT Forums',
+              url: 'https://forums.ft.com/',
+              submenu: null
+            },
+            {
+              label: 'Board Director Programme',
+              url: 'https://bdp.ft.com/',
               submenu: null
             }
           ]

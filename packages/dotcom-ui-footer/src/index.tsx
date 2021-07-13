@@ -1,12 +1,6 @@
 import React from 'react'
 import { TNavigationData } from '@financial-times/dotcom-types-navigation'
-import {
-  FooterContents,
-  MoreFromFT,
-  CopyrightNotice,
-  NikkeiBrandLogo,
-  CompressedLegal
-} from './components/partials'
+import { FooterContents, CopyrightNotice, NikkeiBrandLogo, CompressedLegal } from './components/partials'
 
 export type TFooterOptions = {
   theme?: 'dark' | 'light' | string
@@ -23,7 +17,6 @@ export function Footer(props: TFooterProps) {
     <footer id="site-footer" className={`o-footer o-footer--theme-${theme}`} data-o-component="o-footer">
       <div className="o-footer__container">
         <FooterContents footerData={footerData} />
-        <MoreFromFT />
         <CopyrightNotice />
       </div>
       <NikkeiBrandLogo />
