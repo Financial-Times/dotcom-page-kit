@@ -16,7 +16,7 @@
     "lint": "eslint . --ext .js,.ts,.tsx,.jsx",
     "bower:link": "node scripts/link-packages-using-bower.js",
     "bower:install": "npm run bower:link && bower install",
-    "postinstall": "athloi exec npm i -- --no-package-lock && npm run bower:install",
+    "postinstall": "athloi exec npm i && npm run bower:install",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook:ci": "start-storybook -c .storybook --ci --smoke-test",
