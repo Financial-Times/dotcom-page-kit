@@ -22,7 +22,7 @@ references:
   #
   create_cache: &create_cache
     save_cache:
-      key: cache-v1-{{ .Branch }}-{{ checksum "./package.json" }}
+      key: cache-v2-{{ .Branch }}-{{ checksum "./package.json" }}
       paths:
         - ./node_modules/
 
@@ -32,7 +32,7 @@ references:
   restore_cache: &restore_cache
     restore_cache:
       keys:
-        - cache-v1-{{ .Branch }}-{{ checksum "./package.json" }}
+        - cache-v2-{{ .Branch }}-{{ checksum "./package.json" }}
 
   #
   # Filters
