@@ -19,7 +19,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "ajv": "^6.10.0"
+    "ajv": "^8.0.0"
   },
   "devDependencies": {
     "json-schema-to-markdown": "^1.1.0"
