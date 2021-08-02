@@ -9,9 +9,6 @@
   "scripts": {
     "test": "make test",
     "sass": "node-sass main.scss --include-path bower_components > test/styles.css",
-    "precommit": "node_modules/.bin/secret-squirrel",
-    "prepush": "make verify -j3",
-    "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
     "prepare": "npx snyk protect || npx snyk protect -d || true"
   },
   "repository": {
@@ -26,7 +23,7 @@
   },
   "homepage": "https://github.com/Financial-Times/n-ui-foundations#readme",
   "devDependencies": {
-    "@financial-times/n-gage": "^3.6.0",
+    "@financial-times/n-gage": "^8.3.2",
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -58,5 +55,12 @@
   "config": {},
   "engines": {
     "node": "12.x"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "node_modules/.bin/secret-squirrel-commitmsg",
+      "pre-commit": "node_modules/.bin/secret-squirrel",
+      "pre-push": "make verify -j3"
+    }
   }
 }
