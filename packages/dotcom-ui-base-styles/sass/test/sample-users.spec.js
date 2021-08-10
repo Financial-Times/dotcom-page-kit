@@ -10,7 +10,7 @@ describe('Sample users', () => {
 			hexString = hexString.slice(1) + hexString.charAt(0);
 			return hexString;
 		};
-		sinon.stub(cookieStore, 'get', () => getSpoorId());
+		sinon.stub(cookieStore, 'get').callsFake(() => getSpoorId());
 	});
 	afterEach(() => cookieStore.get.restore());
 
