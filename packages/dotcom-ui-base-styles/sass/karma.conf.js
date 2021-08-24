@@ -116,11 +116,11 @@ module.exports = function (karma) {
 			require('karma-html-reporter')
 		],
 		client: {
-				mocha: {
-						reporter: 'html',
-						ui: 'bdd',
-						timeout: 0
-				}
+			mocha: {
+				reporter: 'html',
+				ui: 'bdd',
+				timeout: 0
+			}
 		},
 
 		// wait 10 minutes for a browser if we have to...
