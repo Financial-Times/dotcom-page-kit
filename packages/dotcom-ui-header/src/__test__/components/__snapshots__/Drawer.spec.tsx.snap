@@ -1173,7 +1173,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
               FT Community
             </a>
             <button
-              aria-controls="o-header-drawer-child-9"
+              aria-controls="o-header-drawer-child-inner9"
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
               data-trackable="sub-level-toggle | FT Community"
             >
@@ -1183,7 +1183,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
           <ul
             className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
             data-trackable="sub-level"
-            id="o-header-drawer-child-9"
+            id="o-header-drawer-child-inner9"
           >
             <li
               className="o-header__drawer-menu-item"
@@ -2507,7 +2507,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
               FT Community
             </a>
             <button
-              aria-controls="o-header-drawer-child-9"
+              aria-controls="o-header-drawer-child-inner9"
               className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
               data-trackable="sub-level-toggle | FT Community"
             >
@@ -2517,7 +2517,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
           <ul
             className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
             data-trackable="sub-level"
-            id="o-header-drawer-child-9"
+            id="o-header-drawer-child-inner9"
           >
             <li
               className="o-header__drawer-menu-item"
