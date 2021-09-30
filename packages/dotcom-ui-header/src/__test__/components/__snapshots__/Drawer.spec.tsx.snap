@@ -1160,6 +1160,67 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
           </a>
         </li>
         <li
+          className="o-header__drawer-menu-item"
+        >
+          <div
+            className="o-header__drawer-menu-toggle-wrapper"
+          >
+            <a
+              className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--parent"
+              data-trackable="FT Community"
+              href="/tour/community"
+            >
+              FT Community
+            </a>
+            <button
+              aria-controls="o-header-drawer-child-inner9"
+              className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
+              data-trackable="sub-level-toggle | FT Community"
+            >
+              Show more FT Community
+            </button>
+          </div>
+          <ul
+            className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
+            data-trackable="sub-level"
+            id="o-header-drawer-child-inner9"
+          >
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="FT Live"
+                href="http://live.ft.com/"
+              >
+                FT Live
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="FT Forums"
+                href="https://forums.ft.com/"
+              >
+                FT Forums
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Board Director Programme"
+                href="https://bdp.ft.com/"
+              >
+                Board Director Programme
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
           className="o-header__drawer-menu-item o-header__drawer-menu-item--divide"
         >
           <a
@@ -2431,6 +2492,67 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
           >
             Newsletters
           </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <div
+            className="o-header__drawer-menu-toggle-wrapper"
+          >
+            <a
+              className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--parent"
+              data-trackable="FT Community"
+              href="/tour/community"
+            >
+              FT Community
+            </a>
+            <button
+              aria-controls="o-header-drawer-child-inner9"
+              className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
+              data-trackable="sub-level-toggle | FT Community"
+            >
+              Show more FT Community
+            </button>
+          </div>
+          <ul
+            className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
+            data-trackable="sub-level"
+            id="o-header-drawer-child-inner9"
+          >
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="FT Live"
+                href="http://live.ft.com/"
+              >
+                FT Live
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="FT Forums"
+                href="https://forums.ft.com/"
+              >
+                FT Forums
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Board Director Programme"
+                href="https://bdp.ft.com/"
+              >
+                Board Director Programme
+              </a>
+            </li>
+          </ul>
         </li>
         <li
           className="o-header__drawer-menu-item o-header__drawer-menu-item--divide"

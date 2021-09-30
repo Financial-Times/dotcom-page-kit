@@ -19,7 +19,8 @@ const Drawer = (props: THeaderProps) => {
       data-o-header-drawer
       data-o-header-drawer--no-js
       data-trackable="drawer"
-      data-trackable-terminate>
+      data-trackable-terminate
+    >
       <div className="o-header__drawer-inner">
         <DrawerTools {...editions} />
         <Search />
@@ -44,7 +45,8 @@ const DrawerTools = (props: TNavEditions) => (
       className="o-header__drawer-tools-close"
       title="Close drawer menu"
       aria-controls="o-header-drawer"
-      data-trackable="close">
+      data-trackable="close"
+    >
       <span className="o-header__visually-hidden">Close drawer menu</span>
     </button>
     <a className="o-header__drawer-tools-logo" href="/" data-trackable="logo">
@@ -63,7 +65,8 @@ const Search = () => (
       aria-label="Site search"
       data-n-topic-search
       data-n-topic-search-categories="concepts,equities"
-      data-n-topic-search-view-all>
+      data-n-topic-search-view-all
+    >
       <label className="o-header__visually-hidden" htmlFor="o-header-drawer-search-term">
         Search the <abbr title="Financial Times">FT</abbr>
       </label>
@@ -93,7 +96,11 @@ const SectionPrimary = (props: TNavMenuItem) => {
       <li className="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{props.label}</li>
       {(props.submenu.items as TNavMenuItem[]).map((item, index) => (
         <li key={item.url} className="o-header__drawer-menu-item">
-          {item.submenu ? <DrawerParentItem item={item} index={index} /> : <DrawerSingleItem {...item} />}
+          {item.submenu ? (
+            <DrawerParentItem item={item} idSuffix={`${index}`} />
+          ) : (
+            <DrawerSingleItem {...item} />
+          )}
         </li>
       ))}
     </React.Fragment>
@@ -103,9 +110,13 @@ const SectionPrimary = (props: TNavMenuItem) => {
 const SectionSecondary = (props: TNavMenuItem) => (
   <React.Fragment>
     <li className="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{props.label}</li>
-    {(props.submenu.items as TNavMenuItem[]).map((item) => (
+    {(props.submenu.items as TNavMenuItem[]).map((item, index) => (
       <li key={item.url} className="o-header__drawer-menu-item">
-        <DrawerSingleItem {...item} />
+        {item.submenu ? (
+          <DrawerParentItem item={item} idSuffix={'inner' + index} />
+        ) : (
+          <DrawerSingleItem {...item} />
+        )}
       </li>
     ))}
   </React.Fragment>

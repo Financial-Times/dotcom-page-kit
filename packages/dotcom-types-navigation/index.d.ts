@@ -50,6 +50,7 @@ export type TNavMenuItem = {
   selected?: boolean
   meganav?: TNavMeganav[]
   disableTracking?: boolean
+  index?: number
 }
 
 export type TNavMeganav = INavMeganavSections | INavMeganavArticles

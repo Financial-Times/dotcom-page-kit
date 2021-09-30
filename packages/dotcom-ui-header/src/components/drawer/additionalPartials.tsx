@@ -4,10 +4,10 @@ import { TNavMenuItem, TNavEditions } from '@financial-times/dotcom-types-naviga
 
 export type TDrawerParentItemProps = {
   item: TNavMenuItem
-  index: number
+  idSuffix: string
 }
 
-export const DrawerParentItem = ({ item, index }: TDrawerParentItemProps) => {
+export const DrawerParentItem = ({ item, idSuffix }: TDrawerParentItemProps) => {
   const selected = item.selected ? 'selected' : 'unselected'
   return (
     <React.Fragment>
@@ -16,20 +16,23 @@ export const DrawerParentItem = ({ item, index }: TDrawerParentItemProps) => {
           className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--parent`}
           href={item.url}
           {...ariaSelected(item)}
-          data-trackable={item.label}>
+          data-trackable={item.label}
+        >
           {item.label}
         </a>
         <button
           className={`o-header__drawer-menu-toggle o-header__drawer-menu-toggle--${selected}`}
-          aria-controls={`o-header-drawer-child-${index}`}
-          data-trackable={`sub-level-toggle | ${item.label}`}>
+          aria-controls={`o-header-drawer-child-${idSuffix}`}
+          data-trackable={`sub-level-toggle | ${item.label}`}
+        >
           {`Show more ${item.label}`}
         </button>
       </div>
       <ul
         className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
-        id={`o-header-drawer-child-${index}`}
-        data-trackable="sub-level">
+        id={`o-header-drawer-child-${idSuffix}`}
+        data-trackable="sub-level"
+      >
         {(item.submenu.items as TNavMenuItem[]).map((item) => {
           const selected = item.selected ? 'selected' : 'unselected'
           return (
@@ -38,7 +41,8 @@ export const DrawerParentItem = ({ item, index }: TDrawerParentItemProps) => {
                 className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--child`}
                 href={item.url}
                 data-trackable={item.label}
-                {...ariaSelected(item)}>
+                {...ariaSelected(item)}
+              >
                 {item.label}
               </a>
             </li>
@@ -56,7 +60,8 @@ export const DrawerSingleItem = (item: TNavMenuItem) => {
       className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected}`}
       href={item.url}
       data-trackable={item.label}
-      {...ariaSelected(item)}>
+      {...ariaSelected(item)}
+    >
       {item.label}
     </a>
   )
@@ -69,7 +74,8 @@ export const DrawerSpecialItem = (item: TNavMenuItem) => {
       className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--secondary`}
       href={item.url}
       data-trackable={item.label}
-      {...ariaSelected(item)}>
+      {...ariaSelected(item)}
+    >
       {item.label}
     </a>
   )
