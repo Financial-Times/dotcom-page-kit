@@ -10,7 +10,7 @@
     "test": "make test",
     "sass": "node-sass main.scss --include-path bower_components > test/styles.css",
     "prepare": "npx snyk protect || npx snyk protect -d || true",
-    "preinstall": "npm_config_yes=true npx check-engine"
+    "preinstall": "[[ \"$INIT_CWD\" != \"$PWD\" ]] || npm_config_yes=true npx check-engine"
   },
   "repository": {
     "type": "git",
