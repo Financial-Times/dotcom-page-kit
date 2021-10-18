@@ -4,11 +4,13 @@ import interopRequire from './interopRequire'
 import { Renderable, RenderCallback } from './types'
 
 export interface TPageKitReactJSXOptions {
-  useStaticRendering?: boolean
+  useStaticRendering?: boolean,
+  includeDoctype?: boolean
 }
 
 const defaultOptions: TPageKitReactJSXOptions = {
-  useStaticRendering: false
+  useStaticRendering: false,
+  includeDoctype: true
 }
 
 export class PageKitReactJSX {
@@ -20,7 +22,7 @@ export class PageKitReactJSX {
     this.engine = this.renderView.bind(this)
   }
 
-  async render(component: Renderable, templateContext: any, includeDoctype?: boolean): Promise<string> {
+  async render(component: Renderable, templateContext: any, includeDoctype: boolean = this.options.includeDoctype): Promise<string> {
     if (typeof component.getInitialProps === 'function') {
       templateContext = await component.getInitialProps(templateContext)
     }
@@ -40,7 +42,7 @@ export class PageKitReactJSX {
         throw Error(`The module ${viewPath} requires a default export.`)
       }
 
-      const output = await this.render(element, templateContext, true)
+      const output = await this.render(element, templateContext)
 
       callback(null, output)
     } catch (error) {
