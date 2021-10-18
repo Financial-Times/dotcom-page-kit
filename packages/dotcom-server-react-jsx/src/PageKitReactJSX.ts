@@ -10,7 +10,7 @@ export interface TPageKitReactJSXOptions {
 
 const defaultOptions: TPageKitReactJSXOptions = {
   useStaticRendering: false,
-  includeDoctype: false
+  includeDoctype: true
 }
 
 export class PageKitReactJSX {
