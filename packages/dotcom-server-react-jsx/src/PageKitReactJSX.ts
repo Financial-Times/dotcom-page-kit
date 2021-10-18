@@ -22,12 +22,12 @@ export class PageKitReactJSX {
     this.engine = this.renderView.bind(this)
   }
 
-  async render(component: Renderable, templateContext: any): Promise<string> {
+  async render(component: Renderable, templateContext: any, includeDoctype: boolean = this.options.includeDoctype): Promise<string> {
     if (typeof component.getInitialProps === 'function') {
       templateContext = await component.getInitialProps(templateContext)
     }
 
-    const outputPrefix = this.options.includeDoctype ? '<!DOCTYPE html>' : ''
+    const outputPrefix = includeDoctype ? '<!DOCTYPE html>' : ''
     const renderMethod = this.options.useStaticRendering ? renderToStaticMarkup : renderToString
     const outputHTML = renderMethod(createElement(component, templateContext))
 
