@@ -85,6 +85,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders a right aligned subn
             data-tour-stage="myFt"
             data-trackable="my-ft"
             href="/myft"
+            id="o-header-top-link-myft"
           >
             <span
               className="o-header__visually-hidden"
@@ -1919,6 +1920,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
             data-tour-stage="myFt"
             data-trackable="my-ft"
             href="/myft"
+            id="o-header-top-link-myft"
           >
             <span
               className="o-header__visually-hidden"
@@ -3758,6 +3760,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
             data-tour-stage="myFt"
             data-trackable="my-ft"
             href="/myft"
+            id="o-header-top-link-myft"
           >
             <span
               className="o-header__visually-hidden"
