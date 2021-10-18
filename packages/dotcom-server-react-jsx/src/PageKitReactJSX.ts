@@ -4,11 +4,13 @@ import interopRequire from './interopRequire'
 import { Renderable, RenderCallback } from './types'
 
 export interface TPageKitReactJSXOptions {
-  useStaticRendering?: boolean
+  useStaticRendering?: boolean,
+  includeDoctype?: boolean
 }
 
 const defaultOptions: TPageKitReactJSXOptions = {
-  useStaticRendering: false
+  useStaticRendering: false,
+  includeDoctype: false
 }
 
 export class PageKitReactJSX {
@@ -25,7 +27,7 @@ export class PageKitReactJSX {
       templateContext = await component.getInitialProps(templateContext)
     }
 
-    const outputPrefix = includeDoctype ? '<!DOCTYPE html>' : ''
+    const outputPrefix = this.options.includeDoctype ? '<!DOCTYPE html>' : ''
     const renderMethod = this.options.useStaticRendering ? renderToStaticMarkup : renderToString
     const outputHTML = renderMethod(createElement(component, templateContext))
 
@@ -40,7 +42,7 @@ export class PageKitReactJSX {
         throw Error(`The module ${viewPath} requires a default export.`)
       }
 
-      const output = await this.render(element, templateContext, true)
+      const output = await this.render(element, templateContext)
 
       callback(null, output)
     } catch (error) {
