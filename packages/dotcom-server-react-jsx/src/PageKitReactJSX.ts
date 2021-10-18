@@ -22,7 +22,7 @@ export class PageKitReactJSX {
     this.engine = this.renderView.bind(this)
   }
 
-  async render(component: Renderable, templateContext: any, includeDoctype?: boolean): Promise<string> {
+  async render(component: Renderable, templateContext: any): Promise<string> {
     if (typeof component.getInitialProps === 'function') {
       templateContext = await component.getInitialProps(templateContext)
     }
