@@ -95,33 +95,48 @@ export class PageKitSassPlugin {
       silent: true
     }
 
+    // Rulesets
+    //--------------------------------------------------------------------------
+    const prodOptions = [
+      // Extracts CSS into separate, non-JS files
+      // https://github.com/webpack-contrib/mini-css-extract-plugin
+      {
+        loader: MiniCssExtractPlugin.loader
+      },
+      // Add support for handling .css files
+      // https://github.com/webpack-contrib/css-loader
+      {
+        loader: require.resolve('css-loader'),
+        options: cssLoaderOptions
+      },
+      // Enable use of PostCSS for CSS postprocessing
+      // https://github.com/postcss/postcss-loader
+      {
+        loader: require.resolve('postcss-loader'),
+        options: postcssLoaderOptions
+      },
+      // Enable use of Sass for CSS preprocessing
+      // https://github.com/webpack-contrib/sass-loader
+      {
+        loader: require.resolve('sass-loader'),
+        options: sassLoaderOptions
+      }
+    ]
+
+    const devOptions = [
+      {
+        loader: require.resolve('css-loader'),
+        options: cssLoaderOptions
+      },
+      {
+        loader: require.resolve('sass-loader'),
+        options: sassLoaderOptions
+      }
+    ]
+
     compiler.options.module.rules.push({
       test: [/\.sass|scss$/],
-      use: [
-        // Extracts CSS into separate, non-JS files
-        // https://github.com/webpack-contrib/mini-css-extract-plugin
-        {
-          loader: MiniCssExtractPlugin.loader
-        },
-        // Add support for handling .css files
-        // https://github.com/webpack-contrib/css-loader
-        {
-          loader: require.resolve('css-loader'),
-          options: cssLoaderOptions
-        },
-        // Enable use of PostCSS for CSS postprocessing
-        // https://github.com/postcss/postcss-loader
-        {
-          loader: require.resolve('postcss-loader'),
-          options: postcssLoaderOptions
-        },
-        // Enable use of Sass for CSS preprocessing
-        // https://github.com/webpack-contrib/sass-loader
-        {
-          loader: require.resolve('sass-loader'),
-          options: sassLoaderOptions
-        }
-      ]
+      use: compiler.options.mode === "development" ? devOptions : prodOptions
     })
 
     new StylesOnlyPlugin(stylesOnlyPluginOptions).apply(compiler)
