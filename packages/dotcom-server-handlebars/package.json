@@ -12,7 +12,8 @@
     "clean:node_modules": "rm -rf node_modules",
     "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
     "build": "npm run build:node",
-    "dev": "npm run build:node -- --watch"
+    "dev": "npm run build:node -- --watch",
+    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
   },
   "keywords": [],
   "author": "",
@@ -27,12 +28,19 @@
     "react-dom": "^16.12.0"
   },
   "engines": {
-    "node": ">= 12.0.0"
+    "node": ">= 12.0.0",
+    "npm": "7.x || 8.x"
   },
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
     "directory": "packages/dotcom-server-handlebars"
   },
-  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/HEAD/packages/dotcom-server-handlebars"
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/HEAD/packages/dotcom-server-handlebars",
+  "volta": {
+    "extends": "../../package.json"
+  },
+  "devDependencies": {
+    "check-engine": "^1.10.1"
+  }
 }

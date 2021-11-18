@@ -12,7 +12,8 @@
     "clean:node_modules": "rm -rf node_modules",
     "build": "npm run build:node",
     "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
-    "dev": "npm run build:node -- --watch"
+    "dev": "npm run build:node -- --watch",
+    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
   },
   "keywords": [],
   "author": "",
@@ -26,16 +27,21 @@
     "node-fetch": "^2.2.1"
   },
   "devDependencies": {
+    "check-engine": "^1.10.1",
     "dlv": "^1.1.2",
     "nock": "^12.0.0"
   },
   "engines": {
-    "node": ">= 12.0.0"
+    "node": ">= 12.0.0",
+    "npm": "7.x || 8.x"
   },
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
     "directory": "packages/dotcom-server-navigation"
   },
-  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/HEAD/packages/dotcom-server-navigation"
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/HEAD/packages/dotcom-server-navigation",
+  "volta": {
+    "extends": "../../package.json"
+  }
 }
