@@ -48,7 +48,7 @@
     "karma-webpack": "^2.0.2",
     "lintspaces-cli": "^0.6.0",
     "mocha": "^6.0.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^6.0.1",
     "sinon": "^2.4.1",
     "sinon-chai": "^2.8.0",
     "snyk": "^1.168.0",
