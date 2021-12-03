@@ -16,28 +16,36 @@
     "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
     "build:browser": "npm run tsc -- --module es2015 --outDir ./dist/browser",
     "build": "npm run build:node && npm run build:browser",
-    "dev": "echo -n node browser | parallel -u -d ' ' npm run build:{} -- --watch"
+    "dev": "echo -n node browser | parallel -u -d ' ' npm run build:{} -- --watch",
+    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@financial-times/dotcom-ui-base-styles": "file:../dotcom-ui-base-styles",
-    "@financial-times/dotcom-ui-header": "file:../dotcom-ui-header",
-    "@financial-times/dotcom-ui-footer": "file:../dotcom-ui-footer",
     "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation",
+    "@financial-times/dotcom-ui-base-styles": "file:../dotcom-ui-base-styles",
+    "@financial-times/dotcom-ui-footer": "file:../dotcom-ui-footer",
+    "@financial-times/dotcom-ui-header": "file:../dotcom-ui-header",
     "focus-visible": "^5.0.0"
   },
   "peerDependencies": {
     "react": "^16.8.6"
   },
   "engines": {
-    "node": ">= 12.0.0"
+    "node": ">= 12.0.0",
+    "npm": "7.x || 8.x"
   },
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
     "directory": "packages/dotcom-ui-layout"
   },
-  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/HEAD/packages/dotcom-ui-layout"
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/HEAD/packages/dotcom-ui-layout",
+  "volta": {
+    "extends": "../../package.json"
+  },
+  "devDependencies": {
+    "check-engine": "^1.10.1"
+  }
 }

@@ -7,18 +7,26 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "npm run clean:node_modules",
-    "clean:node_modules": "rm -rf node_modules"
+    "clean:node_modules": "rm -rf node_modules",
+    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "engines": {
-    "node": ">= 12.0.0"
+    "node": ">= 12.0.0",
+    "npm": "7.x || 8.x"
   },
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
     "directory": "packages/dotcom-types-navigation"
   },
-  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/HEAD/packages/dotcom-types-navigation"
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/HEAD/packages/dotcom-types-navigation",
+  "volta": {
+    "extends": "../../package.json"
+  },
+  "devDependencies": {
+    "check-engine": "^1.10.1"
+  }
 }
