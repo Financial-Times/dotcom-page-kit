@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@4.6.0
+  browser-tools: circleci/browser-tools@1.2.3
 
 references:
 
@@ -11,7 +12,7 @@ references:
   container_config_node: &container_config_node
     working_directory: ~/project/build
     docker:
-      - image: circleci/node:12.18-browsers
+      - image: cimg/node:12.22-browsers
 
   workspace_root: &workspace_root
     ~/project
@@ -92,6 +93,7 @@ jobs:
     <<: *container_config_node
     steps:
       - *attach_workspace
+      - browser-tools/install-chrome
       - run:
           name: Check code style
           command: npm run prettier -- --list-different
