@@ -2,7 +2,6 @@
 // Generated on Fri Apr 18 2014 18:19:03 GMT+0100 (BST)
 
 const path = require('path');
-const BowerWebpackPlugin = require('bower-webpack-plugin');
 
 module.exports = function (karma) {
 
@@ -66,12 +65,8 @@ module.exports = function (karma) {
 					},
 				]
 			},
-			plugins: [
-				new BowerWebpackPlugin({ includes: /\.js$/ }),
-			],
 			resolve: {
 				root: [
-					path.join(__dirname, 'bower_components'),
 					path.join(__dirname, 'node_modules')
 				]
 			}

@@ -1,8 +1,8 @@
 /*eslint no-console: 0*/
 const path = require('path');
 
-const topLevelDeps = require(path.join(process.cwd(), 'bower.json')).dependencies;
-const nUiDeps = require('./bower.json').dependencies;
+const topLevelDeps = require(path.join(process.cwd(), 'package.json')).dependencies;
+const nUiDeps = require('./package.json').dependencies;
 
 const dupedDeps = Object.keys(nUiDeps)
 	.map(dep => topLevelDeps[dep] && dep)
