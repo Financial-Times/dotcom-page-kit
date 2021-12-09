@@ -1,4 +1,4 @@
-import Footer from 'o-footer'
+import Footer from '@financial-times/o-footer'
 
 /**
  * @typedef FooterOptions
