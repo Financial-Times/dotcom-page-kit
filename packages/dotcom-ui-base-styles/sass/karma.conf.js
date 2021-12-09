@@ -46,9 +46,6 @@ module.exports = function (karma) {
 					{
 						test: /\.js$/,
 						loader: 'babel',
-						exclude: [
-							path.resolve('./node_modules')
-						],
 						query: {
 							cacheDirectory: true,
 							presets: ['es2015'],
