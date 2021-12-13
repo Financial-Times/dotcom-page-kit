@@ -1,4 +1,4 @@
-const { debounce, throttle } = require('o-utils/main');
+const { debounce, throttle } = require('@financial-times/o-utils/main');
 const cookieStore = require('./js/cookies');
 const getSpoorNumber = () => {
 	let spoorId = cookieStore.get('spoor-id').replace(/-/g, '');
