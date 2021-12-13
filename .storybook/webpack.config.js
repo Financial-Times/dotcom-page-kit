@@ -7,10 +7,9 @@ module.exports = ({ config }) => {
   // Use real file paths for symlinked dependencies do avoid including them multiple times
   config.resolve.symlinks = true
 
-  // Resolve packages installed using Bower
   Object.assign(config.resolve, {
-    modules: ['bower_components', 'node_modules'],
-    descriptionFiles: ['bower.json', 'package.json'],
+    modules: ['node_modules'],
+    descriptionFiles: ['package.json'],
     mainFiles: ['index', 'main']
   })
 
@@ -55,7 +54,7 @@ module.exports = ({ config }) => {
           // Use `dart-sass` rather than `node-sass`
           implementation: require('sass'),
           sassOptions: {
-            includePaths: ['bower_components', 'node_modules']
+            includePaths: ['node_modules']
           }
         }
       }

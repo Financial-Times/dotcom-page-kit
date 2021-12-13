@@ -3,6 +3,6 @@ module.exports = {
   roots: ['./packages'],
   testEnvironment: 'node',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
-  testPathIgnorePatterns: ['/bower_components/', '/node_modules/'],
+  testPathIgnorePatterns: ['/node_modules/'],
   setupFilesAfterEnv: ['./jest.enzyme.ts']
 }
