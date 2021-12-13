@@ -78,6 +78,9 @@
     "@financial-times/o-typography": "^7.2.0",
     "@financial-times/o-utils": "^2.1.0",
     "@financial-times/o-viewport": "^5.1.0",
-    "@financial-times/o-visual-effects": "^4.1.0"
+    "@financial-times/o-visual-effects": "^4.1.0",
+    "ftdomdelegate": "^5.0.0",
+    "superstore": "^2.1.0",
+    "superstore-sync": "^2.1.1"
   }
 }
