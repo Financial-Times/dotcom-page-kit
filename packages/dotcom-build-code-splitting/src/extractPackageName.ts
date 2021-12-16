@@ -1,7 +1,7 @@
 import memoize from 'memoize-one'
 import getPackageName from 'get-package-name'
 
-const moduleType = /(node_modules|bower_components)/
+const moduleType = /(node_modules)/
 
 function extractPackageName(modulePath: string) {
   const type = modulePath.match(moduleType)

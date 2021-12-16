@@ -77,27 +77,6 @@ Running `webpack --mode=development` again outputs the file `public/styles.bundl
 
 [sass]: https://sass-lang.com/
 
-## Using Bower packages
-
-Apps that need packages from [Bower] should install the [`@financial-times/dotcom-build-bower-resolve`](../../packages/dotcom-build-bower-resolve/README.md) plugin, which enables Webpack to resolve packages installed with Bower:
-
-```diff
-const { PageKitBasePlugin } = require('@financial-times/dotcom-build-base')
-+ const { PageKitBowerResolvePlugin } = require('@financial-times/dotcom-build-bower-resolve')
-
-module.exports = {
-	entry: {
-		scripts: 'client/main.js',
-	},
-	plugins: [
-		new PageKitBasePlugin(),
-+		new PageKitBowerResolvePlugin()
-	]
-}
-```
-
-[bower]: https://bower.io/
-
 ## Code splitting
 
 FT.com apps should use the [`@financial-times/dotcom-build-code-splitting`](../../packages/dotcom-build-code-splitting/README.md) plugin to take advantage of shared cached dependencies between apps.

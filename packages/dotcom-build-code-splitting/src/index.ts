@@ -32,7 +32,7 @@ export class PageKitCodeSplittingPlugin {
     const addComponentCodeSplitting = createBundlesForRegExp({
       compiler,
       name: 'shared-components',
-      pattern: /(node_modules\/@financial-times|bower_components)\/(o|n|x|next)-/,
+      pattern: /(node_modules\/@financial-times)\/(o|n|x|next)-/,
       usedInUnknownWay: true
     })
 
@@ -66,7 +66,7 @@ export class PageKitCodeSplittingPlugin {
       name: 'privacy-components',
       pattern: /@financial-times\/privacy-/,
       usedInUnknownWay: true
-    });
+    })
 
     // split packages used by all pages (i.e. used by Page Kit) into a shared bundle
     const addSharedStableCodeSplitting = createBundleWithPackages({

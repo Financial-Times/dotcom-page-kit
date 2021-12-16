@@ -41,7 +41,7 @@ module.exports = {
 
 This plugin adds a [rule] to the Webpack configuration to handle `.scss` files. It first uses the [sass-loader] to transpile Sass source code, then sends the output through to the [postcss-loader] for optimisations, and finally the [css-loader]. The [mini-css-extract-plugin] is added to generate `.css` files and the [webpack-fix-style-only-entries] to clean up any empty JavaScript bundles.
 
-Sass has been configured to find packages installed with Bower and or npm by looking in the `'bower_components'` and `'node_modules/@financial-times'` directories. It can be configured to look in additional locations by passing the relevant paths to the plugin as absolute paths.
+Sass has been configured to find packages installed with npm by looking in the `'node_modules/@financial-times'` directories. It can be configured to look in additional locations by passing the relevant paths to the plugin as absolute paths.
 
 ```js
 new PageKitSassPlugin({ includePaths: [path.resolve('./path-to-sass-files')] })
