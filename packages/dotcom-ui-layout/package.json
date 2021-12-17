@@ -29,7 +29,7 @@
     "@financial-times/dotcom-ui-header": "file:../dotcom-ui-header",
     "@financial-times/o-typography": "^7.2.0",
     "focus-visible": "^5.0.0",
-    "n-ui-foundations": "^7.0.0"
+    "n-ui-foundations": "7.0.0"
   },
   "peerDependencies": {
     "react": "^16.8.6"
