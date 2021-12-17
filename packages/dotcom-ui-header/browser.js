@@ -1,4 +1,4 @@
-import Header from 'o-header'
+import Header from '@financial-times/o-header'
 import TopicSearch from 'n-topic-search'
 
 /**

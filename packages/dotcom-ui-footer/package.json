@@ -22,7 +22,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation"
+    "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation",
+    "@financial-times/o-footer": "^9.2.0"
   },
   "peerDependencies": {
     "react": "^16.8.6"

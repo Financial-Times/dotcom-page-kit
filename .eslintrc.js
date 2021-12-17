@@ -30,8 +30,8 @@ module.exports = {
         // rules so that the two files do not need to know about one other and their structure.
         config: {
           resolve: {
-            modules: ['bower_components', 'node_modules'],
-            descriptionFiles: ['bower.json', 'package.json'],
+            modules: ['node_modules'],
+            descriptionFiles: ['package.json'],
             mainFiles: ['index', 'main']
           }
         }

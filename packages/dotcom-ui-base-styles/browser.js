@@ -1,4 +1,4 @@
-import oTypography from 'o-typography'
+import oTypography from '@financial-times/o-typography'
 
 // Polyfill for :focus-visible https://github.com/WICG/focus-visible
 // NOTE: v5 of this polyfill is not yet supported by o-normalise

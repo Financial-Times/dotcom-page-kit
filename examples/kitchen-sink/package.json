@@ -27,7 +27,6 @@
     "sucrase": "^3.10.1"
   },
   "devDependencies": {
-    "@financial-times/dotcom-build-bower-resolve": "file:../../packages/dotcom-build-bower-resolve",
     "@financial-times/dotcom-build-code-splitting": "file:../../packages/dotcom-build-code-splitting",
     "@financial-times/dotcom-build-js": "file:../../packages/dotcom-build-js",
     "@financial-times/dotcom-build-sass": "file:../../packages/dotcom-build-sass",
