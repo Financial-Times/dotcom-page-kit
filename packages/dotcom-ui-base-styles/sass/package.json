@@ -25,6 +25,16 @@
   "homepage": "https://github.com/Financial-Times/n-ui-foundations#readme",
   "devDependencies": {
     "@financial-times/n-gage": "^8.3.2",
+    "@financial-times/o-buttons": "^7.2.0",
+    "@financial-times/o-colors": "^6.4.0",
+    "@financial-times/o-fonts": "^5.2.0",
+    "@financial-times/o-grid": "^6.1.1",
+    "@financial-times/o-icons": "^7.2.0",
+    "@financial-times/o-normalise": "^3.2.0",
+    "@financial-times/o-typography": "^7.2.0",
+    "@financial-times/o-utils": "^2.1.0",
+    "@financial-times/o-viewport": "^5.1.0",
+    "@financial-times/o-visual-effects": "^4.1.0",
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
     "babel-plugin-add-module-exports": "^0.2.1",
@@ -69,6 +79,11 @@
     "npm": "7.20.2"
   },
   "dependencies": {
+    "ftdomdelegate": "^5.0.0",
+    "superstore": "^2.1.0",
+    "superstore-sync": "^2.1.1"
+  },
+  "peerDependencies": {
     "@financial-times/o-buttons": "^7.2.0",
     "@financial-times/o-colors": "^6.4.0",
     "@financial-times/o-fonts": "^5.2.0",
@@ -78,9 +93,6 @@
     "@financial-times/o-typography": "^7.2.0",
     "@financial-times/o-utils": "^2.1.0",
     "@financial-times/o-viewport": "^5.1.0",
-    "@financial-times/o-visual-effects": "^4.1.0",
-    "ftdomdelegate": "^5.0.0",
-    "superstore": "^2.1.0",
-    "superstore-sync": "^2.1.1"
+    "@financial-times/o-visual-effects": "^4.1.0"
   }
 }
