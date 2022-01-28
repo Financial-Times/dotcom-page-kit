@@ -25,7 +25,7 @@
   "dependencies": {
     "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation",
     "@financial-times/o-header": "^9.2.0",
-    "n-topic-search": "3.0.0",
+    "n-topic-search": "^3.0.0",
     "n-ui-foundations": "^7.0.0"
   },
   "devDependencies": {
