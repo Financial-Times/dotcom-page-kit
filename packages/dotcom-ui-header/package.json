@@ -25,7 +25,7 @@
   "dependencies": {
     "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation",
     "@financial-times/o-header": "^9.2.0",
-    "n-topic-search": "^3.0.0",
+    "n-topic-search": "https://github.com/Financial-Times/n-topic-search.git#ecafedfb663344035110b89154c5bf4c6fcb5f24",
     "n-ui-foundations": "^7.0.0"
   },
   "devDependencies": {
@@ -35,8 +35,8 @@
     "check-engine": "^1.10.1"
   },
   "peerDependencies": {
-    "react": "^16.8.6",
-    "@financial-times/o-header": "^9.2.0"
+    "@financial-times/o-header": "^9.2.0",
+    "react": "^16.8.6"
   },
   "engines": {
     "node": ">= 12.0.0",
