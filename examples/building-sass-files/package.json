@@ -12,5 +12,8 @@
     "@financial-times/o-normalise": "^1.7.2",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11"
+  },
+  "peerDependencies": {
+    "@financial-times/o-normalise": "^1.7.2"
   }
 }
