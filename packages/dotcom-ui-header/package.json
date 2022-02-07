@@ -24,17 +24,18 @@
   "license": "MIT",
   "dependencies": {
     "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation",
-    "@financial-times/o-header": "^9.2.0",
-    "n-topic-search": "^3.0.0",
+    "n-topic-search": "^3.2.3",
     "n-ui-foundations": "^7.0.0"
   },
   "devDependencies": {
     "@financial-times/logo-images": "^1.10.1",
     "@svgr/core": "^5.0.0",
     "camelcase": "^6.0.0",
-    "check-engine": "^1.10.1"
+    "check-engine": "^1.10.1",
+    "@financial-times/o-header": "^9.2.0"
   },
   "peerDependencies": {
+    "@financial-times/o-header": "^9.2.0",
     "react": "^16.8.6"
   },
   "engines": {
