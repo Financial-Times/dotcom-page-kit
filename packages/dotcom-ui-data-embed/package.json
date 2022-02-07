@@ -26,7 +26,7 @@
     "npm": "7.x || 8.x"
   },
   "peerDependencies": {
-    "react": "^16.8.6"
+    "react": "16.x || 17.x"
   },
   "repository": {
     "type": "git",
@@ -38,6 +38,7 @@
     "extends": "../../package.json"
   },
   "devDependencies": {
-    "check-engine": "^1.10.1"
+    "check-engine": "^1.10.1",
+    "react": "^16.8.6"
   }
 }
