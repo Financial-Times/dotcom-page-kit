@@ -32,12 +32,13 @@
     "@svgr/core": "^5.0.0",
     "camelcase": "^6.0.0",
     "check-engine": "^1.10.1",
-    "@financial-times/o-header": "^9.2.0"
+    "@financial-times/o-header": "^9.2.0",
+    "react": "^16.8.6"
   },
   "peerDependencies": {
     "@financial-times/o-header": "^9.2.0",
     "@financial-times/logo-images": "^1.10.1",
-    "react": "^16.8.6"
+    "react": "16.x || 17.x"
   },
   "engines": {
     "node": ">= 12.0.0",
