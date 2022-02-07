@@ -32,7 +32,7 @@
     "@financial-times/o-typography": "^7.2.0"
   },
   "peerDependencies": {
-    "react": "^16.8.6",
+    "react": "16.x || 17.x",
     "@financial-times/o-typography": "^7.2.0"
   },
   "engines": {
