@@ -78,11 +78,6 @@
     "node": "12.22.5",
     "npm": "7.20.2"
   },
-  "dependencies": {
-    "ftdomdelegate": "^5.0.0",
-    "superstore": "^2.1.0",
-    "superstore-sync": "^2.1.1"
-  },
   "peerDependencies": {
     "@financial-times/o-buttons": "^7.2.0",
     "@financial-times/o-colors": "^6.4.0",
