@@ -9,59 +9,64 @@ references:
   #
   # Workspace
   #
-  container_config_node: &container_config_node
+  container_config_node:
+    &container_config_node
     working_directory: ~/project/build
     docker:
       - image: cimg/node:12.22-browsers
 
-  workspace_root: &workspace_root
-    ~/project
+  workspace_root: &workspace_root ~/project
 
-  attach_workspace: &attach_workspace
+  attach_workspace:
+    &attach_workspace
     attach_workspace:
       at: *workspace_root
 
-  #
   # Cache creation
   #
-  create_cache: &create_cache
+  create_cache:
+    &create_cache
     save_cache:
       key: cache-v1-{{ .Branch }}-{{ checksum "./package.json" }}
       paths:
         - ./node_modules/
 
-  #
   # Cache restoration
   #
-  restore_cache: &restore_cache
+  restore_cache:
+    &restore_cache
     restore_cache:
       keys:
         - cache-v1-{{ .Branch }}-{{ checksum "./package.json" }}
 
-  #
   # Filters
   #
-  filters_only_main: &filters_only_main
+  filters_only_main:
+    &filters_only_main
     branches:
       only:
         - main
 
-  filters_only_renovate_nori: &filters_only_renovate_nori
+  filters_only_renovate_nori:
+    &filters_only_renovate_nori
     branches:
       only: /(^renovate-.*|^nori\/.*)/
 
-  filters_ignore_tags_renovate_nori_build: &filters_ignore_tags_renovate_nori_build
+  filters_ignore_tags_renovate_nori_build:
+    &filters_ignore_tags_renovate_nori_build
     tags:
       ignore: /.*/
     branches:
       ignore: /(^renovate-.*|^nori\/.*|^gh-pages)/
 
-  filters_main_branch: &filters_main_branch
+  filters_main_branch:
+    &filters_main_branch
     branches:
       only:
         - main
 
-  filters_release_build: &filters_release_build
+  filters_release_build:
+    &filters_release_build
     tags:
       only:
         - /^v\d+\.\d+\.\d+(?:-\w+\.\d+)?$/
@@ -113,7 +118,8 @@ jobs:
       - *attach_workspace
       - run:
           name: Set npm auth token
-          command: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" > ${HOME}/.npmrc
+          command: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" >
+            ${HOME}/.npmrc
       - run:
           name: Bump version
           command: npx athloi version ${CIRCLE_TAG} --filter "dotcom-*"
@@ -122,7 +128,7 @@ jobs:
           command: |
             export DIST_TAG=$(node scripts/get-npm-dist-tag.js $CIRCLE_TAG)
             if [[ $DIST_TAG ]]; then npx athloi publish -- --access=public --tag=${DIST_TAG}; fi
-  
+
   deploy:
     <<: *container_config_node
     steps:
@@ -154,13 +160,13 @@ workflows:
       - waiting-for-approval:
           type: approval
           filters:
-              <<: *filters_only_renovate_nori
+            <<: *filters_only_renovate_nori
       - build:
           requires:
-              - waiting-for-approval
+            - waiting-for-approval
       - test:
           requires:
-              - build
+            - build
 
   build-test-publish:
     jobs:
@@ -173,6 +179,7 @@ workflows:
           requires:
             - build
       - publish:
+          context: npm-publish-token
           filters:
             <<: *filters_release_build
           requires:
