@@ -199,6 +199,10 @@ An optional URL to a [web app manifest file](https://developers.google.com/web/f
 
 An optional property to insert additional metadata elements into the document `<head>`. This should only be used as a last-resort when you need to add information to the page which is not covered by any other option.
 
+#### `showSmartBanner` (boolean)
+
+An optional property to explicity say whether you want to show [Smart Banner](https://developer.apple.com/documentation/webkit/promoting_apps_with_smart_app_banners) at the top of the page or not. The default is `true` so the pages will always show smart banner. 
+
 ### Social and Open Graph
 
 #### `facebookPage` (string)
