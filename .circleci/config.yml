@@ -215,8 +215,5 @@ workflows:
           filters:
             <<: *filters_release_build
           requires:
-            - test-v<< matrix.node-version >>
-          name: publish-v<< matrix.node-version >>
-          matrix:
-            parameters:
-              node-version: [ "16.14", "14.19" ]
+            - test-v14.19
+            - test-v16.14
