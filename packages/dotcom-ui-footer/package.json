@@ -29,7 +29,7 @@
     "@financial-times/o-footer": "^9.2.0"
   },
   "engines": {
-    "node": ">= 12.0.0",
+    "node": ">= 14.0.0",
     "npm": "7.x || 8.x"
   },
   "repository": {

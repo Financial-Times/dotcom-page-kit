@@ -13,7 +13,11 @@ references:
     &container_config_node
     working_directory: ~/project/build
     docker:
-      - image: cimg/node:12.22-browsers
+      - image: cimg/node:<< parameters.node-version >>-browsers
+    parameters:
+      node-version:
+        default: "16.14"
+        type: string
 
   workspace_root: &workspace_root ~/project
 
@@ -146,14 +150,26 @@ workflows:
       - build:
           filters:
             <<: *filters_ignore_tags_renovate_nori_build
+          name: build-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.14", "14.19" ]
       - test:
           requires:
-            - build
+            - build-v<< matrix.node-version >>
+          name: test-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.14", "14.19" ]
       - deploy:
           filters:
             <<: *filters_only_main
           requires:
-            - test
+            - test-v<< matrix.node-version >>
+          name: deploy-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.14", "14.19" ]
 
   renovate-nori-build-test:
     jobs:
@@ -164,23 +180,43 @@ workflows:
       - build:
           requires:
             - waiting-for-approval
+          name: build-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.14", "14.19" ]
       - test:
           requires:
-            - build
+            - build-v<< matrix.node-version >>
+          name: test-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.14", "14.19" ]
 
   build-test-publish:
     jobs:
       - build:
           filters:
             <<: *filters_release_build
+          name: build-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.14", "14.19" ]
       - test:
           filters:
             <<: *filters_release_build
           requires:
-            - build
+            - build-v<< matrix.node-version >>
+          name: test-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.14", "14.19" ]
       - publish:
           context: npm-publish-token
           filters:
             <<: *filters_release_build
           requires:
-            - test
+            - test-v<< matrix.node-version >>
+          name: publish-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.14", "14.19" ]
