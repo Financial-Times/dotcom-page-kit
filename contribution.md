@@ -54,7 +54,7 @@ It's important to note that we can't accept _every_ feature request, we'll alway
 Please do! All of the code in Page Kit is peer-reviewed by members of the FT customer products team. Here are some things you can do to help this review go smoothly:
 
   - ### Discuss features first
-    If you're thinking of opening a pull request that adds a feature, you'll save yourself some time and effort if you [discuss it in a feature request first](#requesting-features) or contact the team on Slack (via the `#dotcom-page-kit` channel. The review is guaranteed to go more smoothly if we've chatted about it beforehand.
+    If you're thinking of opening a pull request that adds a feature, you'll save yourself some time and effort if you [discuss it in a feature request first](#requesting-features) or contact the team on Slack (via the `#cp-platforms-team` channel. The review is guaranteed to go more smoothly if we've chatted about it beforehand.
 
   - ### Check the workflow and release guidelines
     The project follows a scheduled release workflow so we encourage the separation of stable, development, and experimental code. See the [Git workflow](#git-workflow) and the [release guidelines](release-guidelines.md) for more information.
