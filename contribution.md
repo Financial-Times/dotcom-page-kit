@@ -74,21 +74,6 @@ Please do! All of the code in Page Kit is peer-reviewed by members of the FT cus
   - ### Reference other issues
     When fixing a bug, reference the original report; when adding a feature, link to the original feature request. It'll help us massively!
 
-
-## Git workflow
-
-This project follows a workflow designed around project releases. It is less strict than [Gitflow] but we encourage the separation of stable, development, and experimental branches in order to follow a scheduled release cycle.
-
-- The `main` branch is for the current stable release. Bug fixes should be merged into this branch.
-
-- The `development-` branches are for upcoming major or minor releases. New features and refactors should be merged into this branch. The `main` branch should be merged into it periodically.
-
-- The `release-vX.X.X` branches are for old releases which are still used in production. Important bug fixes should be [cherry-picked] from the `main` branch as required.
-
-[Gitflow]: https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
-[cherry-picked]: https://git-scm.com/docs/git-cherry-pick
-
-
 ## Code style
 
 The best way to ensure you stick to the Page Kit code style is to make your work consistent with the code around it. We also provide a [Prettier] configuration to automatically format files and run [ESLint] before any tests so don't let it get in the way of your flow – you can fix it afterwards!
