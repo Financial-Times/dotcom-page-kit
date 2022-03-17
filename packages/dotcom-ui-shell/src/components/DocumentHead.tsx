@@ -15,7 +15,8 @@ export type TDocumentHeadProps = TOpenGraphProps &
     twitterSite?: string
     canonicalURL?: string
     manifestFile?: string
-    additionalMetadata?: React.ReactNode
+    additionalMetadata?: React.ReactNode,
+    showSmartBanner?: boolean
   }
 
 const DocumentHead = (props: TDocumentHeadProps) => (
@@ -44,10 +45,14 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     <OpenGraph openGraph={props.openGraph} />
 
     {/* native apps */}
-    <meta
-      name="apple-itunes-app"
-      content={props.canonicalURL ? `app-id=1200842933, app-argument=${props.canonicalURL}` : 'app-id=1200842933'}
-    />
+    {props.showSmartBanner && 
+      (
+        <meta
+          name="apple-itunes-app"
+          content={props.canonicalURL ? `app-id=1200842933, app-argument=${props.canonicalURL}` : 'app-id=1200842933'}
+        />
+      )
+    }
 
     {/* packaging */}
     <link
@@ -91,7 +96,8 @@ DocumentHead.defaultProps = {
   siteTitle: 'Financial Times',
   twitterSite: '@FinancialTimes',
   manifestFile: 'https://www.ft.com/__assets/creatives/manifest/manifest-v6.json',
-  additionalMetadata: null
+  additionalMetadata: null,
+  showSmartBanner: true
 }
 
 export default DocumentHead
