@@ -165,11 +165,7 @@ workflows:
           filters:
             <<: *filters_only_main
           requires:
-            - test-v<< matrix.node-version >>
-          name: deploy-v<< matrix.node-version >>
-          matrix:
-            parameters:
-              node-version: [ "16.14", "14.19" ]
+            - test-v16.14
 
   renovate-nori-build-test:
     jobs:
