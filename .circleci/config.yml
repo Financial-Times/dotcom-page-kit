@@ -215,5 +215,4 @@ workflows:
           filters:
             <<: *filters_release_build
           requires:
-            - test-v14.19
             - test-v16.14
