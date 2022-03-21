@@ -78,6 +78,12 @@ If the visitor is signed in to an FT account
 
 Default: `false`
 
+## `isUserSubscribed` (boolean)
+
+If the visitor has a valid FT subscription
+
+Default: `false`
+
 ## `product` (string)
 
 The product name
