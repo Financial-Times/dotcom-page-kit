@@ -10,5 +10,8 @@ $system-code: 'page-kit-header' !default;
 
 @import "src/header";
 
+@import '@financial-times/o-message/main';
+@include oMessage();
+
 @import "n-topic-search/main";
 @include nTopicSearch;

@@ -4,11 +4,13 @@ export type THeaderOptions = {
   variant?: THeaderVariant
   userIsAnonymous?: boolean
   userIsLoggedIn?: boolean
+  userIsSubscribed?: boolean
   showSubNavigation?: boolean
   showUserNavigation?: boolean
   showStickyHeader?: boolean
   showMegaNav?: boolean
   showLogoLink?: boolean
+  showSubscribeMessage?: boolean
 }
 
 export type THeaderProps = THeaderOptions & {

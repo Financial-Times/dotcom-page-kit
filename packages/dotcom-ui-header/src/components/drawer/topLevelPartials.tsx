@@ -9,6 +9,7 @@ const Drawer = (props: THeaderProps) => {
   const editions = props.data.editions
   const [primary, secondary, tertiary] = props.data.drawer.items
   const user = props.userIsLoggedIn ? props.data.user : props.data.anon
+  const notSubscribed = !props.userIsSubscribed
 
   return (
     <div
@@ -23,6 +24,7 @@ const Drawer = (props: THeaderProps) => {
     >
       <div className="o-header__drawer-inner">
         <DrawerTools {...editions} />
+        {props.showSubscribeMessage && notSubscribed ? <SubscribeMessage {...props} /> : null}
         <Search />
         <nav className="o-header__drawer-menu o-header__drawer-menu--primary o-header__drawer-menu--border">
           {editions && <EditionsSwitcher {...editions} />}
@@ -37,6 +39,25 @@ const Drawer = (props: THeaderProps) => {
     </div>
   )
 }
+
+const SubscribeMessage = (props: THeaderProps) => (
+  <div
+    className="o-message o-message--notice o-message--subscribe-button"
+    data-o-component="o-message"
+    data-o-message-close="false"
+  >
+    <div className="o-message__container">
+      <div className="o-message__content">
+        <p className="o-message__content-main">Have confidence that the facts are well-researched</p>
+      </div>
+      <div className="o-message__actions">
+        <a href={props.userIsLoggedIn ? '/products' : '/register'} className="o-message__actions__primary">
+          {props.userIsLoggedIn ? 'Subscribe' : 'Register'}
+        </a>
+      </div>
+    </div>
+  </div>
+)
 
 const DrawerTools = (props: TNavEditions) => (
   <div className="o-header__drawer-tools">

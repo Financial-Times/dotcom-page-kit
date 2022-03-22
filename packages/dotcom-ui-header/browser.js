@@ -1,4 +1,5 @@
 import Header from '@financial-times/o-header'
+import Message from '@financial-times/o-message'
 import TopicSearch from 'n-topic-search'
 
 /**
@@ -20,6 +21,7 @@ export const init = (headerOptions = {}) => {
   })
 
   Header.init(headerOptions.rootElement)
+  Message.init(headerOptions.rootElement)
 }
 
-export { Header as OrigamiHeader }
+export { Header as OrigamiHeader, Message as OrigamiMessage }

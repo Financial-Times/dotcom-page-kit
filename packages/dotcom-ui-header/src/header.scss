@@ -17,6 +17,63 @@
 .o-header__drawer {
   @include nUiZIndexFor('drawer');
   display: block;
+
+  .o-message {
+    &.o-message--notice {
+      &.o-message--subscribe-button {
+        background-color: oColorsByName('black-80');
+        color: oColorsByName('ft-pink');
+        border-color: oColorsByName('black');
+        .o-message__container {
+          padding: 16px 16px;
+          .o-message__content {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+
+            .o-message__content-main {
+              margin: 0;
+              padding-right: 10px;
+
+              @include oGridRespondTo($until: M) {
+                @include oTypographySans(
+                  $scale: 2,
+                  $include-font-family: false
+                );
+              }
+
+              @include oGridRespondTo($from: M) {
+                @include oTypographySans(
+                  $scale: 0,
+                  $include-font-family: false
+                );
+              }
+              
+            }
+          }
+
+          .o-message__actions {
+            background-color: oColorsByName('ft-pink');
+            margin: auto;
+            margin-right: 0;
+
+            .o-message__actions__primary {
+              color: oColorsByName('black');
+              border-color: oColorsByName('black');
+              width: 100px;
+              height: 40px;
+              align-items: center;
+              justify-content: center;
+              display: flex;
+
+              @include oTypographySans($scale: 0, $include-font-family: false);
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .o-header--sticky {
