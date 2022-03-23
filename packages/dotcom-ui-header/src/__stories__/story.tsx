@@ -51,7 +51,9 @@ DefaultHeaderWithDrawer.args = {
   showMegaNav: true,
   showUserNavigation: true,
   userIsLoggedIn: false,
-  showLogoLink: false
+  showLogoLink: false,
+  showSubscribeMessage: false,
+  userIsSubscribed: false
 }
 
 export const DefaultHeaderWithRightAlignedSubnav = (args) => (
@@ -69,7 +71,9 @@ DefaultHeaderWithRightAlignedSubnav.args = {
   showMegaNav: true,
   showUserNavigation: true,
   userIsLoggedIn: true,
-  showLogoLink: false
+  showLogoLink: false,
+  showSubscribeMessage: true,
+  userIsSubscribed: false
 }
 
 export const LargeHeaderWithDrawer = (args) => (

@@ -51,7 +51,11 @@ const SubscribeMessage = (props: THeaderProps) => (
         <p className="o-message__content-main">Have confidence that the facts are well-researched</p>
       </div>
       <div className="o-message__actions">
-        <a href={props.userIsLoggedIn ? '/products' : '/register'} className="o-message__actions__primary">
+        <a
+          href={props.userIsLoggedIn ? '/products' : '/register'}
+          className="o-message__actions__primary"
+          data-trackable="subscribe-message"
+        >
           {props.userIsLoggedIn ? 'Subscribe' : 'Register'}
         </a>
       </div>

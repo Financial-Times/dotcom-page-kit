@@ -12,16 +12,26 @@ const fixture = {
   data: { ...navigationData.data, currentPath: '/world' }
 }
 
+const subscribedFixture = {
+  ...fixture,
+  userIsAnonymous: false,
+  userIsLoggedIn: true,
+  userIsSubscribed: true,
+  showSubscribeMessage: true
+}
+
 const loggedInUserFixture = {
   ...fixture,
   userIsAnonymous: false,
-  userIsLoggedIn: true
+  userIsLoggedIn: true,
+  showSubscribeMessage: true
 }
 
 const anonymousUserFixture = {
   ...fixture,
   userIsAnonymous: true,
-  userIsLoggedIn: false
+  userIsLoggedIn: false,
+  showSubscribeMessage: true
 }
 
 describe('dotcom-ui-header/src/components/drawer', () => {
@@ -93,6 +103,10 @@ describe('dotcom-ui-header/src/components/drawer', () => {
       it('renders settings and account link', () => {
         expect(result.find('a[data-trackable="Settings & Account"]')).toExist()
       })
+
+      it('renders subscribe message with subscribe action', () => {
+        expect(result.find('a[className="o-message__actions__primary"]').text()).toEqual('Subscribe')
+      })
     })
 
     describe('for an anonymous user', () => {
@@ -108,6 +122,30 @@ describe('dotcom-ui-header/src/components/drawer', () => {
 
       it('renders subscribe link', () => {
         expect(result.find('a[data-trackable="Subscribe"]')).toExist()
+      })
+
+      it('renders subscribe message with register action', () => {
+        expect(result.find('a[className="o-message__actions__primary"]').text()).toEqual('Register')
+      })
+    })
+
+    describe('for an subscribed user', () => {
+      let result
+
+      beforeAll(() => {
+        result = mount(<Subject {...subscribedFixture} />)
+      })
+
+      it('renders sign out link', () => {
+        expect(result.find('a[data-trackable="Sign Out"]')).toExist()
+      })
+
+      it('renders settings and account link', () => {
+        expect(result.find('a[data-trackable="Settings & Account"]')).toExist()
+      })
+
+      it('does not render subscribe message', () => {
+        expect(result.find('a[className="o-message__actions__primary"]')).not.toExist()
       })
     })
   })
