@@ -69,8 +69,8 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
         >
           <a
             className="o-message__actions__primary"
-            data-trackable="subscribe-message"
-            href="/products"
+            data-trackable="Subscribe"
+            href="https://www.ft.com/products?segmentId=72adc702-369e-fc3e-1b5d-cacb5d193d80"
           >
             Subscribe
           </a>
@@ -2767,10 +2767,10 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
         >
           <a
             className="o-message__actions__primary"
-            data-trackable="subscribe-message"
-            href="/register"
+            data-trackable="Subscribe"
+            href="https://www.ft.com/products?segmentId=72adc702-369e-fc3e-1b5d-cacb5d193d80"
           >
-            Register
+            Subscribe
           </a>
         </div>
       </div>

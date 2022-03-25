@@ -104,8 +104,8 @@ describe('dotcom-ui-header/src/components/drawer', () => {
         expect(result.find('a[data-trackable="Settings & Account"]')).toExist()
       })
 
-      it('renders subscribe message with subscribe action', () => {
-        expect(result.find('a[className="o-message__actions__primary"]').text()).toEqual('Subscribe')
+      it('renders subscribe message', () => {
+        expect(result.find('a[className="o-message__actions__primary"]')).toExist()
       })
     })
 
@@ -124,8 +124,8 @@ describe('dotcom-ui-header/src/components/drawer', () => {
         expect(result.find('a[data-trackable="Subscribe"]')).toExist()
       })
 
-      it('renders subscribe message with register action', () => {
-        expect(result.find('a[className="o-message__actions__primary"]').text()).toEqual('Register')
+      it('renders subscribe message', () => {
+        expect(result.find('a[className="o-message__actions__primary"]')).toExist()
       })
     })
 

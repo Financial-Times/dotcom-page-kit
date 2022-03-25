@@ -24,7 +24,7 @@ const Drawer = (props: THeaderProps) => {
     >
       <div className="o-header__drawer-inner">
         <DrawerTools {...editions} />
-        {props.showSubscribeMessage && notSubscribed ? <SubscribeMessage {...props} /> : null}
+        {props.showSubscribeMessage && notSubscribed ? <SubscribeMessage /> : null}
         <Search />
         <nav className="o-header__drawer-menu o-header__drawer-menu--primary o-header__drawer-menu--border">
           {editions && <EditionsSwitcher {...editions} />}
@@ -40,7 +40,7 @@ const Drawer = (props: THeaderProps) => {
   )
 }
 
-const SubscribeMessage = (props: THeaderProps) => (
+const SubscribeMessage = () => (
   <div
     className="o-message o-message--notice o-message--subscribe-button"
     data-o-component="o-message"
@@ -52,11 +52,11 @@ const SubscribeMessage = (props: THeaderProps) => (
       </div>
       <div className="o-message__actions">
         <a
-          href={props.userIsLoggedIn ? '/products' : '/register'}
+          href="https://www.ft.com/products?segmentId=72adc702-369e-fc3e-1b5d-cacb5d193d80"
           className="o-message__actions__primary"
-          data-trackable="subscribe-message"
+          data-trackable="Subscribe"
         >
-          {props.userIsLoggedIn ? 'Subscribe' : 'Register'}
+          Subscribe
         </a>
       </div>
     </div>
