@@ -61,11 +61,6 @@
       "description": "If the visitor is signed in to an FT account",
       "default": false
     },
-    "isUserSubscribed": {
-      "type": "boolean",
-      "description": "If the visitor is subscribed to a FT subscription",
-      "default": false
-    },
     "product": {
       "type": "string",
       "description": "The product name",

@@ -23,7 +23,6 @@ export function init(options: TMiddlewareOptions = {}) {
       // This is set by the membership session service as part of preflight
       // https://github.com/Financial-Times/next-preflight/blob/HEAD/server/tasks/membership/session.js
       isUserLoggedIn: request.get('ft-anonymous-user') === 'false',
-      isUserSubscribed: request.get('ft-user-subscription-status') === 'subscribed',
       pageKitVersion: pkg.version === '0.0.0' ? 'development' : pkg.version,
       ...options.appContext
     }

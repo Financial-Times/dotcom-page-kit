@@ -10,7 +10,6 @@ export interface TAppContext {
   conceptType?: string
   isProduction: boolean
   isUserLoggedIn?: boolean
-  isUserSubscribed?: boolean
   publishReference?: string
   [key: string]: any
 }
