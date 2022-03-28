@@ -4,6 +4,7 @@ export type THeaderOptions = {
   variant?: THeaderVariant
   userIsAnonymous?: boolean
   userIsLoggedIn?: boolean
+  userIsSubscribed?: boolean
   showSubNavigation?: boolean
   showUserNavigation?: boolean
   showStickyHeader?: boolean

@@ -6,7 +6,7 @@ describe('examples/ft-ui', () => {
 
   describe('Header link elements', () => {
     it('renders the expected anonymous user Header link elements', async () => {
-      await expect(page).toMatchElement('.o-header__top-column--right a[href="/myft"]', { text: 'myFT' })
+      await expect(page).toMatchElement('a[href="/myft"]', { text: 'myFT' })
       await expect(page).toMatchElement('.o-header__nav-list--right a[href="/login?location=/"]', {
         text: 'Sign In'
       })
@@ -22,9 +22,7 @@ describe('examples/ft-ui', () => {
           text: 'Settings & Account'
         }
       )
-      await expect(
-        page
-      ).not.toMatchElement(
+      await expect(page).not.toMatchElement(
         `.o-header__nav-list--right a[href="https://markets.ft.com/data/portfolio/dashboard"]`,
         { text: 'Portfolio' }
       )

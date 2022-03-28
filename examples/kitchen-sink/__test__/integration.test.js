@@ -24,7 +24,6 @@ describe('examples/kitchen-sink/integration', () => {
   it('renders the header top components; search, menu and myFT', () => {
     expect(response.text).toContain('data-trackable="search-toggle">')
     expect(response.text).toContain('data-trackable="drawer-toggle"')
-    expect(response.text).toContain('href="/myft" data-trackable="my-ft"')
   })
 
   it('populates navigation elements with navigation data', () => {

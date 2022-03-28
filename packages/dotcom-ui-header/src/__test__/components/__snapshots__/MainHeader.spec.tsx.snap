@@ -79,20 +79,32 @@ exports[`dotcom-ui-header/src/components/MainHeader renders a right aligned subn
         <div
           className="o-header__top-column o-header__top-column--right"
         >
-          <a
-            aria-label="My F T"
-            className="o-header__top-link o-header__top-link--myft"
-            data-tour-stage="myFt"
-            data-trackable="my-ft"
-            href="/myft"
-            id="o-header-top-link-myft"
+          <ul
+            className="o-header__nav-list o-header__nav-list--right"
+            data-trackable="user-nav"
           >
-            <span
-              className="o-header__visually-hidden"
+            <li
+              className="o-header__nav-item"
+            />
+            <li
+              className="o-header__nav-item o-header__nav-item--hide-s"
             >
-              myFT
-            </span>
-          </a>
+              <a
+                aria-label="My F T"
+                className="o-header__top-link o-header__top-link--myft"
+                data-tour-stage="myFt"
+                data-trackable="my-ft"
+                href="/myft"
+                id="o-header-top-link-myft"
+              >
+                <span
+                  className="o-header__visually-hidden"
+                >
+                  myFT
+                </span>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -1914,20 +1926,32 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
         <div
           className="o-header__top-column o-header__top-column--right"
         >
-          <a
-            aria-label="My F T"
-            className="o-header__top-link o-header__top-link--myft"
-            data-tour-stage="myFt"
-            data-trackable="my-ft"
-            href="/myft"
-            id="o-header-top-link-myft"
+          <ul
+            className="o-header__nav-list o-header__nav-list--right"
+            data-trackable="user-nav"
           >
-            <span
-              className="o-header__visually-hidden"
+            <li
+              className="o-header__nav-item"
+            />
+            <li
+              className="o-header__nav-item o-header__nav-item--hide-s"
             >
-              myFT
-            </span>
-          </a>
+              <a
+                aria-label="My F T"
+                className="o-header__top-link o-header__top-link--myft"
+                data-tour-stage="myFt"
+                data-trackable="my-ft"
+                href="/myft"
+                id="o-header-top-link-myft"
+              >
+                <span
+                  className="o-header__visually-hidden"
+                >
+                  myFT
+                </span>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -3754,20 +3778,35 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
         <div
           className="o-header__top-column o-header__top-column--right"
         >
-          <a
-            aria-label="My F T"
-            className="o-header__top-link o-header__top-link--myft"
-            data-tour-stage="myFt"
-            data-trackable="my-ft"
-            href="/myft"
-            id="o-header-top-link-myft"
+          <ul
+            className="o-header__nav-list o-header__nav-list--right"
+            data-trackable="user-nav"
           >
-            <span
-              className="o-header__visually-hidden"
+            <li
+              className="o-header__nav-item"
             >
-              myFT
-            </span>
-          </a>
+              <a
+                className="o-header__nav-button"
+                data-trackable="Subscribe"
+                href="/products?segmentId=#"
+                role="button"
+              >
+                Subscribe
+              </a>
+            </li>
+            <span />
+            <li
+              className="o-header__nav-item o-header__nav-item--hide-s"
+            >
+              <a
+                className="o-header__nav-link"
+                data-trackable="Sign In"
+                href="/login?location=#"
+              >
+                Sign In
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

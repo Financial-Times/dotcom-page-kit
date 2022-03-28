@@ -1,5 +1,7 @@
 import React from 'react'
+import { THeaderProps } from '../../interfaces'
 import BrandFtMastheadSvg from '../svg-components/BrandFtMasthead'
+import { NavListRightAnon, SubscribeButton } from '../navigation/partials'
 
 const HeaderWrapper = (props) => (
   <header
@@ -87,10 +89,39 @@ const TopColumnCenterNoLink = () => (
   </div>
 )
 
-const TopColumnRight = () => (
-  <div className="o-header__top-column o-header__top-column--right">
-    <MyFt />
-  </div>
-)
+const TopColumnRightLoggedIn = (props: THeaderProps) => {
+  const subscribeAction = props.data['navbar-right-anon']?.items?.[1]
+  return (
+    <div className="o-header__top-column o-header__top-column--right">
+      <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
+        <li className="o-header__nav-item">
+          {props.userIsSubscribed && subscribeAction && (
+            <SubscribeButton item={subscribeAction} variant={props.variant} />
+          )}
+        </li>
+        <li className="o-header__nav-item o-header__nav-item--hide-s">
+          <MyFt />
+        </li>
+      </ul>
+    </div>
+  )
+}
+
+const TopColumnRightAnon = (props: THeaderProps) => {
+  const userNavAnonItems = props.data['navbar-right-anon'].items
+  return (
+    <div className="o-header__top-column o-header__top-column--right">
+      <NavListRightAnon items={userNavAnonItems} variant={props.variant} />
+    </div>
+  )
+}
+
+const TopColumnRight = (props: THeaderProps) => {
+  if (props.userIsLoggedIn) {
+    return <TopColumnRightLoggedIn {...props} />
+  } else {
+    return <TopColumnRightAnon {...props} />
+  }
+}
 
 export { HeaderWrapper, TopWrapper, TopColumnLeft, TopColumnCenter, TopColumnCenterNoLink, TopColumnRight }

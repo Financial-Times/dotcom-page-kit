@@ -63,7 +63,7 @@ describe('dotcom-ui-header', () => {
       expect(header.find('a[data-trackable="Settings & Account"]')).toExist()
     })
 
-    it('does not render the anonymous user header links', () => {
+    it('does not render subscribe button and sign in link', () => {
       expect(header.find('a[data-trackable="Subscribe"]')).not.toExist()
       expect(header.find('a[data-trackable="Sign In"]')).not.toExist()
     })
