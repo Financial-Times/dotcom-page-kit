@@ -46,7 +46,7 @@ Array [
   <link
     as="font"
     crossOrigin="anonymous"
-    href="/__origami/service/build/v2/files/o-fonts-assets/FontFace.woff2"
+    href="/__origami/service/build/v3/font?font_name=FinancierDisplayWeb-Bold&font_format=woff2&version=1.5.0&brand=core&system_code=page-kit"
     rel="preload"
     type="font/woff2"
   />,

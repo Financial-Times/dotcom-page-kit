@@ -28,7 +28,8 @@ export default (file: string): string => {
     return 'image'
   }
 
-  if (FontFiles.has(extension)) {
+  // the first condition is needed for using origami v3 build service
+  if (file.includes('font_format=woff') || FontFiles.has(extension)) {
     return 'font'
   }
 
