@@ -1,7 +1,7 @@
 describe('examples/ft-ui', () => {
   beforeAll(async () => {
     await page.setViewport({ width: 1920, height: 1080 })
-    await page.goto('http://localhost:3456?userIsLoggedIn=true', { waitUntil: 'load' })
+    await page.goto('http://localhost:3456?userIsLoggedIn=true&userIsSubscribed=true', { waitUntil: 'load' })
   })
 
   describe('Header link elements', () => {
@@ -21,7 +21,7 @@ describe('examples/ft-ui', () => {
       await expect(page).not.toMatchElement('.o-header__nav-list--right a[href="/login?location=/"]', {
         text: 'Sign In'
       })
-      await expect(page).toMatchElement('.o-header__nav-list--right a[href^="/products?"]', {
+      await expect(page).not.toMatchElement('.o-header__nav-list--right a[href^="/products?"]', {
         text: 'Subscribe'
       })
     })

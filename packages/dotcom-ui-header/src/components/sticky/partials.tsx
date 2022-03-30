@@ -125,7 +125,7 @@ const NavListRightLoggedInSticky = (props: THeaderProps) => {
     <div className="o-header__top-column o-header__top-column--right">
       <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
         <li className="o-header__nav-item">
-          {props.userIsSubscribed && subscribeAction && (
+          {!props.userIsSubscribed && subscribeAction && (
             <SubscribeButton item={subscribeAction} variant={props.variant} />
           )}
         </li>

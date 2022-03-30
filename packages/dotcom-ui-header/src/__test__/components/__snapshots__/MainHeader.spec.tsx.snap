@@ -85,7 +85,16 @@ exports[`dotcom-ui-header/src/components/MainHeader renders a right aligned subn
           >
             <li
               className="o-header__nav-item"
-            />
+            >
+              <a
+                className="o-header__nav-button"
+                data-trackable="Subscribe"
+                href="/products?segmentId=#"
+                role="button"
+              >
+                Subscribe
+              </a>
+            </li>
             <li
               className="o-header__nav-item o-header__nav-item--hide-s"
             >
@@ -1932,7 +1941,16 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
           >
             <li
               className="o-header__nav-item"
-            />
+            >
+              <a
+                className="o-header__nav-button"
+                data-trackable="Subscribe"
+                href="/products?segmentId=#"
+                role="button"
+              >
+                Subscribe
+              </a>
+            </li>
             <li
               className="o-header__nav-item o-header__nav-item--hide-s"
             >
