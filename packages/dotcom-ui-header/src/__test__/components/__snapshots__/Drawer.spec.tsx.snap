@@ -48,6 +48,18 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
       </p>
     </div>
     <div
+      className="o-header__drawer-actions"
+    >
+      <a
+        className="o-header__nav-button"
+        data-trackable="subscribe-button"
+        href="#"
+        role="button"
+      >
+        Subscribe for full access
+      </a>
+    </div>
+    <div
       className="o-header__drawer-search"
     >
       <form
@@ -1380,6 +1392,18 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
       >
         UK Edition
       </p>
+    </div>
+    <div
+      className="o-header__drawer-actions"
+    >
+      <a
+        className="o-header__nav-button"
+        data-trackable="subscribe-button"
+        href="#"
+        role="button"
+      >
+        Subscribe for full access
+      </a>
     </div>
     <div
       className="o-header__drawer-search"

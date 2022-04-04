@@ -1,6 +1,6 @@
 import React from 'react'
 import { ariaSelected } from '../../utils'
-import { TNavMenuItem, TNavEditions } from '@financial-times/dotcom-types-navigation'
+import { TNavMenuItem, TNavEditions, TNavAction } from '@financial-times/dotcom-types-navigation'
 
 export type TDrawerParentItemProps = {
   item: TNavMenuItem
@@ -94,4 +94,12 @@ export const EditionsSwitcher = (editions: TNavEditions) => (
       )
     })}
   </ul>
+)
+
+export const SubscribeButton = (action: TNavAction) => (
+  <div className="o-header__drawer-actions">
+    <a className="o-header__nav-button" role="button" href={action.url} data-trackable="subscribe-button">
+      {action.name}
+    </a>
+  </div>
 )
