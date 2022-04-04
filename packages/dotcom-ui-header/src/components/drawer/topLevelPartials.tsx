@@ -1,5 +1,11 @@
 import React from 'react'
-import { DrawerParentItem, DrawerSingleItem, DrawerSpecialItem, EditionsSwitcher } from './additionalPartials'
+import {
+  DrawerParentItem,
+  DrawerSingleItem,
+  DrawerSpecialItem,
+  EditionsSwitcher,
+  SubscribeButton
+} from './additionalPartials'
 import { THeaderProps } from '../../interfaces'
 import { TNavMenuItem, TNavMenu, TNavEditions } from '@financial-times/dotcom-types-navigation'
 
@@ -7,6 +13,7 @@ const IncludeDrawer = (props) => <Drawer {...props} />
 
 const Drawer = (props: THeaderProps) => {
   const editions = props.data.editions
+  const [subscribeAction] = props.data.actions?.length ? props.data.actions : []
   const [primary, secondary, tertiary] = props.data.drawer.items
   const user = props.userIsLoggedIn ? props.data.user : props.data.anon
 
@@ -23,6 +30,7 @@ const Drawer = (props: THeaderProps) => {
     >
       <div className="o-header__drawer-inner">
         <DrawerTools {...editions} />
+        {!props.userIsSubscribed && subscribeAction && <SubscribeButton {...subscribeAction} />}
         <Search />
         <nav className="o-header__drawer-menu o-header__drawer-menu--primary o-header__drawer-menu--border">
           {editions && <EditionsSwitcher {...editions} />}

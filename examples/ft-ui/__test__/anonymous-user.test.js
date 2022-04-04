@@ -13,6 +13,9 @@ describe('examples/ft-ui', () => {
       await expect(page).toMatchElement('.o-header__top-column--right a[href^="/products?"]', {
         text: 'Subscribe'
       })
+      await expect(page).toMatchElement('.o-header__drawer-actions a[href="/products?"]', {
+        text: 'Subscribe for full access'
+      })
     })
 
     it('does not render the logged-in user Header link elements', async () => {
