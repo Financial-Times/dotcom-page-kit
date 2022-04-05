@@ -94,47 +94,6 @@ const NavListRightLoggedIn = ({ items }: { items: TNavMenuItem[] }) => {
   )
 }
 
-const SignInLink = ({ item, variant }: { item: TNavMenuItem; variant?: string }) => {
-  const setTabIndex = variant === 'sticky' ? { tabIndex: -1 } : null
-  return (
-    <a className="o-header__nav-link" href={item.url} data-trackable={item.label} {...setTabIndex}>
-      {item.label}
-    </a>
-  )
-}
-const SubscribeButton = ({ item, variant }: { item: TNavMenuItem; variant?: string }) => {
-  const setTabIndex = variant === 'sticky' ? { tabIndex: -1 } : null
-  return (
-    <a
-      className="o-header__nav-button"
-      // Added as the result of a DAC audit. This will be confusing for users of voice activation software
-      // as it looks like a button but behaves like a link without this role.
-      role="button"
-      href={item.url}
-      data-trackable={item.label}
-      {...setTabIndex}
-    >
-      {item.label}
-    </a>
-  )
-}
-
-const NavListRightAnon = ({ items, variant }: { items: TNavMenuItem[]; variant?: string }) => {
-  // If user is anonymous the second list item is styled as a button
-  const [signInAction, subscribeAction] = items
-  return (
-    <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
-      <li className="o-header__nav-item">
-        {subscribeAction && <SubscribeButton item={subscribeAction} variant={variant} />}
-      </li>
-      <span></span>
-      <li className="o-header__nav-item o-header__nav-item--hide-s">
-        {signInAction && <SignInLink item={signInAction} variant={variant} />}
-      </li>
-    </ul>
-  )
-}
-
 const MegaNav = ({ label, meganav, index }: { label: string; meganav: TNavMeganav[]; index: number }) => {
   const sections = meganav.find(({ component }) => component === 'sectionlist')
   const articles = meganav.find(({ component }) => component === 'articlelist')
@@ -226,4 +185,4 @@ const UserActionsNav = (props: THeaderProps) => {
   )
 }
 
-export { NavDesktop, NavListLeft, NavListRight, NavListRightAnon, UserActionsNav, MobileNav, SubscribeButton }
+export { NavDesktop, NavListLeft, NavListRight, UserActionsNav, MobileNav }

@@ -89,8 +89,12 @@ describe('dotcom-ui-header', () => {
     const header = mount(anonymousUserHeader)
 
     it('renders the expected anonymous user header links', () => {
-      expect(header.find('.o-header__anon-item a[data-trackable="Subscribe"]')).toExist()
-      expect(header.find('.o-header__nav-item a[data-trackable="Sign In"]')).toExist()
+      expect(
+        header.find('.o-header__top-column .o-header__top-column--right a[data-trackable="Subscribe"]')
+      ).toExist()
+      expect(
+        header.find('.o-header__top-column .o-header__top-column--right a[data-trackable="Sign In"]')
+      ).toExist()
     })
 
     it('does not render the logged in user header links', () => {

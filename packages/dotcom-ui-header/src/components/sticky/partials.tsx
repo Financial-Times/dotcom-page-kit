@@ -2,7 +2,7 @@
 /* This is the sticky header variant */
 
 import React from 'react'
-import { NavListRightAnon, SubscribeButton } from '../navigation/partials'
+import { TopColumnRightAnon, SubscribeButton } from '../top/partials'
 import { THeaderProps } from '../../interfaces'
 
 const StickyHeaderWrapper = (props: THeaderProps & { children: React.ReactNode }) => (
@@ -78,7 +78,7 @@ const NavListRightAnonSticky = (props: THeaderProps) => {
 
   return (
     <div className="o-header__nav">
-      <NavListRightAnon items={navbarItems} variant="sticky" />
+      <TopColumnRightAnon items={navbarItems} variant="sticky" />
     </div>
   )
 }
@@ -123,16 +123,10 @@ const NavListRightLoggedInSticky = (props: THeaderProps) => {
   const subscribeAction = props.data['navbar-right-anon'].items?.[1]
   return (
     <div className="o-header__top-column o-header__top-column--right">
-      <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
-        <li className="o-header__nav-item">
-          {!props.userIsSubscribed && subscribeAction && (
-            <SubscribeButton item={subscribeAction} variant={props.variant} />
-          )}
-        </li>
-        <li className="o-header__nav-item o-header__nav-item--hide-s">
-          <MyFtSticky />
-        </li>
-      </ul>
+      {!props.userIsSubscribed && subscribeAction && (
+        <SubscribeButton item={subscribeAction} variant={props.variant} />
+      )}
+      <MyFtSticky />
     </div>
   )
 }

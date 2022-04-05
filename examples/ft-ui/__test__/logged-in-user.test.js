@@ -18,10 +18,10 @@ describe('examples/ft-ui', () => {
     })
 
     it('does not render the anonymous user Header link elements', async () => {
-      await expect(page).not.toMatchElement('.o-header__nav-list--right a[href="/login?location=/"]', {
+      await expect(page).not.toMatchElement('.o-header__top-column--right a[href="/login?location=/"]', {
         text: 'Sign In'
       })
-      await expect(page).toMatchElement('.o-header__nav-list--right a[href^="/products?"]', {
+      await expect(page).toMatchElement('.o-header__top-column--right a[href^="/products?"]', {
         text: 'Subscribe'
       })
     })
