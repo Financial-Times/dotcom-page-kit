@@ -51,7 +51,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
       className="o-header__drawer-actions"
     >
       <a
-        className="o-header__nav-button"
+        className="o-header__drawer-button"
         data-trackable="subscribe-button"
         href="#"
         role="button"
@@ -1397,7 +1397,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
       className="o-header__drawer-actions"
     >
       <a
-        className="o-header__nav-button"
+        className="o-header__drawer-button"
         data-trackable="subscribe-button"
         href="#"
         role="button"

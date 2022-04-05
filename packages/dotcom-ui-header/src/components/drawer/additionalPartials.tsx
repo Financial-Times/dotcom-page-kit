@@ -98,7 +98,7 @@ export const EditionsSwitcher = (editions: TNavEditions) => (
 
 export const SubscribeButton = (action: TNavAction) => (
   <div className="o-header__drawer-actions">
-    <a className="o-header__nav-button" role="button" href={action.url} data-trackable="subscribe-button">
+    <a className="o-header__drawer-button" role="button" href={action.url} data-trackable="subscribe-button">
       {action.name}
     </a>
   </div>
