@@ -24,7 +24,8 @@ describe('examples/ft-ui', () => {
       await expect(page).toMatchElement('.o-header__top-column--right a[href^="/products?"]', {
         text: 'Subscribe'
       })
-      await expect(page).toMatchElement('.o-header__drawer-actions a[href="/products?"]', {
+      const text = await page.evaluate(() => document.body.textContent)
+      await expect(page).toMatchElement('.o-header__drawer-actions a[href^="/products?"]', {
         text: 'Subscribe for full access'
       })
     })
