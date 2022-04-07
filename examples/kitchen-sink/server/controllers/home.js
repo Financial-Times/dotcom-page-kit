@@ -40,7 +40,9 @@ module.exports = (_, response, next) => {
         scripts={scriptBundles}
         stylesheets={styleBundles}
         asyncStylesheets={asyncStyleBundles}
-        appContext={appContext.data}>
+        systemCode="page-kit"
+        appContext={appContext.data}
+      >
         <AdsOptionsEmbed {...adOptions} />
         <Layout navigationData={response.locals.navigation} headerBefore={<Slot {...adSlotProps} />}>
           <div className="content">

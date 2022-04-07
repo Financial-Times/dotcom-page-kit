@@ -5,12 +5,14 @@ import { Shell } from '../../components/Shell'
 
 describe('dotcom-ui-shell/src/components/Shell', () => {
   it('should define all props as optional except the `pageTitle` prop', () => {
-    new ShallowRenderer().render(<Shell pageTitle="Foo" />)
+    new ShallowRenderer().render(<Shell systemCode="page-kit" pageTitle="Foo" />)
   })
 
   it('renders boolean boolean html data attributes correctly', () => {
     const htmlAttributes = { dataIsProduction: '', dataIsDevelopment: false }
-    const htmlTag = renderer.create(<Shell pageTitle="Foo" htmlAttributes={htmlAttributes} />).toJSON()
+    const htmlTag = renderer
+      .create(<Shell systemCode="page-kit" pageTitle="Foo" htmlAttributes={htmlAttributes} />)
+      .toJSON()
 
     // where react is concerned, a `true` boolean data attribute
     // is one where the attribute value is an empty string (because
@@ -22,7 +24,9 @@ describe('dotcom-ui-shell/src/components/Shell', () => {
   })
 
   it('renders the GTM script when the enableGTM flag is on', () => {
-    const tree = renderer.create(<Shell pageTitle="Foo" flags={{ enableGTM: true }} />).toJSON()
+    const tree = renderer
+      .create(<Shell systemCode="page-kit" pageTitle="Foo" flags={{ enableGTM: true }} />)
+      .toJSON()
 
     expect(tree).toMatchSnapshot()
   })

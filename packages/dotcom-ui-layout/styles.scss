@@ -1,7 +1,8 @@
 // This is needed by Origami components that speak to the image service. Setting
 // it here means it'll be the same no matter which app generates it and it will
 // be reused from the CDN
-$system-code: 'page-kit-layout' !default;
+//TODO: check again that page-kit-layout is not used in CDN, as this is needed to fetch the font for Header in storybook 
+$system-code: 'page-kit' !default;
 
 @import '@financial-times/dotcom-ui-base-styles/styles';
 

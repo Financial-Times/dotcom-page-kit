@@ -112,28 +112,28 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
     <link
       as="font"
       crossOrigin="anonymous"
-      href="https://www.ft.com/__origami/service/build/v3/font?font_name=MetricWeb-Regular&font_format=woff2&version=1.5.0&brand=core&system_code=page-kit"
+      href="https://www.ft.com/__origami/service/build/v3/font?font_name=MetricWeb-Regular&font_format=woff2&version=1.12.0&system_code=page-kit"
       rel="preload"
       type="font/woff2"
     />
     <link
       as="font"
       crossOrigin="anonymous"
-      href="https://www.ft.com/__origami/service/build/v3/font?font_name=MetricWeb-Semibold&font_format=woff2&version=1.5.0&brand=core&system_code=page-kit"
+      href="https://www.ft.com/__origami/service/build/v3/font?font_name=MetricWeb-Semibold&font_format=woff2&version=1.12.0&system_code=page-kit"
       rel="preload"
       type="font/woff2"
     />
     <link
       as="font"
       crossOrigin="anonymous"
-      href="https://www.ft.com/__origami/service/build/v3/font?font_name=FinancierDisplayWeb-Regular&font_format=woff2&version=1.5.0&brand=core&system_code=page-kit"
+      href="https://www.ft.com/__origami/service/build/v3/font?font_name=FinancierDisplayWeb-Regular&font_format=woff2&version=1.12.0&system_code=page-kit"
       rel="preload"
       type="font/woff2"
     />
     <link
       as="font"
       crossOrigin="anonymous"
-      href="https://www.ft.com/__origami/service/build/v3/font?font_name=FinancierDisplayWeb-Bold&font_format=woff2&version=1.5.0&brand=core&system_code=page-kit"
+      href="https://www.ft.com/__origami/service/build/v3/font?font_name=FinancierDisplayWeb-Bold&font_format=woff2&version=1.12.0&system_code=page-kit"
       rel="preload"
       type="font/woff2"
     />

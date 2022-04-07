@@ -28,9 +28,13 @@ type TShellProps = TDocumentHeadProps &
     initialProps?: any
     bodyAttributes?: TAttributeData
     htmlAttributes?: TAttributeData
+    systemCode: string
   }
 
 function Shell(props: TShellProps) {
+  if (!props.systemCode) {
+    throw new Error('No bizops system code was found. Please pass in systemCode option into Shell')
+  }
   const bootstrapProps: TBootstrapProps = {
     coreScripts: [polyfillService.core()],
     enhancedScripts: [polyfillService.enhanced(), ...props.scripts]
@@ -42,7 +46,7 @@ function Shell(props: TShellProps) {
     // should be found by the browser's speculative parser.
     ...props.scripts,
     ...props.resourceHints,
-    ...fontFaceURLs
+    ...fontFaceURLs(props.systemCode)
   ]
 
   return (
@@ -51,7 +55,8 @@ function Shell(props: TShellProps) {
       lang="en-GB"
       className={`no-js core ${loadCustomFontsClassNames}`}
       data-o-component="o-typography"
-      style={documentStyles}>
+      style={documentStyles}
+    >
       <head>
         <DocumentHead {...props} />
         <ResourceHints resourceHints={resourceHints} />
