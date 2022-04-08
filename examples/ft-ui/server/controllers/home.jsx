@@ -18,8 +18,7 @@ export function homeController(request, response, next) {
     scripts: ['public/scripts.bundle.js'],
     stylesheets: ['public/page-kit-layout-styles.css', 'public/styles.css'],
     pageTitle: pageData.title,
-    appContext: appContext,
-    systemCode: 'page-kit'
+    appContext: appContext
   }
 
   const userIsLoggedIn = request.query.userIsLoggedIn

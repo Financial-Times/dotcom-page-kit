@@ -109,10 +109,6 @@ Further reading for explanation and implementation details:
 
 ### App bootstrapping
 
-#### `systemCode` (string)
-
-An required string. It is the bizops [system code](https://biz-ops.in.ft.com/list/Systems) of your repo consuming dotcom-ui-shell, and is needed for the new v3 of origami build service api to work here.
-
 #### `contents` (string)
 
 An optional string of HTML to insert into the document `<body>`. This should be used if you are not using JSX composition and have a prerendered string of HTML.

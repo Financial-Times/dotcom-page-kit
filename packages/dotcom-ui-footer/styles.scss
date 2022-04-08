@@ -1,5 +1,5 @@
 // This will be overridden by dotcom-ui-layout, it's necessary here for storybook builds
-$system-code: 'page-kit' !default;
+$system-code: 'page-kit-footer' !default;
 
 @import '@financial-times/o-footer/main';
 @include oFooter();

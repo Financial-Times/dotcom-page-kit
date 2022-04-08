@@ -40,7 +40,6 @@ module.exports = (_, response, next) => {
         scripts={scriptBundles}
         stylesheets={styleBundles}
         asyncStylesheets={asyncStyleBundles}
-        systemCode="page-kit"
         appContext={appContext.data}
       >
         <AdsOptionsEmbed {...adOptions} />
