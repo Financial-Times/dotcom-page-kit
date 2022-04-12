@@ -85,7 +85,7 @@ jobs:
       - checkout
       - *restore_cache
       - node/install-npm:
-          version: "8"
+          version: "8.5.3"
       - run:
           name: Install project dependencies
           command: npm install
@@ -102,6 +102,8 @@ jobs:
     <<: *container_config_node
     steps:
       - *attach_workspace
+      - node/install-npm:
+          version: "8.5.3"
       - browser-tools/install-chrome
       - run:
           name: Check code style
