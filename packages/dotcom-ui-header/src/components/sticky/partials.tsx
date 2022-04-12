@@ -2,7 +2,7 @@
 /* This is the sticky header variant */
 
 import React from 'react'
-import { TopColumnRightAnon, SubscribeButton } from '../top/partials'
+import { SubscribeButton, SignInLink } from '../top/partials'
 import { THeaderProps } from '../../interfaces'
 
 const StickyHeaderWrapper = (props: THeaderProps & { children: React.ReactNode }) => (
@@ -19,7 +19,7 @@ const StickyHeaderWrapper = (props: THeaderProps & { children: React.ReactNode }
 const DrawerIconSticky = () => (
   <a
     href="#"
-    className="o-header__top-link o-header__top-link--menu"
+    className="o-header__top-icon-link o-header__top-icon-link--menu"
     aria-controls="o-header-drawer"
     data-trackable="drawer-toggle"
     tabIndex={-1}
@@ -31,7 +31,7 @@ const DrawerIconSticky = () => (
 const SearchIconSticky = () => (
   <a
     href="#"
-    className="o-header__top-link o-header__top-link--search"
+    className="o-header__top-icon-link o-header__top-icon-link--search"
     aria-controls="o-header-search-sticky"
     data-trackable="search-toggle"
     tabIndex={-1}
@@ -74,18 +74,24 @@ const Logo = () => (
 )
 
 const NavListRightAnonSticky = (props: THeaderProps) => {
-  const navbarItems = props.data['navbar-right-anon'].items
+  // If user is anonymous the second list item is styled as a button
+  const [signInAction, subscribeAction] = props.data['navbar-right-anon'].items
 
   return (
     <div className="o-header__nav">
-      <TopColumnRightAnon items={navbarItems} variant="sticky" />
+      <div className="o-header__top-column o-header__top-column--right">
+        {subscribeAction && (
+          <SubscribeButton item={subscribeAction} variant="sticky" className="o-header__top-button--hide-m" />
+        )}
+        {signInAction && <SignInLink item={signInAction} variant="sticky" className="" />}
+      </div>
     </div>
   )
 }
 
-const MyFtSticky = () => (
+const MyFtSticky = ({ className }: { className?: string }) => (
   <a
-    className="o-header__top-link o-header__top-link--myft"
+    className={`o-header__top-icon-link o-header__top-icon-link--myft ${className}`}
     href="/myft"
     data-trackable="my-ft"
     tabIndex={-1}
@@ -124,9 +130,13 @@ const NavListRightLoggedInSticky = (props: THeaderProps) => {
   return (
     <div className="o-header__top-column o-header__top-column--right">
       {!props.userIsSubscribed && subscribeAction && (
-        <SubscribeButton item={subscribeAction} variant={props.variant} />
+        <SubscribeButton
+          item={subscribeAction}
+          variant={props.variant}
+          className="o-header__top-button--hide-m"
+        />
       )}
-      <MyFtSticky />
+      <MyFtSticky className="" />
     </div>
   )
 }

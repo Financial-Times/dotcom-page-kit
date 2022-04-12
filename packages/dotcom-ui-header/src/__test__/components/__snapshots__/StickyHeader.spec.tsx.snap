@@ -22,7 +22,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in use
         >
           <a
             aria-controls="o-header-drawer"
-            className="o-header__top-link o-header__top-link--menu"
+            className="o-header__top-icon-link o-header__top-icon-link--menu"
             data-trackable="drawer-toggle"
             href="#"
             tabIndex={-1}
@@ -35,7 +35,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in use
           </a>
           <a
             aria-controls="o-header-search-sticky"
-            className="o-header__top-link o-header__top-link--search"
+            className="o-header__top-icon-link o-header__top-icon-link--search"
             data-trackable="search-toggle"
             href="#"
             tabIndex={-1}
@@ -216,7 +216,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in use
             className="o-header__top-column o-header__top-column--right"
           >
             <a
-              className="o-header__top-button"
+              className="o-header__top-button o-header__top-button--hide-m"
               data-trackable="Subscribe"
               href="/products?segmentId=#"
               role="button"
@@ -224,7 +224,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in use
               Subscribe
             </a>
             <a
-              className="o-header__top-link o-header__top-link--myft"
+              className="o-header__top-icon-link o-header__top-icon-link--myft "
               data-trackable="my-ft"
               href="/myft"
               tabIndex={-1}
@@ -330,7 +330,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as an anonymous us
         >
           <a
             aria-controls="o-header-drawer"
-            className="o-header__top-link o-header__top-link--menu"
+            className="o-header__top-icon-link o-header__top-icon-link--menu"
             data-trackable="drawer-toggle"
             href="#"
             tabIndex={-1}
@@ -343,7 +343,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as an anonymous us
           </a>
           <a
             aria-controls="o-header-search-sticky"
-            className="o-header__top-link o-header__top-link--search"
+            className="o-header__top-icon-link o-header__top-icon-link--search"
             data-trackable="search-toggle"
             href="#"
             tabIndex={-1}

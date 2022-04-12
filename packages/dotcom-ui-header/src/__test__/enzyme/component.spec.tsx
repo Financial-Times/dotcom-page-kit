@@ -34,12 +34,14 @@ describe('dotcom-ui-header', () => {
     expect(header).not.toBeEmptyRender()
     expect(header.find('div[data-trackable="header-top"] .o-header__top-logo')).toExist()
     expect(
-      header.find('div[data-trackable="header-top"] .o-header__top-link--search .o-header__top-link-label')
+      header.find(
+        'div[data-trackable="header-top"] .o-header__top-icon-link--search .o-header__top-link-label'
+      )
     ).toExist()
     expect(
-      header.find('div[data-trackable="header-top"] .o-header__top-link--menu .o-header__top-link-label')
+      header.find('div[data-trackable="header-top"] .o-header__top-icon-link--menu .o-header__top-link-label')
     ).toExist()
-    expect(header.find('div[data-trackable="header-top"] .o-header__top-link--myft')).toExist()
+    expect(header.find('div[data-trackable="header-top"] .o-header__top-icon-link--myft')).toExist()
   })
 
   it('renders an inlined SVG logo image', () => {
