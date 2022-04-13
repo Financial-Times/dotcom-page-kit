@@ -29,6 +29,7 @@ export type TNavMenusForEdition = { [key in TNavMenuKeysForEdition]: TNavMenu }
 export type TNavigationData = TNavMenusForEdition &
   TNavSubNavigation & {
     editions: TNavEditions
+    subscribeAction?: TNavAction
     currentPath?: string
   }
 
@@ -82,6 +83,12 @@ export type TNavEditions = {
 }
 
 export type TNavEdition = {
+  name: string
+  id: string
+  url: string
+}
+
+export type TNavAction = {
   name: string
   id: string
   url: string

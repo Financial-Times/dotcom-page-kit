@@ -76,7 +76,6 @@ const Logo = () => (
 const NavListRightAnonSticky = (props: THeaderProps) => {
   // If user is anonymous the second list item is styled as a button
   const [signInAction, subscribeAction] = props.data['navbar-right-anon'].items
-
   return (
     <div className="o-header__nav">
       <div className="o-header__top-column o-header__top-column--right">

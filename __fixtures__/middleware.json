@@ -50,5 +50,9 @@
   "editions": {
     "current": { "name": "UK" },
     "others": [{ "id": "international", "name": "International", "url": "#" }]
-  }
+  },
+  "actions": [
+    { "id": "subscribe", "name": "Subscribe", "url": "#" }
+  ]
+
 }
