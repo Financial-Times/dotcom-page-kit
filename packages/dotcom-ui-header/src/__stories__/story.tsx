@@ -51,6 +51,7 @@ DefaultHeaderWithDrawer.args = {
   showMegaNav: true,
   showUserNavigation: true,
   userIsLoggedIn: false,
+  userIsSubscribed: false,
   showLogoLink: false
 }
 
@@ -106,6 +107,7 @@ _StickyHeader.story = {
 _StickyHeader.args = {
   showUserNavigation: true,
   userIsLoggedIn: false,
+  userIsSubscribed: false,
   showStickyHeader: false
 }
 _StickyHeader.argTypes = {

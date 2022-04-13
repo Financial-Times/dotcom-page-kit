@@ -23,7 +23,8 @@ const NavMobile = ({ items }: { items: TNavMenuItem[] }) => {
       id="o-header-nav-mobile"
       className="o-header__row o-header__nav o-header__nav--mobile"
       aria-hidden="true"
-      data-trackable="header-nav:mobile">
+      data-trackable="header-nav:mobile"
+    >
       <ul className="o-header__nav-list">
         {items.map((item, index) => (
           <li className="o-header__nav-item" key={`link-${index}`}>
@@ -31,7 +32,8 @@ const NavMobile = ({ items }: { items: TNavMenuItem[] }) => {
               className="o-header__nav-link o-header__nav-link--primary"
               href={item.url}
               {...ariaSelected(item)}
-              data-trackable={item.label}>
+              data-trackable={item.label}
+            >
               {item.label}
             </a>
           </li>
@@ -47,7 +49,8 @@ const NavDesktop = (props) => (
     className="o-header__row o-header__nav o-header__nav--desktop"
     role="navigation"
     aria-label="Primary navigation"
-    data-trackable="header-nav:desktop">
+    data-trackable="header-nav:desktop"
+  >
     <div className="o-header__container">{props.children}</div>
   </nav>
 )
@@ -61,7 +64,8 @@ const NavListLeft = (props: THeaderProps) => (
           href={item.url}
           id={`o-header-link-${index}`}
           {...ariaSelected(item)}
-          data-trackable={item.label}>
+          data-trackable={item.label}
+        >
           {item.label}
         </a>
         {props.showMegaNav && Array.isArray(item.meganav) ? (
@@ -73,11 +77,7 @@ const NavListLeft = (props: THeaderProps) => (
 )
 
 const NavListRight = (props: THeaderProps) => {
-  if (props.userIsLoggedIn) {
-    return <NavListRightLoggedIn items={props.data['navbar-right'].items} />
-  } else {
-    return <NavListRightAnon items={props.data['navbar-right-anon'].items} />
-  }
+  return props.userIsLoggedIn ? <NavListRightLoggedIn items={props.data['navbar-right'].items} /> : null
 }
 
 const NavListRightLoggedIn = ({ items }: { items: TNavMenuItem[] }) => {
@@ -94,33 +94,6 @@ const NavListRightLoggedIn = ({ items }: { items: TNavMenuItem[] }) => {
   )
 }
 
-const NavListRightAnon = ({ items, variant }: { items: TNavMenuItem[]; variant?: string }) => {
-  // If user is anonymous the second list item is styled as a button
-  const [first, second] = items
-  const setTabIndex = variant === 'sticky' ? { tabIndex: -1 } : null
-  return (
-    <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
-      <li className="o-header__nav-item">
-        <a className="o-header__nav-link" href={first.url} data-trackable={first.label} {...setTabIndex}>
-          {first.label}
-        </a>
-      </li>
-      <li className="o-header__nav-item o-header__nav-item--hide-s">
-        <a
-          className="o-header__nav-button"
-          // Added as the result of a DAC audit. This will be confusing for users of voice activation software
-          // as it looks like a button but behaves like a link without this role.
-          role="button"
-          href={second.url}
-          data-trackable={second.label}
-          {...setTabIndex}>
-          {second.label}
-        </a>
-      </li>
-    </ul>
-  )
-}
-
 const MegaNav = ({ label, meganav, index }: { label: string; meganav: TNavMeganav[]; index: number }) => {
   const sections = meganav.find(({ component }) => component === 'sectionlist')
   const articles = meganav.find(({ component }) => component === 'articlelist')
@@ -132,7 +105,8 @@ const MegaNav = ({ label, meganav, index }: { label: string; meganav: TNavMegana
       role="group"
       aria-labelledby={`o-header-link-${index}`}
       data-o-header-mega
-      data-trackable={`meganav | ${label}`}>
+      data-trackable={`meganav | ${label}`}
+    >
       <div className="o-header__container">
         <div className="o-header__mega-wrapper">
           {sections ? <SectionList {...(sections as INavMeganavSections)} /> : null}
@@ -156,7 +130,8 @@ const SectionList = ({ title, data }: INavMeganavSections) => {
                   className="o-header__mega-link"
                   href={item.url}
                   {...ariaSelected(item)}
-                  data-trackable="link">
+                  data-trackable="link"
+                >
                   {item.label}
                 </a>
               </li>
@@ -180,7 +155,8 @@ const ArticleList = ({ title, data }: INavMeganavArticles) => {
                 className="o-header__mega-link"
                 href={item.url}
                 {...ariaSelected(item)}
-                data-trackable="link">
+                data-trackable="link"
+              >
                 {item.label}
               </a>
             </li>
@@ -209,4 +185,4 @@ const UserActionsNav = (props: THeaderProps) => {
   )
 }
 
-export { NavDesktop, NavListLeft, NavListRight, NavListRightAnon, UserActionsNav, MobileNav }
+export { NavDesktop, NavListLeft, NavListRight, UserActionsNav, MobileNav }

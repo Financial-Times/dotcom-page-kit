@@ -2,7 +2,7 @@
 /* This is the sticky header variant */
 
 import React from 'react'
-import { NavListRightAnon } from '../navigation/partials'
+import { SubscribeButton, SignInLink } from '../top/partials'
 import { THeaderProps } from '../../interfaces'
 
 const StickyHeaderWrapper = (props: THeaderProps & { children: React.ReactNode }) => (
@@ -10,7 +10,8 @@ const StickyHeaderWrapper = (props: THeaderProps & { children: React.ReactNode }
     className={`o-header o-header--simple o-header--sticky o--if-js`}
     data-o-component="o-header"
     data-o-header--sticky
-    aria-hidden="true">
+    aria-hidden="true"
+  >
     {props.children}
   </header>
 )
@@ -18,10 +19,11 @@ const StickyHeaderWrapper = (props: THeaderProps & { children: React.ReactNode }
 const DrawerIconSticky = () => (
   <a
     href="#"
-    className="o-header__top-link o-header__top-link--menu"
+    className="o-header__top-icon-link o-header__top-icon-link--menu"
     aria-controls="o-header-drawer"
     data-trackable="drawer-toggle"
-    tabIndex={-1}>
+    tabIndex={-1}
+  >
     <span className="o-header__top-link-label">Menu</span>
   </a>
 )
@@ -29,10 +31,11 @@ const DrawerIconSticky = () => (
 const SearchIconSticky = () => (
   <a
     href="#"
-    className="o-header__top-link o-header__top-link--search"
+    className="o-header__top-icon-link o-header__top-icon-link--search"
     aria-controls="o-header-search-sticky"
     data-trackable="search-toggle"
-    tabIndex={-1}>
+    tabIndex={-1}
+  >
     <span className="o-header__top-link-label">Search</span>
   </a>
 )
@@ -47,7 +50,8 @@ const Navigation = (props: THeaderProps) => (
               className="o-header__nav-link o-header__nav-link--primary"
               href={item.url}
               data-trackable={item.label}
-              tabIndex={-1}>
+              tabIndex={-1}
+            >
               {item.label}
             </a>
           </li>
@@ -63,27 +67,35 @@ const Logo = () => (
     data-trackable="logo"
     href="/"
     title="Go to Financial Times homepage"
-    tabIndex={-1}>
+    tabIndex={-1}
+  >
     <span className="o-header__visually-hidden">Financial Times</span>
   </a>
 )
 
 const NavListRightAnonSticky = (props: THeaderProps) => {
-  const navbarItems = props.data['navbar-right-anon'].items
+  // If user is anonymous the second list item is styled as a button
+  const [signInAction, subscribeAction] = props.data['navbar-right-anon'].items
 
   return (
     <div className="o-header__nav">
-      <NavListRightAnon items={navbarItems} variant="sticky" />
+      <div className="o-header__top-column o-header__top-column--right">
+        {subscribeAction && (
+          <SubscribeButton item={subscribeAction} variant="sticky" className="o-header__top-button--hide-m" />
+        )}
+        {signInAction && <SignInLink item={signInAction} variant="sticky" className="" />}
+      </div>
     </div>
   )
 }
 
-const MyFtSticky = () => (
+const MyFtSticky = ({ className }: { className?: string }) => (
   <a
-    className="o-header__top-link o-header__top-link--myft"
+    className={`o-header__top-icon-link o-header__top-icon-link--myft ${className}`}
     href="/myft"
     data-trackable="my-ft"
-    tabIndex={-1}>
+    tabIndex={-1}
+  >
     <span className="o-header__visually-hidden">myFT</span>
   </a>
 )
@@ -113,6 +125,22 @@ const TopColumnCenterSticky = (props: THeaderProps) => {
   )
 }
 
+const NavListRightLoggedInSticky = (props: THeaderProps) => {
+  const subscribeAction = props.data['navbar-right-anon'].items?.[1]
+  return (
+    <div className="o-header__top-column o-header__top-column--right">
+      {!props.userIsSubscribed && subscribeAction && (
+        <SubscribeButton
+          item={subscribeAction}
+          variant={props.variant}
+          className="o-header__top-button--hide-m"
+        />
+      )}
+      <MyFtSticky className="" />
+    </div>
+  )
+}
+
 // This behaviour is similar to `NavListRight` in '../navigation/partials' but:
 // - The sticky header renders either the `navbar-right-anon` data or the myFT component
 // - The normal header renders either the `navbar-right-anon` or the `navbar-right` data
@@ -120,7 +148,7 @@ const TopColumnRightSticky = (props: THeaderProps) => {
   let children = null
 
   if (props.userIsLoggedIn) {
-    children = <MyFtSticky />
+    children = <NavListRightLoggedInSticky {...props} />
   } else if (props.showUserNavigation) {
     children = <NavListRightAnonSticky {...props} />
   }

@@ -23,7 +23,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders a right aligned subn
         >
           <a
             aria-controls="o-header-drawer"
-            className="o-header__top-link o-header__top-link--menu"
+            className="o-header__top-icon-link o-header__top-icon-link--menu"
             data-trackable="drawer-toggle"
             href="#o-header-drawer"
             title="Open side navigation menu"
@@ -36,7 +36,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders a right aligned subn
           </a>
           <a
             aria-controls="o-header-search-primary"
-            className="o-header__top-link o-header__top-link--search"
+            className="o-header__top-icon-link o-header__top-icon-link--search"
             data-trackable="search-toggle"
             href="#o-header-search-primary"
             title="Open search bar"
@@ -80,8 +80,16 @@ exports[`dotcom-ui-header/src/components/MainHeader renders a right aligned subn
           className="o-header__top-column o-header__top-column--right"
         >
           <a
+            className="o-header__top-button o-header__top-button--hide-m"
+            data-trackable="Subscribe"
+            href="/products?segmentId=#"
+            role="button"
+          >
+            Subscribe
+          </a>
+          <a
             aria-label="My F T"
-            className="o-header__top-link o-header__top-link--myft"
+            className="o-header__top-icon-link o-header__top-icon-link--myft "
             data-tour-stage="myFt"
             data-trackable="my-ft"
             href="/myft"
@@ -1858,7 +1866,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
         >
           <a
             aria-controls="o-header-drawer"
-            className="o-header__top-link o-header__top-link--menu"
+            className="o-header__top-icon-link o-header__top-icon-link--menu"
             data-trackable="drawer-toggle"
             href="#o-header-drawer"
             title="Open side navigation menu"
@@ -1871,7 +1879,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
           </a>
           <a
             aria-controls="o-header-search-primary"
-            className="o-header__top-link o-header__top-link--search"
+            className="o-header__top-icon-link o-header__top-icon-link--search"
             data-trackable="search-toggle"
             href="#o-header-search-primary"
             title="Open search bar"
@@ -1915,8 +1923,16 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
           className="o-header__top-column o-header__top-column--right"
         >
           <a
+            className="o-header__top-button o-header__top-button--hide-m"
+            data-trackable="Subscribe"
+            href="/products?segmentId=#"
+            role="button"
+          >
+            Subscribe
+          </a>
+          <a
             aria-label="My F T"
-            className="o-header__top-link o-header__top-link--myft"
+            className="o-header__top-icon-link o-header__top-icon-link--myft "
             data-tour-stage="myFt"
             data-trackable="my-ft"
             href="/myft"
@@ -3698,7 +3714,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
         >
           <a
             aria-controls="o-header-drawer"
-            className="o-header__top-link o-header__top-link--menu"
+            className="o-header__top-icon-link o-header__top-icon-link--menu"
             data-trackable="drawer-toggle"
             href="#o-header-drawer"
             title="Open side navigation menu"
@@ -3711,7 +3727,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
           </a>
           <a
             aria-controls="o-header-search-primary"
-            className="o-header__top-link o-header__top-link--search"
+            className="o-header__top-icon-link o-header__top-icon-link--search"
             data-trackable="search-toggle"
             href="#o-header-search-primary"
             title="Open search bar"
@@ -3755,8 +3771,23 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
           className="o-header__top-column o-header__top-column--right"
         >
           <a
+            className="o-header__top-button o-header__top-button--hide-m"
+            data-trackable="Subscribe"
+            href="/products?segmentId=#"
+            role="button"
+          >
+            Subscribe
+          </a>
+          <a
+            className="o-header__top-link o-header__top-link--hide-m"
+            data-trackable="Sign In"
+            href="/login?location=#"
+          >
+            Sign In
+          </a>
+          <a
             aria-label="My F T"
-            className="o-header__top-link o-header__top-link--myft"
+            className="o-header__top-icon-link o-header__top-icon-link--myft o-header__top-icon-link--show-m"
             data-tour-stage="myFt"
             data-trackable="my-ft"
             href="/myft"

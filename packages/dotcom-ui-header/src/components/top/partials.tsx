@@ -1,5 +1,7 @@
 import React from 'react'
+import { THeaderProps } from '../../interfaces'
 import BrandFtMastheadSvg from '../svg-components/BrandFtMasthead'
+import { TNavMenuItem } from '@financial-times/dotcom-types-navigation'
 
 const HeaderWrapper = (props) => (
   <header
@@ -16,7 +18,7 @@ const HeaderWrapper = (props) => (
 const DrawerIcon = () => (
   <a
     href="#o-header-drawer"
-    className="o-header__top-link o-header__top-link--menu"
+    className="o-header__top-icon-link o-header__top-icon-link--menu"
     aria-controls="o-header-drawer"
     title="Open side navigation menu"
     data-trackable="drawer-toggle"
@@ -28,7 +30,7 @@ const DrawerIcon = () => (
 const SearchIcon = () => (
   <a
     href={`#o-header-search-primary`}
-    className="o-header__top-link o-header__top-link--search"
+    className="o-header__top-icon-link o-header__top-icon-link--search"
     aria-controls={`o-header-search-primary`}
     title="Open search bar"
     data-trackable="search-toggle"
@@ -37,9 +39,9 @@ const SearchIcon = () => (
   </a>
 )
 
-const MyFt = () => (
+const MyFt = ({ className }: { className?: string }) => (
   <a
-    className="o-header__top-link o-header__top-link--myft"
+    className={`o-header__top-icon-link o-header__top-icon-link--myft ${className}`}
     id="o-header-top-link-myft"
     href="/myft"
     data-trackable="my-ft"
@@ -87,10 +89,101 @@ const TopColumnCenterNoLink = () => (
   </div>
 )
 
-const TopColumnRight = () => (
-  <div className="o-header__top-column o-header__top-column--right">
-    <MyFt />
-  </div>
-)
+const TopColumnRightLoggedIn = (props: THeaderProps) => {
+  const subscribeAction = props.data['navbar-right-anon']?.items?.[1]
+  return (
+    <div className="o-header__top-column o-header__top-column--right">
+      {!props.userIsSubscribed && subscribeAction && (
+        <SubscribeButton
+          item={subscribeAction}
+          variant={props.variant}
+          className="o-header__top-button--hide-m"
+        />
+      )}
+      <MyFt className="" />
+    </div>
+  )
+}
 
-export { HeaderWrapper, TopWrapper, TopColumnLeft, TopColumnCenter, TopColumnCenterNoLink, TopColumnRight }
+const SignInLink = ({
+  item,
+  variant,
+  className
+}: {
+  item: TNavMenuItem
+  variant?: string
+  className?: string
+}) => {
+  const setTabIndex = variant === 'sticky' ? { tabIndex: -1 } : null
+  return (
+    <a
+      className={`o-header__top-link ${className}`}
+      href={item.url}
+      data-trackable={item.label}
+      {...setTabIndex}
+    >
+      {item.label}
+    </a>
+  )
+}
+const SubscribeButton = ({
+  item,
+  variant,
+  className
+}: {
+  item: TNavMenuItem
+  variant?: string
+  className?: string
+}) => {
+  const setTabIndex = variant === 'sticky' ? { tabIndex: -1 } : null
+  return (
+    <a
+      className={`o-header__top-button ${className}`}
+      // Added as the result of a DAC audit. This will be confusing for users of voice activation software
+      // as it looks like a button but behaves like a link without this role.
+      role="button"
+      href={item.url}
+      data-trackable={item.label}
+      {...setTabIndex}
+    >
+      {item.label}
+    </a>
+  )
+}
+
+const TopColumnRightAnon = ({ items, variant }: { items: TNavMenuItem[]; variant?: string }) => {
+  // If user is anonymous the second list item is styled as a button
+  const [signInAction, subscribeAction] = items
+  return (
+    <div className="o-header__top-column o-header__top-column--right">
+      {subscribeAction && (
+        <SubscribeButton item={subscribeAction} variant={variant} className="o-header__top-button--hide-m" />
+      )}
+      {signInAction && (
+        <SignInLink item={signInAction} variant={variant} className="o-header__top-link--hide-m" />
+      )}
+      <MyFt className="o-header__top-icon-link--show-m" />
+    </div>
+  )
+}
+
+const TopColumnRight = (props: THeaderProps) => {
+  if (props.userIsLoggedIn) {
+    return <TopColumnRightLoggedIn {...props} />
+  } else {
+    const userNavAnonItems = props.data['navbar-right-anon'].items
+    return <TopColumnRightAnon items={userNavAnonItems} variant={props.variant} />
+  }
+}
+
+export {
+  HeaderWrapper,
+  TopWrapper,
+  TopColumnLeft,
+  TopColumnCenter,
+  TopColumnCenterNoLink,
+  TopColumnRight,
+  TopColumnRightAnon,
+  SubscribeButton,
+  SignInLink
+}

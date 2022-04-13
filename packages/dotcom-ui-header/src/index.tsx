@@ -46,7 +46,7 @@ function MainHeader(props: THeaderProps) {
       <TopWrapper>
         <TopColumnLeft />
         {props.showLogoLink ? <TopColumnCenter /> : <TopColumnCenterNoLink />}
-        <TopColumnRight />
+        <TopColumnRight {...props} />
       </TopWrapper>
       <Search instance="primary" />
       <MobileNav {...props} />
