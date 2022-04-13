@@ -29,7 +29,7 @@ export type TNavMenusForEdition = { [key in TNavMenuKeysForEdition]: TNavMenu }
 export type TNavigationData = TNavMenusForEdition &
   TNavSubNavigation & {
     editions: TNavEditions
-    actions?: TNavAction[]
+    subscribeAction?: TNavAction
     currentPath?: string
   }
 

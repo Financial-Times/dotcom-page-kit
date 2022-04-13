@@ -12,7 +12,7 @@ import {
 import { selectMenuDataForEdition } from './selectMenuDataForEdition'
 import { decorateMenuData } from './decorateMenuData'
 import { getEditions, isEdition } from './editions'
-import { getActions } from './actions'
+import { getSubscribeAction } from './actions'
 
 // Makes the navigation data completely immutable,
 // To modify the data, clone the parts you need to change then modify in your app
@@ -93,7 +93,7 @@ export class Navigation {
     }
   }
 
-  getActions(): TNavAction[] {
-    return getActions()
+  getSubscribeAction(): TNavAction {
+    return getSubscribeAction()
   }
 }

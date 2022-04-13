@@ -37,11 +37,11 @@ export const init = (userOptions: MiddlewareOptions = {}) => {
       ])
 
       const editions = navigation.getEditionsFor(currentEdition)
-      const actions = navigation.getActions()
+      const subscribeAction = navigation.getSubscribeAction()
 
       const navigationData: TNavigationData = {
         editions,
-        actions,
+        subscribeAction,
         currentPath,
         ...menusData,
         ...subNavigationData

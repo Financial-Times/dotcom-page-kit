@@ -17,7 +17,7 @@ const fakeEditionsData = {
   others: [{ id: 'international', name: 'International', url: '/' }]
 }
 
-const fakeActionsData = [{ id: 'subscribe', name: 'Subscribe for full access', url: '/products?' }]
+const fakeActionsData = { id: 'subscribe', name: 'Subscribe for full access', url: '/products?' }
 
 const fakeSubNavigationData = {
   breadcrumb: 'some-breadcrumb',
@@ -27,7 +27,7 @@ const fakeSubNavigationData = {
 const fakeNavigationData = { ...fakeMenusData, editions: fakeEditionsData, currentPath: '' }
 
 const FakeNavigation = {
-  getActions: jest.fn().mockResolvedValue(fakeActionsData),
+  getSubscribeAction: jest.fn().mockResolvedValue(fakeActionsData),
   getMenusFor: jest.fn().mockResolvedValue(fakeMenusData),
   getSubNavigationFor: jest.fn().mockResolvedValue(fakeSubNavigationData),
   getEditionsFor: jest.fn().mockReturnValue(fakeEditionsData)

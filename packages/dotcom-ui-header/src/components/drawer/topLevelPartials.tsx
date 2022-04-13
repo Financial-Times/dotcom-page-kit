@@ -13,7 +13,7 @@ const IncludeDrawer = (props) => <Drawer {...props} />
 
 const Drawer = (props: THeaderProps) => {
   const editions = props.data.editions
-  const [subscribeAction] = props.data.actions?.length ? props.data.actions : []
+  const subscribeAction = props.data.subscribeAction
   const [primary, secondary, tertiary] = props.data.drawer.items
   const user = props.userIsLoggedIn ? props.data.user : props.data.anon
 
