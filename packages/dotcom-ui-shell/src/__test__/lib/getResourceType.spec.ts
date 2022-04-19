@@ -5,8 +5,11 @@ describe('dotcom-ui-shell/src/lib/getResourceType', () => {
     expect(subject('style.css')).toEqual('style')
     expect(subject('script.js')).toEqual('script')
     expect(subject('image.png')).toEqual('image')
-    expect(subject('font.woff')).toEqual('font')
-    expect(subject('font.woff2')).toEqual('font')
+    expect(
+      subject(
+        'https://www.ft.com/__origami/service/build/v3/font?font_format=woff2&font_name=MetricWeb-Regular&system_code=origami&version=1.12'
+      )
+    ).toEqual('font')
   })
 
   it('throws if the file extension cannot be matched', () => {

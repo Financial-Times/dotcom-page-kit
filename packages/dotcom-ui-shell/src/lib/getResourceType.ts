@@ -7,8 +7,6 @@ const ScriptFiles = new Set(['.js', '.mjs'])
 
 const ImageFiles = new Set(['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp'])
 
-const FontFiles = new Set(['.woff', '.woff2', '.otf', '.ttf', '.eot'])
-
 export default (file: string): string => {
   // Always parse the file so that we can ignore any domain names, query strings etc.
   // Node's old URL API is able to parse anything inc. filenames, paths, and URLs.
@@ -28,7 +26,7 @@ export default (file: string): string => {
     return 'image'
   }
 
-  if (FontFiles.has(extension)) {
+  if (file.includes('font_format=woff')) {
     return 'font'
   }
 

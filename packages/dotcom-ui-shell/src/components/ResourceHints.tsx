@@ -32,7 +32,10 @@ const ResourceHints = (props: TResourceHintsProps) => {
 
       {props.resourceHints.map((resource, i) => {
         const contentType = getResourceType(resource)
-        const mimeType = mimeTypes.lookup(resource) || null
+        const mimeType =
+          mimeTypes.lookup(resource) ||
+          mimeTypes.lookup(resource.match(/(?<=font_format=)([a-z0-9]+)/)?.[0]) ||
+          null
 
         const attributes: React.LinkHTMLAttributes<HTMLLinkElement> = {
           as: contentType,

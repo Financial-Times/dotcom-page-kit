@@ -1,8 +1,10 @@
 $system-code: 'page-kit-base-styles' !default;
 
 // NOTE: please also update ./src/lib/fontFaces.ts when updating the URL below. They
-// need to stay in-sync to ensure our CSS output matches the resource hints we set.
-$o-fonts-path: 'https://www.ft.com/__origami/service/build/v2/files/o-fonts-assets@1.5.0/';
+// need to stay in-sync to ensure our CSS output matches the resource hints we set, so we don't load the fonts twice (once from resourceHint and once from o-fonts in n-ui-foundations)
+// the $o-fonts-path value here is used to generate the @font-face url https://github.com/Financial-Times/origami/blob/main/components/o-fonts/src/scss/_mixins.scss#L148 that is imported through 'n-ui-foundations/main' styles.
+// we depend on o-fonts's @font-face url instead of explicitly defining it here so we don't have to update page kit again when changing fonts
+$o-fonts-path: 'https://www.ft.com/__origami/service/build/v3/font?version=1.12';
 
 // TODO: Migrate into this package existing usage of n-ui-foundations that
 // falls under definition of this package, with the intention of ideally
