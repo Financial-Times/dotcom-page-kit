@@ -1,0 +1,25 @@
+@import '@financial-times/o-fonts/main';
+@import '@financial-times/o-typography/main';
+
+@mixin nUiTypography {
+	@include oFonts($opts: (
+		'financier-display': (
+			('weight': 'regular', 'style': 'normal'),
+			('weight': 'bold', 'style': 'normal'),
+			('weight': 'medium', 'style': 'normal'),
+		),
+		'metric': (
+			('weight': 'regular', 'style': 'normal'),
+			('weight': 'semibold', 'style': 'normal'),
+		)
+	));
+
+	html {
+		font-family: sans-serif;
+		font-size: 0.8125em;
+	}
+
+	a {
+		@include oTypographyLink();
+	}
+}

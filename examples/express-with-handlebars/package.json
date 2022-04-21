@@ -14,5 +14,12 @@
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
+  },
+  "engines": {
+    "node": ">= 14.0.0",
+    "npm": "7.x || 8.x"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }
