@@ -15,5 +15,12 @@
   },
   "peerDependencies": {
     "@financial-times/o-normalise": "^1.7.2"
+  },
+  "engines": {
+    "node": ">= 14.0.0",
+    "npm": "7.x || 8.x"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }

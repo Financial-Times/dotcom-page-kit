@@ -1,0 +1,63 @@
+$system-code: 'page-kit-base-styles' !default;
+
+// NOTE: please also update ./src/lib/fontFaces.ts when updating the URL below. They
+// need to stay in-sync to ensure our CSS output matches the resource hints we set, so we don't load the fonts twice (once from resourceHint and once from o-fonts in n-ui-foundations)
+// the $o-fonts-path value here is used to generate the @font-face url https://github.com/Financial-Times/origami/blob/main/components/o-fonts/src/scss/_mixins.scss#L148 that is imported through 'n-ui-foundations/main' styles.
+// we depend on o-fonts's @font-face url instead of explicitly defining it here so we don't have to update page kit again when changing fonts
+$o-fonts-path: 'https://www.ft.com/__origami/service/build/v3/font?version=1.12';
+
+// TODO: Migrate into this package existing usage of n-ui-foundations that
+// falls under definition of this package, with the intention of ideally
+// being able to decommission n-ui-foundations.
+// @import 'n-ui-foundations/mixins';
+
+@if $n-ui-foundations-applied == false and $n-ui-foundations-is-silent == false {
+	$n-ui-foundations-applied: true;
+	@include nUiFoundations;
+}
+
+/// @output Wraps the block with stylesheet start and end comments
+@mixin nUiStylesheet($name) {
+	@include nUiStylesheetStart($name);
+	@content;
+	@include nUiStylesheetEnd($name);
+}
+
+/// Stylesheet block start
+/// @output A stylesheet block start comment
+@mixin nUiStylesheetStart($name) {
+	/*! start:#{$name}.css*/
+}
+
+/// Stylesheet block end
+/// @output A stylesheet block start comment
+@mixin nUiStylesheetEnd($name) {
+	/*! end:#{$name}.css*/
+}
+
+$spacing-unit: 20px;
+
+// Primitives
+@import 'grid/main';
+@import 'images/main';
+@import 'typography/main';
+@import 'util/main';
+@import '@financial-times/o-colors/main';
+@import '@financial-times/o-normalise/main';
+@import '@financial-times/o-visual-effects/main';
+
+@mixin nUiFoundations {
+	@include oNormalise((
+		'elements': ('links', 'text', 'images', 'forms'),
+		'body': ('font-smoothing', 'focus')
+	));
+
+	@include nUiGrid;
+	@include nUiTypography;
+	@include nUiUtil;
+}
+
+.core .o--if-js,
+.enhanced .o--if-no-js {
+  display: none !important;
+}
