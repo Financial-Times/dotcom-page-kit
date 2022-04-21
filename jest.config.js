@@ -1,8 +1,9 @@
+const base = require('./jest.config.base.js')
+
 module.exports = {
-  preset: 'ts-jest',
+  ...base,
   roots: ['./packages'],
-  testEnvironment: 'node',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
-  testPathIgnorePatterns: ['/node_modules/'],
-  setupFilesAfterEnv: ['./jest.enzyme.ts']
+  setupFilesAfterEnv: ['./jest.enzyme.ts'],
+  testPathIgnorePatterns: ['/node_modules/']
 }

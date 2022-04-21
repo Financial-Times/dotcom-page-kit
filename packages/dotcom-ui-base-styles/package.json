@@ -7,7 +7,7 @@
   "types": "src/index.ts",
   "styles": "styles.scss",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "tsc": "../../node_modules/.bin/tsc --incremental",
     "clean": "npm run clean:dist && npm run clean:node_modules",
     "clean:dist": "rm -rf dist",
@@ -26,19 +26,26 @@
     "focus-visible": "^5.0.0"
   },
   "devDependencies": {
-    "check-engine": "^1.10.1",
-    "react": "^16.8.6",
-    "@financial-times/o-typography": "^7.2.0",
     "@financial-times/o-colors": "^6.4.0",
     "@financial-times/o-normalise": "^3.2.0",
-    "@financial-times/o-visual-effects": "^4.1.0"
+    "@financial-times/o-typography": "^7.2.0",
+    "@financial-times/o-utils": "^2.1.1",
+    "@financial-times/o-visual-effects": "^4.1.0",
+    "@sucrase/jest-plugin": "^2.2.0",
+    "@types/jest": "^27.4.1",
+    "check-engine": "^1.10.1",
+    "jest": "^27.5.1",
+    "react": "^16.8.6",
+    "ts-jest": "^27.1.4",
+    "typescript": "^4.6.3"
   },
   "peerDependencies": {
-    "react": "16.x || 17.x",
-    "@financial-times/o-typography": "^7.2.0",
     "@financial-times/o-colors": "^6.4.0",
     "@financial-times/o-normalise": "^3.2.0",
-    "@financial-times/o-visual-effects": "^4.1.0"
+    "@financial-times/o-typography": "^7.2.0",
+    "@financial-times/o-utils": "^2.1.1",
+    "@financial-times/o-visual-effects": "^4.1.0",
+    "react": "16.x || 17.x"
   },
   "engines": {
     "node": ">= 14.0.0",

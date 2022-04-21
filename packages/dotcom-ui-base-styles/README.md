@@ -81,3 +81,47 @@ This component also provides styles written in Sass which should be imported int
 ```scss
 @import '@financial-times/dotcom-ui-base-styles/styles';
 ```
+
+### JS
+
+This package includes several commonly used utility functions to avoid repeating boilerplate code.
+
+```js
+import { $, $$ } from 'dotcom-ui-base-styles';
+```
+
+- `$(sel, [context])` Equivalent to `context.querySelector(sel)` (`context` defaults to `document`)
+- `$$(sel, [context])` Equivalent to `Array.from(context.querySelectorAll(sel))` (`context` defaults to `document`)
+- `throttle(func, wait)` Creates a throttled copy of a function, re-exported from `o-utils`
+- `debounce(func, wait)` Creates a debounced copy of a function, re-exported from `o-utils`
+- `uuid()` - generates a random UUID
+- `ascii(str)` converts non-ascii unicode characters to ascii equivalents
+- `broadcast(name, data, bubbles = true)` fires a custom event. The event is fired from `document.body` by default but if called with the context of a `HtmlElement` it will be fired from that instead.
+- `perfMark(name)` - log a performance mark.
+- `sampleUsers(pct, seed)` - select a % of users to target behaviour at (returns `Bool`)
+
+### Cookie store
+
+Useful methods for working with cookies.
+
+```js
+import { cookieStore } from 'dotcom-ui-base-styles');
+```
+
+#### `get(name)`
+
+Get the value of the given cookie.
+
+#### `set(name, value, [options])`
+
+Set a cookie.  Available options are `domain`, `path`, `expires`, `secure` and `maxAge`.
+Note it is "maxAge" not "max-age".  If you don't specify either expires or maxAge the cookie will expire at the end of the session.
+
+#### `has(name)`
+
+Returns true if the given cookie exists.
+
+#### `remove(name)`
+
+Delete the given cookie by setting the expiry to the past.
+
