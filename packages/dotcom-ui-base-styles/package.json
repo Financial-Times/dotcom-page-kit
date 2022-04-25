@@ -2,7 +2,7 @@
   "name": "@financial-times/dotcom-ui-base-styles",
   "version": "0.0.0",
   "description": "",
-  "main": "component.js",
+  "main": "./dist/node/index.js",
   "browser": "browser.js",
   "types": "src/index.ts",
   "styles": "styles.scss",

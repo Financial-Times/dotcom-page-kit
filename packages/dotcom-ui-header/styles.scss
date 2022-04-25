@@ -1,7 +1,7 @@
 // This will be overridden by dotcom-ui-layout, it's necessary here for storybook builds
 $system-code: 'page-kit-header' !default;
 
-@import "n-ui-foundations/mixins";
+@import "@financial-times/dotcom-ui-base-styles/styles/main";
 
 // We don't need the sub-brand or transparent header styles so disable them.
 // TODO: move drawer styles into a separate stylesheet which can be lazy loaded?
@@ -10,5 +10,171 @@ $system-code: 'page-kit-header' !default;
 
 @import "src/header";
 
-@import "n-topic-search/main";
+// let's not import from n-topic-search/main for now because it imports n-ui-foundation/mixins
+// after n-topic-search moves away from n-ui-foundations we will import n-topic-search/main 
+// @import "n-topic-search/main";
+// @include nTopicSearch;
+
+@mixin nTopicSearch {
+	[data-n-topic-search] {
+		position: relative;
+	}
+
+	.n-topic-search {
+
+		@include nUiZIndexFor('typeahead');
+		position: absolute;
+		top: 100%;
+		left: 0;
+		box-sizing: border-box;
+		width: 100%;
+		margin: -2px 0 0;
+		border: 1px solid rgba(0, 0, 0, 0.3);
+		overflow: hidden;
+		background: oColorsByName('white');
+		text-align: left;
+		display: flex;
+		flex-direction: column;
+
+		@include oGridRespondTo('L') {
+			flex-direction: row;
+		}
+	}
+
+	.n-topic-search--single-category {
+		padding: 0;
+		display: block;
+	}
+
+
+	.n-topic-search[hidden],
+	.n-topic-search:empty {
+		display: none;
+	}
+
+	.n-topic-search__heading {
+
+		@include oTypographySans($scale: 4);
+
+		position: relative;
+		margin: 0;
+		padding: $spacing-unit 0;
+
+		&:before {
+			border-top: 8px solid oColorsByName('black');
+			content: '';
+			left: 0;
+			top: 0;
+			position: absolute;
+			width: 100%;
+		}
+	}
+
+	.n-topic-search__group {
+		padding: $spacing-unit;
+		flex: 1 auto;
+	}
+
+	.n-topic-search__item-list,
+	.n-topic-search__item {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.n-topic-search__target {
+		@include oTypographySans(0);
+		cursor: pointer;
+		color: oColorsByName('black-80');
+		border-bottom: 0;
+		box-sizing: border-box;
+		display: block;
+		text-decoration: none;
+		padding: $spacing-unit/2 $spacing-unit;
+		display: block;
+		background: none;
+		border: 0;
+		width: 100%;
+		text-align: left;
+
+		// for positioning the dividing line
+		position: relative;
+		margin-top: -1px;
+
+		mark {
+			color: inherit;
+			background: none;
+			@include oTypographySans($weight: 'semibold');
+		}
+
+		abbr {
+			float: right;
+			padding-left: 10px;
+			flex: 0 0 auto;
+		}
+
+		&:before {
+			content: '';
+			display: block;
+			border-bottom: 1px solid oColorsByName('black-40');
+			position: absolute;
+			bottom: 0;
+			left: $spacing-unit;
+			right: $spacing-unit;
+			height: 1px;
+		}
+
+		&:hover,
+		&:focus {
+			background: oColorsByName('teal-40');
+			color: oColorsByName('white');
+		}
+
+		&:hover:before,
+		&:focus:before {
+			opacity: 0;
+		}
+
+		&:hover mark,
+		&:focus mark {
+			color: inherit;
+		}
+	}
+
+	// hide item divider at bottom of last item
+	.n-topic-search__item:last-child .n-topic-search__target:before {
+		opacity: 0;
+	}
+
+	.n-topic-search__target--tail {
+
+		&:after {
+			@include oIconsContent('arrow-right', oColorsByName('black-80'), 14);
+			margin: 0 0 -2px 2px;
+			content: '';
+		}
+
+		&:hover:after {
+			@include oIconsContent('arrow-right', oColorsByName('white'), 14);
+		}
+	}
+
+	.n-topic-search__target--news {
+		color: oColorsByName('claret');
+	}
+
+	// for nice alignment of equity name and index
+	.n-topic-search__target--equities {
+		display: flex;
+	}
+
+	.n-topic-search__target__equity-name {
+		flex: 1 1 auto;
+	}
+
+	.n-topic-search__no-results-message {
+		padding: 0 $spacing-unit;
+	}
+}
+
 @include nTopicSearch;

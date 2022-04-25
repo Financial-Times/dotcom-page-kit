@@ -105,7 +105,7 @@ import { $, $$ } from 'dotcom-ui-base-styles';
 Useful methods for working with cookies.
 
 ```js
-import { cookieStore } from 'dotcom-ui-base-styles');
+import { cookieStore } from 'dotcom-ui-base-styles';
 ```
 
 #### `get(name)`

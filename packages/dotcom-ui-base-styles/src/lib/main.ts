@@ -1,4 +1,4 @@
-import { debounce, throttle } from '@financial-times/o-utils'
+import { debounce, throttle } from '@financial-times/o-utils/main' //is o-utils only used for browser??
 import cookieStore from './cookies'
 import perfMark from './perf-mark'
 import ascii from './to-ascii'
