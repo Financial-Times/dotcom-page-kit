@@ -31,8 +31,7 @@
     "n-ui-foundations": "^9.0.0"
   },
   "peerDependencies": {
-    "react": "16.x || 17.x",
-    "@financial-times/o-typography": "^7.2.0"
+    "react": "16.x || 17.x"
   },
   "engines": {
     "node": ">= 14.0.0",
@@ -49,7 +48,6 @@
   },
   "devDependencies": {
     "check-engine": "^1.10.1",
-    "@financial-times/o-typography": "^7.2.0",
     "react": "^16.8.6"
   }
 }
