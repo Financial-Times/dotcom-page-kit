@@ -6,32 +6,6 @@ $system-code: 'page-kit-base-styles' !default;
 // we depend on o-fonts's @font-face url instead of explicitly defining it here so we don't have to update page kit again when changing fonts
 $o-fonts-path: 'https://www.ft.com/__origami/service/build/v3/font?version=1.12';
 
-// TODO: Migrate into this package existing usage of n-ui-foundations that
-// falls under definition of this package, with the intention of ideally
-// being able to decommission n-ui-foundations.
-// @import 'n-ui-foundations/main';
-
-// 'n-ui-foundations/mixins'
-
-/// @output Wraps the block with stylesheet start and end comments
-@mixin nUiStylesheet($name) {
-	@include nUiStylesheetStart($name);
-	@content;
-	@include nUiStylesheetEnd($name);
-}
-
-/// Stylesheet block start
-/// @output A stylesheet block start comment
-@mixin nUiStylesheetStart($name) {
-	/*! start:#{$name}.css*/
-}
-
-/// Stylesheet block end
-/// @output A stylesheet block start comment
-@mixin nUiStylesheetEnd($name) {
-	/*! end:#{$name}.css*/
-}
-
 $spacing-unit: 20px;
 
 // Primitives
@@ -54,7 +28,6 @@ $spacing-unit: 20px;
 	@include nUiTypography;
 	@include nUiUtil;
 }
-// 'n-ui-foundations/main'
 
 $n-ui-foundations-is-silent: false !default; // 'silent' means don't apply styles
 $n-ui-foundations-applied: false !default;
