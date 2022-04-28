@@ -22,7 +22,7 @@ $system-code: 'page-kit-header' !default;
 
 	.n-topic-search {
 
-		@include nUiZIndexFor('typeahead');
+		@include baseStylesZIndexFor('typeahead');
 		position: absolute;
 		top: 100%;
 		left: 0;

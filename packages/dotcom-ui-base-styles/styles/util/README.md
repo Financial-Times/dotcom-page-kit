@@ -14,23 +14,23 @@ This module is bundled by default and cannot be configured.
 
 #### Display
 
-##### `.n-ui-hide`
+##### `.base-styles-hide`
 
 Hide an element.
 
-##### `.n-ui-hide@screen`
+##### `.base-styles-hide@screen`
 
 Hide an element for screens.
 
-##### `.n-ui-hide@print`
+##### `.base-styles-hide@print`
 
 Hide an element for print.
 
-##### `.n-ui-hide-enhanced`
+##### `.base-styles-hide-enhanced`
 
 Hide an element in the enhanced experience.
 
-##### `.n-ui-hide-core`
+##### `.base-styles-hide-core`
 
 Hide an element in the core experience.
 

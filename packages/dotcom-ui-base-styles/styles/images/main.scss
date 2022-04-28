@@ -1,8 +1,8 @@
 @import '@financial-times/o-icons/main';
 
-@mixin nGetImage($image-type, $image-name, $color: null, $container-width: 128, $container-height: null) {
+@mixin baseStylesGetImage($image-type, $image-name, $color: null, $container-width: 128, $container-height: null) {
 	@if $image-type == 'icon' {
-		@error 'We no longer support using nGetImage for icons. Please use o-icons’ oIconsGetIcon mixin instead (https://github.com/Financial-Times/o-icons/blob/v5.4.2/scss/_mixins.scss#L16).';
+		@error 'We no longer support using baseStylesGetImage for icons. Please use o-icons’ oIconsGetIcon mixin instead (https://github.com/Financial-Times/o-icons/blob/v5.4.2/scss/_mixins.scss#L16).';
 	}
 
 	$url: 'https://www.ft.com/__origami/service/image/v2/images/raw/ft#{$image-type}:#{$image-name}';

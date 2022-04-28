@@ -4,11 +4,11 @@
 
 /// Basis of n-ui z-indexes
 /// @type Number
-$n-ui-z-index-basis: 100;
+$base-styles-z-index-basis: 100;
 
 /// Ordered list of z-indexes use cases
 /// @type List
-$n-ui-z-index-order: (
+$base-styles-z-index-order: (
 	'welcome',
 	'meganav',
 	'sticky-header',
@@ -18,12 +18,12 @@ $n-ui-z-index-order: (
 	'notification'
 );
 
-@mixin nUiZIndexFor($use-case) {
+@mixin baseStylesZIndexFor($use-case) {
 	// scss-lint:disable ImportantRule
-	$index: index($n-ui-z-index-order, $use-case);
+	$index: index($base-styles-z-index-order, $use-case);
 
 	@if $index {
-		z-index: $n-ui-z-index-basis + $index !important;
+		z-index: $base-styles-z-index-basis + $index !important;
 	} @else {
 		@warn 'z-index for use case "#{$use-case}" not found.';
 	}

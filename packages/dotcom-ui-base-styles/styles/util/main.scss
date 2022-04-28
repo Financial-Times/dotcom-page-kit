@@ -1,40 +1,34 @@
 @import '@financial-times/o-normalise/main';
 @import 'mixins';
 
-//BREAKING CHANGE: .n-ui-clearfix -> .o-normalise-clearfix
-//BREAKING CHANGE: .n-ui-visually-hidden -> .o-normalise-visually-hidden
-//BREAKING CHANGE: Any remaining instances of n-util- -> n-ui-
 
 @mixin baseStylesUtil {
 
 	//
 	// Display
 	//
-	.n-ui-hide {
+	.base-styles-hide {
 		display: none;
 	}
 
 	@media screen {
 		/* stylelint-disable */
-		.n-ui-hide\@screen {
+		.base-styles-hide\@screen {
 		/* stylelint-enable */
 			display: none;
 		}
-
 	}
 
 	@media print {
 		/* stylelint-disable */
-		.n-ui-hide\@print {
+		.base-styles-hide\@print {
 		/* stylelint-enable */
 			display: none;
 		}
 	}
 
-	.no-js .n-ui-hide-no-js,
-	.js .n-ui-hide-js,
-	.core .n-ui-hide-core,
-	.enhanced .n-ui-hide-enhanced {
+	.core .base-styles-hide-core,
+	.enhanced .base-styles-hide-enhanced {
 		display: none;
 	}
 

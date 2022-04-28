@@ -11,16 +11,16 @@
 
 // z-indexes
 .o-header__mega {
-  @include nUiZIndexFor('meganav');
+  @include baseStylesZIndexFor('meganav');
 }
 
 .o-header__drawer {
-  @include nUiZIndexFor('drawer');
+  @include baseStylesZIndexFor('drawer');
   display: block;
 }
 
 .o-header--sticky {
-  @include nUiZIndexFor('sticky-header');
+  @include baseStylesZIndexFor('sticky-header');
 }
 
 // Search typeahead
