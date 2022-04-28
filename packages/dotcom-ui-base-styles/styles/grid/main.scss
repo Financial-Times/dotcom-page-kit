@@ -1,7 +1,7 @@
 @import '@financial-times/o-grid/main';
 @import 'mixins';
 
-@mixin nUiGrid {
+@mixin baseStylesGrid {
 	@include oGrid($opts: (
 		'bleed': true,
 		'snappy': true,

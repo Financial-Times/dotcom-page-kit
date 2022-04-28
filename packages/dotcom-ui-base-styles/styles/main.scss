@@ -17,16 +17,16 @@ $spacing-unit: 20px;
 @import '@financial-times/o-normalise/main';
 @import '@financial-times/o-visual-effects/main';
 
-@mixin nUiFoundations {
+@mixin baseStyles {
 
 	@include oNormalise((
 		'elements': ('links', 'text', 'images', 'forms'),
 		'body': ('font-smoothing', 'focus')
 	));
 
-	@include nUiGrid;
-	@include nUiTypography;
-	@include nUiUtil;
+	@include baseStylesGrid;
+	@include baseStylesTypography;
+	@include baseStylesUtil;
 }
 
 $n-ui-foundations-is-silent: false !default; // 'silent' means don't apply styles
@@ -34,7 +34,7 @@ $n-ui-foundations-applied: false !default;
 
 @if $n-ui-foundations-applied == false and $n-ui-foundations-is-silent == false {
 	$n-ui-foundations-applied: true;
-	@include nUiFoundations;
+	@include baseStyles;
 }
 
 .core .o--if-js,
