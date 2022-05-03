@@ -1,18 +1,18 @@
 $system-code: 'page-kit-base-styles' !default;
 
 // NOTE: please also update ./src/lib/fontFaces.ts when updating the URL below. They
-// need to stay in-sync to ensure our CSS output matches the resource hints we set, so we don't load the fonts twice (once from resourceHint and once from o-fonts in n-ui-foundations)
-// the $o-fonts-path value here is used to generate the @font-face url https://github.com/Financial-Times/origami/blob/main/components/o-fonts/src/scss/_mixins.scss#L148 that is imported through 'n-ui-foundations/main' styles.
+// need to stay in-sync to ensure our CSS output matches the resource hints we set, so we don't load the fonts twice (once from resourceHint and once from o-fonts in baseStylesTypography)
+// the $o-fonts-path value here is used to generate the @font-face url https://github.com/Financial-Times/origami/blob/main/components/o-fonts/src/scss/_mixins.scss#L148 
 // we depend on o-fonts's @font-face url instead of explicitly defining it here so we don't have to update page kit again when changing fonts
 $o-fonts-path: 'https://www.ft.com/__origami/service/build/v3/font?version=1.12';
 
 $spacing-unit: 20px;
 
 // Primitives
-@import 'grid/main';
-@import 'images/main';
-@import 'typography/main';
-@import 'util/main';
+@import 'styles/grid/main';
+@import 'styles/images/main';
+@import 'styles/typography/main';
+@import 'styles/util/main';
 @import '@financial-times/o-colors/main';
 @import '@financial-times/o-normalise/main';
 @import '@financial-times/o-visual-effects/main';
@@ -27,14 +27,6 @@ $spacing-unit: 20px;
 	@include baseStylesGrid;
 	@include baseStylesTypography;
 	@include baseStylesUtil;
-}
-
-$n-ui-foundations-is-silent: false !default; // 'silent' means don't apply styles
-$n-ui-foundations-applied: false !default;
-
-@if $n-ui-foundations-applied == false and $n-ui-foundations-is-silent == false {
-	$n-ui-foundations-applied: true;
-	@include baseStyles;
 }
 
 .core .o--if-js,

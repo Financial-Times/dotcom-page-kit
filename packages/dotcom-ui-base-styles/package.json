@@ -26,19 +26,25 @@
     "focus-visible": "^5.0.0"
   },
   "devDependencies": {
-    "check-engine": "^1.10.1",
-    "react": "^16.8.6",
-    "@financial-times/o-typography": "^7.2.0",
     "@financial-times/o-colors": "^6.4.0",
+    "@financial-times/o-fonts": "^5.3.3",
+    "@financial-times/o-grid": "^6.1.5",
+    "@financial-times/o-icons": "^7.2.1",
     "@financial-times/o-normalise": "^3.2.0",
-    "@financial-times/o-visual-effects": "^4.1.0"
+    "@financial-times/o-typography": "^7.2.0",
+    "@financial-times/o-visual-effects": "^4.1.0",
+    "check-engine": "^1.10.1",
+    "react": "^16.8.6"
   },
   "peerDependencies": {
-    "react": "16.x || 17.x",
-    "@financial-times/o-typography": "^7.2.0",
     "@financial-times/o-colors": "^6.4.0",
+    "@financial-times/o-fonts": "^5.3.3",
+    "@financial-times/o-grid": "^6.1.5",
+    "@financial-times/o-icons": "^7.2.1",
     "@financial-times/o-normalise": "^3.2.0",
-    "@financial-times/o-visual-effects": "^4.1.0"
+    "@financial-times/o-typography": "^7.2.0",
+    "@financial-times/o-visual-effects": "^4.1.0",
+    "react": "16.x || 17.x"
   },
   "engines": {
     "node": ">= 14.0.0",
