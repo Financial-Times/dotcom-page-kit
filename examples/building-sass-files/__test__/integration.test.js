@@ -22,7 +22,7 @@ describe('examples/building-sass-files', () => {
 
   describe('PostCSS', () => {
     it('uses Autoprefixer to apply vendor prefixes', () => {
-      expect(outputContents).toContain('-webkit-hyphens:auto;-ms-hyphens:auto;hyphens:auto')
+      expect(outputContents).toContain('-webkit-hyphens:auto;hyphens:auto')
     })
 
     it('uses cssnano to minify the output', () => {

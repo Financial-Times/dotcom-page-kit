@@ -28,11 +28,10 @@ module.exports = {
 
 This plugin configures [Babel](https://babeljs.io/) to compile JavaScript syntax and features that aren't supported by every browser into JavaScript that is. The browsers we target are:
 
-* the last 2 versions of Chrome
-* the last 2 versions of Edge
+* the latest version of Chrome
+* the lastest version of Edge
 * Safari 9.1
-* Firefox Extended Support Release (currently v68)
-* Internet Explorer 11
+* Firefox Extended Support Release
 
 As well as features in current JavaScript standards, we also compile these non-standard features:
 

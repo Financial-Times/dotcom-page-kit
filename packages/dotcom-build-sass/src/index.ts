@@ -40,13 +40,7 @@ export class PageKitSassPlugin {
 
     const autoprefixerOptions = {
       // https://github.com/browserslist/browserslist
-      overrideBrowserslist: [
-        'last 2 Chrome versions',
-        'ie 11',
-        'Safari >= 9.1',
-        'ff ESR',
-        'last 2 Edge versions'
-      ],
+      overrideBrowserslist: ['last 1 Chrome versions', 'Safari >= 13', 'ff ESR', 'last 1 Edge versions'],
       grid: true
     }
 
