@@ -1727,11 +1727,11 @@ exports[`dotcom-ui-header/src/components/MainHeader renders a right aligned subn
         >
           <a
             className="o-header__nav-link o-header__nav-link--primary"
-            data-trackable="How to Spend It"
+            data-trackable="HTSI"
             href="https://howtospendit.ft.com/"
             id="o-header-link-10"
           >
-            How to Spend It
+            HTSI
           </a>
         </li>
       </ul>
@@ -3570,11 +3570,11 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
         >
           <a
             className="o-header__nav-link o-header__nav-link--primary"
-            data-trackable="How to Spend It"
+            data-trackable="HTSI"
             href="https://howtospendit.ft.com/"
             id="o-header-link-10"
           >
-            How to Spend It
+            HTSI
           </a>
         </li>
       </ul>
@@ -5425,11 +5425,11 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
         >
           <a
             className="o-header__nav-link o-header__nav-link--primary"
-            data-trackable="How to Spend It"
+            data-trackable="HTSI"
             href="https://howtospendit.ft.com/"
             id="o-header-link-10"
           >
-            How to Spend It
+            HTSI
           </a>
         </li>
       </ul>
