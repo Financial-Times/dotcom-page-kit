@@ -13,7 +13,6 @@ const expected = [
   'manifest.json',
   'page-kit-components.bundle.js',
   'page-kit-layout-styles.css',
-  'regenerator-runtime.bundle.js',
   'scripts.bundle.js',
   'shared.stable.bundle.js',
   'styles.css',
