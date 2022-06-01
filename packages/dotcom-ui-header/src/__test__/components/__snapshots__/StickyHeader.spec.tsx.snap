@@ -185,11 +185,11 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in use
                 >
                   <a
                     className="o-header__nav-link o-header__nav-link--primary"
-                    data-trackable="How to Spend It"
+                    data-trackable="HTSI"
                     href="https://howtospendit.ft.com/"
                     tabIndex={-1}
                   >
-                    How to Spend It
+                    HTSI
                   </a>
                 </li>
               </ul>
@@ -493,11 +493,11 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as an anonymous us
                 >
                   <a
                     className="o-header__nav-link o-header__nav-link--primary"
-                    data-trackable="How to Spend It"
+                    data-trackable="HTSI"
                     href="https://howtospendit.ft.com/"
                     tabIndex={-1}
                   >
-                    How to Spend It
+                    HTSI
                   </a>
                 </li>
               </ul>
