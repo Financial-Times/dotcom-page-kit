@@ -513,6 +513,9 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as an anonymous us
             </span>
           </a>
         </div>
+        <div
+          className="o-header__top-column o-header__top-column--right"
+        />
       </div>
     </div>
   </div>

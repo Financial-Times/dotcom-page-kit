@@ -77,18 +77,12 @@ const NavListRightAnonSticky = (props: THeaderProps) => {
   // If user is anonymous the second list item is styled as a button
   const [signInAction, subscribeAction] = props.data['navbar-right-anon'].items
   return (
-    <div className="o-header__top-column o-header__top-column--right">
-      <div className="o-header__nav">
-        <div className="o-header__top-column o-header__top-column--right">
-          {subscribeAction && (
-            <SubscribeButton
-              item={subscribeAction}
-              variant="sticky"
-              className="o-header__top-button--hide-m"
-            />
-          )}
-          {signInAction && <SignInLink item={signInAction} variant="sticky" className="" />}
-        </div>
+    <div className="o-header__nav">
+      <div className="o-header__top-column o-header__top-column--right">
+        {subscribeAction && (
+          <SubscribeButton item={subscribeAction} variant="sticky" className="o-header__top-button--hide-m" />
+        )}
+        {signInAction && <SignInLink item={signInAction} variant="sticky" className="" />}
       </div>
     </div>
   )
@@ -133,7 +127,7 @@ const TopColumnCenterSticky = (props: THeaderProps) => {
 const NavListRightLoggedInSticky = (props: THeaderProps) => {
   const subscribeAction = props.data['navbar-right-anon'].items?.[1]
   return (
-    <div className="o-header__top-column o-header__top-column--right">
+    <React.Fragment>
       {!props.userIsSubscribed && subscribeAction && (
         <SubscribeButton
           item={subscribeAction}
@@ -142,7 +136,7 @@ const NavListRightLoggedInSticky = (props: THeaderProps) => {
         />
       )}
       <MyFtSticky className="" />
-    </div>
+    </React.Fragment>
   )
 }
 
@@ -151,13 +145,14 @@ const NavListRightLoggedInSticky = (props: THeaderProps) => {
 // - The normal header renders either the `navbar-right-anon` or the `navbar-right` data
 const TopColumnRightSticky = (props: THeaderProps) => {
   let children = null
+
   if (props.userIsLoggedIn) {
     children = <NavListRightLoggedInSticky {...props} />
   } else if (props.showUserNavigation) {
     children = <NavListRightAnonSticky {...props} />
   }
 
-  return children
+  return <div className="o-header__top-column o-header__top-column--right">{children}</div>
 }
 
 export {
