@@ -212,30 +212,26 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in use
         <div
           className="o-header__top-column o-header__top-column--right"
         >
-          <div
-            className="o-header__top-column o-header__top-column--right"
+          <a
+            className="o-header__top-button o-header__top-button--hide-m"
+            data-trackable="Subscribe"
+            href="/products?segmentId=#"
+            role="button"
           >
-            <a
-              className="o-header__top-button o-header__top-button--hide-m"
-              data-trackable="Subscribe"
-              href="/products?segmentId=#"
-              role="button"
+            Subscribe
+          </a>
+          <a
+            className="o-header__top-icon-link o-header__top-icon-link--myft "
+            data-trackable="my-ft"
+            href="/myft"
+            tabIndex={-1}
+          >
+            <span
+              className="o-header__visually-hidden"
             >
-              Subscribe
-            </a>
-            <a
-              className="o-header__top-icon-link o-header__top-icon-link--myft "
-              data-trackable="my-ft"
-              href="/myft"
-              tabIndex={-1}
-            >
-              <span
-                className="o-header__visually-hidden"
-              >
-                myFT
-              </span>
-            </a>
-          </div>
+              myFT
+            </span>
+          </a>
         </div>
       </div>
     </div>

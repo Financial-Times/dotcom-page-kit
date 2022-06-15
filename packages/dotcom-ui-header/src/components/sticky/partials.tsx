@@ -127,7 +127,7 @@ const TopColumnCenterSticky = (props: THeaderProps) => {
 const NavListRightLoggedInSticky = (props: THeaderProps) => {
   const subscribeAction = props.data['navbar-right-anon'].items?.[1]
   return (
-    <div className="o-header__top-column o-header__top-column--right">
+    <React.Fragment>
       {!props.userIsSubscribed && subscribeAction && (
         <SubscribeButton
           item={subscribeAction}
@@ -136,7 +136,7 @@ const NavListRightLoggedInSticky = (props: THeaderProps) => {
         />
       )}
       <MyFtSticky className="" />
-    </div>
+    </React.Fragment>
   )
 }
 
