@@ -86,8 +86,9 @@ jobs:
             git@github.com:Financial-Times/next-ci-shared-helpers.git
             .circleci/shared-helpers
       - *restore_npm_cache
-      - node/install-npm:
-          version: "7"
+      - run:
+          name: Install npm 8
+          command: npm install -g npm@8
       - run:
           name: Install project dependencies
           command: make install
