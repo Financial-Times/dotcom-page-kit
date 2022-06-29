@@ -1,3 +1,4 @@
+import logger from '@financial-times/n-logger'
 import Poller from 'ft-poller'
 import httpError from 'http-errors'
 import deepFreeze from 'deep-freeze'
@@ -40,6 +41,7 @@ export class Navigation {
   public options: TNavOptions
   public poller: Poller
   public initialPromise: Promise<void>
+  private menuData: TNavMenus
 
   constructor(options: TNavOptions = {}) {
     this.options = { ...defaults, ...options }
@@ -56,7 +58,17 @@ export class Navigation {
   async getMenusData(): Promise<TNavMenus> {
     // initialPromise does not return data but must resolve before `getData` can be called
     await this.initialPromise
-    return this.poller.getData()
+
+    try {
+      this.menuData = this.poller.getData()
+    } catch (error) {
+      // getData throws if the most recent fetch resulted in an error.
+      // In that case, continue to use the latest navigation we have available.
+      logger.warn('ERROR_FETCHING_NAVIGATION', error)
+    }
+
+    return this.menuData
+
   }
 
   async getMenusFor(currentPath: string, currentEdition: string = 'uk'): Promise<TNavMenusForEdition> {
