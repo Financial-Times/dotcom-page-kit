@@ -20,10 +20,9 @@
   "license": "MIT",
   "dependencies": {
     "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation",
-    "@financial-times/n-logger": "^10.1.0",
     "@types/deep-freeze": "^0.1.1",
     "deep-freeze": "0.0.1",
-    "ft-poller": "^7.0.0",
+    "ft-poller": "^7.2.1",
     "http-errors": "^1.7.1",
     "node-fetch": "^2.2.1"
   },

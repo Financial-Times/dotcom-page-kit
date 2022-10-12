@@ -1,4 +1,3 @@
-import logger from '@financial-times/n-logger'
 import Poller from 'ft-poller'
 import httpError from 'http-errors'
 import deepFreeze from 'deep-freeze'
@@ -59,15 +58,7 @@ export class Navigation {
     // initialPromise does not return data but must resolve before `getData` can be called
     await this.initialPromise
 
-    try {
-      this.menuData = this.poller.getData()
-    } catch (error) {
-      // getData throws if the most recent fetch resulted in an error.
-      // In that case, continue to use the latest navigation we have available.
-      // In the future we may want to handle this differently. See ticket FTDCS-258
-      // for some ideas on how this code could be improved.
-      logger.warn('ERROR_FETCHING_NAVIGATION', error)
-    }
+    this.menuData = this.poller.getData()
 
     return this.menuData
 
