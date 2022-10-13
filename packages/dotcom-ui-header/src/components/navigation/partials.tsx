@@ -12,7 +12,7 @@ const MobileNav = (props: THeaderProps) => {
   // Only display navigation on pages which are included in this menu
   const targetUrls = props.data['navbar-simple'].items.map((item) => item.url)
 
-  return targetUrls.includes(props.data.currentPath) ? (
+  return props.data.currentPath && targetUrls.includes(props.data.currentPath) ? (
     <NavMobile items={props.data['navbar-simple'].items} />
   ) : null
 }
@@ -30,7 +30,7 @@ const NavMobile = ({ items }: { items: TNavMenuItem[] }) => {
           <li className="o-header__nav-item" key={`link-${index}`}>
             <a
               className="o-header__nav-link o-header__nav-link--primary"
-              href={item.url}
+              href={`${item.url}`}
               {...ariaSelected(item)}
               data-trackable={item.label}
             >
@@ -61,7 +61,7 @@ const NavListLeft = (props: THeaderProps) => (
       <li className="o-header__nav-item" key={`link-${index}`}>
         <a
           className="o-header__nav-link o-header__nav-link--primary"
-          href={item.url}
+          href={`${item.url}`}
           id={`o-header-link-${index}`}
           {...ariaSelected(item)}
           data-trackable={item.label}
@@ -85,7 +85,7 @@ const NavListRightLoggedIn = ({ items }: { items: TNavMenuItem[] }) => {
     <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
       {items.map((item, index) => (
         <li className="o-header__nav-item" key={`link-${index}`}>
-          <a className="o-header__nav-link" href={item.url} data-trackable={item.label}>
+          <a className="o-header__nav-link" href={`${item.url}`} data-trackable={item.label}>
             {item.label}
           </a>
         </li>
@@ -123,12 +123,12 @@ const SectionList = ({ title, data }: INavMeganavSections) => {
       <div className="o-header__mega-heading">{title}</div>
       <div className="o-header__mega-content">
         <ul className="o-header__mega-list">
-          {data.map((column) =>
+          {data?.map((column) =>
             column.map((item, index) => (
               <li className="o-header__mega-item" key={`link-${index}`}>
                 <a
                   className="o-header__mega-link"
-                  href={item.url}
+                  href={`${item.url}`}
                   {...ariaSelected(item)}
                   data-trackable="link"
                 >
@@ -149,11 +149,11 @@ const ArticleList = ({ title, data }: INavMeganavArticles) => {
       <div className="o-header__mega-heading">{title}</div>
       <div className="o-header__mega-content">
         <ul className="o-header__mega-list">
-          {data.map((item, index) => (
+          {data?.map((item, index) => (
             <li className="o-header__mega-item" key={`link-${index}`}>
               <a
                 className="o-header__mega-link"
-                href={item.url}
+                href={`${item.url}`}
                 {...ariaSelected(item)}
                 data-trackable="link"
               >
@@ -175,7 +175,7 @@ const UserActionsNav = (props: THeaderProps) => {
       <ul className="o-header__anon-list">
         {userNavItems.map((item, index) => (
           <li className="o-header__anon-item" key={`link-${index}`}>
-            <a className="o-header__anon-link" href={item.url} data-trackable={item.label}>
+            <a className="o-header__anon-link" href={`${item.url}`} data-trackable={item.label}>
               {item.label}
             </a>
           </li>

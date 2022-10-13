@@ -43,19 +43,19 @@ const SubNavigationWrapper = (props) => (
   </div>
 )
 
-const BreadCrumb = ({ items }: { items: TNavMenuItem[] }) => (
+const BreadCrumb = ({ items }: { items?: TNavMenuItem[] }) => (
   <ol
     className="o-header__subnav-list o-header__subnav-list--breadcrumb"
     aria-label="Breadcrumb"
     data-trackable="breadcrumb">
-    {items.map((item, index) => {
+    {items?.map((item, index) => {
       const selected = item.selected ? 'o-header__subnav-link--highlight' : ''
 
       return (
         <li className="o-header__subnav-item" key={`item-${index}`}>
           <a
             className={`o-header__subnav-link ${selected}`}
-            href={item.url}
+            href={`${item.url}`}
             {...ariaSelected(item)}
             data-trackable={item.label}>
             {item.label}
@@ -66,7 +66,7 @@ const BreadCrumb = ({ items }: { items: TNavMenuItem[] }) => (
   </ol>
 )
 
-const SubSections = ({ items, rightAlignment }: { items: TNavMenuItem[]; rightAlignment?: boolean }) => {
+const SubSections = ({ items, rightAlignment }: { items?: TNavMenuItem[]; rightAlignment?: boolean }) => {
   if (!items || items.length === 0) {
     return null
   }
@@ -86,7 +86,7 @@ const SubSections = ({ items, rightAlignment }: { items: TNavMenuItem[]; rightAl
           <li className="o-header__subnav-item" key={`item-${index}`}>
             <a
               className={`o-header__subnav-link ${selected}`}
-              href={item.url}
+              href={`${item.url}`}
               {...ariaSelected(item)}
               data-trackable={item.label}>
               {item.label}

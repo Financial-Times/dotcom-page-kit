@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "rootDir": "./src/",
+    "strictNullChecks": true
   },
   "extends": "../../tsconfig.json"
 }

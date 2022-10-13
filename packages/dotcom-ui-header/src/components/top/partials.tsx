@@ -118,7 +118,7 @@ const SignInLink = ({
   return (
     <a
       className={`o-header__top-link ${className}`}
-      href={item.url}
+      href={`${item.url}`}
       data-trackable={item.label}
       {...setTabIndex}
     >
@@ -142,7 +142,7 @@ const SubscribeButton = ({
       // Added as the result of a DAC audit. This will be confusing for users of voice activation software
       // as it looks like a button but behaves like a link without this role.
       role="button"
-      href={item.url}
+      href={`${item.url}`}
       data-trackable={item.label}
       {...setTabIndex}
     >

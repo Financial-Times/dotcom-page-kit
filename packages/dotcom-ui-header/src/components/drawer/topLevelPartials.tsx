@@ -102,7 +102,7 @@ const SectionPrimary = (props: TNavMenuItem) => {
   return (
     <React.Fragment>
       <li className="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{props.label}</li>
-      {(props.submenu.items as TNavMenuItem[]).map((item, index) => (
+      {(props.submenu?.items as TNavMenuItem[]).map((item, index) => (
         <li key={item.url} className="o-header__drawer-menu-item">
           {item.submenu ? (
             <DrawerParentItem item={item} idSuffix={`${index}`} />
@@ -118,7 +118,7 @@ const SectionPrimary = (props: TNavMenuItem) => {
 const SectionSecondary = (props: TNavMenuItem) => (
   <React.Fragment>
     <li className="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{props.label}</li>
-    {(props.submenu.items as TNavMenuItem[]).map((item, index) => (
+    {(props.submenu?.items as TNavMenuItem[]).map((item, index) => (
       <li key={item.url} className="o-header__drawer-menu-item">
         {item.submenu ? (
           <DrawerParentItem item={item} idSuffix={'inner' + index} />
@@ -132,7 +132,7 @@ const SectionSecondary = (props: TNavMenuItem) => (
 
 const SectionTertiary = (props: TNavMenuItem) => (
   <React.Fragment>
-    {(props.submenu.items as TNavMenuItem[]).map((item, index) => {
+    {(props.submenu?.items as TNavMenuItem[]).map((item, index) => {
       const divideItem = index === 0 ? 'o-header__drawer-menu-item--divide' : ''
 
       return (
@@ -149,7 +149,7 @@ const UserMenu = (props: TNavMenu) => (
     <ul className="o-header__drawer-menu-list">
       {props.items.map((item) => (
         <li key={item.url} className="o-header__drawer-menu-item">
-          <a className="o-header__drawer-menu-link" href={item.url} data-trackable={item.label}>
+          <a className="o-header__drawer-menu-link" href={`${item.url}`} data-trackable={item.label}>
             {item.label}
           </a>
         </li>
