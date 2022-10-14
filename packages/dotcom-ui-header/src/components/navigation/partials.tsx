@@ -30,7 +30,7 @@ const NavMobile = ({ items }: { items: TNavMenuItem[] }) => {
           <li className="o-header__nav-item" key={`link-${index}`}>
             <a
               className="o-header__nav-link o-header__nav-link--primary"
-              href={`${item.url}`}
+              href={item.url ?? undefined}
               {...ariaSelected(item)}
               data-trackable={item.label}
             >
@@ -61,7 +61,7 @@ const NavListLeft = (props: THeaderProps) => (
       <li className="o-header__nav-item" key={`link-${index}`}>
         <a
           className="o-header__nav-link o-header__nav-link--primary"
-          href={`${item.url}`}
+          href={item.url ?? undefined}
           id={`o-header-link-${index}`}
           {...ariaSelected(item)}
           data-trackable={item.label}
@@ -85,7 +85,7 @@ const NavListRightLoggedIn = ({ items }: { items: TNavMenuItem[] }) => {
     <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
       {items.map((item, index) => (
         <li className="o-header__nav-item" key={`link-${index}`}>
-          <a className="o-header__nav-link" href={`${item.url}`} data-trackable={item.label}>
+          <a className="o-header__nav-link" href={item.url ?? undefined} data-trackable={item.label}>
             {item.label}
           </a>
         </li>
@@ -128,7 +128,7 @@ const SectionList = ({ title, data }: INavMeganavSections) => {
               <li className="o-header__mega-item" key={`link-${index}`}>
                 <a
                   className="o-header__mega-link"
-                  href={`${item.url}`}
+                  href={item.url ?? undefined}
                   {...ariaSelected(item)}
                   data-trackable="link"
                 >
@@ -153,7 +153,7 @@ const ArticleList = ({ title, data }: INavMeganavArticles) => {
             <li className="o-header__mega-item" key={`link-${index}`}>
               <a
                 className="o-header__mega-link"
-                href={`${item.url}`}
+                href={item.url ?? undefined}
                 {...ariaSelected(item)}
                 data-trackable="link"
               >
@@ -175,7 +175,7 @@ const UserActionsNav = (props: THeaderProps) => {
       <ul className="o-header__anon-list">
         {userNavItems.map((item, index) => (
           <li className="o-header__anon-item" key={`link-${index}`}>
-            <a className="o-header__anon-link" href={`${item.url}`} data-trackable={item.label}>
+            <a className="o-header__anon-link" href={item.url ?? undefined} data-trackable={item.label}>
               {item.label}
             </a>
           </li>

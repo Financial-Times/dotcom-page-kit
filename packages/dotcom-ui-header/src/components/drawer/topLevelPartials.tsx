@@ -149,7 +149,7 @@ const UserMenu = (props: TNavMenu) => (
     <ul className="o-header__drawer-menu-list">
       {props.items.map((item) => (
         <li key={item.url} className="o-header__drawer-menu-item">
-          <a className="o-header__drawer-menu-link" href={`${item.url}`} data-trackable={item.label}>
+          <a className="o-header__drawer-menu-link" href={item.url ?? undefined} data-trackable={item.label}>
             {item.label}
           </a>
         </li>
