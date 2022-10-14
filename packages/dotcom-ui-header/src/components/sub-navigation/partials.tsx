@@ -17,7 +17,8 @@ const SubNavigationWrapper = (props) => (
     role="navigation"
     aria-label="Sub navigation"
     data-o-header-subnav
-    data-trackable="header-subnav">
+    data-trackable="header-subnav"
+  >
     <div className="o-header__container">
       <div className="o-header__subnav-wrap-outside">
         <div className="o-header__subnav-wrap-inside" data-o-header-subnav-wrapper>
@@ -43,21 +44,23 @@ const SubNavigationWrapper = (props) => (
   </div>
 )
 
-const BreadCrumb = ({ items }: { items: TNavMenuItem[] }) => (
+const BreadCrumb = ({ items }: { items?: TNavMenuItem[] }) => (
   <ol
     className="o-header__subnav-list o-header__subnav-list--breadcrumb"
     aria-label="Breadcrumb"
-    data-trackable="breadcrumb">
-    {items.map((item, index) => {
+    data-trackable="breadcrumb"
+  >
+    {items?.map((item, index) => {
       const selected = item.selected ? 'o-header__subnav-link--highlight' : ''
 
       return (
         <li className="o-header__subnav-item" key={`item-${index}`}>
           <a
             className={`o-header__subnav-link ${selected}`}
-            href={item.url}
+            href={item.url ?? undefined}
             {...ariaSelected(item)}
-            data-trackable={item.label}>
+            data-trackable={item.label}
+          >
             {item.label}
           </a>
         </li>
@@ -66,7 +69,7 @@ const BreadCrumb = ({ items }: { items: TNavMenuItem[] }) => (
   </ol>
 )
 
-const SubSections = ({ items, rightAlignment }: { items: TNavMenuItem[]; rightAlignment?: boolean }) => {
+const SubSections = ({ items, rightAlignment }: { items?: TNavMenuItem[]; rightAlignment?: boolean }) => {
   if (!items || items.length === 0) {
     return null
   }
@@ -78,7 +81,8 @@ const SubSections = ({ items, rightAlignment }: { items: TNavMenuItem[]; rightAl
         (rightAlignment ? ' o-header__subnav-list--right' : '')
       }
       aria-label={rightAlignment ? 'Additional Sub Navigation' : 'Subsections'}
-      data-trackable="subsections">
+      data-trackable="subsections"
+    >
       {items.map((item, index) => {
         const selected = item.selected ? 'o-header__subnav-link--highlight' : ''
 
@@ -86,9 +90,10 @@ const SubSections = ({ items, rightAlignment }: { items: TNavMenuItem[]; rightAl
           <li className="o-header__subnav-item" key={`item-${index}`}>
             <a
               className={`o-header__subnav-link ${selected}`}
-              href={item.url}
+              href={item.url ?? undefined}
               {...ariaSelected(item)}
-              data-trackable={item.label}>
+              data-trackable={item.label}
+            >
               {item.label}
             </a>
           </li>

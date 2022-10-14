@@ -48,7 +48,7 @@ const Navigation = (props: THeaderProps) => (
           <li className="o-header__nav-item" key={`link-${index}`}>
             <a
               className="o-header__nav-link o-header__nav-link--primary"
-              href={item.url}
+              href={item.url ?? undefined}
               data-trackable={item.label}
               tabIndex={-1}
             >
@@ -144,7 +144,7 @@ const NavListRightLoggedInSticky = (props: THeaderProps) => {
 // - The sticky header renders either the `navbar-right-anon` data or the myFT component
 // - The normal header renders either the `navbar-right-anon` or the `navbar-right` data
 const TopColumnRightSticky = (props: THeaderProps) => {
-  let children = null
+  let children: JSX.Element | undefined = undefined
 
   if (props.userIsLoggedIn) {
     children = <NavListRightLoggedInSticky {...props} />

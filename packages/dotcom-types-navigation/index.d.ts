@@ -61,14 +61,14 @@ export interface INavMeganavSections {
   dataset: 'subsections'
   title: string
   /** This data has been split into "columns" by the Next navigation API */
-  data: TNavMenuItem[][]
+  data?: TNavMenuItem[][]
 }
 
 export interface INavMeganavArticles {
   component: 'articlelist'
   dataset: 'popular'
   title: string
-  data: TNavMenuItem[]
+  data?: TNavMenuItem[]
 }
 
 export type TNavSubNavigation = {
