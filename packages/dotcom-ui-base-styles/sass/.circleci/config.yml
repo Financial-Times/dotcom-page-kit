@@ -7,7 +7,11 @@ references:
     &container_config_node
     working_directory: ~/project/build
     docker:
-      - image: cimg/node:12.22
+      - image: cimg/node:<< parameters.node-version >>
+    parameters:
+      node-version:
+        default: "16.15"
+        type: string
 
   workspace_root: &workspace_root ~/project
 
@@ -82,8 +86,9 @@ jobs:
             git@github.com:Financial-Times/next-ci-shared-helpers.git
             .circleci/shared-helpers
       - *restore_npm_cache
-      - node/install-npm:
-          version: "7"
+      - run:
+          name: Install npm 8
+          command: npm install -g npm@8
       - run:
           name: Install project dependencies
           command: make install
@@ -147,9 +152,17 @@ workflows:
       - build:
           filters:
             <<: *filters_ignore_tags_renovate_nori
+          name: build-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.15", "14.19" ]
       - test:
           requires:
-            - build
+            - build-v<< matrix.node-version >>
+          name: test-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.15", "14.19" ]
 
   build-test-publish:
     when:
@@ -161,17 +174,25 @@ workflows:
       - build:
           filters:
             <<: *filters_version_tag
+          name: build-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.15", "14.19" ]
       - test:
           filters:
             <<: *filters_version_tag
           requires:
-            - build
+            - build-v<< matrix.node-version >>
+          name: test-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.15", "14.19" ]
       - publish:
           context: npm-publish-token
           filters:
             <<: *filters_version_tag
           requires:
-            - test
+            - test-v16.15
 
   renovate-nori-build-test:
     when:
@@ -187,9 +208,17 @@ workflows:
       - build:
           requires:
             - waiting-for-approval
+          name: build-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.15", "14.19" ]
       - test:
           requires:
-            - build
+            - build-v<< matrix.node-version >>
+          name: test-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.15", "14.19" ]
 
   nightly:
     when:
@@ -203,10 +232,18 @@ workflows:
     jobs:
       - build:
           context: next-nightly-build
+          name: build-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.15", "14.19" ]
       - test:
           requires:
-            - build
+            - build-v<< matrix.node-version >>
           context: next-nightly-build
+          name: test-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.15", "14.19" ]
 
 notify:
   webhooks:
