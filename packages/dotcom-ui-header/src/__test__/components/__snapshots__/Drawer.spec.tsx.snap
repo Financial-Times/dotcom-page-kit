@@ -131,6 +131,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
       </ul>
       <ul
         className="o-header__drawer-menu-list"
+        data-component="drawer-menu--primary__drawer-menu-list"
       >
         <li
           className="o-header__drawer-menu-item o-header__drawer-menu-item--heading"
@@ -1234,6 +1235,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
         </li>
         <li
           className="o-header__drawer-menu-item o-header__drawer-menu-item--divide"
+          data-component="drawer-menu-item--divide"
         >
           <a
             className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--secondary"
@@ -2580,6 +2582,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
         </li>
         <li
           className="o-header__drawer-menu-item o-header__drawer-menu-item--divide"
+          data-component="drawer-menu-item--divide"
         >
           <a
             className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--secondary"
