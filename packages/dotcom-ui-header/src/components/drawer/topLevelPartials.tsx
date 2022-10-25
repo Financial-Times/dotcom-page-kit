@@ -34,10 +34,7 @@ const Drawer = (props: THeaderProps) => {
         <Search />
         <nav className="o-header__drawer-menu o-header__drawer-menu--primary o-header__drawer-menu--border">
           {editions && <EditionsSwitcher {...editions} />}
-          <ul
-            data-component={props.userIsLoggedIn ? 'drawer-menu--primary__drawer-menu-list' : undefined}
-            className="o-header__drawer-menu-list"
-          >
+          <ul data-component="drawer-menu--primary__drawer-menu-list" className="o-header__drawer-menu-list">
             {primary ? <SectionPrimary {...primary} /> : null}
             {secondary ? <SectionSecondary {...secondary} /> : null}
             {tertiary ? <SectionTertiary {...tertiary} /> : null}
