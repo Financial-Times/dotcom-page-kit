@@ -82,9 +82,13 @@ const NavListRight = (props: THeaderProps) => {
 
 const NavListRightLoggedIn = ({ items }: { items: TNavMenuItem[] }) => {
   return (
-    <ul className="o-header__nav-list o-header__nav-list--right" data-trackable="user-nav">
+    <ul
+      data-component="nav-list--right"
+      className="o-header__nav-list o-header__nav-list--right"
+      data-trackable="user-nav"
+    >
       {items.map((item, index) => (
-        <li data-component="nav-list--right__nav-item" className="o-header__nav-item" key={`link-${index}`}>
+        <li className="o-header__nav-item" key={`link-${index}`}>
           <a className="o-header__nav-link" href={item.url ?? undefined} data-trackable={item.label}>
             {item.label}
           </a>
