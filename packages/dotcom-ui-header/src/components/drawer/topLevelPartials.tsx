@@ -34,7 +34,7 @@ const Drawer = (props: THeaderProps) => {
         <Search />
         <nav className="o-header__drawer-menu o-header__drawer-menu--primary o-header__drawer-menu--border">
           {editions && <EditionsSwitcher {...editions} />}
-          <ul className="o-header__drawer-menu-list">
+          <ul data-component="drawer-menu--primary__drawer-menu-list" className="o-header__drawer-menu-list">
             {primary ? <SectionPrimary {...primary} /> : null}
             {secondary ? <SectionSecondary {...secondary} /> : null}
             {tertiary ? <SectionTertiary {...tertiary} /> : null}
@@ -136,7 +136,11 @@ const SectionTertiary = (props: TNavMenuItem) => (
       const divideItem = index === 0 ? 'o-header__drawer-menu-item--divide' : ''
 
       return (
-        <li key={item.url} className={`o-header__drawer-menu-item ${divideItem}`}>
+        <li
+          data-component={divideItem ? 'drawer-menu-item--divide' : undefined}
+          key={item.url}
+          className={`o-header__drawer-menu-item ${divideItem}`}
+        >
           <DrawerSpecialItem {...item} />
         </li>
       )
