@@ -28,7 +28,7 @@
     "check-engine": "^1.10.1"
   },
   "peerDependencies": {
-    "webpack": "^4.39.2 || 5.x.x"
+    "webpack": "^4.39.2"
   },
   "engines": {
     "node": ">= 14.0.0",
