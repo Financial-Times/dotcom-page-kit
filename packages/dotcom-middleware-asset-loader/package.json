@@ -20,10 +20,10 @@
   "license": "MIT",
   "dependencies": {
     "@financial-times/dotcom-server-asset-loader": "file:../../packages/dotcom-server-asset-loader",
-    "@types/express": "^4.16.0",
     "express": "^4.16.4"
   },
   "devDependencies": {
+    "@types/express": "4.17.12",
     "@types/express-serve-static-core": "4.17.20",
     "check-engine": "^1.10.1",
     "node-mocks-http": "^1.7.3"

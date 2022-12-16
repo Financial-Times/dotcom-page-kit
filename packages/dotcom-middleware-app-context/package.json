@@ -19,13 +19,13 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/express": "4.17.12",
     "@types/express-serve-static-core": "4.17.20",
     "check-engine": "^1.10.1",
     "node-mocks-http": "^1.7.5"
   },
   "dependencies": {
-    "@financial-times/dotcom-server-app-context": "file:../dotcom-server-app-context",
-    "@types/express": "^4.16.1"
+    "@financial-times/dotcom-server-app-context": "file:../dotcom-server-app-context"
   },
   "engines": {
     "node": ">= 14.0.0",
