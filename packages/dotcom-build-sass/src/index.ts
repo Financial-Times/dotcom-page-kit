@@ -67,7 +67,8 @@ export class PageKitSassPlugin {
           // de-duplicate rule-sets which is useful if $o-silent-mode is toggled.
           // https://github.com/cssnano/cssnano
           require('cssnano')(cssnanoOptions)
-        ]
+        ],
+        implementation: require('postcss')
       }
     }
 
