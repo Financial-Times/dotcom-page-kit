@@ -22,13 +22,13 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
         aria-controls="o-header-drawer"
         className="o-header__drawer-tools-close"
         data-trackable="close"
-        title="Close drawer menu"
+        title="Close side navigation menu"
         type="button"
       >
         <span
           className="o-header__visually-hidden"
         >
-          Close drawer menu
+          Close side navigation menu
         </span>
       </button>
       <a
@@ -1371,13 +1371,13 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
         aria-controls="o-header-drawer"
         className="o-header__drawer-tools-close"
         data-trackable="close"
-        title="Close drawer menu"
+        title="Close side navigation menu"
         type="button"
       >
         <span
           className="o-header__visually-hidden"
         >
-          Close drawer menu
+          Close side navigation menu
         </span>
       </button>
       <a

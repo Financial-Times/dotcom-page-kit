@@ -52,11 +52,11 @@ const DrawerTools = (props: TNavEditions) => (
     <button
       type="button"
       className="o-header__drawer-tools-close"
-      title="Close drawer menu"
+      title="Close side navigation menu"
       aria-controls="o-header-drawer"
       data-trackable="close"
     >
-      <span className="o-header__visually-hidden">Close drawer menu</span>
+      <span className="o-header__visually-hidden">Close side navigation menu</span>
     </button>
     <a className="o-header__drawer-tools-logo" href="/" data-trackable="logo">
       <span className="o-header__visually-hidden">Financial Times</span>
