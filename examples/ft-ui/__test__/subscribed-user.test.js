@@ -6,8 +6,8 @@ describe('examples/ft-ui', () => {
 
   describe('Header link elements', () => {
     it('renders the expected loggin-in user Header link elements', async () => {
-      await expect(page).toMatchElement('.o-header__top-column--right a[href="/myft"]', { text: 'myFT' })
-      await expect(page).toMatchElement('.o-header__nav-list--right a[href="https://www.ft.com/myaccount"]', {
+      await expect(page).toMatchElement('.o-header__top-column--right a[href$="/myft"]', { text: 'myFT' })
+      await expect(page).toMatchElement('.o-header__nav-list--right a[href$="/myaccount"]', {
         text: 'Settings & Account'
       })
 
@@ -18,13 +18,13 @@ describe('examples/ft-ui', () => {
     })
 
     it('does not render the anonymous user Header link elements', async () => {
-      await expect(page).not.toMatchElement('.o-header__top-column--right a[href="/login?location=/"]', {
+      await expect(page).not.toMatchElement('.o-header__top-column--right a[href$="/login?location=/"]', {
         text: 'Sign In'
       })
-      await expect(page).not.toMatchElement('.o-header__top-column--right a[href^="/products?"]', {
+      await expect(page).not.toMatchElement('.o-header__top-column--right a[href*="/products?"]', {
         text: 'Subscribe'
       })
-      await expect(page).not.toMatchElement('.o-header__drawer-actions a[href^="/products?segmentId="]', {
+      await expect(page).not.toMatchElement('.o-header__drawer-actions a[href*="/products?segmentId="]', {
         text: 'Subscribe for full access'
       })
     })
