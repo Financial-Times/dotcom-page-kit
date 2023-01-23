@@ -21,8 +21,9 @@ const Drawer = (props: THeaderProps) => {
     <div
       className="o-header__drawer"
       id="o-header-drawer"
-      role="navigation"
+      role="modal"
       aria-label="Drawer menu"
+      aria-modal="true"
       data-o-header-drawer
       data-o-header-drawer--no-js
       data-trackable="drawer"
