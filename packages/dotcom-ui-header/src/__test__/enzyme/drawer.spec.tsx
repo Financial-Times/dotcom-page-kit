@@ -59,7 +59,7 @@ describe('dotcom-ui-header/src/components/drawer', () => {
     })
 
     it('renders the tertiary link section divider', () => {
-      expect(result.find('.o-header__drawer-menu-item--divide')).toHaveText('myFT')
+      expect(result.find('.o-header__drawer-menu-list--divide > li:first-child')).toHaveText('myFT')
     })
 
     it('renders primary link subsections', () => {
