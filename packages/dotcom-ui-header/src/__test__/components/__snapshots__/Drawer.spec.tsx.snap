@@ -133,7 +133,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
       </ul>
     </nav>
     <nav
-      className="o-header__drawer-menu o-header__drawer-menu--primary o-header__drawer-menu--border"
+      className="o-header__drawer-menu o-header__drawer-menu--primary"
     >
       <h2
         className="o-header__drawer-menu-item o-header__drawer-menu-item--heading"
@@ -1497,7 +1497,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
       </ul>
     </nav>
     <nav
-      className="o-header__drawer-menu o-header__drawer-menu--primary o-header__drawer-menu--border"
+      className="o-header__drawer-menu o-header__drawer-menu--primary"
     >
       <h2
         className="o-header__drawer-menu-item o-header__drawer-menu-item--heading"

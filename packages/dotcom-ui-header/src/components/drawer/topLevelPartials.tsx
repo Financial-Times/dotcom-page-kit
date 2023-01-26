@@ -36,7 +36,7 @@ const Drawer = (props: THeaderProps) => {
         <nav className="o-header__drawer-menu" aria-label="Edition switcher">
           {editions && <EditionsSwitcher {...editions} />}
         </nav>
-        <nav className="o-header__drawer-menu o-header__drawer-menu--primary o-header__drawer-menu--border">
+        <nav className="o-header__drawer-menu o-header__drawer-menu--primary">
           {primary ? <SectionPrimary {...primary} /> : null}
           {secondary ? <SectionSecondary {...secondary} /> : null}
           {tertiary ? <SectionTertiary {...tertiary} /> : null}
