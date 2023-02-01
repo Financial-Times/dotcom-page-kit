@@ -21,8 +21,9 @@ const Drawer = (props: THeaderProps) => {
     <div
       className="o-header__drawer"
       id="o-header-drawer"
-      role="navigation"
+      role="modal"
       aria-label="Drawer menu"
+      aria-modal="true"
       data-o-header-drawer
       data-o-header-drawer--no-js
       data-trackable="drawer"
@@ -32,13 +33,13 @@ const Drawer = (props: THeaderProps) => {
         <DrawerTools {...editions} />
         {!props.userIsSubscribed && subscribeAction && <SubscribeButton {...subscribeAction} />}
         <Search />
-        <nav className="o-header__drawer-menu o-header__drawer-menu--primary o-header__drawer-menu--border">
+        <nav className="o-header__drawer-menu" aria-label="Edition switcher">
           {editions && <EditionsSwitcher {...editions} />}
-          <ul data-component="drawer-menu--primary__drawer-menu-list" className="o-header__drawer-menu-list">
-            {primary ? <SectionPrimary {...primary} /> : null}
-            {secondary ? <SectionSecondary {...secondary} /> : null}
-            {tertiary ? <SectionTertiary {...tertiary} /> : null}
-          </ul>
+        </nav>
+        <nav className="o-header__drawer-menu o-header__drawer-menu--primary">
+          {primary ? <SectionPrimary {...primary} /> : null}
+          {secondary ? <SectionSecondary {...secondary} /> : null}
+          {tertiary ? <SectionTertiary {...tertiary} /> : null}
         </nav>
         <UserMenu {...user} />
       </div>
@@ -51,11 +52,11 @@ const DrawerTools = (props: TNavEditions) => (
     <button
       type="button"
       className="o-header__drawer-tools-close"
-      title="Close drawer menu"
+      title="Close side navigation menu"
       aria-controls="o-header-drawer"
       data-trackable="close"
     >
-      <span className="o-header__visually-hidden">Close drawer menu</span>
+      <span className="o-header__visually-hidden">Close side navigation menu</span>
     </button>
     <a className="o-header__drawer-tools-logo" href="/" data-trackable="logo">
       <span className="o-header__visually-hidden">Financial Times</span>
@@ -99,52 +100,58 @@ const Search = () => (
 )
 
 const SectionPrimary = (props: TNavMenuItem) => {
+  const sectionId = props.label.toLowerCase().replace(' ', '-')
   return (
     <React.Fragment>
-      <li className="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{props.label}</li>
-      {(props.submenu?.items as TNavMenuItem[]).map((item, index) => (
-        <li key={item.url} className="o-header__drawer-menu-item">
-          {item.submenu ? (
-            <DrawerParentItem item={item} idSuffix={`${index}`} />
-          ) : (
-            <DrawerSingleItem {...item} />
-          )}
-        </li>
-      ))}
+      <h2 id={sectionId} className="o-header__drawer-menu-item o-header__drawer-menu-item--heading">
+        {props.label}
+      </h2>
+      <ul aria-labelledby={sectionId} className="o-header__drawer-menu-list">
+        {(props.submenu?.items as TNavMenuItem[]).map((item, index) => (
+          <li key={item.url} className="o-header__drawer-menu-item">
+            {item.submenu ? (
+              <DrawerParentItem item={item} idSuffix={`${index}`} />
+            ) : (
+              <DrawerSingleItem {...item} />
+            )}
+          </li>
+        ))}
+      </ul>
     </React.Fragment>
   )
 }
 
-const SectionSecondary = (props: TNavMenuItem) => (
-  <React.Fragment>
-    <li className="o-header__drawer-menu-item o-header__drawer-menu-item--heading">{props.label}</li>
-    {(props.submenu?.items as TNavMenuItem[]).map((item, index) => (
-      <li key={item.url} className="o-header__drawer-menu-item">
-        {item.submenu ? (
-          <DrawerParentItem item={item} idSuffix={'inner' + index} />
-        ) : (
-          <DrawerSingleItem {...item} />
-        )}
-      </li>
-    ))}
-  </React.Fragment>
-)
+const SectionSecondary = (props: TNavMenuItem) => {
+  const sectionId = props.label.toLowerCase().replace(' ', '-')
+  return (
+    <React.Fragment>
+      <h2 id={sectionId} className="o-header__drawer-menu-item o-header__drawer-menu-item--heading">
+        {props.label}
+      </h2>
+      <ul aria-labelledby={sectionId} className="o-header__drawer-menu-list">
+        {(props.submenu?.items as TNavMenuItem[]).map((item, index) => (
+          <li key={item.url} className="o-header__drawer-menu-item">
+            {item.submenu ? (
+              <DrawerParentItem item={item} idSuffix={'inner' + index} />
+            ) : (
+              <DrawerSingleItem {...item} />
+            )}
+          </li>
+        ))}
+      </ul>
+    </React.Fragment>
+  )
+}
 
 const SectionTertiary = (props: TNavMenuItem) => (
   <React.Fragment>
-    {(props.submenu?.items as TNavMenuItem[]).map((item, index) => {
-      const divideItem = index === 0 ? 'o-header__drawer-menu-item--divide' : ''
-
-      return (
-        <li
-          data-component={divideItem ? 'drawer-menu-item--divide' : undefined}
-          key={item.url}
-          className={`o-header__drawer-menu-item ${divideItem}`}
-        >
+    <ul className="o-header__drawer-menu-list o-header__drawer-menu-list--divide">
+      {(props.submenu?.items as TNavMenuItem[]).map((item) => (
+        <li key={item.url} className={`o-header__drawer-menu-item`}>
           <DrawerSpecialItem {...item} />
         </li>
-      )
-    })}
+      ))}
+    </ul>
   </React.Fragment>
 )
 

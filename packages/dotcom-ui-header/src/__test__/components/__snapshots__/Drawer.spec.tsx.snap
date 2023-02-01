@@ -3,13 +3,14 @@
 exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] = `
 <div
   aria-label="Drawer menu"
+  aria-modal="true"
   className="o-header__drawer"
   data-o-header-drawer={true}
   data-o-header-drawer--no-js={true}
   data-trackable="drawer"
   data-trackable-terminate={true}
   id="o-header-drawer"
-  role="navigation"
+  role="modal"
 >
   <div
     className="o-header__drawer-inner"
@@ -21,13 +22,13 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
         aria-controls="o-header-drawer"
         className="o-header__drawer-tools-close"
         data-trackable="close"
-        title="Close drawer menu"
+        title="Close side navigation menu"
         type="button"
       >
         <span
           className="o-header__visually-hidden"
         >
-          Close drawer menu
+          Close side navigation menu
         </span>
       </button>
       <a
@@ -109,7 +110,8 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
       </form>
     </div>
     <nav
-      className="o-header__drawer-menu o-header__drawer-menu--primary o-header__drawer-menu--border"
+      aria-label="Edition switcher"
+      className="o-header__drawer-menu"
     >
       <ul
         className="o-header__drawer-menu-list"
@@ -129,15 +131,20 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
           </a>
         </li>
       </ul>
-      <ul
-        className="o-header__drawer-menu-list"
-        data-component="drawer-menu--primary__drawer-menu-list"
+    </nav>
+    <nav
+      className="o-header__drawer-menu o-header__drawer-menu--primary"
+    >
+      <h2
+        className="o-header__drawer-menu-item o-header__drawer-menu-item--heading"
+        id="top-sections"
       >
-        <li
-          className="o-header__drawer-menu-item o-header__drawer-menu-item--heading"
-        >
-          Top sections
-        </li>
+        Top sections
+      </h2>
+      <ul
+        aria-labelledby="top-sections"
+        className="o-header__drawer-menu-list"
+      >
         <li
           className="o-header__drawer-menu-item"
         >
@@ -1068,11 +1075,17 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
             Special Reports
           </a>
         </li>
-        <li
-          className="o-header__drawer-menu-item o-header__drawer-menu-item--heading"
-        >
-          FT recommends
-        </li>
+      </ul>
+      <h2
+        className="o-header__drawer-menu-item o-header__drawer-menu-item--heading"
+        id="ft-recommends"
+      >
+        FT recommends
+      </h2>
+      <ul
+        aria-labelledby="ft-recommends"
+        className="o-header__drawer-menu-list"
+      >
         <li
           className="o-header__drawer-menu-item"
         >
@@ -1233,9 +1246,12 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
             </li>
           </ul>
         </li>
+      </ul>
+      <ul
+        className="o-header__drawer-menu-list o-header__drawer-menu-list--divide"
+      >
         <li
-          className="o-header__drawer-menu-item o-header__drawer-menu-item--divide"
-          data-component="drawer-menu-item--divide"
+          className="o-header__drawer-menu-item"
         >
           <a
             className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--secondary"
@@ -1246,7 +1262,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
           </a>
         </li>
         <li
-          className="o-header__drawer-menu-item "
+          className="o-header__drawer-menu-item"
         >
           <a
             className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--secondary"
@@ -1257,7 +1273,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
           </a>
         </li>
         <li
-          className="o-header__drawer-menu-item "
+          className="o-header__drawer-menu-item"
         >
           <a
             className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--secondary"
@@ -1268,7 +1284,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
           </a>
         </li>
         <li
-          className="o-header__drawer-menu-item "
+          className="o-header__drawer-menu-item"
         >
           <a
             className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--secondary"
@@ -1279,7 +1295,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
           </a>
         </li>
         <li
-          className="o-header__drawer-menu-item "
+          className="o-header__drawer-menu-item"
         >
           <a
             className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--secondary"
@@ -1351,13 +1367,14 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
 exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`] = `
 <div
   aria-label="Drawer menu"
+  aria-modal="true"
   className="o-header__drawer"
   data-o-header-drawer={true}
   data-o-header-drawer--no-js={true}
   data-trackable="drawer"
   data-trackable-terminate={true}
   id="o-header-drawer"
-  role="navigation"
+  role="modal"
 >
   <div
     className="o-header__drawer-inner"
@@ -1369,13 +1386,13 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
         aria-controls="o-header-drawer"
         className="o-header__drawer-tools-close"
         data-trackable="close"
-        title="Close drawer menu"
+        title="Close side navigation menu"
         type="button"
       >
         <span
           className="o-header__visually-hidden"
         >
-          Close drawer menu
+          Close side navigation menu
         </span>
       </button>
       <a
@@ -1457,7 +1474,8 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
       </form>
     </div>
     <nav
-      className="o-header__drawer-menu o-header__drawer-menu--primary o-header__drawer-menu--border"
+      aria-label="Edition switcher"
+      className="o-header__drawer-menu"
     >
       <ul
         className="o-header__drawer-menu-list"
@@ -1477,15 +1495,20 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
           </a>
         </li>
       </ul>
-      <ul
-        className="o-header__drawer-menu-list"
-        data-component="drawer-menu--primary__drawer-menu-list"
+    </nav>
+    <nav
+      className="o-header__drawer-menu o-header__drawer-menu--primary"
+    >
+      <h2
+        className="o-header__drawer-menu-item o-header__drawer-menu-item--heading"
+        id="top-sections"
       >
-        <li
-          className="o-header__drawer-menu-item o-header__drawer-menu-item--heading"
-        >
-          Top sections
-        </li>
+        Top sections
+      </h2>
+      <ul
+        aria-labelledby="top-sections"
+        className="o-header__drawer-menu-list"
+      >
         <li
           className="o-header__drawer-menu-item"
         >
@@ -2416,11 +2439,17 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
             Special Reports
           </a>
         </li>
-        <li
-          className="o-header__drawer-menu-item o-header__drawer-menu-item--heading"
-        >
-          FT recommends
-        </li>
+      </ul>
+      <h2
+        className="o-header__drawer-menu-item o-header__drawer-menu-item--heading"
+        id="ft-recommends"
+      >
+        FT recommends
+      </h2>
+      <ul
+        aria-labelledby="ft-recommends"
+        className="o-header__drawer-menu-list"
+      >
         <li
           className="o-header__drawer-menu-item"
         >
@@ -2581,9 +2610,12 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
             </li>
           </ul>
         </li>
+      </ul>
+      <ul
+        className="o-header__drawer-menu-list o-header__drawer-menu-list--divide"
+      >
         <li
-          className="o-header__drawer-menu-item o-header__drawer-menu-item--divide"
-          data-component="drawer-menu-item--divide"
+          className="o-header__drawer-menu-item"
         >
           <a
             className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--secondary"
@@ -2594,7 +2626,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
           </a>
         </li>
         <li
-          className="o-header__drawer-menu-item "
+          className="o-header__drawer-menu-item"
         >
           <a
             className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--secondary"
@@ -2605,7 +2637,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
           </a>
         </li>
         <li
-          className="o-header__drawer-menu-item "
+          className="o-header__drawer-menu-item"
         >
           <a
             className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--secondary"
@@ -2616,7 +2648,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
           </a>
         </li>
         <li
-          className="o-header__drawer-menu-item "
+          className="o-header__drawer-menu-item"
         >
           <a
             className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--secondary"
@@ -2627,7 +2659,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
           </a>
         </li>
         <li
-          className="o-header__drawer-menu-item "
+          className="o-header__drawer-menu-item"
         >
           <a
             className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--secondary"
