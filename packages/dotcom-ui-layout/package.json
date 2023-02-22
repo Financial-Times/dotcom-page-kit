@@ -8,13 +8,12 @@
   "styles": "styles.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tsc": "../../node_modules/.bin/tsc --incremental",
     "clean": "npm run clean:dist && npm run clean:node_modules",
     "clean:dist": "rm -rf dist",
     "clean:node_modules": "rm -rf node_modules",
     "clean:install": "npm run clean && npm i",
-    "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
-    "build:browser": "npm run tsc -- --module es2015 --outDir ./dist/browser",
+    "build:browser": "tsc --module es2015 --outDir ./dist/browser",
+    "build:node": "tsc",
     "build": "npm run build:node && npm run build:browser",
     "dev": "echo -n node browser | parallel -u -d ' ' npm run build:{} -- --watch",
     "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"

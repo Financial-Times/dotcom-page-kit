@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest",
     "test:examples": "athloi run test --filter 'example-*'",
-    "build": "athloi run build --filter 'dotcom-*' --concurrency 10 --preserve-order",
-    "build:examples": "athloi run build --filter 'example-*' --concurrency 10",
+    "build": "tsc --build --verbose tsconfig.build.json && npm run build:browser --workspaces --if-present",
+    "build:examples": "npm run build --workspace=examples/ --if-present",
     "checktypes": "tsc --noEmit",
     "clean": "git clean -fxd -e .vscode",
     "clean:dist": "athloi run clean:dist --filter 'dotcom-*' --concurrency 10",
@@ -88,7 +88,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run checktypes && lint-staged"
+      "pre-commit": "lint-staged"
     }
   },
   "workspaces": [
