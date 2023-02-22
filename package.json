@@ -8,7 +8,6 @@
     "test:examples": "athloi run test --filter 'example-*'",
     "build": "tsc --build --verbose tsconfig.build.json && npm run build:browser --workspaces --if-present",
     "build:examples": "npm run build --workspace=examples/ --if-present",
-    "checktypes": "tsc --noEmit",
     "clean": "git clean -fxd -e .vscode",
     "clean:dist": "athloi run clean:dist --filter 'dotcom-*' --concurrency 10",
     "clean:install": "npm run clean && npm install",
