@@ -9,7 +9,7 @@
     "build": "tsc --build --verbose tsconfig.build.json && npm run build:browser --workspaces --if-present",
     "build:examples": "npm run build --workspace=examples/ --if-present",
     "clean": "git clean -fxd -e .vscode",
-    "clean:dist": "athloi run clean:dist --filter 'dotcom-*' --concurrency 10",
+    "clean:dist": "npm run clean:dist --workspaces --if-present",
     "clean:install": "npm run clean && npm install",
     "dev": "npm run dev --workspaces --if-present",
     "lint": "eslint . --ext .js,.ts,.tsx,.jsx",
