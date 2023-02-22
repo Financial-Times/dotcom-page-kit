@@ -11,7 +11,7 @@
     "clean": "git clean -fxd -e .vscode",
     "clean:dist": "athloi run clean:dist --filter 'dotcom-*' --concurrency 10",
     "clean:install": "npm run clean && npm install",
-    "dev": "athloi run dev --filter 'dotcom-*' --concurrency 100",
+    "dev": "npm run dev --workspaces --if-present",
     "lint": "eslint . --ext .js,.ts,.tsx,.jsx",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
     "storybook": "start-storybook -p 9001 -c .storybook",
