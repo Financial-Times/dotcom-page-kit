@@ -14,7 +14,6 @@
     "clean:install": "npm run clean && npm install",
     "dev": "athloi run dev --filter 'dotcom-*' --concurrency 100",
     "lint": "eslint . --ext .js,.ts,.tsx,.jsx",
-    "postinstall": "athloi exec npm i -- --no-package-lock --no-workspaces",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook:ci": "start-storybook -c .storybook --ci --smoke-test",
