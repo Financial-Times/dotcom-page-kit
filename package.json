@@ -46,7 +46,6 @@
     "@babel/core": "^7.8.0",
     "@babel/preset-react": "^7.8.0",
     "@babel/preset-typescript": "^7.8.0",
-    "@financial-times/athloi": "^1.0.0-beta.28",
     "@storybook/addon-essentials": "^6.0.27",
     "@storybook/react": "^6.0.27",
     "@storybook/storybook-deployer": "^2.8.7",
