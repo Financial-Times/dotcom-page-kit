@@ -139,7 +139,7 @@ jobs:
           command: npm version ${CIRCLE_TAG} --workspace=packages/
       - run:
           name: NPM publish
-          command: npm publish --access=public --tag=latest
+          command: npm publish --workspace=packages/ --access=public --tag=latest
 
   prepublish:
     <<: *container_config_node
@@ -154,7 +154,7 @@ jobs:
           command: npm version ${CIRCLE_TAG} --workspace=packages/
       - run:
           name: NPM publish
-          command: npm publish --access=public --tag=pre-release
+          command: npm publish --workspace=packages/ --access=public --tag=pre-release
 
   deploy:
     <<: *container_config_node
