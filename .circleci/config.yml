@@ -73,7 +73,15 @@ references:
     &filters_release_build
     tags:
       only:
-        - /^v\d+\.\d+\.\d+(?:-\w+\.\d+)?$/
+        - /^v\d+\.\d+\.\d+$/
+    branches:
+      ignore: /.*/
+
+  filters_prerelease_build:
+    &filters_prerelease_build
+    tags:
+      only:
+        - /^v\d+\.\d+\.\d+(?:-\w+\.\d+)$/
     branches:
       ignore: /.*/
 
@@ -128,12 +136,25 @@ jobs:
             ${HOME}/.npmrc
       - run:
           name: Bump version
-          command: npx athloi version ${CIRCLE_TAG} --filter "dotcom-*"
+          command: npm version ${CIRCLE_TAG} --workspace=packages/
       - run:
           name: NPM publish
-          command: |
-            export DIST_TAG=$(node scripts/get-npm-dist-tag.js $CIRCLE_TAG)
-            if [[ $DIST_TAG ]]; then npx athloi publish -- --access=public --tag=${DIST_TAG}; fi
+          command: npm publish --access=public --tag=latest
+
+  prepublish:
+    <<: *container_config_node
+    steps:
+      - *attach_workspace
+      - run:
+          name: Set npm auth token
+          command: echo "//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}" >
+            ${HOME}/.npmrc
+      - run:
+          name: Bump version
+          command: npm version ${CIRCLE_TAG} --workspace=packages/
+      - run:
+          name: NPM publish
+          command: npm publish --access=public --tag=pre-release
 
   deploy:
     <<: *container_config_node
@@ -212,5 +233,30 @@ workflows:
           context: npm-publish-token
           filters:
             <<: *filters_release_build
+          requires:
+            - test-v16.14
+
+  build-test-prepublish:
+    jobs:
+      - build:
+          filters:
+            <<: *filters_prerelease_build
+          name: build-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.14", "14.19" ]
+      - test:
+          filters:
+            <<: *filters_prerelease_build
+          requires:
+            - build-v<< matrix.node-version >>
+          name: test-v<< matrix.node-version >>
+          matrix:
+            parameters:
+              node-version: [ "16.14", "14.19" ]
+      - prepublish:
+          context: npm-publish-token
+          filters:
+            <<: *filters_prerelease_build
           requires:
             - test-v16.14
