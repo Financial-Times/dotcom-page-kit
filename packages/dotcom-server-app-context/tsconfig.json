@@ -1,4 +1,8 @@
 {
-  "rootDir": "./src/",
-  "extends": "../../tsconfig.json"
+  "extends": "../../tsconfig.json",
+  "include": ["src/**/*", "src/schema.json"],
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist/node"
+  }
 }

@@ -5,16 +5,14 @@
   "description": "The aim of this project is to provide a high quality, well tested, and thoroughly documented, modern asset pipeline and application shell for Node.js applications based upon the latest industry standards.",
   "scripts": {
     "test": "jest",
-    "test:examples": "athloi run test --filter 'example-*'",
-    "build": "athloi run build --filter 'dotcom-*' --concurrency 10 --preserve-order",
-    "build:examples": "athloi run build --filter 'example-*' --concurrency 10",
-    "checktypes": "tsc --noEmit",
+    "test:examples": "npm run test --workspace=examples/",
+    "build": "tsc --build --verbose tsconfig.build.json && npm run build:browser --workspaces --if-present",
+    "build:examples": "npm run build --workspace=examples/ --if-present",
     "clean": "git clean -fxd -e .vscode",
-    "clean:dist": "athloi run clean:dist --filter 'dotcom-*' --concurrency 10",
+    "clean:dist": "npm run clean:dist --workspaces --if-present",
     "clean:install": "npm run clean && npm install",
-    "dev": "athloi run dev --filter 'dotcom-*' --concurrency 100",
+    "dev": "npm run dev --workspaces --if-present",
     "lint": "eslint . --ext .js,.ts,.tsx,.jsx",
-    "postinstall": "athloi exec npm i -- --no-package-lock --no-workspaces",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook:ci": "start-storybook -c .storybook --ci --smoke-test",
@@ -48,7 +46,6 @@
     "@babel/core": "^7.8.0",
     "@babel/preset-react": "^7.8.0",
     "@babel/preset-typescript": "^7.8.0",
-    "@financial-times/athloi": "^1.0.0-beta.28",
     "@storybook/addon-essentials": "^6.0.27",
     "@storybook/react": "^6.0.27",
     "@storybook/storybook-deployer": "^2.8.7",
@@ -89,7 +86,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run checktypes && lint-staged"
+      "pre-commit": "lint-staged"
     }
   },
   "workspaces": [

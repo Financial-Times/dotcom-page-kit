@@ -1,0 +1,74 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "packages/dotcom-build-base"
+    },
+    {
+      "path": "packages/dotcom-build-code-splitting"
+    },
+    {
+      "path": "packages/dotcom-build-images"
+    },
+    {
+      "path": "packages/dotcom-build-js"
+    },
+    {
+      "path": "packages/dotcom-build-sass"
+    },
+    {
+      "path": "packages/dotcom-middleware-app-context"
+    },
+    {
+      "path": "packages/dotcom-middleware-asset-loader"
+    },
+    {
+      "path": "packages/dotcom-middleware-navigation"
+    },
+    {
+      "path": "packages/dotcom-server-app-context"
+    },
+    {
+      "path": "packages/dotcom-server-asset-loader"
+    },
+    {
+      "path": "packages/dotcom-server-handlebars"
+    },
+    {
+      "path": "packages/dotcom-server-navigation"
+    },
+    {
+      "path": "packages/dotcom-server-react-jsx"
+    },
+    {
+      "path": "packages/dotcom-ui-app-context"
+    },
+    {
+      "path": "packages/dotcom-ui-base-styles"
+    },
+    {
+      "path": "packages/dotcom-ui-bootstrap"
+    },
+    {
+      "path": "packages/dotcom-ui-data-embed"
+    },
+    {
+      "path": "packages/dotcom-ui-flags"
+    },
+    {
+      "path": "packages/dotcom-ui-footer"
+    },
+    {
+      "path": "packages/dotcom-ui-header"
+    },
+    {
+      "path": "packages/dotcom-ui-layout"
+    },
+    {
+      "path": "packages/dotcom-ui-polyfill-service"
+    },
+    {
+      "path": "packages/dotcom-ui-shell"
+    }
+  ]
+}

@@ -6,12 +6,11 @@
   "types": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tsc": "../../node_modules/.bin/tsc --incremental",
     "clean": "npm run clean:dist && npm run clean:node_modules",
     "clean:dist": "rm -rf dist",
     "clean:node_modules": "rm -rf node_modules",
+    "build:node": "tsc",
     "build": "npm run build:node",
-    "build:node": "npm run tsc -- --module commonjs --outDir ./dist/node",
     "dev": "npm run build:node -- --watch",
     "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
   },
@@ -30,6 +29,7 @@
     "node": ">= 14.0.0",
     "npm": "7.x || 8.x"
   },
+  "files": ["dist/"],
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
