@@ -27,6 +27,7 @@
   "peerDependencies": {
     "react": "16.x || 17.x"
   },
+  "files": ["dist/"],
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
