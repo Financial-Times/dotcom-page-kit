@@ -43,7 +43,13 @@
     "node": ">= 14.0.0",
     "npm": "7.x || 8.x"
   },
-  "files": ["dist/"],
+  "files": [
+    "dist/",
+    "src/",
+    "browser.js",
+    "component.js",
+    "styles.scss"
+  ],
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
