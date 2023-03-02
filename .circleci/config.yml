@@ -136,7 +136,7 @@ jobs:
             ${HOME}/.npmrc
       - run:
           name: Bump version
-          command: npx --yes @financial-times/athloi@2.0.1 version ${CIRCLE_TAG} --filter "dotcom-*"
+          command: npx athloi version ${CIRCLE_TAG} --filter "dotcom-*"
       - run:
           name: NPM publish
           command: npm publish --workspace=packages/ --access=public --tag=latest
@@ -151,7 +151,7 @@ jobs:
             ${HOME}/.npmrc
       - run:
           name: Bump version
-          command: npx --yes @financial-times/athloi@2.0.1 version ${CIRCLE_TAG} --filter "dotcom-*"
+          command: npx athloi version ${CIRCLE_TAG} --filter "dotcom-*"
       - run:
           name: NPM publish
           command: npm publish --workspace=packages/ --access=public --tag=pre-release
