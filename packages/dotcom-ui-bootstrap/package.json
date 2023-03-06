@@ -30,6 +30,7 @@
     "react": "16.x || 17.x"
   },
   "files": [
+    "lib/",
     "dist/",
     "src/",
     "browser.js",
