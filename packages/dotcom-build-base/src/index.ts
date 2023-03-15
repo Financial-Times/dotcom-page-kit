@@ -1,54 +1,50 @@
-import type webpack from 'webpack'
 import path from 'path'
-import { CleanWebpackPlugin } from 'clean-webpack-plugin'
-import CompressionPlugin from 'compression-webpack-plugin'
-import ManifestPlugin from 'webpack-assets-manifest'
+import * as esbuild from 'esbuild'
+import { clean } from 'esbuild-plugin-clean'
+import { compress, CompressOptions } from 'esbuild-plugin-compress'
+import assetsManifest from 'esbuild-plugin-assets-manifest'
+import zlib from 'zlib'
 
-export class PageKitBasePlugin {
-  apply(compiler: webpack.Compiler) {
-    const isDevMode = compiler.options.mode === 'development'
+export const pageKitBase: esbuild.Plugin = {
+  name: '@dotcom-page-kit/base',
+  setup(build) {
+    const options = build.initialOptions
+    const isDevMode = !options.minify
 
-    const outputFileName = isDevMode ? '[name].bundle.js' : '[name].[contenthash:12].bundle.js'
+    const outputFileName = isDevMode ? '[name].bundle.js' : '[name].[hash].bundle.js'
 
-    const cleanWebpackPluginOptions = { verbose: false }
+    options.entryNames = outputFileName
+    options.chunkNames = outputFileName
+    options.outdir = path.resolve('esbuild-public')
 
-    const gzipCompressionPluginOptions = {
-      test: /\.(js|css)$/,
-      filename: '[path].gz',
-      algorithm: 'gzip',
-      compressionOptions: { level: 9 },
-      minRatio: 1
-    }
-
-    const brotliCompressionPluginOptions = {
-      test: /\.(js|css)$/,
-      filename: '[path].br',
-      algorithm: 'brotliCompress',
-      compressionOptions: { level: 11 },
-      minRatio: 1
-    }
-
-    const manifestPluginOptions = {
-      entrypoints: true
-    }
-
-    compiler.options.output = {
-      ...compiler.options.output,
-      filename: outputFileName,
-      chunkFilename: outputFileName,
-      path: path.resolve('public')
-    }
-
-    compiler.options.devtool = isDevMode ? 'cheap-module-eval-source-map' : 'source-map'
-
-    compiler.options.bail = !isDevMode
-
-    new CleanWebpackPlugin(cleanWebpackPluginOptions).apply(compiler)
-    new ManifestPlugin(manifestPluginOptions).apply(compiler)
-
-    if (!isDevMode) {
-      new CompressionPlugin(gzipCompressionPluginOptions).apply(compiler)
-      new CompressionPlugin(brotliCompressionPluginOptions).apply(compiler)
-    }
+    options.sourcemap = isDevMode ? 'inline' : 'linked'
   }
+}
+
+export const basePlugins = (isDev: boolean): esbuild.Plugin[] => {
+  const cleanPluginOptions = { verbose: false }
+
+  const compressionPluginOptions: CompressOptions = {
+    gzip: true,
+    gzipOptions: {
+      level: 9
+    },
+    brotli: true,
+    brotliOptions: {
+      params: {
+        [zlib.constants.BROTLI_PARAM_QUALITY]: zlib.constants.BROTLI_MAX_QUALITY
+      }
+    },
+    exclude: '*.!(js|css)'
+  }
+
+  const manifestPluginOptions = {
+    filename: 'esbuild-assets.json'
+  }
+
+  const plugins = [clean(cleanPluginOptions), assetsManifest(manifestPluginOptions)]
+  if (!isDev) {
+    plugins.push(compress(compressionPluginOptions))
+  }
+  return plugins
 }

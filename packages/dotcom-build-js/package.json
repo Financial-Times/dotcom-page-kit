@@ -18,7 +18,7 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
-    "webpack": "^4.39.2"
+    "esbuild": "0.17.x"
   },
   "dependencies": {
     "@babel/core": "^7.8.7",
@@ -32,7 +32,6 @@
     "babel-loader": "^8.0.6"
   },
   "devDependencies": {
-    "@types/webpack": "^4.41.7",
     "check-engine": "^1.10.1"
   },
   "engines": {

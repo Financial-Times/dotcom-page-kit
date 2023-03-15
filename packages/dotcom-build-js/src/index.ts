@@ -1,21 +1,26 @@
-import getBabelRule from './babel'
+import * as babel from '@babel/core'
+import * as esbuild from 'esbuild'
+import { promises as fs } from 'fs'
+import getBabelConfig from './babel'
 import { PluginOptions } from './types'
-import type webpack from 'webpack'
 
 const defaultOptions: PluginOptions = {
   jsxPragma: 'h',
   jsxPragmaFrag: 'Fragment'
 }
 
-export class PageKitJsPlugin {
-  options: PluginOptions
-
-  constructor(userOptions: PluginOptions = {}) {
-    this.options = { ...defaultOptions, ...userOptions }
-  }
-
-  apply(compiler: webpack.Compiler) {
-    compiler.options.resolve.extensions = ['.js', '.jsx', '.mjs', '.json', '.ts', '.tsx']
-    compiler.options.module.rules.push(getBabelRule(this.options))
+export const pageKitJS = (userOptions: PluginOptions): esbuild.Plugin => {
+  const options = { ...defaultOptions, ...userOptions }
+  const config = getBabelConfig(options)
+  return {
+    name: '@dotcom-page-kit/js',
+    setup(build) {
+      build.initialOptions.resolveExtensions = ['.js', '.jsx', '.mjs', '.json', '.ts', '.tsx']
+      build.onLoad({ filter: /\.(js|jsx|mjs|ts|tsx)$/ }, async (args) => {
+        const source = await fs.readFile(args.path, 'utf8')
+        const transformed = await babel.transformAsync(source, { filename: args.path, ...config })
+        return { contents: transformed.code }
+      })
+    }
   }
 }

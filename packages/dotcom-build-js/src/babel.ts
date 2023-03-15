@@ -1,6 +1,6 @@
 import { PluginOptions } from './types'
 
-function getBabelConfig(options: PluginOptions = {}) {
+export default function getBabelConfig(options: PluginOptions = {}) {
   const presetEnvOpts = {
     targets: ['last 1 Chrome versions', 'Safari >= 13', 'ff ESR', 'last 1 Edge versions'],
     // Exclude transforms that make all code slower
@@ -29,9 +29,9 @@ function getBabelConfig(options: PluginOptions = {}) {
 
   const config = {
     // By default Babel assumes all source code is ESM so force it to check for CJS
-    sourceType: 'unambiguous',
+    sourceType: 'unambiguous' as const,
     babelrc: true,
-    cacheDirectory: true,
+    // cacheDirectory: true,
     presets: [
       [require.resolve('@babel/preset-env'), presetEnvOpts],
       [require.resolve('@babel/preset-react'), presetReactOptions],
@@ -49,17 +49,4 @@ function getBabelConfig(options: PluginOptions = {}) {
   }
 
   return config
-}
-
-export default function getBabelRule(userOptions: PluginOptions) {
-  return {
-    test: [/\.(js|jsx|mjs|ts|tsx)$/],
-    // NOTE: Do not exclude bower_components or node_modules directories
-    // https://github.com/Financial-Times/dotcom-page-kit/issues/366
-    exclude: [],
-    use: {
-      loader: require.resolve('babel-loader'),
-      options: getBabelConfig(userOptions)
-    }
-  }
 }

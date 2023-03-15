@@ -14,18 +14,28 @@
     "@financial-times/dotcom-middleware-navigation": "file:../../packages/dotcom-middleware-navigation",
     "@financial-times/dotcom-ui-layout": "file:../../packages/dotcom-ui-layout",
     "@financial-times/dotcom-ui-shell": "file:../../packages/dotcom-ui-shell",
+    "@financial-times/o-footer": "^9.2.6",
+    "@financial-times/o-header": "^11.0.4",
+    "autoprefixer": "^10.4.13",
+    "cssnano": "^5.1.15",
     "express": "^4.16.2",
+    "n-topic-search": "^4.0.0",
+    "postcss": "^8.4.21",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "sucrase": "^3.10.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@financial-times/dotcom-build-base": "file:../../packages/dotcom-build-base",
     "@financial-times/dotcom-build-js": "file:../../packages/dotcom-build-js",
     "@financial-times/dotcom-build-sass": "file:../../packages/dotcom-build-sass",
-    "@financial-times/dotcom-build-base": "file:../../packages/dotcom-build-base",
     "nodemon": "^1.18.9",
     "ready-state": "^2.0.5",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11"
+  },
+  "volta": {
+    "extends": "../../package.json"
   }
 }

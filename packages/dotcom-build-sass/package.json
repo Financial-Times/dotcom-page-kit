@@ -18,28 +18,29 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
-    "webpack": "^4.39.2"
+    "esbuild": "0.17.x"
   },
   "dependencies": {
     "autoprefixer": "^10.2.5",
-    "postcss": "^8.4.20",
     "css-loader": "^3.0.0",
     "cssnano": "^4.1.10",
-    "mini-css-extract-plugin": "^0.12.0",
+    "esbuild-sass-plugin": "^2.6.0",
+    "postcss": "^8.4.20",
     "postcss-loader": "^4.0.0",
     "sass": "^1.25.0",
-    "sass-loader": "^8.0.0",
-    "webpack-fix-style-only-entries": "^0.5.0"
+    "sass-loader": "^8.0.0"
   },
   "devDependencies": {
-    "@types/webpack": "^4.41.7",
     "check-engine": "^1.10.1"
   },
   "engines": {
     "node": ">= 14.0.0",
     "npm": "7.x || 8.x"
   },
-  "files": ["dist/", "src/"],
+  "files": [
+    "dist/",
+    "src/"
+  ],
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
