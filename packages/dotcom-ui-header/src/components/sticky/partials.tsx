@@ -131,7 +131,7 @@ const NavListRightLoggedInSticky = (props: THeaderProps) => {
       {!props.userIsSubscribed && subscribeAction && (
         <SubscribeButton
           item={subscribeAction}
-          variant={props.variant}
+          variant="sticky"
           className="o-header__top-button--hide-m"
         />
       )}

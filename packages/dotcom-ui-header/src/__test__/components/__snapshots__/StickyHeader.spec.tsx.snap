@@ -217,6 +217,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in use
             data-trackable="Subscribe"
             href="/products?segmentId=#"
             role="button"
+            tabIndex={-1}
           >
             Subscribe
           </a>
