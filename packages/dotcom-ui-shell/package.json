@@ -31,7 +31,7 @@
     "react": "16.x || 17.x"
   },
   "engines": {
-    "node": ">= 14.0.0",
+    "node": "16.x",
     "npm": "7.x || 8.x"
   },
   "files": [
