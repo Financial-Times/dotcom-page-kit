@@ -155,14 +155,14 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.15", "14.19" ]
+              node-version: [ "16.15" ]
       - test:
           requires:
             - build-v<< matrix.node-version >>
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.15", "14.19" ]
+              node-version: [ "16.15" ]
 
   build-test-publish:
     when:
@@ -177,7 +177,7 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.15", "14.19" ]
+              node-version: [ "16.15" ]
       - test:
           filters:
             <<: *filters_version_tag
@@ -186,7 +186,7 @@ workflows:
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.15", "14.19" ]
+              node-version: [ "16.15" ]
       - publish:
           context: npm-publish-token
           filters:
@@ -211,14 +211,14 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.15", "14.19" ]
+              node-version: [ "16.15" ]
       - test:
           requires:
             - build-v<< matrix.node-version >>
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.15", "14.19" ]
+              node-version: [ "16.15" ]
 
   nightly:
     when:
@@ -235,7 +235,7 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.15", "14.19" ]
+              node-version: [ "16.15" ]
       - test:
           requires:
             - build-v<< matrix.node-version >>
@@ -243,7 +243,7 @@ workflows:
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.15", "14.19" ]
+              node-version: [ "16.15" ]
 
 notify:
   webhooks:
