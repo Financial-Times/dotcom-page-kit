@@ -176,14 +176,14 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14", "14.19" ]
+              node-version: [ "16.14" ]
       - test:
           requires:
             - build-v<< matrix.node-version >>
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14", "14.19" ]
+              node-version: [ "16.14" ]
       - deploy:
           filters:
             <<: *filters_only_main
@@ -202,14 +202,14 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14", "14.19" ]
+              node-version: [ "16.14" ]
       - test:
           requires:
             - build-v<< matrix.node-version >>
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14", "14.19" ]
+              node-version: [ "16.14" ]
 
   build-test-publish:
     jobs:
@@ -219,7 +219,7 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14", "14.19" ]
+              node-version: [ "16.14" ]
       - test:
           filters:
             <<: *filters_release_build
@@ -228,7 +228,7 @@ workflows:
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14", "14.19" ]
+              node-version: [ "16.14" ]
       - publish:
           context: npm-publish-token
           filters:
@@ -244,7 +244,7 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14", "14.19" ]
+              node-version: [ "16.14" ]
       - test:
           filters:
             <<: *filters_prerelease_build
@@ -253,7 +253,7 @@ workflows:
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14", "14.19" ]
+              node-version: [ "16.14" ]
       - prepublish:
           context: npm-publish-token
           filters:

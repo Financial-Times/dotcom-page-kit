@@ -30,7 +30,7 @@
     "webpack": "^4.39.2"
   },
   "engines": {
-    "node": ">= 14.0.0",
+    "node": "16.x",
     "npm": "7.x || 8.x"
   },
   "files": ["dist/", "src/"],
