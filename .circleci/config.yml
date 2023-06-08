@@ -15,7 +15,7 @@ references:
       - image: cimg/node:<< parameters.node-version >>-browsers
     parameters:
       node-version:
-        default: "16.20"
+        default: "18.16"
         type: string
 
   workspace_root: &workspace_root ~/project
@@ -171,19 +171,19 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.20" ]
+              node-version: [ "16.20", "18.16" ]
       - test:
           requires:
             - build-v<< matrix.node-version >>
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.20" ]
+              node-version: [ "16.20", "18.16" ]
       - deploy:
           filters:
             <<: *filters_only_main
           requires:
-            - test-v16.20
+            - test-v18.16
 
   renovate-nori-build-test:
     jobs:
@@ -197,14 +197,14 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.20" ]
+              node-version: [ "16.20", "18.16" ]
       - test:
           requires:
             - build-v<< matrix.node-version >>
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.20" ]
+              node-version: [ "16.20", "18.16" ]
 
   build-test-publish:
     jobs:
@@ -214,7 +214,7 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.20" ]
+              node-version: [ "16.20", "18.16" ]
       - test:
           filters:
             <<: *filters_release_build
@@ -223,13 +223,13 @@ workflows:
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.20" ]
+              node-version: [ "16.20", "18.16" ]
       - publish:
           context: npm-publish-token
           filters:
             <<: *filters_release_build
           requires:
-            - test-v16.20
+            - test-v18.16
 
   build-test-prepublish:
     jobs:
@@ -239,7 +239,7 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.20" ]
+              node-version: [ "16.20", "18.16" ]
       - test:
           filters:
             <<: *filters_prerelease_build
@@ -248,10 +248,10 @@ workflows:
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.20" ]
+              node-version: [ "16.20", "18.16" ]
       - prepublish:
           context: npm-publish-token
           filters:
             <<: *filters_prerelease_build
           requires:
-            - test-v16.20
+            - test-v18.16

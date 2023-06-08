@@ -81,8 +81,8 @@
     "typescript": "3.9.5"
   },
   "engines": {
-    "node": "16.x",
-    "npm": "7.x || 8.x"
+    "node": "16.x || 18.x",
+    "npm": "7.x || 8.x || 9.x"
   },
   "husky": {
     "hooks": {
@@ -94,7 +94,7 @@
     "examples/*"
   ],
   "volta": {
-    "node": "16.20.0"
+    "node": "18.16.0"
   },
   "dependencies": {
     "@financial-times/athloi": "^2.0.1"
