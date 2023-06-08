@@ -33,8 +33,8 @@
     "react": "16.x || 17.x"
   },
   "engines": {
-    "node": "16.x",
-    "npm": "7.x || 8.x"
+    "node": "16.x || 18.x",
+    "npm": "7.x || 8.x || 9.x"
   },
   "files": [
     "dist/",

@@ -31,8 +31,8 @@
     "nock": "^12.0.0"
   },
   "engines": {
-    "node": "16.x",
-    "npm": "7.x || 8.x"
+    "node": "16.x || 18.x",
+    "npm": "7.x || 8.x || 9.x"
   },
   "files": ["dist/", "src/"],
   "repository": {
