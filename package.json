@@ -94,8 +94,7 @@
     "examples/*"
   ],
   "volta": {
-    "node": "16.14.0",
-    "npm": "8.5.3"
+    "node": "16.20.0"
   },
   "dependencies": {
     "@financial-times/athloi": "^2.0.1"

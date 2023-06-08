@@ -1,7 +1,6 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@4.9.0
   browser-tools: circleci/browser-tools@1.2.4
 
 references:
@@ -16,7 +15,7 @@ references:
       - image: cimg/node:<< parameters.node-version >>-browsers
     parameters:
       node-version:
-        default: "16.14"
+        default: "16.20"
         type: string
 
   workspace_root: &workspace_root ~/project
@@ -92,8 +91,6 @@ jobs:
     steps:
       - checkout
       - *restore_cache
-      - node/install-npm:
-          version: "8.5.3"
       - run:
           name: Install project dependencies
           command: npm install
@@ -110,8 +107,6 @@ jobs:
     <<: *container_config_node
     steps:
       - *attach_workspace
-      - node/install-npm:
-          version: "8.5.3"
       - browser-tools/install-chrome
       - run:
           name: Check code style
@@ -176,19 +171,19 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14" ]
+              node-version: [ "16.20" ]
       - test:
           requires:
             - build-v<< matrix.node-version >>
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14" ]
+              node-version: [ "16.20" ]
       - deploy:
           filters:
             <<: *filters_only_main
           requires:
-            - test-v16.14
+            - test-v16.20
 
   renovate-nori-build-test:
     jobs:
@@ -202,14 +197,14 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14" ]
+              node-version: [ "16.20" ]
       - test:
           requires:
             - build-v<< matrix.node-version >>
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14" ]
+              node-version: [ "16.20" ]
 
   build-test-publish:
     jobs:
@@ -219,7 +214,7 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14" ]
+              node-version: [ "16.20" ]
       - test:
           filters:
             <<: *filters_release_build
@@ -228,13 +223,13 @@ workflows:
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14" ]
+              node-version: [ "16.20" ]
       - publish:
           context: npm-publish-token
           filters:
             <<: *filters_release_build
           requires:
-            - test-v16.14
+            - test-v16.20
 
   build-test-prepublish:
     jobs:
@@ -244,7 +239,7 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14" ]
+              node-version: [ "16.20" ]
       - test:
           filters:
             <<: *filters_prerelease_build
@@ -253,10 +248,10 @@ workflows:
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14" ]
+              node-version: [ "16.20" ]
       - prepublish:
           context: npm-publish-token
           filters:
             <<: *filters_prerelease_build
           requires:
-            - test-v16.14
+            - test-v16.20
