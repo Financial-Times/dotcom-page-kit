@@ -122,7 +122,7 @@ jobs:
           command: npm run prettier -- --list-different
       - run:
           name: Run package tests
-          command: npm run test -- --runInBand
+          command: npm run test:ci -- --runInBand
       - run:
           name: Run example app integration tests
           command: npm run test:examples
