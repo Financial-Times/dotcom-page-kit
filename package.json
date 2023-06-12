@@ -17,8 +17,7 @@
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook:ci": "start-storybook -c .storybook --ci --smoke-test",
-    "deploy-storybook:ci": "storybook-to-ghpages --ci",
-    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
+    "deploy-storybook:ci": "storybook-to-ghpages --ci"
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
