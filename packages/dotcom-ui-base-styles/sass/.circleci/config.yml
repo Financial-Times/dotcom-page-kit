@@ -77,9 +77,6 @@ jobs:
             unpin-heroku .circleci/shared-helpers
       - *restore_npm_cache
       - run:
-          name: Install npm 8
-          command: npm install -g npm@8
-      - run:
           name: Install project dependencies
           command: make install
       - run:
