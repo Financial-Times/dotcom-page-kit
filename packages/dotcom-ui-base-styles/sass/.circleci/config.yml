@@ -3,67 +3,57 @@
 
 references:
 
-  container_config_node:
-    &container_config_node
+  container_config_node: &container_config_node
     working_directory: ~/project/build
     docker:
       - image: cimg/node:<< parameters.node-version >>
     parameters:
       node-version:
-        default: "16.15"
+        default: "18.16"
         type: string
 
   workspace_root: &workspace_root ~/project
 
-  attach_workspace:
-    &attach_workspace
+  attach_workspace: &attach_workspace
     attach_workspace:
       at: *workspace_root
 
-  npm_cache_keys:
-    &npm_cache_keys
+  npm_cache_keys: &npm_cache_keys
     keys:
       - v2-dependency-npm-{{ checksum "package.json" }}-
       - v2-dependency-npm-{{ checksum "package.json" }}
       - v2-dependency-npm-
 
-  cache_npm_cache:
-    &cache_npm_cache
+  cache_npm_cache: &cache_npm_cache
     save_cache:
       key: v2-dependency-npm-{{ checksum "package.json" }}-{{ epoch }}
       paths:
         - ./node_modules/
 
-  restore_npm_cache:
-    &restore_npm_cache
+  restore_npm_cache: &restore_npm_cache
     restore_cache:
       <<: *npm_cache_keys
 
-  filters_only_main:
-    &filters_only_main
+  filters_only_main: &filters_only_main
     branches:
       only: main
 
-  filters_ignore_tags:
-    &filters_ignore_tags
+  filters_ignore_tags: &filters_ignore_tags
     tags:
       ignore: /.*/
 
-  filters_version_tag:
-    &filters_version_tag
+  filters_version_tag: &filters_version_tag
     tags:
       only:
         - /^v?\d+\.\d+\.\d+(?:-beta\.\d+)?$/
     branches:
       ignore: /.*/
 
-  filters_only_renovate_nori:
-    &filters_only_renovate_nori
+  filters_only_renovate_nori: &filters_only_renovate_nori
     branches:
       only: /(^renovate-.*|^nori/.*)/
 
-  filters_ignore_tags_renovate_nori:
-    &filters_ignore_tags_renovate_nori
+  filters_ignore_tags_renovate_nori: &filters_ignore_tags_renovate_nori
     tags:
       ignore: /.*/
     branches:
@@ -83,12 +73,9 @@ jobs:
       - run:
           name: Checkout next-ci-shared-helpers
           command: git clone --depth 1
-            git@github.com:Financial-Times/next-ci-shared-helpers.git
-            .circleci/shared-helpers
+            git@github.com:Financial-Times/next-ci-shared-helpers.git --branch
+            unpin-heroku .circleci/shared-helpers
       - *restore_npm_cache
-      - run:
-          name: Install npm 8
-          command: npm install -g npm@8
       - run:
           name: Install project dependencies
           command: make install
@@ -155,14 +142,14 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.15" ]
+              node-version: [ "16.20", "18.16" ]
       - test:
           requires:
             - build-v<< matrix.node-version >>
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.15" ]
+              node-version: [ "16.20", "18.16" ]
 
   build-test-publish:
     when:
@@ -177,7 +164,7 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.15" ]
+              node-version: [ "16.20", "18.16" ]
       - test:
           filters:
             <<: *filters_version_tag
@@ -186,13 +173,13 @@ workflows:
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.15" ]
+              node-version: [ "16.20", "18.16" ]
       - publish:
           context: npm-publish-token
           filters:
             <<: *filters_version_tag
           requires:
-            - test-v16.15
+            - test-v18.16
 
   renovate-nori-build-test:
     when:
@@ -211,14 +198,14 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.15" ]
+              node-version: [ "16.20", "18.16" ]
       - test:
           requires:
             - build-v<< matrix.node-version >>
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.15" ]
+              node-version: [ "16.20", "18.16" ]
 
   nightly:
     when:
@@ -235,7 +222,7 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.15" ]
+              node-version: [ "16.20", "18.16" ]
       - test:
           requires:
             - build-v<< matrix.node-version >>
@@ -243,7 +230,7 @@ workflows:
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.15" ]
+              node-version: [ "16.20", "18.16" ]
 
 notify:
   webhooks:
