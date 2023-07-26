@@ -27,13 +27,33 @@ describe('dotcom-ui-shell/src/components/Shell', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  describe.skip('when the variableFonts flag is on', () => {
+  describe('when the variableFonts flag is on', () => {
     it('should render with variable fonts included in the DOM', () => {
       const tree = renderer.create(<Shell pageTitle="Foo" flags={{ variableFonts: true }} />)
       const testInstance = tree.root;
-      const variableFontsList = testInstance.findAllByType('link').find((link) => {link.src.includes('VF')});
+      const variableFontsList = testInstance.findAllByType('link').filter((link) => link.props.href.includes('-VF'))
 
-      expect(variableFontsList.length).toBe(2);
+      expect(variableFontsList.length).toBe(2)
+    })
+  })
+
+  describe('when the variableFonts flag is off', () => {
+    it('should not render with variable fonts included in the DOM', () => {
+      const tree = renderer.create(<Shell pageTitle="Foo" flags={{ variableFonts: false }} />)
+      const testInstance = tree.root;
+      const variableFontsList = testInstance.findAllByType('link').filter((link) => link.props.href.includes('-VF'))
+
+      expect(variableFontsList.length).toBe(0)
+    })
+  })
+
+  describe('when flags are not defined', () => {
+    it('should not render with variable fonts included in the DOM', () => {
+      const tree = renderer.create(<Shell pageTitle="Foo" />)
+      const testInstance = tree.root;
+      const variableFontsList = testInstance.findAllByType('link').filter((link) => link.props.href.includes('-VF'))
+
+      expect(variableFontsList.length).toBe(0)
     })
   })
 })

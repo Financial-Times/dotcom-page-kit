@@ -36,8 +36,8 @@ function Shell(props: TShellProps) {
     enhancedScripts: [polyfillService.enhanced(), ...props.scripts]
   }
 
-  const selectFontFaceURLs = false ? experimentVariableFontFaceURLs : fontFaceURLs; // Replace boolean with resolved flag.
-  console.log('PROPS:',props.flags);
+  const selectFontFaceURLs = props.flags?.variableFonts ? experimentVariableFontFaceURLs : fontFaceURLs; // Replace boolean with resolved flag.
+
   const resourceHints = [
     polyfillService.enhanced(),
     // There is no need to include stylesheets here as any <link rel="stylesheet" /> tags
