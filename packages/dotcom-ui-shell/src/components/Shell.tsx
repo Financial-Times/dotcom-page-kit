@@ -8,7 +8,7 @@ import {
   fontFaceURLs,
   documentStyles,
   LoadFontsEmbed,
-  loadCustomFontsClassNames
+  loadCustomFontsClassNames, experimentVariableFontFaceURLs
 } from '@financial-times/dotcom-ui-base-styles'
 import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/dotcom-ui-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/dotcom-ui-bootstrap'
@@ -36,13 +36,15 @@ function Shell(props: TShellProps) {
     enhancedScripts: [polyfillService.enhanced(), ...props.scripts]
   }
 
+  const selectFontFaceURLs = false ? experimentVariableFontFaceURLs : fontFaceURLs; // Replace boolean with resolved flag.
+  console.log('PROPS:',props.flags);
   const resourceHints = [
     polyfillService.enhanced(),
     // There is no need to include stylesheets here as any <link rel="stylesheet" /> tags
     // should be found by the browser's speculative parser.
     ...props.scripts,
     ...props.resourceHints,
-    ...fontFaceURLs
+    ...selectFontFaceURLs
   ]
 
   return (

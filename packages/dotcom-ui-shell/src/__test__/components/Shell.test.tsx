@@ -26,4 +26,14 @@ describe('dotcom-ui-shell/src/components/Shell', () => {
 
     expect(tree).toMatchSnapshot()
   })
+
+  describe.skip('when the variableFonts flag is on', () => {
+    it('should render with variable fonts included in the DOM', () => {
+      const tree = renderer.create(<Shell pageTitle="Foo" flags={{ variableFonts: true }} />)
+      const testInstance = tree.root;
+      const variableFontsList = testInstance.findAllByType('link').find((link) => {link.src.includes('VF')});
+
+      expect(variableFontsList.length).toBe(2);
+    })
+  })
 })
