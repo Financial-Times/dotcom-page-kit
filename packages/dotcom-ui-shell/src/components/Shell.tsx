@@ -36,7 +36,7 @@ function Shell(props: TShellProps) {
     enhancedScripts: [polyfillService.enhanced(), ...props.scripts]
   }
 
-  const selectFontFaceURLs = props.flags?.variableFonts ? experimentVariableFontFaceURLs : fontFaceURLs; // Replace boolean with resolved flag.
+  const selectFontFaceURLs = props.flags?.variableFontsTest ? experimentVariableFontFaceURLs : fontFaceURLs; // Replace boolean with resolved flag.
 
   const resourceHints = [
     polyfillService.enhanced(),

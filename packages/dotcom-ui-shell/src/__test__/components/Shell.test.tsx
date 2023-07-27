@@ -29,7 +29,7 @@ describe('dotcom-ui-shell/src/components/Shell', () => {
 
   describe('when the variableFonts flag is on', () => {
     it('should render with variable fonts included in the DOM', () => {
-      const tree = renderer.create(<Shell pageTitle="Foo" flags={{ variableFonts: true }} />)
+      const tree = renderer.create(<Shell pageTitle="Foo" flags={{ variableFontsTest: true }} />)
       const testInstance = tree.root;
       const variableFontsList = testInstance.findAllByType('link').filter((link) => link.props.href.includes('-VF'))
 
