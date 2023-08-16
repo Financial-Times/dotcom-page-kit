@@ -120,7 +120,7 @@ const data: TNavMenu = {
             },
             {
               label: 'Advertise with the FT',
-              url: 'http://fttoolkit.co.uk/',
+              url: 'https://commercial.ft.com/',
               submenu: null
             },
             {
@@ -191,7 +191,7 @@ const data: TNavMenu = {
             },
             {
               label: 'Currency Converter',
-              url: 'https://markets.ft.com/research/Markets/Currencies?segid=70113',
+              url: 'https://markets.ft.com/data/currencies',
               submenu: null
             }
           ]
