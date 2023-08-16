@@ -1087,7 +1087,7 @@
                 "url": "https://www.exec-appointments.com/",
                 "submenu": null
               },
-              { "label": "Advertise with the FT", "url": "http://fttoolkit.co.uk/", "submenu": null },
+              { "label": "Advertise with the FT", "url": "https://commercial.ft.com/", "submenu": null },
               {
                 "label": "Follow the FT on Twitter",
                 "url": "https://twitter.com/financialtimes",
