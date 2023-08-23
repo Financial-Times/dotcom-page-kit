@@ -1,3 +1,5 @@
 # See https://help.github.com/articles/about-codeowners/ for more information about this file.
 
 * @financial-times/platforms
+# For Enhance Search A/B Collaboration CPP-1661
+* @Financial-Times/professional-lifecycle-experience
