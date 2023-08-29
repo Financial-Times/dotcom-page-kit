@@ -4,7 +4,7 @@ exports[`dotcom-ui-shell/src/components/LinkedData renders the base site schema 
 <script
   dangerouslySetInnerHTML={
     Object {
-      "__html": "{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"name\\":\\"Financial Times\\",\\"alternateName\\":\\"FT.com\\",\\"url\\":\\"http://www.ft.com\\"}",
+      "__html": "{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"name\\":\\"Financial Times\\",\\"alternateName\\":\\"FT.com\\",\\"url\\":\\"https://www.ft.com\\"}",
     }
   }
   type="application/ld+json"
@@ -32,7 +32,7 @@ Array [
   <script
     dangerouslySetInnerHTML={
       Object {
-        "__html": "{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"name\\":\\"Financial Times\\",\\"alternateName\\":\\"FT.com\\",\\"url\\":\\"http://www.ft.com\\"}",
+        "__html": "{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"name\\":\\"Financial Times\\",\\"alternateName\\":\\"FT.com\\",\\"url\\":\\"https://www.ft.com\\"}",
       }
     }
     type="application/ld+json"
