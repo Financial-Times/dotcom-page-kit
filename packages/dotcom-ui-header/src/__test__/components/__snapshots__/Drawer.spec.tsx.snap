@@ -792,7 +792,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
               <a
                 className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
                 data-trackable="Business School Rankings"
-                href="http://rankings.ft.com/businessschoolrankings/rankings"
+                href="https://rankings.ft.com/businessschoolrankings/rankings"
               >
                 Business School Rankings
               </a>
@@ -1217,7 +1217,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
               <a
                 className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
                 data-trackable="FT Live"
-                href="http://live.ft.com/"
+                href="https://live.ft.com/"
               >
                 FT Live
               </a>
@@ -1320,7 +1320,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
           <a
             className="o-header__drawer-menu-link"
             data-trackable="Help Centre"
-            href="http://help.ft.com"
+            href="https://help.ft.com"
           >
             Help Centre
           </a>
@@ -2156,7 +2156,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
               <a
                 className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
                 data-trackable="Business School Rankings"
-                href="http://rankings.ft.com/businessschoolrankings/rankings"
+                href="https://rankings.ft.com/businessschoolrankings/rankings"
               >
                 Business School Rankings
               </a>
@@ -2581,7 +2581,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
               <a
                 className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
                 data-trackable="FT Live"
-                href="http://live.ft.com/"
+                href="https://live.ft.com/"
               >
                 FT Live
               </a>
@@ -2684,7 +2684,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
           <a
             className="o-header__drawer-menu-link"
             data-trackable="Help Centre"
-            href="http://help.ft.com"
+            href="https://help.ft.com"
           >
             Help Centre
           </a>

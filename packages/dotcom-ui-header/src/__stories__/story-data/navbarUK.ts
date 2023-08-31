@@ -715,7 +715,7 @@ const data: TNavMenu = {
         items: [
           {
             label: 'Business School Rankings',
-            url: 'http://rankings.ft.com/businessschoolrankings/rankings',
+            url: 'https://rankings.ft.com/businessschoolrankings/rankings',
             submenu: null
           },
           {
@@ -726,7 +726,7 @@ const data: TNavMenu = {
               items: [
                 {
                   label: 'Business School Rankings',
-                  url: 'http://rankings.ft.com/businessschoolrankings/rankings',
+                  url: 'https://rankings.ft.com/businessschoolrankings/rankings',
                   submenu: null
                 }
               ]
@@ -747,7 +747,7 @@ const data: TNavMenu = {
               { label: 'Work & Careers Home', url: '/work-careers' },
               {
                 label: 'Business School Rankings',
-                url: 'http://rankings.ft.com/businessschoolrankings/rankings',
+                url: 'https://rankings.ft.com/businessschoolrankings/rankings',
                 submenu: null
               },
               {
@@ -758,7 +758,7 @@ const data: TNavMenu = {
                   items: [
                     {
                       label: 'Business School Rankings',
-                      url: 'http://rankings.ft.com/businessschoolrankings/rankings',
+                      url: 'https://rankings.ft.com/businessschoolrankings/rankings',
                       submenu: null
                     }
                   ]

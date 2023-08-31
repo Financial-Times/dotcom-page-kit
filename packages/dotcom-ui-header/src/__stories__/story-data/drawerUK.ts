@@ -589,7 +589,7 @@ const data: TNavMenu = {
               items: [
                 {
                   label: 'Business School Rankings',
-                  url: 'http://rankings.ft.com/businessschoolrankings/rankings',
+                  url: 'https://rankings.ft.com/businessschoolrankings/rankings',
                   submenu: null
                 },
                 {
@@ -600,7 +600,7 @@ const data: TNavMenu = {
                     items: [
                       {
                         label: 'Business School Rankings',
-                        url: 'http://rankings.ft.com/businessschoolrankings/rankings',
+                        url: 'https://rankings.ft.com/businessschoolrankings/rankings',
                         submenu: null
                       }
                     ]
@@ -908,7 +908,7 @@ const data: TNavMenu = {
               items: [
                 {
                   label: 'FT Live',
-                  url: 'http://live.ft.com/',
+                  url: 'https://live.ft.com/',
                   submenu: null
                 },
                 {

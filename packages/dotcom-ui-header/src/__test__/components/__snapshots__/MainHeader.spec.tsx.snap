@@ -1374,7 +1374,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders a right aligned subn
                         <a
                           className="o-header__mega-link"
                           data-trackable="link"
-                          href="http://rankings.ft.com/businessschoolrankings/rankings"
+                          href="https://rankings.ft.com/businessschoolrankings/rankings"
                         >
                           Business School Rankings
                         </a>
@@ -3217,7 +3217,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
                         <a
                           className="o-header__mega-link"
                           data-trackable="link"
-                          href="http://rankings.ft.com/businessschoolrankings/rankings"
+                          href="https://rankings.ft.com/businessschoolrankings/rankings"
                         >
                           Business School Rankings
                         </a>
@@ -5072,7 +5072,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
                         <a
                           className="o-header__mega-link"
                           data-trackable="link"
-                          href="http://rankings.ft.com/businessschoolrankings/rankings"
+                          href="https://rankings.ft.com/businessschoolrankings/rankings"
                         >
                           Business School Rankings
                         </a>

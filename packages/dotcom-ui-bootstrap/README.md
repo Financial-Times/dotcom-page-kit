@@ -133,7 +133,7 @@ If any scripts fail to load a tracking pixel will be loaded to send a JavaScript
 
 [Cutting the mustard] is a function which uses feature detection to determine if a browser is capable of supporting the JavaScript-enhanced experience. Currently the enhanced experience is intended to target all modern browsers and IE11.
 
-[Cutting the mustard]: http://responsivenews.co.uk/post/18948466399/cutting-the-mustard
+[Cutting the mustard]: https://responsivenews.co.uk/post/18948466399/cutting-the-mustard
 
 ### Script loading
 

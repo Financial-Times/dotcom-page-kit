@@ -45,8 +45,8 @@ const menus: Partial<TNavMenus> = {
           label: null,
           items: [
             [
-              { label: 'Alerts Hub', url: 'http://markets.ft.com/data/alerts/', submenu: null },
-              { label: 'Lexicon', url: 'http://lexicon.ft.com/', submenu: null }
+              { label: 'Alerts Hub', url: 'https://markets.ft.com/data/alerts/', submenu: null },
+              { label: 'Lexicon', url: 'https://lexicon.ft.com/', submenu: null }
             ],
             [
               { label: 'News feed', url: '/news-feed', submenu: null },

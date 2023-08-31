@@ -65,7 +65,8 @@ const FooterContents = ({ footerData }: TFooterContentsProps) => (
         return (
           <div
             key={`group-${index}`}
-            className={`o-footer__matrix-group o-footer__matrix-group--${submenu.length}`}>
+            className={`o-footer__matrix-group o-footer__matrix-group--${submenu.length}`}
+          >
             <SectionTitle label={item.label} index={index} />
             <SectionLinks submenu={submenu} index={index} />
           </div>
@@ -76,7 +77,8 @@ const FooterContents = ({ footerData }: TFooterContentsProps) => (
           <a
             className="o-footer__matrix-link o-footer__matrix-link--more"
             id={`o-footer-${footerData.length}`}
-            href="https://ft.com/more-from-ft-group">
+            href="https://ft.com/more-from-ft-group"
+          >
             <span className="o-footer__matrix-link__copy">More from the FT Group</span>
           </a>
         </h3>
@@ -97,7 +99,7 @@ const CopyrightNotice = ({ withoutMarketsData = false }) => {
         and ‘Financial Times’ are trademarks of The Financial Times Ltd.
         <br />
         The Financial Times and its journalism are subject to a self-regulation regime under the{' '}
-        <a href="http://aboutus.ft.com/en-gb/ft-editorial-code/" aria-label="F T Editorial Code of Practice">
+        <a href="https://aboutus.ft.com/en-gb/ft-editorial-code/" aria-label="F T Editorial Code of Practice">
           FT Editorial Code of Practice
         </a>
         .

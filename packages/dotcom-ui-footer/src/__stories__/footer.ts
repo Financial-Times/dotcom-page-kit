@@ -17,12 +17,12 @@ const data: TNavMenu = {
             },
             {
               label: 'Help Centre',
-              url: 'http://help.ft.com',
+              url: 'https://help.ft.com',
               submenu: null
             },
             {
               label: 'About Us',
-              url: 'http://www.ft.com/aboutus',
+              url: 'https://www.ft.com/aboutus',
               submenu: null
             },
             {
@@ -48,22 +48,22 @@ const data: TNavMenu = {
           [
             {
               label: 'Terms & Conditions',
-              url: 'http://help.ft.com/help/legal-privacy/terms-conditions/',
+              url: 'https://help.ft.com/help/legal-privacy/terms-conditions/',
               submenu: null
             },
             {
               label: 'Privacy',
-              url: 'http://help.ft.com/help/legal-privacy/privacy/',
+              url: 'https://help.ft.com/help/legal-privacy/privacy/',
               submenu: null
             },
             {
               label: 'Cookies',
-              url: 'http://help.ft.com/help/legal-privacy/cookies/',
+              url: 'https://help.ft.com/help/legal-privacy/cookies/',
               submenu: null
             },
             {
               label: 'Copyright',
-              url: 'http://help.ft.com/help/legal-privacy/copyright/copyright-policy/',
+              url: 'https://help.ft.com/help/legal-privacy/copyright/copyright-policy/',
               submenu: null
             },
             {
@@ -84,7 +84,7 @@ const data: TNavMenu = {
           [
             {
               label: 'FT Live',
-              url: 'http://live.ft.com/',
+              url: 'https://live.ft.com/',
               submenu: null
             },
             {
@@ -95,7 +95,7 @@ const data: TNavMenu = {
             },
             {
               label: 'Individual Subscriptions',
-              url: 'http://www.ft.com/products',
+              url: 'https://www.ft.com/products',
               submenu: null
             },
             {
@@ -110,7 +110,7 @@ const data: TNavMenu = {
             },
             {
               label: 'Contracts & Tenders',
-              url: 'http://www.businessesforsale.com/ft2/notices',
+              url: 'https://www.businessesforsale.com/ft2/notices',
               submenu: null
             },
             {
@@ -161,17 +161,17 @@ const data: TNavMenu = {
             },
             {
               label: 'Alerts Hub',
-              url: 'http://markets.ft.com/data/alerts/',
+              url: 'https://markets.ft.com/data/alerts/',
               submenu: null
             },
             {
               label: 'Lexicon',
-              url: 'http://lexicon.ft.com/',
+              url: 'https://lexicon.ft.com/',
               submenu: null
             },
             {
               label: 'MBA Rankings',
-              url: 'http://rankings.ft.com/businessschoolrankings/global-mba-ranking-2016?ft_site=falcon',
+              url: 'https://rankings.ft.com/businessschoolrankings/global-mba-ranking-2016?ft_site=falcon',
               submenu: null
             },
             {
@@ -206,7 +206,7 @@ const data: TNavMenu = {
         items: [
           [
             { label: 'FT Community', url: 'https://www.ft.com/tour/community', submenu: null },
-            { label: 'FT Live', url: 'http://live.ft.com/', submenu: null },
+            { label: 'FT Live', url: 'https://live.ft.com/', submenu: null },
             {
               label: 'FT Forums',
               url: 'https://forums.ft.com/',
