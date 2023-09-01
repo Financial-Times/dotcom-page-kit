@@ -24,7 +24,6 @@ import {
 import { SubNavigation } from './components/sub-navigation/partials'
 import { IncludeDrawer } from './components/drawer/topLevelPartials'
 import { Search } from './components/search/partials'
-import { EnhancedSearchBar } from '@financial-times/enhanced-search-suggestions'
 
 import { THeaderProps, THeaderOptions } from './interfaces'
 
@@ -49,11 +48,9 @@ function MainHeader(props: THeaderProps) {
         {props.showLogoLink ? <TopColumnCenter /> : <TopColumnCenterNoLink />}
         <TopColumnRight {...props} />
       </TopWrapper>
-      {props.enhancedSearchProps ? (
-        <EnhancedSearchBar instance="primary" type="header" {...props.enhancedSearchProps} />
-      ) : (
-        <Search instance="primary" />
-      )}
+
+      <Search instance="primary" />
+
       <MobileNav {...props} />
       <NavDesktop>
         <NavListLeft {...props} />
@@ -74,11 +71,7 @@ function StickyHeader(props: THeaderProps) {
         <TopColumnCenterSticky {...props} />
         <TopColumnRightSticky {...props} />
       </TopWrapperSticky>
-      {props.enhancedSearchProps ? (
-        <EnhancedSearchBar instance="sticky" type="header" {...props.enhancedSearchProps} />
-      ) : (
-        <Search instance="sticky" />
-      )}
+      <Search instance="sticky" />
     </StickyHeaderWrapper>
   ) : null
 }
