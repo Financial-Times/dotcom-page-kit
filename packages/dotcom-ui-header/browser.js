@@ -1,10 +1,11 @@
 import Header from '@financial-times/o-header'
 import TopicSearch from 'n-topic-search'
-
+import EnhancedSearch from './src/enhanced-search/enhancedSearch'
 /**
  * @typedef HeaderOptions
  * @property { HTMLElement } [rootElement] - the root element passed to o-header
  * @property { string } [hostName]
+ * @property { string } [enhancedSearchUrl]
  */
 
 /**
@@ -16,7 +17,9 @@ export const init = (headerOptions = {}) => {
     '.o-header [data-n-topic-search], .o-header__drawer [data-n-topic-search]'
   )
   topicSearchElements.forEach((element) => {
-    new TopicSearch(element, headerOptions)
+    headerOptions.enhancedSearchUrl
+      ? new EnhancedSearch(element, headerOptions)
+      : new TopicSearch(element, headerOptions)
   })
 
   Header.init(headerOptions.rootElement)

@@ -8,7 +8,6 @@ import {
 } from './additionalPartials'
 import { THeaderProps } from '../../interfaces'
 import { TNavMenuItem, TNavMenu, TNavEditions } from '@financial-times/dotcom-types-navigation'
-import { EnhancedSearchBar } from '@financial-times/enhanced-search-suggestions'
 
 const IncludeDrawer = (props) => <Drawer {...props} />
 
@@ -33,11 +32,7 @@ const Drawer = (props: THeaderProps) => {
       <div className="o-header__drawer-inner">
         <DrawerTools {...editions} />
         {!props.userIsSubscribed && subscribeAction && <SubscribeButton {...subscribeAction} />}
-        {props.enhancedSearchProps ? (
-          <EnhancedSearchBar instance="primary" type="drawer" {...props.enhancedSearchProps} />
-        ) : (
-          <Search />
-        )}
+        <Search />
         <nav className="o-header__drawer-menu" aria-label="Edition switcher">
           {editions && <EditionsSwitcher {...editions} />}
         </nav>

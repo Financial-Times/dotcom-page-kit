@@ -1,0 +1,117 @@
+@use '@financial-times/o-colors/main' as colors;
+@use '@financial-times/o-spacing/main' as spacing;
+@use '@financial-times/o-typography/main' as typography;
+
+@mixin enhancedSearch {
+  .enhanced-search {
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      padding: spacing.oSpacingByName('s6');
+    }
+
+    &__title {
+      color: colors.oColorsByName('black');
+      @include typography.oTypographySans($scale: 0, $style: 'normal', $weight: 'semibold');
+      margin: 0 0 spacing.oSpacingByName('s3') 0;
+    }
+
+    &__suggestions {
+      display: flex;
+      gap: spacing.oSpacingByName('m16');
+      padding-top: spacing.oSpacingByName('s6');
+      flex-direction: column;
+
+      @include oGridRespondTo('L') {
+        flex-direction: row;
+      }
+    }
+
+    &__target {
+      padding: 0;
+      padding-block: spacing.oSpacingByName('s2');
+    }
+
+    &__target::before,
+    &__chip::before {
+      border-bottom: unset !important;
+    }
+
+    &__target:hover,
+    &__target:focus {
+      background-color: transparent;
+      color: oColorsByName('teal');
+    }
+
+    &__target:hover:before,
+    &__target:focus:before {
+      opacity: 0;
+    }
+
+    &__target--news {
+      color: colors.oColorsByName('claret-70');
+    }
+
+    &__target--news:hover,
+    &__target--news:focus {
+      color: colors.oColorsByName('claret-30');
+    }
+
+    &__target--equities {
+      display: flex;
+      align-items: flex-start;
+      gap: spacing.oSpacingByName('s3');
+      color: colors.oColorsByName('black');
+    }
+
+    &__target--equities:hover,
+    &__target--equities:focus {
+      color: colors.oColorsByName('slate');
+    }
+
+    &__chip {
+      border-radius: spacing.oSpacingByName('s1');
+      background: colors.oColorsMix('ft-grey', 'white', 10);
+      padding: spacing.oSpacingByName('s2') spacing.oSpacingByName('s3');
+      width: fit-content;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+
+    &__chip:hover,
+    &__chip:focus {
+      background: colors.oColorsMix('ft-grey', 'white', 20);
+    }
+
+    &__chip:focus-visible {
+      box-shadow: 0 0 0 spacing.oSpacingByIncrement(0.5) colors.oColorsByName('white'),
+        0 0 0 spacing.oSpacingByName('s1') colors.oColorsByName('black-70');
+      color: colors.oColorsByName('white');
+      border-color: transparent;
+      border-radius: 0;
+      outline: none;
+    }
+
+    &__chip-text {
+      margin: 0;
+      color: colors.oColorsByName('black');
+      @include typography.oTypographySans($scale: -1, $style: 'normal', $weight: 'regular');
+      outline: none;
+    }
+
+    &__default-results {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: spacing.oSpacingByName('s2');
+      flex-direction: column;
+
+      @include oGridRespondTo('L') {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+  }
+}
