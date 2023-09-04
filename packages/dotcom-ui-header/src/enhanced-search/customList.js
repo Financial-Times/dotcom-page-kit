@@ -12,12 +12,14 @@ class CustomSuggestionList extends BaseRenderer {
   }
 
   renderSuggestionChip = (term) => {
+    const WORD_LIMIT = 60
     return `<a
         data-trackable="link"
         data-suggestion-id="${term}"
         href="${this.enhancedSearchUrl}${term}"
         class="n-topic-search__target enhanced-search__chip">
-        <span class="enhanced-search__chip-text">${term}</span>
+        <span class="enhanced-search__chip-text">${term.substring(0, WORD_LIMIT)}
+        ${term.length > WORD_LIMIT ? '...' : ''}</span>
         </a>`
   }
 

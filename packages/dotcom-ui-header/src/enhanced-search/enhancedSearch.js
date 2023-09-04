@@ -8,12 +8,20 @@ class EnhancedSearch extends TopicSearch {
       listComponent: (...args) => new CustomSuggestionList(...args.concat(options?.enhancedSearchUrl))
     })
 
+    this.updateEnhancedSearchAttributes(options)
+  }
+
+  updateEnhancedSearchAttributes(options) {
     const inputs = [
       document.querySelector('#o-header-search-term-primary'),
       document.querySelector('#o-header-search-term-sticky'),
       document.querySelector('#o-header-drawer-search-term')
     ]
-    inputs[0].parentElement.setAttribute('data-attribute-enhanced-search', 'true')
+
+    const form = inputs[0].parentElement
+
+    form.setAttribute('data-attribute-enhanced-search', 'true')
+    form.setAttribute('action', options?.enhancedSearchUrl ?? '/search')
     inputs.forEach((input) =>
       input.setAttribute('placeholder', 'Search the FT using questions, topics or article titles')
     )
