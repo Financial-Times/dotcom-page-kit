@@ -8,6 +8,10 @@ class EnhancedSearch extends TopicSearch {
       listComponent: (...args) => new CustomSuggestionList(...args.concat(options?.enhancedSearchUrl))
     })
 
+    this.updateEnhancedSearchAttributes(options)
+  }
+
+  updateEnhancedSearchAttributes(options) {
     const inputs = [
       document.querySelector('#o-header-search-term-primary'),
       document.querySelector('#o-header-search-term-sticky'),
