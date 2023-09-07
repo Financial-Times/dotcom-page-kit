@@ -12,21 +12,19 @@ class CustomSuggestionList extends BaseRenderer {
   }
 
   renderSuggestionChip = (term) => {
-    const WORD_LIMIT = 60
     return `<a
         data-trackable="link"
         data-suggestion-id="${term}"
         href="${this.enhancedSearchUrl}${term}"
         class="n-topic-search__target enhanced-search__chip">
-        <span class="enhanced-search__chip-text">${term.substring(0, WORD_LIMIT)}
-        ${term.length > WORD_LIMIT ? '...' : ''}</span>
+          <span class="enhanced-search__chip-text">${term}</span>
         </a>`
   }
 
   renderDefaultSuggestionsChips() {
     return `
         <div class="enhanced-search__default-results">
-            ${['US China trade dispute', 'When is UK inflation likely to fall?', 'Greenwashing']
+            ${['Will Trump win the next election?', 'Investing in AI', 'Ukraine counteroffensive']
               .map(this.renderSuggestionChip)
               .join('')}
         </div>`
@@ -111,7 +109,9 @@ class CustomSuggestionList extends BaseRenderer {
           data-trackable="typeahead"
         >
           <div class="enhanced-search__wrapper">
-            <h3 class="enhanced-search__title">Enhanced search results for...</h3>
+            <h3 class="enhanced-search__title">${
+              term ? 'Get top results for...' : 'Search tip: Try using questions or phrases like...'
+            }</h3>
             ${term ? this.renderSuggestionChip(term) : this.renderDefaultSuggestionsChips()}
             <div class="o-normalise-visually-hidden">Suggestions include</div>
               ${

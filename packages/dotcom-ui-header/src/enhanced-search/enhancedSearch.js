@@ -22,9 +22,7 @@ class EnhancedSearch extends TopicSearch {
 
     form.setAttribute('data-attribute-enhanced-search', 'true')
     form.setAttribute('action', options?.enhancedSearchUrl ?? '/search')
-    inputs.forEach((input) =>
-      input.setAttribute('placeholder', 'Search the FT using questions, topics or article titles')
-    )
+    inputs.forEach((input) => input.setAttribute('placeholder', 'Search for stories, topics or securities'))
   }
 
   onFocus(ev) {
