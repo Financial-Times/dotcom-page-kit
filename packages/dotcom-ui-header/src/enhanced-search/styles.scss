@@ -4,6 +4,11 @@
 
 @mixin enhancedSearch {
   .enhanced-search {
+    &__suggestions {
+      max-width: 540px;
+      left: - spacing.oSpacingByName('s3');
+    }
+
     &__wrapper {
       display: flex;
       flex-direction: column;
@@ -20,7 +25,7 @@
     &__suggestions {
       display: flex;
       gap: spacing.oSpacingByName('m16');
-      padding-top: spacing.oSpacingByName('s6');
+      padding-top: spacing.oSpacingByName('s4');
       flex-direction: column;
 
       @include oGridRespondTo('L') {

@@ -107,7 +107,7 @@ class CustomSuggestionList extends BaseRenderer {
             : ''
         }
         <div
-          class="n-topic-search n-topic-search__suggestions"
+          class="n-topic-search n-topic-search__suggestions enhanced-search enhanced-search__suggestions"
           data-trackable="typeahead"
         >
           <div class="enhanced-search__wrapper">
