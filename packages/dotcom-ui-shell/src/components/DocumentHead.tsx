@@ -45,7 +45,7 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     <OpenGraph openGraph={props.openGraph} />
 
     {/* native apps */}
-    {props.showSmartBanner && 
+    {props.showSmartBanner &&
       (
         <meta
           name="apple-itunes-app"
@@ -86,8 +86,6 @@ const DocumentHead = (props: TDocumentHeadProps) => (
 )
 
 DocumentHead.defaultProps = {
-  description:
-    'News, analysis and comment from the Financial Times, the worldʼs leading global business publication',
   facebookPage: '8860325749',
   googleSiteVerification: '4-t8sFaPvpO5FH_Gnw1dkM28CQepjzo8UjjAkdDflTw',
   metaTags: [],
