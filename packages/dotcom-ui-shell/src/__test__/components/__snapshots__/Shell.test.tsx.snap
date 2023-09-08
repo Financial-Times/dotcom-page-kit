@@ -29,10 +29,6 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
       Foo | Financial Times
     </title>
     <meta
-      content="News, analysis and comment from the Financial Times, the worldʼs leading global business publication"
-      name="description"
-    />
-    <meta
       content="index,follow,max-snippet:200,max-image-preview:large"
       name="robots"
     />
