@@ -5,6 +5,7 @@ import EnhancedSearch from './src/enhanced-search/enhancedSearch'
  * @typedef HeaderOptions
  * @property { HTMLElement } [rootElement] - the root element passed to o-header
  * @property { string } [hostName]
+ * @property { 'open' | 'close' } [searchState]
  * @property { string } [enhancedSearchUrl]
  */
 
@@ -22,7 +23,7 @@ export const init = (headerOptions = {}) => {
       : new TopicSearch(element, headerOptions)
   })
 
-  Header.init(headerOptions.rootElement)
+  Header.init(headerOptions.rootElement, { searchState: headerOptions.searchState })
 }
 
 export { Header as OrigamiHeader }
