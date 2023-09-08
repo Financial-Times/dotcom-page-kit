@@ -55,9 +55,9 @@ class CustomSuggestionList extends BaseRenderer {
   }
 
   createHtml() {
-    const term = this.state.searchTerm
-    const hasConcepts = this.state.suggestions.concepts && this.state.suggestions.concepts.length
-    const hasEquities = this.state.suggestions.equities && this.state.suggestions.equities.length
+    const term = this.state?.searchTerm
+    const hasConcepts = this.state?.suggestions?.concepts && this.state.suggestions.concepts.length
+    const hasEquities = this.state?.suggestions?.equities && this.state.suggestions.equities.length
     const hasSuggestions = hasConcepts || hasEquities
     const suggestions = []
     this.items = []
@@ -116,7 +116,7 @@ class CustomSuggestionList extends BaseRenderer {
             <div class="o-normalise-visually-hidden">Suggestions include</div>
               ${
                 hasSuggestions
-                  ? `<div class="enhanced-search__suggestions">
+                  ? `<div class="enhanced-search__suggestions-items">
                 ${suggestions.map(this.renderSuggestionGroup).join('')}
             </div>
             `
