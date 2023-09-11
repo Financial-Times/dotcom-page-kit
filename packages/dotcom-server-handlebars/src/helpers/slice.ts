@@ -10,6 +10,10 @@ export default function slice(...args) {
   const offset = parseInt(options.hash.offset, 10) || 0
   const limit = parseInt(options.hash.limit, 10) || 1
 
+  if (!args[0]) {
+    return ''
+  }
+
   const slicedItems = Array.from(args[0]).slice(offset, offset + limit)
 
   let contents = ''
