@@ -18,11 +18,12 @@ class EnhancedSearch extends TopicSearch {
       document.querySelector('#o-header-drawer-search-term')
     ]
 
-    const form = inputs[0].parentElement
+    inputs.forEach((input, index) => {
+      input.setAttribute('placeholder', 'Search for stories, topics or securities')
+      input.parentElement.setAttribute('action', options?.enhancedSearchUrl ?? '/search')
 
-    form.setAttribute('data-attribute-enhanced-search', 'true')
-    form.setAttribute('action', options?.enhancedSearchUrl ?? '/search')
-    inputs.forEach((input) => input.setAttribute('placeholder', 'Search for stories, topics or securities'))
+      if (index === 0) input.parentElement.setAttribute('data-attribute-enhanced-search', 'true')
+    })
 
     this.hide()
   }
