@@ -3,10 +3,20 @@
 @use '@financial-times/o-typography/main' as typography;
 
 @mixin enhancedSearch {
+  // Hide search-bar on small screens
+  .o-header__search[aria-hidden='false'] {
+    display: none;
+    @include oGridRespondTo('L') {
+      display: block;
+    }
+  }
+
   .enhanced-search {
     &__suggestions {
-      max-width: 540px;
-      left: - spacing.oSpacingByName('s3');
+      @include oGridRespondTo('L') {
+        max-width: 540px;
+        left: calc(-1 * spacing.oSpacingByName('s3'));
+      }
     }
 
     &__wrapper {
