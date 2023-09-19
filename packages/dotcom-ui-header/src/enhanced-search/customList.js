@@ -44,7 +44,7 @@ class CustomSuggestionList extends BaseRenderer {
   }
 
   renderSuggestionGroup(group) {
-    if (group.suggestions.length || group.emptyHtml) {
+    if (group.suggestions?.length || group.emptyHtml) {
       return `
       <div class="enhanced-search__group ${group.linkClassName}" data-trackable="${group.trackable}">
         <ul class="n-topic-search__item-list">
