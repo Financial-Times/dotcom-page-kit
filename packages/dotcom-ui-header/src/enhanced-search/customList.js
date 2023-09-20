@@ -13,6 +13,7 @@ class CustomSuggestionList extends BaseRenderer {
 
   renderSuggestionChip = (term) => {
     return `<a
+        tabindex="0"
         data-trackable="link"
         data-suggestion-id="${term}"
         href="${this.enhancedSearchUrl}${term}"
@@ -43,19 +44,35 @@ class CustomSuggestionList extends BaseRenderer {
   }
 
   renderSuggestionGroup(group) {
-    let html = `<div class="enhanced-search__group ${group.linkClassName}" data-trackable="${group.trackable}">`
-
-    if (group.suggestions.length || group.emptyHtml) {
-      html += `<ul class="n-topic-search__item-list">
-				${group.suggestions.map((suggestion) => this.renderSuggestionLink(suggestion, group)).join('')}
-			</ul>`
+    if (group.suggestions?.length || group.emptyHtml) {
+      return `
+      <div class="enhanced-search__group ${group.linkClassName}" data-trackable="${group.trackable}">
+        <ul class="n-topic-search__item-list">
+          ${group.suggestions.map((suggestion) => this.renderSuggestionLink(suggestion, group)).join('')}
+        </ul>
+      </div>`
     }
-    html += '</div>'
-    return html
+    return ''
+  }
+
+  renderError() {
+    return `
+    <div
+      className="o-message o-message--alert o-message--error enhanced-search__margin-top"
+      data-o-component="o-message">
+      <div className="o-message__container">
+        <div className="o-message__content">
+          <p className="o-message__content-main">Something went wrong!</p>
+        </div>
+      </div>
+    </div>
+  `
   }
 
   createHtml() {
     const term = this.state?.searchTerm
+    const loading = this.state?.loading
+    const error = this.state?.error !== undefined
     const hasConcepts = this.state?.suggestions?.concepts && this.state.suggestions.concepts.length
     const hasEquities = this.state?.suggestions?.equities && this.state.suggestions.equities.length
     const hasSuggestions = hasConcepts || hasEquities
@@ -65,7 +82,7 @@ class CustomSuggestionList extends BaseRenderer {
       suggestions.push({
         linkClassName: 'enhanced-search__target--news',
         trackable: 'enhanced-search-news',
-        suggestions: this.state.suggestions.concepts.slice(0, DISPLAY_ITEMS).map((suggestion) => ({
+        suggestions: this.state.suggestions.concepts?.slice(0, DISPLAY_ITEMS).map((suggestion) => ({
           html: this.highlight(suggestion.prefLabel),
           url: suggestion.url,
           id: suggestion.id,
@@ -79,7 +96,7 @@ class CustomSuggestionList extends BaseRenderer {
         trackable: 'enhanced-search-equities',
         linkClassName: 'enhanced-search__target--equities',
         emptyHtml: '<div className="enhanced-search__no-results-message">No equities found</div>',
-        suggestions: this.state.suggestions.equities.slice(0, DISPLAY_ITEMS).map((suggestion) => ({
+        suggestions: this.state.suggestions.equities?.slice(0, DISPLAY_ITEMS).map((suggestion) => ({
           html: `<span class="enhanced-search__target__equity-name">${this.highlight(
             suggestion.name
           )}</span><abbr>${this.highlight(suggestion.symbol)}</abbr>`,
@@ -114,14 +131,20 @@ class CustomSuggestionList extends BaseRenderer {
             }</h3>
             ${term ? this.renderSuggestionChip(term) : this.renderDefaultSuggestionsChips()}
             <div class="o-normalise-visually-hidden">Suggestions include</div>
-              ${
-                hasSuggestions
-                  ? `<div class="enhanced-search__suggestions-items">
-                ${suggestions.map(this.renderSuggestionGroup).join('')}
-            </div>
+            ${error ? this.renderError() : ''}
+            ${
+              loading && !error
+                ? `<div class="o-loading o-loading--dark o-loading--small enhanced-search__margin-top"></div>`
+                : ''
+            }
+            ${
+              hasSuggestions && term && !loading && !error
+                ? `<div class="enhanced-search__suggestions-items">${suggestions
+                    .map(this.renderSuggestionGroup)
+                    .join('')}</div>
             `
-                  : ''
-              }
+                : ''
+            }
           </div>
         </div>
       </div>`

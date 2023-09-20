@@ -5,7 +5,14 @@ class EnhancedSearch extends TopicSearch {
   constructor(containerEl, options) {
     super(containerEl, {
       ...options,
-      listComponent: (...args) => new CustomSuggestionList(...args.concat(options?.enhancedSearchUrl))
+      listComponent: (...args) => new CustomSuggestionList(...args.concat(options?.enhancedSearchUrl)),
+      errorCallback: (error) => {
+        this.suggestionsView.setState({
+          error,
+          searchTerm: this.searchEl.value,
+          suggestions: {}
+        })
+      }
     })
 
     this.updateEnhancedSearchAttributes(options)
@@ -34,6 +41,18 @@ class EnhancedSearch extends TopicSearch {
     this.suggestionTargets = Array.from(
       this.suggestionListContainer.querySelectorAll('.n-topic-search__target')
     )
+  }
+
+  onType(ev) {
+    // This is to update the suggestion chip on keyup
+    this.suggestionsView.setState({
+      searchTerm: this.searchEl.value,
+      loading: this.searchEl.value && this.searchEl.value.length > this.minLength,
+      suggestions: {}
+    })
+    super.onType(ev)
+    // this is show the flyout for less than minimum length
+    this.show()
   }
 }
 

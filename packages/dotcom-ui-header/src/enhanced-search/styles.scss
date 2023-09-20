@@ -19,6 +19,10 @@
       }
     }
 
+    &__margin-top {
+      margin-top: spacing.oSpacingByName('s4');
+    }
+
     &__wrapper {
       display: flex;
       flex-direction: column;
