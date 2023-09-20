@@ -4,6 +4,7 @@
 import React from 'react'
 import { SubscribeButton, SignInLink } from '../top/partials'
 import { THeaderProps } from '../../interfaces'
+import { TNavMenuItem } from '@financial-times/dotcom-types-navigation'
 
 const StickyHeaderWrapper = (props: THeaderProps & { children: React.ReactNode }) => (
   <header
@@ -88,16 +89,19 @@ const NavListRightAnonSticky = (props: THeaderProps) => {
   )
 }
 
-const MyFtSticky = ({ className }: { className?: string }) => (
-  <a
-    className={`o-header__top-icon-link o-header__top-icon-link--myft ${className}`}
-    href="/myft"
-    data-trackable="my-ft"
-    tabIndex={-1}
-  >
-    <span className="o-header__visually-hidden">myFT</span>
-  </a>
-)
+const MyFtSticky = ({ className, items }: { className?: string; items?: TNavMenuItem[] }) => {
+  const ftUrl = items?.find((el) => el.label === 'myFT')?.url
+  return (
+    <a
+      className={`o-header__top-icon-link o-header__top-icon-link--myft ${className}`}
+      href={ftUrl ?? '/myft'}
+      data-trackable="my-ft"
+      tabIndex={-1}
+    >
+      <span className="o-header__visually-hidden">myFT</span>
+    </a>
+  )
+}
 
 const TopWrapperSticky = (props) => (
   <div className="o-header__row o-header__top" data-trackable="header-sticky">
@@ -129,13 +133,9 @@ const NavListRightLoggedInSticky = (props: THeaderProps) => {
   return (
     <React.Fragment>
       {!props.userIsSubscribed && subscribeAction && (
-        <SubscribeButton
-          item={subscribeAction}
-          variant="sticky"
-          className="o-header__top-button--hide-m"
-        />
+        <SubscribeButton item={subscribeAction} variant="sticky" className="o-header__top-button--hide-m" />
       )}
-      <MyFtSticky className="" />
+      <MyFtSticky className="" items={props.data.account?.items} />
     </React.Fragment>
   )
 }

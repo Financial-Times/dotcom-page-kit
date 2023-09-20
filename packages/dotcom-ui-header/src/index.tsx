@@ -45,7 +45,11 @@ function MainHeader(props: THeaderProps) {
       {includeUserActionsNav ? <UserActionsNav {...props} /> : null}
       <TopWrapper>
         <TopColumnLeft />
-        {props.showLogoLink ? <TopColumnCenter /> : <TopColumnCenterNoLink />}
+        {props.showLogoLink ? (
+          <TopColumnCenter url={props.data.editions.current.url} />
+        ) : (
+          <TopColumnCenterNoLink />
+        )}
         <TopColumnRight {...props} />
       </TopWrapper>
 
@@ -112,7 +116,13 @@ function NoOutboundLinksHeader(props: THeaderProps) {
   return (
     <HeaderWrapper {...props}>
       {includeUserActionsNav ? <UserActionsNav {...props} /> : null}
-      <TopWrapper>{props.showLogoLink ? <TopColumnCenter /> : <TopColumnCenterNoLink />}</TopWrapper>
+      <TopWrapper>
+        {props.showLogoLink ? (
+          <TopColumnCenter url={props.data.editions.current.url} />
+        ) : (
+          <TopColumnCenterNoLink />
+        )}
+      </TopWrapper>
       <NavDesktop>{props.showUserNavigation ? <NavListRight {...props} /> : null}</NavDesktop>
       {includeSubNavigation ? <SubNavigation {...props} /> : null}
     </HeaderWrapper>

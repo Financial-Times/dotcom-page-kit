@@ -39,18 +39,21 @@ const SearchIcon = () => (
   </a>
 )
 
-const MyFt = ({ className }: { className?: string }) => (
-  <a
-    className={`o-header__top-icon-link o-header__top-icon-link--myft ${className}`}
-    id="o-header-top-link-myft"
-    href="/myft"
-    data-trackable="my-ft"
-    data-tour-stage="myFt"
-    aria-label="My F T"
-  >
-    <span className="o-header__visually-hidden">myFT</span>
-  </a>
-)
+const MyFt = ({ className, items }: { className?: string; items?: TNavMenuItem[] }) => {
+  const ftUrl = items?.find((el) => el.label === 'myFT')?.url
+  return (
+    <a
+      className={`o-header__top-icon-link o-header__top-icon-link--myft ${className}`}
+      id="o-header-top-link-myft"
+      href={ftUrl ?? '/myft'}
+      data-trackable="my-ft"
+      data-tour-stage="myFt"
+      aria-label="My F T"
+    >
+      <span className="o-header__visually-hidden">myFT</span>
+    </a>
+  )
+}
 
 const TopWrapper = (props) => (
   <div className="o-header__row o-header__top" data-trackable="header-top">
@@ -67,13 +70,13 @@ const TopColumnLeft = () => (
   </div>
 )
 
-const TopColumnCenter = () => (
+const TopColumnCenter = ({ url }: { url?: string }) => (
   <div className="o-header__top-column o-header__top-column--center">
     <a
       className="o-header__top-logo"
       style={{ backgroundImage: 'none' }}
       data-trackable="logo"
-      href="/"
+      href={url ?? '/'}
       title="Go to Financial Times homepage"
     >
       <BrandFtMastheadSvg title="Financial Times" />
@@ -100,7 +103,7 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
           className="o-header__top-button--hide-m"
         />
       )}
-      <MyFt className="" />
+      <MyFt className="" items={props.data?.account?.items} />
     </div>
   )
 }
@@ -162,7 +165,7 @@ const TopColumnRightAnon = ({ items, variant }: { items: TNavMenuItem[]; variant
       {signInAction && (
         <SignInLink item={signInAction} variant={variant} className="o-header__top-link--hide-m" />
       )}
-      <MyFt className="o-header__top-icon-link--show-m" />
+      <MyFt className="o-header__top-icon-link--show-m" items={items} />
     </div>
   )
 }
@@ -172,7 +175,8 @@ const TopColumnRight = (props: THeaderProps) => {
     return <TopColumnRightLoggedIn {...props} />
   } else {
     const userNavAnonItems = props.data['navbar-right-anon'].items
-    return <TopColumnRightAnon items={userNavAnonItems} variant={props.variant} />
+    const userNavAccountItems = props.data.account?.items ?? []
+    return <TopColumnRightAnon items={userNavAnonItems.concat(userNavAccountItems)} variant={props.variant} />
   }
 }
 
