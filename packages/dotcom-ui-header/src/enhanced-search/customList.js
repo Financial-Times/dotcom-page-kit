@@ -2,6 +2,11 @@ import BaseRenderer from 'n-topic-search/src/renderers/base-renderer'
 
 const DISPLAY_ITEMS = 5
 
+const headingMapping = {
+  concepts: 'Related topics',
+  equities: 'Securities'
+}
+
 class CustomSuggestionList extends BaseRenderer {
   constructor(container, options, enhancedSearchUrl) {
     super(container, options)
@@ -47,6 +52,7 @@ class CustomSuggestionList extends BaseRenderer {
     if (group.suggestions?.length || group.emptyHtml) {
       return `
       <div class="enhanced-search__group ${group.linkClassName}" data-trackable="${group.trackable}">
+         <h3 class="enhanced-search__title">${group.heading}</h3>
         <ul class="n-topic-search__item-list">
           ${group.suggestions.map((suggestion) => this.renderSuggestionLink(suggestion, group)).join('')}
         </ul>
@@ -80,6 +86,7 @@ class CustomSuggestionList extends BaseRenderer {
     this.items = []
     if (this.options.categories.includes('concepts')) {
       suggestions.push({
+        heading: headingMapping['concepts'],
         linkClassName: 'enhanced-search__target--news',
         trackable: 'enhanced-search-news',
         suggestions: this.state.suggestions.concepts?.slice(0, DISPLAY_ITEMS).map((suggestion) => ({
@@ -93,6 +100,7 @@ class CustomSuggestionList extends BaseRenderer {
 
     if (this.options.categories.includes('equities')) {
       suggestions.push({
+        heading: headingMapping['equities'],
         trackable: 'enhanced-search-equities',
         linkClassName: 'enhanced-search__target--equities',
         emptyHtml: '<div className="enhanced-search__no-results-message">No equities found</div>',
