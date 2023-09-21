@@ -47,7 +47,7 @@ class EnhancedSearch extends TopicSearch {
     // This is to update the suggestion chip on keyup
     this.suggestionsView.setState({
       searchTerm: this.searchEl.value,
-      loading: this.searchEl.value && this.searchEl.value.length > this.minLength,
+      loading: this.searchEl.value && this.searchEl.value.length >= this.minLength,
       suggestions: {}
     })
     super.onType(ev)

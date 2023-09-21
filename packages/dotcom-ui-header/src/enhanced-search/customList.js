@@ -58,11 +58,11 @@ class CustomSuggestionList extends BaseRenderer {
   renderError() {
     return `
     <div
-      className="o-message o-message--alert o-message--error enhanced-search__margin-top"
+      class="o-message o-message--alert o-message--error enhanced-search__margin-top"
       data-o-component="o-message">
-      <div className="o-message__container">
-        <div className="o-message__content">
-          <p className="o-message__content-main">Something went wrong!</p>
+      <div class="o-message__container">
+        <div class="o-message__content">
+          <p class="o-message__content-main">Something went wrong!</p>
         </div>
       </div>
     </div>
