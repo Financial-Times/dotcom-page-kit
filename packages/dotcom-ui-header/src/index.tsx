@@ -46,7 +46,7 @@ function MainHeader(props: THeaderProps) {
       <TopWrapper>
         <TopColumnLeft />
         {props.showLogoLink ? (
-          <TopColumnCenter url={props.data.editions.current.url} />
+          <TopColumnCenter url={props.data.editions?.current?.url} />
         ) : (
           <TopColumnCenterNoLink />
         )}
@@ -118,7 +118,7 @@ function NoOutboundLinksHeader(props: THeaderProps) {
       {includeUserActionsNav ? <UserActionsNav {...props} /> : null}
       <TopWrapper>
         {props.showLogoLink ? (
-          <TopColumnCenter url={props.data.editions.current.url} />
+          <TopColumnCenter url={props.data.editions?.current?.url} />
         ) : (
           <TopColumnCenterNoLink />
         )}

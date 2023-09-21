@@ -19,6 +19,12 @@
       }
     }
 
+    &__title {
+      color: colors.oColorsByName('black');
+      @include typography.oTypographySans($scale: 0, $style: 'normal', $weight: 'semibold');
+      margin: 0 0 spacing.oSpacingByName('s3') 0;
+    }
+
     &__margin-top {
       margin-top: spacing.oSpacingByName('s4');
     }
@@ -39,7 +45,7 @@
     &__suggestions-items {
       display: flex;
       gap: spacing.oSpacingByName('m16');
-      padding-top: spacing.oSpacingByName('s4');
+      padding-top: spacing.oSpacingByName('s6');
       flex-direction: column;
 
       @include oGridRespondTo('L') {
@@ -69,6 +75,7 @@
     }
 
     &__target--news {
+      min-width: spacing.oSpacingByIncrement(25);
       color: colors.oColorsByName('claret-70');
     }
 
@@ -78,10 +85,13 @@
     }
 
     &__target--equities {
+      color: colors.oColorsByName('black');
+    }
+
+    a.enhanced-search__target--equities{
       display: flex;
       align-items: flex-start;
       gap: spacing.oSpacingByName('s3');
-      color: colors.oColorsByName('black');
     }
 
     &__target--equities:hover,
