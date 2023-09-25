@@ -1,7 +1,6 @@
 // This will be overridden by dotcom-ui-layout, it's necessary here for storybook builds
 $system-code: 'page-kit-header' !default;
 
-
 @import 'n-ui-foundations/mixins';
 
 // We don't need the sub-brand or transparent header styles so disable them.
@@ -16,3 +15,9 @@ $system-code: 'page-kit-header' !default;
 
 @import './src/enhanced-search/styles';
 @include enhancedSearch;
+
+@import '@financial-times/o-loading/main';
+@include oLoading();
+
+@import '@financial-times/o-message/main';
+@include oMessage();
