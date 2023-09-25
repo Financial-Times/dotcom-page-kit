@@ -24,6 +24,11 @@ export const init = (headerOptions = {}) => {
   })
 
   Header.init(headerOptions.rootElement, { searchState: headerOptions.searchState })
+
+  if (headerOptions.searchState === 'open') {
+    // Hide the sticky heder
+    document.querySelector('#o-header-search-sticky')?.setAttribute('aria-hidden', 'true')
+  }
 }
 
 export { Header as OrigamiHeader }

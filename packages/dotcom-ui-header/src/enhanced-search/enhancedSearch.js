@@ -12,6 +12,8 @@ class EnhancedSearch extends TopicSearch {
           searchTerm: this.searchEl.value,
           suggestions: {}
         })
+        // const detail = { category: 'search', action: `Error: ${error.message}` }
+        // document.body.dispatchEvent(new CustomEvent('flyout-load-topics-error', { detail, bubbles: true }))
       }
     })
 

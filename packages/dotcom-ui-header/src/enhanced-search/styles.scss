@@ -25,6 +25,10 @@
       margin: 0 0 spacing.oSpacingByName('s3') 0;
     }
 
+    &__title-no-bold {
+      @include typography.oTypographySans($scale: 0, $style: 'normal', $weight: 'regular');
+    }
+
     &__margin-top {
       margin-top: spacing.oSpacingByName('s4');
     }

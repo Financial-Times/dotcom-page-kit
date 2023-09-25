@@ -68,7 +68,7 @@ class CustomSuggestionList extends BaseRenderer {
       data-o-component="o-message">
       <div class="o-message__container">
         <div class="o-message__content">
-          <p class="o-message__content-main">Something went wrong!</p>
+          <p class="o-message__content-main">Failed to load topics and securities results</p>
         </div>
       </div>
     </div>
@@ -135,7 +135,9 @@ class CustomSuggestionList extends BaseRenderer {
         >
           <div class="enhanced-search__wrapper">
             <h3 class="enhanced-search__title">${
-              term ? 'Get top results for...' : 'Search tip: Try using questions or phrases like...'
+              term
+                ? 'Get top results for...'
+                : 'Search tip: <span class="enhanced-search__title-no-bold">Try using questions or phrases like...</span>'
             }</h3>
             ${term ? this.renderSuggestionChip(term) : this.renderDefaultSuggestionsChips()}
             <div class="o-normalise-visually-hidden">Suggestions include</div>
