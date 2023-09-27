@@ -27,20 +27,10 @@ export class PageKitImagesPlugin {
 
     compiler.options.module.rules.push({
       test: /\.(png|jpe?g|gif|webp|ico|svg)$/,
-      use: [
-        {
-          loader: require.resolve('file-loader'),
-          options: {
-            name: (resourcePath) => {
-              const dirname = path.dirname(resourcePath)
-              const relativePath = path.relative(this.options.basePath, dirname)
-
-              // retain relative directory structure
-              return path.join(relativePath, outputFileName)
-            }
-          }
-        }
-      ]
+      type: 'asset/resource',
+      generator: {
+        filename: outputFileName
+      }
     })
   }
 }
