@@ -44,7 +44,12 @@ export class PageKitSassPlugin {
         // Disable formatting so that we don't spend time pretty printing
         outputStyle: 'compressed',
         // Enable Sass to @import source files from installed dependencies
-        includePaths: ['bower_components', 'node_modules', ...this.includePaths]
+        includePaths: [
+          'bower_components',
+          'node_modules/@financial-times',
+          'node_modules',
+          ...this.includePaths
+        ]
       }
     }
 
