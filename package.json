@@ -78,7 +78,7 @@
     "style-loader": "^1.0.0",
     "supertest": "^4.0.2",
     "ts-jest": "^26.0.0",
-    "typescript": "3.9.5"
+    "typescript": "^5.2.2"
   },
   "engines": {
     "node": "16.x || 18.x",
