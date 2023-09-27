@@ -17,15 +17,15 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "clean-webpack-plugin": "^3.0.0",
-    "compression-webpack-plugin": "^4.0.0",
-    "webpack-assets-manifest": "^3.1.1"
+    "clean-webpack-plugin": "^4.0.0",
+    "compression-webpack-plugin": "^10.0.0",
+    "webpack-assets-manifest": "^5.1.0"
   },
   "devDependencies": {
-    "@types/webpack": "^4.41.7"
+    "@types/webpack": "^5.28.3"
   },
   "peerDependencies": {
-    "webpack": "^4.39.2"
+    "webpack": "5.x"
   },
   "engines": {
     "node": "18.x || 20.x || 22.x"

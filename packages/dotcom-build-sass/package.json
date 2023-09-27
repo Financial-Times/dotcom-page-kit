@@ -17,23 +17,21 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
-    "webpack": "^4.39.2"
+    "webpack": "5.x"
   },
   "dependencies": {
     "autoprefixer": "^10.2.5",
-    "css-loader": "^3.0.0",
-    "cssnano": "^4.1.10",
-    "mini-css-extract-plugin": "^0.12.0",
     "postcss": "^8.4.20",
+    "css-loader": "^6.8.1",
+    "cssnano": "^6.0.1",
+    "mini-css-extract-plugin": "^2.7.6",
     "postcss-import": "^16.1.0",
-    "postcss-loader": "^4.0.0",
-    "sass": "^1.77.2",
-    "sass-embedded": "^1.77.2",
-    "sass-loader": "^10.5.2",
-    "webpack-fix-style-only-entries": "^0.5.0"
+    "postcss-loader": "^7.3.3",
+    "sass-embedded": "^1.67.0",
+    "sass-loader": "^13.3.2"
   },
   "devDependencies": {
-    "@types/webpack": "^4.41.7"
+    "@types/webpack": "^5.28.3"
   },
   "engines": {
     "node": "18.x || 20.x || 22.x"
