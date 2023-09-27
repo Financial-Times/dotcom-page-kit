@@ -23,13 +23,13 @@
   "license": "MIT",
   "dependencies": {
     "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation",
-    "@financial-times/dotcom-ui-base-styles": "file:../dotcom-ui-base-styles",
-    "@financial-times/dotcom-ui-footer": "file:../dotcom-ui-footer",
-    "@financial-times/dotcom-ui-header": "file:../dotcom-ui-header",
     "focus-visible": "^5.0.0",
     "n-ui-foundations": "^9.0.0"
   },
   "peerDependencies": {
+    "@financial-times/dotcom-ui-base-styles": "file:../dotcom-ui-base-styles",
+    "@financial-times/dotcom-ui-footer": "file:../dotcom-ui-footer",
+    "@financial-times/dotcom-ui-header": "file:../dotcom-ui-header",
     "react": "16.x || 17.x"
   },
   "engines": {
@@ -54,6 +54,9 @@
   },
   "devDependencies": {
     "check-engine": "^1.10.1",
-    "react": "^16.8.6"
+    "react": "^16.8.6",
+    "@financial-times/dotcom-ui-base-styles": "file:../dotcom-ui-base-styles",
+    "@financial-times/dotcom-ui-footer": "file:../dotcom-ui-footer",
+    "@financial-times/dotcom-ui-header": "file:../dotcom-ui-header"
   }
 }
