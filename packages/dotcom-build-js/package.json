@@ -18,7 +18,7 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
-    "webpack": "^4.39.2"
+    "webpack": "5.x"
   },
   "dependencies": {
     "@babel/core": "^7.8.7",
@@ -32,14 +32,17 @@
     "babel-loader": "^8.0.6"
   },
   "devDependencies": {
-    "@types/webpack": "^4.41.7",
+    "@types/webpack": "^5.28.3",
     "check-engine": "^1.10.1"
   },
   "engines": {
     "node": "18.x || 20.x",
     "npm": "8.x || 9.x || 10.x"
   },
-  "files": ["dist/", "src/"],
+  "files": [
+    "dist/",
+    "src/"
+  ],
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
