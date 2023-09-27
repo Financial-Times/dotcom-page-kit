@@ -2,7 +2,7 @@ import { PageKitImagesPlugin } from '../index'
 import webpack from 'webpack'
 import path from 'path'
 
-describe.skip('dotcom-build-images', () => {
+describe('dotcom-build-images', () => {
   it('build images', async () => {
     await new Promise<void>((resolve) =>
       webpack(
@@ -15,6 +15,9 @@ describe.skip('dotcom-build-images', () => {
           output: {
             filename: '[name].js',
             path: path.join(__dirname, '/tmp')
+          },
+          stats: {
+            errorDetails: true
           },
           plugins: [new PageKitImagesPlugin({ basePath: path.join(__dirname, '/__fixtures__', '/images') })]
         },

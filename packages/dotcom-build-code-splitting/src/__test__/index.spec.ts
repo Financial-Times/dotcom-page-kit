@@ -4,7 +4,7 @@ import path from 'path'
 
 describe('dotcom-build-code-splitting', () => {
   it('create chunk for privacy modules', async () => {
-    await new Promise((resolve) =>
+    await new Promise<void>((resolve) =>
       webpack(
         {
           mode: 'none',
