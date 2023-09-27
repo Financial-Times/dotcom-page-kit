@@ -1,5 +1,4 @@
 import assignDeep from 'assign-deep'
-import ReliableModuleIdsPlugin from 'reliable-module-ids-plugin'
 import type webpack from 'webpack'
 
 import {
@@ -20,10 +19,7 @@ export class PageKitCodeSplittingPlugin {
         },
         splitChunks: {
           chunks: 'all'
-        },
-        // We're going to implement our own algorithm so don't double effort
-        moduleIds: false,
-        chunkIds: 'named'
+        }
       }
     }
 
@@ -91,8 +87,6 @@ export class PageKitCodeSplittingPlugin {
       packages: ['@financial-times/n-tracking', '@financial-times/n-syndication'],
       usedInUnknownWay: true
     })
-
-    new ReliableModuleIdsPlugin().apply(compiler)
 
     assignDeep(
       compiler.options,
