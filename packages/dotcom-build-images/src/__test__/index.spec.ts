@@ -4,7 +4,7 @@ import path from 'path'
 
 describe('dotcom-build-images', () => {
   it('build images', async () => {
-    await new Promise((resolve) =>
+    await new Promise<void>((resolve) =>
       webpack(
         {
           mode: 'none',
@@ -16,16 +16,19 @@ describe('dotcom-build-images', () => {
             filename: '[name].js',
             path: path.join(__dirname, '/tmp')
           },
+          stats: {
+            errorDetails: true
+          },
           plugins: [new PageKitImagesPlugin({ basePath: path.join(__dirname, '/__fixtures__', '/images') })]
         },
         function (error, stats) {
           if (error) {
             throw error
-          } else if (stats.hasErrors()) {
+          } else if (stats?.hasErrors()) {
             throw stats.toString()
           }
 
-          const files = stats.toJson().assets.map((asset) => asset.name)
+          const files = stats?.toJson()?.assets?.map((asset) => asset.name)
 
           expect(files).toEqual(
             expect.arrayContaining(['scripts.js', '__images__.js', 'vectors/square.469177db7c8b.svg'])

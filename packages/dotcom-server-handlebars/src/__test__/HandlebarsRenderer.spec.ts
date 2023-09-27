@@ -81,7 +81,7 @@ describe('dotcom-server-handlebars/src/PageKitHandlebars', () => {
 
   describe('.renderView()', () => {
     it('can render a template and fire a callback with the result', () => {
-      return new Promise((done) => {
+      return new Promise<void>((done) => {
         const templateContext = { title: 'Hello World', aside: 'Lorem ipsum' }
 
         instance.renderView(view, templateContext, (error, result) => {

@@ -27,15 +27,16 @@
     "sucrase": "^3.10.1"
   },
   "devDependencies": {
+    "@financial-times/dotcom-build-base": "file:../../packages/dotcom-build-base",
     "@financial-times/dotcom-build-code-splitting": "file:../../packages/dotcom-build-code-splitting",
     "@financial-times/dotcom-build-js": "file:../../packages/dotcom-build-js",
     "@financial-times/dotcom-build-sass": "file:../../packages/dotcom-build-sass",
-    "@financial-times/dotcom-build-base": "file:../../packages/dotcom-build-base",
+    "@financial-times/o-header": "^11.1.0",
     "@sucrase/jest-plugin": "^2.0.0",
     "nodemon": "^1.18.9",
     "ready-state": "^2.0.5",
-    "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.11"
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   },
   "jest": {
     "transform": {
