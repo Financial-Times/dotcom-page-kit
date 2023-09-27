@@ -24,7 +24,7 @@ export class PageKitSassPlugin {
       // but we don't usually use this and disabling it can speed up builds by up to 20%.
       webpackImporter: this.webpackImporter,
       // Prefer `dart-sass`.
-      implementation: require('sass'),
+      implementation: require('sass-embedded'),
       // Prepends SCSS code before the actual entry file.
       // Introduced to maintain snappy grid after n-ui-foundations removed it as the default.
       // Once user-facing apps and components move away from using snappy grid then this can be removed.
