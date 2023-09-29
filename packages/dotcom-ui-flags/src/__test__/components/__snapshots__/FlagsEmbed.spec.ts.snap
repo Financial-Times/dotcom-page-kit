@@ -3,8 +3,8 @@
 exports[`dotcom-ui-flags/src/components/FlagsEmbed renders a script element containing flags 1`] = `
 <script
   dangerouslySetInnerHTML={
-    Object {
-      "__html": "{\\"foo\\":1,\\"baz\\":\\"qux\\"}",
+    {
+      "__html": "{\"foo\":1,\"baz\":\"qux\"}",
     }
   }
   id="page-kit-flags-embed"
