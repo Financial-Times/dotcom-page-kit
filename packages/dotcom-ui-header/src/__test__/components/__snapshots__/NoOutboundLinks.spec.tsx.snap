@@ -24,7 +24,7 @@ exports[`dotcom-ui-header/src/components/NoOutboundLinksHeader renders as a logg
           <div
             className="o-header__top-logo"
             style={
-              Object {
+              {
                 "backgroundImage": "none",
               }
             }
@@ -192,7 +192,7 @@ exports[`dotcom-ui-header/src/components/NoOutboundLinksHeader renders as an ano
           <div
             className="o-header__top-logo"
             style={
-              Object {
+              {
                 "backgroundImage": "none",
               }
             }
