@@ -3,8 +3,8 @@
 exports[`dotcom-ui-app-context/src/components/AppContextEmbed renders a script element containing app context properties 1`] = `
 <script
   dangerouslySetInnerHTML={
-    Object {
-      "__html": "{\\"appName\\":\\"app-name\\",\\"appVersion\\":\\"123\\",\\"edition\\":\\"uk\\",\\"product\\":\\"next\\",\\"abTestState\\":\\"someCohort:on\\",\\"isProduction\\":true}",
+    {
+      "__html": "{\"appName\":\"app-name\",\"appVersion\":\"123\",\"edition\":\"uk\",\"product\":\"next\",\"abTestState\":\"someCohort:on\",\"isProduction\":true}",
     }
   }
   id="page-kit-app-context"
