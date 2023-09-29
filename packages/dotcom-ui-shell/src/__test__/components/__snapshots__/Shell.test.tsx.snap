@@ -6,7 +6,7 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
   data-o-component="o-typography"
   lang="en-GB"
   style={
-    Object {
+    {
       "backgroundColor": "#fff1e5",
       "color": "#33302e",
       "overflowX": "hidden",
@@ -38,8 +38,8 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
     />
     <script
       dangerouslySetInnerHTML={
-        Object {
-          "__html": "{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"name\\":\\"Financial Times\\",\\"alternateName\\":\\"FT.com\\",\\"url\\":\\"http://www.ft.com\\"}",
+        {
+          "__html": "{\"@context\":\"http://schema.org\",\"@type\":\"WebSite\",\"name\":\"Financial Times\",\"alternateName\":\"FT.com\",\"url\":\"http://www.ft.com\"}",
         }
       }
       type="application/ld+json"
@@ -135,7 +135,7 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
     />
     <script
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": undefined,
         }
       }
@@ -144,8 +144,8 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
     />
     <script
       dangerouslySetInnerHTML={
-        Object {
-          "__html": "{\\"trackErrors\\":true,\\"core\\":[\\"https://polyfill.io/v3/polyfill.min.js?features=HTMLPictureElement&source=next\\"],\\"enhanced\\":[\\"https://polyfill.io/v3/polyfill.min.js?features=default%2Ces5%2Ces2015%2Ces2016%2Ces2017%2CEventSource%2Cfetch%2CHTMLPictureElement%2CIntersectionObserver%2CNodeList.prototype.forEach&source=next\\"]}",
+        {
+          "__html": "{\"trackErrors\":true,\"core\":[\"https://polyfill.io/v3/polyfill.min.js?features=HTMLPictureElement&source=next\"],\"enhanced\":[\"https://polyfill.io/v3/polyfill.min.js?features=default%2Ces5%2Ces2015%2Ces2016%2Ces2017%2CEventSource%2Cfetch%2CHTMLPictureElement%2CIntersectionObserver%2CNodeList.prototype.forEach&source=next\"]}",
         }
       }
       id="page-kit-bootstrap-config"
@@ -153,7 +153,7 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
     />
     <script
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": ";(function () {
   var doc = document.documentElement
   var isEnhanced = isEnhancedBrowser()
@@ -199,7 +199,7 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
     currentScript.parentNode.insertBefore(script, currentScript)
   }
 
-  // \\"Cut the mustard\\" test
+  // \"Cut the mustard\" test
   // by Maggie Allen and Matt Hinchliffe November 2018
   function isEnhancedBrowser() {
     var script = document.createElement('script')
@@ -251,7 +251,7 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
     />
     <script
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
           new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
             j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -262,15 +262,15 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
     />
     <script
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": "(function loadCustomFonts() {
-    var rootElement = document.documentElement;
-    if (/(^|\\\\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
-        var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold'];
-        for (var i = 0; i < fontLabels.length; i++) {
-            rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '');
-        }
+  var rootElement = document.documentElement;
+  if (/(^|\\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+    var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold'];
+    for (var i = 0; i < fontLabels.length; i++) {
+      rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '');
     }
+  }
 }());",
         }
       }
@@ -282,7 +282,7 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
         height="0"
         src="https://www.googletagmanager.com/ns.html?id=GTM-NWQJW68"
         style={
-          Object {
+          {
             "display": "none",
             "visibility": "hidden",
           }
@@ -292,7 +292,7 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
     </noscript>
     <script
       dangerouslySetInnerHTML={
-        Object {
+        {
           "__html": undefined,
         }
       }
@@ -301,8 +301,8 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
     />
     <script
       dangerouslySetInnerHTML={
-        Object {
-          "__html": "{\\"enableGTM\\":true}",
+        {
+          "__html": "{\"enableGTM\":true}",
         }
       }
       id="page-kit-flags-embed"
