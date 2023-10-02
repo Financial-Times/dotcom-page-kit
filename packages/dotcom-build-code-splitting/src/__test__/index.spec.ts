@@ -28,5 +28,4 @@ describe('dotcom-build-code-splitting', () => {
     expect(files.find((file) => file.includes('privacy-components'))).toBeTruthy()
 
   })
-
 })
