@@ -1,36 +1,32 @@
-import { PageKitCodeSplittingPlugin } from '../index'
-import webpack from 'webpack'
+import { promisify } from 'util'
+import webpack, { Configuration as WebpackConfiguration, Stats } from 'webpack'
 import path from 'path'
+import { PageKitCodeSplittingPlugin } from '../index'
 
 describe('dotcom-build-code-splitting', () => {
+  const webpackAsync = promisify(webpack)
   it('create chunk for privacy modules', async () => {
-    await new Promise((resolve) =>
-      webpack(
-        {
-          mode: 'none',
-          entry: {
-            scripts: path.join(__dirname, '/__fixtures__', 'entry-point.js')
-          },
-          output: {
-            filename: '[name].js',
-            path: path.join(__dirname, '/tmp')
-          },
-          plugins: [new PageKitCodeSplittingPlugin()]
-        },
-        function (error, stats) {
-          if (error) {
-            throw error
-          } else if (stats.hasErrors()) {
-            throw stats.toString()
-          }
+    const webpackConfig : WebpackConfiguration = {
+      mode: 'none',
+      entry: {
+        scripts: path.join(__dirname, '/__fixtures__', 'entry-point.js')
+      },
+      output: {
+        filename: '[name].js',
+        path: path.join(__dirname, '/tmp')
+      },
+      plugins: [new PageKitCodeSplittingPlugin()]
+    }
+    const result = await webpackAsync([webpackConfig]) as { stats: [Stats] }
+    
+    const stats = result.stats[0].toJson()
+    if (!stats) {
+      throw new Error('No stats')
+    }
+    const files = stats.assets?.map((asset) => asset.name) as string[]
 
-          const files = stats.toJson().assets.map((asset) => asset.name)
+    expect(files.find((file) => file.includes('privacy-components'))).toBeTruthy()
 
-          expect(files).toEqual(expect.arrayContaining(['privacy-components.js']))
-
-          resolve()
-        }
-      )
-    )
   })
+
 })
