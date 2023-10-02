@@ -80,20 +80,22 @@ describe('dotcom-server-handlebars/src/PageKitHandlebars', () => {
   })
 
   describe('.renderView()', () => {
-    it('can render a template and fire a callback with the result', () => {
-      return new Promise((done) => {
-        const templateContext = { title: 'Hello World', aside: 'Lorem ipsum' }
+    it('can render a template and fire a callback with the result', async () => {
+      const spy = jest.fn()
+      const templateContext = { title: 'Hello World', aside: 'Lorem ipsum' }
+      await instance.renderView(
+        view, templateContext, spy)
 
-        instance.renderView(view, templateContext, (error, result) => {
-          expect(error).toBeNull()
+      const callbackParameters = spy.mock.calls[0]
+      const [callbackError, callbackSuccess] = callbackParameters
 
-          expect(result).toContain('<h1>Hello World</h1>')
-          expect(result).toContain('<aside>Lorem ipsum</aside>')
-          expect(result).toMatch(/<main>.+<\/main>/s)
+      expect(spy).toHaveBeenCalledTimes(1)
 
-          done()
-        })
-      })
+      expect(callbackError).toBeNull()
+
+      expect(callbackSuccess).toContain('<h1>Hello World</h1>')
+      expect(callbackSuccess).toContain('<aside>Lorem ipsum</aside>')
+      expect(callbackSuccess).toContain('<main>')
     })
   })
 })
