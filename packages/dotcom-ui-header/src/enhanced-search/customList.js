@@ -30,7 +30,7 @@ class CustomSuggestionList extends BaseRenderer {
   renderDefaultSuggestionsChips() {
     return `
         <div class="enhanced-search__default-results">
-            ${['Will Trump win the next election?', 'Investing in AI', 'Ukraine counteroffensive']
+            ${['Western support for Ukraine', 'How will AI be regulated?', 'UK inflation versus world']
               .map(this.renderSuggestionChip)
               .join('')}
         </div>`
