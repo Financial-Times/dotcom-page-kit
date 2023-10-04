@@ -111,6 +111,7 @@
       cursor: pointer;
       text-decoration: none;
       display: block;
+      overflow-wrap: anywhere;
     }
 
     &__chip:hover,
@@ -140,6 +141,7 @@
       align-items: flex-start;
       gap: spacing.oSpacingByName('s2');
       flex-direction: column;
+      flex-wrap: wrap;
 
       @include oGridRespondTo('L') {
         flex-direction: row;
