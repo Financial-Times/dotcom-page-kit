@@ -71,6 +71,7 @@
     "**/__test__",
     "**/__stories__",
     "**/__fixtures__",
+    "**/node_modules",
     "**/*.spec.ts",
     "**/*.test.ts"
   ]
