@@ -64,6 +64,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
   },
+  "include": [
+    "./jest-setup.ts",
+  ],
   "exclude": [
     "**/__test__",
     "**/__stories__",
