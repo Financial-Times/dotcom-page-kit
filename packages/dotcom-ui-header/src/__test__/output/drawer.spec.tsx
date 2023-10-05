@@ -28,7 +28,9 @@ describe('dotcom-ui-header/src/components/drawer', () => {
     it('renders the current edition text', () => {
       const { container } = render(<Subject {...fixture} />)
 
-      expect(container.getElementsByClassName('o-header__drawer-current-edition')[0].innerHTML).toContain('UK Edition')
+      expect(container.getElementsByClassName('o-header__drawer-current-edition')[0].innerHTML).toContain(
+        'UK Edition'
+      )
     })
 
     it('renders the alternative edition link', () => {
@@ -36,7 +38,6 @@ describe('dotcom-ui-header/src/components/drawer', () => {
 
       const [firstLink] = Array.from(container.getElementsByClassName('o-header__drawer-menu-link'))
       expect(firstLink.innerHTML).toContain('Switch to International Edition')
-
     })
   })
 
@@ -44,20 +45,22 @@ describe('dotcom-ui-header/src/components/drawer', () => {
     it('renders the primary link section title', () => {
       const { container } = render(<Subject {...fixture} />)
 
-      const [firstLink] = container.getElementsByClassName('o-header__drawer-menu-item--heading')
+      const [firstLink] = Array.from(container.getElementsByClassName('o-header__drawer-menu-item--heading'))
       expect(firstLink.innerHTML).toContain('Top sections')
     })
 
     it('renders the secondary link section title', () => {
       const { container } = render(<Subject {...fixture} />)
 
-      const secondLink = Array.from(container.getElementsByClassName('o-header__drawer-menu-item--heading'))[1]
+      const secondLink = Array.from(
+        container.getElementsByClassName('o-header__drawer-menu-item--heading')
+      )[1]
       expect(secondLink.innerHTML).toContain('FT recommends')
     })
 
     it('renders the tertiary link section divider', () => {
       const { container } = render(<Subject {...fixture} />)
-      
+
       const [li] = Array.from(container.getElementsByClassName('o-header__drawer-menu-list--divide'))
       expect(li.children[0].innerHTML).toContain('myFT')
     })
@@ -87,7 +90,6 @@ describe('dotcom-ui-header/src/components/drawer', () => {
 
   describe('user menu', () => {
     describe('for a logged in user', () => {
-
       it('renders sign out link', () => {
         const { container } = render(<Subject {...loggedInUserFixture} />)
 

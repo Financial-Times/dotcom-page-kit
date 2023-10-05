@@ -264,13 +264,13 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
       dangerouslySetInnerHTML={
         Object {
           "__html": "(function loadCustomFonts() {
-    var rootElement = document.documentElement;
-    if (/(^|\\\\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
-        var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold'];
-        for (var i = 0; i < fontLabels.length; i++) {
-            rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '');
-        }
+  var rootElement = document.documentElement;
+  if (/(^|\\\\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
+    var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold'];
+    for (var i = 0; i < fontLabels.length; i++) {
+      rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '');
     }
+  }
 }());",
         }
       }
