@@ -4,7 +4,7 @@ import interopRequire from './interopRequire'
 import { Renderable, RenderCallback } from './types'
 
 export interface TPageKitReactJSXOptions {
-  useStaticRendering?: boolean,
+  useStaticRendering?: boolean
   includeDoctype?: boolean
 }
 
@@ -22,13 +22,18 @@ export class PageKitReactJSX {
     this.engine = this.renderView.bind(this)
   }
 
-  async render(component: Renderable, templateContext: any, includeDoctype: boolean = this.options.includeDoctype): Promise<string> {
+  async render(
+    component: Renderable,
+    templateContext: any,
+    includeDoctype: boolean = this.options.includeDoctype
+  ): Promise<string> {
     if (typeof component.getInitialProps === 'function') {
       templateContext = await component.getInitialProps(templateContext)
     }
 
     const outputPrefix = includeDoctype ? '<!DOCTYPE html>' : ''
     const renderMethod = this.options.useStaticRendering ? renderToStaticMarkup : renderToString
+    // @ts-ignore
     const outputHTML = renderMethod(createElement(component, templateContext))
 
     return outputPrefix + outputHTML

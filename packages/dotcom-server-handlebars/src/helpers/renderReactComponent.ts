@@ -30,5 +30,6 @@ export default function renderReactComponent({ hash }) {
 
   const props = { ...this, ...hash }
 
+  // @ts-ignore
   return ReactDOMServer.renderToStaticMarkup(React.createElement(Component, props))
 }
