@@ -25,7 +25,7 @@ const DocumentHead = (props: TDocumentHeadProps) => (
     <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>{props.pageTitle ? `${props.pageTitle} | ${props.siteTitle}` : props.siteTitle}</title>
+    <title>{props.pageTitle ? `${props.pageTitle}` : props.siteTitle}</title>
 
     {props.description && <meta name="description" content={props.description} />}
 
