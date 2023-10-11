@@ -7,7 +7,7 @@ export default ({ siteName, pageTitle, children }) => (
     <head>
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <title>{pageTitle ? `${pageTitle} | ${siteName}` : siteName}</title>
+      <title>{pageTitle ? `${pageTitle}` : siteName}</title>
       <link rel="stylesheet" href="public/styles.css" />
     </head>
     <body>
