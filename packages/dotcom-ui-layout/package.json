@@ -30,7 +30,9 @@
     "n-ui-foundations": "^9.0.0"
   },
   "peerDependencies": {
-    "react": "16.x || 17.x"
+    "react": "16.x || 17.x",
+    "@financial-times/o-message": "^5.4.3",
+    "@financial-times/o-loading": "^5.2.2"
   },
   "engines": {
     "node": "16.x || 18.x",
