@@ -64,10 +64,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
   },
+  "include": [
+    "./jest-setup.ts",
+  ],
   "exclude": [
     "**/__test__",
     "**/__stories__",
     "**/__fixtures__",
+    "**/node_modules",
     "**/*.spec.ts",
     "**/*.test.ts"
   ]
