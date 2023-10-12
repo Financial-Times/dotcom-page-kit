@@ -4,5 +4,12 @@ export const fontFaceURLs = [
   'https://www.ft.com/__origami/service/build/v3/font?font_format=woff2&font_name=MetricWeb-Regular&system_code=origami&version=1.12',
   'https://www.ft.com/__origami/service/build/v3/font?font_format=woff2&font_name=MetricWeb-Semibold&system_code=origami&version=1.12',
   'https://www.ft.com/__origami/service/build/v3/font?font_format=woff2&font_name=FinancierDisplayWeb-Regular&system_code=origami&version=1.12',
-  'https://www.ft.com/__origami/service/build/v3/font?font_format=woff2&font_name=FinancierDisplayWeb-Bold&system_code=origami&version=1.12'
+  'https://www.ft.com/__origami/service/build/v3/font?font_format=woff2&font_name=FinancierDisplayWeb-Bold&system_code=origami&version=1.12',
+
+]
+
+export const experimentVariableFontFaceURLs = [
+  ...fontFaceURLs,
+  'https://www.ft.com/__origami/service/build/v3/font?font_format=woff2&font_name=FinancierDisplay-VF&system_code=origami&version=1.12',
+  'https://www.ft.com/__origami/service/build/v3/font?font_format=woff2&font_name=Metric2-VF&system_code=origami&version=1.12',
 ]
