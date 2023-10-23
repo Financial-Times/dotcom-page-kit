@@ -21,7 +21,7 @@
     "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation",
     "@types/deep-freeze": "^0.1.1",
     "deep-freeze": "0.0.1",
-    "ft-poller": "^7.2.1",
+    "ft-poller": "^9.0.0",
     "http-errors": "^1.7.1",
     "node-fetch": "^2.2.1"
   },
@@ -34,7 +34,10 @@
     "node": "16.x || 18.x",
     "npm": "7.x || 8.x || 9.x"
   },
-  "files": ["dist/", "src/"],
+  "files": [
+    "dist/",
+    "src/"
+  ],
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
