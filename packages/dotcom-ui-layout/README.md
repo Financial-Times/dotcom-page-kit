@@ -68,7 +68,7 @@ This component includes styles written in Sass which includes the styles for [`n
 It is also possible to build the layout styles individually, for example to improve long-term caching. If you integrate the layout styles this way then you may need to add a dependency on `n-ui-foundations` and import its mixins into your app's main Sass stylesheet:
 
 ```scss
-@import 'n-ui-foundations/mixins_';
+@import 'n-ui-foundations/mixins';
 ```
 
 _Please note_ that the exact usage will depend on how you configure your Sass compiler and whether or not you are using Bower to install dependencies.
