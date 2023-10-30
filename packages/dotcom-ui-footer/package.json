@@ -24,8 +24,9 @@
     "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation"
   },
   "peerDependencies": {
-    "react": "16.x || 17.x",
-    "@financial-times/o-footer": "^9.2.0"
+    "@financial-times/o-footer": "^9.2.0",
+    "react": "17.x || 18.x",
+    "react-dom": "17.x || 18.x"
   },
   "engines": {
     "node": "16.x || 18.x",
@@ -49,7 +50,6 @@
   },
   "devDependencies": {
     "check-engine": "^1.10.1",
-    "@financial-times/o-footer": "^9.2.0",
-    "react": "^16.8.6"
+    "@financial-times/o-footer": "^9.2.0"
   }
 }

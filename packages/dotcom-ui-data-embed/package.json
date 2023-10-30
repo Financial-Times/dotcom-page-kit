@@ -25,7 +25,7 @@
     "npm": "7.x || 8.x || 9.x"
   },
   "peerDependencies": {
-    "react": "16.x || 17.x"
+    "react": "17.x || 18.x"
   },
   "files": [
     "dist/",
@@ -44,7 +44,6 @@
     "extends": "../../package.json"
   },
   "devDependencies": {
-    "check-engine": "^1.10.1",
-    "react": "^16.8.6"
+    "check-engine": "^1.10.1"
   }
 }
