@@ -1,0 +1,19 @@
+// The base styles will be output in the shared css bundle, so
+// only include the required mixins and variables.
+@import 'n-ui-foundations/mixins';
+
+.hello {
+  @include oTypographySans($scale: 7);
+}
+
+@media (min-width: 76.25em){
+  .content {
+    @include oTypographySans($scale: 3);
+    max-width: 1220px;
+    margin: auto;
+    h3, p {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}
