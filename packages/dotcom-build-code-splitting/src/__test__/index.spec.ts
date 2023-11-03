@@ -24,7 +24,6 @@ describe('dotcom-build-code-splitting', () => {
       throw new Error('No stats')
     }
     const files = stats.assets?.map((asset) => asset.name) as string[]
-
     expect(files.find((file) => file.includes('privacy-components'))).toBeTruthy()
   })
 })

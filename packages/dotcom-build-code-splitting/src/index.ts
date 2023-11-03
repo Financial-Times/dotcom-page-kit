@@ -88,7 +88,11 @@ export class PageKitCodeSplittingPlugin {
     const addSharedVolatileCodeSplitting = createBundleWithPackages({
       compiler,
       name: 'shared.volatile',
-      packages: ['@financial-times/n-ads', '@financial-times/n-tracking', 'n-syndication', 'n-feedback'],
+      packages: [
+        '@financial-times/n-tracking',
+        '@financial-times/n-syndication',
+        '@financial-times/n-feedback'
+      ],
       usedInUnknownWay: true
     })
 
