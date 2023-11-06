@@ -27,7 +27,7 @@
     "find-up": "^5.0.0"
   },
   "peerDependencies": {
-    "react": "16.x || 17.x"
+    "react": "17.x || 18.x"
   },
   "files": [
     "lib/",
@@ -47,7 +47,6 @@
     "extends": "../../package.json"
   },
   "devDependencies": {
-    "check-engine": "^1.10.1",
-    "react": "^16.8.6"
+    "check-engine": "^1.10.1"
   }
 }

@@ -8,7 +8,11 @@ const app = express()
 app.use(
   navigation.init(),
   assets.init({ hostStaticAssets: true }),
-  appContext.init({ appContext: { appName: 'kitchen-sink' } })
+  appContext.init({
+    appContext: {
+      appName: 'Kitchen Sink'
+    }
+  })
 )
 
 // Embed custom data into every view

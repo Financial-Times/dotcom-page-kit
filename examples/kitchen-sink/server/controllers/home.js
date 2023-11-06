@@ -3,13 +3,36 @@ const ReactDOM = require('react-dom/server')
 const { DataEmbed } = require('@financial-times/dotcom-ui-data-embed')
 const { Shell } = require('@financial-times/dotcom-ui-shell')
 const { Layout } = require('@financial-times/dotcom-ui-layout')
-const { Slot, AdsOptionsEmbed } = require('@financial-times/n-ads')
 
 const { DATA_EMBED_ID } = require('../../constants.js')
 
+const AdsContainer = () => (
+  <div
+    style={{
+      display: 'flex',
+      justifyContent: 'center'
+    }}
+    data-o-ads-name="top"
+    data-o-ads-targeting="pos=top"
+    data-o-ads-formats="MediumRectangle"
+  ></div>
+)
+
+const flagsStore = {
+  ads: true,
+  tracking: true,
+  oTracking: true,
+  adsEnableSmartmatchInTargeting: true,
+  AdsPermutive: true,
+  moatAdsTraffic: true,
+  adsEnableTestCreatives: false
+}
+
 module.exports = (_, response, next) => {
   try {
-    const flags = { ads: true, tracking: true }
+    const flags = {
+      ...flagsStore
+    }
     const { appContext, assetLoader, embeddedData } = response.locals
     const styleBundles = [
       ...assetLoader.getStylesheetURLsFor('page-kit-layout-styles'),
@@ -17,21 +40,6 @@ module.exports = (_, response, next) => {
     ]
     const asyncStyleBundles = assetLoader.getStylesheetURLsFor('async')
     const scriptBundles = assetLoader.getScriptURLsFor('scripts')
-
-    const adOptions = {
-      dfp_site: 'ft.com',
-      dfp_zone: 'Home/UK'
-    }
-
-    const adSlotProps = {
-      name: 'leaderboard',
-      formatSmall: false,
-      formatsLarge: 'SuperLeaderboard,Leaderboard,Responsive',
-      formatsExtra: 'Billboard,SuperLeaderboard,Leaderboard,Responsive',
-      targeting: {
-        pos: 'top'
-      }
-    }
 
     const Page = () => (
       <Shell
@@ -42,8 +50,7 @@ module.exports = (_, response, next) => {
         asyncStylesheets={asyncStyleBundles}
         appContext={appContext.data}
       >
-        <AdsOptionsEmbed {...adOptions} />
-        <Layout navigationData={response.locals.navigation} headerBefore={<Slot {...adSlotProps} />}>
+        <Layout navigationData={response.locals.navigation} headerBefore={<AdsContainer />}>
           <div className="content">
             <div align="center">
               <p className="hello">Hello, welcome to Page Kit.</p>
