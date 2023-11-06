@@ -24,7 +24,7 @@
     "npm": "7.x || 8.x || 9.x"
   },
   "dependencies": {
-    "find-up": "^5.0.0"
+    "find-up": "^6.0.0"
   },
   "peerDependencies": {
     "react": "17.x || 18.x"
