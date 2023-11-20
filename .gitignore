@@ -8,3 +8,4 @@ yarn.lock
 .vscode
 .cache
 /**/__test__/tmp
+.next/

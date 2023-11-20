@@ -55,7 +55,7 @@
     "@testing-library/react": "^14.1.2",
     "@types/babel__traverse": "7.11.1",
     "@types/node": "^10.12.26",
-    "@types/react": "^17.0.2",
+    "@types/react": "^18.2.37",
     "@typescript-eslint/parser": "^6.7.3",
     "babel-jest": "^27.5.1",
     "babel-loader": "^8.0.4",

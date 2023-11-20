@@ -1,12 +1,16 @@
 import React from 'react'
-// import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic'
 
-// const ClientOnly = dynamic(async () => {
-//   const { ExampleClientOnly: Component } = await import('../components/ExampleClientOnly');
-//   return { default: Component };
-// }, {
-//   ssr: false,
-// })
+const ClientOnly = dynamic(
+  async () => {
+    const { ExampleClientOnly: Component } = await import('../components/ExampleClientOnly')
+    return { default: Component }
+  },
+  {
+    ssr: false,
+    loading: () => <p>Loading...</p>
+  }
+)
 
 // const ClientAds = dynamic(async () => {
 //   const ExampleAd = await import('../utils/load-ads');
@@ -27,7 +31,7 @@ const HelloWorld = () => (
   >
     <section>
       <p>Hello World</p>
-      {/* <ClientOnly /> */}
+      <ClientOnly />
       {/* <ClientAds /> */}
     </section>
   </article>

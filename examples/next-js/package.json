@@ -9,7 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@financial-times/ads-display": "^5.2.8",
+    "@financial-times/ads-display": "^5.3.1",
     "express": "^4.18.2",
     "n-ui-foundations": "^10.1.0",
     "next": "14.0.3",
@@ -21,8 +21,8 @@
     "@financial-times/o-header": "^11.1.0",
     "@financial-times/o-toggle": "^3.2.5",
     "@types/node": "^20.8.4",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "18.2.0",
+    "@types/react": "^18.2.37",
+    "@types/react-dom": "18.2.15",
     "nodemon": "^3.0.1",
     "ready-state": "^2.0.5"
   }
