@@ -9,3 +9,6 @@ yarn.lock
 .cache
 /**/__test__/tmp
 .next/
+./examples/next-js/server.js
+tsconfig.tsbuildinfo
+

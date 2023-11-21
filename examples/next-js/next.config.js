@@ -3,6 +3,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  basePath: '/app-path',
   webpack: (config) => {
     // config.resolve.fallback = {
     //   fs: false
