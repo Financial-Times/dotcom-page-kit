@@ -12,13 +12,6 @@ const ClientOnly = dynamic(
   }
 )
 
-// const ClientAds = dynamic(async () => {
-//   const ExampleAd = await import('../utils/load-ads');
-//   return ExampleAd;
-// }, {
-//   ssr: true,
-// })
-
 const HelloWorld = () => (
   <article
     style={{
@@ -32,7 +25,6 @@ const HelloWorld = () => (
     <section>
       <p>Hello World</p>
       <ClientOnly />
-      {/* <ClientAds /> */}
     </section>
   </article>
 )

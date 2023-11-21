@@ -5,6 +5,7 @@ import oHeader from '@financial-times/o-header/main'
 export const ExampleClientOnly = () => {
   // eslint-disable-next-line no-console
   console.log('Hey, thanks for looking :)', document)
+
   useEffect(() => {
     // Make the DOM aware that JS is enabled
     // N.B. This is bad practice but necessary for Origami compatibility
