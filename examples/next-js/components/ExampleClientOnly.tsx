@@ -8,7 +8,7 @@ export const ExampleClientOnly = () => {
 
   useEffect(() => {
     // Make the DOM aware that JS is enabled
-    // N.B. This is bad practice but necessary for Origami compatibility
+    // N.B. This is necessary for Origami compatibility
     const headerElement = document.querySelector('header')
     headerElement?.removeAttribute('data-o-cheader--no-js')
     if (document.readyState === 'interactive' || document.readyState === 'complete') {
