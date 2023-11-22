@@ -1,6 +1,6 @@
 import { TNavMenuItem } from '@financial-times/dotcom-types-navigation'
 
-const isSelected = (url: string, currentPath: string): boolean => {
+const isSelected = (url: string | null, currentPath: string): boolean => {
   return url === currentPath
 }
 
@@ -8,7 +8,7 @@ const isMenuItem = (item: any): boolean => {
   return item.hasOwnProperty('label') && item.hasOwnProperty('url')
 }
 
-const decorateURL = (url: string, currentPath: string): string => {
+const decorateURL = (url: string | null, currentPath: string): string | null => {
   if (url && url.includes('${currentPath}')) {
     // Don't replace the URL placeholder with a barrier or error URL so that
     // a user logging in is not redirected to a barrier or error!
@@ -32,7 +32,7 @@ function cloneMenu(value: any, currentPath: string): any {
   }
 
   if (Object(value) === value) {
-    const cloned = {}
+    const cloned: Record<string, any> = {}
 
     for (const key of Object.keys(value)) {
       cloned[key] = cloneMenu(value[key], currentPath)

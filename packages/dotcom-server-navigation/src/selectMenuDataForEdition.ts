@@ -1,4 +1,9 @@
-import { TNavMenuKeys, TNavMenus, TNavMenusForEdition } from '@financial-times/dotcom-types-navigation'
+import {
+  TNavMenu,
+  TNavMenuKeys,
+  TNavMenus,
+  TNavMenusForEdition
+} from '@financial-times/dotcom-types-navigation'
 
 const sharedMenuKeys: TNavMenuKeys[] = [
   'account',
@@ -10,11 +15,13 @@ const sharedMenuKeys: TNavMenuKeys[] = [
   'user'
 ]
 
+type SharedMenuKeys = (typeof sharedMenuKeys)[number]
+
 export function selectMenuDataForEdition(menuData: TNavMenus, currentEdition: string): TNavMenusForEdition {
   const output = {
-    navbar: menuData[`navbar-${currentEdition}`],
-    drawer: menuData[`drawer-${currentEdition}`]
-  }
+    navbar: menuData[`navbar-${currentEdition}` as TNavMenuKeys],
+    drawer: menuData[`drawer-${currentEdition}` as TNavMenuKeys]
+  } as { [K in SharedMenuKeys]?: TNavMenu }
 
   for (const key of sharedMenuKeys) {
     if (menuData[key]) {

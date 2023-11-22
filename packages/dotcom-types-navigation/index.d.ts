@@ -78,7 +78,7 @@ export type TNavSubNavigation = {
 }
 
 export type TNavEditions = {
-  current: TNavEdition
+  current?: TNavEdition
   others: TNavEdition[]
 }
 

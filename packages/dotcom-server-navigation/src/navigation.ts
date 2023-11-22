@@ -38,19 +38,18 @@ const defaults: TNavOptions = {
 
 export class Navigation {
   public options: TNavOptions
-  public poller: Poller
+  public poller: Poller<any, any>
   public initialPromise: Promise<void>
   private menuData: TNavMenus
 
   constructor(options: TNavOptions = {}) {
     this.options = { ...defaults, ...options }
-
+    this.menuData = {} as TNavMenus
     this.poller = new Poller({
-      url: this.options.menuUrl,
+      url: this.options.menuUrl ?? '',
       refreshInterval: this.options.interval,
       parseData
     })
-
     this.initialPromise = this.poller.start({ initialRequest: true })
   }
 
@@ -61,7 +60,6 @@ export class Navigation {
     this.menuData = this.poller.getData()
 
     return this.menuData
-
   }
 
   async getMenusFor(currentPath: string, currentEdition: string = 'uk'): Promise<TNavMenusForEdition> {
