@@ -6,8 +6,10 @@ import {
   NoOutboundLinksHeader,
   Drawer,
   THeaderOptions
+  /* @ts-ignore -- importing with the correct types using TS strict checking requires more work */
 } from '@financial-times/dotcom-ui-header/component'
 import { TNavigationData } from '@financial-times/dotcom-types-navigation'
+/* @ts-ignore -- importing with the correct types using TS strict checking requires more work */
 import { Footer, LegalFooter, TFooterOptions } from '@financial-times/dotcom-ui-footer/component'
 import Template from './Template'
 
@@ -78,7 +80,8 @@ export function Layout({
       <a
         data-trackable="a11y-skip-to-help"
         className="n-layout__skip-link"
-        href="https://www.ft.com/accessibility">
+        href="https://www.ft.com/accessibility"
+      >
         Accessibility help
       </a>
 
