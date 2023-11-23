@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "browser": "browser.js",
-  "types": "src/index.ts",
+  "types": "dist/node/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "npm run clean:dist && npm run clean:node_modules",
