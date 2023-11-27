@@ -4,5 +4,10 @@
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "dist/node"
-  }
+  },
+  "references": [
+    {
+      "path": "../dotcom-server-asset-loader"
+    }
+  ]
 }

@@ -4,7 +4,7 @@
   "description": "",
   "browser": "browser.js",
   "main": "component.js",
-  "types": "src/index.tsx",
+  "types": "dist/node/index.d.ts",
   "styles": "styles.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

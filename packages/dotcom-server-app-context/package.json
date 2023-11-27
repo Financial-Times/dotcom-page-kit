@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "main": "dist/node/index.js",
-  "types": "src/index.ts",
+  "types": "dist/node/index.d.ts",
   "scripts": {
     "generate-schema": "node scripts/schemaToMarkdown.js > schema.md",
     "test": "echo \"Error: no test specified\" && exit 1",
