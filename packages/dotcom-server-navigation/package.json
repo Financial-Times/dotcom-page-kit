@@ -23,7 +23,7 @@
     "deep-freeze": "0.0.1",
     "ft-poller": "^9.0.0",
     "http-errors": "^1.7.1",
-    "node-fetch": "^2.2.1"
+    "node-fetch": "^3.0.0"
   },
   "devDependencies": {
     "check-engine": "^1.10.1",
