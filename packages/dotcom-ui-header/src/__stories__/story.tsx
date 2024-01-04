@@ -72,7 +72,7 @@ DefaultHeaderWithDrawerEntryTestAnon.args = {
   userIsLoggedIn: false,
   userIsSubscribed: false,
   showLogoLink: false,
-  accountEntryTest: true
+  experimentalAccountEntryTest: true
 }
 
 export const DefaultHeaderWithDrawerEntryTest = (args) => (
@@ -92,7 +92,7 @@ DefaultHeaderWithDrawerEntryTest.args = {
   userIsLoggedIn: true,
   userIsSubscribed: false,
   showLogoLink: false,
-  accountEntryTest: true
+  experimentalAccountEntryTest: true
 }
 
 export const DefaultHeaderWithRightAlignedSubnav = (args) => (

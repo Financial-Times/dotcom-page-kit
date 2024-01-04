@@ -10,7 +10,7 @@ export type THeaderOptions = {
   showStickyHeader?: boolean
   showMegaNav?: boolean
   showLogoLink?: boolean
-  accountEntryTest?: boolean
+  experimentalAccountEntryTest?: boolean
 }
 
 export type THeaderProps = THeaderOptions & {

@@ -80,17 +80,17 @@ const NavListRight = (props: THeaderProps) => {
   return props.userIsLoggedIn ? (
     <NavListRightLoggedIn
       items={props.data['navbar-right'].items}
-      accountEntryTest={props.accountEntryTest}
+      experimentalAccountEntryTest={props.experimentalAccountEntryTest}
     />
   ) : null
 }
 
 const NavListRightLoggedIn = ({
   items,
-  accountEntryTest
+  experimentalAccountEntryTest
 }: {
   items: TNavMenuItem[]
-  accountEntryTest?: boolean
+  experimentalAccountEntryTest?: boolean
 }) => {
   /**
    * Accounts entry test
@@ -105,7 +105,7 @@ const NavListRightLoggedIn = ({
     >
       {items.map((item, index) => (
         <li className="o-header__nav-item" key={`link-${index}`}>
-          {item.label === 'Settings & Account' && accountEntryTest ? (
+          {item.label === 'Settings & Account' && experimentalAccountEntryTest ? (
             <a className="o-header__nav-link" href="/myft" data-trackable="my-ft">
               myFT Feed
             </a>
