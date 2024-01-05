@@ -39,7 +39,23 @@ const SearchIcon = () => (
   </a>
 )
 
-const MyFt = ({ className }: { className?: string }) => (
+const TopRightAccountEntry = ({
+  className,
+  signedIn,
+  experimentalAccountEntryTest
+}: {
+  className?: string
+  signedIn: boolean
+  experimentalAccountEntryTest?: boolean
+}) => {
+  if (experimentalAccountEntryTest) {
+    return <MyAccountLink signedIn={signedIn} />
+  } else {
+    return <MyFtLogoLink className={className} />
+  }
+}
+
+const MyFtLogoLink = ({ className }: { className?: string }) => (
   <a
     className={`o-header__top-icon-link o-header__top-icon-link--myft ${className}`}
     id="o-header-top-link-myft"
@@ -51,6 +67,34 @@ const MyFt = ({ className }: { className?: string }) => (
     <span className="o-header__visually-hidden">myFT</span>
   </a>
 )
+
+const MyAccountLink = ({ signedIn }: { signedIn: boolean }) => {
+  const classNames = 'o-header__top-link ft-header__top-link--myaccount'
+
+  if (signedIn) {
+    return (
+      <a
+        className={classNames}
+        id="o-header-top-link-myaccount"
+        href="/myaccount"
+        data-trackable="my-account"
+      >
+        <span>My Account</span>
+      </a>
+    )
+  } else {
+    return (
+      <a
+        className={classNames}
+        id="o-header-top-link-signin"
+        href="/login?location=/"
+        data-trackable="Sign In"
+      >
+        <span>Sign In</span>
+      </a>
+    )
+  }
+}
 
 const TopWrapper = (props) => (
   <div className="o-header__row o-header__top" data-trackable="header-top">
@@ -100,7 +144,11 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
           className="o-header__top-button--hide-m"
         />
       )}
-      <MyFt className="" />
+      <TopRightAccountEntry
+        className=""
+        signedIn={true}
+        experimentalAccountEntryTest={props.experimentalAccountEntryTest}
+      />
     </div>
   )
 }
@@ -151,18 +199,31 @@ const SubscribeButton = ({
   )
 }
 
-const TopColumnRightAnon = ({ items, variant }: { items: TNavMenuItem[]; variant?: string }) => {
+const TopColumnRightAnon = ({
+  items,
+  variant,
+  experimentalAccountEntryTest
+}: {
+  items: TNavMenuItem[]
+  variant?: string
+  experimentalAccountEntryTest?: boolean
+}) => {
   // If user is anonymous the second list item is styled as a button
   const [signInAction, subscribeAction] = items
+
   return (
     <div className="o-header__top-column o-header__top-column--right">
       {subscribeAction && (
         <SubscribeButton item={subscribeAction} variant={variant} className="o-header__top-button--hide-m" />
       )}
-      {signInAction && (
+      {signInAction && !experimentalAccountEntryTest && (
         <SignInLink item={signInAction} variant={variant} className="o-header__top-link--hide-m" />
       )}
-      <MyFt className="o-header__top-icon-link--show-m" />
+      <TopRightAccountEntry
+        className="o-header__top-icon-link--show-m"
+        signedIn={false}
+        experimentalAccountEntryTest={experimentalAccountEntryTest}
+      />
     </div>
   )
 }
@@ -172,7 +233,13 @@ const TopColumnRight = (props: THeaderProps) => {
     return <TopColumnRightLoggedIn {...props} />
   } else {
     const userNavAnonItems = props.data['navbar-right-anon'].items
-    return <TopColumnRightAnon items={userNavAnonItems} variant={props.variant} />
+    return (
+      <TopColumnRightAnon
+        items={userNavAnonItems}
+        variant={props.variant}
+        experimentalAccountEntryTest={props.experimentalAccountEntryTest}
+      />
+    )
   }
 }
 
