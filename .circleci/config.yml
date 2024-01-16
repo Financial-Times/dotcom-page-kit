@@ -6,9 +6,12 @@ orbs:
 executors:
   node:
     docker:
-      - image: cimg/node:18.16-browsers
+      - image: cimg/node:20.11-browsers
         environment:
           NODE_OPTIONS: "--openssl-legacy-provider"
+  node18_19:
+    docker:
+      - image: cimg/node:18.19-browsers
   node16_20:
     docker:
       - image: cimg/node:16.20-browsers
@@ -182,6 +185,7 @@ workflows:
             parameters:
               executor:
                 - node
+                - node18_19
                 - node16_20
       - test:
           requires:
@@ -191,6 +195,7 @@ workflows:
             parameters:
               executor:
                 - node
+                - node18_19
                 - node16_20
       - deploy:
           filters:
@@ -212,6 +217,7 @@ workflows:
             parameters:
               executor:
                 - node
+                - node18_19
                 - node16_20
       - test:
           requires:
@@ -221,6 +227,7 @@ workflows:
             parameters:
               executor:
                 - node
+                - node18_19
                 - node16_20
 
   build-test-publish:
@@ -233,6 +240,7 @@ workflows:
             parameters:
               executor:
                 - node
+                - node18_19
                 - node16_20
       - test:
           filters:
@@ -244,6 +252,7 @@ workflows:
             parameters:
               executor:
                 - node
+                - node18_19
                 - node16_20
       - publish:
           context: npm-publish-token
@@ -262,6 +271,7 @@ workflows:
             parameters:
               executor:
                 - node
+                - node18_19
                 - node16_20
       - test:
           filters:
@@ -273,6 +283,7 @@ workflows:
             parameters:
               executor:
                 - node
+                - node18_19
                 - node16_20
       - prepublish:
           context: npm-publish-token
