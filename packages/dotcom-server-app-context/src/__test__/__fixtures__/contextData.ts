@@ -5,7 +5,7 @@ export const validAppContext = Object.freeze({
   product: 'next',
   abTestState: 'subscriberCohort:on,premiumCohort:on,topicTracker_UIDemo:100-percent',
   contentId: 'c5935758-7730-11e9-bbad-7c18c0ea0201',
-  contentType: 'article',
+  contentType: 'Article',
   conceptId: 'c5935738-7730-11e9-bbad-7c18c0ea8201',
   conceptType: 'http://www.ft.com/ontology/Location',
   isProduction: true,

@@ -56,7 +56,7 @@ The type or sub-type of the content on the current page
 
 Additional restrictions:
 
-* Regex pattern: `^(article|video|audio|podcast|package|live-blog)$`
+* Regex pattern: `^.+$`
 
 ## `edition` (string)
 
@@ -91,6 +91,14 @@ Additional restrictions:
 ## `publishReference` (string)
 
 The publish reference of the content on the current page
+
+Additional restrictions:
+
+* Regex pattern: `^.+$`
+
+## `pageKitVersion` (string)
+
+The version of Page Kit powering the app
 
 Additional restrictions:
 
