@@ -54,14 +54,14 @@ class SassStats {
   }
 
   sendMetric = () => {
-    if (process.env.FT_SASS_STATS_MONITOR === 'off') {
+    if (process.env.FT_SASS_STATS_MONITOR !== 'on') {
       return
     }
 
     if (!process.env.FT_SASS_BIZ_OPS_API_KEY) {
       // eslint-disable-next-line no-console
       console.log(
-        'dotcom-build-sass: Could not monitor Sass your build time. Please help us improve build times by including a FT_SASS_BIZ_OPS_API_KEY. Please contact #origami-support with any questions.'
+        'dotcom-build-sass: Could not monitor your Sass build time. Please help us improve build times by including a FT_SASS_BIZ_OPS_API_KEY. Please contact #origami-support with any questions.'
       )
     }
 
