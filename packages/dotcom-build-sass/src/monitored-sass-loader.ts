@@ -4,7 +4,15 @@ import os from 'os'
 import sassLoader from 'sass-loader'
 import https from 'https'
 
+const logError = (message) => {
+  // eslint-disable-next-line no-console
+  console.log(
+    `\n⛔️😭dotcom-build-sass: ${message}. Please report to #origami-support in Slack, so we can help move us away from Sass.\n`
+  )
+}
+
 class SassStats {
+  #monitorRemotely = process.env.FT_SASS_STATS_MONITOR === 'on'
   #noticeStrategies = ['throttle', 'never', 'always']
   #noticeStrategy = this.#noticeStrategies.includes(process.env.FT_SASS_STATS_NOTICE)
     ? process.env.FT_SASS_STATS_NOTICE
@@ -54,15 +62,21 @@ class SassStats {
   }
 
   sendMetric = () => {
-    if (process.env.FT_SASS_STATS_MONITOR !== 'on') {
+    if (!this.#monitorRemotely) {
       return
     }
 
     if (!process.env.FT_SASS_BIZ_OPS_API_KEY) {
-      // eslint-disable-next-line no-console
-      console.log(
-        'dotcom-build-sass: Could not monitor your Sass build time. Please help us improve build times by including a FT_SASS_BIZ_OPS_API_KEY. Please contact #origami-support with any questions.'
+      logError(
+        'We couldn\'t share your Sass build time, we\'re missing the environment variable "FT_SASS_BIZ_OPS_API_KEY". Please contact #origami-support with any questions.'
       )
+      return
+    }
+    if (!process.env.FT_SASS_BIZ_OPS_SYSTEM_CODE) {
+      logError(
+        'We couldn\'t share your Sass build time, we\'re missing the environment variable "FT_SASS_BIZ_OPS_SYSTEM_CODE". Please contact #origami-support with any questions.'
+      )
+      return
     }
 
     const date = new Date()
@@ -71,7 +85,7 @@ class SassStats {
       metric: 'sass-build-time',
       value: (this.#endTime - this.#startTime) / 1000,
       date: date.toISOString(),
-      code: 'page-kit',
+      code: process.env.FT_SASS_BIZ_OPS_SYSTEM_CODE,
       metadata: {
         'node-env': process.env.NODE_ENV
       }
@@ -93,18 +107,13 @@ class SassStats {
     const request = https
       .request(options, (response) => {
         if (response.statusCode !== 200) {
-          // eslint-disable-next-line no-console
-          console.log(
-            `dotcom-build-sass: Failed to send Sass build metrics to biz-ops. Status code: ${response.statusCode}. Please report to #origami-support`
+          logError(
+            `We couldn\'t send your Sass build time metrics to biz-ops. Status code: ${response.statusCode}.`
           )
         }
       })
       .on('error', (error) => {
-        // eslint-disable-next-line no-console
-        console.log(
-          'dotcom-build-sass: Failed to send Sass build metrics to biz-ops. Please report to #origami-support',
-          error
-        )
+        logError(`We couldn\'t send your Sass build time metrics to biz-ops. Error: ${error}.`)
       })
     request.write(postData)
     request.end()
@@ -155,13 +164,21 @@ class SassStats {
     const emoji =
       hours > 2 ? ['🔥', '😭', '😱'] : hours >= 1 ? ['🔥', '😱'] : minutes > 10 ? ['⏱️', '😬'] : ['⏱️']
 
+    let cta =
+      `Share your pain in Slack #sass-to-css, and help fix that! 🎉\n` +
+      `https://origami.ft.com/blog/2024/01/24/sass-build-times/\n\n`
+
+    if (!this.#monitorRemotely) {
+      cta =
+        `Help us improve build times by setting the "FT_SASS_STATS_MONITOR" environment variable.\n` +
+        `https://github.com/Financial-Times/biz-ops-metrics-api/blob/main/docs/API_DEFINITION.md#sass-build-monitoring \n\n`
+    }
+
     // eslint-disable-next-line no-console
     console.log(
-      `\n\nYou have spent at least ${emoji.join(' ')} ${time} ${emoji
+      `\n\ndotcom-build-sass:\nYou have spent at least ${emoji.join(' ')} ${time} ${emoji
         .reverse()
-        .join(' ')} waiting on FT Sass to compile.\n` +
-        `Share your pain in Slack #sass-to-css, and help fix that! 🎉\n` +
-        `https://origami.ft.com/blog/2024/01/24/sass-build-times/\n\n`
+        .join(' ')} waiting on FT Sass to compile.\n${cta}`
     )
 
     this.#write({ noticeDate: Date.now(), totalTimeAtLastNotice: this.#stats.totalTime })
@@ -177,11 +194,7 @@ const forgivingProxy = (target, task) => {
         return task(...args)
       } catch (error) {
         Reflect.apply(...args)
-        // eslint-disable-next-line no-console
-        console.log(
-          'dotcom-build-sass: Failed to monitor Sass build. Please report to #origami-support',
-          error
-        )
+        logError(`Failed to monitor Sass build. Error: ${error}`)
       }
     }
   })
@@ -203,8 +216,8 @@ const monitoredSassLoaderProxy = forgivingProxy(sassLoader, (target, sassLoaderT
       // sass-loader's callback has been... called.
       // Either we have sass, or the build failed.
       stats.end()
-      stats.sendMetric()
       stats.reportAccordingToNoticeStrategy()
+      stats.sendMetric()
       return Reflect.apply(target, thisArg, argumentsList)
     })
   })
