@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import os from 'os'
 import sassLoader from 'sass-loader'
+import https from 'https'
 
 class SassStats {
   #noticeStrategies = ['throttle', 'never', 'always']
@@ -20,6 +21,7 @@ class SassStats {
   #directory = path.join(os.tmpdir(), 'dotcom-build-sass')
   #file = path.join(this.#directory, 'sass-stats.json')
   #startTime
+  #endTime
 
   constructor() {
     fs.mkdirSync(path.dirname(this.#directory), { recursive: true })
@@ -31,8 +33,8 @@ class SassStats {
   }
 
   end = () => {
-    const endTime = performance.now()
-    const updatedTotal = (this.#stats.totalTime += endTime - this.#startTime)
+    this.#endTime = performance.now()
+    const updatedTotal = (this.#stats.totalTime += this.#endTime - this.#startTime)
     this.#write({ totalTime: updatedTotal })
   }
 
@@ -49,6 +51,63 @@ class SassStats {
   #write = (stats) => {
     this.#stats = Object.assign(this.#stats, stats)
     fs.writeFileSync(this.#file, JSON.stringify(this.#stats))
+  }
+
+  sendMetric = () => {
+    if (process.env.FT_SASS_STATS_MONITOR === 'off') {
+      return
+    }
+
+    if (!process.env.FT_SASS_BIZ_OPS_API_KEY) {
+      // eslint-disable-next-line no-console
+      console.log(
+        'dotcom-build-sass: Could not monitor Sass your build time. Please help us improve build times by including a FT_SASS_BIZ_OPS_API_KEY. Please contact #origami-support with any questions.'
+      )
+    }
+
+    const date = new Date()
+    const postData = JSON.stringify({
+      type: 'System',
+      metric: 'sass-build-time',
+      value: (this.#endTime - this.#startTime) / 1000,
+      date: date.toISOString(),
+      code: 'page-kit',
+      metadata: {
+        'node-env': process.env.NODE_ENV
+      }
+    })
+
+    const options = {
+      hostname: 'api.ft.com',
+      port: 443,
+      path: '/biz-ops-metrics/metric/add',
+      method: 'POST',
+      headers: {
+        'x-api-key': process.env.FT_SASS_BIZ_OPS_API_KEY,
+        'client-id': 'page-kit',
+        'Content-Type': 'application/json',
+        'Content-Length': postData.length
+      }
+    }
+
+    const request = https
+      .request(options, (response) => {
+        if (response.statusCode !== 200) {
+          // eslint-disable-next-line no-console
+          console.log(
+            `dotcom-build-sass: Failed to send Sass build metrics to biz-ops. Status code: ${response.statusCode}. Please report to #origami-support`
+          )
+        }
+      })
+      .on('error', (error) => {
+        // eslint-disable-next-line no-console
+        console.log(
+          'dotcom-build-sass: Failed to send Sass build metrics to biz-ops. Please report to #origami-support',
+          error
+        )
+      })
+    request.write(postData)
+    request.end()
   }
 
   reportAccordingToNoticeStrategy = () => {
@@ -127,11 +186,11 @@ const forgivingProxy = (target, task) => {
   })
 }
 
-const localStats = new SassStats()
+const stats = new SassStats()
 const monitoredSassLoaderProxy = forgivingProxy(sassLoader, (target, sassLoaderThis, argumentsList) => {
   // Start the timer, sass-loader has been called with Sass content.
   // https://github.com/webpack-contrib/sass-loader/blob/03773152760434a2dd845008c504a09c0eb3fd91/src/index.js#L19
-  localStats.start()
+  stats.start()
   // Assign our proxy to sass-loaders async function.
   // https://github.com/webpack-contrib/sass-loader/blob/03773152760434a2dd845008c504a09c0eb3fd91/src/index.js#L29
   const sassLoaderAsyncProxy = forgivingProxy(sassLoaderThis.async, (target, thisArg, argumentsList) => {
@@ -142,8 +201,9 @@ const monitoredSassLoaderProxy = forgivingProxy(sassLoader, (target, sassLoaderT
     return forgivingProxy(sassLoaderCallback, (target, thisArg, argumentsList) => {
       // sass-loader's callback has been... called.
       // Either we have sass, or the build failed.
-      localStats.end()
-      localStats.reportAccordingToNoticeStrategy()
+      stats.end()
+      stats.sendMetric()
+      stats.reportAccordingToNoticeStrategy()
       return Reflect.apply(target, thisArg, argumentsList)
     })
   })
