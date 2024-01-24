@@ -159,8 +159,9 @@ class SassStats {
     console.log(
       `\n\nYou have spent at least ${emoji.join(' ')} ${time} ${emoji
         .reverse()
-        .join(' ')} waiting on FT Sass to compile.` +
-        `\nLet's fix that! 🎉 https://origami.ft.com/blog/2024/01/24/sass-build-times/\n\n`
+        .join(' ')} waiting on FT Sass to compile.\n` +
+        `Share your pain in Slack #sass-to-css, and help fix that! 🎉\n` +
+        `https://origami.ft.com/blog/2024/01/24/sass-build-times/\n\n`
     )
 
     this.#write({ noticeDate: Date.now(), totalTimeAtLastNotice: this.#stats.totalTime })
