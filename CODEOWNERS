@@ -3,4 +3,4 @@
 * @financial-times/platforms
 
 # The Origami team are responsible for sass-loader modifications.
-/packages/dotcom-build-sass/src/monitored-sass-loader.ts @financial-times/origami-core
+packages/dotcom-build-sass/ @Financial-Times/origami-core
