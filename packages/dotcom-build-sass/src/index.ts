@@ -115,7 +115,7 @@ export class PageKitSassPlugin {
         // Enable use of Sass for CSS preprocessing
         // https://github.com/webpack-contrib/sass-loader
         {
-          loader: require.resolve('sass-loader'),
+          loader: require.resolve('./monitored-sass-loader'),
           options: sassLoaderOptions
         }
       ]
