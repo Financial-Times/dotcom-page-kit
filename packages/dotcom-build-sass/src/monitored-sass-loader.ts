@@ -32,7 +32,7 @@ class SassStats {
   #endTime
 
   constructor() {
-    fs.mkdirSync(path.dirname(this.#directory), { recursive: true })
+    fs.mkdirSync(this.#directory, { recursive: true })
   }
 
   start = () => {
