@@ -30,6 +30,7 @@ class SassStats {
   #file = path.join(this.#directory, 'sass-stats.json')
   #startTime
   #endTime
+  buildCount: number = 0
 
   constructor() {
     fs.mkdirSync(this.#directory, { recursive: true })
@@ -165,13 +166,13 @@ class SassStats {
       hours > 2 ? ['🔥', '😭', '😱'] : hours >= 1 ? ['🔥', '😱'] : minutes > 10 ? ['⏱️', '😬'] : ['⏱️']
 
     let cta =
-      `Share your pain in Slack #sass-to-css, and help fix that! 🎉\n` +
+      `Share your high score in Slack #sass-to-css 🎉 And help us improve that:\n` +
       `https://origami.ft.com/blog/2024/01/24/sass-build-times/\n\n`
 
     if (!this.#monitorRemotely) {
       cta =
         `Help us improve build times by setting the "FT_SASS_STATS_MONITOR" environment variable.\n` +
-        `https://github.com/Financial-Times/biz-ops-metrics-api/blob/main/docs/API_DEFINITION.md#sass-build-monitoring \n\n`
+        `https://origami.ft.com/blog/2024/01/24/sass-build-times/ \n\n`
     }
 
     // eslint-disable-next-line no-console
@@ -202,9 +203,13 @@ const forgivingProxy = (target, task) => {
 
 const stats = new SassStats()
 const monitoredSassLoaderProxy = forgivingProxy(sassLoader, (target, sassLoaderThis, argumentsList) => {
+  stats.buildCount++
   // Start the timer, sass-loader has been called with Sass content.
   // https://github.com/webpack-contrib/sass-loader/blob/03773152760434a2dd845008c504a09c0eb3fd91/src/index.js#L19
-  stats.start()
+  if (stats.buildCount === 1) {
+    stats.start()
+  }
+
   // Assign our proxy to sass-loaders async function.
   // https://github.com/webpack-contrib/sass-loader/blob/03773152760434a2dd845008c504a09c0eb3fd91/src/index.js#L29
   const sassLoaderAsyncProxy = forgivingProxy(sassLoaderThis.async, (target, thisArg, argumentsList) => {
@@ -215,9 +220,12 @@ const monitoredSassLoaderProxy = forgivingProxy(sassLoader, (target, sassLoaderT
     return forgivingProxy(sassLoaderCallback, (target, thisArg, argumentsList) => {
       // sass-loader's callback has been... called.
       // Either we have sass, or the build failed.
-      stats.end()
-      stats.reportAccordingToNoticeStrategy()
-      stats.sendMetric()
+      stats.buildCount--
+      if (stats.buildCount === 0) {
+        stats.end()
+        stats.reportAccordingToNoticeStrategy()
+        stats.sendMetric()
+      }
       return Reflect.apply(target, thisArg, argumentsList)
     })
   })
