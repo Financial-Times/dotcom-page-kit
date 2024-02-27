@@ -14,7 +14,6 @@ describe('examples/ft-ui', () => {
     })
 
     it('loads the configured scripts', async () => {
-      await expect(page).toMatchElement('script[src^="https://polyfill.io"]')
       await expect(page).toMatchElement('script[src="public/scripts.bundle.js"]')
     })
   })
