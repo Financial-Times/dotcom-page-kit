@@ -12,7 +12,6 @@ import {
 } from '@financial-times/dotcom-ui-base-styles'
 import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/dotcom-ui-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/dotcom-ui-bootstrap'
-import * as polyfillService from '@financial-times/dotcom-ui-polyfill-service'
 import formatAttributeNames, { TAttributeData } from '../lib/formatAttributeNames'
 import GTMHead from './GTMHead'
 import GTMBody from './GTMBody'
@@ -32,12 +31,11 @@ type TShellProps = TDocumentHeadProps &
 
 function Shell(props: TShellProps) {
   const bootstrapProps: TBootstrapProps = {
-    coreScripts: [polyfillService.core()],
-    enhancedScripts: [polyfillService.enhanced(), ...props.scripts]
+    coreScripts: [],
+    enhancedScripts: props.scripts
   }
 
   const resourceHints = [
-    polyfillService.enhanced(),
     // There is no need to include stylesheets here as any <link rel="stylesheet" /> tags
     // should be found by the browser's speculative parser.
     ...props.scripts,
