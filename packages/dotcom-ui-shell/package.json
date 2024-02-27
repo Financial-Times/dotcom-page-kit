@@ -24,7 +24,6 @@
     "@financial-times/dotcom-ui-base-styles": "file:../dotcom-ui-base-styles",
     "@financial-times/dotcom-ui-bootstrap": "file:../dotcom-ui-bootstrap",
     "@financial-times/dotcom-ui-flags": "file:../dotcom-ui-flags",
-    "@financial-times/dotcom-ui-polyfill-service": "file:../dotcom-ui-polyfill-service",
     "mime-types": "^2.1.26"
   },
   "peerDependencies": {
