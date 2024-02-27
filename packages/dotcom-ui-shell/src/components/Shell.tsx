@@ -32,8 +32,8 @@ type TShellProps = TDocumentHeadProps &
 
 function Shell(props: TShellProps) {
   const bootstrapProps: TBootstrapProps = {
-    coreScripts: [polyfillService.core()],
-    enhancedScripts: [polyfillService.enhanced(), ...props.scripts]
+    coreScripts: [],
+    enhancedScripts: props.scripts
   }
 
   const resourceHints = [

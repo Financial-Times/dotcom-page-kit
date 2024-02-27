@@ -145,7 +145,7 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
     <script
       dangerouslySetInnerHTML={
         Object {
-          "__html": "{\\"trackErrors\\":true,\\"core\\":[\\"https://polyfill.io/v3/polyfill.min.js?features=HTMLPictureElement&source=next\\"],\\"enhanced\\":[\\"https://polyfill.io/v3/polyfill.min.js?features=default%2Ces5%2Ces2015%2Ces2016%2Ces2017%2CEventSource%2Cfetch%2CHTMLPictureElement%2CIntersectionObserver%2CNodeList.prototype.forEach&source=next\\"]}",
+          "__html": "{\\"trackErrors\\":true,\\"core\\":[],\\"enhanced\\":[]}",
         }
       }
       id="page-kit-bootstrap-config"
