@@ -201,7 +201,7 @@ An optional property to insert additional metadata elements into the document `<
 
 #### `showSmartBanner` (boolean)
 
-An optional property to explicity say whether you want to show [Smart Banner](https://developer.apple.com/documentation/webkit/promoting_apps_with_smart_app_banners) at the top of the page or not. The default is `true` so the pages will always show smart banner. 
+An optional property to explicity say whether you want to show [Smart Banner](https://developer.apple.com/documentation/webkit/promoting_apps_with_smart_app_banners) at the top of the page or not. The default is `true` so the pages will always show smart banner.
 
 ### Social and Open Graph
 
@@ -220,7 +220,6 @@ An optional object describing the [Open Graph] metadata to add to the page. The 
 [JavaScript bootstrap]: ../dotcom-ui-bootstrap/README.md
 [feature flags]: ../dotcom-ui-flags/README.md
 [FT app context]: ../dotcom-ui-app-context/README.md
-[polyfill service]: ../dotcom-ui-polyfill-service/README.md
 [Open Graph]: http://ogp.me/
 [linked data]: https://w3.org/standards/semanticweb/data
 [JSON-LD]: https://json-ld.org/
