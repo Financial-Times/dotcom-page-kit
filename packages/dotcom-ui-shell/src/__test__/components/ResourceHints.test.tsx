@@ -7,7 +7,6 @@ describe('dotcom-ui-shell/src/components/ResourceHints', () => {
     const fixture = [
       'www.example.com/assets/style.css',
       'www.example.com/images/graphic.svg#icon',
-      'http://polyfill.io/v3/bundle.min.js?features=es5,es6',
       '/assets/public/style.as83hd99.css',
       '/__origami/service/build/v3/font?font_format=woff2&font_name=FinancierDisplayWeb-Bold&system_code=origami&version=1.12'
     ]
