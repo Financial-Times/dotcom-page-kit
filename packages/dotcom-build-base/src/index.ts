@@ -3,6 +3,7 @@ import path from 'path'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import CompressionPlugin from 'compression-webpack-plugin'
 import ManifestPlugin from 'webpack-assets-manifest'
+import SubresourceIntegrityPlugin from 'webpack-subresource-integrity'
 
 export class PageKitBasePlugin {
   apply(compiler: webpack.Compiler) {
@@ -29,14 +30,20 @@ export class PageKitBasePlugin {
     }
 
     const manifestPluginOptions = {
-      entrypoints: true
+      entrypoints: true,
+      integrity: true
+    }
+
+    const subresourceIntegrityPluginOptions = {
+      hashFuncNames: ['sha256']
     }
 
     compiler.options.output = {
       ...compiler.options.output,
       filename: outputFileName,
       chunkFilename: outputFileName,
-      path: path.resolve('public')
+      path: path.resolve('public'),
+      crossOriginLoading: 'anonymous'
     }
 
     compiler.options.devtool = isDevMode ? 'cheap-module-eval-source-map' : 'source-map'
@@ -45,6 +52,7 @@ export class PageKitBasePlugin {
 
     new CleanWebpackPlugin(cleanWebpackPluginOptions).apply(compiler)
     new ManifestPlugin(manifestPluginOptions).apply(compiler)
+    new SubresourceIntegrityPlugin(subresourceIntegrityPluginOptions).apply(compiler)
 
     if (!isDevMode) {
       new CompressionPlugin(gzipCompressionPluginOptions).apply(compiler)
