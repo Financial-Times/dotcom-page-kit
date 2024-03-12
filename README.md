@@ -122,7 +122,7 @@ npm run storybook
 The Storybook interface should then open in your default browser. Storybook has been configured to automatically find stories inside packages with names prefixed with `dotcom-ui-`.
 
 #### Storybook deployment
-The deployment of Storybook to Github Pages is managed by our CircleCI workflow. It is able to deploy to Github Pages by using a personal access token created from the `next-team` Github account, stored in the `GH_TOKEN` Vault environment variable.
+The deployment of Storybook to Github Pages is managed by our CircleCI workflow. It is able to deploy to Github Pages by using a personal access token created from the `next-team` Github account, stored as the `GH_TOKEN` environment variable in Doppler.
 
 
 ## FAQ
