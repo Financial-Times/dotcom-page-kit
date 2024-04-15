@@ -76,6 +76,7 @@ All header components with the exception of `<LogoOnly />` require the following
 | showSubNavigation  | boolean                            | true     | true     | Show the sub-navigation component which may include the crumbtrail             |
 | showStickyHeader   | boolean                            | true     | true     | Enable rendering of the sticky header component                            |
 | showMegaNav        | boolean                            | true     | true     | Enable rendering of the drop-down "mega-nav"                            |
+| showAskButton      | boolean                            | true     | false    | Enable rendering of the ASK button                                             |
 | data               | object                             | false    |          | Navigation data for rendering the header links fetched from the navigation API |
 
 

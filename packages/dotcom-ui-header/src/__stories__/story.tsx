@@ -52,7 +52,8 @@ DefaultHeaderWithDrawer.args = {
   showUserNavigation: true,
   userIsLoggedIn: false,
   userIsSubscribed: false,
-  showLogoLink: false
+  showLogoLink: false,
+  showAskButton: false
 }
 
 export const DefaultHeaderWithDrawerEntryTestAnon = (args) => (
@@ -72,7 +73,8 @@ DefaultHeaderWithDrawerEntryTestAnon.args = {
   userIsLoggedIn: false,
   userIsSubscribed: false,
   showLogoLink: false,
-  experimentalAccountEntryTest: true
+  experimentalAccountEntryTest: true,
+  showAskButton: false
 }
 
 export const DefaultHeaderWithDrawerEntryTest = (args) => (
@@ -92,7 +94,8 @@ DefaultHeaderWithDrawerEntryTest.args = {
   userIsLoggedIn: true,
   userIsSubscribed: false,
   showLogoLink: false,
-  experimentalAccountEntryTest: true
+  experimentalAccountEntryTest: true,
+  showAskButton: false
 }
 
 export const DefaultHeaderWithRightAlignedSubnav = (args) => (
@@ -110,7 +113,8 @@ DefaultHeaderWithRightAlignedSubnav.args = {
   showMegaNav: true,
   showUserNavigation: true,
   userIsLoggedIn: true,
-  showLogoLink: false
+  showLogoLink: false,
+  showAskButton: false
 }
 
 export const LargeHeaderWithDrawer = (args) => (
@@ -131,7 +135,8 @@ LargeHeaderWithDrawer.args = {
   showMegaNav: true,
   showUserNavigation: true,
   userIsLoggedIn: false,
-  variant: 'large-logo'
+  variant: 'large-logo',
+  showAskButton: false
 }
 
 export const _StickyHeader = (args) => (

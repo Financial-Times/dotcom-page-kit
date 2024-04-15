@@ -33,7 +33,8 @@ const defaultProps: Partial<THeaderOptions> = {
   userIsAnonymous: true,
   userIsLoggedIn: false,
   showStickyHeader: true,
-  showMegaNav: true
+  showMegaNav: true,
+  showAskButton: false
 }
 
 function MainHeader(props: THeaderProps) {
@@ -44,7 +45,7 @@ function MainHeader(props: THeaderProps) {
     <HeaderWrapper {...props}>
       {includeUserActionsNav ? <UserActionsNav {...props} /> : null}
       <TopWrapper>
-        <TopColumnLeft />
+        <TopColumnLeft {...props} />
         {props.showLogoLink ? <TopColumnCenter /> : <TopColumnCenterNoLink />}
         <TopColumnRight {...props} />
       </TopWrapper>
