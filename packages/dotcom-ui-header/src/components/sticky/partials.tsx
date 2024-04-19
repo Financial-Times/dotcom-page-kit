@@ -4,6 +4,7 @@
 import React from 'react'
 import { SubscribeButton, SignInLink } from '../top/partials'
 import { THeaderProps } from '../../interfaces'
+import { AskFtButton } from '../ask-ft/askFtButton'
 
 const StickyHeaderWrapper = (props: THeaderProps & { children: React.ReactNode }) => (
   <header
@@ -107,11 +108,14 @@ const TopWrapperSticky = (props) => (
   </div>
 )
 
-const TopColumnLeftSticky = () => {
+const TopColumnLeftSticky = (props: Pick<THeaderProps, 'showAskButton'>) => {
   return (
     <div className="o-header__top-column o-header__top-column--left">
       <DrawerIconSticky />
       <SearchIconSticky />
+      {props.showAskButton && (
+        <AskFtButton className="ft-header__top-ask-ft-button" dataTrackable="ask-ft-button-sticky" />
+      )}
     </div>
   )
 }
@@ -129,11 +133,7 @@ const NavListRightLoggedInSticky = (props: THeaderProps) => {
   return (
     <React.Fragment>
       {!props.userIsSubscribed && subscribeAction && (
-        <SubscribeButton
-          item={subscribeAction}
-          variant="sticky"
-          className="o-header__top-button--hide-m"
-        />
+        <SubscribeButton item={subscribeAction} variant="sticky" className="o-header__top-button--hide-m" />
       )}
       <MyFtSticky className="" />
     </React.Fragment>

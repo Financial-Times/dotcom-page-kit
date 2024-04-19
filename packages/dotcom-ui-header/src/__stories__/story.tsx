@@ -153,7 +153,8 @@ _StickyHeader.args = {
   showUserNavigation: true,
   userIsLoggedIn: false,
   userIsSubscribed: false,
-  showStickyHeader: false
+  showStickyHeader: false,
+  showAskButton: false
 }
 _StickyHeader.argTypes = {
   currentPath: {
