@@ -7,7 +7,7 @@ export interface AskFtButtonProps {
 
 export const AskFtButton = ({ className, dataTrackable }: AskFtButtonProps) => (
   <a
-    className={`ask-ft-button ${className}`}
+    className={`ft-header__ask-ft-button ${className}`}
     data-trackable={dataTrackable}
     href="https://ask.ft.com"
     title="ASK FT"

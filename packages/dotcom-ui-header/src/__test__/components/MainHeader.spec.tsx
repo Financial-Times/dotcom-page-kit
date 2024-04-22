@@ -25,7 +25,7 @@ describe('dotcom-ui-header/src/components/MainHeader', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  it('renders with ASK FT button', () => {
+  it('renders ASK FT button', () => {
     const tree = renderer.create(<Subject {...propsAskFt} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
