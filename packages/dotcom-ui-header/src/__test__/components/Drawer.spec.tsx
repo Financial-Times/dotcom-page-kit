@@ -5,6 +5,7 @@ import { Drawer as Subject } from '../../index'
 
 const propsAnonymous = { ...fixture, userIsAnonymous: true, userIsLoggedIn: false }
 const propsLoggedIn = { ...fixture, userIsAnonymous: false, userIsLoggedIn: true }
+const propsAskFt = { ...fixture, showAskButton: true }
 
 describe('dotcom-ui-header/src/components/Drawer', () => {
   it('renders as an anonymous user', () => {
@@ -14,6 +15,11 @@ describe('dotcom-ui-header/src/components/Drawer', () => {
 
   it('renders as a logged in user', () => {
     const tree = renderer.create(<Subject {...propsLoggedIn} />).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders ASK FT button', () => {
+    const tree = renderer.create(<Subject {...propsAskFt} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

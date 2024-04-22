@@ -1,5 +1,1377 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
+<div
+  aria-label="Drawer menu"
+  aria-modal="true"
+  className="o-header__drawer"
+  data-o-header-drawer={true}
+  data-o-header-drawer--no-js={true}
+  data-trackable="drawer"
+  data-trackable-terminate={true}
+  id="o-header-drawer"
+  role="modal"
+>
+  <div
+    className="o-header__drawer-inner"
+  >
+    <div
+      className="o-header__drawer-tools"
+    >
+      <button
+        aria-controls="o-header-drawer"
+        className="o-header__drawer-tools-close"
+        data-trackable="close"
+        title="Close side navigation menu"
+        type="button"
+      >
+        <span
+          className="o-header__visually-hidden"
+        >
+          Close side navigation menu
+        </span>
+      </button>
+      <a
+        className="o-header__drawer-tools-logo"
+        data-trackable="logo"
+        href="/"
+      >
+        <span
+          className="o-header__visually-hidden"
+        >
+          Financial Times
+        </span>
+      </a>
+      <p
+        className="o-header__drawer-current-edition"
+      >
+        UK Edition
+      </p>
+    </div>
+    <div
+      className="o-header__drawer-actions"
+    >
+      <a
+        className="o-header__drawer-button"
+        data-trackable="subscribe-button"
+        href="#"
+        role="button"
+      >
+        Subscribe for full access
+      </a>
+    </div>
+    <div
+      className="o-header__drawer-search"
+    >
+      <form
+        action="/search"
+        aria-label="Site search"
+        className="o-header__drawer-search-form"
+        data-n-topic-search={true}
+        data-n-topic-search-categories="concepts,equities"
+        data-n-topic-search-view-all={true}
+        role="search"
+      >
+        <label
+          className="o-header__visually-hidden"
+          htmlFor="o-header-drawer-search-term"
+        >
+          Search the 
+          <abbr
+            title="Financial Times"
+          >
+            FT
+          </abbr>
+        </label>
+        <input
+          autoCapitalize="off"
+          autoComplete="off"
+          autoCorrect="off"
+          className="o-header__drawer-search-term"
+          data-n-topic-search-input={true}
+          data-trackable="search-term"
+          id="o-header-drawer-search-term"
+          name="q"
+          placeholder="Search the FT"
+          spellCheck={false}
+          type="text"
+        />
+        <button
+          className="o-header__drawer-search-submit"
+          data-trackable="search-submit"
+          type="submit"
+        >
+          <span
+            className="o-header__visually-hidden"
+          >
+            Search
+          </span>
+        </button>
+        <a
+          className="ask-ft-button ft-header__drawer-ask-ft-button"
+          data-trackable="ask-ft-button-drawer"
+          href="https://ask.ft.com"
+          title="ASK FT"
+        >
+          Ask FT
+        </a>
+      </form>
+    </div>
+    <nav
+      aria-label="Edition switcher"
+      className="o-header__drawer-menu"
+    >
+      <ul
+        className="o-header__drawer-menu-list"
+      >
+        <li
+          className="o-header__drawer-menu-item"
+          data-trackable="edition-switcher"
+        >
+          <a
+            className="o-header__drawer-menu-link"
+            data-trackable="international"
+            href="#?edition=international"
+          >
+            Switch to 
+            International
+             Edition
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <nav
+      className="o-header__drawer-menu o-header__drawer-menu--primary"
+    >
+      <h2
+        className="o-header__drawer-menu-item o-header__drawer-menu-item--heading"
+        id="top-sections"
+      >
+        Top sections
+      </h2>
+      <ul
+        aria-labelledby="top-sections"
+        className="o-header__drawer-menu-list"
+      >
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected"
+            data-trackable="Home"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <div
+            className="o-header__drawer-menu-toggle-wrapper"
+          >
+            <a
+              aria-current="page"
+              aria-label="World, current page"
+              className="o-header__drawer-menu-link o-header__drawer-menu-link--selected o-header__drawer-menu-link--parent"
+              data-trackable="World"
+              href="/world"
+            >
+              World
+            </a>
+            <button
+              aria-controls="o-header-drawer-child-1"
+              className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--selected"
+              data-trackable="sub-level-toggle | World"
+            >
+              Show more World
+            </button>
+          </div>
+          <ul
+            className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
+            data-trackable="sub-level"
+            id="o-header-drawer-child-1"
+          >
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Global Economy"
+                href="/global-economy"
+              >
+                Global Economy
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="UK"
+                href="/world/uk"
+              >
+                UK
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="US"
+                href="/world/us"
+              >
+                US
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="China"
+                href="/world/asia-pacific/china"
+              >
+                China
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Africa"
+                href="/world/africa"
+              >
+                Africa
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Asia Pacific"
+                href="/world/asia-pacific"
+              >
+                Asia Pacific
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Emerging Markets"
+                href="/emerging-markets"
+              >
+                Emerging Markets
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Europe"
+                href="/world/europe"
+              >
+                Europe
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Americas"
+                href="/world/americas"
+              >
+                Americas
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Middle East and North Africa"
+                href="/world/mideast"
+              >
+                Middle East and North Africa
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <div
+            className="o-header__drawer-menu-toggle-wrapper"
+          >
+            <a
+              className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--parent"
+              data-trackable="UK"
+              href="/world/uk"
+            >
+              UK
+            </a>
+            <button
+              aria-controls="o-header-drawer-child-2"
+              className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
+              data-trackable="sub-level-toggle | UK"
+            >
+              Show more UK
+            </button>
+          </div>
+          <ul
+            className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
+            data-trackable="sub-level"
+            id="o-header-drawer-child-2"
+          >
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="UK Business & Economy"
+                href="/uk-business-economy"
+              >
+                UK Business & Economy
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="UK Politics & Policy"
+                href="/world/uk/politics"
+              >
+                UK Politics & Policy
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="UK Companies"
+                href="/companies/uk"
+              >
+                UK Companies
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <div
+            className="o-header__drawer-menu-toggle-wrapper"
+          >
+            <a
+              className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--parent"
+              data-trackable="Companies"
+              href="/companies"
+            >
+              Companies
+            </a>
+            <button
+              aria-controls="o-header-drawer-child-3"
+              className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
+              data-trackable="sub-level-toggle | Companies"
+            >
+              Show more Companies
+            </button>
+          </div>
+          <ul
+            className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
+            data-trackable="sub-level"
+            id="o-header-drawer-child-3"
+          >
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Energy"
+                href="/companies/energy"
+              >
+                Energy
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Financials"
+                href="/companies/financials"
+              >
+                Financials
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Health"
+                href="/companies/health"
+              >
+                Health
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Industrials"
+                href="/companies/industrials"
+              >
+                Industrials
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Media"
+                href="/companies/media"
+              >
+                Media
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Professional Services"
+                href="/companies/professional-services"
+              >
+                Professional Services
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Retail & Consumer"
+                href="/companies/retail-consumer"
+              >
+                Retail & Consumer
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Tech Sector"
+                href="/companies/technology"
+              >
+                Tech Sector
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Telecoms"
+                href="/companies/telecoms"
+              >
+                Telecoms
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Transport"
+                href="/companies/transport"
+              >
+                Transport
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected"
+            data-trackable="Tech"
+            href="/technology"
+          >
+            Tech
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <div
+            className="o-header__drawer-menu-toggle-wrapper"
+          >
+            <a
+              className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--parent"
+              data-trackable="Markets"
+              href="/markets"
+            >
+              Markets
+            </a>
+            <button
+              aria-controls="o-header-drawer-child-5"
+              className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
+              data-trackable="sub-level-toggle | Markets"
+            >
+              Show more Markets
+            </button>
+          </div>
+          <ul
+            className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
+            data-trackable="sub-level"
+            id="o-header-drawer-child-5"
+          >
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="fastFT"
+                href="/fastft"
+              >
+                fastFT
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Alphaville"
+                href="https://ftalphaville.ft.com"
+              >
+                Alphaville
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Markets Data"
+                href="https://markets.ft.com/data"
+              >
+                Markets Data
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Capital Markets"
+                href="/capital-markets"
+              >
+                Capital Markets
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Commodities"
+                href="/commodities"
+              >
+                Commodities
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Currencies"
+                href="/currencies"
+              >
+                Currencies
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Equities"
+                href="/equities"
+              >
+                Equities
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Fund Management"
+                href="/fund-management"
+              >
+                Fund Management
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Trading"
+                href="/ft-trading-room"
+              >
+                Trading
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected"
+            data-trackable="Graphics"
+            href="/graphics"
+          >
+            Graphics
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <div
+            className="o-header__drawer-menu-toggle-wrapper"
+          >
+            <a
+              className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--parent"
+              data-trackable="Opinion"
+              href="/opinion"
+            >
+              Opinion
+            </a>
+            <button
+              aria-controls="o-header-drawer-child-7"
+              className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
+              data-trackable="sub-level-toggle | Opinion"
+            >
+              Show more Opinion
+            </button>
+          </div>
+          <ul
+            className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
+            data-trackable="sub-level"
+            id="o-header-drawer-child-7"
+          >
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Columnists"
+                href="/columnists"
+              >
+                Columnists
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="The FT View"
+                href="/ft-view"
+              >
+                The FT View
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="The Big Read"
+                href="/the-big-read"
+              >
+                The Big Read
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Instant Insight"
+                href="/instant-insight"
+              >
+                Instant Insight
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Lex"
+                href="/lex"
+              >
+                Lex
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Alphaville"
+                href="https://ftalphaville.ft.com"
+              >
+                Alphaville
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Obituaries"
+                href="/obituaries"
+              >
+                Obituaries
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Letters"
+                href="/letters"
+              >
+                Letters
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <div
+            className="o-header__drawer-menu-toggle-wrapper"
+          >
+            <a
+              className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--parent"
+              data-trackable="Work & Careers"
+              href="/work-careers"
+            >
+              Work & Careers
+            </a>
+            <button
+              aria-controls="o-header-drawer-child-8"
+              className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
+              data-trackable="sub-level-toggle | Work & Careers"
+            >
+              Show more Work & Careers
+            </button>
+          </div>
+          <ul
+            className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
+            data-trackable="sub-level"
+            id="o-header-drawer-child-8"
+          >
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Business School Rankings"
+                href="http://rankings.ft.com/businessschoolrankings/rankings"
+              >
+                Business School Rankings
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Business Education"
+                href="/business-education"
+              >
+                Business Education
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Entrepreneurship"
+                href="/entrepreneurship"
+              >
+                Entrepreneurship
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Recruitment"
+                href="/recruitment"
+              >
+                Recruitment
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Business Books"
+                href="/business-books"
+              >
+                Business Books
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <div
+            className="o-header__drawer-menu-toggle-wrapper"
+          >
+            <a
+              className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--parent"
+              data-trackable="Life & Arts"
+              href="/life-arts"
+            >
+              Life & Arts
+            </a>
+            <button
+              aria-controls="o-header-drawer-child-9"
+              className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
+              data-trackable="sub-level-toggle | Life & Arts"
+            >
+              Show more Life & Arts
+            </button>
+          </div>
+          <ul
+            className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
+            data-trackable="sub-level"
+            id="o-header-drawer-child-9"
+          >
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Arts"
+                href="/arts"
+              >
+                Arts
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Books"
+                href="/books"
+              >
+                Books
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Food & Drink"
+                href="/food-drink"
+              >
+                Food & Drink
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="FT Magazine"
+                href="/magazine"
+              >
+                FT Magazine
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="House & Home"
+                href="/house-home"
+              >
+                House & Home
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Next Act"
+                href="/next-act"
+              >
+                Next Act
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Style"
+                href="/style"
+              >
+                Style
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Travel"
+                href="/travel"
+              >
+                Travel
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <div
+            className="o-header__drawer-menu-toggle-wrapper"
+          >
+            <a
+              className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--parent"
+              data-trackable="Personal Finance"
+              href="/personal-finance"
+            >
+              Personal Finance
+            </a>
+            <button
+              aria-controls="o-header-drawer-child-10"
+              className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
+              data-trackable="sub-level-toggle | Personal Finance"
+            >
+              Show more Personal Finance
+            </button>
+          </div>
+          <ul
+            className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
+            data-trackable="sub-level"
+            id="o-header-drawer-child-10"
+          >
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Property & Mortgages"
+                href="/personal-finance/property-mortgages"
+              >
+                Property & Mortgages
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Investments"
+                href="/personal-finance/investments"
+              >
+                Investments
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Pensions"
+                href="/pensions"
+              >
+                Pensions
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Tax"
+                href="/personal-finance/tax"
+              >
+                Tax
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Banking & Savings"
+                href="/personal-finance/banking-savings"
+              >
+                Banking & Savings
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Advice & Comment"
+                href="/personal-finance/advice-commment"
+              >
+                Advice & Comment
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected"
+            data-trackable="Science"
+            href="/companies/science"
+          >
+            Science
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected"
+            data-trackable="Special Reports"
+            href="/special-reports"
+          >
+            Special Reports
+          </a>
+        </li>
+      </ul>
+      <h2
+        className="o-header__drawer-menu-item o-header__drawer-menu-item--heading"
+        id="ft-recommends"
+      >
+        FT recommends
+      </h2>
+      <ul
+        aria-labelledby="ft-recommends"
+        className="o-header__drawer-menu-list"
+      >
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected"
+            data-trackable="Lex"
+            href="/lex"
+          >
+            Lex
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected"
+            data-trackable="Alphaville"
+            href="https://ftalphaville.ft.com"
+          >
+            Alphaville
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected"
+            data-trackable="EM Squared"
+            href="/emerging-markets/em-squared"
+          >
+            EM Squared
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected"
+            data-trackable="Lunch with the FT"
+            href="/lunch-with-the-ft"
+          >
+            Lunch with the FT
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected"
+            data-trackable="FT Confidential Research"
+            href="https://www.ft.com/ft-confidential-research"
+          >
+            FT Confidential Research
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected"
+            data-trackable="Video"
+            href="/video"
+          >
+            Video
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected"
+            data-trackable="Podcasts"
+            href="https://www.ft.com/podcasts"
+          >
+            Podcasts
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected"
+            data-trackable="News feed"
+            href="/news-feed"
+          >
+            News feed
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected"
+            data-trackable="Newsletters"
+            href="/newsletters"
+          >
+            Newsletters
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <div
+            className="o-header__drawer-menu-toggle-wrapper"
+          >
+            <a
+              className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--parent"
+              data-trackable="FT Community"
+              href="/tour/community"
+            >
+              FT Community
+            </a>
+            <button
+              aria-controls="o-header-drawer-child-inner9"
+              className="o-header__drawer-menu-toggle o-header__drawer-menu-toggle--unselected"
+              data-trackable="sub-level-toggle | FT Community"
+            >
+              Show more FT Community
+            </button>
+          </div>
+          <ul
+            className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
+            data-trackable="sub-level"
+            id="o-header-drawer-child-inner9"
+          >
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="FT Live"
+                href="http://live.ft.com/"
+              >
+                FT Live
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="FT Forums"
+                href="https://forums.ft.com/"
+              >
+                FT Forums
+              </a>
+            </li>
+            <li
+              className="o-header__drawer-menu-item"
+            >
+              <a
+                className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
+                data-trackable="Board Director Programme"
+                href="https://bdp.ft.com/"
+              >
+                Board Director Programme
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul
+        className="o-header__drawer-menu-list o-header__drawer-menu-list--divide"
+      >
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--secondary"
+            data-trackable="myFT"
+            href="/myft"
+          >
+            myFT
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--secondary"
+            data-trackable="Portfolio"
+            href="https://markets.ft.com/data/portfolio/dashboard"
+          >
+            Portfolio
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--secondary"
+            data-trackable="Today's Newspaper (ePaper)"
+            href="https://www.ft.com/todaysnewspaper"
+          >
+            Today's Newspaper (ePaper)
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--secondary"
+            data-trackable="Crossword"
+            href="https://www.ft.com/crossword"
+          >
+            Crossword
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--secondary"
+            data-trackable="Our Apps"
+            href="https://www.ft.com/tour/apps"
+          >
+            Our Apps
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <nav
+      className="o-header__drawer-menu o-header__drawer-menu--user"
+      data-trackable="user-nav"
+    >
+      <ul
+        className="o-header__drawer-menu-list"
+      >
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link"
+            data-trackable="Help Centre"
+            href="http://help.ft.com"
+          >
+            Help Centre
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link"
+            data-trackable="Settings & Account"
+            href="https://www.ft.com/myaccount"
+          >
+            Settings & Account
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link"
+            data-trackable="Contact Preferences"
+            href="/myft/alerts"
+          >
+            Contact Preferences
+          </a>
+        </li>
+        <li
+          className="o-header__drawer-menu-item"
+        >
+          <a
+            className="o-header__drawer-menu-link"
+            data-trackable="Sign Out"
+            href="/logout"
+          >
+            Sign Out
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+`;
+
 exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] = `
 <div
   aria-label="Drawer menu"
