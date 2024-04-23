@@ -62,8 +62,8 @@ Please do! All of the code in Page Kit is peer-reviewed by members of the FT cus
   - ### Update the documentation
     The user documentation must be kept up to date with any changes made. Use inline code comments as developer documentation, focusing more on _why_ your code does something than _what_ it's doing.
 
-  - ### Avoid hacks or temporary workarounds
-    The stability of Page Kit is vital for it to be successful and sustainable. As well as maintaining quality it is important to consider that applications can have very different lifespans; a "quick hack" may remain in production for several months longer than it is required. If you need a hack try to keep it in your app!
+  - ### Avoid hacks, temporary workarounds, and experimental features.
+    The stability of Page Kit is vital for it to be successful and sustainable. As well as maintaining quality it is important to consider that applications can have very different lifespans; a "quick hack" may remain in production for several months longer than it is required. To reduce churn and make sure Page Kit is stable, hacks, workarounds, and features that are still being tested **should live in apps themselves**. Page Kit should provide the necessary hooks or slots for apps to insert experimental components; if it doesn't, we can add that. Once features have been proven, and will remain stable, they can graduate to Page Kit itself.
 
   - ### Reviewers are empowered to say no
     This is a collaborative project and sometimes your pull request may not work in the best interests of those in another team so they have been given the power to say "no". If your pull request is good but would require a major release then it may be held until a more suitable time.
