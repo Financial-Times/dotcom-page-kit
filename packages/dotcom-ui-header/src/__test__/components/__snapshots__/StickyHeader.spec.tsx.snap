@@ -52,7 +52,11 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders ASK FT button 1`] 
             href="https://ask.ft.com"
             title="ASK FT"
           >
-            Ask FT
+            <span
+              className="ft-header__ask-ft-button-label"
+            >
+              Ask FT
+            </span>
           </a>
         </div>
         <div

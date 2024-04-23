@@ -12,6 +12,6 @@ export const AskFtButton = ({ className, dataTrackable }: AskFtButtonProps) => (
     href="https://ask.ft.com"
     title="ASK FT"
   >
-    Ask FT
+    <span className="ft-header__ask-ft-button-label">Ask FT</span>
   </a>
 )
