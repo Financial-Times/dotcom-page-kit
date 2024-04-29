@@ -8,6 +8,7 @@ import {
 } from './additionalPartials'
 import { THeaderProps } from '../../interfaces'
 import { TNavMenuItem, TNavMenu, TNavEditions } from '@financial-times/dotcom-types-navigation'
+import { AskFtButton } from '../ask-ft/askFtButton'
 
 const IncludeDrawer = (props) => <Drawer {...props} />
 
@@ -32,7 +33,7 @@ const Drawer = (props: THeaderProps) => {
       <div className="o-header__drawer-inner">
         <DrawerTools {...editions} />
         {!props.userIsSubscribed && subscribeAction && <SubscribeButton {...subscribeAction} />}
-        <Search />
+        <Search {...props} />
         <nav className="o-header__drawer-menu" aria-label="Edition switcher">
           {editions && <EditionsSwitcher {...editions} />}
         </nav>
@@ -65,7 +66,7 @@ const DrawerTools = (props: TNavEditions) => (
   </div>
 )
 
-const Search = () => (
+const Search = (props: Pick<THeaderProps, 'showAskButton'>) => (
   <div className="o-header__drawer-search">
     <form
       className="o-header__drawer-search-form"
@@ -95,6 +96,9 @@ const Search = () => (
       <button className="o-header__drawer-search-submit" type="submit" data-trackable="search-submit">
         <span className="o-header__visually-hidden">Search</span>
       </button>
+      {props.showAskButton && (
+        <AskFtButton className="ft-header__drawer-ask-ft-button" dataTrackable="ask-ft-button-drawer" />
+      )}
     </form>
   </div>
 )

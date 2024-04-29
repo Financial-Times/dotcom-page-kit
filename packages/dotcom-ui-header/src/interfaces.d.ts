@@ -10,6 +10,7 @@ export type THeaderOptions = {
   showStickyHeader?: boolean
   showMegaNav?: boolean
   showLogoLink?: boolean
+  showAskButton?: boolean
   /*
    * experimentalAccountEntryTest is an experimental feature switch
    * This is being run as an AB test and should be removed afterwards

@@ -2,6 +2,7 @@ import React from 'react'
 import { THeaderProps } from '../../interfaces'
 import BrandFtMastheadSvg from '../svg-components/BrandFtMasthead'
 import { TNavMenuItem } from '@financial-times/dotcom-types-navigation'
+import { AskFtButton } from '../ask-ft/askFtButton'
 
 const HeaderWrapper = (props) => (
   <header
@@ -104,10 +105,13 @@ const TopWrapper = (props) => (
   </div>
 )
 
-const TopColumnLeft = () => (
+const TopColumnLeft = (props: Pick<THeaderProps, 'showAskButton'>) => (
   <div className="o-header__top-column o-header__top-column--left">
     <DrawerIcon />
     <SearchIcon />
+    {props.showAskButton && (
+      <AskFtButton className="ft-header__top-ask-ft-button" dataTrackable="ask-ft-button-header" />
+    )}
   </div>
 )
 
