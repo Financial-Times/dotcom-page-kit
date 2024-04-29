@@ -55,46 +55,6 @@ DefaultHeaderWithDrawer.args = {
   showLogoLink: false
 }
 
-export const DefaultHeaderWithDrawerEntryTestAnon = (args) => (
-  <OnReady callback={onReadyCallback}>
-    <HeaderSimple {...storyData} {...args} />
-    <Drawer {...storyData} {...args} />
-  </OnReady>
-)
-
-DefaultHeaderWithDrawerEntryTestAnon.story = {
-  name: 'Default header with drawer - Account entry test [Anon]'
-}
-DefaultHeaderWithDrawerEntryTestAnon.args = {
-  showSubNavigation: true,
-  showMegaNav: true,
-  showUserNavigation: true,
-  userIsLoggedIn: false,
-  userIsSubscribed: false,
-  showLogoLink: false,
-  experimentalAccountEntryTest: true
-}
-
-export const DefaultHeaderWithDrawerEntryTest = (args) => (
-  <OnReady callback={onReadyCallback}>
-    <HeaderSimple {...storyData} {...args} />
-    <Drawer {...storyData} {...args} />
-  </OnReady>
-)
-
-DefaultHeaderWithDrawerEntryTest.story = {
-  name: 'Default header with drawer - Account entry test'
-}
-DefaultHeaderWithDrawerEntryTest.args = {
-  showSubNavigation: true,
-  showMegaNav: true,
-  showUserNavigation: true,
-  userIsLoggedIn: true,
-  userIsSubscribed: false,
-  showLogoLink: false,
-  experimentalAccountEntryTest: true
-}
-
 export const DefaultHeaderWithRightAlignedSubnav = (args) => (
   <OnReady callback={onReadyCallback}>
     <HeaderSimple {...profileStoryData} {...args} />

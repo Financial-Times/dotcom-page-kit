@@ -39,61 +39,27 @@ const SearchIcon = () => (
   </a>
 )
 
-const TopRightAccountEntry = ({
-  className,
-  signedIn,
-  experimentalAccountEntryTest
+const MyAccountLink = ({
+  item,
+  signedIn
 }: {
-  className?: string
+  item: TNavMenuItem
   signedIn: boolean
-  experimentalAccountEntryTest?: boolean
 }) => {
-  if (experimentalAccountEntryTest) {
-    return <MyAccountLink signedIn={signedIn} />
-  } else {
-    return <MyFtLogoLink className={className} />
-  }
-}
+  const classNames = 'o-header__top-link ft-header__top-link--myaccount';
+  const dataTrackable = signedIn ? 'my-account' : 'Sign In';
+  const id = `o-header-top-link-${signedIn ? 'myaccount' : 'signin'}`;
 
-const MyFtLogoLink = ({ className }: { className?: string }) => (
-  <a
-    className={`o-header__top-icon-link o-header__top-icon-link--myft ${className}`}
-    id="o-header-top-link-myft"
-    href="/myft"
-    data-trackable="my-ft"
-    data-tour-stage="myFt"
-    aria-label="My F T"
-  >
-    <span className="o-header__visually-hidden">myFT</span>
-  </a>
-)
-
-const MyAccountLink = ({ signedIn }: { signedIn: boolean }) => {
-  const classNames = 'o-header__top-link ft-header__top-link--myaccount'
-
-  if (signedIn) {
     return (
       <a
         className={classNames}
-        id="o-header-top-link-myaccount"
-        href="/myaccount"
-        data-trackable="my-account"
+        id={id}
+        href={item.url ?? undefined}
+        data-trackable={dataTrackable}
       >
-        <span>My Account</span>
+        <span>{item.label}</span>
       </a>
     )
-  } else {
-    return (
-      <a
-        className={classNames}
-        id="o-header-top-link-signin"
-        href="/login?location=/"
-        data-trackable="Sign In"
-      >
-        <span>Sign In</span>
-      </a>
-    )
-  }
 }
 
 const TopWrapper = (props) => (
@@ -134,7 +100,8 @@ const TopColumnCenterNoLink = () => (
 )
 
 const TopColumnRightLoggedIn = (props: THeaderProps) => {
-  const subscribeAction = props.data['navbar-right-anon']?.items?.[1]
+  const subscribeAction = props.data['navbar-top-right']?.items?.[1]
+  const myAccountAction = props.data['navbar-top-right']?.items?.[0]
   return (
     <div className="o-header__top-column o-header__top-column--right">
       {!props.userIsSubscribed && subscribeAction && (
@@ -144,10 +111,9 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
           className="o-header__top-button--hide-m"
         />
       )}
-      <TopRightAccountEntry
-        className=""
+      <MyAccountLink
         signedIn={true}
-        experimentalAccountEntryTest={props.experimentalAccountEntryTest}
+        item={myAccountAction}
       />
     </div>
   )
@@ -202,13 +168,10 @@ const SubscribeButton = ({
 const TopColumnRightAnon = ({
   items,
   variant,
-  experimentalAccountEntryTest
 }: {
   items: TNavMenuItem[]
   variant?: string
-  experimentalAccountEntryTest?: boolean
 }) => {
-  // If user is anonymous the second list item is styled as a button
   const [signInAction, subscribeAction] = items
 
   return (
@@ -216,28 +179,25 @@ const TopColumnRightAnon = ({
       {subscribeAction && (
         <SubscribeButton item={subscribeAction} variant={variant} className="o-header__top-button--hide-m" />
       )}
-      {signInAction && !experimentalAccountEntryTest && (
-        <SignInLink item={signInAction} variant={variant} className="o-header__top-link--hide-m" />
-      )}
-      <TopRightAccountEntry
-        className="o-header__top-icon-link--show-m"
+      <MyAccountLink
         signedIn={false}
-        experimentalAccountEntryTest={experimentalAccountEntryTest}
+        item={signInAction}
       />
     </div>
   )
 }
 
 const TopColumnRight = (props: THeaderProps) => {
+
+  console.log('this', props)
   if (props.userIsLoggedIn) {
     return <TopColumnRightLoggedIn {...props} />
   } else {
-    const userNavAnonItems = props.data['navbar-right-anon'].items
+    const userNavAnonItems = props.data['navbar-top-right-anon'].items
     return (
       <TopColumnRightAnon
         items={userNavAnonItems}
         variant={props.variant}
-        experimentalAccountEntryTest={props.experimentalAccountEntryTest}
       />
     )
   }

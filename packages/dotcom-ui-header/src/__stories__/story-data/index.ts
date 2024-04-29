@@ -4,6 +4,8 @@ import actionsUK from './actionsUK'
 import editionsUK from './editionsUK'
 import navbarRight from './navbarRight'
 import navbarRightAnon from './navbarRightAnon'
+import navbarTopRightAnon from './navbarTopRightAnon'
+import navbarTopRight from './navbarTopRight'
 import navbarSimple from './navbarSimple'
 import navbarUK from './navbarUK'
 import subNavigation from './subNavigationUK'
@@ -31,6 +33,8 @@ const data: THeaderProps = {
     navbar: navbarUK,
     'navbar-right': navbarRight,
     'navbar-right-anon': navbarRightAnon,
+    'navbar-top-right-anon': navbarTopRightAnon,
+    'navbar-top-right': navbarTopRight,
     'navbar-simple': navbarSimple,
     subsections,
     'subsections-right': [],
