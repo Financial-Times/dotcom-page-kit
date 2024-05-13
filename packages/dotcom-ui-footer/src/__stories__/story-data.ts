@@ -13,6 +13,8 @@ const fixture: TFooterProps = {
     navbar: null,
     'navbar-right': null,
     'navbar-right-anon': null,
+    'navbar-top-right': null,
+    'navbar-top-right-anon': null,
     'navbar-simple': null,
     subsections: null,
     user: null

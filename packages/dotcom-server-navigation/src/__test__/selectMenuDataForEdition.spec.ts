@@ -10,6 +10,8 @@ const fixture = {
   'navbar-simple': {},
   'navbar-right': {},
   'navbar-right-anon': {},
+  'navbar-top-right': {},
+  'navbar-top-right-anon': {},
   'navbar-international': {},
   'navbar-uk': {},
   user: {}

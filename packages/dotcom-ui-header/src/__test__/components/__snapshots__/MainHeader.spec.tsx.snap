@@ -100,17 +100,13 @@ exports[`dotcom-ui-header/src/components/MainHeader renders ASK FT button 1`] = 
             Subscribe
           </a>
           <a
-            aria-label="My F T"
-            className="o-header__top-icon-link o-header__top-icon-link--myft "
-            data-tour-stage="myFt"
-            data-trackable="my-ft"
-            href="/myft"
-            id="o-header-top-link-myft"
+            className="o-header__top-link ft-header__top-link--myaccount"
+            data-trackable="My Account"
+            href="/myaccount"
+            id="o-header-top-link-myaccount"
           >
-            <span
-              className="o-header__visually-hidden"
-            >
-              myFT
+            <span>
+              My Account
             </span>
           </a>
         </div>
@@ -1948,17 +1944,13 @@ exports[`dotcom-ui-header/src/components/MainHeader renders a right aligned subn
             Subscribe
           </a>
           <a
-            aria-label="My F T"
-            className="o-header__top-icon-link o-header__top-icon-link--myft "
-            data-tour-stage="myFt"
-            data-trackable="my-ft"
-            href="/myft"
-            id="o-header-top-link-myft"
+            className="o-header__top-link ft-header__top-link--myaccount"
+            data-trackable="My Account"
+            href="/myaccount"
+            id="o-header-top-link-myaccount"
           >
-            <span
-              className="o-header__visually-hidden"
-            >
-              myFT
+            <span>
+              My Account
             </span>
           </a>
         </div>
@@ -3791,17 +3783,13 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
             Subscribe
           </a>
           <a
-            aria-label="My F T"
-            className="o-header__top-icon-link o-header__top-icon-link--myft "
-            data-tour-stage="myFt"
-            data-trackable="my-ft"
-            href="/myft"
-            id="o-header-top-link-myft"
+            className="o-header__top-link ft-header__top-link--myaccount"
+            data-trackable="My Account"
+            href="/myaccount"
+            id="o-header-top-link-myaccount"
           >
-            <span
-              className="o-header__visually-hidden"
-            >
-              myFT
+            <span>
+              My Account
             </span>
           </a>
         </div>
@@ -5639,24 +5627,13 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
             Subscribe
           </a>
           <a
-            className="o-header__top-link o-header__top-link--hide-m"
+            className="o-header__top-link ft-header__top-link--myaccount"
             data-trackable="Sign In"
             href="/login?location=#"
+            id="o-header-top-link-signin"
           >
-            Sign In
-          </a>
-          <a
-            aria-label="My F T"
-            className="o-header__top-icon-link o-header__top-icon-link--myft o-header__top-icon-link--show-m"
-            data-tour-stage="myFt"
-            data-trackable="my-ft"
-            href="/myft"
-            id="o-header-top-link-myft"
-          >
-            <span
-              className="o-header__visually-hidden"
-            >
-              myFT
+            <span>
+              Sign In
             </span>
           </a>
         </div>

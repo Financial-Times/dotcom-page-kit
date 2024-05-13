@@ -7,6 +7,8 @@ const sharedMenuKeys: TNavMenuKeys[] = [
   'navbar-simple',
   'navbar-right',
   'navbar-right-anon',
+  'navbar-top-right',
+  'navbar-top-right-anon',
   'user'
 ]
 
