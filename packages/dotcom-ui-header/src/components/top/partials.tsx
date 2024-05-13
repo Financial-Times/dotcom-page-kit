@@ -40,35 +40,6 @@ const SearchIcon = () => (
   </a>
 )
 
-const TopRightAccountEntry = ({
-  className,
-  signedIn,
-  experimentalAccountEntryTest
-}: {
-  className?: string
-  signedIn: boolean
-  experimentalAccountEntryTest?: boolean
-}) => {
-  if (experimentalAccountEntryTest) {
-    return <MyAccountLink signedIn={signedIn} />
-  } else {
-    return <MyFtLogoLink className={className} />
-  }
-}
-
-const MyFtLogoLink = ({ className }: { className?: string }) => (
-  <a
-    className={`o-header__top-icon-link o-header__top-icon-link--myft ${className}`}
-    id="o-header-top-link-myft"
-    href="/myft"
-    data-trackable="my-ft"
-    data-tour-stage="myFt"
-    aria-label="My F T"
-  >
-    <span className="o-header__visually-hidden">myFT</span>
-  </a>
-)
-
 const MyAccountLink = ({ signedIn }: { signedIn: boolean }) => {
   const classNames = 'o-header__top-link ft-header__top-link--myaccount'
 
@@ -148,11 +119,7 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
           className="o-header__top-button--hide-m"
         />
       )}
-      <TopRightAccountEntry
-        className=""
-        signedIn={true}
-        experimentalAccountEntryTest={props.experimentalAccountEntryTest}
-      />
+      <MyAccountLink signedIn={true} />
     </div>
   )
 }
@@ -206,11 +173,9 @@ const SubscribeButton = ({
 const TopColumnRightAnon = ({
   items,
   variant,
-  experimentalAccountEntryTest
 }: {
   items: TNavMenuItem[]
   variant?: string
-  experimentalAccountEntryTest?: boolean
 }) => {
   // If user is anonymous the second list item is styled as a button
   const [signInAction, subscribeAction] = items
@@ -220,14 +185,7 @@ const TopColumnRightAnon = ({
       {subscribeAction && (
         <SubscribeButton item={subscribeAction} variant={variant} className="o-header__top-button--hide-m" />
       )}
-      {signInAction && !experimentalAccountEntryTest && (
-        <SignInLink item={signInAction} variant={variant} className="o-header__top-link--hide-m" />
-      )}
-      <TopRightAccountEntry
-        className="o-header__top-icon-link--show-m"
-        signedIn={false}
-        experimentalAccountEntryTest={experimentalAccountEntryTest}
-      />
+      <MyAccountLink signedIn={false} />
     </div>
   )
 }
@@ -241,7 +199,6 @@ const TopColumnRight = (props: THeaderProps) => {
       <TopColumnRightAnon
         items={userNavAnonItems}
         variant={props.variant}
-        experimentalAccountEntryTest={props.experimentalAccountEntryTest}
       />
     )
   }

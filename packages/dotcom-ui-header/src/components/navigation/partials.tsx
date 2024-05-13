@@ -80,23 +80,15 @@ const NavListRight = (props: THeaderProps) => {
   return props.userIsLoggedIn ? (
     <NavListRightLoggedIn
       items={props.data['navbar-right'].items}
-      experimentalAccountEntryTest={props.experimentalAccountEntryTest}
     />
   ) : null
 }
 
 const NavListRightLoggedIn = ({
   items,
-  experimentalAccountEntryTest
 }: {
   items: TNavMenuItem[]
-  experimentalAccountEntryTest?: boolean
 }) => {
-  /**
-   * Accounts entry test
-   * In this rendering theres a hacky solution to replace "Settings & Account" with "MyFT Feed"
-   * Once the test is concluded the real data should be updated accordingly and the hack removed
-   */
   return (
     <ul
       data-component="nav-list--right"
@@ -105,15 +97,9 @@ const NavListRightLoggedIn = ({
     >
       {items.map((item, index) => (
         <li className="o-header__nav-item" key={`link-${index}`}>
-          {item.label === 'Settings & Account' && experimentalAccountEntryTest ? (
-            <a className="o-header__nav-link" href="/myft" data-trackable="my-ft">
-              myFT Feed
-            </a>
-          ) : (
             <a className="o-header__nav-link" href={item.url ?? undefined} data-trackable={item.label}>
               {item.label}
             </a>
-          )}
         </li>
       ))}
     </ul>

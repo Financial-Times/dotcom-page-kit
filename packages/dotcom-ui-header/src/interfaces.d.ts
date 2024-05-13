@@ -11,12 +11,6 @@ export type THeaderOptions = {
   showMegaNav?: boolean
   showLogoLink?: boolean
   showAskButton?: boolean
-  /*
-   * experimentalAccountEntryTest is an experimental feature switch
-   * This is being run as an AB test and should be removed afterwards
-   * This option shouldn't be used by anyone without consulting the CP Retention team first
-   */
-  experimentalAccountEntryTest?: boolean
 }
 
 export type THeaderProps = THeaderOptions & {
