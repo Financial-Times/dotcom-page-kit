@@ -6,7 +6,6 @@ describe('examples/ft-ui', () => {
 
   describe('Header link elements', () => {
     it('renders the expected anonymous user Header link elements', async () => {
-      await expect(page).toMatchElement('a[href$="/myft"]', { text: 'myFT' })
       await expect(page).toMatchElement('.o-header__top-column--right a[href$="/login?location=/"]', {
         text: 'Sign In'
       })
@@ -19,13 +18,12 @@ describe('examples/ft-ui', () => {
     })
 
     it('does not render the logged-in user Header link elements', async () => {
-      await expect(page).not.toMatchElement('.o-header__top-column--right a[href$="/myaccount"]', {
-        text: 'Settings & Account'
-      })
       await expect(page).not.toMatchElement(
         `.o-header__top-column--right a[href="https://markets.ft.com/data/portfolio/dashboard"]`,
         { text: 'Portfolio' }
       )
+
+      await expect(page).not.toMatchElement('.o-header__nav-link a[href$="/myft"]', { text: 'myFT Feed' })
     })
   })
 })

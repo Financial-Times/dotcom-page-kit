@@ -32,10 +32,6 @@ describe('dotcom-ui-header', () => {
 
     const logo = container.querySelector('div[data-trackable="header-top"] .o-header__top-logo')
     expect(logo?.hasChildNodes()).toBe(true)
-
-    const myFtLink = container.querySelector('div[data-trackable="header-top"] .o-header__top-icon-link--myft')
-    expect(myFtLink?.innerHTML).toContain('myFT')
-
   })
 
   it('renders an inlined SVG logo image', () => {
@@ -64,7 +60,8 @@ describe('dotcom-ui-header', () => {
       const { container } = render(subscribedUserHeader)
 
       expect(container.querySelector('a[data-trackable="Portfolio"]')).not.toBeNull()
-      expect(container.querySelector('a[data-trackable="Settings & Account"]')).not.toBeNull()
+      expect(container.querySelector('a[data-trackable="My Account"]')).not.toBeNull()
+      expect(container.querySelector('a[data-trackable="myFT Feed"]')).not.toBeNull()
     })
 
     it('does not render sign in link', () => {
@@ -80,7 +77,8 @@ describe('dotcom-ui-header', () => {
       const { container } = render(loggedInUserHeader)
 
       expect(container.querySelector('a[data-trackable="Portfolio"]')).not.toBeNull()
-      expect(container.querySelector('a[data-trackable="Settings & Account"]')).not.toBeNull()
+      expect(container.querySelector('a[data-trackable="My Account"]')).not.toBeNull()
+      expect(container.querySelector('a[data-trackable="myFT Feed"]')).not.toBeNull()
     })
 
     it('does not render sign in link', () => {
@@ -96,10 +94,14 @@ describe('dotcom-ui-header', () => {
       const { container } = render(anonymousUserHeader)
 
       expect(
-        container.querySelector('.o-header__top-column .o-header__top-column--right a[data-trackable="Subscribe"]')
+        container.querySelector(
+          '.o-header__top-column .o-header__top-column--right a[data-trackable="Subscribe"]'
+        )
       ).not.toBeNull()
-     expect(
-        container.querySelector('.o-header__top-column .o-header__top-column--right a[data-trackable="Sign In"]')
+      expect(
+        container.querySelector(
+          '.o-header__top-column .o-header__top-column--right a[data-trackable="Sign In"]'
+        )
       ).not.toBeNull()
     })
 
@@ -107,7 +109,8 @@ describe('dotcom-ui-header', () => {
       const { container } = render(anonymousUserHeader)
 
       expect(container.querySelector('a[data-trackable="Portfolio"]')).toBeNull()
-      expect(container.querySelector('a[data-trackable="Settings & Account"]')).toBeNull()
+      expect(container.querySelector('a[data-trackable="My Account"]')).toBeNull()
+      expect(container.querySelector('a[data-trackable="myFT Feed"]')).toBeNull()
     })
   })
 })
