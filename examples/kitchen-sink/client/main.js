@@ -56,8 +56,7 @@ readyState.domready.then(async () => {
         {
           ...displayAdsOptions,
           targeting: adsData.metadata,
-          adUnit: adsData.adUnit,
-          smartmatch: flagsClient.get('adsEnableSmartmatchInTargeting') && adsData.smartmatch
+          adUnit: adsData.adUnit
         },
         flagsClient
       )
