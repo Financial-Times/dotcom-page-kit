@@ -64,7 +64,11 @@ const TopColumnLeft = (props: Pick<THeaderProps, 'showAskButton'>) => (
     <DrawerIcon />
     <SearchIcon />
     {props.showAskButton && (
-      <AskFtButton className="ft-header__top-ask-ft-button" dataTrackable="ask-ft-button-header" />
+      <AskFtButton
+        className="ft-header__top-ask-ft-button"
+        id="ask-ft-button-header"
+        dataTrackable="ask-ft-button-header"
+      />
     )}
   </div>
 )

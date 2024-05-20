@@ -111,6 +111,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
           className="ft-header__ask-ft-button ft-header__drawer-ask-ft-button"
           data-trackable="ask-ft-button-drawer"
           href="https://ask.ft.com"
+          id="ask-ft-button-drawer"
           title="ASK FT"
         >
           <span

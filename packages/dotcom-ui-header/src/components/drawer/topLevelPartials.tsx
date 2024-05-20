@@ -97,7 +97,11 @@ const Search = (props: Pick<THeaderProps, 'showAskButton'>) => (
         <span className="o-header__visually-hidden">Search</span>
       </button>
       {props.showAskButton && (
-        <AskFtButton className="ft-header__drawer-ask-ft-button" dataTrackable="ask-ft-button-drawer" />
+        <AskFtButton
+          className="ft-header__drawer-ask-ft-button"
+          id="ask-ft-button-drawer"
+          dataTrackable="ask-ft-button-drawer"
+        />
       )}
     </form>
   </div>
