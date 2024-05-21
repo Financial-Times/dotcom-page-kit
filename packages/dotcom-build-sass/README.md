@@ -69,8 +69,11 @@ The CSS loader has `@import` and `url()` resolution disabled as these should be 
 | Option            | Type     | Default | Description                                                        |
 |-------------------|----------|---------|--------------------------------------------------------------------|
 | `webpackImporter` | Boolean  | `false` | See https://github.com/webpack-contrib/sass-loader#webpackimporter |
-| `prependData`     | String   | `''`    | See https://webpack.js.org/loaders/sass-loader/#prependdata        |
+| `additionalData`     | String   | `''`    | https://webpack.js.org/loaders/sass-loader/#additionaldata        |
 | `includePaths`    | String[] | `[]`    | See https://sass-lang.com/documentation/js-api#includepaths        |
+| `implementation`    | `sass\|sass-embedded` | `sass`    | See https://webpack.js.org/loaders/sass-loader/#implementation        |
+
+`additionalData` replaces `prependData` as of sass-loader v9. `prependData` is still supported in this package, but is deprecated.
 
 ## Sass build monitoring
 
