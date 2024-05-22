@@ -41,7 +41,7 @@ const SearchIcon = () => (
 )
 
 const MyAccountLink = ({ item, signedIn }: { item: TNavMenuItem; signedIn: boolean }) => {
-  const classNames = 'o-header__top-link ft-header__top-link--myaccount'
+  const classNames = 'o-header__top-myaccount'
   const id = signedIn ? 'o-header-top-link-myaccount' : 'o-header-top-link-signin'
 
   return (
