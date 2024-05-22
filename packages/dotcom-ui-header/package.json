@@ -30,7 +30,7 @@
     "@svgr/core": "^5.0.0",
     "camelcase": "^6.0.0",
     "check-engine": "^1.10.1",
-    "@financial-times/o-header": "^11.0.4"
+    "@financial-times/o-header": "^12.0.0"
   },
   "peerDependencies": {
     "@financial-times/o-header": "^11.0.4",

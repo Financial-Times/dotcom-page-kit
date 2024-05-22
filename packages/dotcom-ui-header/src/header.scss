@@ -28,42 +28,6 @@
   display: none;
 }
 
-// The styles below are part of an AB test
-// If the test is successful these should be incorporated into o-header
-.ft-header__top-link--myaccount {
-  @include oTypographySans(0);
-}
-
-
-.ft-header__top-link--myaccount span {
-  vertical-align: middle;
-  // Hide the myaccount/sign in text on smaller screens leaving the icon only
-  @include oGridRespondTo($until: 'M') {
-    @include oNormaliseVisuallyHidden;
-  }
-}
-
-// Override the hover styles so the underline
-// Is only under the text and not the icon
-// And is closer to the text
-.ft-header__top-link--myaccount::after {
-  width: calc(100% - 32px);
-  left: unset;
-  right: 0;
-  bottom: 8px;
-}
-
-.ft-header__top-link--myaccount::before {
-  content: '';
-  display: block;
-  @include oIconsContent(
-		$icon-name: 'user',
-		$color: oColorsByName('black'),
-		$size: 32
-	);
-  vertical-align: middle;
-}
-
 .o-header__drawer-search-term {
   width: 100%;
 }
