@@ -4,19 +4,30 @@ import type webpack from 'webpack'
 
 export type TPluginOptions = {
   includePaths?: string[]
-  prependData?: string
+  prependData?: string // DEPRECATED IN FAVOUR OF additionalData
+  additionalData?: string
   webpackImporter?: boolean
+  implementation?: 'sass' | 'sass-embedded'
 }
 
 export class PageKitSassPlugin {
   includePaths: string[]
-  prependData: string
+  prependData: string // DEPRECATED IN FAVOUR OF additionalData
+  additionalData: string
   webpackImporter: boolean
+  implementation: 'sass' | 'sass-embedded'
 
-  constructor({ includePaths = [], prependData = '', webpackImporter }: TPluginOptions = {}) {
+  constructor({
+    includePaths = [],
+    prependData = '',
+    additionalData = '',
+    webpackImporter,
+    implementation = 'sass'
+  }: TPluginOptions = {}) {
     this.includePaths = includePaths
-    this.prependData = prependData
+    this.additionalData = additionalData.length ? additionalData : prependData
     this.webpackImporter = webpackImporter
+    this.implementation = implementation
   }
 
   apply(compiler: webpack.Compiler) {
@@ -25,11 +36,11 @@ export class PageKitSassPlugin {
       // but we don't usually use this and disabling it can speed up builds by up to 20%.
       webpackImporter: this.webpackImporter,
       // Prefer `dart-sass`.
-      implementation: require('sass'),
+      implementation: require(this.implementation),
       // Prepends SCSS code before the actual entry file.
       // Introduced to maintain snappy grid after n-ui-foundations removed it as the default.
       // Once user-facing apps and components move away from using snappy grid then this can be removed.
-      prependData: this.prependData,
+      additionalData: this.additionalData,
       sassOptions: {
         // Disable formatting so that we don't spend time pretty printing
         outputStyle: 'compressed',
