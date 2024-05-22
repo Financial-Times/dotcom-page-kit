@@ -235,15 +235,14 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders ASK FT button 1`] 
             Subscribe
           </a>
           <a
-            className="o-header__top-icon-link o-header__top-icon-link--myft "
-            data-trackable="my-ft"
-            href="/myft"
+            className="o-header__top-myaccount"
+            data-trackable="My Account"
+            href="/myaccount"
+            id="o-header-top-link-myaccount"
             tabIndex={-1}
           >
-            <span
-              className="o-header__visually-hidden"
-            >
-              myFT
+            <span>
+              My Account
             </span>
           </a>
         </div>
@@ -540,15 +539,14 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in use
             Subscribe
           </a>
           <a
-            className="o-header__top-icon-link o-header__top-icon-link--myft "
-            data-trackable="my-ft"
-            href="/myft"
+            className="o-header__top-myaccount"
+            data-trackable="My Account"
+            href="/myaccount"
+            id="o-header-top-link-myaccount"
             tabIndex={-1}
           >
-            <span
-              className="o-header__visually-hidden"
-            >
-              myFT
+            <span>
+              My Account
             </span>
           </a>
         </div>
@@ -834,7 +832,27 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as an anonymous us
         </div>
         <div
           className="o-header__top-column o-header__top-column--right"
-        />
+        >
+          <a
+            className="o-header__top-button o-header__top-button--hide-m"
+            data-trackable="Subscribe"
+            href="/products?segmentId=#"
+            role="button"
+            tabIndex={-1}
+          >
+            Subscribe
+          </a>
+          <a
+            className="o-header__top-myaccount"
+            data-trackable="Sign In"
+            href="/login?location=#"
+            id="o-header-top-link-signin"
+          >
+            <span>
+              Sign In
+            </span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
