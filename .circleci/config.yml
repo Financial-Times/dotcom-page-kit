@@ -12,9 +12,6 @@ executors:
   node18_19:
     docker:
       - image: cimg/node:18.19-browsers
-  node16_20:
-    docker:
-      - image: cimg/node:16.20-browsers
 
 references:
 
@@ -186,7 +183,6 @@ workflows:
               executor:
                 - node
                 - node18_19
-                - node16_20
       - test:
           requires:
             - build-<< matrix.executor >>
@@ -196,7 +192,6 @@ workflows:
               executor:
                 - node
                 - node18_19
-                - node16_20
       - deploy:
           filters:
             <<: *filters_only_main
@@ -218,7 +213,6 @@ workflows:
               executor:
                 - node
                 - node18_19
-                - node16_20
       - test:
           requires:
             - build-<< matrix.executor >>
@@ -228,7 +222,6 @@ workflows:
               executor:
                 - node
                 - node18_19
-                - node16_20
 
   build-test-publish:
     jobs:
@@ -241,7 +234,6 @@ workflows:
               executor:
                 - node
                 - node18_19
-                - node16_20
       - test:
           filters:
             <<: *filters_release_build
@@ -253,7 +245,6 @@ workflows:
               executor:
                 - node
                 - node18_19
-                - node16_20
       - publish:
           context: npm-publish-token
           filters:
@@ -272,7 +263,6 @@ workflows:
               executor:
                 - node
                 - node18_19
-                - node16_20
       - test:
           filters:
             <<: *filters_prerelease_build
@@ -284,7 +274,6 @@ workflows:
               executor:
                 - node
                 - node18_19
-                - node16_20
       - prepublish:
           context: npm-publish-token
           filters:
