@@ -17,4 +17,4 @@ export type THeaderProps = THeaderOptions & {
   data: TNavigationData
 }
 
-export type THeaderVariant = 'simple' | 'large-logo'
+export type THeaderVariant = 'simple' | 'large-logo' | 'sticky'

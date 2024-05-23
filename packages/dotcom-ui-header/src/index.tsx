@@ -25,7 +25,7 @@ import { SubNavigation } from './components/sub-navigation/partials'
 import { IncludeDrawer } from './components/drawer/topLevelPartials'
 import { Search } from './components/search/partials'
 
-import { THeaderProps, THeaderOptions } from './interfaces'
+import { THeaderProps, THeaderOptions, THeaderVariant } from './interfaces'
 
 const defaultProps: Partial<THeaderOptions> = {
   showSubNavigation: true,
@@ -63,12 +63,17 @@ function MainHeader(props: THeaderProps) {
 MainHeader.defaultProps = { ...defaultProps, showLogoLink: true }
 
 function StickyHeader(props: THeaderProps) {
+  const stickyProps = {
+    ...props,
+    variant: 'sticky' as THeaderVariant
+  }
+
   return props.showStickyHeader ? (
-    <StickyHeaderWrapper {...props}>
+    <StickyHeaderWrapper {...stickyProps}>
       <TopWrapperSticky>
-        <TopColumnLeftSticky {...props} />
-        <TopColumnCenterSticky {...props} />
-        <TopColumnRightSticky {...props} />
+        <TopColumnLeftSticky {...stickyProps} />
+        <TopColumnCenterSticky {...stickyProps} />
+        <TopColumnRightSticky {...stickyProps} />
       </TopWrapperSticky>
       <Search instance="sticky" />
     </StickyHeaderWrapper>
