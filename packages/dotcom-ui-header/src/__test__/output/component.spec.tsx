@@ -95,12 +95,12 @@ describe('dotcom-ui-header', () => {
 
       expect(
         container.querySelector(
-          '.o-header__top-column .o-header__top-column--right a[data-trackable="Subscribe"]'
+          '.o-header__top-column.o-header__top-column--right a[data-trackable="Subscribe"]'
         )
       ).not.toBeNull()
       expect(
         container.querySelector(
-          '.o-header__top-column .o-header__top-column--right a[data-trackable="Sign In"]'
+          '.o-header__top-column.o-header__top-column--right a[data-trackable="Sign In"]'
         )
       ).not.toBeNull()
     })

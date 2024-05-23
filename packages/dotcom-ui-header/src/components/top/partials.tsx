@@ -1,5 +1,5 @@
 import React from 'react'
-import { THeaderProps } from '../../interfaces'
+import { THeaderProps, THeaderVariant } from '../../interfaces'
 import BrandFtMastheadSvg from '../svg-components/BrandFtMasthead'
 import { TNavMenuItem } from '@financial-times/dotcom-types-navigation'
 import { AskFtButton } from '../ask-ft/askFtButton'
@@ -40,12 +40,27 @@ const SearchIcon = () => (
   </a>
 )
 
-const MyAccountLink = ({ item, signedIn }: { item: TNavMenuItem; signedIn: boolean }) => {
+const MyAccountLink = ({
+  item,
+  signedIn,
+  variant
+}: {
+  item: TNavMenuItem
+  signedIn: boolean
+  variant?: THeaderVariant
+}) => {
   const classNames = 'o-header__top-myaccount'
   const id = signedIn ? 'o-header-top-link-myaccount' : 'o-header-top-link-signin'
+  const setTabIndex = variant === 'sticky' ? { tabIndex: -1 } : null
 
   return (
-    <a className={classNames} id={id} href={item.url || undefined} data-trackable={item.label}>
+    <a
+      className={classNames}
+      id={id}
+      href={item.url || undefined}
+      data-trackable={item.label}
+      {...setTabIndex}
+    >
       <span>{item.label}</span>
     </a>
   )
@@ -107,7 +122,7 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
           className="o-header__top-button--hide-m"
         />
       )}
-      {signInAction && <MyAccountLink item={signInAction} signedIn={true} />}
+      {signInAction && <MyAccountLink item={signInAction} signedIn={true} variant={props.variant} />}
     </div>
   )
 }
@@ -118,7 +133,7 @@ const SignInLink = ({
   className
 }: {
   item: TNavMenuItem
-  variant?: string
+  variant?: THeaderVariant
   className?: string
 }) => {
   const setTabIndex = variant === 'sticky' ? { tabIndex: -1 } : null
@@ -139,7 +154,7 @@ const SubscribeButton = ({
   className
 }: {
   item: TNavMenuItem
-  variant?: string
+  variant?: THeaderVariant
   className?: string
 }) => {
   const setTabIndex = variant === 'sticky' ? { tabIndex: -1 } : null
@@ -158,7 +173,7 @@ const SubscribeButton = ({
   )
 }
 
-const TopColumnRightAnon = ({ items, variant }: { items: TNavMenuItem[]; variant?: string }) => {
+const TopColumnRightAnon = ({ items, variant }: { items: TNavMenuItem[]; variant?: THeaderVariant }) => {
   // If user is anonymous the second list item is styled as a button
   const [signInAction, subscribeAction] = items
 
