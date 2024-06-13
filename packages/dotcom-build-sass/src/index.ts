@@ -71,6 +71,9 @@ export class PageKitSassPlugin {
     const postcssLoaderOptions = {
       postcssOptions: {
         plugins: [
+          // Allow @import of CSS files from node_modules
+          // https://github.com/postcss/postcss-import
+          require('postcss-import')(),
           // Add vendor prefixes automatically using data from Can I Use
           // https://github.com/postcss/autoprefixer
           require('autoprefixer')(autoprefixerOptions),
@@ -84,6 +87,9 @@ export class PageKitSassPlugin {
     }
 
     const cssLoaderOptions = {
+      // sass-loader then postcss-loader run first
+      // https://github.com/webpack-contrib/css-loader/blob/22e16e2fc88f920571219570953d3da5702d4fdb/README.md?plain=1#L921
+      importLoaders: 2,
       // Allow css-loader to resolve @import because the sass-loader
       // does not successfully resolve files with a .css extension.
       import: true,
