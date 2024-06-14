@@ -1,5 +1,6 @@
 const app = require('../server/app')
 const request = require('supertest')
+const React = require("react");
 
 describe('examples/kitchen-sink/integration', () => {
   let response
@@ -47,7 +48,7 @@ describe('examples/kitchen-sink/integration', () => {
   })
 
   it('renders edition with current edition selected', () => {
-    expect(response.text).toContain('<p class="o-header__drawer-current-edition">International Edition</p>')
+    expect(response.text).toContain('<span class="current-edition">International Edition</span>')
   })
 
   it('renders app context data as embedded JSON', () => {
