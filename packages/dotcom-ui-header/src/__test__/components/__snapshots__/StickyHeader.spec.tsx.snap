@@ -46,19 +46,23 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders ASK FT button 1`] 
               Search
             </span>
           </a>
-          <a
-            className="ft-header__ask-ft-button ft-header__top-ask-ft-button"
-            data-trackable="ask-ft-button-sticky"
-            href="https://ask.ft.com"
-            id="ask-ft-button-sticky"
-            title="ASK FT"
+          <div
+            className="o-header__drawer-actions"
           >
-            <span
-              className="ft-header__ask-ft-button-label"
+            <a
+              className="ft-header__ask-ft-button ft-header__top-ask-ft-button"
+              data-trackable="ask-ft-button-sticky"
+              href="https://ask.ft.com"
+              id="ask-ft-button-sticky"
+              title="ASK FT"
             >
-              Ask FT
-            </span>
-          </a>
+              <span
+                className="ft-header__ask-ft-button-label"
+              >
+                Ask FT
+              </span>
+            </a>
+          </div>
         </div>
         <div
           className="o-header__top-column o-header__top-column--center"

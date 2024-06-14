@@ -16,23 +16,20 @@ export const DrawerParentItem = ({ item, idSuffix }: TDrawerParentItemProps) => 
           className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--parent`}
           href={item.url ?? undefined}
           {...ariaSelected(item)}
-          data-trackable={item.label}
-        >
+          data-trackable={item.label}>
           {item.label}
         </a>
         <button
           className={`o-header__drawer-menu-toggle o-header__drawer-menu-toggle--${selected}`}
           aria-controls={`o-header-drawer-child-${idSuffix}`}
-          data-trackable={`sub-level-toggle | ${item.label}`}
-        >
+          data-trackable={`sub-level-toggle | ${item.label}`}>
           {`Show more ${item.label}`}
         </button>
       </div>
       <ul
         className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
         id={`o-header-drawer-child-${idSuffix}`}
-        data-trackable="sub-level"
-      >
+        data-trackable="sub-level">
         {(item.submenu?.items as TNavMenuItem[]).map((item) => {
           const selected = item.selected ? 'selected' : 'unselected'
           return (
@@ -41,8 +38,7 @@ export const DrawerParentItem = ({ item, idSuffix }: TDrawerParentItemProps) => 
                 className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--child`}
                 href={item.url ?? undefined}
                 data-trackable={item.label}
-                {...ariaSelected(item)}
-              >
+                {...ariaSelected(item)}>
                 {item.label}
               </a>
             </li>
@@ -60,8 +56,7 @@ export const DrawerSingleItem = (item: TNavMenuItem) => {
       className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected}`}
       href={item.url ?? undefined}
       data-trackable={item.label}
-      {...ariaSelected(item)}
-    >
+      {...ariaSelected(item)}>
       {item.label}
     </a>
   )
@@ -74,8 +69,7 @@ export const DrawerSpecialItem = (item: TNavMenuItem) => {
       className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--secondary`}
       href={item.url ?? undefined}
       data-trackable={item.label}
-      {...ariaSelected(item)}
-    >
+      {...ariaSelected(item)}>
       {item.label}
     </a>
   )
@@ -86,7 +80,12 @@ export const EditionsSwitcher = (editions: TNavEditions) => (
     {editions.others.map(({ id, name, url }) => {
       const href = `${url}?edition=${id}`
       return (
-        <li key={id} className="o-header__drawer-menu-item" data-trackable="edition-switcher">
+        <li
+          key={id}
+          className="o-header__drawer-menu-item edition-switcher"
+          data-trackable="edition-switcher">
+          <span className="current-edition">{editions.current.name} Edition</span>
+          <span className="divider">|</span>
           <a className="o-header__drawer-menu-link" href={href} data-trackable={id}>
             Switch to {name} Edition
           </a>

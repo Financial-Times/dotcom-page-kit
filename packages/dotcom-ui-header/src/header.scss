@@ -67,5 +67,34 @@
 }
 
 .ft-header__drawer-ask-ft-button {
-  margin-left: 16px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  text-align: center;
+
+}
+
+.edition-switcher {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  padding-left: 16px;
+  font-family: MetricWeb;
+
+  .o-header__drawer-menu-link {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    font-size: 16px;
+    font-family: MetricWeb;
+    padding-left: 8px;
+    text-decoration: underline;
+    color: var(--Black-Tints-Black-60, #66605C);
+  }
+
+  .current-edition {
+    font-weight: 500;
+    padding-right: 8px;
+    color: var(--Black-Tints-Black-60, #66605C);
+  }
 }

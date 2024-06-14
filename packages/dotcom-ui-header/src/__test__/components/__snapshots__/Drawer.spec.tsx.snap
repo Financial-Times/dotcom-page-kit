@@ -42,23 +42,6 @@ exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
           Financial Times
         </span>
       </a>
-      <p
-        className="o-header__drawer-current-edition"
-      >
-        UK Edition
-      </p>
-    </div>
-    <div
-      className="o-header__drawer-actions"
-    >
-      <a
-        className="o-header__drawer-button"
-        data-trackable="subscribe-button"
-        href="#"
-        role="button"
-      >
-        Subscribe for full access
-      </a>
     </div>
     <div
       className="o-header__drawer-search"
@@ -107,19 +90,6 @@ exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
             Search
           </span>
         </button>
-        <a
-          className="ft-header__ask-ft-button ft-header__drawer-ask-ft-button"
-          data-trackable="ask-ft-button-drawer"
-          href="https://ask.ft.com"
-          id="ask-ft-button-drawer"
-          title="ASK FT"
-        >
-          <span
-            className="ft-header__ask-ft-button-label"
-          >
-            Ask FT
-          </span>
-        </a>
       </form>
     </div>
     <nav
@@ -130,9 +100,20 @@ exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
         className="o-header__drawer-menu-list"
       >
         <li
-          className="o-header__drawer-menu-item"
+          className="o-header__drawer-menu-item edition-switcher"
           data-trackable="edition-switcher"
         >
+          <span
+            className="current-edition"
+          >
+            UK
+             Edition
+          </span>
+          <span
+            className="divider"
+          >
+            |
+          </span>
           <a
             className="o-header__drawer-menu-link"
             data-trackable="international"
@@ -145,6 +126,35 @@ exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
         </li>
       </ul>
     </nav>
+    <div
+      className="o-header__drawer-actions"
+    >
+      <a
+        className="ft-header__ask-ft-button ft-header__drawer-ask-ft-button"
+        data-trackable="ask-ft-button-drawer"
+        href="https://ask.ft.com"
+        id="ask-ft-button-drawer"
+        title="ASK FT"
+      >
+        <span
+          className="ft-header__ask-ft-button-label"
+        >
+          Ask FT
+        </span>
+      </a>
+    </div>
+    <div
+      className="o-header__drawer-actions"
+    >
+      <a
+        className="o-header__drawer-button"
+        data-trackable="subscribe-button"
+        href="#"
+        role="button"
+      >
+        Subscribe for full access
+      </a>
+    </div>
     <nav
       className="o-header__drawer-menu o-header__drawer-menu--primary"
     >
@@ -1419,23 +1429,6 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
           Financial Times
         </span>
       </a>
-      <p
-        className="o-header__drawer-current-edition"
-      >
-        UK Edition
-      </p>
-    </div>
-    <div
-      className="o-header__drawer-actions"
-    >
-      <a
-        className="o-header__drawer-button"
-        data-trackable="subscribe-button"
-        href="#"
-        role="button"
-      >
-        Subscribe for full access
-      </a>
     </div>
     <div
       className="o-header__drawer-search"
@@ -1494,9 +1487,20 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
         className="o-header__drawer-menu-list"
       >
         <li
-          className="o-header__drawer-menu-item"
+          className="o-header__drawer-menu-item edition-switcher"
           data-trackable="edition-switcher"
         >
+          <span
+            className="current-edition"
+          >
+            UK
+             Edition
+          </span>
+          <span
+            className="divider"
+          >
+            |
+          </span>
           <a
             className="o-header__drawer-menu-link"
             data-trackable="international"
@@ -1509,6 +1513,18 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
         </li>
       </ul>
     </nav>
+    <div
+      className="o-header__drawer-actions"
+    >
+      <a
+        className="o-header__drawer-button"
+        data-trackable="subscribe-button"
+        href="#"
+        role="button"
+      >
+        Subscribe for full access
+      </a>
+    </div>
     <nav
       className="o-header__drawer-menu o-header__drawer-menu--primary"
     >
@@ -2783,23 +2799,6 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
           Financial Times
         </span>
       </a>
-      <p
-        className="o-header__drawer-current-edition"
-      >
-        UK Edition
-      </p>
-    </div>
-    <div
-      className="o-header__drawer-actions"
-    >
-      <a
-        className="o-header__drawer-button"
-        data-trackable="subscribe-button"
-        href="#"
-        role="button"
-      >
-        Subscribe for full access
-      </a>
     </div>
     <div
       className="o-header__drawer-search"
@@ -2858,9 +2857,20 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
         className="o-header__drawer-menu-list"
       >
         <li
-          className="o-header__drawer-menu-item"
+          className="o-header__drawer-menu-item edition-switcher"
           data-trackable="edition-switcher"
         >
+          <span
+            className="current-edition"
+          >
+            UK
+             Edition
+          </span>
+          <span
+            className="divider"
+          >
+            |
+          </span>
           <a
             className="o-header__drawer-menu-link"
             data-trackable="international"
@@ -2873,6 +2883,18 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
         </li>
       </ul>
     </nav>
+    <div
+      className="o-header__drawer-actions"
+    >
+      <a
+        className="o-header__drawer-button"
+        data-trackable="subscribe-button"
+        href="#"
+        role="button"
+      >
+        Subscribe for full access
+      </a>
+    </div>
     <nav
       className="o-header__drawer-menu o-header__drawer-menu--primary"
     >

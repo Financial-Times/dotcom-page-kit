@@ -7,7 +7,7 @@ import {
   SubscribeButton
 } from './additionalPartials'
 import { THeaderProps } from '../../interfaces'
-import { TNavMenuItem, TNavMenu, TNavEditions } from '@financial-times/dotcom-types-navigation'
+import { TNavMenuItem, TNavMenu } from '@financial-times/dotcom-types-navigation'
 import { AskFtButton } from '../ask-ft/askFtButton'
 
 const IncludeDrawer = (props) => <Drawer {...props} />
@@ -28,15 +28,22 @@ const Drawer = (props: THeaderProps) => {
       data-o-header-drawer
       data-o-header-drawer--no-js
       data-trackable="drawer"
-      data-trackable-terminate
-    >
+      data-trackable-terminate>
       <div className="o-header__drawer-inner">
-        <DrawerTools {...editions} />
-        {!props.userIsSubscribed && subscribeAction && <SubscribeButton {...subscribeAction} />}
-        <Search {...props} />
+        <DrawerTools />
+        <Search />
+
         <nav className="o-header__drawer-menu" aria-label="Edition switcher">
           {editions && <EditionsSwitcher {...editions} />}
         </nav>
+        {props.showAskButton && (
+          <AskFtButton
+            className="ft-header__drawer-ask-ft-button"
+            id="ask-ft-button-drawer"
+            dataTrackable="ask-ft-button-drawer"
+          />
+        )}
+        {!props.userIsSubscribed && subscribeAction && <SubscribeButton {...subscribeAction} />}
         <nav className="o-header__drawer-menu o-header__drawer-menu--primary">
           {primary ? <SectionPrimary {...primary} /> : null}
           {secondary ? <SectionSecondary {...secondary} /> : null}
@@ -48,25 +55,23 @@ const Drawer = (props: THeaderProps) => {
   )
 }
 
-const DrawerTools = (props: TNavEditions) => (
+const DrawerTools = () => (
   <div className="o-header__drawer-tools">
     <button
       type="button"
       className="o-header__drawer-tools-close"
       title="Close side navigation menu"
       aria-controls="o-header-drawer"
-      data-trackable="close"
-    >
+      data-trackable="close">
       <span className="o-header__visually-hidden">Close side navigation menu</span>
     </button>
     <a className="o-header__drawer-tools-logo" href="/" data-trackable="logo">
       <span className="o-header__visually-hidden">Financial Times</span>
     </a>
-    {props.current && <p className="o-header__drawer-current-edition">{`${props.current.name} Edition`}</p>}
   </div>
 )
 
-const Search = (props: Pick<THeaderProps, 'showAskButton'>) => (
+const Search = () => (
   <div className="o-header__drawer-search">
     <form
       className="o-header__drawer-search-form"
@@ -75,8 +80,7 @@ const Search = (props: Pick<THeaderProps, 'showAskButton'>) => (
       aria-label="Site search"
       data-n-topic-search
       data-n-topic-search-categories="concepts,equities"
-      data-n-topic-search-view-all
-    >
+      data-n-topic-search-view-all>
       <label className="o-header__visually-hidden" htmlFor="o-header-drawer-search-term">
         Search the <abbr title="Financial Times">FT</abbr>
       </label>
@@ -96,13 +100,6 @@ const Search = (props: Pick<THeaderProps, 'showAskButton'>) => (
       <button className="o-header__drawer-search-submit" type="submit" data-trackable="search-submit">
         <span className="o-header__visually-hidden">Search</span>
       </button>
-      {props.showAskButton && (
-        <AskFtButton
-          className="ft-header__drawer-ask-ft-button"
-          id="ask-ft-button-drawer"
-          dataTrackable="ask-ft-button-drawer"
-        />
-      )}
     </form>
   </div>
 )
