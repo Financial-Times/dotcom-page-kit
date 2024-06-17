@@ -110,7 +110,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
              Edition
           </span>
           <span
-            className="divider"
+            aria-hidden="true"
           >
             |
           </span>
@@ -1497,7 +1497,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
              Edition
           </span>
           <span
-            className="divider"
+            aria-hidden="true"
           >
             |
           </span>
@@ -2867,7 +2867,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
              Edition
           </span>
           <span
-            className="divider"
+            aria-hidden="true"
           >
             |
           </span>
