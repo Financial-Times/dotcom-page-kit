@@ -80,7 +80,7 @@
   align-items: center;
   font-size: 16px;
   padding-left: 16px;
-  font-family: MetricWeb;
+  color: var(--Black-Tints-Black-60, #66605C);
 
   .o-header__drawer-menu-link {
     padding-top: 6px;
@@ -89,12 +89,11 @@
     font-family: MetricWeb;
     padding-left: 8px;
     text-decoration: underline;
-    color: var(--Black-Tints-Black-60, #66605C);
+
   }
 
   .current-edition {
     font-weight: 500;
     padding-right: 8px;
-    color: var(--Black-Tints-Black-60, #66605C);
   }
 }

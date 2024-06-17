@@ -85,7 +85,7 @@ export const EditionsSwitcher = (editions: TNavEditions) => (
           className="o-header__drawer-menu-item edition-switcher"
           data-trackable="edition-switcher">
           <span className="current-edition">{editions.current.name} Edition</span>
-          <span className="divider">|</span>
+          <span aria-hidden="true">|</span>
           <a className="o-header__drawer-menu-link" href={href} data-trackable={id}>
             Switch to {name} Edition
           </a>

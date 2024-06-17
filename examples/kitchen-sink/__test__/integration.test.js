@@ -1,6 +1,5 @@
 const app = require('../server/app')
 const request = require('supertest')
-const React = require("react");
 
 describe('examples/kitchen-sink/integration', () => {
   let response
