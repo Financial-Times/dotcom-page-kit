@@ -7,13 +7,14 @@ export interface AskFtButtonProps {
 }
 
 export const AskFtButton = ({ id, className, dataTrackable }: AskFtButtonProps) => (
-  <a
-    id={id}
-    className={`ft-header__ask-ft-button ${className}`}
-    data-trackable={dataTrackable}
-    href="https://ask.ft.com"
-    title="ASK FT"
-  >
-    <span className="ft-header__ask-ft-button-label">Ask FT</span>
-  </a>
+  <div className="o-header__drawer-actions">
+    <a
+      id={id}
+      className={`ft-header__ask-ft-button ${className}`}
+      data-trackable={dataTrackable}
+      href="https://ask.ft.com"
+      title="ASK FT">
+      <span className="ft-header__ask-ft-button-label">Ask FT</span>
+    </a>
+  </div>
 )

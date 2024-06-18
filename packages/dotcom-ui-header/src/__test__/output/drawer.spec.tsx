@@ -28,7 +28,7 @@ describe('dotcom-ui-header/src/components/drawer', () => {
     it('renders the current edition text', () => {
       const { container } = render(<Subject {...fixture} />)
 
-      expect(container.getElementsByClassName('o-header__drawer-current-edition')[0].innerHTML).toContain(
+      expect(container.getElementsByClassName('current-edition')[0].innerHTML).toContain(
         'UK Edition'
       )
     })
