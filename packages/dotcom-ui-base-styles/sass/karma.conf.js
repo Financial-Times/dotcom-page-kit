@@ -15,23 +15,6 @@ module.exports = function (karma) {
 		frameworks: ['mocha', 'chai', 'sinon', 'sinon-chai'],
 		// list of files / patterns to load in the browser
 		files: [
-			'http://cdn.polyfill.io/v2/polyfill.min.js?features=' + [
-				'default',
-				'requestAnimationFrame',
-				'Promise',
-				'matchMedia',
-				'HTMLPictureElement',
-				'fetch',
-				'Array.prototype.find',
-				'Array.prototype.findIndex',
-				'IntersectionObserver',
-				'Map',
-				'Array.from',
-				'NodeList.prototype.@@iterator',
-				'Array.prototype.@@iterator',
-				'EventSource',
-				'Number.isInteger'
-			].join(',') + '&flags=gated&source=n-ui-foundations-tests',
 			'test/**/*.spec.js'
 		],
 
