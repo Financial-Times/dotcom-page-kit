@@ -31,17 +31,6 @@ exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
           Close side navigation menu
         </span>
       </button>
-      <a
-        className="o-header__drawer-tools-logo"
-        data-trackable="logo"
-        href="/"
-      >
-        <span
-          className="o-header__visually-hidden"
-        >
-          Financial Times
-        </span>
-      </a>
       <nav
         aria-label="Edition switcher"
         className="o-header__drawer-menu o-header__drawer-edition-switcher"
@@ -1419,17 +1408,6 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
           Close side navigation menu
         </span>
       </button>
-      <a
-        className="o-header__drawer-tools-logo"
-        data-trackable="logo"
-        href="/"
-      >
-        <span
-          className="o-header__visually-hidden"
-        >
-          Financial Times
-        </span>
-      </a>
       <nav
         aria-label="Edition switcher"
         className="o-header__drawer-menu o-header__drawer-edition-switcher"
@@ -2790,17 +2768,6 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
           Close side navigation menu
         </span>
       </button>
-      <a
-        className="o-header__drawer-tools-logo"
-        data-trackable="logo"
-        href="/"
-      >
-        <span
-          className="o-header__visually-hidden"
-        >
-          Financial Times
-        </span>
-      </a>
       <nav
         aria-label="Edition switcher"
         className="o-header__drawer-menu o-header__drawer-edition-switcher"
