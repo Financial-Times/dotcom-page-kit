@@ -74,25 +74,3 @@
   text-align: center;
 
 }
-
-.edition-switcher {
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  padding-left: 16px;
-  color: var(--Black-Tints-Black-60, #66605C);
-
-  .o-header__drawer-menu-link {
-    padding-top: 6px;
-    padding-bottom: 6px;
-    font-size: 16px;
-    padding-left: 8px;
-    text-decoration: underline;
-
-  }
-
-  .current-edition {
-    font-weight: 500;
-    padding-right: 8px;
-  }
-}

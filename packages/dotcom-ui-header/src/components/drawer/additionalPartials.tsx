@@ -76,24 +76,22 @@ export const DrawerSpecialItem = (item: TNavMenuItem) => {
 }
 
 export const EditionsSwitcher = (editions: TNavEditions) => (
-  <ul className="o-header__drawer-menu-list">
-    {editions.others.map(({ id, name, url }) => {
-      const href = `${url}?edition=${id}`
-      return (
-        <li
-          key={id}
-          className="o-header__drawer-menu-item edition-switcher"
-          data-trackable="edition-switcher">
-          <span className="current-edition">{editions.current.name} Edition</span>
-          <span aria-hidden="true">|</span>
-          <a className="o-header__drawer-menu-link" href={href} data-trackable={id}>
-            Switch to {name} Edition
-          </a>
-        </li>
-      )
-    })}
-  </ul>
-)
+  <nav
+    className="o-header__drawer-menu o-header__drawer-edition-switcher"
+    aria-label="Edition switcher">
+    <span className="o-header__drawer-menu-item">Edition:</span>
+    <span className="o-header__drawer-menu-item o-header__drawer-current-edition">
+      {editions.current?.name}
+    </span>
+    <div className="o-header__drawer-divider"></div>
+    {editions.others?.map(({name, id, url}) => ( // Asegúrate de que `items` sea el nombre correcto de la propiedad del array
+      <a key={id} className="o-header__drawer-menu-link" href={`${url}?edition=${id}`}>
+        {name}
+      </a>
+    ))}
+  </nav>
+);
+
 
 export const SubscribeButton = (action: TNavAction) => (
   <div className="o-header__drawer-actions">

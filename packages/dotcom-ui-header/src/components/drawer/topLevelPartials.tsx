@@ -7,7 +7,7 @@ import {
   SubscribeButton
 } from './additionalPartials'
 import { THeaderProps } from '../../interfaces'
-import { TNavMenuItem, TNavMenu } from '@financial-times/dotcom-types-navigation'
+import {TNavMenuItem, TNavMenu, TNavEditions} from '@financial-times/dotcom-types-navigation'
 import { AskFtButton } from '../ask-ft/askFtButton'
 
 const IncludeDrawer = (props) => <Drawer {...props} />
@@ -30,12 +30,8 @@ const Drawer = (props: THeaderProps) => {
       data-trackable="drawer"
       data-trackable-terminate>
       <div className="o-header__drawer-inner">
-        <DrawerTools />
+        <DrawerTools {...editions}/>
         <Search />
-
-        <nav className="o-header__drawer-menu" aria-label="Edition switcher">
-          {editions && <EditionsSwitcher {...editions} />}
-        </nav>
         {props.showAskButton && (
           <AskFtButton
             className="ft-header__drawer-ask-ft-button"
@@ -55,7 +51,7 @@ const Drawer = (props: THeaderProps) => {
   )
 }
 
-const DrawerTools = () => (
+const DrawerTools = (editions: TNavEditions) => (
   <div className="o-header__drawer-tools">
     <button
       type="button"
@@ -68,6 +64,7 @@ const DrawerTools = () => (
     <a className="o-header__drawer-tools-logo" href="/" data-trackable="logo">
       <span className="o-header__visually-hidden">Financial Times</span>
     </a>
+    {editions && <EditionsSwitcher {...editions} />}
   </div>
 )
 
@@ -81,25 +78,30 @@ const Search = () => (
       data-n-topic-search
       data-n-topic-search-categories="concepts,equities"
       data-n-topic-search-view-all>
-      <label className="o-header__visually-hidden" htmlFor="o-header-drawer-search-term">
-        Search the <abbr title="Financial Times">FT</abbr>
+      <label htmlFor="o-header-drawer-search-term" className="o-forms-field o-forms-field--optional">
+        <span className="o-forms-title o-header__visually-hidden">
+          <span className="o-forms-title__main">
+            Search the <abbr title="Financial Times">FT</abbr>
+          </span>
+        </span>
+        <span className="o-forms-input o-forms-input--text o-forms-input--suffix">
+          <input
+            id="o-header-drawer-search-term"
+            name="q"
+            type="text"
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="off"
+            spellCheck={false}
+            data-trackable="search-term"
+            data-n-topic-search-input
+            placeholder="Search for stories, topics or securities"
+          />
+          <button className="o-header__drawer-search-submit" type="submit" data-trackable="search-submit">
+            <span className="o-header__visually-hidden">Search</span>
+          </button>
+        </span>
       </label>
-      <input
-        className="o-header__drawer-search-term"
-        id="o-header-drawer-search-term"
-        name="q"
-        type="text"
-        autoComplete="off"
-        autoCorrect="off"
-        autoCapitalize="off"
-        spellCheck={false}
-        placeholder="Search the FT"
-        data-trackable="search-term"
-        data-n-topic-search-input
-      />
-      <button className="o-header__drawer-search-submit" type="submit" data-trackable="search-submit">
-        <span className="o-header__visually-hidden">Search</span>
-      </button>
     </form>
   </div>
 )
