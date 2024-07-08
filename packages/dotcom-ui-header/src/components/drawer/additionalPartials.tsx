@@ -84,7 +84,7 @@ export const EditionsSwitcher = (editions: TNavEditions) => (
       {editions.current?.name}
     </span>
     <div className="o-header__drawer-divider"></div>
-    {editions.others?.map(({name, id, url}) => ( // Asegúrate de que `items` sea el nombre correcto de la propiedad del array
+    {editions.others?.map(({name, id, url}) => (
       <a key={id} className="o-header__drawer-menu-link" href={`${url}?edition=${id}`}>
         {name}
       </a>

@@ -7,7 +7,7 @@ import {
   SubscribeButton
 } from './additionalPartials'
 import { THeaderProps } from '../../interfaces'
-import {TNavMenuItem, TNavMenu, TNavEditions} from '@financial-times/dotcom-types-navigation'
+import { TNavMenuItem, TNavMenu, TNavEditions } from '@financial-times/dotcom-types-navigation'
 import { AskFtButton } from '../ask-ft/askFtButton'
 
 const IncludeDrawer = (props) => <Drawer {...props} />
@@ -30,7 +30,7 @@ const Drawer = (props: THeaderProps) => {
       data-trackable="drawer"
       data-trackable-terminate>
       <div className="o-header__drawer-inner">
-        <DrawerTools {...editions}/>
+        <DrawerTools {...editions} />
         <Search />
         {props.showAskButton && (
           <AskFtButton
