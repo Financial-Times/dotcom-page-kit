@@ -29,7 +29,7 @@ describe('dotcom-ui-header/src/components/drawer', () => {
       const { container } = render(<Subject {...fixture} />)
 
       expect(container.getElementsByClassName('o-header__drawer-current-edition')[0].innerHTML).toContain(
-        'UK Edition'
+        'UK'
       )
     })
 
@@ -37,7 +37,7 @@ describe('dotcom-ui-header/src/components/drawer', () => {
       const { container } = render(<Subject {...fixture} />)
 
       const [firstLink] = Array.from(container.getElementsByClassName('o-header__drawer-menu-link'))
-      expect(firstLink.innerHTML).toContain('Switch to International Edition')
+      expect(firstLink.innerHTML).toContain('International')
     })
   })
 

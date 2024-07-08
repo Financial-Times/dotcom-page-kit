@@ -17,6 +17,9 @@
 .o-header__drawer {
   @include nUiZIndexFor('drawer');
   display: block;
+  .o-header__drawer-search {
+    margin-bottom: 8px;
+  }
 }
 
 .o-header--sticky {
@@ -67,5 +70,10 @@
 }
 
 .ft-header__drawer-ask-ft-button {
-  margin-left: 16px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  text-align: center;
+
 }

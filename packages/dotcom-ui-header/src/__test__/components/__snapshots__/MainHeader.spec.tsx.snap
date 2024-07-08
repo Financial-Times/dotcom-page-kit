@@ -47,19 +47,23 @@ exports[`dotcom-ui-header/src/components/MainHeader renders ASK FT button 1`] = 
               Open search bar
             </span>
           </a>
-          <a
-            className="ft-header__ask-ft-button ft-header__top-ask-ft-button"
-            data-trackable="ask-ft-button-header"
-            href="https://ask.ft.com"
-            id="ask-ft-button-header"
-            title="ASK FT"
+          <div
+            className="o-header__drawer-actions"
           >
-            <span
-              className="ft-header__ask-ft-button-label"
+            <a
+              className="ft-header__ask-ft-button ft-header__top-ask-ft-button"
+              data-trackable="ask-ft-button-header"
+              href="https://ask.ft.com"
+              id="ask-ft-button-header"
+              title="ASK FT"
             >
-              Ask FT
-            </span>
-          </a>
+              <span
+                className="ft-header__ask-ft-button-label"
+              >
+                Ask FT
+              </span>
+            </a>
+          </div>
         </div>
         <div
           className="o-header__top-column o-header__top-column--center"
@@ -133,49 +137,60 @@ exports[`dotcom-ui-header/src/components/MainHeader renders ASK FT button 1`] = 
         role="search"
       >
         <label
-          className="o-header__visually-hidden"
+          className="o-header__search-term o-forms-field o-forms-field--optional"
           htmlFor="o-header-search-term-primary"
         >
-          Search the 
-          <abbr
-            title="Financial Times"
-          >
-            FT
-          </abbr>
-        </label>
-        <input
-          autoCapitalize="off"
-          autoComplete="off"
-          autoCorrect="off"
-          className="o-header__search-term"
-          data-n-topic-search-input={true}
-          data-trackable="search-term"
-          id="o-header-search-term-primary"
-          name="q"
-          placeholder="Search the FT"
-          spellCheck={false}
-          type="text"
-        />
-        <button
-          className="o-header__search-submit"
-          data-trackable="search-submit"
-          type="submit"
-        >
-          Search
-        </button>
-        <button
-          aria-controls="o-header-search-primary"
-          className="o-header__search-close o--if-js"
-          data-trackable="close"
-          title="Close search bar"
-          type="button"
-        >
           <span
-            className="o-header__visually-hidden"
+            className="o-forms-title o-header__visually-hidden"
           >
-            Close search bar
+            <span
+              className="o-forms-title__main"
+            >
+              Search the 
+              <abbr
+                title="Financial Times"
+              >
+                FT
+              </abbr>
+            </span>
           </span>
-        </button>
+          <span
+            className="o-forms-input o-forms-input--text o-forms-input--suffix"
+          >
+            <input
+              autoCapitalize="off"
+              autoComplete="off"
+              autoCorrect="off"
+              className="o-header__search-term"
+              data-n-topic-search-input={true}
+              data-trackable="search-term"
+              id="o-header-search-term-primary"
+              name="q"
+              placeholder="Search for stories, topics or securities"
+              spellCheck={false}
+              type="text"
+            />
+            <button
+              className="o-header__search-submit"
+              type="submit"
+            >
+              Search
+            </button>
+            <button
+              aria-controls="o-header-search-primary"
+              className="o-header__search-close o--if-js"
+              data-trackable="close"
+              title="Close search bar"
+              type="button"
+            >
+              <span
+                className="o-header__visually-hidden"
+              >
+                Close search bar
+              </span>
+            </button>
+          </span>
+        </label>
       </form>
     </div>
   </div>
@@ -1977,49 +1992,60 @@ exports[`dotcom-ui-header/src/components/MainHeader renders a right aligned subn
         role="search"
       >
         <label
-          className="o-header__visually-hidden"
+          className="o-header__search-term o-forms-field o-forms-field--optional"
           htmlFor="o-header-search-term-primary"
         >
-          Search the 
-          <abbr
-            title="Financial Times"
-          >
-            FT
-          </abbr>
-        </label>
-        <input
-          autoCapitalize="off"
-          autoComplete="off"
-          autoCorrect="off"
-          className="o-header__search-term"
-          data-n-topic-search-input={true}
-          data-trackable="search-term"
-          id="o-header-search-term-primary"
-          name="q"
-          placeholder="Search the FT"
-          spellCheck={false}
-          type="text"
-        />
-        <button
-          className="o-header__search-submit"
-          data-trackable="search-submit"
-          type="submit"
-        >
-          Search
-        </button>
-        <button
-          aria-controls="o-header-search-primary"
-          className="o-header__search-close o--if-js"
-          data-trackable="close"
-          title="Close search bar"
-          type="button"
-        >
           <span
-            className="o-header__visually-hidden"
+            className="o-forms-title o-header__visually-hidden"
           >
-            Close search bar
+            <span
+              className="o-forms-title__main"
+            >
+              Search the 
+              <abbr
+                title="Financial Times"
+              >
+                FT
+              </abbr>
+            </span>
           </span>
-        </button>
+          <span
+            className="o-forms-input o-forms-input--text o-forms-input--suffix"
+          >
+            <input
+              autoCapitalize="off"
+              autoComplete="off"
+              autoCorrect="off"
+              className="o-header__search-term"
+              data-n-topic-search-input={true}
+              data-trackable="search-term"
+              id="o-header-search-term-primary"
+              name="q"
+              placeholder="Search for stories, topics or securities"
+              spellCheck={false}
+              type="text"
+            />
+            <button
+              className="o-header__search-submit"
+              type="submit"
+            >
+              Search
+            </button>
+            <button
+              aria-controls="o-header-search-primary"
+              className="o-header__search-close o--if-js"
+              data-trackable="close"
+              title="Close search bar"
+              type="button"
+            >
+              <span
+                className="o-header__visually-hidden"
+              >
+                Close search bar
+              </span>
+            </button>
+          </span>
+        </label>
       </form>
     </div>
   </div>
@@ -3816,49 +3842,60 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
         role="search"
       >
         <label
-          className="o-header__visually-hidden"
+          className="o-header__search-term o-forms-field o-forms-field--optional"
           htmlFor="o-header-search-term-primary"
         >
-          Search the 
-          <abbr
-            title="Financial Times"
-          >
-            FT
-          </abbr>
-        </label>
-        <input
-          autoCapitalize="off"
-          autoComplete="off"
-          autoCorrect="off"
-          className="o-header__search-term"
-          data-n-topic-search-input={true}
-          data-trackable="search-term"
-          id="o-header-search-term-primary"
-          name="q"
-          placeholder="Search the FT"
-          spellCheck={false}
-          type="text"
-        />
-        <button
-          className="o-header__search-submit"
-          data-trackable="search-submit"
-          type="submit"
-        >
-          Search
-        </button>
-        <button
-          aria-controls="o-header-search-primary"
-          className="o-header__search-close o--if-js"
-          data-trackable="close"
-          title="Close search bar"
-          type="button"
-        >
           <span
-            className="o-header__visually-hidden"
+            className="o-forms-title o-header__visually-hidden"
           >
-            Close search bar
+            <span
+              className="o-forms-title__main"
+            >
+              Search the 
+              <abbr
+                title="Financial Times"
+              >
+                FT
+              </abbr>
+            </span>
           </span>
-        </button>
+          <span
+            className="o-forms-input o-forms-input--text o-forms-input--suffix"
+          >
+            <input
+              autoCapitalize="off"
+              autoComplete="off"
+              autoCorrect="off"
+              className="o-header__search-term"
+              data-n-topic-search-input={true}
+              data-trackable="search-term"
+              id="o-header-search-term-primary"
+              name="q"
+              placeholder="Search for stories, topics or securities"
+              spellCheck={false}
+              type="text"
+            />
+            <button
+              className="o-header__search-submit"
+              type="submit"
+            >
+              Search
+            </button>
+            <button
+              aria-controls="o-header-search-primary"
+              className="o-header__search-close o--if-js"
+              data-trackable="close"
+              title="Close search bar"
+              type="button"
+            >
+              <span
+                className="o-header__visually-hidden"
+              >
+                Close search bar
+              </span>
+            </button>
+          </span>
+        </label>
       </form>
     </div>
   </div>
@@ -5660,49 +5697,60 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
         role="search"
       >
         <label
-          className="o-header__visually-hidden"
+          className="o-header__search-term o-forms-field o-forms-field--optional"
           htmlFor="o-header-search-term-primary"
         >
-          Search the 
-          <abbr
-            title="Financial Times"
-          >
-            FT
-          </abbr>
-        </label>
-        <input
-          autoCapitalize="off"
-          autoComplete="off"
-          autoCorrect="off"
-          className="o-header__search-term"
-          data-n-topic-search-input={true}
-          data-trackable="search-term"
-          id="o-header-search-term-primary"
-          name="q"
-          placeholder="Search the FT"
-          spellCheck={false}
-          type="text"
-        />
-        <button
-          className="o-header__search-submit"
-          data-trackable="search-submit"
-          type="submit"
-        >
-          Search
-        </button>
-        <button
-          aria-controls="o-header-search-primary"
-          className="o-header__search-close o--if-js"
-          data-trackable="close"
-          title="Close search bar"
-          type="button"
-        >
           <span
-            className="o-header__visually-hidden"
+            className="o-forms-title o-header__visually-hidden"
           >
-            Close search bar
+            <span
+              className="o-forms-title__main"
+            >
+              Search the 
+              <abbr
+                title="Financial Times"
+              >
+                FT
+              </abbr>
+            </span>
           </span>
-        </button>
+          <span
+            className="o-forms-input o-forms-input--text o-forms-input--suffix"
+          >
+            <input
+              autoCapitalize="off"
+              autoComplete="off"
+              autoCorrect="off"
+              className="o-header__search-term"
+              data-n-topic-search-input={true}
+              data-trackable="search-term"
+              id="o-header-search-term-primary"
+              name="q"
+              placeholder="Search for stories, topics or securities"
+              spellCheck={false}
+              type="text"
+            />
+            <button
+              className="o-header__search-submit"
+              type="submit"
+            >
+              Search
+            </button>
+            <button
+              aria-controls="o-header-search-primary"
+              className="o-header__search-close o--if-js"
+              data-trackable="close"
+              title="Close search bar"
+              type="button"
+            >
+              <span
+                className="o-header__visually-hidden"
+              >
+                Close search bar
+              </span>
+            </button>
+          </span>
+        </label>
       </form>
     </div>
   </div>

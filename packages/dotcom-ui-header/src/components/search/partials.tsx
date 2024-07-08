@@ -16,33 +16,41 @@ const Search = ({ instance }) => {
           data-n-topic-search
           data-n-topic-search-categories="concepts,equities"
           data-n-topic-search-view-all>
-          <label className="o-header__visually-hidden" htmlFor={`o-header-search-term-${instance}`}>
-            Search the <abbr title="Financial Times">FT</abbr>
+          <label
+            htmlFor={`o-header-search-term-${instance}`}
+            className="o-header__search-term o-forms-field o-forms-field--optional">
+            <span className="o-forms-title o-header__visually-hidden">
+              <span className="o-forms-title__main">
+                Search the <abbr title="Financial Times">FT</abbr>
+              </span>
+            </span>
+            <span className="o-forms-input o-forms-input--text o-forms-input--suffix">
+              <input
+                className="o-header__search-term"
+                id={`o-header-search-term-${instance}`}
+                name="q"
+                type="text"
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="off"
+                spellCheck={false}
+                data-trackable="search-term"
+                data-n-topic-search-input
+                placeholder="Search for stories, topics or securities"
+              />
+              <button className="o-header__search-submit" type="submit">
+                Search
+              </button>
+              <button
+                className="o-header__search-close o--if-js"
+                type="button"
+                aria-controls={`o-header-search-${instance}`}
+                title="Close search bar"
+                data-trackable="close">
+                <span className="o-header__visually-hidden">Close search bar</span>
+              </button>
+            </span>
           </label>
-          <input
-            className="o-header__search-term"
-            id={`o-header-search-term-${instance}`}
-            name="q"
-            type="text"
-            autoComplete="off"
-            autoCorrect="off"
-            autoCapitalize="off"
-            spellCheck={false}
-            data-trackable="search-term"
-            placeholder="Search the FT"
-            data-n-topic-search-input
-          />
-          <button className="o-header__search-submit" type="submit" data-trackable="search-submit">
-            Search
-          </button>
-          <button
-            className="o-header__search-close o--if-js"
-            type="button"
-            aria-controls={`o-header-search-${instance}`}
-            title="Close search bar"
-            data-trackable="close">
-            <span className="o-header__visually-hidden">Close search bar</span>
-          </button>
         </form>
       </div>
     </div>

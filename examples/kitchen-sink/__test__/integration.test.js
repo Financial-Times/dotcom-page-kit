@@ -47,7 +47,7 @@ describe('examples/kitchen-sink/integration', () => {
   })
 
   it('renders edition with current edition selected', () => {
-    expect(response.text).toContain('<p class="o-header__drawer-current-edition">International Edition</p>')
+    expect(response.text).toContain('<span class="o-header__drawer-menu-item o-header__drawer-current-edition">International</span>')
   })
 
   it('renders app context data as embedded JSON', () => {

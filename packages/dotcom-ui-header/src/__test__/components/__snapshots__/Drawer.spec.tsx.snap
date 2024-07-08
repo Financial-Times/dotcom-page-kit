@@ -31,34 +31,30 @@ exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
           Close side navigation menu
         </span>
       </button>
-      <a
-        className="o-header__drawer-tools-logo"
-        data-trackable="logo"
-        href="/"
+      <nav
+        aria-label="Edition switcher"
+        className="o-header__drawer-menu o-header__drawer-edition-switcher"
       >
         <span
-          className="o-header__visually-hidden"
+          className="o-header__drawer-menu-item"
         >
-          Financial Times
+          Edition:
         </span>
-      </a>
-      <p
-        className="o-header__drawer-current-edition"
-      >
-        UK Edition
-      </p>
-    </div>
-    <div
-      className="o-header__drawer-actions"
-    >
-      <a
-        className="o-header__drawer-button"
-        data-trackable="subscribe-button"
-        href="#"
-        role="button"
-      >
-        Subscribe for full access
-      </a>
+        <span
+          className="o-header__drawer-menu-item o-header__drawer-current-edition"
+        >
+          UK
+        </span>
+        <div
+          className="o-header__drawer-divider"
+        />
+        <a
+          className="o-header__drawer-menu-link"
+          href="#?edition=international"
+        >
+          International
+        </a>
+      </nav>
     </div>
     <div
       className="o-header__drawer-search"
@@ -73,78 +69,82 @@ exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
         role="search"
       >
         <label
-          className="o-header__visually-hidden"
+          className="o-forms-field o-forms-field--optional"
           htmlFor="o-header-drawer-search-term"
         >
-          Search the 
-          <abbr
-            title="Financial Times"
+          <span
+            className="o-forms-title o-header__visually-hidden"
           >
-            FT
-          </abbr>
+            <span
+              className="o-forms-title__main"
+            >
+              Search the 
+              <abbr
+                title="Financial Times"
+              >
+                FT
+              </abbr>
+            </span>
+          </span>
+          <span
+            className="o-forms-input o-forms-input--text o-forms-input--suffix"
+          >
+            <input
+              autoCapitalize="off"
+              autoComplete="off"
+              autoCorrect="off"
+              data-n-topic-search-input={true}
+              data-trackable="search-term"
+              id="o-header-drawer-search-term"
+              name="q"
+              placeholder="Search for stories, topics or securities"
+              spellCheck={false}
+              type="text"
+            />
+            <button
+              className="o-header__drawer-search-submit"
+              data-trackable="search-submit"
+              type="submit"
+            >
+              <span
+                className="o-header__visually-hidden"
+              >
+                Search
+              </span>
+            </button>
+          </span>
         </label>
-        <input
-          autoCapitalize="off"
-          autoComplete="off"
-          autoCorrect="off"
-          className="o-header__drawer-search-term"
-          data-n-topic-search-input={true}
-          data-trackable="search-term"
-          id="o-header-drawer-search-term"
-          name="q"
-          placeholder="Search the FT"
-          spellCheck={false}
-          type="text"
-        />
-        <button
-          className="o-header__drawer-search-submit"
-          data-trackable="search-submit"
-          type="submit"
-        >
-          <span
-            className="o-header__visually-hidden"
-          >
-            Search
-          </span>
-        </button>
-        <a
-          className="ft-header__ask-ft-button ft-header__drawer-ask-ft-button"
-          data-trackable="ask-ft-button-drawer"
-          href="https://ask.ft.com"
-          id="ask-ft-button-drawer"
-          title="ASK FT"
-        >
-          <span
-            className="ft-header__ask-ft-button-label"
-          >
-            Ask FT
-          </span>
-        </a>
       </form>
     </div>
-    <nav
-      aria-label="Edition switcher"
-      className="o-header__drawer-menu"
+    <div
+      className="o-header__drawer-actions"
     >
-      <ul
-        className="o-header__drawer-menu-list"
+      <a
+        className="ft-header__ask-ft-button ft-header__drawer-ask-ft-button"
+        data-trackable="ask-ft-button-drawer"
+        href="https://ask.ft.com"
+        id="ask-ft-button-drawer"
+        title="ASK FT"
       >
-        <li
-          className="o-header__drawer-menu-item"
-          data-trackable="edition-switcher"
+        <span
+          className="ft-header__ask-ft-button-label"
         >
-          <a
-            className="o-header__drawer-menu-link"
-            data-trackable="international"
-            href="#?edition=international"
-          >
-            Switch to 
-            International
-             Edition
-          </a>
-        </li>
-      </ul>
-    </nav>
+          Ask FT
+        </span>
+      </a>
+    </div>
+    <div
+      className="o-header__drawer-actions"
+    >
+      <a
+        className="o-header__drawer-button"
+        data-trackable="subscribe-button"
+        href="#"
+        role="button"
+      >
+        Subscribe for full access
+      </a>
+    </div>
     <nav
       className="o-header__drawer-menu o-header__drawer-menu--primary"
     >
@@ -1408,34 +1408,30 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
           Close side navigation menu
         </span>
       </button>
-      <a
-        className="o-header__drawer-tools-logo"
-        data-trackable="logo"
-        href="/"
+      <nav
+        aria-label="Edition switcher"
+        className="o-header__drawer-menu o-header__drawer-edition-switcher"
       >
         <span
-          className="o-header__visually-hidden"
+          className="o-header__drawer-menu-item"
         >
-          Financial Times
+          Edition:
         </span>
-      </a>
-      <p
-        className="o-header__drawer-current-edition"
-      >
-        UK Edition
-      </p>
-    </div>
-    <div
-      className="o-header__drawer-actions"
-    >
-      <a
-        className="o-header__drawer-button"
-        data-trackable="subscribe-button"
-        href="#"
-        role="button"
-      >
-        Subscribe for full access
-      </a>
+        <span
+          className="o-header__drawer-menu-item o-header__drawer-current-edition"
+        >
+          UK
+        </span>
+        <div
+          className="o-header__drawer-divider"
+        />
+        <a
+          className="o-header__drawer-menu-link"
+          href="#?edition=international"
+        >
+          International
+        </a>
+      </nav>
     </div>
     <div
       className="o-header__drawer-search"
@@ -1450,65 +1446,65 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
         role="search"
       >
         <label
-          className="o-header__visually-hidden"
+          className="o-forms-field o-forms-field--optional"
           htmlFor="o-header-drawer-search-term"
         >
-          Search the 
-          <abbr
-            title="Financial Times"
-          >
-            FT
-          </abbr>
-        </label>
-        <input
-          autoCapitalize="off"
-          autoComplete="off"
-          autoCorrect="off"
-          className="o-header__drawer-search-term"
-          data-n-topic-search-input={true}
-          data-trackable="search-term"
-          id="o-header-drawer-search-term"
-          name="q"
-          placeholder="Search the FT"
-          spellCheck={false}
-          type="text"
-        />
-        <button
-          className="o-header__drawer-search-submit"
-          data-trackable="search-submit"
-          type="submit"
-        >
           <span
-            className="o-header__visually-hidden"
+            className="o-forms-title o-header__visually-hidden"
           >
-            Search
+            <span
+              className="o-forms-title__main"
+            >
+              Search the 
+              <abbr
+                title="Financial Times"
+              >
+                FT
+              </abbr>
+            </span>
           </span>
-        </button>
+          <span
+            className="o-forms-input o-forms-input--text o-forms-input--suffix"
+          >
+            <input
+              autoCapitalize="off"
+              autoComplete="off"
+              autoCorrect="off"
+              data-n-topic-search-input={true}
+              data-trackable="search-term"
+              id="o-header-drawer-search-term"
+              name="q"
+              placeholder="Search for stories, topics or securities"
+              spellCheck={false}
+              type="text"
+            />
+            <button
+              className="o-header__drawer-search-submit"
+              data-trackable="search-submit"
+              type="submit"
+            >
+              <span
+                className="o-header__visually-hidden"
+              >
+                Search
+              </span>
+            </button>
+          </span>
+        </label>
       </form>
     </div>
-    <nav
-      aria-label="Edition switcher"
-      className="o-header__drawer-menu"
+    <div
+      className="o-header__drawer-actions"
     >
-      <ul
-        className="o-header__drawer-menu-list"
+      <a
+        className="o-header__drawer-button"
+        data-trackable="subscribe-button"
+        href="#"
+        role="button"
       >
-        <li
-          className="o-header__drawer-menu-item"
-          data-trackable="edition-switcher"
-        >
-          <a
-            className="o-header__drawer-menu-link"
-            data-trackable="international"
-            href="#?edition=international"
-          >
-            Switch to 
-            International
-             Edition
-          </a>
-        </li>
-      </ul>
-    </nav>
+        Subscribe for full access
+      </a>
+    </div>
     <nav
       className="o-header__drawer-menu o-header__drawer-menu--primary"
     >
@@ -2772,34 +2768,30 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
           Close side navigation menu
         </span>
       </button>
-      <a
-        className="o-header__drawer-tools-logo"
-        data-trackable="logo"
-        href="/"
+      <nav
+        aria-label="Edition switcher"
+        className="o-header__drawer-menu o-header__drawer-edition-switcher"
       >
         <span
-          className="o-header__visually-hidden"
+          className="o-header__drawer-menu-item"
         >
-          Financial Times
+          Edition:
         </span>
-      </a>
-      <p
-        className="o-header__drawer-current-edition"
-      >
-        UK Edition
-      </p>
-    </div>
-    <div
-      className="o-header__drawer-actions"
-    >
-      <a
-        className="o-header__drawer-button"
-        data-trackable="subscribe-button"
-        href="#"
-        role="button"
-      >
-        Subscribe for full access
-      </a>
+        <span
+          className="o-header__drawer-menu-item o-header__drawer-current-edition"
+        >
+          UK
+        </span>
+        <div
+          className="o-header__drawer-divider"
+        />
+        <a
+          className="o-header__drawer-menu-link"
+          href="#?edition=international"
+        >
+          International
+        </a>
+      </nav>
     </div>
     <div
       className="o-header__drawer-search"
@@ -2814,65 +2806,65 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
         role="search"
       >
         <label
-          className="o-header__visually-hidden"
+          className="o-forms-field o-forms-field--optional"
           htmlFor="o-header-drawer-search-term"
         >
-          Search the 
-          <abbr
-            title="Financial Times"
-          >
-            FT
-          </abbr>
-        </label>
-        <input
-          autoCapitalize="off"
-          autoComplete="off"
-          autoCorrect="off"
-          className="o-header__drawer-search-term"
-          data-n-topic-search-input={true}
-          data-trackable="search-term"
-          id="o-header-drawer-search-term"
-          name="q"
-          placeholder="Search the FT"
-          spellCheck={false}
-          type="text"
-        />
-        <button
-          className="o-header__drawer-search-submit"
-          data-trackable="search-submit"
-          type="submit"
-        >
           <span
-            className="o-header__visually-hidden"
+            className="o-forms-title o-header__visually-hidden"
           >
-            Search
+            <span
+              className="o-forms-title__main"
+            >
+              Search the 
+              <abbr
+                title="Financial Times"
+              >
+                FT
+              </abbr>
+            </span>
           </span>
-        </button>
+          <span
+            className="o-forms-input o-forms-input--text o-forms-input--suffix"
+          >
+            <input
+              autoCapitalize="off"
+              autoComplete="off"
+              autoCorrect="off"
+              data-n-topic-search-input={true}
+              data-trackable="search-term"
+              id="o-header-drawer-search-term"
+              name="q"
+              placeholder="Search for stories, topics or securities"
+              spellCheck={false}
+              type="text"
+            />
+            <button
+              className="o-header__drawer-search-submit"
+              data-trackable="search-submit"
+              type="submit"
+            >
+              <span
+                className="o-header__visually-hidden"
+              >
+                Search
+              </span>
+            </button>
+          </span>
+        </label>
       </form>
     </div>
-    <nav
-      aria-label="Edition switcher"
-      className="o-header__drawer-menu"
+    <div
+      className="o-header__drawer-actions"
     >
-      <ul
-        className="o-header__drawer-menu-list"
+      <a
+        className="o-header__drawer-button"
+        data-trackable="subscribe-button"
+        href="#"
+        role="button"
       >
-        <li
-          className="o-header__drawer-menu-item"
-          data-trackable="edition-switcher"
-        >
-          <a
-            className="o-header__drawer-menu-link"
-            data-trackable="international"
-            href="#?edition=international"
-          >
-            Switch to 
-            International
-             Edition
-          </a>
-        </li>
-      </ul>
-    </nav>
+        Subscribe for full access
+      </a>
+    </div>
     <nav
       className="o-header__drawer-menu o-header__drawer-menu--primary"
     >

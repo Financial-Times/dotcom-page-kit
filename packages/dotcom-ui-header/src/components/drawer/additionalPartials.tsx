@@ -16,23 +16,20 @@ export const DrawerParentItem = ({ item, idSuffix }: TDrawerParentItemProps) => 
           className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--parent`}
           href={item.url ?? undefined}
           {...ariaSelected(item)}
-          data-trackable={item.label}
-        >
+          data-trackable={item.label}>
           {item.label}
         </a>
         <button
           className={`o-header__drawer-menu-toggle o-header__drawer-menu-toggle--${selected}`}
           aria-controls={`o-header-drawer-child-${idSuffix}`}
-          data-trackable={`sub-level-toggle | ${item.label}`}
-        >
+          data-trackable={`sub-level-toggle | ${item.label}`}>
           {`Show more ${item.label}`}
         </button>
       </div>
       <ul
         className="o-header__drawer-menu-list o-header__drawer-menu-list--child"
         id={`o-header-drawer-child-${idSuffix}`}
-        data-trackable="sub-level"
-      >
+        data-trackable="sub-level">
         {(item.submenu?.items as TNavMenuItem[]).map((item) => {
           const selected = item.selected ? 'selected' : 'unselected'
           return (
@@ -41,8 +38,7 @@ export const DrawerParentItem = ({ item, idSuffix }: TDrawerParentItemProps) => 
                 className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--child`}
                 href={item.url ?? undefined}
                 data-trackable={item.label}
-                {...ariaSelected(item)}
-              >
+                {...ariaSelected(item)}>
                 {item.label}
               </a>
             </li>
@@ -60,8 +56,7 @@ export const DrawerSingleItem = (item: TNavMenuItem) => {
       className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected}`}
       href={item.url ?? undefined}
       data-trackable={item.label}
-      {...ariaSelected(item)}
-    >
+      {...ariaSelected(item)}>
       {item.label}
     </a>
   )
@@ -74,27 +69,29 @@ export const DrawerSpecialItem = (item: TNavMenuItem) => {
       className={`o-header__drawer-menu-link o-header__drawer-menu-link--${selected} o-header__drawer-menu-link--secondary`}
       href={item.url ?? undefined}
       data-trackable={item.label}
-      {...ariaSelected(item)}
-    >
+      {...ariaSelected(item)}>
       {item.label}
     </a>
   )
 }
 
 export const EditionsSwitcher = (editions: TNavEditions) => (
-  <ul className="o-header__drawer-menu-list">
-    {editions.others.map(({ id, name, url }) => {
-      const href = `${url}?edition=${id}`
-      return (
-        <li key={id} className="o-header__drawer-menu-item" data-trackable="edition-switcher">
-          <a className="o-header__drawer-menu-link" href={href} data-trackable={id}>
-            Switch to {name} Edition
-          </a>
-        </li>
-      )
-    })}
-  </ul>
-)
+  <nav
+    className="o-header__drawer-menu o-header__drawer-edition-switcher"
+    aria-label="Edition switcher">
+    <span className="o-header__drawer-menu-item">Edition:</span>
+    <span className="o-header__drawer-menu-item o-header__drawer-current-edition">
+      {editions.current?.name}
+    </span>
+    <div className="o-header__drawer-divider"></div>
+    {editions.others?.map(({name, id, url}) => (
+      <a key={id} className="o-header__drawer-menu-link" href={`${url}?edition=${id}`}>
+        {name}
+      </a>
+    ))}
+  </nav>
+);
+
 
 export const SubscribeButton = (action: TNavAction) => (
   <div className="o-header__drawer-actions">
