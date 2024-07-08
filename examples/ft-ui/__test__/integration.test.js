@@ -61,7 +61,7 @@ describe('examples/ft-ui', () => {
     })
 
     it('renders the drawer menu', async () => {
-      await expect(page).toMatchElement('#o-header-drawer', { text: 'Switch to International Edition' })
+      await expect(page).toMatchElement('#o-header-drawer', { text: 'International' })
       await expect(page).toMatchElement(
         '#o-header-drawer',
         { text: 'Top sections' },
