@@ -17,6 +17,9 @@
 .o-header__drawer {
   @include nUiZIndexFor('drawer');
   display: block;
+  .o-header__drawer-search {
+    margin-bottom: 8px;
+  }
 }
 
 .o-header--sticky {
