@@ -29,15 +29,14 @@
     "@financial-times/logo-images": "^1.10.1",
     "@svgr/core": "^5.0.0",
     "camelcase": "^6.0.0",
-    "check-engine": "^1.10.1",
-    "@financial-times/o-header": "^13.0.0"
+    "check-engine": "^1.10.1"
   },
   "peerDependencies": {
-    "@financial-times/o-header": "^13.0.0",
     "@financial-times/logo-images": "^1.10.1",
+    "@financial-times/o-header": "13.0.1",
+    "n-ui-foundations": "^9.0.0 || ^10.0.0",
     "react": "17.x || 18.x",
-    "react-dom": "17.x || 18.x",
-    "n-ui-foundations": "^9.0.0 || ^10.0.0"
+    "react-dom": "17.x || 18.x"
   },
   "engines": {
     "node": "18.x || 20.x",
