@@ -12,8 +12,6 @@ $system-code: 'page-kit-header' !default;
 
 @import "n-topic-search/main";
 @include nTopicSearch;
-.n-topic-search {
-  @include oGridRespondTo($from: 'M') {
+.o-header__search--primary .n-topic-search {
     margin: 24px 0 0;
-  }
 }
