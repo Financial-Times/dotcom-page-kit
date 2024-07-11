@@ -34,7 +34,9 @@
 .o-header__drawer-search-term {
   width: 100%;
 }
-
+.o-header__top-wrapper .ft-header__ask-ft-button {
+  padding: 8px;
+}
 .ft-header__ask-ft-button {
   @include oTypographySans(-1, $weight: 'semibold');
   color: oColorsByName('ft-grey');
