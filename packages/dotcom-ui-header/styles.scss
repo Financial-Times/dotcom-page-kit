@@ -12,6 +12,6 @@ $system-code: 'page-kit-header' !default;
 
 @import "n-topic-search/main";
 @include nTopicSearch;
-.o-header__search--primary .n-topic-search {
+.o-header__search--primary .n-topic-search, o-header__search--sticky .n-topic-search{
     margin: 24px 0 0;
 }
