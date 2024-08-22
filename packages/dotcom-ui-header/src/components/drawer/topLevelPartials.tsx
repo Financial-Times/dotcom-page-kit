@@ -28,16 +28,13 @@ const Drawer = (props: THeaderProps) => {
       data-o-header-drawer
       data-o-header-drawer--no-js
       data-trackable="drawer"
-      data-trackable-terminate>
+      data-trackable-terminate
+    >
       <div className="o-header__drawer-inner">
         <DrawerTools {...editions} />
         <Search />
         {props.showAskButton && (
-          <AskFtButton
-            className="ft-header__drawer-ask-ft-button"
-            id="ask-ft-button-drawer"
-            dataTrackable="ask-ft-button-drawer"
-          />
+          <AskFtButton variant="drawer" dataTrackable="ask-ft-button-drawer" id="ask-ft-button-drawer" />
         )}
         {!props.userIsSubscribed && subscribeAction && <SubscribeButton {...subscribeAction} />}
         <nav className="o-header__drawer-menu o-header__drawer-menu--primary">
@@ -58,7 +55,8 @@ const DrawerTools = (editions: TNavEditions) => (
       className="o-header__drawer-tools-close"
       title="Close side navigation menu"
       aria-controls="o-header-drawer"
-      data-trackable="close">
+      data-trackable="close"
+    >
       <span className="o-header__visually-hidden">Close side navigation menu</span>
     </button>
     {editions && <EditionsSwitcher {...editions} />}
@@ -74,7 +72,8 @@ const Search = () => (
       aria-label="Site search"
       data-n-topic-search
       data-n-topic-search-categories="concepts,equities"
-      data-n-topic-search-view-all>
+      data-n-topic-search-view-all
+    >
       <label htmlFor="o-header-drawer-search-term" className="o-forms-field o-forms-field--optional">
         <span className="o-forms-title o-header__visually-hidden">
           <span className="o-forms-title__main">
