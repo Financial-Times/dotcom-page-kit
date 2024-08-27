@@ -6,7 +6,7 @@ describe('examples/ft-ui', () => {
 
   describe('Header link elements', () => {
     it('renders the expected loggin-in user Header link elements', async () => {
-      await expect(page).toMatchElement('.o-header__nav-item a[href$="/myft"]', { text: 'myFT Feed' })
+      await expect(page).toMatchElement('.o-header__nav-item a[href$="/myft"]', { text: 'myFT' })
       await expect(page).toMatchElement('.o-header__top-column--right a[href$="/myaccount"]', {
         text: 'My Account'
       })
