@@ -18,6 +18,7 @@ describe('examples/kitchen-sink/build', () => {
         "manifest.json",
         "page-kit-components.bundle.js",
         "page-kit-layout-styles.css",
+        "preact.bundle.js",
         "privacy-components.bundle.js",
         "scripts.bundle.js",
         "shared.stable.bundle.js",
