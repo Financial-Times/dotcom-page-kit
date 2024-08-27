@@ -64,8 +64,6 @@ exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
         aria-label="Site search"
         className="o-header__drawer-search-form"
         data-n-topic-search={true}
-        data-n-topic-search-categories="concepts,equities"
-        data-n-topic-search-view-all={true}
         role="search"
       >
         <label
@@ -90,16 +88,19 @@ exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
             className="o-forms-input o-forms-input--text o-forms-input--suffix"
           >
             <input
+              aria-controls="suggestions-o-header-drawer-search-term"
               autoCapitalize="off"
               autoComplete="off"
               autoCorrect="off"
+              data-n-topic-search-drawer="true"
               data-n-topic-search-input={true}
               data-trackable="search-term"
               id="o-header-drawer-search-term"
               name="q"
               placeholder="Search for stories, topics or securities"
+              role="combobox"
               spellCheck={false}
-              type="text"
+              type="search"
             />
             <button
               className="o-header__drawer-search-submit"
@@ -1441,8 +1442,6 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
         aria-label="Site search"
         className="o-header__drawer-search-form"
         data-n-topic-search={true}
-        data-n-topic-search-categories="concepts,equities"
-        data-n-topic-search-view-all={true}
         role="search"
       >
         <label
@@ -1467,16 +1466,19 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
             className="o-forms-input o-forms-input--text o-forms-input--suffix"
           >
             <input
+              aria-controls="suggestions-o-header-drawer-search-term"
               autoCapitalize="off"
               autoComplete="off"
               autoCorrect="off"
+              data-n-topic-search-drawer="true"
               data-n-topic-search-input={true}
               data-trackable="search-term"
               id="o-header-drawer-search-term"
               name="q"
               placeholder="Search for stories, topics or securities"
+              role="combobox"
               spellCheck={false}
-              type="text"
+              type="search"
             />
             <button
               className="o-header__drawer-search-submit"
@@ -2801,8 +2803,6 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
         aria-label="Site search"
         className="o-header__drawer-search-form"
         data-n-topic-search={true}
-        data-n-topic-search-categories="concepts,equities"
-        data-n-topic-search-view-all={true}
         role="search"
       >
         <label
@@ -2827,16 +2827,19 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
             className="o-forms-input o-forms-input--text o-forms-input--suffix"
           >
             <input
+              aria-controls="suggestions-o-header-drawer-search-term"
               autoCapitalize="off"
               autoComplete="off"
               autoCorrect="off"
+              data-n-topic-search-drawer="true"
               data-n-topic-search-input={true}
               data-trackable="search-term"
               id="o-header-drawer-search-term"
               name="q"
               placeholder="Search for stories, topics or securities"
+              role="combobox"
               spellCheck={false}
-              type="text"
+              type="search"
             />
             <button
               className="o-header__drawer-search-submit"
