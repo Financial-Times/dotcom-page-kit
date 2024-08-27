@@ -267,8 +267,6 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders ASK FT button 1`] 
         aria-label="Site search"
         className="o-header__search-form"
         data-n-topic-search={true}
-        data-n-topic-search-categories="concepts,equities"
-        data-n-topic-search-view-all={true}
         role="search"
       >
         <label
@@ -293,23 +291,28 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders ASK FT button 1`] 
             className="o-forms-input o-forms-input--text o-forms-input--suffix"
           >
             <input
+              aria-controls="suggestions-o-header-search-term-sticky"
               autoCapitalize="off"
               autoComplete="off"
               autoCorrect="off"
-              className="o-header__search-term"
-              data-n-topic-search-input={true}
-              data-trackable="search-term"
               id="o-header-search-term-sticky"
               name="q"
               placeholder="Search for stories, topics or securities"
+              role="combobox"
               spellCheck={false}
-              type="text"
+              type="search"
             />
             <button
               className="o-header__search-submit"
               type="submit"
             >
-              Search
+              <span
+                aria-hidden="true"
+                className="o-header__search-icon"
+              />
+              <span>
+                Search
+              </span>
             </button>
             <button
               aria-controls="o-header-search-sticky"
@@ -322,6 +325,9 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders ASK FT button 1`] 
                 className="o-header__visually-hidden"
               >
                 Close search bar
+              </span>
+              <span>
+                Close
               </span>
             </button>
           </span>
@@ -582,8 +588,6 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in use
         aria-label="Site search"
         className="o-header__search-form"
         data-n-topic-search={true}
-        data-n-topic-search-categories="concepts,equities"
-        data-n-topic-search-view-all={true}
         role="search"
       >
         <label
@@ -608,23 +612,28 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in use
             className="o-forms-input o-forms-input--text o-forms-input--suffix"
           >
             <input
+              aria-controls="suggestions-o-header-search-term-sticky"
               autoCapitalize="off"
               autoComplete="off"
               autoCorrect="off"
-              className="o-header__search-term"
-              data-n-topic-search-input={true}
-              data-trackable="search-term"
               id="o-header-search-term-sticky"
               name="q"
               placeholder="Search for stories, topics or securities"
+              role="combobox"
               spellCheck={false}
-              type="text"
+              type="search"
             />
             <button
               className="o-header__search-submit"
               type="submit"
             >
-              Search
+              <span
+                aria-hidden="true"
+                className="o-header__search-icon"
+              />
+              <span>
+                Search
+              </span>
             </button>
             <button
               aria-controls="o-header-search-sticky"
@@ -637,6 +646,9 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in use
                 className="o-header__visually-hidden"
               >
                 Close search bar
+              </span>
+              <span>
+                Close
               </span>
             </button>
           </span>
@@ -896,8 +908,6 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as an anonymous us
         aria-label="Site search"
         className="o-header__search-form"
         data-n-topic-search={true}
-        data-n-topic-search-categories="concepts,equities"
-        data-n-topic-search-view-all={true}
         role="search"
       >
         <label
@@ -922,23 +932,28 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as an anonymous us
             className="o-forms-input o-forms-input--text o-forms-input--suffix"
           >
             <input
+              aria-controls="suggestions-o-header-search-term-sticky"
               autoCapitalize="off"
               autoComplete="off"
               autoCorrect="off"
-              className="o-header__search-term"
-              data-n-topic-search-input={true}
-              data-trackable="search-term"
               id="o-header-search-term-sticky"
               name="q"
               placeholder="Search for stories, topics or securities"
+              role="combobox"
               spellCheck={false}
-              type="text"
+              type="search"
             />
             <button
               className="o-header__search-submit"
               type="submit"
             >
-              Search
+              <span
+                aria-hidden="true"
+                className="o-header__search-icon"
+              />
+              <span>
+                Search
+              </span>
             </button>
             <button
               aria-controls="o-header-search-sticky"
@@ -951,6 +966,9 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as an anonymous us
                 className="o-header__visually-hidden"
               >
                 Close search bar
+              </span>
+              <span>
+                Close
               </span>
             </button>
           </span>
