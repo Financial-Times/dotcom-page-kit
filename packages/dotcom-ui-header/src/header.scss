@@ -9,31 +9,11 @@
   display: block;
 }
 
-// z-indexes
-.o-header__mega {
-  @include nUiZIndexFor('meganav');
-}
-
-.o-header__drawer {
-  @include nUiZIndexFor('drawer');
-  display: block;
-  .o-header__drawer-search {
-    margin-bottom: 8px;
-  }
-}
-
-.o-header--sticky {
-  @include nUiZIndexFor('sticky-header');
-}
-
 // Search typeahead
 .n-typeahead {
   display: none;
 }
 
-.o-header__drawer-search-term {
-  width: 100%;
-}
 
 .o-header__ask-ft-button {
   &, &:hover {
