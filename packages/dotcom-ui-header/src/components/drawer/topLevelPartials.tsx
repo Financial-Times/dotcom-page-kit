@@ -63,44 +63,48 @@ const DrawerTools = (editions: TNavEditions) => (
   </div>
 )
 
-const Search = () => (
-  <div className="o-header__drawer-search">
-    <form
-      className="o-header__drawer-search-form"
-      action="/search"
-      role="search"
-      aria-label="Site search"
-      data-n-topic-search
-      data-n-topic-search-categories="concepts,equities"
-      data-n-topic-search-view-all
-    >
-      <label htmlFor="o-header-drawer-search-term" className="o-forms-field o-forms-field--optional">
-        <span className="o-forms-title o-header__visually-hidden">
-          <span className="o-forms-title__main">
-            Search the <abbr title="Financial Times">FT</abbr>
+const Search = () => {
+  const inputId = 'o-header-drawer-search-term'
+  return (
+    <div className="o-header__drawer-search">
+      <form
+        className="o-header__drawer-search-form"
+        action="/search"
+        role="search"
+        aria-label="Site search"
+        data-n-topic-search
+      >
+        <label htmlFor={inputId} className="o-forms-field o-forms-field--optional">
+          <span className="o-forms-title o-header__visually-hidden">
+            <span className="o-forms-title__main">
+              Search the <abbr title="Financial Times">FT</abbr>
+            </span>
           </span>
-        </span>
-        <span className="o-forms-input o-forms-input--text o-forms-input--suffix">
-          <input
-            id="o-header-drawer-search-term"
-            name="q"
-            type="text"
-            autoComplete="off"
-            autoCorrect="off"
-            autoCapitalize="off"
-            spellCheck={false}
-            data-trackable="search-term"
-            data-n-topic-search-input
-            placeholder="Search for stories, topics or securities"
-          />
-          <button className="o-header__drawer-search-submit" type="submit" data-trackable="search-submit">
-            <span className="o-header__visually-hidden">Search</span>
-          </button>
-        </span>
-      </label>
-    </form>
-  </div>
-)
+          <span className="o-forms-input o-forms-input--text o-forms-input--suffix">
+            <input
+              id={inputId}
+              name="q"
+              type="search"
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck={false}
+              data-trackable="search-term"
+              data-n-topic-search-input
+              placeholder="Search for stories, topics or securities"
+              role="combobox"
+              aria-controls={`suggestions-${inputId}`}
+              data-n-topic-search-drawer="true"
+            />
+            <button className="o-header__drawer-search-submit" type="submit" data-trackable="search-submit">
+              <span className="o-header__visually-hidden">Search</span>
+            </button>
+          </span>
+        </label>
+      </form>
+    </div>
+  )
+}
 
 const SectionPrimary = (props: TNavMenuItem) => {
   const sectionId = props.label.toLowerCase().replace(' ', '-')
