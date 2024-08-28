@@ -44,11 +44,12 @@
   "homepage": "https://github.com/Financial-Times/dotcom-page-kit#readme",
   "devDependencies": {
     "@babel/core": "^7.8.0",
+    "@babel/plugin-transform-optional-chaining": "^7.24.8",
     "@babel/preset-env": "^7.22.20",
     "@babel/preset-react": "^7.8.0",
     "@babel/preset-typescript": "^7.8.0",
-    "@storybook/addon-essentials": "^6.0.27",
     "@storybook/addon-docs": "^6.0.27",
+    "@storybook/addon-essentials": "^6.0.27",
     "@storybook/react": "^6.0.27",
     "@storybook/storybook-deployer": "^2.8.7",
     "@testing-library/jest-dom": "^5.17.0",

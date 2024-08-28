@@ -1,7 +1,7 @@
 // This configuration extends the existing Storybook Webpack config.
 // See https://storybook.js.org/configurations/custom-webpack-config/ for more info.
 
-const excludePaths = [/node_modules/, /dist/]
+const excludePaths = [/dist/]
 
 module.exports = ({ config }) => {
   // Use real file paths for symlinked dependencies do avoid including them multiple times
@@ -13,17 +13,16 @@ module.exports = ({ config }) => {
     mainFiles: ['index', 'main']
   })
 
-  // HACK: extend existing JS rule to ensure all dependencies are correctly ignored
-  // https://github.com/storybooks/storybook/issues/3346#issuecomment-459439438
-  const jsRule = config.module.rules.find((rule) => rule.test.test('.jsx'))
-  jsRule.exclude = excludePaths
-
-  // HACK: Instruct Babel to check module type before injecting Core JS polyfills
-  // https://github.com/i-like-robots/broken-webpack-bundle-test-case
-  const babelConfig = jsRule.use.find(({ loader }) => loader === 'babel-loader') || {
-    options: { presets: [] }
-  }
-  babelConfig.options.sourceType = 'unambiguous'
+  // Separate rule for JavaScript Files
+  config.module.rules.push({
+    test: /\.(js|jsx)$/,
+    loader: require.resolve('babel-loader'),
+    options: {
+      presets: [require.resolve('@babel/preset-env'), require.resolve('@babel/preset-react')],
+      plugins: [require.resolve('@babel/plugin-transform-optional-chaining')]
+    },
+    exclude: excludePaths
+  })
 
   // Add support for TypeScript source code
   // https://storybook.js.org/configurations/typescript-config/
