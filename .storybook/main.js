@@ -4,5 +4,9 @@ module.exports = {
     '../packages/dotcom-ui-footer/src/**/story.tsx',
     '../packages/dotcom-ui-layout/src/**/story.tsx'
   ],
-  addons: ['@storybook/addon-essentials']
+  framework: '@storybook/react',
+  addons: ['@storybook/addon-essentials'],
+  core: {
+    builder: '@storybook/builder-webpack4'
+  }
 }
