@@ -19,6 +19,7 @@
   position: relative;
 }
 
+// Overrides <a> color style set by n-ui-foundations
 .o-header__ask-ft-button {
   &, &:hover {
     color: oColorsByName('black-80');
