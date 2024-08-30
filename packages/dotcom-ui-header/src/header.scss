@@ -9,73 +9,19 @@
   display: block;
 }
 
-// z-indexes
-.o-header__mega {
-  @include nUiZIndexFor('meganav');
-}
-
-.o-header__drawer {
-  @include nUiZIndexFor('drawer');
-  display: block;
-  .o-header__drawer-search {
-    margin-bottom: 8px;
-  }
-}
-
-.o-header--sticky {
-  @include nUiZIndexFor('sticky-header');
-}
-
 // Search typeahead
 .n-typeahead {
   display: none;
 }
 
-.o-header__drawer-search-term {
-  width: 100%;
+// Please remove this rule once the following PR (https://github.com/Financial-Times/origami/pull/1808) is merged and o-header version is updated
+#site-navigation {
+  position: relative;
 }
-.o-header__top-wrapper .ft-header__ask-ft-button {
-  padding: 8px;
-}
-.ft-header__ask-ft-button {
-  @include oTypographySans(-1, $weight: 'semibold');
-  color: oColorsByName('ft-grey');
-  background-color: oColorsMix('black', 'paper', 5);
-  border-radius: 4px;
-  padding-right: 8px;
-  text-transform: uppercase;
-  text-decoration: none;
-  white-space: nowrap;
 
-  &::before {
-    content: '';
-    display: block;
-    @include oIconsContent(
-      $icon-name: 'sparkles',
-      $color: oColorsByName('black'),
-      $size: 32
-    );
-    vertical-align: top;
+// Overrides <a> color style set by n-ui-foundations
+.o-header__ask-ft-button {
+  &, &:hover {
+    color: oColorsByName('black-80');
   }
-
-  .ft-header__ask-ft-button-label {
-    display: inline-block;
-    padding: 8px 0;
-    line-height: 15px;
-  }
-}
-
-.ft-header__top-ask-ft-button {
-  @include oGridRespondTo($until: 'L') {
-    display: none;
-  }
-}
-
-.ft-header__drawer-ask-ft-button {
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-  margin: 0;
-  text-align: center;
-
 }
