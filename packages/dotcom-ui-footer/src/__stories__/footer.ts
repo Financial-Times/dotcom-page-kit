@@ -205,7 +205,6 @@ const data: TNavMenu = {
         label: null,
         items: [
           [
-            { label: 'FT Community', url: 'https://www.ft.com/tour/community', submenu: null },
             { label: 'FT Live', url: 'http://live.ft.com/', submenu: null },
             {
               label: 'FT Forums',
