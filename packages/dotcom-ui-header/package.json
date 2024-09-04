@@ -23,6 +23,7 @@
   "license": "MIT",
   "dependencies": {
     "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation",
+    "@preact/compat": "^17.1.2",
     "n-topic-search": "^8.0.0"
   },
   "devDependencies": {

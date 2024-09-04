@@ -1,7 +1,7 @@
 import Header from '@financial-times/o-header'
 import TypeAhead from 'n-topic-search'
 import { h, render } from 'preact'
-
+import React from 'preact/compat';
 /**
  * @typedef HeaderOptions
  * @property { HTMLElement } [rootElement] - the root element passed to o-header
