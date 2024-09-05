@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '@financial-times/o-header'
+import * as header from '../../browser.js'
 import { OnReady } from '../../../../.storybook/components/OnReady'
 import {
   Header as HeaderSimple,
@@ -15,7 +15,10 @@ import '../../styles.scss'
 import './demos.scss'
 
 const onReadyCallback = () => {
-  Header.init()
+  // Passing a cors-anywhere hostname to n-topic-search
+  // An 'origin' request header will be set on the subsequent fetch request to next-search-api
+  // This satisfies the api's cors rules allowing a response to be sent and rendered on localhost
+  header.init({ hostName: 'cors-anywhere.herokuapp.com/www.ft.com' })
 }
 
 export default {
@@ -95,7 +98,7 @@ LargeHeaderWithDrawer.args = {
 }
 
 export const _StickyHeader = (args) => (
-  <OnReady callback={onReadyCallback}>
+  <OnReady callback={() => header.init()}>
     <StickyHeader {...storyData} {...args} />
     <p className="demo-sticky-message demo-sticky-message--scroll">Scroll down</p>
   </OnReady>

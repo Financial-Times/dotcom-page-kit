@@ -2,18 +2,19 @@ import React from 'react'
 
 export interface AskFtButtonProps {
   id: string
-  variant: 'top' | 'drawer'
+  className: string
   dataTrackable: string
 }
 
-export const AskFtButton = ({ id, variant, dataTrackable }: AskFtButtonProps) => (
-  <a
-    id={id}
-    className={`o-header__ask-ft-button o-header__ask-ft-button--${variant}`}
-    data-trackable={dataTrackable}
-    href="https://ask.ft.com"
-    title="ASK FT"
-  >
-    Ask FT
-  </a>
+export const AskFtButton = ({ id, className, dataTrackable }: AskFtButtonProps) => (
+  <div className="o-header__drawer-actions">
+    <a
+      id={id}
+      className={`ft-header__ask-ft-button ${className}`}
+      data-trackable={dataTrackable}
+      href="https://ask.ft.com"
+      title="ASK FT">
+      <span className="ft-header__ask-ft-button-label">Ask FT</span>
+    </a>
+  </div>
 )

@@ -47,15 +47,23 @@ exports[`dotcom-ui-header/src/components/MainHeader renders ASK FT button 1`] = 
               Open search bar
             </span>
           </a>
-          <a
-            className="o-header__ask-ft-button o-header__ask-ft-button--top"
-            data-trackable="ask-ft-button-header"
-            href="https://ask.ft.com"
-            id="ask-ft-button-header"
-            title="ASK FT"
+          <div
+            className="o-header__drawer-actions"
           >
-            Ask FT
-          </a>
+            <a
+              className="ft-header__ask-ft-button ft-header__top-ask-ft-button"
+              data-trackable="ask-ft-button-header"
+              href="https://ask.ft.com"
+              id="ask-ft-button-header"
+              title="ASK FT"
+            >
+              <span
+                className="ft-header__ask-ft-button-label"
+              >
+                Ask FT
+              </span>
+            </a>
+          </div>
         </div>
         <div
           className="o-header__top-column o-header__top-column--center"
@@ -124,6 +132,8 @@ exports[`dotcom-ui-header/src/components/MainHeader renders ASK FT button 1`] = 
         aria-label="Site search"
         className="o-header__search-form"
         data-n-topic-search={true}
+        data-n-topic-search-categories="concepts,equities"
+        data-n-topic-search-view-all={true}
         role="search"
       >
         <label
@@ -148,28 +158,23 @@ exports[`dotcom-ui-header/src/components/MainHeader renders ASK FT button 1`] = 
             className="o-forms-input o-forms-input--text o-forms-input--suffix"
           >
             <input
-              aria-controls="suggestions-o-header-search-term-primary"
               autoCapitalize="off"
               autoComplete="off"
               autoCorrect="off"
+              className="o-header__search-term"
+              data-n-topic-search-input={true}
+              data-trackable="search-term"
               id="o-header-search-term-primary"
               name="q"
               placeholder="Search for stories, topics or securities"
-              role="combobox"
               spellCheck={false}
-              type="search"
+              type="text"
             />
             <button
               className="o-header__search-submit"
               type="submit"
             >
-              <span
-                aria-hidden="true"
-                className="o-header__search-icon"
-              />
-              <span>
-                Search
-              </span>
+              Search
             </button>
             <button
               aria-controls="o-header-search-primary"
@@ -182,9 +187,6 @@ exports[`dotcom-ui-header/src/components/MainHeader renders ASK FT button 1`] = 
                 className="o-header__visually-hidden"
               >
                 Close search bar
-              </span>
-              <span>
-                Close
               </span>
             </button>
           </span>
@@ -1985,6 +1987,8 @@ exports[`dotcom-ui-header/src/components/MainHeader renders a right aligned subn
         aria-label="Site search"
         className="o-header__search-form"
         data-n-topic-search={true}
+        data-n-topic-search-categories="concepts,equities"
+        data-n-topic-search-view-all={true}
         role="search"
       >
         <label
@@ -2009,28 +2013,23 @@ exports[`dotcom-ui-header/src/components/MainHeader renders a right aligned subn
             className="o-forms-input o-forms-input--text o-forms-input--suffix"
           >
             <input
-              aria-controls="suggestions-o-header-search-term-primary"
               autoCapitalize="off"
               autoComplete="off"
               autoCorrect="off"
+              className="o-header__search-term"
+              data-n-topic-search-input={true}
+              data-trackable="search-term"
               id="o-header-search-term-primary"
               name="q"
               placeholder="Search for stories, topics or securities"
-              role="combobox"
               spellCheck={false}
-              type="search"
+              type="text"
             />
             <button
               className="o-header__search-submit"
               type="submit"
             >
-              <span
-                aria-hidden="true"
-                className="o-header__search-icon"
-              />
-              <span>
-                Search
-              </span>
+              Search
             </button>
             <button
               aria-controls="o-header-search-primary"
@@ -2043,9 +2042,6 @@ exports[`dotcom-ui-header/src/components/MainHeader renders a right aligned subn
                 className="o-header__visually-hidden"
               >
                 Close search bar
-              </span>
-              <span>
-                Close
               </span>
             </button>
           </span>
@@ -3841,6 +3837,8 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
         aria-label="Site search"
         className="o-header__search-form"
         data-n-topic-search={true}
+        data-n-topic-search-categories="concepts,equities"
+        data-n-topic-search-view-all={true}
         role="search"
       >
         <label
@@ -3865,28 +3863,23 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
             className="o-forms-input o-forms-input--text o-forms-input--suffix"
           >
             <input
-              aria-controls="suggestions-o-header-search-term-primary"
               autoCapitalize="off"
               autoComplete="off"
               autoCorrect="off"
+              className="o-header__search-term"
+              data-n-topic-search-input={true}
+              data-trackable="search-term"
               id="o-header-search-term-primary"
               name="q"
               placeholder="Search for stories, topics or securities"
-              role="combobox"
               spellCheck={false}
-              type="search"
+              type="text"
             />
             <button
               className="o-header__search-submit"
               type="submit"
             >
-              <span
-                aria-hidden="true"
-                className="o-header__search-icon"
-              />
-              <span>
-                Search
-              </span>
+              Search
             </button>
             <button
               aria-controls="o-header-search-primary"
@@ -3899,9 +3892,6 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
                 className="o-header__visually-hidden"
               >
                 Close search bar
-              </span>
-              <span>
-                Close
               </span>
             </button>
           </span>
@@ -5702,6 +5692,8 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
         aria-label="Site search"
         className="o-header__search-form"
         data-n-topic-search={true}
+        data-n-topic-search-categories="concepts,equities"
+        data-n-topic-search-view-all={true}
         role="search"
       >
         <label
@@ -5726,28 +5718,23 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
             className="o-forms-input o-forms-input--text o-forms-input--suffix"
           >
             <input
-              aria-controls="suggestions-o-header-search-term-primary"
               autoCapitalize="off"
               autoComplete="off"
               autoCorrect="off"
+              className="o-header__search-term"
+              data-n-topic-search-input={true}
+              data-trackable="search-term"
               id="o-header-search-term-primary"
               name="q"
               placeholder="Search for stories, topics or securities"
-              role="combobox"
               spellCheck={false}
-              type="search"
+              type="text"
             />
             <button
               className="o-header__search-submit"
               type="submit"
             >
-              <span
-                aria-hidden="true"
-                className="o-header__search-icon"
-              />
-              <span>
-                Search
-              </span>
+              Search
             </button>
             <button
               aria-controls="o-header-search-primary"
@@ -5760,9 +5747,6 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
                 className="o-header__visually-hidden"
               >
                 Close search bar
-              </span>
-              <span>
-                Close
               </span>
             </button>
           </span>

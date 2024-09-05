@@ -1,14 +1,17 @@
 // This will be overridden by dotcom-ui-layout, it's necessary here for storybook builds
 $system-code: 'page-kit-header' !default;
 
-@import 'n-ui-foundations/mixins';
+@import "n-ui-foundations/mixins";
 
 // We don't need the sub-brand or transparent header styles so disable them.
 // TODO: move drawer styles into a separate stylesheet which can be lazy loaded?
-@import '@financial-times/o-header/main';
+@import "@financial-times/o-header/main";
 @include oHeader(('top', 'nav', 'subnav', 'search', 'megamenu', 'drawer', 'anon', 'sticky', 'simple'));
 
-@import 'src/header';
+@import "src/header";
 
-@import 'n-topic-search/main';
+@import "n-topic-search/main";
 @include nTopicSearch;
+.o-header__search--primary .n-topic-search, .o-header__search--sticky .n-topic-search {
+  margin: 24px 0 0;
+}
