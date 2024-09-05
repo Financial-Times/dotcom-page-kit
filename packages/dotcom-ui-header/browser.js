@@ -1,7 +1,6 @@
 import Header from '@financial-times/o-header'
 import TypeAhead from 'n-topic-search'
 import { h, render } from 'preact'
-import React from 'preact/compat';
 /**
  * @typedef HeaderOptions
  * @property { HTMLElement } [rootElement] - the root element passed to o-header
@@ -34,11 +33,10 @@ export const init = (headerOptions = {}) => {
       const mobileDrawer = oheaderContainerParent?.parentElement
       element.appendChild(typeaheadContainer)
 
-      render(<TypeAhead container={mobileDrawer} inputId={input.id} />, typeaheadContainer)
+      render(h(TypeAhead, {container: mobileDrawer, inputId: input.id}), typeaheadContainer)
     } else {
       form.after(typeaheadContainer)
-
-      render(<TypeAhead container={oheaderContainerParent} inputId={input.id} />, typeaheadContainer)
+      render(h(TypeAhead, {container: oheaderContainerParent, inputId: input.id}), typeaheadContainer)
     }
   })
 
