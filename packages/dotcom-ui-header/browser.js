@@ -34,11 +34,10 @@ export const init = (headerOptions = {}) => {
       const mobileDrawer = oheaderContainerParent?.parentElement
       element.appendChild(typeaheadContainer)
 
-      render(<TypeAhead container={mobileDrawer} inputId={input.id} />, typeaheadContainer)
+      render(h(TypeAhead, {container: mobileDrawer, inputId: input.id}), typeaheadContainer)
     } else {
       form.after(typeaheadContainer)
-
-      render(<TypeAhead container={oheaderContainerParent} inputId={input.id} />, typeaheadContainer)
+      render(h(TypeAhead, {container: oheaderContainerParent, inputId: input.id}), typeaheadContainer)
     }
   })
 
