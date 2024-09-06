@@ -318,6 +318,9 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders ASK FT button 1`] 
               >
                 Close search bar
               </span>
+              <span>
+                Close
+              </span>
             </button>
           </span>
         </label>
@@ -636,6 +639,9 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in use
               >
                 Close search bar
               </span>
+              <span>
+                Close
+              </span>
             </button>
           </span>
         </label>
@@ -952,6 +958,9 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as an anonymous us
                 className="o-header__visually-hidden"
               >
                 Close search bar
+              </span>
+              <span>
+                Close
               </span>
             </button>
           </span>
