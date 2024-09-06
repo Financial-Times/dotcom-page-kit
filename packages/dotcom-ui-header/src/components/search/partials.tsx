@@ -48,7 +48,6 @@ const Search = ({ instance }) => {
                 data-trackable="close"
               >
                 <span className="o-header__visually-hidden">Close search bar</span>
-                <span className="o-header__visually-hidden">Close</span>
               </button>
             </span>
           </label>
