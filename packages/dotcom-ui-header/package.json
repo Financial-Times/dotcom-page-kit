@@ -23,8 +23,7 @@
   "license": "MIT",
   "dependencies": {
     "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation",
-    "n-topic-search": "^8.0.0",
-    "preact": "^10.23.2"
+    "n-topic-search": "^8.0.0"
   },
   "devDependencies": {
     "@financial-times/logo-images": "^1.10.1",
@@ -37,7 +36,8 @@
     "@financial-times/o-header": "^14.0.1",
     "n-ui-foundations": "^9.0.0 || ^10.0.0",
     "react": "17.x || 18.x",
-    "react-dom": "17.x || 18.x"
+    "react-dom": "17.x || 18.x",
+    "preact": "^10.23.2"
   },
   "engines": {
     "node": "18.x || 20.x",

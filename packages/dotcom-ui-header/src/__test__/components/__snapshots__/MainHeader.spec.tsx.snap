@@ -183,7 +183,9 @@ exports[`dotcom-ui-header/src/components/MainHeader renders ASK FT button 1`] = 
               >
                 Close search bar
               </span>
-              <span>
+              <span
+                className="o-header__visually-hidden"
+              >
                 Close
               </span>
             </button>
@@ -2044,7 +2046,9 @@ exports[`dotcom-ui-header/src/components/MainHeader renders a right aligned subn
               >
                 Close search bar
               </span>
-              <span>
+              <span
+                className="o-header__visually-hidden"
+              >
                 Close
               </span>
             </button>
@@ -3900,7 +3904,9 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
               >
                 Close search bar
               </span>
-              <span>
+              <span
+                className="o-header__visually-hidden"
+              >
                 Close
               </span>
             </button>
@@ -5761,7 +5767,9 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
               >
                 Close search bar
               </span>
-              <span>
+              <span
+                className="o-header__visually-hidden"
+              >
                 Close
               </span>
             </button>
