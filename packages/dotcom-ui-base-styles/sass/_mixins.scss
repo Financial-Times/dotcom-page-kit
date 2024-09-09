@@ -19,10 +19,6 @@
 	/*! end:#{$name}.css*/
 }
 
-// Base unit to standardize spacing
-// Decide where it's gonna live later
-$spacing-unit: 20px;
-
 // Primitives
 @import 'grid/main';
 @import 'typography/main';
