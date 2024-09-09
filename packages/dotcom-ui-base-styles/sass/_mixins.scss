@@ -25,9 +25,9 @@ $spacing-unit: 20px;
 
 // Primitives
 @import 'grid/main';
-@import 'images/main';
 @import 'typography/main';
 @import 'util/main';
+@import '@financial-times/o-icons/main';
 @import '@financial-times/o-colors/main';
 @import '@financial-times/o-normalise/main';
 @import '@financial-times/o-visual-effects/main';
