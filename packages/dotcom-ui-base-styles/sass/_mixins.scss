@@ -1,24 +1,3 @@
-/// Stylesheet block
-/// @output Wraps the block with stylesheet start and end comments
-@mixin nUiStylesheet($name) {
-	@include nUiStylesheetStart($name);
-	@content;
-	@include nUiStylesheetEnd($name);
-}
-
-
-/// Stylesheet block start
-/// @output A stylesheet block start comment
-@mixin nUiStylesheetStart($name) {
-	/*! start:#{$name}.css*/
-}
-
-/// Stylesheet block end
-/// @output A stylesheet block start comment
-@mixin nUiStylesheetEnd($name) {
-	/*! end:#{$name}.css*/
-}
-
 // Primitives
 @import 'grid/main';
 @import 'typography/main';
