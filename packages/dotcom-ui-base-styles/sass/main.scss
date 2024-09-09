@@ -10,12 +10,6 @@ expect to be available when a page uses n-ui
 $n-ui-foundations-is-silent: false !default; // 'silent' means don't apply styles
 $n-ui-foundations-applied: false !default;
 
-// Backwards compatible. This enables us to roll n-ui-foundations out to
-// components without risk of outputting o-grid etc. twice in apps
-@if variable-exists('n-ui-configured') {
-	$n-ui-foundations-applied: true;
-}
-
 @if $n-ui-foundations-applied == false and $n-ui-foundations-is-silent == false {
 	$n-ui-foundations-applied: true;
 	@include nUiFoundations;
