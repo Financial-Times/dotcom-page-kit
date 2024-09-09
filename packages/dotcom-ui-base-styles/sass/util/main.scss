@@ -37,13 +37,4 @@
 	.enhanced .n-ui-hide-enhanced {
 		display: none;
 	}
-
-	// Output o-normalise’s helper classes
-	.o-normalise-clearfix {
-		@include oNormaliseClearfix;
-	}
-
-	.o-normalise-visually-hidden {
-		@include oNormaliseVisuallyHidden;
-	}
 }
