@@ -132,13 +132,6 @@ module.exports = function (karma) {
 				os: 'Windows',
 				os_version: '10'
 			},
-			ie11: {
-				base: 'BrowserStack',
-				browser: 'IE',
-				browser_version: '11',
-				os: 'Windows',
-				os_version: '7'
-			},
 			safari: {
 				base: 'BrowserStack',
 				os: 'OS X',
