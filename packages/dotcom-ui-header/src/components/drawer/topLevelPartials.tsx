@@ -17,6 +17,8 @@ const Drawer = (props: THeaderProps) => {
   const subscribeAction = props.data.subscribeAction
   const [primary, secondary, tertiary] = props.data.drawer.items
   const user = props.userIsLoggedIn ? props.data.user : props.data.anon
+  const showSubscribeButton = !props.userIsSubscribed && subscribeAction
+  const showDrawerActions = props.showAskButton || showSubscribeButton
 
   return (
     <div
@@ -33,10 +35,14 @@ const Drawer = (props: THeaderProps) => {
       <div className="o-header__drawer-inner">
         <DrawerTools {...editions} />
         <Search />
-        {props.showAskButton && (
-          <AskFtButton variant="drawer" dataTrackable="ask-ft-button-drawer" id="ask-ft-button-drawer" />
+        {showDrawerActions && (
+          <div className="o-header__drawer-actions">
+            {props.showAskButton && (
+              <AskFtButton variant="drawer" dataTrackable="ask-ft-button-drawer" id="ask-ft-button-drawer" />
+            )}
+            {showSubscribeButton && <SubscribeButton {...subscribeAction} />}
+          </div>
         )}
-        {!props.userIsSubscribed && subscribeAction && <SubscribeButton {...subscribeAction} />}
         <nav className="o-header__drawer-menu o-header__drawer-menu--primary">
           {primary ? <SectionPrimary {...primary} /> : null}
           {secondary ? <SectionSecondary {...secondary} /> : null}

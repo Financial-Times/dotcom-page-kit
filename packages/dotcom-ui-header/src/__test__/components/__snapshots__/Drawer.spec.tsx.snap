@@ -117,18 +117,18 @@ exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
         </label>
       </form>
     </div>
-    <a
-      className="o-header__ask-ft-button o-header__ask-ft-button--drawer"
-      data-trackable="ask-ft-button-drawer"
-      href="https://ask.ft.com"
-      id="ask-ft-button-drawer"
-      title="ASK FT"
-    >
-      Ask FT
-    </a>
     <div
       className="o-header__drawer-actions"
     >
+      <a
+        className="o-header__ask-ft-button o-header__ask-ft-button--drawer"
+        data-trackable="ask-ft-button-drawer"
+        href="https://ask.ft.com"
+        id="ask-ft-button-drawer"
+        title="ASK FT"
+      >
+        Ask FT
+      </a>
       <a
         className="o-header__drawer-button"
         data-trackable="subscribe-button"
