@@ -1,8 +1,17 @@
 module.exports = {
-	$: function (sel, ctx) { return (ctx || document).querySelector(sel); },
-	$$: function (sel, ctx) { return [].slice.call((ctx || document).querySelectorAll(sel));},
-	broadcast: function (name, data, bubbles = true) {
-		const rootEl = Element.prototype.isPrototypeOf(this) ? this : document.body;
+	$ (sel, ctx) {
+		console.error(`n-ui-foundations $ is deprecated. please use ${ctx ? 'el' : 'document'}.querySelector('${sel}') directly`);
+		return (ctx || document).querySelector(sel);
+	},
+	$$ (sel, ctx) {
+		console.error(`n-ui-foundations $$ is deprecated. please use ${ctx ? 'el' : 'document'}.querySelectorAll('${sel}') directly`);
+		return [].slice.call((ctx || document).querySelectorAll(sel));
+	},
+	broadcast (name, data, bubbles = true) {
+		const isElement = Element.prototype.isPrototypeOf(this);
+		const rootEl = isElement ? this : document.body;
+
+		console.error(`n-ui-foundations broadcast is deprecated. please use ${isElement ? 'el' : 'document.body'}.dispatchEvent(new CustomEvent('${name}', { bubbles: true, cancelable: true, detail: EVENT_DATA })) directly`);
 		let event;
 
 		try {
