@@ -40,7 +40,7 @@ const Drawer = (props: THeaderProps) => {
             {props.showAskButton && (
               <AskFtButton variant="drawer" dataTrackable="ask-ft-button-drawer" id="ask-ft-button-drawer" />
             )}
-            {showSubscribeButton && <SubscribeButton {...subscribeAction} />}
+            {showSubscribeButton && subscribeAction && <SubscribeButton {...subscribeAction} />}
           </div>
         )}
         <nav className="o-header__drawer-menu o-header__drawer-menu--primary">
