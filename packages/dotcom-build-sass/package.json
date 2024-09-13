@@ -31,7 +31,7 @@
     "sass": "^1.77.2",
     "sass-embedded": "^1.77.2",
     "sass-loader": "^10.5.2",
-    "webpack-fix-style-only-entries": "^0.5.0"
+    "webpack-fix-style-only-entries": "^0.6.0"
   },
   "devDependencies": {
     "@types/webpack": "^4.41.7",
