@@ -1,7 +1,7 @@
 @import '@financial-times/o-grid/main';
 @import 'mixins';
 
-@mixin nUiGrid {
+@mixin dotcomUiGrid {
 	@include oGrid($opts: (
 		'bleed': true,
 		'snappy': true,
@@ -15,4 +15,9 @@
 	[data-o-grid-colspan~="center"] {
 		@include oGridCenter();
 	}
+}
+
+@mixin nUiGrid {
+  @warn "the nUiGrid mixin has been renamed dotcomUiGrid";
+  @include dotcomUiGrid($use-case);
 }

@@ -18,7 +18,7 @@ $n-ui-z-index-order: (
 	'notification'
 );
 
-@mixin nUiZIndexFor($use-case) {
+@mixin dotcomUiZIndexFor($use-case) {
 	// scss-lint:disable ImportantRule
 	$index: index($n-ui-z-index-order, $use-case);
 
@@ -28,4 +28,9 @@ $n-ui-z-index-order: (
 		@warn 'z-index for use case "#{$use-case}" not found.';
 	}
 	// scss-lint:enable ImportantRule
+}
+
+@mixin nUiZIndexFor($use-case) {
+  @warn "the nUiZIndexFor mixin has been renamed dotcomUiZIndexFor";
+  @include dotcomUiZIndexFor($use-case);
 }

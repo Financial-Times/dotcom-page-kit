@@ -1,4 +1,3 @@
-// Primitives
 @import 'grid/main';
 @import 'typography/main';
 @import 'util/main';
@@ -7,9 +6,14 @@
 @import '@financial-times/o-normalise/main';
 @import '@financial-times/o-visual-effects/main';
 
-@mixin nUiFoundations {
+@mixin dotcomUiBaseStyles {
 	@include oNormalise;
-	@include nUiGrid;
-	@include nUiTypography;
-	@include nUiUtil;
+	@include dotcomUiGrid;
+	@include dotcomUiTypography;
+	@include dotcomUiUtil;
+}
+
+@mixin nUiFoundations {
+  @warn "the nUiFoundations mixin has been renamed dotcomUiBaseStyles";
+  @include dotcomUiBaseStyles;
 }
