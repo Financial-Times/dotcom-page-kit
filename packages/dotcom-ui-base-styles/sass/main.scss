@@ -1,16 +1,9 @@
-/*
-
-This includes all the basic Origami styles and mixins you can
-expect to be available when a page uses n-ui
-
-*/
-
 @import 'mixins';
 
-$n-ui-foundations-is-silent: false !default; // 'silent' means don't apply styles
-$n-ui-foundations-applied: false !default;
+$dotcom-ui-base-styles-is-silent: false !default;
+$dotcom-ui-base-styles-applied: false !default;
 
-@if $n-ui-foundations-applied == false and $n-ui-foundations-is-silent == false {
-	$n-ui-foundations-applied: true;
-	@include nUiFoundations;
+@if $dotcom-ui-base-styles-applied == false and $dotcom-ui-base-styles-is-silent == false {
+	$dotcom-ui-base-styles-applied: true;
+	@include dotcomUiBaseStyles;
 }

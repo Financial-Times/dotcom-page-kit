@@ -12,7 +12,7 @@
 /// @param {Null|String} $layout-name - S to XL or null
 /// @param {Number} $columns - 1 to 12
 /// @param {String} $mode - offset, push or pull
-@mixin nUiGridOffset($layout-name: null, $columns: 1, $mode: offset) {
+@mixin dotcomUiGridOffset($layout-name: null, $columns: 1, $mode: offset) {
 	$selector: $mode + $columns;
 
 	@if $layout-name {
@@ -28,4 +28,9 @@
 			@include _nUiGridOffsetRules($layout-name, $mode, $columns);
 		}
 	}
+}
+
+@mixin nUiGridOffset($use-case) {
+  @warn "the nUiGridOffset mixin has been renamed dotcomUiGridOffset";
+  @include dotcomUiGridOffset($use-case);
 }

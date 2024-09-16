@@ -1,12 +1,7 @@
 @import '@financial-times/o-normalise/main';
 @import 'mixins';
 
-//BREAKING CHANGE: .n-ui-clearfix -> .o-normalise-clearfix
-//BREAKING CHANGE: .n-ui-visually-hidden -> .o-normalise-visually-hidden
-//BREAKING CHANGE: Any remaining instances of n-util- -> n-ui-
-
-@mixin nUiUtil {
-
+@mixin dotcomUiUtil {
 	//
 	// Display
 	//
@@ -37,4 +32,9 @@
 	.enhanced .n-ui-hide-enhanced {
 		display: none;
 	}
+}
+
+@mixin nUiUtil {
+  @warn "the nUiUtil mixin has been renamed dotcomUiUtil";
+  @include dotcomUiUtil($use-case);
 }
