@@ -29,9 +29,11 @@
 	.no-js .n-ui-hide-no-js,
 	.js .n-ui-hide-js,
 	.core .n-ui-hide-core,
-	.enhanced .n-ui-hide-enhanced {
-		display: none;
-	}
+	.enhanced .n-ui-hide-enhanced,
+  .core .o--if-js,
+  .enhanced .o--if-no-js {
+    display: none !important;
+  }
 }
 
 @mixin nUiUtil {

@@ -1,9 +1,0 @@
-@import 'mixins';
-
-$dotcom-ui-base-styles-is-silent: false !default;
-$dotcom-ui-base-styles-applied: false !default;
-
-@if $dotcom-ui-base-styles-applied == false and $dotcom-ui-base-styles-is-silent == false {
-	$dotcom-ui-base-styles-applied: true;
-	@include dotcomUiBaseStyles;
-}
