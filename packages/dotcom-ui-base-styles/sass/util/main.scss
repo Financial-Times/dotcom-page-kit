@@ -9,23 +9,6 @@
 		display: none;
 	}
 
-	@media screen {
-		/* stylelint-disable */
-		.n-ui-hide\@screen {
-		/* stylelint-enable */
-			display: none;
-		}
-
-	}
-
-	@media print {
-		/* stylelint-disable */
-		.n-ui-hide\@print {
-		/* stylelint-enable */
-			display: none;
-		}
-	}
-
 	.no-js .n-ui-hide-no-js,
 	.js .n-ui-hide-js,
 	.core .n-ui-hide-core,
