@@ -14,11 +14,6 @@
   display: none;
 }
 
-// Please remove this rule once the following PR (https://github.com/Financial-Times/origami/pull/1808) is merged and o-header version is updated
-#site-navigation {
-  position: relative;
-}
-
 // Overrides <a> color style set by n-ui-foundations
 .o-header__ask-ft-button {
   &, &:hover {
