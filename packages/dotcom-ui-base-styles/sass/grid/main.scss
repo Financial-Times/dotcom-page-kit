@@ -1,5 +1,4 @@
 @import '@financial-times/o-grid/main';
-@import 'mixins';
 
 @mixin dotcomUiGrid {
 	@include oGrid($opts: (
