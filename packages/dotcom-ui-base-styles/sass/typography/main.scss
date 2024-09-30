@@ -1,7 +1,7 @@
 @import '@financial-times/o-fonts/main';
 @import '@financial-times/o-typography/main';
 
-@mixin nUiTypography {
+@mixin dotcomUiTypography {
 	@include oFonts($opts: (
 		'financier-display': (
 			('weight': 'regular', 'style': 'normal'),
@@ -17,4 +17,9 @@
 	a {
 		@include oTypographyLink();
 	}
+}
+
+@mixin nUiTypography($use-case) {
+  @warn "the nUiTypography mixin has been renamed dotcomUiTypography";
+  @include dotcomUiTypography($use-case);
 }
