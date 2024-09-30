@@ -1,6 +1,24 @@
 $system-code: 'page-kit-base-styles' !default;
 
-@import 'mixins';
+@import 'sass/grid/main';
+@import 'sass/typography/main';
+@import 'sass/util/main';
+@import '@financial-times/o-icons/main';
+@import '@financial-times/o-colors/main';
+@import '@financial-times/o-normalise/main';
+@import '@financial-times/o-visual-effects/main';
+
+@mixin dotcomUiBaseStyles {
+	@include oNormalise;
+	@include dotcomUiGrid;
+	@include dotcomUiTypography;
+	@include dotcomUiUtil;
+}
+
+@mixin nUiFoundations {
+  @warn "the nUiFoundations mixin has been renamed dotcomUiBaseStyles";
+  @include dotcomUiBaseStyles;
+}
 
 // NOTE: please also update ./src/lib/fontFaces.ts when updating the URL below. They
 // need to stay in-sync to ensure our CSS output matches the resource hints we set, so we don't load the fonts twice (once from resourceHint and once from o-fonts in n-ui-foundations)
