@@ -7,6 +7,7 @@ $system-code: 'page-kit-base-styles' !default;
 @import '@financial-times/o-colors/main';
 @import '@financial-times/o-normalise/main';
 @import '@financial-times/o-visual-effects/main';
+@import '@financial-times/o3-foundation/css/main.css';
 
 @mixin dotcomUiBaseStyles {
 	@include oNormalise;
