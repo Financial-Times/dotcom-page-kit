@@ -25,7 +25,7 @@ $system-code: 'page-kit-layout' !default;
 }
 
 .n-layout__skip-link {
-  @include nUiZIndexFor('notification');
+  z-index: var(--o3-z-message-service-popover);
   position: absolute;
   top: 1em;
   left: -9999px;
