@@ -26,10 +26,9 @@ $system-code: 'page-kit-base-styles' !default;
 // we depend on o-fonts's @font-face url instead of explicitly defining it here so we don't have to update page kit again when changing fonts
 $o-fonts-path: 'https://www.ft.com/__origami/service/build/v3/font?version=1.12';
 
-$dotcom-ui-base-styles-is-silent: false !default;
 $dotcom-ui-base-styles-applied: false !default;
 
-@if $dotcom-ui-base-styles-applied == false and $dotcom-ui-base-styles-is-silent == false {
+@if $dotcom-ui-base-styles-applied == false {
 	$dotcom-ui-base-styles-applied: true;
 	@include dotcomUiBaseStyles;
 }
