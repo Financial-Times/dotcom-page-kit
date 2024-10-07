@@ -1,4 +1,3 @@
-import StylesOnlyPlugin from 'webpack-fix-style-only-entries'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import type webpack from 'webpack'
 
@@ -45,7 +44,12 @@ export class PageKitSassPlugin {
         // Disable formatting so that we don't spend time pretty printing
         outputStyle: 'compressed',
         // Enable Sass to @import source files from installed dependencies
-        includePaths: ['bower_components', 'node_modules', ...this.includePaths]
+        includePaths: [
+          'bower_components',
+          'node_modules/@financial-times',
+          'node_modules',
+          ...this.includePaths
+        ]
       }
     }
 
@@ -103,12 +107,6 @@ export class PageKitSassPlugin {
       filename: compiler.options.mode === 'development' ? '[name].css' : '[name].[contenthash:12].css'
     }
 
-    // This plugin prevents empty JS bundles being created for CSS entry points
-    // https://github.com/fqborges/webpack-fix-style-only-entries
-    const stylesOnlyPluginOptions = {
-      silent: true
-    }
-
     compiler.options.module.rules.push({
       test: [/\.sass|scss$/],
       use: [
@@ -138,7 +136,6 @@ export class PageKitSassPlugin {
       ]
     })
 
-    new StylesOnlyPlugin(stylesOnlyPluginOptions).apply(compiler)
     new MiniCssExtractPlugin(miniCssExtractPluginOptions).apply(compiler)
   }
 }
