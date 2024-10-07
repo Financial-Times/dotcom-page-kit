@@ -101,8 +101,5 @@
   ],
   "volta": {
     "node": "20.13.1"
-  },
-  "dependencies": {
-    "@financial-times/athloi": "^2.0.1"
   }
 }
