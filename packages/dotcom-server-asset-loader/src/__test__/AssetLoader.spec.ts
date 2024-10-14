@@ -1,5 +1,5 @@
 import { AssetLoader, AssetLoaderOptions } from '../AssetLoader'
-import manifest from './__fixtures__/manifest.json'
+import manifest from './__fixtures__/assets-manifest.json'
 
 jest.mock('../helpers/loadManifest', () => {
   return {
