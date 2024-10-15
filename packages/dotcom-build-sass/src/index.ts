@@ -104,7 +104,9 @@ export class PageKitSassPlugin {
 
     const miniCssExtractPluginOptions = {
       // only include content hash in filename when compiling production assets
-      filename: compiler.options.mode === 'development' ? '[name].css' : '[name].[contenthash:12].css'
+      filename: compiler.options.mode === 'development' ? '[name].css' : '[name].[contenthash:12].css',
+      // we load CSS files ourselves in  `dotcom-ui-shell` so don't need the runtime
+      runtime: false
     }
 
     compiler.options.module.rules.push({
