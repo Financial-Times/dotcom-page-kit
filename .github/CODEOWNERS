@@ -4,3 +4,7 @@
 
 # The Origami team are responsible for sass-loader modifications.
 packages/dotcom-build-sass/ @financial-times/origami-core @financial-times/platforms
+
+
+# Allow Dependency Auto-Merger to approve dependency bump PRs
+**/package*.json @ft-dependency-auto-merger @financial-times/platforms
