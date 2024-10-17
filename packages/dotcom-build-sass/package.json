@@ -23,12 +23,13 @@
     "autoprefixer": "^10.2.5",
     "css-loader": "^6.8.1",
     "cssnano": "^6.0.1",
-    "mini-css-extract-plugin": "^2.7.6",
+    "mini-css-extract-plugin": "^2.9.1",
     "postcss-import": "^16.1.0",
     "postcss": "^8.4.20",
     "postcss-loader": "^7.3.3",
     "sass-embedded": "^1.67.0",
-    "sass-loader": "^13.3.2"
+    "sass-loader": "^13.3.2",
+    "webpack-remove-empty-scripts": "^1.0.4"
   },
   "devDependencies": {
     "@types/webpack": "^5.28.3"
