@@ -1,4 +1,5 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import RemoveEmptyScriptsPlugin from 'webpack-remove-empty-scripts'
 import type webpack from 'webpack'
 
 export type TPluginOptions = {
@@ -115,7 +116,7 @@ export class PageKitSassPlugin {
         // Extracts CSS into separate, non-JS files
         // https://github.com/webpack-contrib/mini-css-extract-plugin
         {
-          loader: MiniCssExtractPlugin.loader
+          loader: MiniCssExtractPlugin.loader,
         },
         // Add support for handling .css files
         // https://github.com/webpack-contrib/css-loader
@@ -138,6 +139,10 @@ export class PageKitSassPlugin {
       ]
     })
 
+    // 2024 and this is still an issue :/ mini-css-extract-plugin leaves
+    // behind empty .js bundles after extracting the CSS.
+    // https://github.com/webpack/webpack/issues/11671
+    new RemoveEmptyScriptsPlugin().apply(compiler)
     new MiniCssExtractPlugin(miniCssExtractPluginOptions).apply(compiler)
   }
 }
