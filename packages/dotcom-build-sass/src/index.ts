@@ -1,5 +1,6 @@
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import RemoveEmptyScriptsPlugin from 'webpack-remove-empty-scripts'
+import CSSMinimizerPlugin from 'css-minimizer-webpack-plugin'
 import type webpack from 'webpack'
 
 export type TPluginOptions = {
@@ -60,19 +61,6 @@ export class PageKitSassPlugin {
       grid: true
     }
 
-    // https://cssnano.co/guides/optimisations
-    const cssnanoOptions = {
-      preset: [
-        'default',
-        {
-          // disable reduceInitial optimisation as `initial` is not supported in IE11
-          // https://github.com/cssnano/cssnano/issues/721
-          // https://developer.mozilla.org/en-US/docs/Web/CSS/initial
-          reduceInitial: false
-        }
-      ]
-    }
-
     const postcssLoaderOptions = {
       postcssOptions: {
         plugins: [
@@ -85,7 +73,6 @@ export class PageKitSassPlugin {
           // Ensure that the final result is as small as possible. This can
           // de-duplicate rule-sets which is useful if $o-silent-mode is toggled.
           // https://github.com/cssnano/cssnano
-          require('cssnano')(cssnanoOptions)
         ]
       },
       implementation: require('postcss')
@@ -138,6 +125,11 @@ export class PageKitSassPlugin {
         }
       ]
     })
+
+    compiler.options.optimization.minimizer = [
+      ...(compiler.options.optimization.minimizer ?? []),
+      new CSSMinimizerPlugin()
+    ]
 
     // 2024 and this is still an issue :/ mini-css-extract-plugin leaves
     // behind empty .js bundles after extracting the CSS.
