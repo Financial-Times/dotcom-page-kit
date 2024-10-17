@@ -61,12 +61,6 @@ export class PageKitSassPlugin {
           // Allow @import of CSS files from node_modules
           // https://github.com/postcss/postcss-import
           require('postcss-import')(),
-          // Add vendor prefixes automatically using data from Can I Use
-          // https://github.com/postcss/autoprefixer
-          require('autoprefixer')(),
-          // Ensure that the final result is as small as possible. This can
-          // de-duplicate rule-sets which is useful if $o-silent-mode is toggled.
-          // https://github.com/cssnano/cssnano
         ]
       },
       implementation: require('postcss')
