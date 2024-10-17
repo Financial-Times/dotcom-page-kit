@@ -25,12 +25,12 @@
     "focus-visible": "^5.0.0"
   },
   "devDependencies": {
-    "check-engine": "^1.10.1",
-    "@financial-times/o-typography": "^7.2.0"
+    "check-engine": "^1.14.0",
+    "@financial-times/o-typography": "^7.6.2"
   },
   "peerDependencies": {
     "react": "17.x || 18.x",
-    "@financial-times/o-typography": "^7.2.0",
+    "@financial-times/o-typography": "^7.6.2",
     "n-ui-foundations": "^9.0.0 || ^10.0.0"
   },
   "engines": {
