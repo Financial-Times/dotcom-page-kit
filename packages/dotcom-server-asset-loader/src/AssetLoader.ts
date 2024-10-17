@@ -6,7 +6,7 @@ import { loadManifest } from './helpers/loadManifest'
 export interface AssetLoaderOptions {
   /**
    * The name of the asset manifest file
-   * @default "manifest.json"
+   * @default "assets-manifest.json"
    */
   manifestFileName?: string
 
@@ -35,7 +35,7 @@ export interface AssetLoaderOptions {
 
 const defaultOptions: AssetLoaderOptions = {
   publicPath: '/',
-  manifestFileName: 'manifest.json',
+  manifestFileName: 'assets-manifest.json',
   fileSystemPath: path.resolve('./public'),
   cacheFileContents: false
 }
@@ -46,7 +46,9 @@ type TEntrypoint = {
 
 type TEntrypoints = {
   entrypoints?: {
-    [name: string]: TEntrypoint
+    [name: string]: {
+      assets: TEntrypoint
+    }
   }
 }
 
@@ -105,7 +107,7 @@ export class AssetLoader {
 
   getFilesFor(entrypoint: string): TEntrypoint {
     if (this.manifest.entrypoints && this.manifest.entrypoints[entrypoint]) {
-      return this.manifest.entrypoints[entrypoint]
+      return this.manifest.entrypoints[entrypoint].assets
     } else {
       throw Error(`Couldn't find entrypoint "${entrypoint}" in manifest`)
     }
