@@ -55,12 +55,6 @@ export class PageKitSassPlugin {
       }
     }
 
-    const autoprefixerOptions = {
-      // https://github.com/browserslist/browserslist
-      overrideBrowserslist: ['last 1 Chrome versions', 'Safari >= 13', 'ff ESR', 'last 1 Edge versions'],
-      grid: true
-    }
-
     const postcssLoaderOptions = {
       postcssOptions: {
         plugins: [
@@ -69,7 +63,7 @@ export class PageKitSassPlugin {
           require('postcss-import')(),
           // Add vendor prefixes automatically using data from Can I Use
           // https://github.com/postcss/autoprefixer
-          require('autoprefixer')(autoprefixerOptions),
+          require('autoprefixer')(),
           // Ensure that the final result is as small as possible. This can
           // de-duplicate rule-sets which is useful if $o-silent-mode is toggled.
           // https://github.com/cssnano/cssnano
