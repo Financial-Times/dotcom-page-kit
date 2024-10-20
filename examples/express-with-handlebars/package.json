@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@financial-times/dotcom-server-handlebars": "file:../../packages/dotcom-server-handlebars",
-    "express": "^4.16.2"
+    "express": "^4.21.1"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
