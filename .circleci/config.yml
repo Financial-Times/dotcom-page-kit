@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   browser-tools: circleci/browser-tools@1.2.4
+  node: circleci/node@6.3.0
 
 executors:
   node:
@@ -13,18 +14,16 @@ executors:
     docker:
       - image: cimg/node:20.18-browsers
         environment:
-          NODE_OPTIONS: "--openssl-legacy-provider"
+          NODE_OPTIONS: '--openssl-legacy-provider'
   node18:
     docker:
       - image: cimg/node:18.20-browsers
 
 references:
-
   #
   # Workspace
   #
-  container_config_node:
-    &container_config_node
+  container_config_node: &container_config_node
     working_directory: ~/project/build
     parameters:
       executor:
@@ -34,15 +33,13 @@ references:
 
   workspace_root: &workspace_root ~/project
 
-  attach_workspace:
-    &attach_workspace
+  attach_workspace: &attach_workspace
     attach_workspace:
       at: *workspace_root
 
   # Cache creation
   #
-  create_cache:
-    &create_cache
+  create_cache: &create_cache
     save_cache:
       key: cache-v1-{{ .Branch }}-{{ checksum "./package.json" }}
       paths:
@@ -50,48 +47,41 @@ references:
 
   # Cache restoration
   #
-  restore_cache:
-    &restore_cache
+  restore_cache: &restore_cache
     restore_cache:
       keys:
         - cache-v1-{{ .Branch }}-{{ checksum "./package.json" }}
 
   # Filters
   #
-  filters_only_main:
-    &filters_only_main
+  filters_only_main: &filters_only_main
     branches:
       only:
         - main
 
-  filters_only_renovate_nori:
-    &filters_only_renovate_nori
+  filters_only_renovate_nori: &filters_only_renovate_nori
     branches:
       only: /(^renovate-.*|^nori\/.*)/
 
-  filters_ignore_tags_renovate_nori_build:
-    &filters_ignore_tags_renovate_nori_build
+  filters_ignore_tags_renovate_nori_build: &filters_ignore_tags_renovate_nori_build
     tags:
       ignore: /.*/
     branches:
       ignore: /(^renovate-.*|^nori\/.*|^gh-pages)/
 
-  filters_main_branch:
-    &filters_main_branch
+  filters_main_branch: &filters_main_branch
     branches:
       only:
         - main
 
-  filters_release_build:
-    &filters_release_build
+  filters_release_build: &filters_release_build
     tags:
       only:
         - /^v\d+\.\d+\.\d+$/
     branches:
       ignore: /.*/
 
-  filters_prerelease_build:
-    &filters_prerelease_build
+  filters_prerelease_build: &filters_prerelease_build
     tags:
       only:
         - /^v\d+\.\d+\.\d+(?:-\w+\.\d+)$/
@@ -99,15 +89,12 @@ references:
       ignore: /.*/
 
 jobs:
-
   build:
     <<: *container_config_node
     steps:
       - checkout
       - *restore_cache
-      - run:
-          name: Install project dependencies
-          command: npm ci --loglevel silly
+      - node/install-packages
       - run:
           name: Run build
           command: npm run build
@@ -174,7 +161,6 @@ jobs:
           command: npm run deploy-storybook:ci
 
 workflows:
-
   version: 2
 
   build-test:
