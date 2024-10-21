@@ -107,7 +107,7 @@ jobs:
       - *restore_cache
       - run:
           name: Install project dependencies
-          command: npm ci
+          command: npm ci --loglevel silly
       - run:
           name: Run build
           command: npm run build
