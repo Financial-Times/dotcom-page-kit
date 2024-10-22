@@ -47,7 +47,6 @@ export class PageKitSassPlugin {
         outputStyle: 'compressed',
         // Enable Sass to @import source files from installed dependencies
         includePaths: [
-          'bower_components',
           'node_modules/@financial-times',
           'node_modules',
           ...this.includePaths
