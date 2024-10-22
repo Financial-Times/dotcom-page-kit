@@ -22,9 +22,6 @@
   "dependencies": {
     "glob": "^7.1.6"
   },
-  "devDependencies": {
-    "@types/webpack": "^5.28.3"
-  },
   "engines": {
     "node": "18.x || 20.x || 22.x"
   },
