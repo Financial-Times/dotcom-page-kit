@@ -23,7 +23,6 @@
     "webpack-assets-manifest": "^5.1.0"
   },
   "devDependencies": {
-    "@types/webpack": "^5.28.3",
     "check-engine": "^1.10.1"
   },
   "peerDependencies": {

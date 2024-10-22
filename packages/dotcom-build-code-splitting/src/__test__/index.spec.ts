@@ -1,5 +1,5 @@
 import { promisify } from 'util'
-import webpack, { Configuration as WebpackConfiguration, Stats } from 'webpack'
+import webpack, { Configuration as WebpackConfiguration } from 'webpack'
 import path from 'path'
 import { PageKitCodeSplittingPlugin } from '../index'
 
@@ -17,12 +17,16 @@ describe('dotcom-build-code-splitting', () => {
       },
       plugins: [new PageKitCodeSplittingPlugin()]
     }
-    const result = (await webpackAsync([webpackConfig])) as { stats: [Stats] }
+    const result = await webpackAsync([webpackConfig])
+    if (!result) {
+      throw new Error('No webpack result')
+    }
 
     const stats = result.stats[0].toJson()
     if (!stats) {
       throw new Error('No stats')
     }
+
     const files = stats.assets?.map((asset) => asset.name) as string[]
     expect(files.find((file) => file.includes('privacy-components'))).toBeTruthy()
   })

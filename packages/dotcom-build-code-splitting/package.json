@@ -27,7 +27,6 @@
     "memoize-one": "^5.0.4"
   },
   "devDependencies": {
-    "@types/webpack": "^5.28.3",
     "check-engine": "^1.10.1"
   },
   "engines": {

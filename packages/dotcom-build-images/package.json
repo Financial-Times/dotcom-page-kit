@@ -24,7 +24,6 @@
     "glob": "^7.1.6"
   },
   "devDependencies": {
-    "@types/webpack": "^5.28.3",
     "check-engine": "^1.10.1"
   },
   "engines": {

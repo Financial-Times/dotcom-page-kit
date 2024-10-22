@@ -29,7 +29,10 @@
     "node": "18.x || 20.x",
     "npm": "8.x || 9.x || 10.x"
   },
-  "files": ["dist/", "src/"],
+  "files": [
+    "dist/",
+    "src/"
+  ],
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
