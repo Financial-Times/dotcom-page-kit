@@ -1,5 +1,6 @@
-import StylesOnlyPlugin from 'webpack-fix-style-only-entries'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import RemoveEmptyScriptsPlugin from 'webpack-remove-empty-scripts'
+import CSSMinimizerPlugin from 'css-minimizer-webpack-plugin'
 import type webpack from 'webpack'
 
 export type TPluginOptions = {
@@ -45,27 +46,13 @@ export class PageKitSassPlugin {
         // Disable formatting so that we don't spend time pretty printing
         outputStyle: 'compressed',
         // Enable Sass to @import source files from installed dependencies
-        includePaths: ['bower_components', 'node_modules', ...this.includePaths]
+        includePaths: [
+          'bower_components',
+          'node_modules/@financial-times',
+          'node_modules',
+          ...this.includePaths
+        ]
       }
-    }
-
-    const autoprefixerOptions = {
-      // https://github.com/browserslist/browserslist
-      overrideBrowserslist: ['last 1 Chrome versions', 'Safari >= 13', 'ff ESR', 'last 1 Edge versions'],
-      grid: true
-    }
-
-    // https://cssnano.co/guides/optimisations
-    const cssnanoOptions = {
-      preset: [
-        'default',
-        {
-          // disable reduceInitial optimisation as `initial` is not supported in IE11
-          // https://github.com/cssnano/cssnano/issues/721
-          // https://developer.mozilla.org/en-US/docs/Web/CSS/initial
-          reduceInitial: false
-        }
-      ]
     }
 
     const postcssLoaderOptions = {
@@ -74,13 +61,6 @@ export class PageKitSassPlugin {
           // Allow @import of CSS files from node_modules
           // https://github.com/postcss/postcss-import
           require('postcss-import')(),
-          // Add vendor prefixes automatically using data from Can I Use
-          // https://github.com/postcss/autoprefixer
-          require('autoprefixer')(autoprefixerOptions),
-          // Ensure that the final result is as small as possible. This can
-          // de-duplicate rule-sets which is useful if $o-silent-mode is toggled.
-          // https://github.com/cssnano/cssnano
-          require('cssnano')(cssnanoOptions)
         ]
       },
       implementation: require('postcss')
@@ -100,13 +80,9 @@ export class PageKitSassPlugin {
 
     const miniCssExtractPluginOptions = {
       // only include content hash in filename when compiling production assets
-      filename: compiler.options.mode === 'development' ? '[name].css' : '[name].[contenthash:12].css'
-    }
-
-    // This plugin prevents empty JS bundles being created for CSS entry points
-    // https://github.com/fqborges/webpack-fix-style-only-entries
-    const stylesOnlyPluginOptions = {
-      silent: true
+      filename: compiler.options.mode === 'development' ? '[name].css' : '[name].[contenthash:12].css',
+      // we load CSS files ourselves in  `dotcom-ui-shell` so don't need the runtime
+      runtime: false
     }
 
     compiler.options.module.rules.push({
@@ -115,7 +91,7 @@ export class PageKitSassPlugin {
         // Extracts CSS into separate, non-JS files
         // https://github.com/webpack-contrib/mini-css-extract-plugin
         {
-          loader: MiniCssExtractPlugin.loader
+          loader: MiniCssExtractPlugin.loader,
         },
         // Add support for handling .css files
         // https://github.com/webpack-contrib/css-loader
@@ -138,7 +114,15 @@ export class PageKitSassPlugin {
       ]
     })
 
-    new StylesOnlyPlugin(stylesOnlyPluginOptions).apply(compiler)
+    compiler.options.optimization.minimizer = [
+      ...(compiler.options.optimization.minimizer ?? []),
+      new CSSMinimizerPlugin()
+    ]
+
+    // 2024 and this is still an issue :/ mini-css-extract-plugin leaves
+    // behind empty .js bundles after extracting the CSS.
+    // https://github.com/webpack/webpack/issues/11671
+    new RemoveEmptyScriptsPlugin().apply(compiler)
     new MiniCssExtractPlugin(miniCssExtractPluginOptions).apply(compiler)
   }
 }

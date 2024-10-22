@@ -1,0 +1,33 @@
+{
+  "styles.css": "styles.12345.bundle.css",
+  "main.js": "main.12345.bundle.js",
+  "secondary.js": "secondary.12345.bundle.js",
+  "vendor.foo.js": "vendor.foo.12345.bundle.js",
+  "vendor.bar.js": "vendor.bar.12345.bundle.js",
+  "vendor.baz.js": "vendor.baz.12345.bundle.js",
+  "runtime.js": "runtime.bundle.js",
+  "entrypoints": {
+    "main": {
+      "assets": {
+        "js": [
+          "vendor.foo.12345.bundle.js",
+          "vendor.bar.12345.bundle.js",
+          "main.12345.bundle.js"
+        ],
+        "css": [
+          "styles.12345.bundle.css",
+          "lazyload.12345.bundle.css"
+        ]
+      }
+    },
+    "secondary": {
+      "assets": {
+        "js": [
+          "vendor.foo.12345.bundle.js",
+          "vendor.baz.12345.bundle.js",
+          "secondary.12345.bundle.js"
+        ]
+      }
+    }
+  }
+}

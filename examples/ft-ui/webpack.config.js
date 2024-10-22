@@ -13,10 +13,6 @@ module.exports = {
     new PageKitBasePlugin(),
     new PageKitJsPlugin(),
     new PageKitSassPlugin({
-      // Enabling webpackImporter because Sass itself can only resolve partial files based on the
-      // CWD and not relative to the current file being processed. This means Sass can't find the
-      // nested dependencies created when symlinking.
-      webpackImporter: true,
       includePaths: [path.resolve('../../node_modules')]
     })
   ]

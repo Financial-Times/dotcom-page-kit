@@ -43,6 +43,16 @@ export class PageKitBasePlugin {
 
     compiler.options.bail = !isDevMode
 
+    compiler.options.module.rules.push({
+      test: /\.m?js$/,
+      resolve: {
+        // the default of `true` means imports in ESM modules must have a file extension,
+        // which is correct per the spec. unfortunately there are quite a few packages
+        // that output ESM with extensionless imports.
+        fullySpecified: false
+      }
+    })
+
     new CleanWebpackPlugin(cleanWebpackPluginOptions).apply(compiler)
     new ManifestPlugin(manifestPluginOptions).apply(compiler)
 

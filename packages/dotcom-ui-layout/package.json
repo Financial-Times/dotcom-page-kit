@@ -23,15 +23,15 @@
   "license": "MIT",
   "dependencies": {
     "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation",
-    "@financial-times/dotcom-ui-base-styles": "file:../dotcom-ui-base-styles",
-    "@financial-times/dotcom-ui-footer": "file:../dotcom-ui-footer",
-    "@financial-times/dotcom-ui-header": "file:../dotcom-ui-header",
     "focus-visible": "^5.0.0"
   },
   "peerDependencies": {
+    "@financial-times/dotcom-ui-base-styles": "file:../dotcom-ui-base-styles",
+    "@financial-times/dotcom-ui-footer": "file:../dotcom-ui-footer",
+    "@financial-times/dotcom-ui-header": "file:../dotcom-ui-header",
+    "n-ui-foundations": "^9.0.0 || ^10.0.0",
     "react": "17.x || 18.x",
-    "react-dom": "17.x || 18.x",
-    "n-ui-foundations": "^9.0.0 || ^10.0.0"
+    "react-dom": "17.x || 18.x"
   },
   "engines": {
     "node": "18.x || 20.x",
@@ -54,6 +54,9 @@
     "extends": "../../package.json"
   },
   "devDependencies": {
+    "@financial-times/dotcom-ui-base-styles": "file:../dotcom-ui-base-styles",
+    "@financial-times/dotcom-ui-footer": "file:../dotcom-ui-footer",
+    "@financial-times/dotcom-ui-header": "file:../dotcom-ui-header",
     "check-engine": "^1.10.1"
   }
 }
