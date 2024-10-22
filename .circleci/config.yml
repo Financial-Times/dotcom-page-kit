@@ -44,16 +44,6 @@ references:
       only:
         - main
 
-  filters_only_renovate_nori: &filters_only_renovate_nori
-    branches:
-      only: /(^renovate-.*|^nori\/.*)/
-
-  filters_ignore_tags_renovate_nori_build: &filters_ignore_tags_renovate_nori_build
-    tags:
-      ignore: /.*/
-    branches:
-      ignore: /(^renovate-.*|^nori\/.*|^gh-pages)/
-
   filters_main_branch: &filters_main_branch
     branches:
       only:
@@ -74,11 +64,27 @@ references:
       ignore: /.*/
 
 jobs:
-  build:
+  checkout:
     <<: *container_config_node
     steps:
       - checkout
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - build
+  setup:
+    <<: *container_config_node
+    steps:
+      - *attach_workspace
       - node/install-packages
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - build
+  build:
+    <<: *container_config_node
+    steps:
+      - *attach_workspace
       - run:
           name: Run build
           command: npm run build
@@ -148,10 +154,21 @@ workflows:
 
   build-test:
     jobs:
+      - checkout
+      - setup:
+          name: setup-<< matrix.executor >>
+          requires:
+            - checkout
+          matrix:
+            parameters:
+              executor:
+                - node
+                - node20
+                - node18
       - build:
-          filters:
-            <<: *filters_ignore_tags_renovate_nori_build
           name: build-<< matrix.executor >>
+          requires:
+            - setup-<< matrix.executor >>
           matrix:
             parameters:
               executor:
@@ -174,39 +191,29 @@ workflows:
           requires:
             - test-node
 
-  renovate-nori-build-test:
-    jobs:
-      - waiting-for-approval:
-          type: approval
-          filters:
-            <<: *filters_only_renovate_nori
-      - build:
-          requires:
-            - waiting-for-approval
-          name: build-<< matrix.executor >>
-          matrix:
-            parameters:
-              executor:
-                - node
-                - node20
-                - node18
-      - test:
-          requires:
-            - build-<< matrix.executor >>
-          name: test-<< matrix.executor >>
-          matrix:
-            parameters:
-              executor:
-                - node
-                - node20
-                - node18
-
   build-test-publish:
     jobs:
+      - checkout:
+          filters:
+            <<: *filters_release_build
+      - setup:
+          filters:
+            <<: *filters_release_build
+          name: setup-<< matrix.executor >>
+          requires:
+            - checkout
+          matrix:
+            parameters:
+              executor:
+                - node
+                - node20
+                - node18
       - build:
           filters:
             <<: *filters_release_build
           name: build-<< matrix.executor >>
+          requires:
+            - setup-<< matrix.executor >>
           matrix:
             parameters:
               executor:
@@ -234,10 +241,27 @@ workflows:
 
   build-test-prepublish:
     jobs:
+      - checkout:
+          filters:
+            <<: *filters_prerelease_build
+      - setup:
+          filters:
+            <<: *filters_prerelease_build
+          name: setup-<< matrix.executor >>
+          requires:
+            - checkout
+          matrix:
+            parameters:
+              executor:
+                - node
+                - node20
+                - node18
       - build:
           filters:
             <<: *filters_prerelease_build
           name: build-<< matrix.executor >>
+          requires:
+            - setup-<< matrix.executor >>
           matrix:
             parameters:
               executor:
