@@ -2,15 +2,33 @@
 
 exports[`dotcom-ui-shell/src/components/GTMHead renders null when the enableGTM flag is off 1`] = `null`;
 
+exports[`dotcom-ui-shell/src/components/GTMHead renders the first party gtm script when the ads-first-party-gtm flag is on 1`] = `
+<script
+  dangerouslySetInnerHTML={
+    Object {
+      "__html": "(function(w,d,s,l){
+    w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;
+    j.src='/page-resources'+dl;
+    f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer');",
+    }
+  }
+/>
+`;
+
 exports[`dotcom-ui-shell/src/components/GTMHead renders the gtm head script when the enableGTM flag is on 1`] = `
 <script
   dangerouslySetInnerHTML={
     Object {
-      "__html": "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-NWQJW68');",
+      "__html": "(function(w,d,s,l){
+    w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;
+    j.src='https://www.googletagmanager.com/gtm.js?id=GTM-NWQJW68'+dl;
+    f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer');",
     }
   }
 />
