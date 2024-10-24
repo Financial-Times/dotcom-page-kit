@@ -9,12 +9,12 @@ exports[`dotcom-ui-shell/src/components/Content with component contents renders 
 exports[`dotcom-ui-shell/src/components/Content with stringified contents renders the given HTML string without escaping 1`] = `
 <div
   dangerouslySetInnerHTML={
-    Object {
+    {
       "__html": "<p>Hello, World!</p>",
     }
   }
   style={
-    Object {
+    {
       "display": "contents",
     }
   }

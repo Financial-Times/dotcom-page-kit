@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`dotcom-ui-shell/src/components/DocumentHead renders the document head 1`] = `
-Array [
+[
   <meta
     charSet="utf-8"
   />,
@@ -39,8 +39,8 @@ Array [
   />,
   <script
     dangerouslySetInnerHTML={
-      Object {
-        "__html": "{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"name\\":\\"Financial Times\\",\\"alternateName\\":\\"FT.com\\",\\"url\\":\\"http://www.ft.com\\"}",
+      {
+        "__html": "{"@context":"http://schema.org","@type":"WebSite","name":"Financial Times","alternateName":"FT.com","url":"http://www.ft.com"}",
       }
     }
     type="application/ld+json"

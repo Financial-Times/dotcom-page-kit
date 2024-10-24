@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`dotcom-ui-shell/src/components/StyleSheets renders JavaScript for adding asyncronous stylesheets if appropriate 1`] = `
-Array [
+[
   <noscript>
     <link
       href="path/to/async-styles.css"
@@ -10,7 +10,7 @@ Array [
   </noscript>,
   <script
     dangerouslySetInnerHTML={
-      Object {
+      {
         "__html": "(function loadAsyncStylesheets() {
     var currentScript = document.scripts[document.scripts.length - 1];
     var stylesheets = currentScript.getAttribute('data-stylesheets').split(',');
@@ -34,11 +34,11 @@ Array [
 `;
 
 exports[`dotcom-ui-shell/src/components/StyleSheets renders the given stylesheets and critical styles 1`] = `
-Array [
+[
   <style
     dangerouslySetInnerHTML={
-      Object {
-        "__html": "html { margin: 0 } body { font-family: \\"Comic Sans\\" }",
+      {
+        "__html": "html { margin: 0 } body { font-family: "Comic Sans" }",
       }
     }
   />,

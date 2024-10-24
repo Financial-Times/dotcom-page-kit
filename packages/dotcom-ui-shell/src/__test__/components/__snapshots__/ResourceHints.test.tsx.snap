@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`dotcom-ui-shell/src/components/ResourceHints renders the given paths and URLs as resource hints 1`] = `
-Array [
+[
   <link
     href="https://spoor-api.ft.com"
     rel="preconnect"
