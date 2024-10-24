@@ -10,7 +10,7 @@ exports[`dotcom-ui-shell/src/components/GTMBody renders the gtm body script when
     height="0"
     src="https://www.googletagmanager.com/ns.html?id=GTM-NWQJW68"
     style={
-      Object {
+      {
         "display": "none",
         "visibility": "hidden",
       }

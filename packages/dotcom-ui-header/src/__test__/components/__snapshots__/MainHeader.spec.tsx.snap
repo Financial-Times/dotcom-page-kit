@@ -65,7 +65,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders ASK FT button 1`] = 
             data-trackable="logo"
             href="/"
             style={
-              Object {
+              {
                 "backgroundImage": "none",
               }
             }
@@ -1926,7 +1926,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders a right aligned subn
             data-trackable="logo"
             href="/"
             style={
-              Object {
+              {
                 "backgroundImage": "none",
               }
             }
@@ -3782,7 +3782,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
             data-trackable="logo"
             href="/"
             style={
-              Object {
+              {
                 "backgroundImage": "none",
               }
             }
@@ -5643,7 +5643,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
             data-trackable="logo"
             href="/"
             style={
-              Object {
+              {
                 "backgroundImage": "none",
               }
             }

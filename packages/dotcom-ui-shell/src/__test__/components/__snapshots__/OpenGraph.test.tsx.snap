@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`dotcom-ui-shell/src/components/OpenGraph renders the given Open Graph data to meta tags 1`] = `
-Array [
+[
   <meta
     content="Open Graph title"
     property="og:title"

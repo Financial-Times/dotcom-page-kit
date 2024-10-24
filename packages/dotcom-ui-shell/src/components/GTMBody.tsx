@@ -7,10 +7,14 @@ const GTMBody = ({ flags }: { flags: TFlagsData }) => {
     return null
   }
 
+  const src = flags['ads-first-party-gtm']
+    ? '/page-resources'
+    : 'https://www.googletagmanager.com/ns.html?id=GTM-NWQJW68'
+
   return (
     <noscript>
       <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-NWQJW68"
+        src={src}
         height="0"
         width="0"
         style={{

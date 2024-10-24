@@ -4,7 +4,7 @@ describe('examples/kitchen-sink/build', () => {
   it('creates the expected JS, CSS, and manifest files', () => {
     const output = fs.readdirSync('./public')
     expect(output).toMatchInlineSnapshot(`
-      Array [
+      [
         "async.css",
         "financial-times-n-tracking.bundle.js",
         "financial-times-o-footer.bundle.js",

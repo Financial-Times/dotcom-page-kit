@@ -3,8 +3,8 @@
 exports[`dotcom-ui-shell/src/components/LinkedData renders the base site schema 1`] = `
 <script
   dangerouslySetInnerHTML={
-    Object {
-      "__html": "{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"name\\":\\"Financial Times\\",\\"alternateName\\":\\"FT.com\\",\\"url\\":\\"http://www.ft.com\\"}",
+    {
+      "__html": "{"@context":"http://schema.org","@type":"WebSite","name":"Financial Times","alternateName":"FT.com","url":"http://www.ft.com"}",
     }
   }
   type="application/ld+json"
@@ -12,27 +12,27 @@ exports[`dotcom-ui-shell/src/components/LinkedData renders the base site schema 
 `;
 
 exports[`dotcom-ui-shell/src/components/LinkedData renders the given additional schemas 1`] = `
-Array [
+[
   <script
     dangerouslySetInnerHTML={
-      Object {
-        "__html": "{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"Person\\",\\"name\\":\\"John Doe\\",\\"email\\":\\"john.doe@example.com\\",\\"netWorth\\":\\"1 trillion\\"}",
+      {
+        "__html": "{"@context":"http://schema.org","@type":"Person","name":"John Doe","email":"john.doe@example.com","netWorth":"1 trillion"}",
       }
     }
     type="application/ld+json"
   />,
   <script
     dangerouslySetInnerHTML={
-      Object {
-        "__html": "{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"Organization\\",\\"url\\":\\"https://www.ft.com\\",\\"address\\":\\"Bracken House, EC4M 9JA\\"}",
+      {
+        "__html": "{"@context":"http://schema.org","@type":"Organization","url":"https://www.ft.com","address":"Bracken House, EC4M 9JA"}",
       }
     }
     type="application/ld+json"
   />,
   <script
     dangerouslySetInnerHTML={
-      Object {
-        "__html": "{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"name\\":\\"Financial Times\\",\\"alternateName\\":\\"FT.com\\",\\"url\\":\\"http://www.ft.com\\"}",
+      {
+        "__html": "{"@context":"http://schema.org","@type":"WebSite","name":"Financial Times","alternateName":"FT.com","url":"http://www.ft.com"}",
       }
     }
     type="application/ld+json"

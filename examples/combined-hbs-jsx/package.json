@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node server/start.js",
+    "pretest": "npx puppeteer browsers install chrome",
     "test": "../../node_modules/.bin/jest"
   },
   "dependencies": {
