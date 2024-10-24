@@ -6,7 +6,7 @@ orbs:
 executors:
   node:
     docker:
-      - image: cimg/node:20.13-browsers
+      - image: cimg/node:20.4.0-browsers
         environment:
           NODE_OPTIONS: "--openssl-legacy-provider"
   node18_19:
@@ -117,6 +117,9 @@ jobs:
     steps:
       - *attach_workspace
       - browser-tools/install-chrome
+      - run:
+          name: Check install
+          command: google-chrome --version
       - run:
           name: Check code style
           command: npm run prettier -- --list-different
