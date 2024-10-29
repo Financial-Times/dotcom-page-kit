@@ -24,4 +24,16 @@ describe('dotcom-ui-shell/src/components/GTMHead', () => {
     const tree = renderer.create(<GTMHead {...props} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
+
+  it('renders the first party gtm script when the ads-first-party-gtm flag is on', () => {
+    const props = {
+      flags: {
+        enableGTM: true,
+        'ads-first-party-gtm': true
+      }
+    }
+
+    const tree = renderer.create(<GTMHead {...props} />).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 })
