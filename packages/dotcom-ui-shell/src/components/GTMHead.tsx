@@ -8,7 +8,7 @@ const GTMHead = ({ flags }: { flags: TFlagsData }) => {
   }
 
   const src = flags['ads-first-party-gtm']
-    ? 'https://www.ft.com/page-resources'
+    ? 'https://www.ft.com/page-resources/'
     : 'https://www.googletagmanager.com/gtm.js?id=GTM-NWQJW68'
 
   const tagManager = `(function(w,d,s,l){
