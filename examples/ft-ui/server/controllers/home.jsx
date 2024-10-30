@@ -3,6 +3,12 @@ import ReactDOM from 'react-dom/server'
 import { Shell } from '@financial-times/dotcom-ui-shell'
 import { Layout } from '@financial-times/dotcom-ui-layout'
 
+const flags = {
+  ads: true,
+  enableGTM: true,
+  adsEnableTestCreatives: true
+}
+
 export function homeController(request, response, next) {
   const appContext = {
     appName: 'ft-ui',
@@ -14,11 +20,17 @@ export function homeController(request, response, next) {
     contents: '<div align="center"><p>Hello, welcome to Page Kit.</p></div>'
   }
 
+  if (request.query['ads-first-party-gtm']) {
+    flags['ads-first-party-gtm'] = true
+    appContext.appName = 'home-page'
+  }
+
   const shellProps = {
     scripts: ['public/scripts.bundle.js'],
     stylesheets: ['public/page-kit-layout-styles.css', 'public/styles.css'],
     pageTitle: pageData.title,
-    appContext: appContext
+    appContext,
+    flags
   }
 
   const userIsLoggedIn = request.query.userIsLoggedIn
