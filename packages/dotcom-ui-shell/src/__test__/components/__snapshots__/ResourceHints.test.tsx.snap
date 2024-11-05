@@ -40,7 +40,7 @@ Array [
   <link
     as="font"
     crossOrigin="anonymous"
-    href="/__origami/service/build/v3/font?font_format=woff2&font_name=FinancierDisplayWeb-Bold&system_code=origami&version=1.12"
+    href="/__origami/service/build/v3/font?font_format=woff2&font_name=FinancierDisplayWeb-Bold&system_code=page-kit&version=1.12"
     rel="preload"
     type="font/woff2"
   />,

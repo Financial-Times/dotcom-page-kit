@@ -7,7 +7,7 @@ describe('dotcom-ui-shell/src/lib/getResourceType', () => {
     expect(subject('image.png')).toEqual('image')
     expect(
       subject(
-        'https://www.ft.com/__origami/service/build/v3/font?font_format=woff2&font_name=MetricWeb-Regular&system_code=origami&version=1.12'
+        'https://www.ft.com/__origami/service/build/v3/font?font_format=woff2&font_name=MetricWeb-Regular&system_code=page-kit&version=1.12'
       )
     ).toEqual('font')
   })
