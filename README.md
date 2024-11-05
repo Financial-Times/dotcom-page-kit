@@ -2,7 +2,7 @@
     <img alt="FT.com Page Kit" src="etc/logo.svg" width="300">
 </h1>
 
-[![CircleCI](https://circleci.com/gh/Financial-Times/dotcom-page-kit/tree/main.svg?style=svg&circle-token=2149091698510f3908776e16620b30494fdca26c)](https://circleci.com/gh/Financial-Times/dotcom-page-kit/tree/main)
+[![CircleCI](https://circleci.com/gh/Financial-Times/dotcom-page-kit/tree/main.svg?style=svg)](https://circleci.com/gh/Financial-Times/dotcom-page-kit/tree/main)
 
 Page Kit provides a high quality, well tested, and thoroughly documented set of tools for assembling and delivering FT.com based upon the best industry standards.
 
@@ -81,7 +81,7 @@ Please note that Page Kit has only been tested in Mac and Linux environments. If
 
 4. You can now choose to run an example application or start Storybook to view UI component demos. Examples are located in the `examples/` directory and each have their own instructions. To use Storybook you can follow [the guide below](#using-storybook).
 
-Before writing any new code you may also find it useful to refer to the [architecture overview](architecture.md) and [contribution guide](contribution.md) which covers coding standards and expectations.
+Before writing any new code you may also find it useful to refer to the [architecture overview](architecture.md) and [contribution guide](contributing.md) which covers coding standards and expectations.
 
 
 ### Project structure
