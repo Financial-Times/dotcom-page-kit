@@ -23,7 +23,6 @@ const flagsStore = {
   tracking: true,
   oTracking: true,
   AdsPermutive: true,
-  moatAdsTraffic: true,
   adsEnableTestCreatives: false
 }
 

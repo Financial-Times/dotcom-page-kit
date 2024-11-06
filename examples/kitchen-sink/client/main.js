@@ -39,10 +39,6 @@ readyState.domready.then(async () => {
       waitForMoat: true
     }
 
-    if (flagsClient.get('moatAdsTraffic')) {
-      displayAds.validateTraffic?.()
-    }
-
     // Fetch the ads data
     try {
       const adsData = await getAdsData({
