@@ -35,8 +35,7 @@ readyState.domready.then(async () => {
       lazyLoadMargins: {
         760: '15%',
         980: '5%'
-      },
-      waitForMoat: true
+      }
     }
 
     // Fetch the ads data
