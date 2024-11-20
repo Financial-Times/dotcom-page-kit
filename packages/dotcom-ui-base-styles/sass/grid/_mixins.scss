@@ -1,0 +1,31 @@
+@mixin _nUiGridOffsetRules($layout, $mode, $columns) {
+	@if $mode == offset {
+		@include oGridOffset($columns);
+	} @else if $mode == pull {
+		@include oGridPull($columns);
+	} @else if $mode == push {
+		@include oGridPush($columns);
+	}
+}
+
+/// Grid column offset
+/// @param {Null|String} $layout-name - S to XL or null
+/// @param {Number} $columns - 1 to 12
+/// @param {String} $mode - offset, push or pull
+@mixin nUiGridOffset($layout-name: null, $columns: 1, $mode: offset) {
+	$selector: $mode + $columns;
+
+	@if $layout-name {
+		$selector: $layout-name + $selector;
+	}
+
+	[data-o-grid-colspan~="#{$selector}"] {
+		@if $layout-name {
+			@include oGridRespondTo($layout-name) {
+				@include _nUiGridOffsetRules($layout-name, $mode, $columns);
+			}
+		} @else {
+			@include _nUiGridOffsetRules($layout-name, $mode, $columns);
+		}
+	}
+}
