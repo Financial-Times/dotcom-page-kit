@@ -35,12 +35,7 @@ readyState.domready.then(async () => {
       lazyLoadMargins: {
         760: '15%',
         980: '5%'
-      },
-      waitForMoat: true
-    }
-
-    if (flagsClient.get('moatAdsTraffic')) {
-      displayAds.validateTraffic?.()
+      }
     }
 
     // Fetch the ads data
