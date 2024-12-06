@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@financial-times/dotcom-server-react-jsx": "file:../../packages/dotcom-server-react-jsx",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "sucrase": "^3.10.1"
   },
   "devDependencies": {

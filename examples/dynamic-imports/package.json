@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@financial-times/dotcom-server-handlebars": "file:../../packages/dotcom-server-handlebars",
-    "express": "^4.21.1"
+    "express": "^4.21.2"
   },
   "devDependencies": {
     "@financial-times/dotcom-build-js": "file:../../packages/dotcom-build-js",
