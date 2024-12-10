@@ -29,7 +29,7 @@
     "@financial-times/logo-images": "^1.10.1",
     "@svgr/core": "^5.0.0",
     "camelcase": "^6.0.0",
-    "check-engine": "^1.10.1"
+    "check-engine": "^1.14.0"
   },
   "peerDependencies": {
     "@financial-times/logo-images": "^1.10.1",

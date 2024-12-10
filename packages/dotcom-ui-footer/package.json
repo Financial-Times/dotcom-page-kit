@@ -49,7 +49,7 @@
     "extends": "../../package.json"
   },
   "devDependencies": {
-    "check-engine": "^1.10.1",
+    "check-engine": "^1.14.0",
     "@financial-times/o-footer": "^9.2.0"
   }
 }
