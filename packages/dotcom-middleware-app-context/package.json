@@ -20,8 +20,8 @@
   "devDependencies": {
     "@types/express": "4.17.12",
     "@types/express-serve-static-core": "4.17.20",
-    "check-engine": "^1.10.1",
-    "node-mocks-http": "^1.7.5"
+    "check-engine": "^1.14.0",
+    "node-mocks-http": "^1.16.2"
   },
   "dependencies": {
     "@financial-times/dotcom-server-app-context": "file:../dotcom-server-app-context"
