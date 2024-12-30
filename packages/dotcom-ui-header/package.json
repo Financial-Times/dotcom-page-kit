@@ -40,7 +40,7 @@
     "react-dom": "17.x || 18.x"
   },
   "engines": {
-    "node": "18.x || 20.x"
+    "node": "18.x || 20.x || 22.x"
   },
   "files": [
     "dist/",
