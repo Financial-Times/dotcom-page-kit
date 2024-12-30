@@ -6,12 +6,17 @@ orbs:
 executors:
   node:
     docker:
-      - image: cimg/node:20.13-browsers
+      - image: cimg/node:22.12-browsers
         environment:
           NODE_OPTIONS: "--openssl-legacy-provider"
-  node18_19:
+  node20:
     docker:
-      - image: cimg/node:18.19-browsers
+      - image: cimg/node:20.18-browsers
+        environment:
+          NODE_OPTIONS: "--openssl-legacy-provider"
+  node18:
+    docker:
+      - image: cimg/node:18.20-browsers
 
 references:
 
@@ -182,7 +187,8 @@ workflows:
             parameters:
               executor:
                 - node
-                - node18_19
+                - node20
+                - node18
       - test:
           requires:
             - build-<< matrix.executor >>
@@ -191,7 +197,8 @@ workflows:
             parameters:
               executor:
                 - node
-                - node18_19
+                - node20
+                - node18
       - deploy:
           filters:
             <<: *filters_only_main
@@ -212,7 +219,8 @@ workflows:
             parameters:
               executor:
                 - node
-                - node18_19
+                - node20
+                - node18
       - test:
           requires:
             - build-<< matrix.executor >>
@@ -221,7 +229,8 @@ workflows:
             parameters:
               executor:
                 - node
-                - node18_19
+                - node20
+                - node18
 
   build-test-publish:
     jobs:
@@ -233,7 +242,8 @@ workflows:
             parameters:
               executor:
                 - node
-                - node18_19
+                - node20
+                - node18
       - test:
           filters:
             <<: *filters_release_build
@@ -244,7 +254,8 @@ workflows:
             parameters:
               executor:
                 - node
-                - node18_19
+                - node20
+                - node18
       - publish:
           context: npm-publish-token
           filters:
@@ -262,7 +273,8 @@ workflows:
             parameters:
               executor:
                 - node
-                - node18_19
+                - node20
+                - node18
       - test:
           filters:
             <<: *filters_prerelease_build
@@ -273,7 +285,8 @@ workflows:
             parameters:
               executor:
                 - node
-                - node18_19
+                - node20
+                - node18
       - prepublish:
           context: npm-publish-token
           filters:
