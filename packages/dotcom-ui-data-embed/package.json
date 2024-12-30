@@ -21,8 +21,7 @@
   "author": "",
   "license": "MIT",
   "engines": {
-    "node": "18.x || 20.x",
-    "npm": "8.x || 9.x || 10.x"
+    "node": "18.x || 20.x"
   },
   "peerDependencies": {
     "react": "17.x || 18.x"
