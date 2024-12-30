@@ -14,8 +14,7 @@
     "build:browser": "tsc --module es2015 --outDir ./dist/browser",
     "build:node": "tsc",
     "build": "npm run build:node && npm run build:browser",
-    "dev": "echo -n node browser | parallel -u -d ' ' npm run build:{} -- --watch",
-    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
+    "dev": "echo -n node browser | parallel -u -d ' ' npm run build:{} -- --watch"
   },
   "keywords": [],
   "author": "",
@@ -41,8 +40,5 @@
   },
   "volta": {
     "extends": "../../package.json"
-  },
-  "devDependencies": {
-    "check-engine": "^1.10.1"
   }
 }

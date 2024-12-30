@@ -11,8 +11,7 @@
     "clean:node_modules": "rm -rf node_modules",
     "build:node": "tsc",
     "build": "npm run build:node",
-    "dev": "npm run build:node -- --watch",
-    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
+    "dev": "npm run build:node -- --watch"
   },
   "keywords": [],
   "author": "",
@@ -24,14 +23,16 @@
   "devDependencies": {
     "@types/express": "4.17.12",
     "@types/express-serve-static-core": "4.17.20",
-    "check-engine": "^1.10.1",
     "node-mocks-http": "^1.7.3"
   },
   "engines": {
     "node": "18.x || 20.x",
     "npm": "8.x || 9.x || 10.x"
   },
-  "files": ["dist/", "src/"],
+  "files": [
+    "dist/",
+    "src/"
+  ],
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
