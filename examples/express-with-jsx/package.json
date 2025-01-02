@@ -11,7 +11,7 @@
   "dependencies": {
     "@financial-times/dotcom-server-react-jsx": "file:../../packages/dotcom-server-react-jsx",
     "express": "^4.21.2",
-    "sucrase": "^3.10.1"
+    "sucrase": "^3.35.0"
   },
   "devDependencies": {
     "@sucrase/jest-plugin": "^2.0.0",
