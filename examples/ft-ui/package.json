@@ -17,7 +17,7 @@
     "express": "^4.21.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "sucrase": "^3.10.1"
+    "sucrase": "^3.35.0"
   },
   "devDependencies": {
     "@financial-times/dotcom-build-js": "file:../../packages/dotcom-build-js",

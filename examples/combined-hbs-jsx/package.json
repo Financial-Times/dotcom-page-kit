@@ -13,7 +13,7 @@
     "@financial-times/dotcom-ui-header": "file:../../packages/dotcom-ui-header",
     "express": "^4.21.2",
     "handlebars": "^4.5.3",
-    "sucrase": "^3.10.1"
+    "sucrase": "^3.35.0"
   },
   "jest": {
     "preset": "jest-puppeteer"
