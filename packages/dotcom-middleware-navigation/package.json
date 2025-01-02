@@ -24,8 +24,7 @@
     "node-mocks-http": "^1.7.3"
   },
   "engines": {
-    "node": "18.x || 20.x",
-    "npm": "8.x || 9.x || 10.x"
+    "node": "18.x || 20.x || 22.x"
   },
   "files": [
     "dist/",
