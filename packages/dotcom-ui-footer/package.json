@@ -14,8 +14,7 @@
     "clean:install": "npm run clean && npm i",
     "build:node": "tsc",
     "build": "npm run build:node",
-    "dev": "npm run build:node -- --watch",
-    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
+    "dev": "npm run build:node -- --watch"
   },
   "keywords": [],
   "author": "",
@@ -49,7 +48,6 @@
     "extends": "../../package.json"
   },
   "devDependencies": {
-    "check-engine": "^1.10.1",
     "@financial-times/o-footer": "^9.2.0"
   }
 }

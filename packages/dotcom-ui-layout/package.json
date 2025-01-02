@@ -15,8 +15,7 @@
     "build:browser": "tsc --module es2015 --outDir ./dist/browser",
     "build:node": "tsc",
     "build": "npm run build:node && npm run build:browser",
-    "dev": "echo -n node browser | parallel -u -d ' ' npm run build:{} -- --watch",
-    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
+    "dev": "echo -n node browser | parallel -u -d ' ' npm run build:{} -- --watch"
   },
   "keywords": [],
   "author": "",
@@ -29,9 +28,9 @@
     "focus-visible": "^5.0.0"
   },
   "peerDependencies": {
+    "n-ui-foundations": "^9.0.0 || ^10.0.0",
     "react": "17.x || 18.x",
-    "react-dom": "17.x || 18.x",
-    "n-ui-foundations": "^9.0.0 || ^10.0.0"
+    "react-dom": "17.x || 18.x"
   },
   "engines": {
     "node": "18.x || 20.x",
@@ -52,8 +51,5 @@
   "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/HEAD/packages/dotcom-ui-layout",
   "volta": {
     "extends": "../../package.json"
-  },
-  "devDependencies": {
-    "check-engine": "^1.10.1"
   }
 }

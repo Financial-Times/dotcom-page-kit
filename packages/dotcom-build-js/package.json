@@ -11,8 +11,7 @@
     "clean:node_modules": "rm -rf node_modules",
     "build:node": "tsc",
     "build": "npm run build:node",
-    "dev": "npm run build:node -- --watch",
-    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
+    "dev": "npm run build:node -- --watch"
   },
   "keywords": [],
   "author": "",
@@ -32,14 +31,16 @@
     "babel-loader": "^8.0.6"
   },
   "devDependencies": {
-    "@types/webpack": "^4.41.7",
-    "check-engine": "^1.10.1"
+    "@types/webpack": "^4.41.7"
   },
   "engines": {
     "node": "18.x || 20.x",
     "npm": "8.x || 9.x || 10.x"
   },
-  "files": ["dist/", "src/"],
+  "files": [
+    "dist/",
+    "src/"
+  ],
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",

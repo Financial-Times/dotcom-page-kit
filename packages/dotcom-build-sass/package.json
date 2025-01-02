@@ -11,8 +11,7 @@
     "clean:node_modules": "rm -rf node_modules",
     "build:node": "tsc",
     "build": "npm run build:node",
-    "dev": "npm run build:node -- --watch",
-    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
+    "dev": "npm run build:node -- --watch"
   },
   "keywords": [],
   "author": "",
@@ -34,8 +33,7 @@
     "webpack-fix-style-only-entries": "^0.5.0"
   },
   "devDependencies": {
-    "@types/webpack": "^4.41.7",
-    "check-engine": "^1.10.1"
+    "@types/webpack": "^4.41.7"
   },
   "engines": {
     "node": "18.x || 20.x",

@@ -7,8 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "npm run clean:node_modules",
-    "clean:node_modules": "rm -rf node_modules",
-    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
+    "clean:node_modules": "rm -rf node_modules"
   },
   "keywords": [],
   "author": "",
@@ -28,8 +27,5 @@
   "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/HEAD/packages/dotcom-types-navigation",
   "volta": {
     "extends": "../../package.json"
-  },
-  "devDependencies": {
-    "check-engine": "^1.10.1"
   }
 }

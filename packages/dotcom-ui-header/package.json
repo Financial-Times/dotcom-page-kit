@@ -15,8 +15,7 @@
     "build:node": "tsc",
     "build:svg-to-react": "node scripts/convertSvgsToReactComponents.js",
     "build": "npm run build:node",
-    "dev": "npm run build:node -- --watch",
-    "preinstall": "[ \"$INIT_CWD\" != \"$PWD\" ] || npm_config_yes=true npx check-engine"
+    "dev": "npm run build:node -- --watch"
   },
   "keywords": [],
   "author": "",
@@ -28,8 +27,7 @@
   "devDependencies": {
     "@financial-times/logo-images": "^1.10.1",
     "@svgr/core": "^5.0.0",
-    "camelcase": "^6.0.0",
-    "check-engine": "^1.10.1"
+    "camelcase": "^6.0.0"
   },
   "peerDependencies": {
     "@financial-times/logo-images": "^1.10.1",
