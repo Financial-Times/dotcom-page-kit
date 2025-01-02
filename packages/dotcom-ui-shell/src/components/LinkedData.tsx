@@ -24,7 +24,7 @@ const LinkedData = ({ jsonLd }: TLinkedDataProps) => (
           '@type': 'WebSite',
           name: 'Financial Times',
           alternateName: 'FT.com',
-          url: 'http://www.ft.com'
+          url: 'https://www.ft.com/'
         })
       }}
     />
