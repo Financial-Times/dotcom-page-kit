@@ -22,7 +22,6 @@ const NavMobile = ({ items }: { items: TNavMenuItem[] }) => {
     <nav
       id="o-header-nav-mobile"
       className="o-header__row o-header__nav o-header__nav--mobile"
-      aria-hidden="true"
       data-trackable="header-nav:mobile"
     >
       <ul className="o-header__nav-list">
