@@ -39,7 +39,7 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
     <script
       dangerouslySetInnerHTML={
         Object {
-          "__html": "{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"name\\":\\"Financial Times\\",\\"alternateName\\":\\"FT.com\\",\\"url\\":\\"http://www.ft.com\\"}",
+          "__html": "{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"name\\":\\"Financial Times\\",\\"alternateName\\":\\"FT.com\\",\\"url\\":\\"https://www.ft.com/\\"}",
         }
       }
       type="application/ld+json"
