@@ -21,10 +21,6 @@ describe('examples/building-sass-files', () => {
   })
 
   describe('PostCSS', () => {
-    it('uses Autoprefixer to apply vendor prefixes', () => {
-      expect(outputContents).toContain('-webkit-hyphens:auto;hyphens:auto')
-    })
-
     it('uses cssnano to minify the output', () => {
       const result = outputContents.match(/\.selector/g)
       expect(result.length).toBe(1)

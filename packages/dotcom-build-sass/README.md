@@ -49,8 +49,6 @@ new PageKitSassPlugin({ includePaths: [path.resolve('./path-to-sass-files')] })
 
 _Please note_ that by default Sass will resolve all bare `@import` statements from the current working directory rather than relative to the file being processed. This means it will not find dependencies in nested `node_modules` directories.
 
-[PostCSS] is configured with the [Autoprefixer] and [cssnano] transforms.
-
 The CSS loader has `@import` and `url()` resolution disabled as these should be handled by Sass.
 
 [rule]: https://webpack.js.org/configuration/module/#rule
