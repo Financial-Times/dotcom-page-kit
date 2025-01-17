@@ -11,7 +11,7 @@
     "test": "../../node_modules/.bin/jest"
   },
   "dependencies": {
-    "@financial-times/ads-display": "^6.3.0",
+    "@financial-times/ads-display": "^6.5.0",
     "@financial-times/dotcom-middleware-app-context": "file:../../packages/dotcom-middleware-app-context",
     "@financial-times/dotcom-middleware-asset-loader": "file:../../packages/dotcom-middleware-asset-loader",
     "@financial-times/dotcom-middleware-navigation": "file:../../packages/dotcom-middleware-navigation",
