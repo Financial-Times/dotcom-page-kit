@@ -63,7 +63,6 @@
     "jest-puppeteer": "^11.0.0",
     "lint-staged": "^10.0.0",
     "morphdom": "^2.7.0",
-    "n-ui-foundations": "9.0.0",
     "prettier": "^2.0.2",
     "puppeteer": "^24.1.0",
     "react": "^17.0.2",
