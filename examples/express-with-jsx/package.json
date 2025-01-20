@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server/start.js",
     "start:dev": "nodemon --ext js,jsx",
-    "test": "../../node_modules/.bin/jest"
+    "test": "../../node_modules/.bin/jest",
+    "test:ci": "../../node_modules/.bin/jest --runInBand"
   },
   "dependencies": {
     "@financial-times/dotcom-server-react-jsx": "file:../../packages/dotcom-server-react-jsx",

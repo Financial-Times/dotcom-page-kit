@@ -4,7 +4,8 @@
   "scripts": {
     "build": "webpack --mode=development",
     "pretest": "npm run build",
-    "test": "../../node_modules/.bin/jest"
+    "test": "../../node_modules/.bin/jest",
+    "test:ci": "../../node_modules/.bin/jest --runInBand"
   },
   "devDependencies": {
     "@financial-times/dotcom-build-base": "file:../../packages/dotcom-build-base",

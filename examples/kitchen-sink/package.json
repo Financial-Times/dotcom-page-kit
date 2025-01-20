@@ -8,7 +8,8 @@
     "dev": "nodemon start.js",
     "start": "node start.js",
     "pretest": "npm run build",
-    "test": "../../node_modules/.bin/jest"
+    "test": "../../node_modules/.bin/jest",
+    "test:ci": "../../node_modules/.bin/jest --runInBand"
   },
   "dependencies": {
     "@financial-times/ads-display": "^6.5.0",

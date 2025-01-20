@@ -104,10 +104,10 @@ jobs:
           command: npm run prettier -- --list-different
       - run:
           name: Run package tests
-          command: npm run test:ci -- --runInBand
+          command: npm run test:ci
       - run:
           name: Run example app integration tests
-          command: npm run test:examples
+          command: npm run test:examples-ci
       - run:
           name: Run storybook
           command: npm run storybook:ci
