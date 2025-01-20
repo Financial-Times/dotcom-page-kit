@@ -5,7 +5,6 @@ import type webpack from 'webpack'
 
 export type TPluginOptions = {
   includePaths?: string[]
-  prependData?: string // DEPRECATED IN FAVOUR OF additionalData
   additionalData?: string
   webpackImporter?: boolean
   implementation?: 'sass' | 'sass-embedded'
@@ -13,20 +12,18 @@ export type TPluginOptions = {
 
 export class PageKitSassPlugin {
   includePaths: string[]
-  prependData: string // DEPRECATED IN FAVOUR OF additionalData
   additionalData: string
   webpackImporter: boolean
   implementation: 'sass' | 'sass-embedded'
 
   constructor({
     includePaths = [],
-    prependData = '',
     additionalData = '',
     webpackImporter,
     implementation = 'sass'
   }: TPluginOptions = {}) {
     this.includePaths = includePaths
-    this.additionalData = additionalData.length ? additionalData : prependData
+    this.additionalData = additionalData
     this.webpackImporter = webpackImporter
     this.implementation = implementation
   }
@@ -46,11 +43,7 @@ export class PageKitSassPlugin {
         // Disable formatting so that we don't spend time pretty printing
         outputStyle: 'compressed',
         // Enable Sass to @import source files from installed dependencies
-        includePaths: [
-          'node_modules/@financial-times',
-          'node_modules',
-          ...this.includePaths
-        ]
+        includePaths: ['node_modules/@financial-times', 'node_modules', ...this.includePaths]
       }
     }
 
@@ -59,7 +52,7 @@ export class PageKitSassPlugin {
         plugins: [
           // Allow @import of CSS files from node_modules
           // https://github.com/postcss/postcss-import
-          require('postcss-import')(),
+          require('postcss-import')()
         ]
       },
       implementation: require('postcss')
@@ -90,7 +83,7 @@ export class PageKitSassPlugin {
         // Extracts CSS into separate, non-JS files
         // https://github.com/webpack-contrib/mini-css-extract-plugin
         {
-          loader: MiniCssExtractPlugin.loader,
+          loader: MiniCssExtractPlugin.loader
         },
         // Add support for handling .css files
         // https://github.com/webpack-contrib/css-loader

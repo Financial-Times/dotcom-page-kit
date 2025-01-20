@@ -71,8 +71,6 @@ The CSS loader has `@import` and `url()` resolution disabled as these should be 
 | `includePaths`    | String[] | `[]`    | See https://sass-lang.com/documentation/js-api#includepaths        |
 | `implementation`    | `sass\|sass-embedded` | `sass`    | See https://webpack.js.org/loaders/sass-loader/#implementation        |
 
-`additionalData` replaces `prependData` as of sass-loader v9. `prependData` is still supported in this package, but is deprecated.
-
 ## Sass build monitoring
 
 Sass build times are stored locally and remotely, where your project sets relevant API keys. Alternatively, you may turn both these features off using environment variable.
