@@ -45,8 +45,5 @@
   "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/HEAD/packages/dotcom-ui-footer",
   "volta": {
     "extends": "../../package.json"
-  },
-  "devDependencies": {
-    "@financial-times/o-footer": "^9.2.0"
   }
 }

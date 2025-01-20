@@ -22,7 +22,7 @@ We think JSX has several key advantages over Handlebars that are worth the effor
 - It works in the same way on the server and in the browser.
 - Components are authored as JavaScript files and integrate seamlessly with the JS ecosystem.
 - Almost every JavaScript parser, linter, compiler, and editor support JSX syntax out of the box.
-- Enables access to a modern ecosystem of fantastic development tools like [Storybook].
+- Enables access to a modern ecosystem of fantastic development tools.
 - Components can be rendered with [many] [different] [libraries], not just [React].
 
 This opinion was also backed up by [the survey] we sent to the customer products engineering team. We asked "Which tool would you choose to provide server-side rendering for your app?" and only 18% of the respondents told us that they would choose Handlebars but 67% said they would choose the same tool as they would use on the client-side. When asked "Which tools would you choose to build the client-side parts for your app?" 67% of respondants indicated that they would choose React or a similar library.
@@ -33,7 +33,6 @@ This opinion was also backed up by [the survey] we sent to the customer products
 [x-dash]: https://financial-times.github.io/x-dash/
 [Preact]: https://preactjs.com/
 [JSX]: https://jasonformat.com/wtf-is-jsx/
-[Storybook]:https://storybook.js.org/
 [React]: https://reactjs.org/
 [many]: https://github.com/jorgebucaran/hyperapp
 [different]: https://github.com/i-like-robots/hyperons

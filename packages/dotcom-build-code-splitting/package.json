@@ -17,17 +17,13 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
-    "webpack": "^4.39.2"
+    "webpack": "5.x"
   },
   "dependencies": {
     "assign-deep": "^1.0.1",
-    "disable-tree-shaking-for-chunk-plugin": "^1.1.0",
+    "disable-tree-shaking-for-chunk-plugin": "^2.0.0",
     "get-package-name": "^1.1.0",
-    "memoize-one": "^5.0.4",
-    "reliable-module-ids-plugin": "^1.0.1"
-  },
-  "devDependencies": {
-    "@types/webpack": "^4.41.7"
+    "memoize-one": "^5.0.4"
   },
   "engines": {
     "node": "18.x || 20.x || 22.x"

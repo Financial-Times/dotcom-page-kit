@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node server/start.js",
-    "test": "../../node_modules/.bin/jest"
+    "test": "../../node_modules/.bin/jest",
+    "test:ci": "../../node_modules/.bin/jest --runInBand"
   },
   "dependencies": {
     "@financial-times/dotcom-server-handlebars": "file:../../packages/dotcom-server-handlebars",

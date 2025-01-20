@@ -2,7 +2,7 @@ import { PluginOptions } from './types'
 
 function getBabelConfig(options: PluginOptions = {}) {
   const presetEnvOpts = {
-    targets: ['last 1 Chrome versions', 'Safari >= 13', 'ff ESR', 'last 1 Edge versions'],
+    targets: 'defaults',
     // Exclude transforms that make all code slower
     // See https://github.com/facebook/create-react-app/pull/5278
     exclude: ['transform-typeof-symbol']

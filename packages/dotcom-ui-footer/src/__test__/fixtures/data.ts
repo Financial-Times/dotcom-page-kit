@@ -1,4 +1,4 @@
-import { TFooterProps } from '..'
+import { TFooterProps } from '../..'
 import footer from './footer'
 
 const fixture: TFooterProps = {

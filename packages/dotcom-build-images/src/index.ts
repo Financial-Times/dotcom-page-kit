@@ -1,6 +1,6 @@
 const path = require('path')
 const glob = require('glob')
-const MultiEntryPlugin = require('webpack/lib/MultiEntryPlugin')
+const EntryPlugin = require('webpack/lib/EntryPlugin')
 
 export class PageKitImagesPlugin {
   options: { basePath: string }
@@ -18,27 +18,25 @@ export class PageKitImagesPlugin {
       cwd: path.resolve(this.options.basePath)
     })
 
-    new MultiEntryPlugin(compiler.context, imageFiles, '__images__').apply(compiler)
+    for (const imageFile of imageFiles) {
+      new EntryPlugin(compiler.context, imageFile, '__images__').apply(compiler)
+    }
 
     const isDevMode = compiler.options.mode === 'development'
-    const outputFileName = isDevMode ? '[name].[ext]' : '[name].[contenthash:12].[ext]'
+    const outputFileName = isDevMode ? '[name][ext]' : '[name].[contenthash:12][ext]'
 
     compiler.options.module.rules.push({
       test: /\.(png|jpe?g|gif|webp|ico|svg)$/,
-      use: [
-        {
-          loader: require.resolve('file-loader'),
-          options: {
-            name: (resourcePath) => {
-              const dirname = path.dirname(resourcePath)
-              const relativePath = path.relative(this.options.basePath, dirname)
+      type: 'asset/resource',
+      generator: {
+        filename: (pathInfo) => {
+          const dirname = path.dirname(pathInfo.module.resource)
+          const relativePath = path.relative(this.options.basePath, dirname)
 
-              // retain relative directory structure
-              return path.join(relativePath, outputFileName)
-            }
-          }
+          // retain relative directory structure
+          return path.join(relativePath, outputFileName)
         }
-      ]
+      }
     })
   }
 }

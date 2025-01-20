@@ -1,5 +1,5 @@
 import { promisify } from 'util'
-import webpack, { Configuration as WebpackConfiguration, Stats } from 'webpack'
+import webpack, { Configuration as WebpackConfiguration } from 'webpack'
 import path from 'path'
 import { PageKitImagesPlugin } from '../index'
 
@@ -18,11 +18,17 @@ describe('dotcom-build-images', () => {
       },
       plugins: [new PageKitImagesPlugin({ basePath: path.join(__dirname, '/__fixtures__', '/images') })]
     }
-    const result = (await webpackAsync([webpackConfig])) as { stats: [Stats] }
+    const result = await webpackAsync([webpackConfig])
+    if (!result) {
+      throw new Error('No webpack results')
+    }
+
     const stats = result.stats[0].toJson()
+
     if (!stats) {
       throw new Error('No stats')
     }
+
     const files = stats.assets?.map((asset) => asset.name) as string[]
 
     expect(files.includes('scripts.js')).toBe(true)

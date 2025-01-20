@@ -4,10 +4,10 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
-import dataFixture from '../__stories__/story-data'
+import dataFixture from './fixtures/data'
 import { Footer, LegalFooter } from '../index'
 
-describe('dotcom-ui-footer', () => {  
+describe('dotcom-ui-footer', () => {
   it('renders the available footer variants', () => {
     const footer = render(<Footer {...dataFixture} />)
     const legalFooter = render(<LegalFooter {...dataFixture} />)
@@ -16,7 +16,7 @@ describe('dotcom-ui-footer', () => {
   })
 
   it('renders the copyright section', () => {
-    const { container: footerContainer } = render(<Footer {...dataFixture} /> )
+    const { container: footerContainer } = render(<Footer {...dataFixture} />)
     const { container: legalFooterContainer } = render(<LegalFooter {...dataFixture} />)
 
     expect(footerContainer.querySelector('.o-footer__copyright')).not.toBeNull()
@@ -24,7 +24,7 @@ describe('dotcom-ui-footer', () => {
   })
 
   it('renders the Nikkei banner', () => {
-    const { container: footerContainer } = render(<Footer {...dataFixture} /> )
+    const { container: footerContainer } = render(<Footer {...dataFixture} />)
     const { container: legalFooterContainer } = render(<LegalFooter {...dataFixture} />)
 
     expect(legalFooterContainer.querySelector('.o-footer__copyright')).not.toBeNull()
@@ -33,7 +33,7 @@ describe('dotcom-ui-footer', () => {
 
   describe('standard footer', () => {
     it('renders the navigation sections', () => {
-      const { container } = render(<Footer {...dataFixture} /> )
+      const { container } = render(<Footer {...dataFixture} />)
 
       const matrix = container.querySelector('.o-footer__matrix')
 
@@ -46,7 +46,7 @@ describe('dotcom-ui-footer', () => {
     })
 
     it('does not render the legal links section', () => {
-      const { container } = render(<Footer {...dataFixture} /> )
+      const { container } = render(<Footer {...dataFixture} />)
 
       const legalLinks = container.querySelector('.o-footer__legal-links')
 
@@ -54,7 +54,7 @@ describe('dotcom-ui-footer', () => {
     })
 
     it('renders the More from FT section', () => {
-      const { container } = render(<Footer {...dataFixture} /> )
+      const { container } = render(<Footer {...dataFixture} />)
 
       const moreFromFt = container.querySelector('.o-footer__matrix-link__copy')
       expect(moreFromFt).not.toBeNull()
@@ -63,19 +63,19 @@ describe('dotcom-ui-footer', () => {
 
   describe('legal footer', () => {
     it('does not render the navigation sections', () => {
-      const { container } = render(<LegalFooter {...dataFixture} /> )
+      const { container } = render(<LegalFooter {...dataFixture} />)
 
       expect(container.querySelector('.o-footer__matrix')).toBeNull()
     })
 
     it('renders the legal links section', () => {
-      const { container } = render(<LegalFooter {...dataFixture} /> )
+      const { container } = render(<LegalFooter {...dataFixture} />)
 
       expect(container.querySelector('.o-footer__legal-links')).not.toBeNull()
     })
 
     it('does not render the More from FT section', () => {
-      const { container } = render(<LegalFooter {...dataFixture} /> )
+      const { container } = render(<LegalFooter {...dataFixture} />)
 
       expect(container.querySelector('.o-footer__more-from-ft')).toBeNull()
     })

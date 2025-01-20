@@ -23,18 +23,6 @@ module.exports = {
     'import/resolver': {
       node: {
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts', '.mjs']
-      },
-      webpack: {
-        // Because we configure Storybook in "full control" mode we have to manually extend a
-        // configuration object. Rather than mock all that here I've chosen to copy the resolve
-        // rules so that the two files do not need to know about one other and their structure.
-        config: {
-          resolve: {
-            modules: ['node_modules'],
-            descriptionFiles: ['package.json'],
-            mainFiles: ['index', 'main']
-          }
-        }
       }
     }
   },

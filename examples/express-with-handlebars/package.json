@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server/listen.js",
     "start:dev": "nodemon --ext js,hbs",
-    "test": "../../node_modules/.bin/jest"
+    "test": "../../node_modules/.bin/jest",
+    "test:ci": "../../node_modules/.bin/jest --runInBand"
   },
   "dependencies": {
     "@financial-times/dotcom-server-handlebars": "file:../../packages/dotcom-server-handlebars",
