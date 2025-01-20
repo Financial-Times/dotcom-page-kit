@@ -48,13 +48,6 @@ export class PageKitSassPlugin {
     }
 
     const postcssLoaderOptions = {
-      postcssOptions: {
-        plugins: [
-          // Allow @import of CSS files from node_modules
-          // https://github.com/postcss/postcss-import
-          require('postcss-import')()
-        ]
-      },
       implementation: require('postcss')
     }
 
