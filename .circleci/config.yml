@@ -87,6 +87,9 @@ jobs:
       - run:
           name: Run build
           command: npm run build
+      - run:
+          name: Run build in examples/
+          command: npm run build:examples
       - persist_to_workspace:
           root: *workspace_root
           paths:
