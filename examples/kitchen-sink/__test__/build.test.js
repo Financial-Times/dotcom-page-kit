@@ -4,7 +4,8 @@ describe('examples/kitchen-sink/build', () => {
   it('creates the expected JS, CSS, and manifest files', () => {
     const output = fs.readdirSync('./public')
     expect(output).toMatchInlineSnapshot(`
-      Array [
+      [
+        "assets-manifest.json",
         "async.css",
         "financial-times-n-tracking.bundle.js",
         "financial-times-o-footer.bundle.js",
@@ -15,7 +16,6 @@ describe('examples/kitchen-sink/build', () => {
         "financial-times-o-typography.bundle.js",
         "financial-times-o-utils.bundle.js",
         "financial-times-o-viewport.bundle.js",
-        "manifest.json",
         "page-kit-components.bundle.js",
         "page-kit-layout-styles.css",
         "preact.bundle.js",
@@ -23,7 +23,7 @@ describe('examples/kitchen-sink/build', () => {
         "scripts.bundle.js",
         "shared.stable.bundle.js",
         "styles.css",
-        "vendors~scripts.bundle.js",
+        "vendors-node_modules_lodash_debounce_index_js-node_modules_financial-times_ads-display_dist_a-1c3c4f.bundle.js",
         "webpack-runtime.bundle.js",
       ]
     `)
