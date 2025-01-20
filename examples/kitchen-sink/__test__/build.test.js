@@ -23,7 +23,7 @@ describe('examples/kitchen-sink/build', () => {
         "scripts.bundle.js",
         "shared.stable.bundle.js",
         "styles.css",
-        "vendors-node_modules_lodash_debounce_index_js-node_modules_financial-times_ads-display_dist_a-1c3c4f.bundle.js",
+        "vendors.bundle.js",
         "webpack-runtime.bundle.js",
       ]
     `)

@@ -18,7 +18,8 @@ export class PageKitCodeSplittingPlugin {
           name: 'webpack-runtime'
         },
         splitChunks: {
-          chunks: 'all'
+          chunks: 'all',
+          name: compiler.options.mode === 'development' ? 'vendors' : false
         }
       }
     }
