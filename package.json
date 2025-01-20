@@ -71,7 +71,7 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "jest-enzyme": "^7.1.2",
-    "jest-puppeteer": "^9.0.0",
+    "jest-puppeteer": "^11.0.0",
     "lint-staged": "^10.0.0",
     "morphdom": "^2.7.0",
     "n-ui-foundations": "9.0.0",
