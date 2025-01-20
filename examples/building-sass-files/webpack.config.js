@@ -5,6 +5,9 @@ module.exports = {
   entry: {
     styles: './src/main.scss'
   },
+  optimization: {
+    minimize: true
+  },
   plugins: [
     new PageKitBasePlugin(),
     new PageKitSassPlugin({ prependData: '.prepended-flag-exists::after { content: "true"; }' })
