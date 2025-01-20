@@ -1,4 +1,4 @@
-import { TNavMenu } from '../../../dotcom-types-navigation'
+import { TNavMenu } from '../../../../dotcom-types-navigation'
 
 const data: TNavMenu = {
   label: 'Footer',

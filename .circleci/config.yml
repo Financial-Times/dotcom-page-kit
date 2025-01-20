@@ -111,9 +111,6 @@ jobs:
       - run:
           name: Run example app integration tests
           command: npm run test:examples-ci
-      - run:
-          name: Run storybook
-          command: npm run storybook:ci
 
   publish:
     <<: *container_config_node
@@ -144,14 +141,6 @@ jobs:
       - run:
           name: NPM publish
           command: npm publish --workspace=packages/ --access=public --tag=pre-release
-
-  deploy:
-    <<: *container_config_node
-    steps:
-      - *attach_workspace
-      - run:
-          name: Deploy Storybook
-          command: npm run deploy-storybook:ci
 
 workflows:
   version: 2
@@ -189,11 +178,6 @@ workflows:
                 - node
                 - node20
                 - node18
-      - deploy:
-          filters:
-            <<: *filters_only_main
-          requires:
-            - test-node
 
   build-test-publish:
     jobs:

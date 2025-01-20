@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import fixture from '../../__stories__/story-data/index'
+import fixture from '../fixtures/index'
 import { StickyHeader as Subject } from '../../index'
 
 const propsAnonymous = { ...fixture, userIsAnonymous: true, userIsLoggedIn: false }

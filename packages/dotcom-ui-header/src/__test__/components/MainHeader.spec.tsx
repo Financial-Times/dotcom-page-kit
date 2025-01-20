@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import fixture from '../../__stories__/story-data/index'
-import profileFixture from '../../__stories__/story-data/profile'
+import fixture from '../fixtures/index'
+import profileFixture from '../fixtures/profile'
 import { MainHeader as Subject } from '../../index'
 
 const propsAnonymous = { ...fixture, userIsAnonymous: true, userIsLoggedIn: false }
