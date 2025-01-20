@@ -4,7 +4,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
-import navigationData from '../../__stories__/story-data/index'
+import navigationData from '../fixtures/index'
 import { Drawer as Subject } from '../../'
 
 const fixture = {

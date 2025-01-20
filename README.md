@@ -79,7 +79,7 @@ Please note that Page Kit has only been tested in Mac and Linux environments. If
     npm run build
     ```
 
-4. You can now choose to run an example application or start Storybook to view UI component demos. Examples are located in the `examples/` directory and each have their own instructions. To use Storybook you can follow [the guide below](#using-storybook).
+4. You can now choose to run an example application to view UI component demos. Examples are located in the `examples/` directory and each have their own instructions.
 
 Before writing any new code you may also find it useful to refer to the [architecture overview](architecture.md) and [contribution guide](contributing.md) which covers coding standards and expectations.
 
@@ -99,31 +99,6 @@ Packages follow a naming convention which broadly denotes their functionality, t
 If you're interested to know more about our approach of building so many small packages see our [architecture overview](architecture.md) and [design decisions document](docs/design-decisions/many-small-packages.md).
 
 [Express]: https://expressjs.com/
-
-
-### Using Storybook
-
-[Storybook] is a development environment and showcase for UI components. It makes working on and sharing UI components easier by providing a richly configurable environment.
-
-[Storybook]: https://storybook.js.org/
-
-Before starting Storybook you must first run the build script for all packages (if you have not done so already) using this command:
-
-```
-npm run build
-```
-
-Once all of the packages have been built you can run Storybook using the following the command:
-
-```
-npm run storybook
-```
-
-The Storybook interface should then open in your default browser. Storybook has been configured to automatically find stories inside packages with names prefixed with `dotcom-ui-`.
-
-#### Storybook deployment
-The deployment of Storybook to Github Pages is managed by our CircleCI workflow. It is able to deploy to Github Pages by using a personal access token created from the `next-team` Github account, stored as the `GH_TOKEN` environment variable in Doppler.
-
 
 ## FAQ
 

@@ -4,7 +4,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import fixture from '../../__stories__/story-data/index'
+import fixture from '../fixtures/index'
 import { Drawer, MainHeader } from '../../index'
 
 const propsAnonymous = { ...fixture, userIsAnonymous: true, userIsLoggedIn: false }

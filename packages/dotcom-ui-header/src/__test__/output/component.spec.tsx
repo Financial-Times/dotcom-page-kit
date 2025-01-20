@@ -4,7 +4,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
-import dataFixture from '../../__stories__/story-data/index'
+import dataFixture from '../fixtures/index'
 import { Header } from '../../index'
 
 // data.currentPath to enable the mobile header

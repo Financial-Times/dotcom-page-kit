@@ -15,10 +15,7 @@
     "clean:install": "npm run clean && npm install",
     "dev": "npm run dev --workspaces --if-present",
     "lint": "eslint . --ext .js,.ts,.tsx,.jsx",
-    "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'",
-    "storybook": "start-storybook -p 9001 -c .storybook",
-    "storybook:ci": "start-storybook -c .storybook --ci --smoke-test",
-    "deploy-storybook:ci": "storybook-to-ghpages --ci"
+    "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json}'"
   },
   "lint-staged": {
     "**/*.{ts,tsx,js,jsx}": [
@@ -26,11 +23,6 @@
       "prettier --write",
       "eslint --fix"
     ]
-  },
-  "storybook-deployer": {
-    "gitUsername": "next-team",
-    "gitEmail": "next.team@ft.com",
-    "commitMessage": "Deploy Storybook [skip ci]"
   },
   "repository": {
     "type": "git",
@@ -49,10 +41,6 @@
     "@babel/preset-env": "^7.25.9",
     "@babel/preset-react": "^7.8.0",
     "@babel/preset-typescript": "^7.8.0",
-    "@storybook/addon-docs": "^6.0.27",
-    "@storybook/addon-essentials": "^6.0.27",
-    "@storybook/react": "^6.5.16",
-    "@storybook/storybook-deployer": "^2.8.7",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^12.1.4",
     "@types/babel__traverse": "7.11.1",
