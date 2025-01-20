@@ -75,7 +75,6 @@ export class PageKitCodeSplittingPlugin {
         'ftdomdelegate',
         'morphdom',
         'n-topic-search',
-        'n-ui-foundations',
         'ready-state'
       ],
       usedInUnknownWay: true
