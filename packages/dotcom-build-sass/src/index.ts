@@ -47,14 +47,10 @@ export class PageKitSassPlugin {
       }
     }
 
-    const postcssLoaderOptions = {
-      implementation: require('postcss')
-    }
-
     const cssLoaderOptions = {
-      // sass-loader then postcss-loader run first
-      // https://github.com/webpack-contrib/css-loader/blob/22e16e2fc88f920571219570953d3da5702d4fdb/README.md?plain=1#L921
-      importLoaders: 2,
+      // sass-loader runs first
+      // https://github.com/webpack-contrib/css-loader/blob/22e16e2fc88f920571219570953d3da5702d4fdb/README.md?plain=1#L920
+      importLoaders: 1,
       // Allow css-loader to resolve @import because the sass-loader
       // does not successfully resolve files with a .css extension.
       import: true,
@@ -83,12 +79,6 @@ export class PageKitSassPlugin {
         {
           loader: require.resolve('css-loader'),
           options: cssLoaderOptions
-        },
-        // Enable use of PostCSS for CSS postprocessing
-        // https://github.com/postcss/postcss-loader
-        {
-          loader: require.resolve('postcss-loader'),
-          options: postcssLoaderOptions
         },
         // Enable use of Sass for CSS preprocessing
         // https://github.com/webpack-contrib/sass-loader

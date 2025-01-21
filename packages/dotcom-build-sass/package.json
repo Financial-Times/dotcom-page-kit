@@ -23,8 +23,6 @@
     "css-loader": "^6.8.1",
     "css-minimizer-webpack-plugin": "^7.0.0",
     "mini-css-extract-plugin": "^2.9.1",
-    "postcss": "^8.4.20",
-    "postcss-loader": "^7.3.3",
     "sass-embedded": "^1.67.0",
     "sass-loader": "^13.3.2",
     "webpack-remove-empty-scripts": "^1.0.4"

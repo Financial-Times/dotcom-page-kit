@@ -9,7 +9,7 @@ $bg-color: #fff1e5;
   background: $bg-color;
 }
 
-// This ruleset should be de-duplicated by PostCSS minification
+// This ruleset should be de-duplicated by minification
 .selector {
   color: $text-color;
   background: $bg-color;
