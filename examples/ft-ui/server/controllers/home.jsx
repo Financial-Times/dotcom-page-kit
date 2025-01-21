@@ -25,9 +25,14 @@ export function homeController(request, response, next) {
     appContext.appName = 'home-page'
   }
 
+  const { assetLoader } = response.locals
+
   const shellProps = {
-    scripts: ['public/scripts.bundle.js'],
-    stylesheets: ['public/page-kit-layout-styles.css', 'public/styles.css'],
+    scripts: assetLoader.getScriptURLsFor('scripts'),
+    stylesheets: [
+      ...assetLoader.getStylesheetURLsFor('page-kit-layout-styles'),
+      ...assetLoader.getStylesheetURLsFor('styles')
+    ],
     pageTitle: pageData.title,
     appContext,
     flags

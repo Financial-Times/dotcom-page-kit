@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "webpack --mode=development",
+    "build": "webpack --mode=production",
     "dev": "nodemon --ext js,jsx",
     "start": "node server/start.js",
     "pretest": "npm run build",
@@ -12,6 +12,7 @@
     "test:ci": "../../node_modules/.bin/jest --runInBand --forceExit"
   },
   "dependencies": {
+    "@financial-times/dotcom-middleware-asset-loader": "file:../../packages/dotcom-middleware-asset-loader",
     "@financial-times/dotcom-middleware-navigation": "file:../../packages/dotcom-middleware-navigation",
     "@financial-times/dotcom-ui-layout": "file:../../packages/dotcom-ui-layout",
     "@financial-times/dotcom-ui-shell": "file:../../packages/dotcom-ui-shell",

@@ -14,7 +14,7 @@ describe('examples/ft-ui', () => {
     })
 
     it('loads the configured scripts', async () => {
-      await expect(page).toMatchElement('script[src="public/scripts.bundle.js"]')
+      await expect(page).toMatchElement('script[src^="/public/scripts"]')
     })
   })
 
