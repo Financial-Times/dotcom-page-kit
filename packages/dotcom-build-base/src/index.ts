@@ -14,7 +14,6 @@ export class PageKitBasePlugin {
 
     const gzipCompressionPluginOptions = {
       test: /\.(js|css)$/,
-      filename: '[path].gz',
       algorithm: 'gzip',
       compressionOptions: { level: 9 },
       minRatio: 1
@@ -22,7 +21,6 @@ export class PageKitBasePlugin {
 
     const brotliCompressionPluginOptions = {
       test: /\.(js|css)$/,
-      filename: '[path].br',
       algorithm: 'brotliCompress',
       compressionOptions: { level: 11 },
       minRatio: 1
