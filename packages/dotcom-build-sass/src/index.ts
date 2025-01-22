@@ -42,8 +42,8 @@ export class PageKitSassPlugin {
       sassOptions: {
         // Disable formatting so that we don't spend time pretty printing
         outputStyle: 'compressed',
-        // Enable Sass to @import source files from installed dependencies
-        includePaths: ['node_modules/@financial-times', 'node_modules', ...this.includePaths]
+        // Enable Sass to @import source files from additional relative paths
+        includePaths: this.includePaths
       }
     }
 

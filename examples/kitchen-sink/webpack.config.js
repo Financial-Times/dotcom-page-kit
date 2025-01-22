@@ -15,8 +15,6 @@ module.exports = {
     new PageKitBasePlugin(),
     new PageKitJsPlugin(),
     new PageKitCodeSplittingPlugin(),
-    new PageKitSassPlugin({
-      includePaths: [path.resolve('../../node_modules')]
-    })
+    new PageKitSassPlugin()
   ]
 }
