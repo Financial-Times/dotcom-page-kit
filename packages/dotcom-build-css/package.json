@@ -1,0 +1,44 @@
+{
+  "name": "@financial-times/dotcom-build-css",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/node/index.js",
+  "types": "dist/node/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "npm run clean:dist && npm run clean:node_modules",
+    "clean:dist": "rm -rf dist",
+    "clean:node_modules": "rm -rf node_modules",
+    "build:node": "tsc",
+    "build": "npm run build:node",
+    "dev": "npm run build:node -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "webpack": "5.x"
+  },
+  "dependencies": {
+    "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^7.0.0",
+    "mini-css-extract-plugin": "^2.9.1",
+    "webpack-remove-empty-scripts": "^1.0.4"
+  },
+  "engines": {
+    "node": "18.x || 20.x || 22.x"
+  },
+  "files": [
+    "dist/",
+    "src/"
+  ],
+  "repository": {
+    "type": "git",
+    "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
+    "directory": "packages/dotcom-build-css"
+  },
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/HEAD/packages/dotcom-build-css",
+  "volta": {
+    "extends": "../../package.json"
+  }
+}
