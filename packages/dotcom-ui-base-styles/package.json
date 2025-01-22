@@ -20,9 +20,6 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "dependencies": {
-    "focus-visible": "^5.0.0"
-  },
   "devDependencies": {
     "@financial-times/o-typography": "^7.2.0"
   },
