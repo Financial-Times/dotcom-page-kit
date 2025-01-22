@@ -39,26 +39,22 @@ module.exports = {
 
 ## Scope
 
-This plugin adds a [rule] to the Webpack configuration to handle `.scss` files. It first uses the [sass-loader] to transpile Sass source code, then sends the output through to the [postcss-loader] for optimisations, and finally the [css-loader]. The [mini-css-extract-plugin] is added to generate `.css` files and the [webpack-fix-style-only-entries] to clean up any empty JavaScript bundles.
+This plugin adds a [rule] to the Webpack configuration to handle `.scss` files. It first uses the [sass-loader] to transpile Sass source code, and then the [css-loader] to handle native CSS files that have been imported. The CSS is optimised using [css-minimizer-webpack-plugin], which runs [cssnano] under the hood. The [mini-css-extract-plugin] is added to generate `.css` files and the [webpack-fix-style-only-entries] to clean up any empty JavaScript bundles.
 
-Sass has been configured to find packages installed with npm by looking in the `'node_modules/@financial-times'` directories. It can be configured to look in additional locations by passing the relevant paths to the plugin as absolute paths.
+Sass supports both relative paths and paths that can be resolved within your `node_modules`. It can be configured to look in additional locations by passing the relevant paths to the plugin as absolute paths.
 
 ```js
 new PageKitSassPlugin({ includePaths: [path.resolve('./path-to-sass-files')] })
 ```
 
-_Please note_ that by default Sass will resolve all bare `@import` statements from the current working directory rather than relative to the file being processed. This means it will not find dependencies in nested `node_modules` directories.
-
-The CSS loader has `@import` and `url()` resolution disabled as these should be handled by Sass.
+The CSS loader has `url()` resolution disabled as we don't use, nor recommend, the function currently.
 
 [rule]: https://webpack.js.org/configuration/module/#rule
 [sass-loader]: https://github.com/webpack-contrib/sass-loader
-[postcss-loader]: https://github.com/postcss/postcss-loader
 [css-loader]: https://github.com/webpack-contrib/css-loader
+[css-minimizer-webpack-plugin]: https://github.com/webpack-contrib/css-minimizer-webpack-plugin
 [mini-css-extract-plugin]: https://github.com/webpack-contrib/mini-css-extract-plugin
 [webpack-fix-style-only-entries]: https://github.com/fqborges/webpack-fix-style-only-entries
-[PostCSS]: https://postcss.org/
-[Autoprefixer]: https://github.com/postcss/autoprefixer
 [cssnano]: https://cssnano.co/
 
 

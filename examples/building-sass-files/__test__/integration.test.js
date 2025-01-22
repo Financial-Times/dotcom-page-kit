@@ -20,7 +20,7 @@ describe('examples/building-sass-files', () => {
     })
   })
 
-  describe('PostCSS', () => {
+  describe('Optimisation', () => {
     it('uses cssnano to minify the output', () => {
       const result = outputContents.match(/\.selector/g)
       expect(result.length).toBe(1)

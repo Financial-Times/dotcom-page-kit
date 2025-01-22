@@ -9,11 +9,5 @@ module.exports = {
     styles: './client/main.scss',
     'page-kit-layout-styles': require.resolve('@financial-times/dotcom-ui-layout/styles.scss')
   },
-  plugins: [
-    new PageKitBasePlugin(),
-    new PageKitJsPlugin(),
-    new PageKitSassPlugin({
-      includePaths: [path.resolve('../../node_modules')]
-    })
-  ]
+  plugins: [new PageKitBasePlugin(), new PageKitJsPlugin(), new PageKitSassPlugin()]
 }
