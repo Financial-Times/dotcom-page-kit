@@ -20,12 +20,9 @@
     "webpack": "5.x"
   },
   "dependencies": {
-    "css-loader": "^6.8.1",
-    "css-minimizer-webpack-plugin": "^7.0.0",
-    "mini-css-extract-plugin": "^2.9.1",
+    "@financial-times/dotcom-build-css": "file:../dotcom-build-css",
     "sass-embedded": "^1.67.0",
-    "sass-loader": "^13.3.2",
-    "webpack-remove-empty-scripts": "^1.0.4"
+    "sass-loader": "^13.3.2"
   },
   "engines": {
     "node": "18.x || 20.x || 22.x"

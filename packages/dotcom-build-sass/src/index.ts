@@ -1,6 +1,4 @@
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import RemoveEmptyScriptsPlugin from 'webpack-remove-empty-scripts'
-import CSSMinimizerPlugin from 'css-minimizer-webpack-plugin'
+import { PageKitCssPlugin, cssRule } from '@financial-times/dotcom-build-css'
 import type webpack from 'webpack'
 
 export type TPluginOptions = {
@@ -47,39 +45,20 @@ export class PageKitSassPlugin {
       }
     }
 
-    const cssLoaderOptions = {
+    const additionalCssLoaderOptions = {
       // sass-loader runs first
       // https://github.com/webpack-contrib/css-loader/blob/22e16e2fc88f920571219570953d3da5702d4fdb/README.md?plain=1#L920
-      importLoaders: 1,
-      // Allow css-loader to resolve @import because the sass-loader
-      // does not successfully resolve files with a .css extension.
-      import: true,
-      // Disable Webpack from resolving url() because we do not
-      // currently use this functionality.
-      url: false
+      importLoaders: 1
     }
 
-    const miniCssExtractPluginOptions = {
-      // only include content hash in filename when compiling production assets
-      filename: compiler.options.mode === 'development' ? '[name].css' : '[name].[contenthash:12].css',
-      // we load CSS files ourselves in  `dotcom-ui-shell` so don't need the runtime
-      runtime: false
-    }
+    new PageKitCssPlugin().apply(compiler)
 
     compiler.options.module.rules.push({
       test: [/\.sass|scss$/],
       use: [
-        // Extracts CSS into separate, non-JS files
-        // https://github.com/webpack-contrib/mini-css-extract-plugin
-        {
-          loader: MiniCssExtractPlugin.loader
-        },
-        // Add support for handling .css files
-        // https://github.com/webpack-contrib/css-loader
-        {
-          loader: require.resolve('css-loader'),
-          options: cssLoaderOptions
-        },
+        // Load generated CSS using the same logic as
+        // @financial-times/dotcom-build-css
+        ...cssRule(additionalCssLoaderOptions),
         // Enable use of Sass for CSS preprocessing
         // https://github.com/webpack-contrib/sass-loader
         {
@@ -88,16 +67,5 @@ export class PageKitSassPlugin {
         }
       ]
     })
-
-    compiler.options.optimization.minimizer = [
-      ...(compiler.options.optimization.minimizer ?? []),
-      new CSSMinimizerPlugin()
-    ]
-
-    // 2024 and this is still an issue :/ mini-css-extract-plugin leaves
-    // behind empty .js bundles after extracting the CSS.
-    // https://github.com/webpack/webpack/issues/11671
-    new RemoveEmptyScriptsPlugin().apply(compiler)
-    new MiniCssExtractPlugin(miniCssExtractPluginOptions).apply(compiler)
   }
 }
