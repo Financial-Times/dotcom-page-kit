@@ -17,7 +17,7 @@
   "devDependencies": {
     "@financial-times/dotcom-build-base": "file:../../packages/dotcom-build-base",
     "@financial-times/dotcom-build-js": "file:../../packages/dotcom-build-js",
-    "webpack": "^5.88.2",
+    "webpack": "^5.97.1",
     "webpack-cli": "^5.1.4"
   },
   "jest": {
