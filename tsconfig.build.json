@@ -8,6 +8,9 @@
       "path": "packages/dotcom-build-code-splitting"
     },
     {
+      "path": "packages/dotcom-build-css"
+    },
+    {
       "path": "packages/dotcom-build-images"
     },
     {

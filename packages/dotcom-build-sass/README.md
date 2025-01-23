@@ -39,7 +39,7 @@ module.exports = {
 
 ## Scope
 
-This plugin adds a [rule] to the Webpack configuration to handle `.scss` files. It first uses the [sass-loader] to transpile Sass source code, and then the [css-loader] to handle native CSS files that have been imported. The CSS is optimised using [css-minimizer-webpack-plugin], which runs [cssnano] under the hood. The [mini-css-extract-plugin] is added to generate `.css` files and the [webpack-fix-style-only-entries] to clean up any empty JavaScript bundles.
+This plugin adds a [rule] to the Webpack configuration to handle `.scss` files. It first uses the [sass-loader] to transpile Sass source code. It will then process the CSS using the same logic as [@financial-times/dotcom-build-css]. So we'll first call [css-loader] to handle the native CSS files that have been generated. The CSS is optimised using [css-minimizer-webpack-plugin], which runs [cssnano] under the hood. The [mini-css-extract-plugin] is added to generate `.css` files and the [webpack-fix-style-only-entries] to clean up any empty JavaScript bundles.
 
 Sass supports both relative paths and paths that can be resolved within your `node_modules`. It can be configured to look in additional locations by passing the relevant paths to the plugin as absolute paths.
 
@@ -50,6 +50,7 @@ new PageKitSassPlugin({ includePaths: [path.resolve('./path-to-sass-files')] })
 The CSS loader has `url()` resolution disabled as we don't use, nor recommend, the function currently.
 
 [rule]: https://webpack.js.org/configuration/module/#rule
+[@financial-times/dotcom-build-css]: ../dotcom-build-css
 [sass-loader]: https://github.com/webpack-contrib/sass-loader
 [css-loader]: https://github.com/webpack-contrib/css-loader
 [css-minimizer-webpack-plugin]: https://github.com/webpack-contrib/css-minimizer-webpack-plugin

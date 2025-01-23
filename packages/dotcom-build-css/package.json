@@ -1,5 +1,5 @@
 {
-  "name": "@financial-times/dotcom-build-sass",
+  "name": "@financial-times/dotcom-build-css",
   "version": "0.0.0",
   "description": "",
   "main": "dist/node/index.js",
@@ -20,9 +20,10 @@
     "webpack": "5.x"
   },
   "dependencies": {
-    "@financial-times/dotcom-build-css": "file:../dotcom-build-css",
-    "sass-embedded": "^1.67.0",
-    "sass-loader": "^13.3.2"
+    "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^7.0.0",
+    "mini-css-extract-plugin": "^2.9.1",
+    "webpack-remove-empty-scripts": "^1.0.4"
   },
   "engines": {
     "node": "18.x || 20.x || 22.x"
@@ -34,9 +35,9 @@
   "repository": {
     "type": "git",
     "repository": "https://github.com/Financial-Times/dotcom-page-kit.git",
-    "directory": "packages/dotcom-build-sass"
+    "directory": "packages/dotcom-build-css"
   },
-  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/HEAD/packages/dotcom-build-sass",
+  "homepage": "https://github.com/Financial-Times/dotcom-page-kit/tree/HEAD/packages/dotcom-build-css",
   "volta": {
     "extends": "../../package.json"
   }

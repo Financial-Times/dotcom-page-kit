@@ -3,11 +3,8 @@
   "include": ["src/**/*"],
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "dist/node"
-  },
-  "references": [
-    {
-      "path": "../dotcom-build-css"
-    }
-  ]
+    "outDir": "dist/node",
+
+    "strict": true,
+  }
 }
