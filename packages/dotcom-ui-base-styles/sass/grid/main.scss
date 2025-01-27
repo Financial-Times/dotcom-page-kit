@@ -1,0 +1,18 @@
+@import '@financial-times/o-grid/main';
+@import 'mixins';
+
+@mixin nUiGrid {
+	@include oGrid($opts: (
+		'bleed': true,
+		'snappy': true,
+		'shuffle-selectors': false,
+		'friendly-selectors': false,
+		'surface': ('current-layout'),
+		'rows': ('compact')
+	));
+
+	// We have disabled "friendly selectors" but output this one as it's useful
+	[data-o-grid-colspan~="center"] {
+		@include oGridCenter();
+	}
+}
