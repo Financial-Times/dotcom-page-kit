@@ -1,13 +1,8 @@
 # @financial-times/dotcom-ui-base-styles
 
-This new package provides the global document styles for FT.com, including normalisation styles, basic typography, focus states, and `o-grid`.
-
-_Please note_ the initial goal of this package is to centralise all of the required pieces for the progressive font loading technique provided by [`o-typography`](https://github.com/Financial-Times/o-typography/#progressive-loading-web-fonts) and create a placeholder for the future inclusion of global styles from `n-ui-foundations`.
-
+This package provides the global document styles for FT.com, including normalisation styles, basic typography, and grid styles, provided by [Origami](https://github.com/financial-times/origami) components.
 
 ## Getting started
-
-This package is compatible with Node 12+ and is distributed on npm.
 
 ```bash
 npm install --save @financial-times/dotcom-ui-base-styles
@@ -15,9 +10,21 @@ npm install --save @financial-times/dotcom-ui-base-styles
 
 After installing the package you can use it to embed the progressive font loading hooks and document styles into your pages on the server-side and initialise the font loading on client-side.
 
-### Server-side
+## Usage in apps
 
-If you are using React to render your app you should use the `LoadFontsEmbed` component along with the `loadCustomFontsClassNames` and `documentStyles` variables to integrate font loading and document styles with your pages:
+### Styles
+
+`dotcom-ui-base-styles` provides styles which should be imported into your application's main stylesheet:
+
+```scss
+@import '@financial-times/dotcom-ui-base-styles/styles';
+```
+
+### Critical styles and font preloading
+
+`dotcom-ui-base-styles` allows apps to HTTP-preload Origami's fonts, and provides baseline styles to be rendered as a `style` attribute on the `<html>` tag, to reduce [flash of unstyled content (FOUC)](https://en.wikipedia.org/wiki/Flash_of_unstyled_content).
+
+If you are using React to render your app, render the `LoadFontsEmbed` component along with the `loadCustomFontsClassNames` and `documentStyles` variables to integrate font loading and document styles with your pages:
 
 ```jsx
 import {
@@ -40,7 +47,7 @@ export default (props) => (
 )
 ```
 
-Otherwise you can insert the code snippet into a `<script>` element:
+Otherwise, you can insert the code snippet into a `<script>` element:
 
 ```js
 const {
@@ -64,11 +71,9 @@ function page() {
 }
 ```
 
-### Client-side
+### Client-side Javascript
 
-Once you are rendering the styles, class names, and code snippets in your page you will need to initialise the client-side code.
-
-To initialise the client-side JavaScript import the package and call the `.init()` method:
+`dotcom-ui-base-styles`'s font loader requires client-side Javascript to work. Import the package in your client-side entry point, and call the `.init()` method:
 
 ```js
 import * as baseStyles from '@financial-times/dotcom-ui-base-styles'
@@ -76,8 +81,7 @@ import * as baseStyles from '@financial-times/dotcom-ui-base-styles'
 baseStyles.init()
 ```
 
-This component also provides styles written in Sass which should be imported into your application's main Sass stylesheet:
+### Components
 
-```scss
-@import '@financial-times/dotcom-ui-base-styles/styles';
-```
+> [!WARNING]
+> `n-ui-foundations`, the predecessor of `dotcom-ui-base-styles`, provided common Origami dependencies for apps and components. `dotcom-ui-base-styles` only supports apps. For components, you should directly depend on and use the Origami components you require.

@@ -20,15 +20,12 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "dependencies": {
-    "focus-visible": "^5.0.0"
-  },
   "devDependencies": {
     "@financial-times/o-typography": "^7.2.0"
   },
   "peerDependencies": {
     "@financial-times/o-typography": "^7.2.0",
-    "n-ui-foundations": "^9.0.0 || ^10.0.0",
+    "@financial-times/o3-foundation": "^2.1.0",
     "react": "17.x || 18.x"
   },
   "engines": {

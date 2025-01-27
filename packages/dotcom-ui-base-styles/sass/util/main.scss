@@ -1,12 +1,6 @@
 @import '@financial-times/o-normalise/main';
-@import 'mixins';
 
-//BREAKING CHANGE: .n-ui-clearfix -> .o-normalise-clearfix
-//BREAKING CHANGE: .n-ui-visually-hidden -> .o-normalise-visually-hidden
-//BREAKING CHANGE: Any remaining instances of n-util- -> n-ui-
-
-@mixin nUiUtil {
-
+@mixin dotcomUiUtil {
 	//
 	// Display
 	//
@@ -14,27 +8,17 @@
 		display: none;
 	}
 
-	@media screen {
-		/* stylelint-disable */
-		.n-ui-hide\@screen {
-		/* stylelint-enable */
-			display: none;
-		}
-
-	}
-
-	@media print {
-		/* stylelint-disable */
-		.n-ui-hide\@print {
-		/* stylelint-enable */
-			display: none;
-		}
-	}
-
 	.no-js .n-ui-hide-no-js,
 	.js .n-ui-hide-js,
 	.core .n-ui-hide-core,
-	.enhanced .n-ui-hide-enhanced {
-		display: none;
-	}
+	.enhanced .n-ui-hide-enhanced,
+  .core .o--if-js,
+  .enhanced .o--if-no-js {
+    display: none !important;
+  }
+}
+
+@mixin nUiUtil {
+  @warn "the nUiUtil mixin has been renamed dotcomUiUtil";
+  @include dotcomUiUtil($use-case);
 }

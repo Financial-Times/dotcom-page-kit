@@ -1,8 +1,6 @@
 // This will be overridden by dotcom-ui-layout
 $system-code: 'page-kit-header' !default;
 
-@import 'n-ui-foundations/mixins';
-
 // We don't need the sub-brand or transparent header styles so disable them.
 // TODO: move drawer styles into a separate stylesheet which can be lazy loaded?
 @import '@financial-times/o-header/main';

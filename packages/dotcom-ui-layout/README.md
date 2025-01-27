@@ -59,24 +59,14 @@ For a full example for how to use this component please refer to the [FT UI exam
 
 ### Styles
 
-This component includes styles written in Sass which includes the styles for [`n-ui-foundations`][n-ui-foundations] and the [header] and [footer] components. It can be imported into your application's main Sass stylesheet:
+This component includes styles written in Sass which includes the styles the [header] and [footer] components. It can be imported into your application's main Sass stylesheet:
 
 ```scss
 @import '@financial-times/dotcom-ui-layout/styles';
 ```
 
-It is also possible to build the layout styles individually, for example to improve long-term caching. If you integrate the layout styles this way then you may need to add a dependency on `n-ui-foundations` and import its mixins into your app's main Sass stylesheet:
-
-```scss
-@import 'n-ui-foundations/mixins';
-```
-
-_Please note_ that the exact usage will depend on how you configure your Sass compiler and whether or not you are using Bower to install dependencies.
-
-[n-ui-foundations]: https://github.com/Financial-Times/n-ui-foundations/
 [header]: ../dotcom-ui-header/README.md
 [footer]: ../dotcom-ui-footer/README.md
-
 
 ## Options
 

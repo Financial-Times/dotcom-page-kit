@@ -24,6 +24,7 @@ describe('examples/kitchen-sink/build', () => {
         "shared.stable.bundle.js",
         "styles.css",
         "vendors.bundle.js",
+        "vendors.css",
         "webpack-runtime.bundle.js",
       ]
     `)

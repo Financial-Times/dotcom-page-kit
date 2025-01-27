@@ -34,8 +34,6 @@ export class PageKitSassPlugin {
       // Prefer `dart-sass`.
       implementation: require(this.implementation),
       // Prepends SCSS code before the actual entry file.
-      // Introduced to maintain snappy grid after n-ui-foundations removed it as the default.
-      // Once user-facing apps and components move away from using snappy grid then this can be removed.
       additionalData: this.additionalData,
       sassOptions: {
         // Disable formatting so that we don't spend time pretty printing
