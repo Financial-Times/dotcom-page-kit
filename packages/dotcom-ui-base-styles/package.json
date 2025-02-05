@@ -34,6 +34,7 @@
   "files": [
     "dist/",
     "src/",
+    "sass/",
     "browser.js",
     "component.js",
     "styles.scss"
