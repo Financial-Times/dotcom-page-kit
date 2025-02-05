@@ -28,7 +28,7 @@
     "@financial-times/dotcom-build-sass": "file:../../packages/dotcom-build-sass",
     "nodemon": "^1.18.9",
     "ready-state": "^2.0.5",
-    "webpack": "^5.88.2",
+    "webpack": "^5.97.1",
     "webpack-cli": "^5.1.4"
   }
 }
