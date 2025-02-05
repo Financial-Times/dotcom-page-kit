@@ -61,12 +61,14 @@ The CSS loader has `url()` resolution disabled as we don't use, nor recommend, t
 
 ## Options
 
-| Option            | Type     | Default | Description                                                        |
-|-------------------|----------|---------|--------------------------------------------------------------------|
-| `webpackImporter` | Boolean  | `false` | See https://github.com/webpack-contrib/sass-loader#webpackimporter |
-| `additionalData`     | String   | `''`    | https://webpack.js.org/loaders/sass-loader/#additionaldata        |
-| `includePaths`    | String[] | `[]`    | See https://sass-lang.com/documentation/js-api#includepaths        |
-| `implementation`    | `sass\|sass-embedded` | `sass`    | See https://webpack.js.org/loaders/sass-loader/#implementation        |
+| Option            | Type                  | Default         | Description                                                        |
+|-------------------|-----------------------|-----------------|--------------------------------------------------------------------|
+| `webpackImporter` | Boolean               | `false`         | See https://github.com/webpack-contrib/sass-loader#webpackimporter |
+| `additionalData`  | String                | `''`            | https://webpack.js.org/loaders/sass-loader/#additionaldata         |
+| `includePaths`    | String[]              | `[]`            | See https://sass-lang.com/documentation/js-api#includepaths        |
+| `implementation`  | `sass\|sass-embedded` | `sass-embedded` | See [documentation] (we'll `require` the passed string first)      |
+
+[documentation]: https://webpack.js.org/loaders/sass-loader/#implementation
 
 ## Sass build monitoring
 
