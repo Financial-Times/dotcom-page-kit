@@ -18,7 +18,7 @@ export class PageKitSassPlugin {
     includePaths = [],
     additionalData = '',
     webpackImporter,
-    implementation = 'sass'
+    implementation = 'sass-embedded'
   }: TPluginOptions = {}) {
     this.includePaths = includePaths
     this.additionalData = additionalData
