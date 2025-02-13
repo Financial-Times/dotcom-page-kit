@@ -125,7 +125,7 @@ If JavaScript is available the `no-js` class on the document element will be rep
 
 If the browser passes the [cuts the mustard](#cutting-the-mustard) test then the `core` class name on the document element will be replaced with `enhanced`.
 
-If any scripts fail to load a tracking pixel will be loaded to send a JavaScript loading failure event to [Spoor].
+If any scripts fail to load a tracking pixel will be loaded to send a JavaScript loading failure event to [Spoor]. With enhanced experience, if any first-party scripts (i.e. scripts on an `www.ft.com` hostname) fail to load, the bootstrap will fall back to core experience.
 
 [Spoor]: https://spoor-docs.herokuapp.com/
 
