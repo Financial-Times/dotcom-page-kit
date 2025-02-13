@@ -25,9 +25,15 @@
       console.error('The script ' + script + ' failed to load') // eslint-disable-line no-console
     }
 
+    const scriptHost = new URL(script).hostname
+
     if (/enhanced/.test(doc.className)) {
-      console.warn('Script loading failed, reverting to core experience') // eslint-disable-line no-console
-      doc.className = doc.className.replace('enhanced', 'core')
+      if (scriptHost === 'www.ft.com') {
+        console.warn('Script loading failed, reverting to core experience') // eslint-disable-line no-console
+        doc.className = doc.className.replace('enhanced', 'core')
+      } else {
+        console.warn('Third-party script, not reverting to core experience') // eslint-disable-line no-console
+      }
     }
 
     if (scriptsConfig.trackErrors) {
