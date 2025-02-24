@@ -278,7 +278,9 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
       }
     />
   </head>
-  <body>
+  <body
+    data-o3-brand="core"
+  >
     <noscript>
       <iframe
         height="0"

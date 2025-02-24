@@ -85,7 +85,9 @@ Shell.defaultProps = {
   asyncStylesheets: [],
   resourceHints: [],
   htmlAttributes: {},
-  bodyAttributes: {}
+  bodyAttributes: {
+    dataO3Brand: 'core'
+  }
 }
 
 export { Shell }
