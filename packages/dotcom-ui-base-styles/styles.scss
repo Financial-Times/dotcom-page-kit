@@ -1,7 +1,6 @@
 $system-code: 'page-kit-base-styles' !default;
 
 @import 'sass/grid/main';
-@import 'sass/typography/main';
 @import 'sass/util/main';
 @import '@financial-times/o-icons/main';
 @import '@financial-times/o-colors/main';
@@ -10,7 +9,6 @@ $system-code: 'page-kit-base-styles' !default;
 
 @mixin dotcomUiBaseStyles {
 	@include dotcomUiGrid;
-	@include dotcomUiTypography;
 	@include dotcomUiUtil;
 }
 
@@ -18,12 +16,6 @@ $system-code: 'page-kit-base-styles' !default;
   @warn "the nUiFoundations mixin has been renamed dotcomUiBaseStyles";
   @include dotcomUiBaseStyles;
 }
-
-// NOTE: please also update ./src/lib/fontFaces.ts when updating the URL below. They
-// need to stay in-sync to ensure our CSS output matches the resource hints we set, so we don't load the fonts twice (once from resourceHint and once from o-fonts in dotcom-ui-base-styles)
-// the $o-fonts-path value here is used to generate the @font-face url https://github.com/Financial-Times/origami/blob/main/components/o-fonts/src/scss/_mixins.scss#L148 that is imported through the dotcom-ui-base-styles styles.
-// we depend on o-fonts's @font-face url instead of explicitly defining it here so we don't have to update page kit again when changing fonts
-$o-fonts-path: 'https://www.ft.com/__origami/service/build/v3/font?version=1.12';
 
 $dotcom-ui-base-styles-applied: false !default;
 
