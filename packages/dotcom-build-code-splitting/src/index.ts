@@ -19,7 +19,17 @@ export class PageKitCodeSplittingPlugin {
         },
         splitChunks: {
           chunks: 'all',
-          name: compiler.options.mode === 'development' ? 'vendors' : false
+          cacheGroups: {
+            defaultVendors: {
+              // output a stable name for the defaultVendors chunk in development for testing purposes
+              name: compiler.options.mode === 'development' ? 'vendors' : false,
+              // setting the config here skips Webpack's defaults, so add them back
+              idHint: 'vendors',
+              reuseExistingChunk: true,
+              test: /[\\/]node_modules[\\/]/i,
+              priority: -10
+            }
+          }
         }
       }
     }
