@@ -2,13 +2,12 @@
 
 exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the enableGTM flag is on 1`] = `
 <html
-  className="no-js core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold"
-  data-o-component="o-typography"
+  className="no-js core"
   lang="en-GB"
   style={
     Object {
-      "backgroundColor": "#fff1e5",
-      "color": "#33302e",
+      "backgroundColor": "var(--o3-color-use-case-page-background, #fff1e5)",
+      "color": "var(--o3-color-use-case-body-text, #33302e)",
       "overflowX": "hidden",
     }
   }
@@ -259,21 +258,6 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
     j.src='https://www.googletagmanager.com/gtm.js?id=GTM-NWQJW68'+dl;
     f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer');",
-        }
-      }
-    />
-    <script
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "(function loadCustomFonts() {
-  var rootElement = document.documentElement;
-  if (/(^|\\\\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
-    var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold'];
-    for (var i = 0; i < fontLabels.length; i++) {
-      rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '');
-    }
-  }
-}());",
         }
       }
     />
