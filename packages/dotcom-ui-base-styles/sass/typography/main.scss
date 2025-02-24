@@ -1,5 +1,4 @@
 @import '@financial-times/o-fonts/main';
-@import '@financial-times/o-typography/main';
 
 @mixin dotcomUiTypography {
 	@include oFonts($opts: (
@@ -13,10 +12,6 @@
 			('weight': 'semibold', 'style': 'normal'),
 		)
 	));
-
-	a {
-		@include oTypographyLink();
-	}
 }
 
 @mixin nUiTypography($use-case) {
