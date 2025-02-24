@@ -20,6 +20,7 @@
   "author": "",
   "license": "MIT",
   "peerDependencies": {
+    "@financial-times/o-grid": "^6.1.8",
     "@financial-times/o3-foundation": "^3.0.0",
     "react": "17.x || 18.x"
   },
