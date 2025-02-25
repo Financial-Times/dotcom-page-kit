@@ -51,7 +51,7 @@ module.exports = (_, response, next) => {
         <Layout navigationData={response.locals.navigation} headerBefore={<AdsContainer />}>
           <div className="content">
             <div align="center">
-              <p className="hello">Hello, welcome to Page Kit.</p>
+              <p className="o3-type-title-lg">Hello, welcome to Page Kit.</p>
             </div>
             <div>
               <p>

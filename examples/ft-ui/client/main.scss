@@ -1,5 +1,2 @@
-@import '@financial-times/o-typography/main';
+@import '@financial-times/o3-foundation/css/core.css';
 
-p {
-  @include oTypographySans($scale: 7);
-}
