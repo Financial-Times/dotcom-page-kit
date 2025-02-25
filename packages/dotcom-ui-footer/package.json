@@ -23,7 +23,7 @@
     "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation"
   },
   "peerDependencies": {
-    "@financial-times/o-footer": "^9.2.0",
+    "@financial-times/o-footer": "^10.0.0",
     "react": "17.x || 18.x",
     "react-dom": "17.x || 18.x"
   },
