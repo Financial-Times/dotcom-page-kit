@@ -19,6 +19,6 @@
 // Overrides <a> color style set by dotcom-ui-base-styles
 .o-header__ask-ft-button {
   &, &:hover {
-    color: oColorsByName('black-80');
+    color: var(--o3-color-palette-black-80)
   }
 }

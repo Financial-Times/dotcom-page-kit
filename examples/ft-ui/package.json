@@ -16,7 +16,6 @@
     "@financial-times/dotcom-middleware-navigation": "file:../../packages/dotcom-middleware-navigation",
     "@financial-times/dotcom-ui-layout": "file:../../packages/dotcom-ui-layout",
     "@financial-times/dotcom-ui-shell": "file:../../packages/dotcom-ui-shell",
-    "@financial-times/o-typography": "^7.6.2",
     "express": "^4.21.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

@@ -24,61 +24,18 @@ After installing the package you can use it to embed the progressive font loadin
 
 `dotcom-ui-base-styles` allows apps to HTTP-preload Origami's fonts, and provides baseline styles to be rendered as a `style` attribute on the `<html>` tag, to reduce [flash of unstyled content (FOUC)](https://en.wikipedia.org/wiki/Flash_of_unstyled_content).
 
-If you are using React to render your app, render the `LoadFontsEmbed` component along with the `loadCustomFontsClassNames` and `documentStyles` variables to integrate font loading and document styles with your pages:
+The package exports a `documentStyles` object, which should be rendered as the `style` attribute on the `<html>` tag. For example, if using React:
 
 ```jsx
 import {
   documentStyles
-  LoadFontsEmbed,
-  loadCustomFontsClassNames
 } from '@financial-times/dotcom-ui-base-styles'
 
 export default (props) => (
-  <html className={loadCustomFontsClassNames} style={documentStyles}>
-    <head>
-      <meta charSet="utf-8" />
-      <title>My Amazing Website</title>
-      <LoadFontsEmbed />
-    </head>
-    <body>
-      ...
-    </body>
+  <html style={documentStyles}>
+    ...
   </html>
 )
-```
-
-Otherwise, you can insert the code snippet into a `<script>` element:
-
-```js
-const {
-  documentStyles
-  loadCustomFontsJS,
-  loadCustomFontsClassNames
-} = require('@financial-times/dotcom-ui-base-styles')
-
-function page() {
-  return `<!DOCTYPE html>
-    <html className=${loadCustomFontsClassNames} style=${documentStyles}>
-    <head>
-      <meta charset="utf-8">
-      <title>My Amazing Website</title>
-      <script>${loadCustomFontsJS}</script>
-    </head>
-    <body>
-      ...
-    </body>
-  </html>`
-}
-```
-
-### Client-side Javascript
-
-`dotcom-ui-base-styles`'s font loader requires client-side Javascript to work. Import the package in your client-side entry point, and call the `.init()` method:
-
-```js
-import * as baseStyles from '@financial-times/dotcom-ui-base-styles'
-
-baseStyles.init()
 ```
 
 ### Components

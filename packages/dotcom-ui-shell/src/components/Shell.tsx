@@ -4,12 +4,7 @@ import DocumentHead, { TDocumentHeadProps } from './DocumentHead'
 import StyleSheets, { TStylesheetProps } from './StyleSheets'
 import ResourceHints, { TResourceHintsProps } from './ResourceHints'
 import { AppContextEmbed, TAppContextProps } from '@financial-times/dotcom-ui-app-context'
-import {
-  fontFaceURLs,
-  documentStyles,
-  LoadFontsEmbed,
-  loadCustomFontsClassNames
-} from '@financial-times/dotcom-ui-base-styles'
+import { fontFaceURLs, documentStyles } from '@financial-times/dotcom-ui-base-styles'
 import { FlagsEmbed, TFlagsEmbedProps } from '@financial-times/dotcom-ui-flags'
 import { Bootstrap, TBootstrapProps } from '@financial-times/dotcom-ui-bootstrap'
 import formatAttributeNames, { TAttributeData } from '../lib/formatAttributeNames'
@@ -47,8 +42,7 @@ function Shell(props: TShellProps) {
     <html
       {...formatAttributeNames(props.htmlAttributes)}
       lang="en-GB"
-      className={`no-js core ${loadCustomFontsClassNames}`}
-      data-o-component="o-typography"
+      className="no-js core"
       style={documentStyles}
     >
       <head>
@@ -67,7 +61,6 @@ function Shell(props: TShellProps) {
         />
         <Bootstrap {...bootstrapProps} />
         <GTMHead flags={props.flags} />
-        <LoadFontsEmbed />
       </head>
       <body {...formatAttributeNames(props.bodyAttributes)}>
         <GTMBody flags={props.flags} />
@@ -85,7 +78,9 @@ Shell.defaultProps = {
   asyncStylesheets: [],
   resourceHints: [],
   htmlAttributes: {},
-  bodyAttributes: {}
+  bodyAttributes: {
+    dataO3Brand: 'core'
+  }
 }
 
 export { Shell }

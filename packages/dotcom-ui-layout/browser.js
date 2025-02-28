@@ -1,6 +1,5 @@
 import * as footer from '@financial-times/dotcom-ui-footer/browser'
 import * as header from '@financial-times/dotcom-ui-header/browser'
-import * as baseStyles from '@financial-times/dotcom-ui-base-styles/browser'
 // Polyfill for :focus-visible https://github.com/WICG/focus-visible
 // NOTE: v5 of this polyfill is not yet supported by o-normalise
 // https://github.com/WICG/focus-visible/pull/196/files
@@ -8,7 +7,6 @@ import * as baseStyles from '@financial-times/dotcom-ui-base-styles/browser'
 import 'focus-visible'
 
 export function init({ headerOptions = {}, footerOptions = {} } = {}) {
-  baseStyles.init()
   header.init(headerOptions)
   footer.init(footerOptions)
 }

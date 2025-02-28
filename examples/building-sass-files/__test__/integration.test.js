@@ -13,7 +13,7 @@ describe('examples/building-sass-files', () => {
   describe('Sass', () => {
     it('can load partials from packages installed with npm', () => {
       // Styles should be defined by the o-normalise package
-      expect(outputContents).toContain('.o-normalise-visually-hidden')
+      expect(outputContents).toContain('.o3-visually-hidden')
     })
     it('can prepend data to the output', () => {
       expect(outputContents).toContain('.prepended-flag-exists')

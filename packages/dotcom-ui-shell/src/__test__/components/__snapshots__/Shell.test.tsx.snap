@@ -2,13 +2,12 @@
 
 exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the enableGTM flag is on 1`] = `
 <html
-  className="no-js core o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold"
-  data-o-component="o-typography"
+  className="no-js core"
   lang="en-GB"
   style={
     Object {
-      "backgroundColor": "#fff1e5",
-      "color": "#33302e",
+      "backgroundColor": "var(--o3-color-use-case-page-background, #fff1e5)",
+      "color": "var(--o3-color-use-case-body-text, #33302e)",
       "overflowX": "hidden",
     }
   }
@@ -102,28 +101,14 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
     <link
       as="font"
       crossOrigin="anonymous"
-      href="https://www.ft.com/__origami/service/build/v3/font?font_format=woff2&font_name=MetricWeb-Regular&system_code=page-kit&version=1.12"
+      href="https://www.ft.com/__origami/service/build/v3/font?version=1.13&font_name=Metric2-VF&system_code=origami&font_format=woff2"
       rel="preload"
       type="font/woff2"
     />
     <link
       as="font"
       crossOrigin="anonymous"
-      href="https://www.ft.com/__origami/service/build/v3/font?font_format=woff2&font_name=MetricWeb-Semibold&system_code=page-kit&version=1.12"
-      rel="preload"
-      type="font/woff2"
-    />
-    <link
-      as="font"
-      crossOrigin="anonymous"
-      href="https://www.ft.com/__origami/service/build/v3/font?font_format=woff2&font_name=FinancierDisplayWeb-Regular&system_code=page-kit&version=1.12"
-      rel="preload"
-      type="font/woff2"
-    />
-    <link
-      as="font"
-      crossOrigin="anonymous"
-      href="https://www.ft.com/__origami/service/build/v3/font?font_format=woff2&font_name=FinancierDisplayWeb-Bold&system_code=page-kit&version=1.12"
+      href="https://www.ft.com/__origami/service/build/v3/font?version=1.13&font_name=FinancierDisplay-VF&system_code=origami&font_format=woff2"
       rel="preload"
       type="font/woff2"
     />
@@ -262,23 +247,10 @@ exports[`dotcom-ui-shell/src/components/Shell renders the GTM script when the en
         }
       }
     />
-    <script
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "(function loadCustomFonts() {
-  var rootElement = document.documentElement;
-  if (/(^|\\\\s)o-typography-fonts-loaded=1(;|$)/.test(document.cookie)) {
-    var fontLabels = ['sans', 'sans-bold', 'display', 'display-bold'];
-    for (var i = 0; i < fontLabels.length; i++) {
-      rootElement.className = rootElement.className.replace('o-typography--loading-' + fontLabels[i], '');
-    }
-  }
-}());",
-        }
-      }
-    />
   </head>
-  <body>
+  <body
+    data-o3-brand="core"
+  >
     <noscript>
       <iframe
         height="0"

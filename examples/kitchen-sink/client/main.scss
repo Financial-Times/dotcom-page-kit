@@ -1,12 +1,12 @@
-@import '@financial-times/o-typography/main';
-
-.hello {
-  @include oTypographySans($scale: 7);
-}
+@import '@financial-times/o3-foundation/css/core.css';
 
 @media (min-width: 76.25em){
   .content {
-    @include oTypographySans($scale: 3);
+    
+    line-height: var(--o3-type-body-lg-line-height);
+    font-size: var(--o3-type-body-lg-font-size);
+    font-family: var(--o3-type-body-lg-font-family);
+    font-weight: var(--o3-type-body-lg-font-weight);
     max-width: 1220px;
     margin: auto;
     h3, p {

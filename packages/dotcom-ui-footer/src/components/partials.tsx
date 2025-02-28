@@ -56,7 +56,7 @@ type TFooterContentsProps = {
 
 const FooterContents = ({ footerData }: TFooterContentsProps) => (
   <div className="o-footer__row">
-    <h2 className="o-normalise-visually-hidden">Useful links</h2>
+    <h2 className="o3-visually-hidden">Useful links</h2>
     <nav className="o-footer__matrix" role="navigation" aria-label="Useful links">
       {footerData.map((item, index) => {
         // The Next navigation API splits footer links data into "columns"

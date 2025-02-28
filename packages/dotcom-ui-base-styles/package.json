@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "",
   "main": "component.js",
-  "browser": "browser.js",
   "types": "dist/node/index.d.ts",
   "styles": "styles.scss",
   "scripts": {
@@ -20,11 +19,8 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "devDependencies": {
-    "@financial-times/o-typography": "^7.2.0"
-  },
   "peerDependencies": {
-    "@financial-times/o-typography": "^7.2.0",
+    "@financial-times/o-grid": "^6.1.8",
     "@financial-times/o3-foundation": "^3.0.0",
     "react": "17.x || 18.x"
   },
