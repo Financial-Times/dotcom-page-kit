@@ -3,6 +3,7 @@ import { THeaderProps, THeaderVariant } from '../../interfaces'
 import BrandFtMastheadSvg from '../svg-components/BrandFtMasthead'
 import { TNavMenuItem } from '@financial-times/dotcom-types-navigation'
 import { AskFtButton } from '../ask-ft/askFtButton'
+import { DropdownMenu } from '../dropdown-menu/dropDownMenu'
 
 const HeaderWrapper = (props) => (
   <header
@@ -118,9 +119,19 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
           className="o-header__top-button--hide-m"
         />
       )}
-      {signInAction && <MyAccountLink item={signInAction} signedIn={true} variant={props.variant} />}
+      {signInAction && <MenuButton signInAction={signInAction} variant={props.variant} />}
     </div>
   )
+}
+
+const MenuButton = (signInAction, variant) => {
+  const ftProMenuFlag = true
+ 
+  if (ftProMenuFlag) {
+    return <DropdownMenu />
+  } else {
+    return <MyAccountLink item={signInAction} signedIn={true} variant={variant} />
+  }
 }
 
 const SignInLink = ({

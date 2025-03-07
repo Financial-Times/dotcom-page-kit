@@ -12,7 +12,7 @@ import { h, render } from 'preact'
  * Initialise the header
  * @param { HeaderOptions } headerOptions
  */
-export const init = (headerOptions = {}) => {
+export const init = async (headerOptions = {}) => {
   const topicSearchElements = document.querySelectorAll(
     '.o-header [data-n-topic-search], .o-header__drawer [data-n-topic-search]'
   )
@@ -40,6 +40,14 @@ export const init = (headerOptions = {}) => {
       render(h(TypeAhead, {container: oheaderContainerParent, inputId: input.id}), typeaheadContainer)
     }
   })
+
+  const proDropdownButton = document?.querySelector('.o-header__professional-dropdown')
+  if (proDropdownButton) {
+    const getProDropdownLinks = await fetch('https://pro-navigation.ft.com/api/links')
+    // render a new version of the DropdownMenu with links retrieved by pro-navigation. That response
+    // will include things like: access to MPR, access to Advanced Sharing and link to Subscription
+    // Manager in case user is a licence admin. Icons should be updated according to the response as well.
+  }
 
   Header.init(headerOptions.rootElement)
 }
