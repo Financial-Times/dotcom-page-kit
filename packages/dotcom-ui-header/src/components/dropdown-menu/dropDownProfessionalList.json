@@ -1,0 +1,83 @@
+[
+    {
+        "id": "link-workspace",
+        "label": "Workspace",
+        "href": "https://workspace.ft.com/",
+        "icon": "dashboard",
+        "hasAccess": true,
+        "hasBottomLink": false,
+        "isProfessional": true
+    },
+    {
+        "id": "link-feed",
+        "label": "Feed",
+        "href": "https://www.ft.com/myft/following/",
+        "icon": "newspaper",
+        "hasAccess": true,
+        "hasBottomLink": false,
+        "isProfessional": false
+    },
+    {
+        "id": "link-mpr",
+        "label": "Monetary Policy Radar",
+        "href": "https://professional-monetary-policy-radar.ft.com/",
+        "icon": "radar",
+        "hasAccess": true,
+        "hasBottomLink": true,
+        "isProfessional": true
+    },
+    {
+        "id": "link-saved-articles",
+        "label": "Saved Articles",
+        "href": "https://www.ft.com/myft/saved-articles/",
+        "icon": "bookmark",
+        "hasAccess": true,
+        "hasBottomLink": false,
+        "isProfessional": false
+    },
+    {
+        "id": "link-highlights",
+        "label": "Highlights",
+        "href": "https://highlights-dashboard.ft.com/",
+        "icon": "highlight",
+        "hasAccess": true,
+        "hasBottomLink": false,
+        "isProfessional": true
+    },
+    {
+        "id": "link-advanced-sharing",
+        "label": "Advanced Sharing",
+        "href": "https://sharing-dashboard.ft.com/",
+        "icon": "share",
+        "hasAccess": true,
+        "hasBottomLink": true,
+        "isProfessional": true
+    },
+    {
+        "id": "link-newsletters",
+        "label": "Newsletters",
+        "href": "https://www.ft.com/newsletters",
+        "icon": "mail",
+        "hasAccess": true,
+        "hasBottomLink": false,
+        "isProfessional": false
+    },
+    {
+        "id": "link-account-settings",
+        "label": "Account Settings",
+        "href": "https://www.ft.com/myaccount/personal-details",
+        "icon": "settings",
+        "hasAccess": true,
+        "hasBottomLink": false,
+        "isProfessional": false
+    },
+    {
+        "id": "link-sign-out",
+        "label": "Sign Out",
+        "href": "https://www.ft.com/logout",
+        "icon": "exit",
+        "hasAccess": true,
+        "hasBottomLink": false,
+        "isProfessional": false
+    }
+]
