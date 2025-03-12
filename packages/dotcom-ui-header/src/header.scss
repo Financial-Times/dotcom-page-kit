@@ -25,7 +25,7 @@
   }
 }
 
-/* style for the css menu dropdown container */
+/* style for the css menu dropdown container with both button and box */
 .o-header__professional-dropdown {
   z-index: 11;
   text-align: left;
@@ -40,10 +40,9 @@
   pointer-events: none;
   visibility: hidden;
   transition: visibility 1s;
-  // opacity: 1;
-  // visibility: visible;
   right: 0px;
   margin-top: var(--o3-spacing-2xs);
+  background-color: #fff;
 }
 
 .o-header__professional-dropdown-title-wrapper {
@@ -71,7 +70,7 @@
   height: var(--o3-spacing-s);
   /* Set the icon colour, In this case match the
      current foreground text colour. */
-  background-color: white;
+  background-color: #fff;
   /* Mask the square with an Origami icon. */
   mask-repeat: no-repeat;
   mask-size: contain;
@@ -80,12 +79,18 @@
   opacity: 0;
 }
 
-.o-header__professional-dropdown-list-wrapper {
-  background-color: white;
+.o-header__professional-dropdown-list {
   border: 1px solid #D6D6D6;
   border-top: none;
   border-bottom-right-radius: var(--o3-spacing-5xs);
   border-bottom-left-radius: var(--o3-spacing-5xs);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.o-header__professional-dropdown-list-item {
+  list-style-type: none;
 }
 
 .o-header__professional-dropdown-list-item:hover {
@@ -112,6 +117,10 @@
   color: #000;
 }
 
+.o-header__professional-dropdown-list-divider {
+  border-bottom: 1px solid #D6D6D6;
+}
+
 /* style for the button */
 .o-header__professional-dropdown-button {
   color: white;
@@ -129,18 +138,6 @@
   pointer-events: none;
 }
 
-
-
-.o-header__professional-dropdown-content ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.o-header__professional-dropdown-content li {
-  list-style-type: none;
-}
-
 .o-header__professional-dropdown-list-icon {
   /* Create a square the size we want an icon */
   display: inline-block;
@@ -152,10 +149,6 @@
   /* Mask the square with an Origami icon. */
   mask-repeat: no-repeat;
   mask-size: contain;
-}
-
-.o-header__professional-dropdown-list-divider {
-  border-bottom: 1px solid #D6D6D6;
 }
 
 @each $icon-name in (dashboard, bookmark, lock, newspaper, radar, highlight, share, mail, settings, exit, cross) {
@@ -176,36 +169,6 @@
   font-family: var(--o3-font-family-metric);
 }
 
-
-@media(max-width: 779px) {
-  .o-header__professional-dropdown-content {
-    width: 0;
-    height: 0;
-    margin: 0;
-    background: white;
-    transition: visibility 1s;
-  }
-
-  .o-header__professional-dropdown-close-icon {
-    pointer-events: auto;
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .o-header__professional-dropdown-button:focus+.o-header__professional-dropdown-content {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: red;
-    transition: visibility 1s;
-  }
-}
-
 @media(min-width: 780px) {
   /* If :focus detected the dropdown menu is displayed by making it visible */
   .o-header__professional-dropdown-button:focus+.o-header__professional-dropdown-content,
@@ -214,5 +177,36 @@
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+  }
+}
+
+@media(max-width: 779px) {
+  .o-header__professional-dropdown-content {
+    width: 0;
+    height: 0;
+    margin: 0;
+    background: #fff;
+  }
+
+  .o-header__professional-dropdown-button:focus+.o-header__professional-dropdown-content,
+  .o-header__professional-dropdown-content:focus-within {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+  }
+
+  .o-header__professional-dropdown-close-icon {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .o-header__professional-dropdown-list {
+    border: none;
   }
 }

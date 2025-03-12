@@ -10,7 +10,7 @@ export const DropdownMenu: React.FC = () => {
         <span className="o-header__professional-dropdown-title">FT PROFESSIONAL ACCOUNT</span>
         <button className='o-header__professional-dropdown-close-icon cross-icon'/>
       </div>
-      <ul className="o-header__professional-dropdown-list-wrapper">
+      <ul className="o-header__professional-dropdown-list">
         {DROPDOWN_DEFAULT_LIST.map(link => (
           <li key={link.id} className={`o-header__professional-dropdown-list-item ${link.hasBottomLink && 'o-header__professional-dropdown-list-divider'}`} >
             <a className="o-header__professional-dropdown-list-item-link" href={link.href}>
