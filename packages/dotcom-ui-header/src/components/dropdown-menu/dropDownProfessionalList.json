@@ -5,7 +5,7 @@
         "href": "https://workspace.ft.com/",
         "icon": "dashboard",
         "hasAccess": true,
-        "hasBottomLink": false,
+        "hasBottomLine": false,
         "isProfessional": true
     },
     {
@@ -14,7 +14,7 @@
         "href": "https://www.ft.com/myft/following/",
         "icon": "newspaper",
         "hasAccess": true,
-        "hasBottomLink": false,
+        "hasBottomLine": false,
         "isProfessional": false
     },
     {
@@ -23,7 +23,7 @@
         "href": "https://professional-monetary-policy-radar.ft.com/",
         "icon": "radar",
         "hasAccess": true,
-        "hasBottomLink": true,
+        "hasBottomLine": true,
         "isProfessional": true
     },
     {
@@ -32,7 +32,7 @@
         "href": "https://www.ft.com/myft/saved-articles/",
         "icon": "bookmark",
         "hasAccess": true,
-        "hasBottomLink": false,
+        "hasBottomLine": false,
         "isProfessional": false
     },
     {
@@ -41,7 +41,7 @@
         "href": "https://highlights-dashboard.ft.com/",
         "icon": "highlight",
         "hasAccess": true,
-        "hasBottomLink": false,
+        "hasBottomLine": false,
         "isProfessional": true
     },
     {
@@ -50,7 +50,7 @@
         "href": "https://sharing-dashboard.ft.com/",
         "icon": "share",
         "hasAccess": true,
-        "hasBottomLink": true,
+        "hasBottomLine": true,
         "isProfessional": true
     },
     {
@@ -59,7 +59,7 @@
         "href": "https://www.ft.com/newsletters",
         "icon": "mail",
         "hasAccess": true,
-        "hasBottomLink": false,
+        "hasBottomLine": false,
         "isProfessional": false
     },
     {
@@ -68,7 +68,7 @@
         "href": "https://www.ft.com/myaccount/personal-details",
         "icon": "settings",
         "hasAccess": true,
-        "hasBottomLink": false,
+        "hasBottomLine": false,
         "isProfessional": false
     },
     {
@@ -77,7 +77,7 @@
         "href": "https://www.ft.com/logout",
         "icon": "exit",
         "hasAccess": true,
-        "hasBottomLink": false,
+        "hasBottomLine": false,
         "isProfessional": false
     }
 ]

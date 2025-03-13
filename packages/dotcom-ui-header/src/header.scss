@@ -25,33 +25,114 @@
   }
 }
 
-/* style for the css menu dropdown container with both button and box */
-.o-header__professional-dropdown {
-  z-index: 11;
-  text-align: left;
-  position: relative;
+
+// Start Dropdown styles
+$o-header__professional-dropdown-close-icon: ".o-header__professional-dropdown-icon.cross-icon";
+
+%icon-base {
+  /* Create a square the size we want an icon */
+  display: inline-block;
+  width: var(--o3-spacing-s);
+  height: var(--o3-spacing-s);
+  /* Set the icon colour, In this case match the current foreground text colour. */
+  background-color: currentColor;
+  /* Mask the square with an Origami icon. */
+  mask-repeat: no-repeat;
+  mask-size: contain;
 }
 
-/* style for the dropdown box */
-.o-header__professional-dropdown-content {
-  width: auto;
-  position: absolute;
+@mixin invisible {
   opacity: 0;
-  pointer-events: none;
   visibility: hidden;
-  transition: visibility 1s;
-  right: 0px;
-  margin-top: var(--o3-spacing-2xs);
-  background-color: #fff;
+}
+
+@mixin visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+@mixin delay-to-propagate-click-events {
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+@mixin disable-setting-focus {
+  pointer-events: none;
+}
+
+@mixin enable-setting-focus {
+  pointer-events: auto;
+}
+
+.o-header__professional-dropdown {
+  position: relative;
+  z-index: 11;
+}
+
+.o-header__professional-dropdown-button {
+  margin: 0;
+  padding: 0;
+  width: 64px;
+  height: 32px;
+  border-radius: 32px;
+  border: 2px solid var(--Pro-Fill, #262A33);
+  background: var(--Pro-Fill, linear-gradient(153deg, #262A33 54.99%, #434958 99.56%));
+
+  /* Needed for icon positioning */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .user-icon {
+    background-color: #C0EFD8;
+    mask-image: var(--o3-icon-user);
+  }
+
+  .chevron-icon {
+    background-color: #C0EFD8;
+    mask-image: var(--o3-icon-chevron-down);
+  }
+}
+
+.o-header__professional-dropdown:focus-within > .o-header__professional-dropdown-button{
+  @include disable-setting-focus;
+
+  .chevron-icon {
+    mask-image: var(--o3-icon-chevron-up);
+  }
+}
+
+/* Show dropdown when the button OR dropdown itself is focused */
+.o-header__professional-dropdown:focus-within > .o-header__professional-dropdown-content {
+  @include visible;
+  @include enable-setting-focus;
+}
+
+/* Hide dropdown by default */
+.o-header__professional-dropdown-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+
+  @include disable-setting-focus;
+  @include invisible;
+  @include delay-to-propagate-click-events;
+}
+
+/* Close the menu when clicking the close button */
+#{$o-header__professional-dropdown-close-icon}:focus {
+  // Applying visibility:none to the close icon will remove the focus from it and in turn deactivate the dropdown conent :foucus-within pseudo selector which will hide the dropdown.
+  @include invisible;
+  @include disable-setting-focus;
 }
 
 .o-header__professional-dropdown-title-wrapper {
-  padding: var(--o3-spacing-2xs) var(--o3-spacing-s);
-  background: var(--Pro-Fill, linear-gradient(153deg, #262A33 54.99%, #434958 99.56%));
-  border-top-right-radius: var(--o3-spacing-5xs);
-  border-top-left-radius: var(--o3-spacing-5xs);
   display: flex;
   justify-content: space-between;
+  padding: var(--o3-spacing-2xs) var(--o3-spacing-s);
+  background: var(--Pro-Fill, linear-gradient(153deg, #262A33 54.99%, #434958 99.56%));
 }
 
 .o-header__professional-dropdown-title {
@@ -63,57 +144,36 @@
   color: #C0EFD8;
 }
 
-.o-header__professional-dropdown-close-icon {
-  /* Create a square the size we want an icon */
-  display: inline-block;
-  width: var(--o3-spacing-s);
-  height: var(--o3-spacing-s);
-  /* Set the icon colour, In this case match the
-     current foreground text colour. */
-  background-color: #fff;
-  /* Mask the square with an Origami icon. */
-  mask-repeat: no-repeat;
-  mask-size: contain;
-  pointer-events: none;
-  visibility: hidden;
-  opacity: 0;
-}
-
 .o-header__professional-dropdown-list {
-  border: 1px solid #D6D6D6;
-  border-top: none;
-  border-bottom-right-radius: var(--o3-spacing-5xs);
-  border-bottom-left-radius: var(--o3-spacing-5xs);
   list-style: none;
   margin: 0;
   padding: 0;
+  border: 1px solid #D6D6D6;
+  border-top: none;
 }
 
 .o-header__professional-dropdown-list-item {
-  list-style-type: none;
-}
+  list-style: none;
 
-.o-header__professional-dropdown-list-item:hover {
-  background-color: #F5F5F5;
-}
+  &:hover {
+    background-color: #F5F5F5;
+  }
 
-.o-header__professional-dropdown-list-item:active {
-  background-color: #EAEAEA;
+  &:active {
+    background-color: #EAEAEA;
+  }
 }
 
 .o-header__professional-dropdown-list-item-link {
-  width: 100%;
-  height: 100%;
   display: flex;
   gap: var(--o3-spacing-4xs);
   align-items: center;
+  padding: var(--o3-spacing-2xs) var(--o3-spacing-2xs);
   text-decoration: none;
-  color: #000;
   font-size: var(--o3-font-size-metric2-1);
   line-height: var(--o3-font-lineheight-metric2-negative-1);
   font-weight: var(--o3-font-weight-regular);
   font-family: var(--o3-font-family-metric);
-  padding: var(--o3-spacing-2xs) var(--o3-spacing-2xs);
   color: #000;
 }
 
@@ -121,34 +181,12 @@
   border-bottom: 1px solid #D6D6D6;
 }
 
-/* style for the button */
-.o-header__professional-dropdown-button {
-  color: white;
-  padding: 5px 10px;
-  border: 1px solid #555;
-  border-radius: 3px;
-  background: #96305e;
-  background: -moz-linear-gradient(top, #96305e 0%, #822956 10%, #822956 90%, #751749 100%);
-  background: -webkit-linear-gradient(top, #96305e 0%, #822956 10%, #822956 90%, #751749 100%);
-  background: linear-gradient(to bottom, #96305e 0%, #822956 10%, #822956 90%, #751749 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#96305e', endColorstr='#751749', GradientType=0);
-}
+.o-header__professional-dropdown-icon {
+  @extend %icon-base;
 
-.o-header__professional-dropdown-button:focus {
-  pointer-events: none;
-}
-
-.o-header__professional-dropdown-list-icon {
-  /* Create a square the size we want an icon */
-  display: inline-block;
-  width: var(--o3-spacing-s);
-  height: var(--o3-spacing-s);
-  /* Set the icon colour, In this case match the
-     current foreground text colour. */
-  background-color: currentColor;
-  /* Mask the square with an Origami icon. */
-  mask-repeat: no-repeat;
-  mask-size: contain;
+  &.cross-icon {
+    background-color: #fff;
+  }
 }
 
 @each $icon-name in (dashboard, bookmark, lock, newspaper, radar, highlight, share, mail, settings, exit, cross) {
@@ -158,55 +196,31 @@
 }
 
 .o-header__professional-dropdown-list-pro-label {
-  padding: var(--o3-spacing-5xs) 10px;
-  border-radius: 2px;
-  color: var(--o3-color-palette-slate);
   align-items: center;
+  border-radius: 2px;
+  padding: var(--o3-spacing-5xs) 10px;
   background-color: var(--o3-color-use-case-link-underline-hover);
   font-size: var(--o3-font-size-metric2-negative-1);
-  line-height: var(--o3-font-lineheight-metric2-negative-1);
   font-weight: var(--o3-font-weight-regular);
   font-family: var(--o3-font-family-metric);
+  line-height: var(--o3-font-lineheight-metric2-negative-1);
+  color: var(--o3-color-palette-slate);
 }
 
 @media(min-width: 780px) {
-  /* If :focus detected the dropdown menu is displayed by making it visible */
-  .o-header__professional-dropdown-button:focus+.o-header__professional-dropdown-content,
-  .o-header__professional-dropdown-content:hover,
-  .o-header__professional-dropdown-content:focus-within {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-  }
-}
-
-@media(max-width: 779px) {
   .o-header__professional-dropdown-content {
-    width: 0;
-    height: 0;
-    margin: 0;
-    background: #fff;
+    position: absolute;
+    width: auto;
+    height: auto;
+    right: 0px;
+    top: unset;
+    left: unset;
+    margin-top: var(--o3-spacing-2xs);
+    border-radius: var(--o3-spacing-5xs);
+    overflow: hidden; // for the border-radius to work
   }
 
-  .o-header__professional-dropdown-button:focus+.o-header__professional-dropdown-content,
-  .o-header__professional-dropdown-content:focus-within {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-  }
-
-  .o-header__professional-dropdown-close-icon {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .o-header__professional-dropdown-list {
-    border: none;
+  #{$o-header__professional-dropdown-close-icon} {
+    display: none;
   }
 }
