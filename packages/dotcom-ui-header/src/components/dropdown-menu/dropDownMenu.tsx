@@ -20,7 +20,8 @@ export const DropdownMenu = ({
   }: DropdownMenuProps) => {
   return (
     <div className="o-header__professional-dropdown">
-      <button className="o-header__professional-dropdown-button">
+      {/* Tab index here is needed for making sure safari and ios browsers dropdown behavior works */}
+      <button tabIndex={0} className="o-header__professional-dropdown-button">
         <span className="o-header__professional-dropdown-icon user-icon" />
         <span className="o-header__professional-dropdown-icon chevron-icon" />
       </button>
@@ -28,7 +29,8 @@ export const DropdownMenu = ({
       <div className="o-header__professional-dropdown-content" tabIndex={-1}>
         <div className="o-header__professional-dropdown-title-wrapper">
           <span className="o-header__professional-dropdown-title">{headerTitle}</span>
-          <button className="o-header__professional-dropdown-icon cross-icon" />
+          {/* Tab index again needed for safari and ios browsers */}
+          <button tabIndex={0} className="o-header__professional-dropdown-icon cross-icon" />
         </div>
 
         <ul className="o-header__professional-dropdown-list">
