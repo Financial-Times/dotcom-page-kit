@@ -1,0 +1,203 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropdownMenu renders correctly 1`] = `
+<body>
+  <div>
+    <div
+      class="o-header__professional-dropdown"
+    >
+      <button
+        class="o-header__professional-dropdown-button"
+        data-trackable="dropdown-toggle"
+        tabindex="0"
+      >
+        <span
+          class="o-header__professional-dropdown-icon user-icon"
+        />
+        <span
+          class="o-header__professional-dropdown-icon chevron-icon"
+        />
+      </button>
+      <div
+        class="o-header__professional-dropdown-content"
+        data-id="dropdown-content"
+        data-o-tracking-view="true"
+        tabindex="-1"
+      >
+        <div
+          class="o-header__professional-dropdown-title-wrapper"
+        >
+          <span
+            class="o-header__professional-dropdown-title"
+          >
+            Test Title
+          </span>
+          <button
+            class="o-header__professional-dropdown-icon cross-icon"
+            tabindex="0"
+          />
+        </div>
+        <ul
+          class="o-header__professional-dropdown-list"
+        >
+          <li
+            class="o-header__professional-dropdown-list-item false"
+          >
+            <a
+              class="o-header__professional-dropdown-list-item-link"
+              href="https://workspace.ft.com/"
+            >
+              <span
+                class="o-header__professional-dropdown-icon dashboard-icon"
+              />
+              <span>
+                Workspace
+              </span>
+              <span
+                class="o-header__professional-dropdown-list-pro-label"
+              >
+                FT PROFESSIONAL
+              </span>
+            </a>
+          </li>
+          <li
+            class="o-header__professional-dropdown-list-item false"
+          >
+            <a
+              class="o-header__professional-dropdown-list-item-link"
+              href="https://www.ft.com/myft/following/"
+            >
+              <span
+                class="o-header__professional-dropdown-icon newspaper-icon"
+              />
+              <span>
+                Feed
+              </span>
+            </a>
+          </li>
+          <li
+            class="o-header__professional-dropdown-list-item o-header__professional-dropdown-list-divider"
+          >
+            <a
+              class="o-header__professional-dropdown-list-item-link"
+              href="https://professional-monetary-policy-radar.ft.com/"
+            >
+              <span
+                class="o-header__professional-dropdown-icon radar-icon"
+              />
+              <span>
+                Monetary Policy Radar
+              </span>
+              <span
+                class="o-header__professional-dropdown-list-pro-label"
+              >
+                FT PROFESSIONAL
+              </span>
+            </a>
+          </li>
+          <li
+            class="o-header__professional-dropdown-list-item false"
+          >
+            <a
+              class="o-header__professional-dropdown-list-item-link"
+              href="https://www.ft.com/myft/saved-articles/"
+            >
+              <span
+                class="o-header__professional-dropdown-icon bookmark-icon"
+              />
+              <span>
+                Saved Articles
+              </span>
+            </a>
+          </li>
+          <li
+            class="o-header__professional-dropdown-list-item false"
+          >
+            <a
+              class="o-header__professional-dropdown-list-item-link"
+              href="https://highlights-dashboard.ft.com/"
+            >
+              <span
+                class="o-header__professional-dropdown-icon highlight-icon"
+              />
+              <span>
+                Highlights
+              </span>
+              <span
+                class="o-header__professional-dropdown-list-pro-label"
+              >
+                FT PROFESSIONAL
+              </span>
+            </a>
+          </li>
+          <li
+            class="o-header__professional-dropdown-list-item o-header__professional-dropdown-list-divider"
+          >
+            <a
+              class="o-header__professional-dropdown-list-item-link"
+              href="https://sharing-dashboard.ft.com/"
+            >
+              <span
+                class="o-header__professional-dropdown-icon share-icon"
+              />
+              <span>
+                Advanced Sharing
+              </span>
+              <span
+                class="o-header__professional-dropdown-list-pro-label"
+              >
+                FT PROFESSIONAL
+              </span>
+            </a>
+          </li>
+          <li
+            class="o-header__professional-dropdown-list-item false"
+          >
+            <a
+              class="o-header__professional-dropdown-list-item-link"
+              href="https://www.ft.com/newsletters"
+            >
+              <span
+                class="o-header__professional-dropdown-icon mail-icon"
+              />
+              <span>
+                Newsletters
+              </span>
+            </a>
+          </li>
+          <li
+            class="o-header__professional-dropdown-list-item false"
+          >
+            <a
+              class="o-header__professional-dropdown-list-item-link"
+              href="https://www.ft.com/myaccount/personal-details"
+            >
+              <span
+                class="o-header__professional-dropdown-icon settings-icon"
+              />
+              <span>
+                Account Settings
+              </span>
+            </a>
+          </li>
+          <li
+            class="o-header__professional-dropdown-list-item false"
+          >
+            <a
+              class="o-header__professional-dropdown-list-item-link"
+              href="https://www.ft.com/logout"
+            >
+              <span
+                class="o-header__professional-dropdown-icon exit-icon"
+              />
+              <span>
+                Sign Out
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+`;

@@ -22,6 +22,7 @@ export const DropdownMenu = ({
     <nav className="o-header__professional-dropdown" aria-describedby="dropdown-title">
       {/* Tab index here is needed for making sure safari and ios browsers dropdown behavior works */}
       <button
+        data-trackable="dropdown-toggle"
         className="o-header__professional-dropdown-button"
         tabIndex={0}
         aria-label="Dropdown menu has opened on focus, press Tab to access links."
@@ -35,6 +36,8 @@ export const DropdownMenu = ({
         className="o-header__professional-dropdown-content"
         tabIndex={-1}
         id="dropdown-options"
+        data-id="dropdown-content"
+        data-o-tracking-view
       >
         <div className="o-header__professional-dropdown-title-wrapper">
           <span className="o-header__professional-dropdown-title" id="dropdown-title">{headerTitle}</span>
@@ -50,7 +53,7 @@ export const DropdownMenu = ({
           {listToDisplay.map(link => (
             <li key={link.id} className={`o-header__professional-dropdown-list-item ${link.hasBottomLine && 'o-header__professional-dropdown-list-divider'}`} >
               <a className="o-header__professional-dropdown-list-item-link" href={link.href}>
-                <span className={`o-header__professional-dropdown-icon ${link.hasAccess ? link.icon + '-icon' : 'lock-icon'}`} aria-hidden="true"  />
+                <span className={`o-header__professional-dropdown-icon ${link.hasAccess ? link.icon + '-icon' : 'lock-icon'}`} aria-hidden="true" />
                 <span>{link.label}</span>
                 {link.isProfessional && <span className="o-header__professional-dropdown-list-pro-label">FT PROFESSIONAL</span>}
               </a>

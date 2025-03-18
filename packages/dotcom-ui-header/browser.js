@@ -34,12 +34,14 @@ export const init = async (headerOptions = {}) => {
       const mobileDrawer = oheaderContainerParent?.parentElement
       element.appendChild(typeaheadContainer)
 
-      render(h(TypeAhead, {container: mobileDrawer, inputId: input.id}), typeaheadContainer)
+      render(h(TypeAhead, { container: mobileDrawer, inputId: input.id }), typeaheadContainer)
     } else {
       form.after(typeaheadContainer)
-      render(h(TypeAhead, {container: oheaderContainerParent, inputId: input.id}), typeaheadContainer)
+      render(h(TypeAhead, { container: oheaderContainerParent, inputId: input.id }), typeaheadContainer)
     }
   })
+
+  enhanceDropdownMenuForJs();
 
   const proDropdownButton = document?.querySelector('.o-header__professional-dropdown')
   if (proDropdownButton) {
@@ -50,6 +52,66 @@ export const init = async (headerOptions = {}) => {
   }
 
   Header.init(headerOptions.rootElement)
+}
+
+/**
+ * Enhance the dropdown menu for JS users. This will ensure we can
+ * perform the same actions as we do for non-JS users, however it enables
+ * more interactivity of the dropdown buttons and enable them to send 
+ * tracking events on click.
+ */
+const enhanceDropdownMenuForJs = () => {
+  console.log("enhancing2")
+   // Use querySelectorAll as there could be multiple dropdowns on the page
+  const dropdowns = document?.querySelectorAll('.o-header__professional-dropdown-container');
+ 
+  dropdowns.forEach(dropdownContainer => {
+    const dropdownButton = dropdownContainer.querySelector('.o-header__professional-dropdown-button');
+    const closeDropdownButton = dropdownContainer.querySelector('.cross-icon');
+
+    // For Non-JS users the pointer events on the dropdown button are
+    // disabled by default as it is the only way to enable the button
+    // to both open and close the dropdown. This will not be needed for JS
+    dropdownButton.style.pointerEvents = 'auto';
+    dropdownButton.addEventListener('click', () => {
+      // When the dropdown button has been clicked before and the dropdown is currently shown
+      // reset the button's active data attribute and blur the button (to remove focus and hide the dropdown)
+      if (dropdownButton.hasAttribute('data-dropdown-button-active')) {
+        dropdownButton.removeAttribute('data-dropdown-button-active')
+        // Unlike in no-js we want to have pointer events on the dropdown button
+        // in order to send tracking events on click. However, to close the dropdown
+        // we need to remove the focus from the button, so we blur it.
+        dropdownButton.blur();
+      } else {
+        // When the dropdown has just been clicked, 
+        // so we know the dropdown is actively getting shown now
+        dropdownButton.setAttribute('data-dropdown-button-active', 'true')
+      }
+    });
+
+
+    // For Non-JS MOBILE users the closing of the dropdown
+    // is handled by playing with the visibility and pointer events
+    // of the close button which enables to remove the focus so we can close the dropdown,
+    // this will not be needed for JS 
+    closeDropdownButton.style.visibility = 'visible';
+    closeDropdownButton.style.pointerEvents = 'auto';
+    // When the close button is clicked, reset the dropdown button so we can open the dropdown
+    // correctly next time we click the dropdown button. 
+    // Also blur the close dropdown button (the mobile close button) to close the dropdown
+    closeDropdownButton.addEventListener('click', () => {
+      dropdownButton.removeAttribute('data-dropdown-button-active')
+      closeDropdownButton.blur();
+    });
+
+    // When clicking outside the dropdown, reset the dropdown button by
+    // removing the data attribute from the dropdown button to enable the dropdown to be opened correctly again
+    document.addEventListener('click', (event) => {
+      if (!dropdownContainer.contains(event.target)) {
+        dropdownButton.removeAttribute('data-dropdown-button-active')
+      }
+    });
+  });
 }
 
 export { Header as OrigamiHeader }

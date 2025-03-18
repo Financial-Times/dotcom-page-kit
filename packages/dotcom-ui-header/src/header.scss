@@ -94,6 +94,9 @@ $o-header__professional-dropdown-close-icon: ".o-header__professional-dropdown-i
 }
 
 .o-header__professional-dropdown:focus-within > .o-header__professional-dropdown-button{
+  // This is needed for No-JS as we need to be able to close the dropdown
+  // when we click the dropdown button again
+  // This will remove the focus from the button and in turn deactivate the dropdown conent :foucus-within pseudo selector which will hide the dropdown. 
   @include disable-setting-focus;
 
   .chevron-icon {
@@ -101,17 +104,13 @@ $o-header__professional-dropdown-close-icon: ".o-header__professional-dropdown-i
   }
 }
 
-/* Show dropdown when the button OR dropdown itself is focused */
-.o-header__professional-dropdown:focus-within > .o-header__professional-dropdown-content {
-  @include visible;
-  @include enable-setting-focus;
-}
-
 /* Hide dropdown by default */
 .o-header__professional-dropdown-content {
   position: fixed;
-  top: 0;
-  left: 0;
+  // Move the dropdown off the viewport so the component view tracking
+  // doesn't trigger while the dropdown is still hidden
+  top: -100vh;
+  left: -100vw;
   width: 100%;
   height: 100%;
   background: #fff;
@@ -119,6 +118,16 @@ $o-header__professional-dropdown-close-icon: ".o-header__professional-dropdown-i
   @include disable-setting-focus;
   @include invisible;
   @include delay-to-propagate-click-events;
+}
+
+/* Show dropdown when the button OR dropdown itself is focused */
+.o-header__professional-dropdown:focus-within > .o-header__professional-dropdown-content {
+  @include visible;
+  // Ensure that clicking inside the dropdown does not close it
+  @include enable-setting-focus;
+  // Move into the viewport
+  top: 0;
+  left: 0;
 }
 
 /* Close the menu when clicking the close button */
@@ -209,15 +218,23 @@ $o-header__professional-dropdown-close-icon: ".o-header__professional-dropdown-i
 
 @media(min-width: 780px) {
   .o-header__professional-dropdown-content {
-    position: absolute;
     width: auto;
     height: auto;
-    right: 0px;
-    top: unset;
-    left: unset;
     margin-top: var(--o3-spacing-2xs);
     border-radius: var(--o3-spacing-5xs);
     overflow: hidden; // for the border-radius to work
+  }
+
+  .o-header__professional-dropdown:focus-within > .o-header__professional-dropdown-content {
+    @include visible;
+    // Ensure that clicking inside the dropdown does not close it
+    @include enable-setting-focus;
+    // Move into the viewport
+    position: absolute;
+    top: 0;
+    right: 0px;
+    top: unset;
+    left: unset;
   }
 
   #{$o-header__professional-dropdown-close-icon} {
