@@ -63,7 +63,7 @@ export const init = async (headerOptions = {}) => {
 const enhanceDropdownMenuForJs = () => {
   console.log("enhancing2")
    // Use querySelectorAll as there could be multiple dropdowns on the page
-  const dropdowns = document?.querySelectorAll('.o-header__professional-dropdown-container');
+  const dropdowns = document?.querySelectorAll('.o-header__professional-dropdown');
  
   dropdowns.forEach(dropdownContainer => {
     const dropdownButton = dropdownContainer.querySelector('.o-header__professional-dropdown-button');
