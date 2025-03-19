@@ -41,7 +41,8 @@ exports[`DropdownMenu renders correctly 1`] = `
           </span>
           <button
             aria-label="Close dropdown menu"
-            class="o-header__professional-dropdown-icon cross-icon"
+            class="o-header__professional-dropdown-close-button-mobile"
+            data-trackable="dropdown-close-mobile"
             tabindex="0"
           />
         </div>

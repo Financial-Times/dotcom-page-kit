@@ -1995,7 +1995,8 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                 </span>
                 <button
                   aria-label="Close dropdown menu"
-                  className="o-header__professional-dropdown-icon cross-icon"
+                  className="o-header__professional-dropdown-close-button-mobile"
+                  data-trackable="dropdown-close-mobile"
                   tabIndex={0}
                 />
               </div>
