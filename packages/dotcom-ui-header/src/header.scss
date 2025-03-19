@@ -25,10 +25,7 @@
   }
 }
 
-
 // Start Dropdown styles
-$o-header__professional-dropdown-close-icon: ".o-header__professional-dropdown-icon.cross-icon";
-
 %icon-base {
   /* Create a square the size we want an icon */
   display: inline-block;
@@ -132,13 +129,6 @@ $o-header__professional-dropdown-close-icon: ".o-header__professional-dropdown-i
   height: 100vh;
 }
 
-/* Close the menu when clicking the close button */
-#{$o-header__professional-dropdown-close-icon}:focus {
-  // Applying visibility:none to the close icon will remove the focus from it and in turn deactivate the dropdown conent :foucus-within pseudo selector which will hide the dropdown.
-  @include invisible;
-  @include disable-setting-focus;
-}
-
 .o-header__professional-dropdown-title-wrapper {
   display: flex;
   justify-content: space-between;
@@ -160,6 +150,8 @@ $o-header__professional-dropdown-close-icon: ".o-header__professional-dropdown-i
   list-style: none;
   margin: 0;
   padding: 0;
+  border-bottom-left-radius: var(--o3-spacing-5xs);
+  border-bottom-right-radius: var(--o3-spacing-5xs);
   border: 1px solid #D6D6D6;
   border-top: none;
 }
@@ -195,10 +187,6 @@ $o-header__professional-dropdown-close-icon: ".o-header__professional-dropdown-i
 
 .o-header__professional-dropdown-icon {
   @extend %icon-base;
-
-  &.cross-icon {
-    background-color: var(--o3-color-palette-white);
-  }
 }
 
 @each $icon-name in (dashboard, bookmark, lock, newspaper, radar, highlight, share, mail, settings, exit, cross) {
@@ -218,6 +206,19 @@ $o-header__professional-dropdown-close-icon: ".o-header__professional-dropdown-i
   font-family: var(--o3-type-label-font-family);
   text-transform: var(--o3-type-label-text-case);
   color: var(--o3-color-palette-slate);
+}
+
+.o-header__professional-dropdown-close-button-mobile{ 
+  @extend .o-header__professional-dropdown-icon;
+  @extend .cross-icon ;
+  background-color: var(--o3-color-palette-white);
+};
+
+/* Close the menu when clicking the close button */
+.o-header__professional-dropdown-close-button-mobile:focus {
+  // Applying visibility:none to the close icon will remove the focus from it and in turn deactivate the dropdown conent :foucus-within pseudo selector which will hide the dropdown.
+  @include invisible;
+  @include disable-setting-focus;
 }
 
 @media(min-width: 780px) {
@@ -243,7 +244,7 @@ $o-header__professional-dropdown-close-icon: ".o-header__professional-dropdown-i
     left: unset;
   }
 
-  #{$o-header__professional-dropdown-close-icon} {
+  .o-header__professional-dropdown-close-button-mobile {
     display: none;
   }
 }

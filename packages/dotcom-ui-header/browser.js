@@ -61,13 +61,12 @@ export const init = async (headerOptions = {}) => {
  * tracking events on click.
  */
 const enhanceDropdownMenuForJs = () => {
-  console.log("enhancing2")
    // Use querySelectorAll as there could be multiple dropdowns on the page
   const dropdowns = document?.querySelectorAll('.o-header__professional-dropdown');
  
   dropdowns.forEach(dropdownContainer => {
     const dropdownButton = dropdownContainer.querySelector('.o-header__professional-dropdown-button');
-    const closeDropdownButton = dropdownContainer.querySelector('.cross-icon');
+    const closeDropdownButton = dropdownContainer.querySelector('.o-header__professional-dropdown-close-button-mobile');
 
     // For Non-JS users the pointer events on the dropdown button are
     // disabled by default as it is the only way to enable the button

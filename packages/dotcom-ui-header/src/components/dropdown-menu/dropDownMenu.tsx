@@ -43,7 +43,8 @@ export const DropdownMenu = ({
           <span className="o-header__professional-dropdown-title" id="dropdown-title">{headerTitle}</span>
           {/* Tab index again needed for safari and ios browsers */}
           <button
-            className="o-header__professional-dropdown-icon cross-icon"
+            data-trackable="dropdown-close-mobile"
+            className="o-header__professional-dropdown-close-button-mobile"
             tabIndex={0}
             aria-label="Close dropdown menu"
           />
