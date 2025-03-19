@@ -3,18 +3,23 @@
 exports[`DropdownMenu renders correctly 1`] = `
 <body>
   <div>
-    <div
+    <nav
+      aria-describedby="dropdown-title"
       class="o-header__professional-dropdown"
     >
       <button
+        aria-controls="dropdown-options"
+        aria-label="Dropdown menu has opened on focus, press Tab to access links."
         class="o-header__professional-dropdown-button"
         data-trackable="dropdown-toggle"
         tabindex="0"
       >
         <span
+          aria-hidden="true"
           class="o-header__professional-dropdown-icon user-icon"
         />
         <span
+          aria-hidden="true"
           class="o-header__professional-dropdown-icon chevron-icon"
         />
       </button>
@@ -22,6 +27,7 @@ exports[`DropdownMenu renders correctly 1`] = `
         class="o-header__professional-dropdown-content"
         data-id="dropdown-content"
         data-o-tracking-view="true"
+        id="dropdown-options"
         tabindex="-1"
       >
         <div
@@ -29,10 +35,12 @@ exports[`DropdownMenu renders correctly 1`] = `
         >
           <span
             class="o-header__professional-dropdown-title"
+            id="dropdown-title"
           >
             Test Title
           </span>
           <button
+            aria-label="Close dropdown menu"
             class="o-header__professional-dropdown-icon cross-icon"
             tabindex="0"
           />
@@ -48,6 +56,7 @@ exports[`DropdownMenu renders correctly 1`] = `
               href="https://workspace.ft.com/"
             >
               <span
+                aria-hidden="true"
                 class="o-header__professional-dropdown-icon dashboard-icon"
               />
               <span>
@@ -68,6 +77,7 @@ exports[`DropdownMenu renders correctly 1`] = `
               href="https://www.ft.com/myft/following/"
             >
               <span
+                aria-hidden="true"
                 class="o-header__professional-dropdown-icon newspaper-icon"
               />
               <span>
@@ -83,6 +93,7 @@ exports[`DropdownMenu renders correctly 1`] = `
               href="https://professional-monetary-policy-radar.ft.com/"
             >
               <span
+                aria-hidden="true"
                 class="o-header__professional-dropdown-icon radar-icon"
               />
               <span>
@@ -103,6 +114,7 @@ exports[`DropdownMenu renders correctly 1`] = `
               href="https://www.ft.com/myft/saved-articles/"
             >
               <span
+                aria-hidden="true"
                 class="o-header__professional-dropdown-icon bookmark-icon"
               />
               <span>
@@ -118,6 +130,7 @@ exports[`DropdownMenu renders correctly 1`] = `
               href="https://highlights-dashboard.ft.com/"
             >
               <span
+                aria-hidden="true"
                 class="o-header__professional-dropdown-icon highlight-icon"
               />
               <span>
@@ -138,6 +151,7 @@ exports[`DropdownMenu renders correctly 1`] = `
               href="https://sharing-dashboard.ft.com/"
             >
               <span
+                aria-hidden="true"
                 class="o-header__professional-dropdown-icon share-icon"
               />
               <span>
@@ -158,6 +172,7 @@ exports[`DropdownMenu renders correctly 1`] = `
               href="https://www.ft.com/newsletters"
             >
               <span
+                aria-hidden="true"
                 class="o-header__professional-dropdown-icon mail-icon"
               />
               <span>
@@ -173,6 +188,7 @@ exports[`DropdownMenu renders correctly 1`] = `
               href="https://www.ft.com/myaccount/personal-details"
             >
               <span
+                aria-hidden="true"
                 class="o-header__professional-dropdown-icon settings-icon"
               />
               <span>
@@ -188,6 +204,7 @@ exports[`DropdownMenu renders correctly 1`] = `
               href="https://www.ft.com/logout"
             >
               <span
+                aria-hidden="true"
                 class="o-header__professional-dropdown-icon exit-icon"
               />
               <span>
@@ -197,7 +214,7 @@ exports[`DropdownMenu renders correctly 1`] = `
           </li>
         </ul>
       </div>
-    </div>
+    </nav>
   </div>
 </body>
 `;

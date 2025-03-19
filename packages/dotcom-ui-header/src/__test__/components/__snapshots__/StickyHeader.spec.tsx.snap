@@ -330,6 +330,528 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders ASK FT button 1`] 
 </header>
 `;
 
+exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown menu 1`] = `
+<header
+  aria-hidden="true"
+  className="o-header o-header--simple o-header--sticky o--if-js"
+  data-o-component="o-header"
+  data-o-header--sticky={true}
+>
+  <div
+    className="o-header__row o-header__top"
+    data-trackable="header-sticky"
+  >
+    <div
+      className="o-header__container"
+    >
+      <div
+        className="o-header__top-wrapper"
+      >
+        <div
+          className="o-header__top-column o-header__top-column--left"
+        >
+          <a
+            aria-controls="o-header-drawer"
+            className="o-header__top-icon-link o-header__top-icon-link--menu"
+            data-trackable="drawer-toggle"
+            href="#"
+            tabIndex={-1}
+          >
+            <span
+              className="o-header__top-link-label"
+            >
+              Menu
+            </span>
+          </a>
+          <a
+            aria-controls="o-header-search-sticky"
+            className="o-header__top-icon-link o-header__top-icon-link--search"
+            data-trackable="search-toggle"
+            href="#"
+            tabIndex={-1}
+          >
+            <span
+              className="o-header__top-link-label"
+            >
+              Search
+            </span>
+          </a>
+        </div>
+        <div
+          className="o-header__top-column o-header__top-column--center"
+        >
+          <div
+            className="o-header__top-takeover"
+          >
+            <div
+              className="o-header__nav"
+            >
+              <ul
+                className="o-header__nav-list o-header__nav-list--left"
+                data-trackable="primary-nav"
+              >
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="Home"
+                    href="/"
+                    tabIndex={-1}
+                  >
+                    Home
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="World"
+                    href="/world"
+                    tabIndex={-1}
+                  >
+                    World
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="UK"
+                    href="/world/uk"
+                    tabIndex={-1}
+                  >
+                    UK
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="Companies"
+                    href="/companies"
+                    tabIndex={-1}
+                  >
+                    Companies
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="Tech"
+                    href="/technology"
+                    tabIndex={-1}
+                  >
+                    Tech
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="Markets"
+                    href="/markets"
+                    tabIndex={-1}
+                  >
+                    Markets
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="Graphics"
+                    href="/graphics"
+                    tabIndex={-1}
+                  >
+                    Graphics
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="Opinion"
+                    href="/opinion"
+                    tabIndex={-1}
+                  >
+                    Opinion
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="Work & Careers"
+                    href="/work-careers"
+                    tabIndex={-1}
+                  >
+                    Work & Careers
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="Life & Arts"
+                    href="/life-arts"
+                    tabIndex={-1}
+                  >
+                    Life & Arts
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="HTSI"
+                    href="https://howtospendit.ft.com/"
+                    tabIndex={-1}
+                  >
+                    HTSI
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <a
+            className="o-header__top-logo o-header__hide--L"
+            data-trackable="logo"
+            href="/"
+            tabIndex={-1}
+            title="Go to Financial Times homepage"
+          >
+            <span
+              className="o-header__visually-hidden"
+            >
+              Financial Times
+            </span>
+          </a>
+        </div>
+        <div
+          className="o-header__top-column o-header__top-column--right"
+        >
+          <a
+            className="o-header__top-button o-header__top-button--hide-m"
+            data-trackable="Subscribe"
+            href="/products?segmentId=#"
+            role="button"
+            tabIndex={-1}
+          >
+            Subscribe
+          </a>
+          <nav
+            aria-describedby="dropdown-title"
+            className="o-header__professional-dropdown"
+          >
+            <button
+              aria-controls="dropdown-options"
+              aria-label="Dropdown menu has opened on focus, press Tab to access links."
+              className="o-header__professional-dropdown-button"
+              data-trackable="dropdown-toggle"
+              tabIndex={0}
+            >
+              <span
+                aria-hidden="true"
+                className="o-header__professional-dropdown-icon user-icon"
+              />
+              <span
+                aria-hidden="true"
+                className="o-header__professional-dropdown-icon chevron-icon"
+              />
+            </button>
+            <div
+              className="o-header__professional-dropdown-content"
+              data-id="dropdown-content"
+              data-o-tracking-view={true}
+              id="dropdown-options"
+              tabIndex={-1}
+            >
+              <div
+                className="o-header__professional-dropdown-title-wrapper"
+              >
+                <span
+                  className="o-header__professional-dropdown-title"
+                  id="dropdown-title"
+                >
+                  FT PROFESSIONAL ACCOUNT
+                </span>
+                <button
+                  aria-label="Close dropdown menu"
+                  className="o-header__professional-dropdown-icon cross-icon"
+                  tabIndex={0}
+                />
+              </div>
+              <ul
+                className="o-header__professional-dropdown-list"
+              >
+                <li
+                  className="o-header__professional-dropdown-list-item false"
+                >
+                  <a
+                    className="o-header__professional-dropdown-list-item-link"
+                    href="https://workspace.ft.com/"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="o-header__professional-dropdown-icon dashboard-icon"
+                    />
+                    <span>
+                      Workspace
+                    </span>
+                    <span
+                      className="o-header__professional-dropdown-list-pro-label"
+                    >
+                      FT PROFESSIONAL
+                    </span>
+                  </a>
+                </li>
+                <li
+                  className="o-header__professional-dropdown-list-item false"
+                >
+                  <a
+                    className="o-header__professional-dropdown-list-item-link"
+                    href="https://www.ft.com/myft/following/"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="o-header__professional-dropdown-icon newspaper-icon"
+                    />
+                    <span>
+                      Feed
+                    </span>
+                  </a>
+                </li>
+                <li
+                  className="o-header__professional-dropdown-list-item o-header__professional-dropdown-list-divider"
+                >
+                  <a
+                    className="o-header__professional-dropdown-list-item-link"
+                    href="https://professional-monetary-policy-radar.ft.com/"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="o-header__professional-dropdown-icon radar-icon"
+                    />
+                    <span>
+                      Monetary Policy Radar
+                    </span>
+                    <span
+                      className="o-header__professional-dropdown-list-pro-label"
+                    >
+                      FT PROFESSIONAL
+                    </span>
+                  </a>
+                </li>
+                <li
+                  className="o-header__professional-dropdown-list-item false"
+                >
+                  <a
+                    className="o-header__professional-dropdown-list-item-link"
+                    href="https://www.ft.com/myft/saved-articles/"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="o-header__professional-dropdown-icon bookmark-icon"
+                    />
+                    <span>
+                      Saved Articles
+                    </span>
+                  </a>
+                </li>
+                <li
+                  className="o-header__professional-dropdown-list-item false"
+                >
+                  <a
+                    className="o-header__professional-dropdown-list-item-link"
+                    href="https://highlights-dashboard.ft.com/"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="o-header__professional-dropdown-icon highlight-icon"
+                    />
+                    <span>
+                      Highlights
+                    </span>
+                    <span
+                      className="o-header__professional-dropdown-list-pro-label"
+                    >
+                      FT PROFESSIONAL
+                    </span>
+                  </a>
+                </li>
+                <li
+                  className="o-header__professional-dropdown-list-item o-header__professional-dropdown-list-divider"
+                >
+                  <a
+                    className="o-header__professional-dropdown-list-item-link"
+                    href="https://sharing-dashboard.ft.com/"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="o-header__professional-dropdown-icon share-icon"
+                    />
+                    <span>
+                      Advanced Sharing
+                    </span>
+                    <span
+                      className="o-header__professional-dropdown-list-pro-label"
+                    >
+                      FT PROFESSIONAL
+                    </span>
+                  </a>
+                </li>
+                <li
+                  className="o-header__professional-dropdown-list-item false"
+                >
+                  <a
+                    className="o-header__professional-dropdown-list-item-link"
+                    href="https://www.ft.com/newsletters"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="o-header__professional-dropdown-icon mail-icon"
+                    />
+                    <span>
+                      Newsletters
+                    </span>
+                  </a>
+                </li>
+                <li
+                  className="o-header__professional-dropdown-list-item false"
+                >
+                  <a
+                    className="o-header__professional-dropdown-list-item-link"
+                    href="https://www.ft.com/myaccount/personal-details"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="o-header__professional-dropdown-icon settings-icon"
+                    />
+                    <span>
+                      Account Settings
+                    </span>
+                  </a>
+                </li>
+                <li
+                  className="o-header__professional-dropdown-list-item false"
+                >
+                  <a
+                    className="o-header__professional-dropdown-list-item-link"
+                    href="https://www.ft.com/logout"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="o-header__professional-dropdown-icon exit-icon"
+                    />
+                    <span>
+                      Sign Out
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="o-header__row o-header__search o-header__search--sticky"
+    data-o-header-search={true}
+    data-trackable="header-search"
+    id="o-header-search-sticky"
+  >
+    <div
+      className="o-header__container"
+    >
+      <form
+        action="/search"
+        aria-label="Site search"
+        className="o-header__search-form"
+        data-n-topic-search={true}
+        role="search"
+      >
+        <label
+          className="o-header__search-term o-forms-field o-forms-field--optional"
+          htmlFor="o-header-search-term-sticky"
+        >
+          <span
+            className="o-forms-title o-header__visually-hidden"
+          >
+            <span
+              className="o-forms-title__main"
+            >
+              Search the 
+              <abbr
+                title="Financial Times"
+              >
+                FT
+              </abbr>
+            </span>
+          </span>
+          <span
+            className="o-forms-input o-forms-input--text o-forms-input--suffix"
+          >
+            <input
+              aria-controls="suggestions-o-header-search-term-sticky"
+              autoCapitalize="off"
+              autoComplete="off"
+              autoCorrect="off"
+              id="o-header-search-term-sticky"
+              name="q"
+              placeholder="Search for stories, topics or securities"
+              role="combobox"
+              spellCheck={false}
+              type="search"
+            />
+            <button
+              className="o-header__search-submit"
+              type="submit"
+            >
+              <span
+                aria-hidden="true"
+                className="o-header__search-icon"
+              />
+              <span>
+                Search
+              </span>
+            </button>
+            <button
+              aria-controls="o-header-search-sticky"
+              className="o-header__search-close o--if-js"
+              data-trackable="close"
+              title="Close search bar"
+              type="button"
+            >
+              <span
+                className="o-header__visually-hidden"
+              >
+                Close search bar
+              </span>
+              <span>
+                Close
+              </span>
+            </button>
+          </span>
+        </label>
+      </form>
+    </div>
+  </div>
+</header>
+`;
+
 exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in user 1`] = `
 <header
   aria-hidden="true"

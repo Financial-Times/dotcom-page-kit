@@ -119,15 +119,13 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
           className="o-header__top-button--hide-m"
         />
       )}
-      {signInAction && <MenuButton signInAction={signInAction} variant={props.variant} />}
+      {signInAction && <MenuButton showProDropdown={props.showProDropdown} signInAction={signInAction} variant={props.variant} />}
     </div>
   )
 }
 
-const MenuButton = (signInAction, variant) => {
-  const ftProMenuFlag = true
- 
-  if (ftProMenuFlag) {
+const MenuButton = ({showProDropdown, signInAction, variant}) => { 
+  if (showProDropdown) {
     return <DropdownMenu />
   } else {
     return <MyAccountLink item={signInAction} signedIn={true} variant={variant} />

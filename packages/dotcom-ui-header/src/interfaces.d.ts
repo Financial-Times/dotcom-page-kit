@@ -11,6 +11,7 @@ export type THeaderOptions = {
   showMegaNav?: boolean
   showLogoLink?: boolean
   showAskButton?: boolean
+  showProDropdown?: boolean
 }
 
 export type THeaderProps = THeaderOptions & {
