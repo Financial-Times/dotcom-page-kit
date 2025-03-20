@@ -156,6 +156,8 @@
   border-bottom-right-radius: var(--o3-spacing-5xs);
   border: 1px solid #D6D6D6;
   border-top: none;
+  max-height: 100%;
+  overflow-y: scroll;
 }
 
 .o-header__professional-dropdown-list-item {
@@ -307,5 +309,9 @@
 
   .o-header__professional-dropdown-close-button-mobile {
     display: none;
+  }
+
+  .o-header__professional-dropdown-list {
+    max-height: 540px;
   }
 }
