@@ -54,8 +54,10 @@ export const DropdownMenu = ({
           {listToDisplay.map(link => (
             <li key={link.id} className={`o-header__professional-dropdown-list-item ${link.hasBottomLine && 'o-header__professional-dropdown-list-divider'}`} >
               <a className="o-header__professional-dropdown-list-item-link" href={link.href}>
-                <span className={`o-header__professional-dropdown-icon ${link.hasAccess ? link.icon + '-icon' : 'lock-icon'}`} aria-hidden="true" />
-                <span>{link.label}</span>
+                <div className="o-header__professional-dropdown-list-item-details-container">
+                  <span className={`o-header__professional-dropdown-icon ${link.hasAccess ? link.icon + '-icon' : 'lock-icon'}`} aria-hidden="true" />
+                  <span>{link.label}</span>
+                </div>
                 {link.isProfessional && <span className="o-header__professional-dropdown-list-pro-label">FT PROFESSIONAL</span>}
               </a>
             </li>

@@ -12,7 +12,7 @@
         "id": "link-feed",
         "label": "Feed",
         "href": "https://www.ft.com/myft/following/",
-        "icon": "newspaper",
+        "icon": "list",
         "hasAccess": true,
         "hasBottomLine": false,
         "isProfessional": false
@@ -28,7 +28,7 @@
     },
     {
         "id": "link-saved-articles",
-        "label": "Saved Articles",
+        "label": "Saved articles",
         "href": "https://www.ft.com/myft/saved-articles/",
         "icon": "bookmark",
         "hasAccess": true,
@@ -64,7 +64,7 @@
     },
     {
         "id": "link-account-settings",
-        "label": "Account Settings",
+        "label": "Account settings",
         "href": "https://www.ft.com/myaccount/personal-details",
         "icon": "settings",
         "hasAccess": true,
@@ -73,7 +73,7 @@
     },
     {
         "id": "link-sign-out",
-        "label": "Sign Out",
+        "label": "Sign out",
         "href": "https://www.ft.com/logout",
         "icon": "exit",
         "hasAccess": true,

@@ -90,7 +90,7 @@
   }
 }
 
-.o-header__professional-dropdown:focus-within > .o-header__professional-dropdown-button{
+.o-header__professional-dropdown:focus-within>.o-header__professional-dropdown-button {
   // This is needed for No-JS as we need to be able to close the dropdown
   // when we click the dropdown button again
   // This will remove the focus from the button and in turn deactivate the dropdown conent :foucus-within pseudo selector which will hide the dropdown. 
@@ -107,10 +107,11 @@
   // Move the dropdown off the viewport so the component view tracking
   // doesn't trigger while the dropdown is still hidden
   top: -100vh;
-  left: -100vw;
+  left: 100vw;
+  /* Start offscreen */
   width: 0;
   height: 0;
-  background: #fff;
+  background: var(--o3-color-palette-white);
 
   @include disable-setting-focus;
   @include invisible;
@@ -118,11 +119,12 @@
 }
 
 /* Show dropdown when the button OR dropdown itself is focused */
-.o-header__professional-dropdown:focus-within > .o-header__professional-dropdown-content {
+.o-header__professional-dropdown:focus-within>.o-header__professional-dropdown-content {
   @include visible;
   // Ensure that clicking inside the dropdown does not close it
   @include enable-setting-focus;
-  // Move into the viewport
+  // Move into the viewport (the horizontal position is handled separately
+  // for desktop and mobile, where for mobile it is done by using animations)
   top: 0;
   left: 0;
   width: 100vw;
@@ -179,6 +181,17 @@
   font-weight: var(--o3-type-body-base-font-weight);
   font-family: var(--o3-type-body-base-font-family);
   color: var(--o3-color-palette-black);
+
+  &:hover {
+    color: var(--o3-color-palette-black);
+  }
+
+  ;
+}
+
+.o-header__professional-dropdown-list-item-details-container {
+  display: flex;
+  gap: var(--o3-spacing-2xs);
 }
 
 .o-header__professional-dropdown-list-divider {
@@ -189,7 +202,7 @@
   @extend %icon-base;
 }
 
-@each $icon-name in (dashboard, bookmark, lock, newspaper, radar, highlight, share, mail, settings, exit, cross) {
+@each $icon-name in (dashboard, bookmark, lock, list, radar, highlight, share, mail, settings, exit, cross) {
   .#{$icon-name}-icon {
     mask-image: var(--o3-icon-#{$icon-name});
   }
@@ -208,11 +221,13 @@
   color: var(--o3-color-palette-slate);
 }
 
-.o-header__professional-dropdown-close-button-mobile{ 
+.o-header__professional-dropdown-close-button-mobile {
   @extend .o-header__professional-dropdown-icon;
-  @extend .cross-icon ;
+  @extend .cross-icon;
   background-color: var(--o3-color-palette-white);
-};
+}
+
+;
 
 /* Close the menu when clicking the close button */
 .o-header__professional-dropdown-close-button-mobile:focus {
@@ -221,22 +236,68 @@
   @include disable-setting-focus;
 }
 
+@media(max-width: 780px) {
+
+  // Animations for sliding the dropdown in and out
+  // on mobile devices
+  @keyframes slideIn {
+    0% {
+      left: 100vw;
+    }
+
+    100% {
+      left: 0;
+    }
+  }
+
+  @keyframes slideOut {
+    0% {
+      left: 0;
+    }
+
+    100% {
+      left: 100vw;
+    }
+  }
+
+  // Slide the dropdown in
+  .o-header__professional-dropdown:focus-within>.o-header__professional-dropdown-content {
+    animation: slideIn 0.5s ease-in-out forwards;
+    animation-duration: 0.5s !important;
+  }
+
+  // Slide the dropdown out
+  .o-header__professional-dropdown:not(:focus-within)>.o-header__professional-dropdown-content {
+    animation: slideOut 0.5s ease-in-out forwards;
+    animation-duration: 0.5s !important;
+
+    // Delay the actual removal of the dropdown from the viewport (and its visibility)
+    // Until the slide out animation is complete
+    transition: visibility 0s linear 0.5s, opacity 0s linear 0.5s, width 0s linear 0.5s, height 0s linear 0.5s, top 0s linear 0.5s;
+    /* Delay hiding to match animation duration */
+  }
+}
+
+;
+
 @media(min-width: 780px) {
   .o-header__professional-dropdown-content {
+    top: -100vh;
+    left: -100vw;
     width: auto;
     height: auto;
     margin-top: var(--o3-spacing-2xs);
     border-radius: var(--o3-spacing-5xs);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.05);
     overflow: hidden; // for the border-radius to work
   }
 
-  .o-header__professional-dropdown:focus-within > .o-header__professional-dropdown-content {
+  .o-header__professional-dropdown:focus-within>.o-header__professional-dropdown-content {
     @include visible;
     // Ensure that clicking inside the dropdown does not close it
     @include enable-setting-focus;
     // Move into the viewport
     position: absolute;
-    top: 0;
     right: 0px;
     width: auto;
     height: auto;
