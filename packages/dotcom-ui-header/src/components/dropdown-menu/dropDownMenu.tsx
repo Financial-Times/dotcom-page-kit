@@ -28,7 +28,9 @@ export const DropdownMenu = ({
         aria-label="Dropdown menu has opened on focus, press Tab to access links."
         aria-controls="dropdown-options"
       >
-        <span className="o-header__professional-dropdown-icon user-icon" aria-hidden="true" />
+        <div className="o-header__professional-dropdown-button-user-icon-wrapper">
+          <span className="o-header__professional-dropdown-icon user-icon" aria-hidden="true" />
+        </div>
         <span className="o-header__professional-dropdown-icon chevron-icon" aria-hidden="true" />
       </button>
 

@@ -66,27 +66,34 @@
 }
 
 .o-header__professional-dropdown-button {
-  margin: 0;
-  padding: 0;
-  width: 64px;
-  height: 32px;
-  border-radius: 32px;
-  border: 2px solid var(--Pro-Fill, #262A33);
-  background: var(--Pro-Fill, linear-gradient(153deg, #262A33 54.99%, #434958 99.56%));
-
-  /* Needed for icon positioning */
   display: flex;
+  height: var(--o3-spacing-l);
+  gap: var(--o3-spacing-4xs);
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
   align-items: center;
   justify-content: center;
 
-  .user-icon {
-    background-color: #C0EFD8;
-    mask-image: var(--o3-icon-user);
+  .o-header__professional-dropdown-button-user-icon-wrapper {
+    height: var(--o3-spacing-l);
+    width: var(--o3-spacing-l);
+    background: var(--Pro-Fill, linear-gradient(153deg, #262A33 54.99%, #434958 99.56%));
+    border-radius: var(--o3-spacing-m);
+    border: 2px solid var(--Pro-Fill, #262A33);
+    align-content: center;
+
+    .user-icon {
+      background-color: #C0EFD8;
+      mask-image: var(--o3-icon-user);
+    }
   }
 
   .chevron-icon {
-    background-color: #C0EFD8;
+    background-color: var(--o3-color-palette-black);
     mask-image: var(--o3-icon-chevron-down);
+    display: none;
   }
 }
 
@@ -239,7 +246,6 @@
 }
 
 @media(max-width: 780px) {
-
   // Animations for sliding the dropdown in and out
   // on mobile devices
   @keyframes slideIn {
@@ -283,6 +289,12 @@
 ;
 
 @media(min-width: 780px) {
+  .o-header__professional-dropdown-button {  
+    .chevron-icon {
+      display: block;
+    }
+  }
+
   .o-header__professional-dropdown-content {
     top: -100vh;
     left: -100vw;
