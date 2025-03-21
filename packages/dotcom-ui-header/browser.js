@@ -111,6 +111,28 @@ const enhanceDropdownMenuForJs = () => {
       }
     });
   });
+
+  // Observe when the sticky header becomes visible and when it hides
+  // and when it does we need to close the dropdown if it is open
+  // This is needed since there are two headers and each has a dropdown
+  // so we shouldn't be showing the sticky header's dropdown when the 
+  // sticky header is not visible, or show the regular header's dropdown
+  // when the sticky header is visible
+  const stickyHeader = document?.querySelector('.o-header--sticky');
+  const stickyHeaderObserver = new IntersectionObserver((changes) => {
+    for(let change of changes) {
+      if (document.documentElement.clientWidth >= 780 || (document.documentElement.clientWidth < 780 && !change.isIntersecting)) {
+        const closestDropdownParent = document.activeElement.closest('.o-header__professional-dropdown');
+        if (closestDropdownParent) {
+          const dropdownButton = closestDropdownParent.querySelector('.o-header__professional-dropdown-button');
+          dropdownButton.removeAttribute('data-dropdown-button-active');
+          document.activeElement.blur();
+        }
+      }
+    }
+  }, { threshold: [0.01] });
+
+  stickyHeaderObserver.observe(stickyHeader);
 }
 
 export { Header as OrigamiHeader }
