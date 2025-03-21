@@ -1,8 +1,7 @@
 import React from 'react'
-import DROPDOWN_DEFAULT_LIST from './dropDownProfessionalList.json';
 
 export interface DropdownMenuProps {
-  listToDisplay?: {
+  listToDisplay: {
     id: string,
     label: string,
     href: string,
@@ -11,12 +10,12 @@ export interface DropdownMenuProps {
     isProfessional: boolean,
     hasBottomLine: boolean
   }[];
-  headerTitle?: string;
+  headerTitle: string;
 }
 
 export const DropdownMenu = ({
-  listToDisplay = DROPDOWN_DEFAULT_LIST,
-  headerTitle = 'FT PROFESSIONAL ACCOUNT'
+  listToDisplay,
+  headerTitle
 }: DropdownMenuProps) => {
   return (
     <nav className="o-header__professional-dropdown" aria-describedby="dropdown-title">

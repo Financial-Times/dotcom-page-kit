@@ -4,6 +4,7 @@ import BrandFtMastheadSvg from '../svg-components/BrandFtMasthead'
 import { TNavMenuItem } from '@financial-times/dotcom-types-navigation'
 import { AskFtButton } from '../ask-ft/askFtButton'
 import { DropdownMenu } from '../dropdown-menu/dropDownMenu'
+import DROPDOWN_DEFAULT_LIST from '../dropdown-menu/dropDownProfessionalList.json';
 
 const HeaderWrapper = (props) => (
   <header
@@ -126,7 +127,7 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
 
 const MenuButton = ({showProDropdown, signInAction, variant}) => { 
   if (showProDropdown) {
-    return <DropdownMenu />
+    return <DropdownMenu listToDisplay={DROPDOWN_DEFAULT_LIST} headerTitle='FT PROFESSIONAL ACCOUNT'/>
   } else {
     return <MyAccountLink item={signInAction} signedIn={true} variant={variant} />
   }
