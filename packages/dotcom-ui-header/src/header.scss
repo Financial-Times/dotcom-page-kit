@@ -193,9 +193,12 @@
 
   &:hover {
     color: var(--o3-color-palette-black);
-  }
+  };
 
-  ;
+  &:hover > .o-header__professional-dropdown-list-item-details-container{
+    text-decoration: underline;
+    text-underline-offset: var(--o3-spacing-5xs);
+  }
 }
 
 .o-header__professional-dropdown-list-item-details-container {
