@@ -1968,10 +1968,14 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
               data-trackable="dropdown-toggle"
               tabIndex={0}
             >
-              <span
-                aria-hidden="true"
-                className="o-header__professional-dropdown-icon user-icon"
-              />
+              <div
+                className="o-header__professional-dropdown-button-user-icon-wrapper"
+              >
+                <span
+                  aria-hidden="true"
+                  className="o-header__professional-dropdown-icon user-icon"
+                />
+              </div>
               <span
                 aria-hidden="true"
                 className="o-header__professional-dropdown-icon chevron-icon"
@@ -2010,13 +2014,17 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                     className="o-header__professional-dropdown-list-item-link"
                     href="https://workspace.ft.com/"
                   >
-                    <span
-                      aria-hidden="true"
-                      className="o-header__professional-dropdown-icon dashboard-icon"
-                    />
-                    <span>
-                      Workspace
-                    </span>
+                    <div
+                      className="o-header__professional-dropdown-list-item-details-container"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="o-header__professional-dropdown-icon dashboard-icon"
+                      />
+                      <span>
+                        Workspace
+                      </span>
+                    </div>
                     <span
                       className="o-header__professional-dropdown-list-pro-label"
                     >
@@ -2031,13 +2039,17 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                     className="o-header__professional-dropdown-list-item-link"
                     href="https://www.ft.com/myft/following/"
                   >
-                    <span
-                      aria-hidden="true"
-                      className="o-header__professional-dropdown-icon newspaper-icon"
-                    />
-                    <span>
-                      Feed
-                    </span>
+                    <div
+                      className="o-header__professional-dropdown-list-item-details-container"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="o-header__professional-dropdown-icon list-icon"
+                      />
+                      <span>
+                        Feed
+                      </span>
+                    </div>
                   </a>
                 </li>
                 <li
@@ -2047,13 +2059,17 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                     className="o-header__professional-dropdown-list-item-link"
                     href="https://professional-monetary-policy-radar.ft.com/"
                   >
-                    <span
-                      aria-hidden="true"
-                      className="o-header__professional-dropdown-icon radar-icon"
-                    />
-                    <span>
-                      Monetary Policy Radar
-                    </span>
+                    <div
+                      className="o-header__professional-dropdown-list-item-details-container"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="o-header__professional-dropdown-icon radar-icon"
+                      />
+                      <span>
+                        Monetary Policy Radar
+                      </span>
+                    </div>
                     <span
                       className="o-header__professional-dropdown-list-pro-label"
                     >
@@ -2068,13 +2084,17 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                     className="o-header__professional-dropdown-list-item-link"
                     href="https://www.ft.com/myft/saved-articles/"
                   >
-                    <span
-                      aria-hidden="true"
-                      className="o-header__professional-dropdown-icon bookmark-icon"
-                    />
-                    <span>
-                      Saved Articles
-                    </span>
+                    <div
+                      className="o-header__professional-dropdown-list-item-details-container"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="o-header__professional-dropdown-icon bookmark-icon"
+                      />
+                      <span>
+                        Saved articles
+                      </span>
+                    </div>
                   </a>
                 </li>
                 <li
@@ -2084,13 +2104,17 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                     className="o-header__professional-dropdown-list-item-link"
                     href="https://highlights-dashboard.ft.com/"
                   >
-                    <span
-                      aria-hidden="true"
-                      className="o-header__professional-dropdown-icon highlight-icon"
-                    />
-                    <span>
-                      Highlights
-                    </span>
+                    <div
+                      className="o-header__professional-dropdown-list-item-details-container"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="o-header__professional-dropdown-icon highlight-icon"
+                      />
+                      <span>
+                        Highlights
+                      </span>
+                    </div>
                     <span
                       className="o-header__professional-dropdown-list-pro-label"
                     >
@@ -2105,13 +2129,17 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                     className="o-header__professional-dropdown-list-item-link"
                     href="https://sharing-dashboard.ft.com/"
                   >
-                    <span
-                      aria-hidden="true"
-                      className="o-header__professional-dropdown-icon share-icon"
-                    />
-                    <span>
-                      Advanced Sharing
-                    </span>
+                    <div
+                      className="o-header__professional-dropdown-list-item-details-container"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="o-header__professional-dropdown-icon share-icon"
+                      />
+                      <span>
+                        Advanced Sharing
+                      </span>
+                    </div>
                     <span
                       className="o-header__professional-dropdown-list-pro-label"
                     >
@@ -2126,13 +2154,17 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                     className="o-header__professional-dropdown-list-item-link"
                     href="https://www.ft.com/newsletters"
                   >
-                    <span
-                      aria-hidden="true"
-                      className="o-header__professional-dropdown-icon mail-icon"
-                    />
-                    <span>
-                      Newsletters
-                    </span>
+                    <div
+                      className="o-header__professional-dropdown-list-item-details-container"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="o-header__professional-dropdown-icon mail-icon"
+                      />
+                      <span>
+                        Newsletters
+                      </span>
+                    </div>
                   </a>
                 </li>
                 <li
@@ -2142,13 +2174,17 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                     className="o-header__professional-dropdown-list-item-link"
                     href="https://www.ft.com/myaccount/personal-details"
                   >
-                    <span
-                      aria-hidden="true"
-                      className="o-header__professional-dropdown-icon settings-icon"
-                    />
-                    <span>
-                      Account Settings
-                    </span>
+                    <div
+                      className="o-header__professional-dropdown-list-item-details-container"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="o-header__professional-dropdown-icon settings-icon"
+                      />
+                      <span>
+                        Account settings
+                      </span>
+                    </div>
                   </a>
                 </li>
                 <li
@@ -2158,13 +2194,17 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                     className="o-header__professional-dropdown-list-item-link"
                     href="https://www.ft.com/logout"
                   >
-                    <span
-                      aria-hidden="true"
-                      className="o-header__professional-dropdown-icon exit-icon"
-                    />
-                    <span>
-                      Sign Out
-                    </span>
+                    <div
+                      className="o-header__professional-dropdown-list-item-details-container"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="o-header__professional-dropdown-icon exit-icon"
+                      />
+                      <span>
+                        Sign out
+                      </span>
+                    </div>
                   </a>
                 </li>
               </ul>
