@@ -60,12 +60,12 @@
   pointer-events: auto;
 }
 
-.o-header__professional-dropdown {
+.o-header__dropdown {
   position: relative;
   z-index: 100;
 }
 
-.o-header__professional-dropdown-button {
+.o-header__dropdown-button {
   display: flex;
   height: var(--o3-spacing-l);
   gap: var(--o3-spacing-4xs);
@@ -76,7 +76,7 @@
   align-items: center;
   justify-content: center;
 
-  .o-header__professional-dropdown-button-user-icon-wrapper {
+  .o-header__dropdown-button-user-icon-wrapper {
     height: var(--o3-spacing-l);
     width: var(--o3-spacing-l);
     background: var(--Pro-Fill, linear-gradient(153deg, #262A33 54.99%, #434958 99.56%));
@@ -97,7 +97,7 @@
   }
 }
 
-.o-header__professional-dropdown:focus-within>.o-header__professional-dropdown-button {
+.o-header__dropdown:focus-within>.o-header__dropdown-button {
   // This is needed for No-JS as we need to be able to close the dropdown
   // when we click the dropdown button again
   // This will remove the focus from the button and in turn deactivate the dropdown conent :foucus-within pseudo selector which will hide the dropdown. 
@@ -109,7 +109,7 @@
 }
 
 /* Hide dropdown by default */
-.o-header__professional-dropdown-content {
+.o-header__dropdown-content {
   position: fixed;
   // Move the dropdown off the viewport so the component view tracking
   // doesn't trigger while the dropdown is still hidden
@@ -126,7 +126,7 @@
 }
 
 /* Show dropdown when the button OR dropdown itself is focused */
-.o-header__professional-dropdown:focus-within>.o-header__professional-dropdown-content {
+.o-header__dropdown:focus-within>.o-header__dropdown-content {
   @include visible;
   // Ensure that clicking inside the dropdown does not close it
   @include enable-setting-focus;
@@ -138,14 +138,14 @@
   height: 100vh;
 }
 
-.o-header__professional-dropdown-title-wrapper {
+.o-header__dropdown-title-wrapper {
   display: flex;
   justify-content: space-between;
   padding: var(--o3-spacing-2xs);
   background: var(--Pro-Fill, linear-gradient(153deg, #262A33 54.99%, #434958 99.56%));
 }
 
-.o-header__professional-dropdown-title {
+.o-header__dropdown-title {
   font-size: var(--o3-type-label-font-size);
   line-height: var(--o3-type-label-line-height);
   font-weight: var(--o3-type-label-font-weight);
@@ -155,7 +155,7 @@
   color: var(--o3-color-palette-mint);
 }
 
-.o-header__professional-dropdown-list {
+.o-header__dropdown-list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -167,7 +167,7 @@
   overscroll-behavior: none;
 }
 
-.o-header__professional-dropdown-list-item {
+.o-header__dropdown-list-item {
   list-style: none;
 
   &:hover {
@@ -179,7 +179,7 @@
   }
 }
 
-.o-header__professional-dropdown-list-item-link {
+.o-header__dropdown-list-item-link {
   display: flex;
   align-items: center;
   gap: var(--o3-spacing-4xs);
@@ -195,22 +195,22 @@
     color: var(--o3-color-palette-black);
   };
 
-  &:hover > .o-header__professional-dropdown-list-item-details-container{
+  &:hover > .o-header__dropdown-list-item-details-container{
     text-decoration: underline;
     text-underline-offset: var(--o3-spacing-5xs);
   }
 }
 
-.o-header__professional-dropdown-list-item-details-container {
+.o-header__dropdown-list-item-details-container {
   display: flex;
   gap: var(--o3-spacing-2xs);
 }
 
-.o-header__professional-dropdown-list-divider {
+.o-header__dropdown-list-divider {
   border-bottom: 1px solid #D6D6D6;
 }
 
-.o-header__professional-dropdown-icon {
+.o-header__dropdown-icon {
   @extend %icon-base;
 }
 
@@ -220,7 +220,7 @@
   }
 }
 
-.o-header__professional-dropdown-list-pro-label {
+.o-header__dropdown-list-pro-label {
   align-items: center;
   border-radius: 2px;
   padding: var(--o3-spacing-5xs) 10px;
@@ -233,8 +233,8 @@
   color: var(--o3-color-palette-slate);
 }
 
-.o-header__professional-dropdown-close-button-mobile {
-  @extend .o-header__professional-dropdown-icon;
+.o-header__dropdown-close-button-mobile {
+  @extend .o-header__dropdown-icon;
   @extend .cross-icon;
   background-color: var(--o3-color-palette-white);
 }
@@ -242,7 +242,7 @@
 ;
 
 /* Close the menu when clicking the close button */
-.o-header__professional-dropdown-close-button-mobile:focus {
+.o-header__dropdown-close-button-mobile:focus {
   // Applying visibility:none to the close icon will remove the focus from it and in turn deactivate the dropdown conent :foucus-within pseudo selector which will hide the dropdown.
   @include invisible;
   @include disable-setting-focus;
@@ -272,13 +272,13 @@
   }
 
   // Slide the dropdown in
-  .o-header__professional-dropdown:focus-within>.o-header__professional-dropdown-content {
+  .o-header__dropdown:focus-within>.o-header__dropdown-content {
     animation: slideIn 0.5s ease-in-out forwards;
     animation-duration: 0.5s !important;
   }
 
   // Slide the dropdown out
-  .o-header__professional-dropdown:not(:focus-within)>.o-header__professional-dropdown-content {
+  .o-header__dropdown:not(:focus-within)>.o-header__dropdown-content {
     animation: slideOut 0.5s ease-in-out forwards;
     animation-duration: 0.5s !important;
 
@@ -292,13 +292,13 @@
 ;
 
 @media(min-width: 780px) {
-  .o-header__professional-dropdown-button {  
+  .o-header__dropdown-button {  
     .chevron-icon {
       display: block;
     }
   }
 
-  .o-header__professional-dropdown-content {
+  .o-header__dropdown-content {
     top: -100vh;
     left: -100vw;
     width: auto;
@@ -309,7 +309,7 @@
     overflow: hidden; // for the border-radius to work
   }
 
-  .o-header__professional-dropdown:focus-within>.o-header__professional-dropdown-content {
+  .o-header__dropdown:focus-within>.o-header__dropdown-content {
     @include visible;
     // Ensure that clicking inside the dropdown does not close it
     @include enable-setting-focus;
@@ -322,11 +322,11 @@
     left: unset;
   }
 
-  .o-header__professional-dropdown-close-button-mobile {
+  .o-header__dropdown-close-button-mobile {
     display: none;
   }
 
-  .o-header__professional-dropdown-list {
+  .o-header__dropdown-list {
     max-height: 540px;
     border: 1px solid #D6D6D6;
     border-top: none;

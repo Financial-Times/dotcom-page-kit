@@ -1959,92 +1959,97 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
           </a>
           <nav
             aria-describedby="dropdown-title"
-            className="o-header__professional-dropdown"
+            className="o-header__dropdown"
           >
             <button
               aria-controls="dropdown-options"
               aria-label="Dropdown menu has opened on focus, press Tab to access links."
-              className="o-header__professional-dropdown-button"
-              data-trackable="dropdown-toggle"
+              className="o-header__dropdown-button"
+              data-trackable="pro_navigation_toggle_click"
+              data-trackable-context-pro_navigation_action="pro_navigation_toggle_click"
               tabIndex={0}
             >
               <div
-                className="o-header__professional-dropdown-button-user-icon-wrapper"
+                className="o-header__dropdown-button-user-icon-wrapper"
               >
                 <span
                   aria-hidden="true"
-                  className="o-header__professional-dropdown-icon user-icon"
+                  className="o-header__dropdown-icon user-icon"
                 />
               </div>
               <span
                 aria-hidden="true"
-                className="o-header__professional-dropdown-icon chevron-icon"
+                className="o-header__dropdown-icon chevron-icon"
               />
             </button>
             <div
-              className="o-header__professional-dropdown-content"
+              className="o-header__dropdown-content"
               data-id="dropdown-content"
-              data-o-tracking-view={true}
+              data-o-tracking-view="pro_navigation_component_view"
+              data-trackable-context-pro_navigation_action="pro_navigation_component_view"
               id="dropdown-options"
               tabIndex={-1}
             >
               <div
-                className="o-header__professional-dropdown-title-wrapper"
+                className="o-header__dropdown-title-wrapper"
               >
                 <span
-                  className="o-header__professional-dropdown-title"
+                  className="o-header__dropdown-title"
                   id="dropdown-title"
                 >
                   FT PROFESSIONAL ACCOUNT
                 </span>
                 <button
                   aria-label="Close dropdown menu"
-                  className="o-header__professional-dropdown-close-button-mobile"
-                  data-trackable="dropdown-close-mobile"
+                  className="o-header__dropdown-close-button-mobile"
                   tabIndex={0}
                 />
               </div>
               <ul
-                className="o-header__professional-dropdown-list"
+                className="o-header__dropdown-list"
               >
                 <li
-                  className="o-header__professional-dropdown-list-item false"
+                  className="o-header__dropdown-list-item false"
                 >
                   <a
-                    className="o-header__professional-dropdown-list-item-link"
+                    className="o-header__dropdown-list-item-link"
+                    data-trackable="pro_navigation_link-workspace_clicked"
+                    data-trackable-context-pro_navigation_action="pro_navigation_link-workspace_clicked"
                     href="https://workspace.ft.com/"
                   >
                     <div
-                      className="o-header__professional-dropdown-list-item-details-container"
+                      className="o-header__dropdown-list-item-details-container"
                     >
                       <span
                         aria-hidden="true"
-                        className="o-header__professional-dropdown-icon dashboard-icon"
+                        className="o-header__dropdown-icon dashboard-icon"
                       />
                       <span>
                         Workspace
                       </span>
                     </div>
                     <span
-                      className="o-header__professional-dropdown-list-pro-label"
+                      className="o-header__dropdown-list-pro-label"
                     >
                       FT PROFESSIONAL
                     </span>
                   </a>
                 </li>
                 <li
-                  className="o-header__professional-dropdown-list-item false"
+                  className="o-header__dropdown-list-item false"
                 >
                   <a
-                    className="o-header__professional-dropdown-list-item-link"
+                    className="o-header__dropdown-list-item-link"
+                    data-trackable="pro_navigation_link-feed_clicked"
+                    data-trackable-context-pro_navigation_action="pro_navigation_link-feed_clicked"
                     href="https://www.ft.com/myft/following/"
                   >
                     <div
-                      className="o-header__professional-dropdown-list-item-details-container"
+                      className="o-header__dropdown-list-item-details-container"
                     >
                       <span
                         aria-hidden="true"
-                        className="o-header__professional-dropdown-icon list-icon"
+                        className="o-header__dropdown-icon list-icon"
                       />
                       <span>
                         Feed
@@ -2053,43 +2058,47 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   </a>
                 </li>
                 <li
-                  className="o-header__professional-dropdown-list-item o-header__professional-dropdown-list-divider"
+                  className="o-header__dropdown-list-item o-header__dropdown-list-divider"
                 >
                   <a
-                    className="o-header__professional-dropdown-list-item-link"
+                    className="o-header__dropdown-list-item-link"
+                    data-trackable="pro_navigation_link-mpr_clicked"
+                    data-trackable-context-pro_navigation_action="pro_navigation_link-mpr_clicked"
                     href="https://professional-monetary-policy-radar.ft.com/"
                   >
                     <div
-                      className="o-header__professional-dropdown-list-item-details-container"
+                      className="o-header__dropdown-list-item-details-container"
                     >
                       <span
                         aria-hidden="true"
-                        className="o-header__professional-dropdown-icon radar-icon"
+                        className="o-header__dropdown-icon radar-icon"
                       />
                       <span>
                         Monetary Policy Radar
                       </span>
                     </div>
                     <span
-                      className="o-header__professional-dropdown-list-pro-label"
+                      className="o-header__dropdown-list-pro-label"
                     >
                       FT PROFESSIONAL
                     </span>
                   </a>
                 </li>
                 <li
-                  className="o-header__professional-dropdown-list-item false"
+                  className="o-header__dropdown-list-item false"
                 >
                   <a
-                    className="o-header__professional-dropdown-list-item-link"
+                    className="o-header__dropdown-list-item-link"
+                    data-trackable="pro_navigation_link-saved-articles_clicked"
+                    data-trackable-context-pro_navigation_action="pro_navigation_link-saved-articles_clicked"
                     href="https://www.ft.com/myft/saved-articles/"
                   >
                     <div
-                      className="o-header__professional-dropdown-list-item-details-container"
+                      className="o-header__dropdown-list-item-details-container"
                     >
                       <span
                         aria-hidden="true"
-                        className="o-header__professional-dropdown-icon bookmark-icon"
+                        className="o-header__dropdown-icon bookmark-icon"
                       />
                       <span>
                         Saved articles
@@ -2098,68 +2107,74 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   </a>
                 </li>
                 <li
-                  className="o-header__professional-dropdown-list-item false"
+                  className="o-header__dropdown-list-item false"
                 >
                   <a
-                    className="o-header__professional-dropdown-list-item-link"
+                    className="o-header__dropdown-list-item-link"
+                    data-trackable="pro_navigation_link-highlights_clicked"
+                    data-trackable-context-pro_navigation_action="pro_navigation_link-highlights_clicked"
                     href="https://highlights-dashboard.ft.com/"
                   >
                     <div
-                      className="o-header__professional-dropdown-list-item-details-container"
+                      className="o-header__dropdown-list-item-details-container"
                     >
                       <span
                         aria-hidden="true"
-                        className="o-header__professional-dropdown-icon highlight-icon"
+                        className="o-header__dropdown-icon highlight-icon"
                       />
                       <span>
                         Highlights
                       </span>
                     </div>
                     <span
-                      className="o-header__professional-dropdown-list-pro-label"
+                      className="o-header__dropdown-list-pro-label"
                     >
                       FT PROFESSIONAL
                     </span>
                   </a>
                 </li>
                 <li
-                  className="o-header__professional-dropdown-list-item o-header__professional-dropdown-list-divider"
+                  className="o-header__dropdown-list-item o-header__dropdown-list-divider"
                 >
                   <a
-                    className="o-header__professional-dropdown-list-item-link"
+                    className="o-header__dropdown-list-item-link"
+                    data-trackable="pro_navigation_link-advanced-sharing_clicked"
+                    data-trackable-context-pro_navigation_action="pro_navigation_link-advanced-sharing_clicked"
                     href="https://sharing-dashboard.ft.com/"
                   >
                     <div
-                      className="o-header__professional-dropdown-list-item-details-container"
+                      className="o-header__dropdown-list-item-details-container"
                     >
                       <span
                         aria-hidden="true"
-                        className="o-header__professional-dropdown-icon share-icon"
+                        className="o-header__dropdown-icon share-icon"
                       />
                       <span>
                         Advanced Sharing
                       </span>
                     </div>
                     <span
-                      className="o-header__professional-dropdown-list-pro-label"
+                      className="o-header__dropdown-list-pro-label"
                     >
                       FT PROFESSIONAL
                     </span>
                   </a>
                 </li>
                 <li
-                  className="o-header__professional-dropdown-list-item false"
+                  className="o-header__dropdown-list-item false"
                 >
                   <a
-                    className="o-header__professional-dropdown-list-item-link"
+                    className="o-header__dropdown-list-item-link"
+                    data-trackable="pro_navigation_link-newsletters_clicked"
+                    data-trackable-context-pro_navigation_action="pro_navigation_link-newsletters_clicked"
                     href="https://www.ft.com/newsletters"
                   >
                     <div
-                      className="o-header__professional-dropdown-list-item-details-container"
+                      className="o-header__dropdown-list-item-details-container"
                     >
                       <span
                         aria-hidden="true"
-                        className="o-header__professional-dropdown-icon mail-icon"
+                        className="o-header__dropdown-icon mail-icon"
                       />
                       <span>
                         Newsletters
@@ -2168,18 +2183,20 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   </a>
                 </li>
                 <li
-                  className="o-header__professional-dropdown-list-item false"
+                  className="o-header__dropdown-list-item false"
                 >
                   <a
-                    className="o-header__professional-dropdown-list-item-link"
+                    className="o-header__dropdown-list-item-link"
+                    data-trackable="pro_navigation_link-account-settings_clicked"
+                    data-trackable-context-pro_navigation_action="pro_navigation_link-account-settings_clicked"
                     href="https://www.ft.com/myaccount/personal-details"
                   >
                     <div
-                      className="o-header__professional-dropdown-list-item-details-container"
+                      className="o-header__dropdown-list-item-details-container"
                     >
                       <span
                         aria-hidden="true"
-                        className="o-header__professional-dropdown-icon settings-icon"
+                        className="o-header__dropdown-icon settings-icon"
                       />
                       <span>
                         Account settings
@@ -2188,18 +2205,20 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   </a>
                 </li>
                 <li
-                  className="o-header__professional-dropdown-list-item false"
+                  className="o-header__dropdown-list-item false"
                 >
                   <a
-                    className="o-header__professional-dropdown-list-item-link"
+                    className="o-header__dropdown-list-item-link"
+                    data-trackable="pro_navigation_link-sign-out_clicked"
+                    data-trackable-context-pro_navigation_action="pro_navigation_link-sign-out_clicked"
                     href="https://www.ft.com/logout"
                   >
                     <div
-                      className="o-header__professional-dropdown-list-item-details-container"
+                      className="o-header__dropdown-list-item-details-container"
                     >
                       <span
                         aria-hidden="true"
-                        className="o-header__professional-dropdown-icon exit-icon"
+                        className="o-header__dropdown-icon exit-icon"
                       />
                       <span>
                         Sign out

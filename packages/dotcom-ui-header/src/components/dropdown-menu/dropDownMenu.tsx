@@ -2,69 +2,85 @@ import React from 'react'
 
 export interface DropdownMenuProps {
   listToDisplay: {
-    id: string,
-    label: string,
-    href: string,
-    icon: string,
-    hasAccess: boolean,
-    isProfessional: boolean,
+    id: string
+    label: string
+    href: string
+    icon: string
+    hasAccess: boolean
+    isProfessional: boolean
     hasBottomLine: boolean
-  }[];
-  headerTitle: string;
+  }[]
+  headerTitle: string
 }
 
-export const DropdownMenu = ({
-  listToDisplay,
-  headerTitle
-}: DropdownMenuProps) => {
+export const DropdownMenu = ({ listToDisplay, headerTitle }: DropdownMenuProps) => {
   return (
-    <nav className="o-header__professional-dropdown" aria-describedby="dropdown-title">
+    <nav className="o-header__dropdown" aria-describedby="dropdown-title">
       {/* Tab index here is needed for making sure safari and ios browsers dropdown behavior works */}
       <button
         data-trackable="pro_navigation_toggle_click"
         data-trackable-context-pro_navigation_action="pro_navigation_toggle_click"
-        className="o-header__professional-dropdown-button"
+        className="o-header__dropdown-button"
         tabIndex={0}
         aria-label="Dropdown menu has opened on focus, press Tab to access links."
         aria-controls="dropdown-options"
       >
-        <div className="o-header__professional-dropdown-button-user-icon-wrapper">
-          <span className="o-header__professional-dropdown-icon user-icon" aria-hidden="true" />
+        <div className="o-header__dropdown-button-user-icon-wrapper">
+          <span className="o-header__dropdown-icon user-icon" aria-hidden="true" />
         </div>
-        <span className="o-header__professional-dropdown-icon chevron-icon" aria-hidden="true" />
+        <span className="o-header__dropdown-icon chevron-icon" aria-hidden="true" />
       </button>
 
       <div
-        className="o-header__professional-dropdown-content"
+        className="o-header__dropdown-content"
         tabIndex={-1}
         id="dropdown-options"
         data-id="dropdown-content"
         data-o-tracking-view="pro_navigation_component_view"
         data-trackable-context-pro_navigation_action="pro_navigation_component_view"
       >
-        <div className="o-header__professional-dropdown-title-wrapper">
-          <span className="o-header__professional-dropdown-title" id="dropdown-title">{headerTitle}</span>
+        <div className="o-header__dropdown-title-wrapper">
+          <span className="o-header__dropdown-title" id="dropdown-title">
+            {headerTitle}
+          </span>
           {/* Tab index again needed for safari and ios browsers */}
           <button
-            className="o-header__professional-dropdown-close-button-mobile"
+            className="o-header__dropdown-close-button-mobile"
             tabIndex={0}
             aria-label="Close dropdown menu"
           />
         </div>
 
-        <ul className="o-header__professional-dropdown-list">
-          {listToDisplay.map(link => (
-            <li key={link.id} className={`o-header__professional-dropdown-list-item ${link.hasBottomLine && 'o-header__professional-dropdown-list-divider'}`} >
-              <a className="o-header__professional-dropdown-list-item-link" href={link.href} data-trackable={`pro_dropdown_${link.id}_clicked`} data-trackable-context-pro_navigation_action={`pro_dropdown_${link.id}_clicked`}>
-                <div className="o-header__professional-dropdown-list-item-details-container">
-                  <span className={`o-header__professional-dropdown-icon ${link.hasAccess ? link.icon + '-icon' : 'lock-icon'}`} aria-hidden="true" />
+        <ul className="o-header__dropdown-list">
+          {listToDisplay.map((link) => (
+            <li
+              key={link.id}
+              className={`o-header__dropdown-list-item ${
+                link.hasBottomLine && 'o-header__dropdown-list-divider'
+              }`}
+            >
+              <a
+                className="o-header__dropdown-list-item-link"
+                href={link.href}
+                data-trackable={`pro_navigation_${link.id}_clicked`}
+                data-trackable-context-pro_navigation_action={`pro_navigation_${link.id}_clicked`}
+              >
+                <div className="o-header__dropdown-list-item-details-container">
+                  <span
+                    className={`o-header__dropdown-icon ${
+                      link.hasAccess ? link.icon + '-icon' : 'lock-icon'
+                    }`}
+                    aria-hidden="true"
+                  />
                   <span>{link.label}</span>
                 </div>
-                {link.isProfessional && <span className="o-header__professional-dropdown-list-pro-label">FT PROFESSIONAL</span>}
+                {link.isProfessional && (
+                  <span className="o-header__dropdown-list-pro-label">FT PROFESSIONAL</span>
+                )}
               </a>
             </li>
           ))}
-        </ul >
+        </ul>
       </div>
     </nav>
   )
