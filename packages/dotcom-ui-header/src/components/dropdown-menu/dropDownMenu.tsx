@@ -21,7 +21,8 @@ export const DropdownMenu = ({
     <nav className="o-header__professional-dropdown" aria-describedby="dropdown-title">
       {/* Tab index here is needed for making sure safari and ios browsers dropdown behavior works */}
       <button
-        data-trackable="dropdown-toggle"
+        data-trackable="pro_navigation_toggle_click"
+        data-trackable-context-pro_navigation_action="pro_navigation_toggle_click"
         className="o-header__professional-dropdown-button"
         tabIndex={0}
         aria-label="Dropdown menu has opened on focus, press Tab to access links."
@@ -38,13 +39,13 @@ export const DropdownMenu = ({
         tabIndex={-1}
         id="dropdown-options"
         data-id="dropdown-content"
-        data-o-tracking-view
+        data-o-tracking-view="pro_navigation_component_view"
+        data-trackable-context-pro_navigation_action="pro_navigation_component_view"
       >
         <div className="o-header__professional-dropdown-title-wrapper">
           <span className="o-header__professional-dropdown-title" id="dropdown-title">{headerTitle}</span>
           {/* Tab index again needed for safari and ios browsers */}
           <button
-            data-trackable="dropdown-close-mobile"
             className="o-header__professional-dropdown-close-button-mobile"
             tabIndex={0}
             aria-label="Close dropdown menu"
@@ -54,7 +55,7 @@ export const DropdownMenu = ({
         <ul className="o-header__professional-dropdown-list">
           {listToDisplay.map(link => (
             <li key={link.id} className={`o-header__professional-dropdown-list-item ${link.hasBottomLine && 'o-header__professional-dropdown-list-divider'}`} >
-              <a className="o-header__professional-dropdown-list-item-link" href={link.href}>
+              <a className="o-header__professional-dropdown-list-item-link" href={link.href} data-trackable={`pro_dropdown_${link.id}_clicked`} data-trackable-context-pro_navigation_action={`pro_dropdown_${link.id}_clicked`}>
                 <div className="o-header__professional-dropdown-list-item-details-container">
                   <span className={`o-header__professional-dropdown-icon ${link.hasAccess ? link.icon + '-icon' : 'lock-icon'}`} aria-hidden="true" />
                   <span>{link.label}</span>
