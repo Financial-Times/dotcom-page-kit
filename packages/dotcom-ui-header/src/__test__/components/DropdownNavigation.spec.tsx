@@ -4,13 +4,13 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import { DropdownMenu } from '../../components/dropdown-menu/dropDownMenu'
-import DROPDOWN_DEFAULT_LIST from '../../components/dropdown-menu/dropDownProfessionalList.json'
+import { DropdownNavigation } from '../../components/dropdown-navigation/dropdownNavigation'
+import DROPDOWN_DEFAULT_LIST from '../../components/dropdown-navigation/dropdownProfessionalList.json'
 
-describe('DropdownMenu', () => {
+describe('DropdownNavigation', () => {
   it('renders correctly', () => {
     const { baseElement: dropdown } = render(
-      <DropdownMenu
+      <DropdownNavigation
         listToDisplay={DROPDOWN_DEFAULT_LIST}
         headerContent="Test Title"
         trackingKey="test_tracking"
@@ -24,7 +24,7 @@ describe('DropdownMenu', () => {
     const MockLabel = () => <div>Mock Label</div>
     const mockLabelCount = DROPDOWN_DEFAULT_LIST.filter((item) => item.hasLabel).length
     const { baseElement: dropdown, queryAllByText } = render(
-      <DropdownMenu
+      <DropdownNavigation
         listToDisplay={DROPDOWN_DEFAULT_LIST}
         headerContent="Test Title"
         trackingKey="test_tracking"
@@ -41,7 +41,7 @@ describe('DropdownMenu', () => {
   it('renders custom header', () => {
     const MockHeader = () => <div>Dropdown Custom Header</div>
     const { getByText } = render(
-      <DropdownMenu
+      <DropdownNavigation
         listToDisplay={DROPDOWN_DEFAULT_LIST}
         headerContent={<MockHeader />}
         trackingKey="test_tracking"
@@ -56,7 +56,7 @@ describe('DropdownMenu', () => {
   it('sets tracking attributes correctly', () => {
     const trackingKey = 'test_tracking'
     const { getAllByRole, baseElement } = render(
-      <DropdownMenu
+      <DropdownNavigation
         listToDisplay={DROPDOWN_DEFAULT_LIST}
         headerContent="Test Title"
         trackingKey={trackingKey}

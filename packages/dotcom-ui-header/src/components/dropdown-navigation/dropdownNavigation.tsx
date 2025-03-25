@@ -1,6 +1,6 @@
 import React from 'react'
 
-export interface DropdownMenuProps {
+export interface DropdownNavigationProps {
   buttonIcon?: string
   headerContent: string | React.ReactNode
   listToDisplay: {
@@ -16,23 +16,23 @@ export interface DropdownMenuProps {
   trackingKey: string
 }
 
-type DropdownMenuButtonProps = Pick<DropdownMenuProps, 'buttonIcon' | 'trackingKey'>
+type DropdownNavigationButtonProps = Pick<DropdownNavigationProps, 'buttonIcon' | 'trackingKey'>
 
-type DropdownMenuHeaderProps = Pick<DropdownMenuProps, 'headerContent'>
+type DropdownNavigationHeaderProps = Pick<DropdownNavigationProps, 'headerContent'>
 
-type DropdownMenuListProps = Pick<DropdownMenuProps, 'listToDisplay' | 'label' | 'trackingKey'>
+type DropdownNavigationListProps = Pick<DropdownNavigationProps, 'listToDisplay' | 'label' | 'trackingKey'>
 
-export const DropdownMenu = ({
+export const DropdownNavigation = ({
   buttonIcon,
   headerContent,
   listToDisplay,
   label,
   trackingKey
-}: DropdownMenuProps) => {
+}: DropdownNavigationProps) => {
   return (
     <nav className="o-header__dropdown" aria-describedby="dropdown-title">
       {/* Tab index here is needed for making sure safari and ios browsers dropdown behavior works */}
-      <DropdownMenuButton buttonIcon={buttonIcon} trackingKey={trackingKey} />
+      <DropdownNavigationButton buttonIcon={buttonIcon} trackingKey={trackingKey} />
       <div
         className="o-header__dropdown-content"
         tabIndex={-1}
@@ -40,14 +40,14 @@ export const DropdownMenu = ({
         data-id="dropdown-content"
         data-o-tracking-view={`${trackingKey}_component_view`}
       >
-        <DropdownMenuHeader headerContent={headerContent} />
-        <DropdownMenuList listToDisplay={listToDisplay} label={label} trackingKey={trackingKey} />
+        <DropdownNavigationHeader headerContent={headerContent} />
+        <DropdownNavigationList listToDisplay={listToDisplay} label={label} trackingKey={trackingKey} />
       </div>
     </nav>
   )
 }
 
-const DropdownMenuButton: React.FC<DropdownMenuButtonProps> = ({ buttonIcon = 'user', trackingKey }) => (
+const DropdownNavigationButton: React.FC<DropdownNavigationButtonProps> = ({ buttonIcon = 'user', trackingKey }) => (
   <button
     data-trackable={`${trackingKey}_toggle_click`}
     className="o-header__dropdown-button"
@@ -62,7 +62,7 @@ const DropdownMenuButton: React.FC<DropdownMenuButtonProps> = ({ buttonIcon = 'u
   </button>
 )
 
-const DropdownMenuHeader: React.FC<DropdownMenuHeaderProps> = ({
+const DropdownNavigationHeader: React.FC<DropdownNavigationHeaderProps> = ({
   headerContent
 }) => (
   <div className="o-header__dropdown-header">
@@ -82,7 +82,7 @@ const DropdownMenuHeader: React.FC<DropdownMenuHeaderProps> = ({
   </div>
 )
 
-const DropdownMenuList: React.FC<DropdownMenuListProps> = ({ listToDisplay, label, trackingKey }) => (
+const DropdownNavigationList: React.FC<DropdownNavigationListProps> = ({ listToDisplay, label, trackingKey }) => (
   <ul className="o-header__dropdown-list">
     {listToDisplay.map((link) => (
       <li

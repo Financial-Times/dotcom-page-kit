@@ -3,8 +3,8 @@ import { THeaderProps, THeaderVariant } from '../../interfaces'
 import BrandFtMastheadSvg from '../svg-components/BrandFtMasthead'
 import { TNavMenuItem } from '@financial-times/dotcom-types-navigation'
 import { AskFtButton } from '../ask-ft/askFtButton'
-import { DropdownMenu, ProfessionalLabel } from '../dropdown-menu/dropDownMenu'
-import PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST from '../dropdown-menu/dropDownProfessionalList.json'
+import { DropdownNavigation, ProfessionalLabel } from '../dropdown-navigation/dropdownNavigation'
+import PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST from '../dropdown-navigation/dropdownProfessionalList.json'
 
 const HeaderWrapper = (props) => (
   <header
@@ -134,7 +134,7 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
 const MenuButton = ({ showProDropdown, signInAction, variant }) => {
   if (showProDropdown) {
     return (
-      <DropdownMenu
+      <DropdownNavigation
         trackingKey="pro_navigation"
         headerContent="FT PROFESSIONAL ACCOUNT"
         listToDisplay={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}

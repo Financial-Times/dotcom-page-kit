@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DropdownMenu renders correctly 1`] = `
+exports[`DropdownNavigation renders correctly 1`] = `
 <body>
   <div>
     <nav
@@ -248,7 +248,7 @@ exports[`DropdownMenu renders correctly 1`] = `
 </body>
 `;
 
-exports[`DropdownMenu renders label 1`] = `
+exports[`DropdownNavigation renders label 1`] = `
 <body>
   <div>
     <nav
