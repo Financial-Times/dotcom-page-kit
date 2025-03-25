@@ -12,7 +12,7 @@ import { h, render } from 'preact'
  * Initialise the header
  * @param { HeaderOptions } headerOptions
  */
-export const init = async (headerOptions = {}) => {
+export const init = (headerOptions = {}) => {
   const topicSearchElements = document.querySelectorAll(
     '.o-header [data-n-topic-search], .o-header__drawer [data-n-topic-search]'
   )
@@ -34,10 +34,10 @@ export const init = async (headerOptions = {}) => {
       const mobileDrawer = oheaderContainerParent?.parentElement
       element.appendChild(typeaheadContainer)
 
-      render(h(TypeAhead, { container: mobileDrawer, inputId: input.id }), typeaheadContainer)
+      render(h(TypeAhead, {container: mobileDrawer, inputId: input.id}), typeaheadContainer)
     } else {
       form.after(typeaheadContainer)
-      render(h(TypeAhead, { container: oheaderContainerParent, inputId: input.id }), typeaheadContainer)
+      render(h(TypeAhead, {container: oheaderContainerParent, inputId: input.id}), typeaheadContainer)
     }
   })
 

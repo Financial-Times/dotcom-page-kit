@@ -62,7 +62,7 @@ const DropdownMenuButton: React.FC<DropdownMenuButtonProps> = ({ buttonIcon = 'u
   </button>
 )
 
-const DropdownMenuHeader: React.FC<React.PropsWithChildren<DropdownMenuHeaderProps>> = ({
+const DropdownMenuHeader: React.FC<DropdownMenuHeaderProps> = ({
   headerContent
 }) => (
   <div className="o-header__dropdown-header">
@@ -111,3 +111,4 @@ const DropdownMenuList: React.FC<DropdownMenuListProps> = ({ listToDisplay, labe
 export const ProfessionalLabel = () => (
   <span className="o-header__dropdown-list-pro-label">FT PROFESSIONAL</span>
 )
+
