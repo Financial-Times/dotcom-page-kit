@@ -41,15 +41,7 @@ export const init = async (headerOptions = {}) => {
     }
   })
 
-  enhanceDropdownMenuForJs()
-
-  const proDropdownButton = document?.querySelector('.o-header__dropdown')
-  if (proDropdownButton) {
-    const getProDropdownLinks = await fetch('https://pro-navigation.ft.com/api/links')
-    // render a new version of the DropdownMenu with links retrieved by pro-navigation. That response
-    // will include things like: access to MPR, access to Advanced Sharing and link to Subscription
-    // Manager in case user is a licence admin. Icons should be updated according to the response as well.
-  }
+  enhanceDropdownInteractivityForJs()
 
   Header.init(headerOptions.rootElement)
 }
@@ -60,7 +52,7 @@ export const init = async (headerOptions = {}) => {
  * more interactivity of the dropdown buttons and enable them to send
  * tracking events on click.
  */
-const enhanceDropdownMenuForJs = () => {
+const enhanceDropdownInteractivityForJs = () => {
   // Use querySelectorAll as there could be multiple dropdowns on the page
   const dropdowns = document?.querySelectorAll('.o-header__dropdown')
 
