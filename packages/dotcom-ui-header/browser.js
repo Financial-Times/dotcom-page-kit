@@ -93,15 +93,18 @@ const enhanceDropdownInteractivityForJs = () => {
       dropdownButton.removeAttribute('data-dropdown-button-active')
       closeDropdownButton.blur()
     })
-
-    // When clicking outside the dropdown, reset the dropdown button by
-    // removing the data attribute from the dropdown button to enable the dropdown to be opened correctly again
-    document.addEventListener('click', (event) => {
-      if (!dropdownContainer.contains(event.target)) {
-        dropdownButton.removeAttribute('data-dropdown-button-active')
-      }
-    })
   })
+
+  // When clicking outside the dropdown, reset the dropdown button by
+  // removing the data attribute from the dropdown button to enable the dropdown to be opened correctly again
+  document.addEventListener('click', (event) => {
+    dropdowns.forEach((dropdownContainer) => {
+      const dropdownButton = dropdownContainer.querySelector('.o-header__dropdown-button');
+      if (!dropdownContainer.contains(event.target)) {
+        dropdownButton.removeAttribute('data-dropdown-button-active');
+      }
+    });
+  });
 
   // Observe when the sticky header becomes visible and when it hides
   // and when it does we need to close the dropdown if it is open
