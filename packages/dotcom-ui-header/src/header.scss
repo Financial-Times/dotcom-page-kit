@@ -151,7 +151,7 @@
   font-family: var(--o3-type-label-font-family);
   text-transform: var(--o3-type-label-text-case);
   padding: var(--o3-spacing-5xs) 0;
-  color: var(--o3-color-palette-mint);
+  color: #c0efd8 // Use --o3-color-palette-mint when available;
 }
 
 .o-header__dropdown-list {
