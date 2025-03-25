@@ -1986,6 +1986,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
               data-id="dropdown-content"
               data-o-tracking-view="pro_navigation_component_view"
               id="dropdown-options"
+              role="group"
               tabIndex={-1}
             >
               <div

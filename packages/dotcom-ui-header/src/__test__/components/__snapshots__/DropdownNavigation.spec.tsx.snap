@@ -32,6 +32,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
         data-id="dropdown-content"
         data-o-tracking-view="test_tracking_component_view"
         id="dropdown-options"
+        role="group"
         tabindex="-1"
       >
         <div
@@ -280,6 +281,7 @@ exports[`DropdownNavigation renders label 1`] = `
         data-id="dropdown-content"
         data-o-tracking-view="test_tracking_component_view"
         id="dropdown-options"
+        role="group"
         tabindex="-1"
       >
         <div

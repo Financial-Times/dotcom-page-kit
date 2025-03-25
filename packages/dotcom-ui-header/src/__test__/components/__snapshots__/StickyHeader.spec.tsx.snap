@@ -580,6 +580,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
               data-id="dropdown-content"
               data-o-tracking-view="pro_navigation_component_view"
               id="dropdown-options"
+              role="group"
               tabIndex={-1}
             >
               <div

@@ -31,12 +31,12 @@ export const DropdownNavigation = ({
 }: DropdownNavigationProps) => {
   return (
     <nav className="o-header__dropdown" aria-describedby="dropdown-title">
-      {/* Tab index here is needed for making sure safari and ios browsers dropdown behavior works */}
       <DropdownNavigationButton buttonIcon={buttonIcon} trackingKey={trackingKey} />
       <div
         className="o-header__dropdown-content"
-        tabIndex={-1}
+        tabIndex={-1} // Needed so clicking inside the contnet does not lose focus from the dropdown
         id="dropdown-options"
+        role="group" // Needed for VoiceOver navigation in Chrome
         data-id="dropdown-content"
         data-o-tracking-view={`${trackingKey}_component_view`}
       >
@@ -47,11 +47,14 @@ export const DropdownNavigation = ({
   )
 }
 
-const DropdownNavigationButton: React.FC<DropdownNavigationButtonProps> = ({ buttonIcon = 'user', trackingKey }) => (
+const DropdownNavigationButton: React.FC<DropdownNavigationButtonProps> = ({
+  buttonIcon = 'user',
+  trackingKey
+}) => (
   <button
     data-trackable={`${trackingKey}_toggle_click`}
     className="o-header__dropdown-button"
-    tabIndex={0}
+    tabIndex={0} // Tab index here is needed for making sure safari and ios browsers dropdown behavior works
     aria-label="Dropdown menu has opened on focus, press Tab to access links."
     aria-controls="dropdown-options"
   >
@@ -62,9 +65,7 @@ const DropdownNavigationButton: React.FC<DropdownNavigationButtonProps> = ({ but
   </button>
 )
 
-const DropdownNavigationHeader: React.FC<DropdownNavigationHeaderProps> = ({
-  headerContent
-}) => (
+const DropdownNavigationHeader: React.FC<DropdownNavigationHeaderProps> = ({ headerContent }) => (
   <div className="o-header__dropdown-header">
     {typeof headerContent === 'string' ? (
       <span className="o-header__dropdown-title" id="dropdown-title">
@@ -73,16 +74,19 @@ const DropdownNavigationHeader: React.FC<DropdownNavigationHeaderProps> = ({
     ) : (
       <React.Fragment>{headerContent}</React.Fragment>
     )}
-    {/* Tab index again needed for safari and ios browsers */}
     <button
       className="o-header__dropdown-close-button-mobile"
-      tabIndex={0}
+      tabIndex={0} // Tab index again needed for safari and ios browsers
       aria-label="Close dropdown menu"
     />
   </div>
 )
 
-const DropdownNavigationList: React.FC<DropdownNavigationListProps> = ({ listToDisplay, label, trackingKey }) => (
+const DropdownNavigationList: React.FC<DropdownNavigationListProps> = ({
+  listToDisplay,
+  label,
+  trackingKey
+}) => (
   <ul className="o-header__dropdown-list">
     {listToDisplay.map((link) => (
       <li
@@ -111,4 +115,3 @@ const DropdownNavigationList: React.FC<DropdownNavigationListProps> = ({ listToD
 export const ProfessionalLabel = () => (
   <span className="o-header__dropdown-list-pro-label">FT PROFESSIONAL</span>
 )
-
