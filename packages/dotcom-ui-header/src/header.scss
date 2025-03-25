@@ -84,9 +84,8 @@
     border: 2px solid var(--Pro-Fill, #262A33);
     align-content: center;
 
-    .user-icon {
+    .o-header__dropdown-icon {
       background-color: #C0EFD8;
-      mask-image: var(--o3-icon-user);
     }
   }
 
@@ -138,7 +137,7 @@
   height: 100vh;
 }
 
-.o-header__dropdown-title-wrapper {
+.o-header__dropdown-header {
   display: flex;
   justify-content: space-between;
   padding: var(--o3-spacing-2xs);
@@ -214,7 +213,7 @@
   @extend %icon-base;
 }
 
-@each $icon-name in (dashboard, bookmark, lock, list, radar, highlight, share, mail, settings, exit, cross) {
+@each $icon-name in (dashboard, bookmark, lock, list, radar, highlight, share, mail, settings, exit, cross, user) {
   .#{$icon-name}-icon {
     mask-image: var(--o3-icon-#{$icon-name});
   }
