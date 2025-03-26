@@ -122,7 +122,7 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
       )}
       {signInAction && (
         <MenuButton
-          showProDropdown={props.showProDropdown}
+          showProNavigation={props.showProNavigation}
           signInAction={signInAction}
           variant={props.variant}
         />
@@ -131,8 +131,8 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
   )
 }
 
-const MenuButton = ({ showProDropdown, signInAction, variant }) => {
-  if (showProDropdown) {
+const MenuButton = ({ showProNavigation, signInAction, variant }) => {
+  if (showProNavigation) {
     return (
       <DropdownNavigation
         trackingKey="pro_navigation"

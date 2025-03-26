@@ -78,7 +78,7 @@ All header components with the exception of `<LogoOnly />` require the following
 | showMegaNav        | boolean                            | true     | true     | Enable rendering of the drop-down "mega-nav"                            |
 | showAskButton      | boolean                            | true     | false    | Enable rendering of the ASK button                                             |
 | data               | object                             | false    |          | Navigation data for rendering the header links fetched from the navigation API |
-| showProDropdown    | boolean        |                   | true     | false    | Enable rendering of FT pro dropdown
+| showProNavigation    | boolean        |                   | true     | false    | Enable rendering of FT pro dropdown
 
 
 ## Header Elements

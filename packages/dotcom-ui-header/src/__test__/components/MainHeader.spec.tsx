@@ -8,7 +8,7 @@ const propsAnonymous = { ...fixture, userIsAnonymous: true, userIsLoggedIn: fals
 const propsLoggedIn = { ...fixture, userIsAnonymous: false, userIsLoggedIn: true }
 const propsRightAligned = { ...profileFixture }
 const propsAskFt = { ...fixture, showAskButton: true }
-const propsProDropdown = { ...fixture, showProDropdown: true }
+const propsProDropdown = { ...fixture, showProNavigation: true }
 
 describe('dotcom-ui-header/src/components/MainHeader', () => {
   it('renders as an anonymous user', () => {

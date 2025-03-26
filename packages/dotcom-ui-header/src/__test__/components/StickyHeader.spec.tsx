@@ -6,7 +6,7 @@ import { StickyHeader as Subject } from '../../index'
 const propsAnonymous = { ...fixture, userIsAnonymous: true, userIsLoggedIn: false }
 const propsLoggedIn = { ...fixture, userIsAnonymous: false, userIsLoggedIn: true }
 const propsAskFt = { ...fixture, showAskButton: true }
-const propsProDropdown = { ...fixture, showProDropdown: true }
+const propsProDropdown = { ...fixture, showProNavigation: true }
 
 describe('dotcom-ui-header/src/components/StickyHeader', () => {
   it('renders as an anonymous user', () => {
