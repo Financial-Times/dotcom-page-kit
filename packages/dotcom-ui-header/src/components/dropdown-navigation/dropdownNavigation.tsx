@@ -30,7 +30,7 @@ export const DropdownNavigation = ({
   trackingKey
 }: DropdownNavigationProps) => {
   return (
-    <nav className="o-header__dropdown" aria-describedby="dropdown-title">
+    <nav data-o3-brand="professional" className="o-header__dropdown" aria-describedby="dropdown-title">
       <DropdownNavigationButton buttonIcon={buttonIcon} trackingKey={trackingKey} />
       <div
         className="o-header__dropdown-content"

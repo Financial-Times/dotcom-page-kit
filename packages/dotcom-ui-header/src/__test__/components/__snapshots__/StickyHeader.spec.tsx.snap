@@ -554,6 +554,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
           <nav
             aria-describedby="dropdown-title"
             className="o-header__dropdown"
+            data-o3-brand="professional"
           >
             <button
               aria-controls="dropdown-options"
