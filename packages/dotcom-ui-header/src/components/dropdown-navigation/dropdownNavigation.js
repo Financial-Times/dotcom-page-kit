@@ -5,7 +5,7 @@
  * more interactivity of the dropdown buttons and enable them to send
  * tracking events on click.
  */
-const enhanceDropdownNavigationsInteractivityForJs = () => {
+const init = () => {
     // Use querySelectorAll as there could be multiple dropdowns on the page
     const dropdowns = document?.querySelectorAll('.o-header__dropdown')
 
@@ -88,4 +88,6 @@ const enhanceDropdownNavigationsInteractivityForJs = () => {
     stickyHeaderObserver.observe(stickyHeader)
 }
 
-export { enhanceDropdownNavigationsInteractivityForJs };
+export const DropdownNavigation = {
+    init
+};

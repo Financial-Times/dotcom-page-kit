@@ -1,7 +1,7 @@
 import Header from '@financial-times/o-header'
 import TypeAhead from 'n-topic-search'
 import { h, render } from 'preact'
-import { enhanceDropdownNavigationsInteractivityForJs } from './src/components/dropdown-navigation/dropdownNavigation'
+import { DropdownNavigation } from './src/components/dropdown-navigation/dropdownNavigation'
 
 /**
  * @typedef HeaderOptions
@@ -42,7 +42,7 @@ export const init = (headerOptions = {}) => {
     }
   })
 
-  enhanceDropdownNavigationsInteractivityForJs();
+  DropdownNavigation.init();
 
   Header.init(headerOptions.rootElement)
 }
