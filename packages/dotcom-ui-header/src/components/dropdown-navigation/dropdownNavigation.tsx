@@ -3,7 +3,7 @@ import React from 'react'
 export interface DropdownNavigationProps {
   buttonIcon?: string
   headerContent: string | React.ReactNode
-  listToDisplay: {
+  options: {
     id: string
     title: string
     href: string
@@ -20,12 +20,12 @@ type DropdownNavigationButtonProps = Pick<DropdownNavigationProps, 'buttonIcon' 
 
 type DropdownNavigationHeaderProps = Pick<DropdownNavigationProps, 'headerContent'>
 
-type DropdownNavigationListProps = Pick<DropdownNavigationProps, 'listToDisplay' | 'label' | 'trackingKey'>
+type DropdownNavigationListProps = Pick<DropdownNavigationProps, 'options' | 'label' | 'trackingKey'>
 
 export const DropdownNavigation = ({
   buttonIcon,
   headerContent,
-  listToDisplay,
+  options,
   label,
   trackingKey
 }: DropdownNavigationProps) => {
@@ -41,7 +41,7 @@ export const DropdownNavigation = ({
         data-o-tracking-view={`${trackingKey}_component_view`}
       >
         <DropdownNavigationHeader headerContent={headerContent} />
-        <DropdownNavigationList listToDisplay={listToDisplay} label={label} trackingKey={trackingKey} />
+        <DropdownNavigationList options={options} label={label} trackingKey={trackingKey} />
       </div>
     </nav>
   )
@@ -83,12 +83,12 @@ const DropdownNavigationHeader: React.FC<DropdownNavigationHeaderProps> = ({ hea
 )
 
 const DropdownNavigationList: React.FC<DropdownNavigationListProps> = ({
-  listToDisplay,
+  options,
   label,
   trackingKey
 }) => (
   <ul className="o-header__dropdown-list">
-    {listToDisplay.map((link) => (
+    {options.map((link) => (
       <li
         key={link.id}
         className={`o-header__dropdown-list-item ${link.hasBottomLine && 'o-header__dropdown-list-divider'}`}
