@@ -13,7 +13,7 @@
     mask-size: contain;
 }
 
-@mixin invisible {
+@mixin hidden {
     opacity: 0;
     visibility: hidden;
 }
@@ -82,7 +82,6 @@
     }
 }
 
-/* Hide dropdown by default */
 .o-header__dropdown-content {
     position: fixed;
     // Move the dropdown off the viewport so the component view tracking
@@ -94,8 +93,9 @@
     height: 0;
     background: var(--o3-color-palette-white);
 
+    /* Hide dropdown by default */
     @include disable-setting-focus;
-    @include invisible;
+    @include hidden;
     @include delay-to-propagate-click-events;
 }
 
@@ -220,7 +220,7 @@
 /* Close the menu when clicking the close button */
 .o-header__dropdown-close-button-mobile:focus {
     // Applying visibility:none to the close icon will remove the focus from it and in turn deactivate the dropdown conent :foucus-within pseudo selector which will hide the dropdown.
-    @include invisible;
+    @include hidden;
     @include disable-setting-focus;
 }
 
