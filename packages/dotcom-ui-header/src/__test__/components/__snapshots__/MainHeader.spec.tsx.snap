@@ -2009,7 +2009,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                 className="o-header__dropdown-list"
               >
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -2035,7 +2035,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -2082,7 +2082,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -2103,7 +2103,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -2155,7 +2155,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -2176,7 +2176,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -2197,7 +2197,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"

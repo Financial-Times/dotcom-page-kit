@@ -603,7 +603,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
                 className="o-header__dropdown-list"
               >
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -629,7 +629,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -676,7 +676,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -697,7 +697,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -749,7 +749,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -770,7 +770,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -791,7 +791,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"

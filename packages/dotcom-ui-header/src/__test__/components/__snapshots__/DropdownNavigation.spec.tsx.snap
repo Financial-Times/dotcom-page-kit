@@ -55,7 +55,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
           class="o-header__dropdown-list"
         >
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
@@ -76,7 +76,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
@@ -118,7 +118,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
@@ -139,7 +139,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
@@ -181,7 +181,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
@@ -202,7 +202,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
@@ -223,7 +223,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
@@ -305,7 +305,7 @@ exports[`DropdownNavigation renders label 1`] = `
           class="o-header__dropdown-list"
         >
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
@@ -329,7 +329,7 @@ exports[`DropdownNavigation renders label 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
@@ -374,7 +374,7 @@ exports[`DropdownNavigation renders label 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
@@ -395,7 +395,7 @@ exports[`DropdownNavigation renders label 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
@@ -443,7 +443,7 @@ exports[`DropdownNavigation renders label 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
@@ -464,7 +464,7 @@ exports[`DropdownNavigation renders label 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
@@ -485,7 +485,7 @@ exports[`DropdownNavigation renders label 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
