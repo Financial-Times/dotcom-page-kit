@@ -4,7 +4,7 @@ import BrandFtMastheadSvg from '../svg-components/BrandFtMasthead'
 import { TNavMenuItem } from '@financial-times/dotcom-types-navigation'
 import { AskFtButton } from '../ask-ft/askFtButton'
 import { DropdownNavigation, ProfessionalLabel } from '../dropdown-navigation/dropdownNavigation'
-import PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST from '../dropdown-navigation/dropdownProfessionalList.json'
+import {PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST} from '../dropdown-navigation/dropdownNavigationDefaultLists'
 
 const HeaderWrapper = (props) => (
   <header
