@@ -4,8 +4,8 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import { DropdownNavigation } from '../../components/dropdown-navigation/dropdownNavigation'
-import {PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST} from '../../components/dropdown-navigation/dropdownNavigationDefaultLists'
+import { DropdownNavigation } from '../../../components/dropdown-navigation/dropdownNavigation'
+import {PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST} from '../../../components/dropdown-navigation/constants'
 
 describe('DropdownNavigation', () => {
   it('renders correctly', () => {

@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
+import { isEqual } from "./utils"
+import { PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST } from "./constants"
 
 /**
  * Enhance the dropdown menu for JS users. This will ensure we can
@@ -99,6 +101,10 @@ const updateLinksList = async () => {
     const links = await response.json()
     if (!Array.isArray(links) || links.length === 0) {
       console.error('Invalid links data format or empty links list')
+      return
+    }
+
+    if(isEqual(PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST, links)) {
       return
     }
 
