@@ -54,9 +54,9 @@
     .o-header__dropdown-button-user-icon-wrapper {
         height: var(--o3-spacing-l);
         width: var(--o3-spacing-l);
-        background: var(--Pro-Fill, linear-gradient(153deg, #262A33 54.99%, #434958 99.56%));
+        background: linear-gradient(153deg, #262A33 54.99%, #434958 99.56%);
         border-radius: var(--o3-spacing-m);
-        border: 2px solid var(--Pro-Fill, #262A33);
+        border: 2px solid #262A33;
         align-content: center;
 
         .o-header__dropdown-icon {
@@ -116,7 +116,7 @@
     display: flex;
     justify-content: space-between;
     padding: var(--o3-spacing-2xs);
-    background: var(--Pro-Fill, linear-gradient(153deg, #262A33 54.99%, #434958 99.56%));
+    background: linear-gradient(153deg, #262A33 54.99%, #434958 99.56%);
 }
 
 .o-header__dropdown-title {
