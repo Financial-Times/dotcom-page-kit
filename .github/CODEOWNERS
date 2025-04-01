@@ -11,4 +11,4 @@ packages/dotcom-build-sass/ @financial-times/origami-core @financial-times/platf
 
 
 # The Pro Personalisation and Discovery are responsible for the pro navigation - UI header's dropdown navigation
-packages/dotcom-ui-header/src/components/dropdown-navigation @financial-times/professional-personalisation-and-discovery
+packages/dotcom-ui-header/src/components/dropdown-navigation @financial-times/platforms @financial-times/professional-personalisation-and-discovery
