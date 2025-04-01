@@ -8,6 +8,7 @@ const propsAnonymous = { ...fixture, userIsAnonymous: true, userIsLoggedIn: fals
 const propsLoggedIn = { ...fixture, userIsAnonymous: false, userIsLoggedIn: true }
 const propsRightAligned = { ...profileFixture }
 const propsAskFt = { ...fixture, showAskButton: true }
+const propsProDropdown = { ...fixture, showProNavigation: true }
 
 describe('dotcom-ui-header/src/components/MainHeader', () => {
   it('renders as an anonymous user', () => {
@@ -27,6 +28,11 @@ describe('dotcom-ui-header/src/components/MainHeader', () => {
 
   it('renders ASK FT button', () => {
     const tree = renderer.create(<Subject {...propsAskFt} />).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders FT Pro Dropdown menu', () => {
+    const tree = renderer.create(<Subject {...propsProDropdown} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })

@@ -22,3 +22,6 @@
     color: var(--o3-color-palette-black-80)
   }
 }
+
+// Import the dropdown navigation styles
+@import 'components/dropdown-navigation/dropdownNavigation.scss';

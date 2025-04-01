@@ -1,6 +1,7 @@
 import Header from '@financial-times/o-header'
 import TypeAhead from 'n-topic-search'
 import { h, render } from 'preact'
+import { DropdownNavigation } from './src/components/dropdown-navigation/dropdownNavigation'
 
 /**
  * @typedef HeaderOptions
@@ -40,6 +41,8 @@ export const init = (headerOptions = {}) => {
       render(h(TypeAhead, {container: oheaderContainerParent, inputId: input.id}), typeaheadContainer)
     }
   })
+
+  DropdownNavigation.init();
 
   Header.init(headerOptions.rootElement)
 }

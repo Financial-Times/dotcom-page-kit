@@ -3,6 +3,8 @@ import { THeaderProps, THeaderVariant } from '../../interfaces'
 import BrandFtMastheadSvg from '../svg-components/BrandFtMasthead'
 import { TNavMenuItem } from '@financial-times/dotcom-types-navigation'
 import { AskFtButton } from '../ask-ft/askFtButton'
+import { DropdownNavigation, ProfessionalLabel } from '../dropdown-navigation/dropdownNavigation'
+import {PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST} from '../dropdown-navigation/dropdownNavigationDefaultLists'
 
 const HeaderWrapper = (props) => (
   <header
@@ -118,9 +120,30 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
           className="o-header__top-button--hide-m"
         />
       )}
-      {signInAction && <MyAccountLink item={signInAction} signedIn={true} variant={props.variant} />}
+      {signInAction && (
+        <MenuButton
+          showProNavigation={props.showProNavigation}
+          signInAction={signInAction}
+          variant={props.variant}
+        />
+      )}
     </div>
   )
+}
+
+const MenuButton = ({ showProNavigation, signInAction, variant }) => {
+  if (showProNavigation) {
+    return (
+      <DropdownNavigation
+        trackingKey="pro_navigation"
+        headerContent="FT PROFESSIONAL ACCOUNT"
+        options={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}
+        label={<ProfessionalLabel />}
+      />
+    )
+  } else {
+    return <MyAccountLink item={signInAction} signedIn={true} variant={variant} />
+  }
 }
 
 const SignInLink = ({

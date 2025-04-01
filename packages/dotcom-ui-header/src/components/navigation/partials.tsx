@@ -76,9 +76,18 @@ const NavListLeft = (props: THeaderProps) => (
 )
 
 const NavListRight = (props: THeaderProps) => {
+  let navbarRightItems = props.data['navbar-right'].items;
+
+  // If the pro navigation is to be shown
+  // Remove the myFT link from the right navigation
+  // since there will be a link to it in the pro navigation
+  if(props.showProNavigation) {
+    navbarRightItems = navbarRightItems.filter(item => item.label !== 'myFT');
+  }
+
   return props.userIsLoggedIn ? (
     <NavListRightLoggedIn
-      items={props.data['navbar-right'].items}
+      items={navbarRightItems}
     />
   ) : null
 }
