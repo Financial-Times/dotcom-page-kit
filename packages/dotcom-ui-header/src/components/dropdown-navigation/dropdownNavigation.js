@@ -93,66 +93,103 @@ const enhanceInteractivity = () => {
 
 const updateLinksList = async () => {
   try {
-    const response = await fetch('https://pro-navigation.ft.com/api/links')
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`)
+
+    const links = await fetchLinks('https://pro-navigation.ft.com/api/links');
+    if (!validateLinks(links) || isEqual(PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST, links)) {
+      return;
     }
 
-    const links = await response.json()
-    if (!Array.isArray(links) || links.length === 0) {
-      console.error('Invalid links data format or empty links list')
-      return
-    }
-
-    if(isEqual(PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST, links)) {
-      return
-    }
-
-    const linksList = document.querySelector('.o-header__dropdown-list')
+    const linksList = document.querySelector('.o-header__dropdown-list');
+    const listItem = linksList.querySelector('.o-header__dropdown-list-item');
     if (!linksList) {
       console.error('Links list element not found')
-      return
+      return;
     }
 
-    const trackingKey = 'pro_navigation'
-    const listItems = links
-      .map((link) => {
-        return `
-                  <li
-                    class="o-header__dropdown-list-item ${
-                      link.hasBottomLine ? 'o-header__dropdown-list-divider' : ''
-                    }"
-                  >
-                    <a
-                      class="o-header__dropdown-list-item-link"
-                      href="${link.href}"
-                      data-trackable="${trackingKey}_${link.id}_clicked"
-                    >
-                      <div class="o-header__dropdown-list-item-details-container">
-                        <span
-                          class="o-header__dropdown-icon ${
-                            link.hasAccess ? link.icon + '-icon' : 'lock-icon'
-                          }"
-                          aria-hidden="true"
-                        >
-                        </span>
-                        <span>${link.title}</span>
-                      </div>
-                      ${
-                        link.hasLabel
-                          ? '<span class="o-header__dropdown-list-pro-label">FT PROFESSIONAL</span>'
-                          : ''
-                      }
-                    </a>
-                  </li>
-            `
-      })
-      .join('')
-    linksList.innerHTML = listItems
+    const label = extractLabel(listItem);
+
+    const updatedListFragment = new DocumentFragment();
+    links.forEach((link) => {
+      const updatedItem = buildListItem({listItem, label}, link);
+      updatedItem && updatedListFragment.append(updatedItem);
+    });
+
+    linksList.innerHTML = '';
+    linksList.append(updatedListFragment);
+
   } catch (error) {
     console.error('Error fetching pro navigation links:', error)
   }
 }
+
+const fetchLinks = async (url) => {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+  return response.json();
+};
+
+const validateLinks = (links) => {
+  if (!Array.isArray(links) || links.length === 0) {
+    console.error('Invalid links data format or empty links list');
+    return false;
+  }
+  return true;
+};
+
+const extractLabel = (listItem) => {
+  if (!listItem) {
+    console.error('List item template not found');
+    return;
+  }
+
+  const label = new DocumentFragment();
+  const siblingNodes = Array.from(listItem.querySelector('a').children).slice(1); // Skip the first child (list-item-details-container)
+  siblingNodes.forEach(node => label.append(node));
+
+  return label;
+}
+
+const buildListItem = (template, link) => {
+  const { listItem , label } = template;
+  if (!listItem) {
+    console.error('List item template not found');
+    return;
+  }
+
+  const listItemClone = listItem.cloneNode(true);
+  const a = listItemClone.querySelector('a');
+  const icon = a.querySelector('.o-header__dropdown-icon');
+  const span = a.querySelector('span:not([class])');
+  const labelClone = label.cloneNode(true);
+
+  if (!listItemClone || !a || !icon || !span) {
+    console.error('Invalid template structure');
+    return;
+  }
+ 
+  // Update class name
+  listItemClone.className = `o-header__dropdown-list-item ${link.hasBottomLine ? 'o-header__dropdown-list-divider' : ''}`;
+
+  // Update link attributes
+  a.setAttribute('href', link.href);
+
+  const match = a.getAttribute('data-trackable')?.match(/^(.*)_.*_clicked$/);
+  const trackingKey = match ? match[1] : 'pro-navigation';
+  a.setAttribute('data-trackable', `${trackingKey}_${link.id}_clicked`);
+
+  // Update icon and text
+  icon.className = `o-header__dropdown-icon ${link.hasAccess ? link.icon + '-icon' : 'lock-icon'}`;
+  span.innerText = link.title;
+
+  // Append label
+  if (link.hasLabel) {
+    a.appendChild(labelClone);
+  }
+
+  return listItemClone;
+};
 
 const init = () => {
   updateLinksList()

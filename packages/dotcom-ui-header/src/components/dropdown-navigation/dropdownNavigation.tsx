@@ -2,7 +2,7 @@ import React from 'react'
 
 export interface DropdownNavigationProps {
   buttonIcon?: string
-  headerContent: string | React.ReactNode
+  headerContent: Exclude<React.ReactNode, (...args: any) => any>
   options: {
     id: string
     title: string
@@ -12,7 +12,7 @@ export interface DropdownNavigationProps {
     hasLabel: boolean
     hasBottomLine: boolean
   }[]
-  label?: React.ReactNode
+  label?: Exclude<React.ReactNode, (...args: any) => any>
   trackingKey: string
 }
 
