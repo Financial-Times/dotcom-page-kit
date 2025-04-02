@@ -1959,7 +1959,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
           </a>
           <nav
             aria-describedby="dropdown-title"
-            className="o-header__dropdown"
+            className="o-header__dropdown pro_navigation"
             data-o3-brand="professional"
           >
             <button

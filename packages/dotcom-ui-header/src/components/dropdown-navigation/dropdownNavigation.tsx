@@ -1,6 +1,7 @@
 import React from 'react'
 
 export interface DropdownNavigationProps {
+  selector: string;
   buttonIcon?: string
   headerContent: Exclude<React.ReactNode, (...args: any) => any>
   options: {
@@ -23,6 +24,7 @@ type DropdownNavigationHeaderProps = Pick<DropdownNavigationProps, 'headerConten
 type DropdownNavigationListProps = Pick<DropdownNavigationProps, 'options' | 'label' | 'trackingKey'>
 
 export const DropdownNavigation = ({
+  selector,
   buttonIcon,
   headerContent,
   options,
@@ -30,7 +32,7 @@ export const DropdownNavigation = ({
   trackingKey
 }: DropdownNavigationProps) => {
   return (
-    <nav data-o3-brand="professional" className="o-header__dropdown" aria-describedby="dropdown-title">
+    <nav data-o3-brand="professional" className={`o-header__dropdown ${selector}`} aria-describedby="dropdown-title">
       <DropdownNavigationButton buttonIcon={buttonIcon} trackingKey={trackingKey} />
       <div
         className="o-header__dropdown-content"

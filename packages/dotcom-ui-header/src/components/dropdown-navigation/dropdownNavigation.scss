@@ -190,7 +190,7 @@
     @extend %icon-base;
 }
 
-@each $icon-name in (dashboard, bookmark, lock, list, radar, highlight, share, mail, settings, exit, cross, user) {
+@each $icon-name in (dashboard, bookmark, lock, list, radar, highlight, share, mail, settings, exit, cross, user, users) {
     .#{$icon-name}-icon {
         mask-image: var(--o3-icon-#{$icon-name});
     }

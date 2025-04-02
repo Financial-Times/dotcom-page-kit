@@ -5,7 +5,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
   <div>
     <nav
       aria-describedby="dropdown-title"
-      class="o-header__dropdown"
+      class="o-header__dropdown test_dropdown"
       data-o3-brand="professional"
     >
       <button
@@ -255,7 +255,7 @@ exports[`DropdownNavigation renders label 1`] = `
   <div>
     <nav
       aria-describedby="dropdown-title"
-      class="o-header__dropdown"
+      class="o-header__dropdown test_dropdown"
       data-o3-brand="professional"
     >
       <button

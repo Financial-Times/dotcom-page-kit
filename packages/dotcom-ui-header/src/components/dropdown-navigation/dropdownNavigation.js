@@ -91,34 +91,23 @@ const enhanceInteractivity = () => {
   stickyHeaderObserver.observe(stickyHeader)
 }
 
-const updateLinksList = async () => {
-  try {
+const initProDropdown = async () => {
+  const proDropdowns = document.querySelectorAll('.o-header__dropdown.pro_navigation');
+  if (!proDropdowns) {
+    console.error('Navigation dropdown not found');
+    return;
+  }
 
+  try {
     const links = await fetchLinks('https://pro-navigation.ft.com/api/links');
     if (!validateLinks(links) || isEqual(PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST, links)) {
       return;
     }
 
-    const linksList = document.querySelector('.o-header__dropdown-list');
-    const listItem = linksList.querySelector('.o-header__dropdown-list-item');
-    if (!linksList) {
-      console.error('Links list element not found')
-      return;
-    }
-
-    const label = extractLabel(listItem);
-
-    const updatedListFragment = new DocumentFragment();
-    links.forEach((link) => {
-      const updatedItem = buildListItem({listItem, label}, link);
-      updatedItem && updatedListFragment.append(updatedItem);
-    });
-
-    linksList.innerHTML = '';
-    linksList.append(updatedListFragment);
-
-  } catch (error) {
-    console.error('Error fetching pro navigation links:', error)
+    proDropdowns.forEach((dropdown) => updateLinksList(dropdown, links));
+  }
+  catch (error) {
+    console.error('Error updating dropdown navigation:', error);
   }
 }
 
@@ -138,6 +127,26 @@ const validateLinks = (links) => {
   return true;
 };
 
+const updateLinksList = (dropdown, links) => {
+  const list = dropdown.querySelector('.o-header__dropdown-list');
+  const listItem = dropdown.querySelector('.o-header__dropdown-list-item');
+  if (!list) {
+    console.error('Links list element not found')
+    return;
+  }
+
+  const label = extractLabel(listItem);
+
+  const updatedListFragment = new DocumentFragment();
+  links.forEach((link) => {
+    const updatedItem = buildListItem({ listItem, label }, link);
+    updatedItem && updatedListFragment.append(updatedItem);
+  });
+
+  list.innerHTML = '';
+  list.append(updatedListFragment);
+}
+
 const extractLabel = (listItem) => {
   if (!listItem) {
     console.error('List item template not found');
@@ -152,7 +161,7 @@ const extractLabel = (listItem) => {
 }
 
 const buildListItem = (template, link) => {
-  const { listItem , label } = template;
+  const { listItem, label } = template;
   if (!listItem) {
     console.error('List item template not found');
     return;
@@ -168,7 +177,7 @@ const buildListItem = (template, link) => {
     console.error('Invalid template structure');
     return;
   }
- 
+
   // Update class name
   listItemClone.className = `o-header__dropdown-list-item ${link.hasBottomLine ? 'o-header__dropdown-list-divider' : ''}`;
 
@@ -192,8 +201,9 @@ const buildListItem = (template, link) => {
 };
 
 const init = () => {
-  updateLinksList()
   enhanceInteractivity()
+
+  initProDropdown()
 }
 
 export const DropdownNavigation = {

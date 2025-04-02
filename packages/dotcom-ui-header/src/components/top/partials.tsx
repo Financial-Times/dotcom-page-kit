@@ -135,6 +135,7 @@ const MenuButton = ({ showProNavigation, signInAction, variant }) => {
   if (showProNavigation) {
     return (
       <DropdownNavigation
+        selector="pro_navigation"
         trackingKey="pro_navigation"
         headerContent="FT PROFESSIONAL ACCOUNT"
         options={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}
