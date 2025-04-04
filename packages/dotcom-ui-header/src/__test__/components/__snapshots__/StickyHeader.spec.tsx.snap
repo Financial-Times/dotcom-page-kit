@@ -553,7 +553,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
           </a>
           <nav
             aria-describedby="dropdown-title"
-            className="o-header__dropdown"
+            className="o-header__dropdown pro_navigation"
             data-o3-brand="professional"
           >
             <button
@@ -603,7 +603,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
                 className="o-header__dropdown-list"
               >
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -621,15 +621,19 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
                         Workspace
                       </span>
                     </div>
-                    <span
-                      className="o-header__dropdown-list-pro-label"
+                    <div
+                      className="o-header__dropdown-list-item-label-container"
                     >
-                      FT PROFESSIONAL
-                    </span>
+                      <span
+                        className="o-header__dropdown-list-pro-label"
+                      >
+                        FT PROFESSIONAL
+                      </span>
+                    </div>
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -668,15 +672,19 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
                         Monetary Policy Radar
                       </span>
                     </div>
-                    <span
-                      className="o-header__dropdown-list-pro-label"
+                    <div
+                      className="o-header__dropdown-list-item-label-container"
                     >
-                      FT PROFESSIONAL
-                    </span>
+                      <span
+                        className="o-header__dropdown-list-pro-label"
+                      >
+                        FT PROFESSIONAL
+                      </span>
+                    </div>
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -697,7 +705,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -715,11 +723,15 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
                         Highlights
                       </span>
                     </div>
-                    <span
-                      className="o-header__dropdown-list-pro-label"
+                    <div
+                      className="o-header__dropdown-list-item-label-container"
                     >
-                      FT PROFESSIONAL
-                    </span>
+                      <span
+                        className="o-header__dropdown-list-pro-label"
+                      >
+                        FT PROFESSIONAL
+                      </span>
+                    </div>
                   </a>
                 </li>
                 <li
@@ -741,15 +753,19 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
                         Advanced Sharing
                       </span>
                     </div>
-                    <span
-                      className="o-header__dropdown-list-pro-label"
+                    <div
+                      className="o-header__dropdown-list-item-label-container"
                     >
-                      FT PROFESSIONAL
-                    </span>
+                      <span
+                        className="o-header__dropdown-list-pro-label"
+                      >
+                        FT PROFESSIONAL
+                      </span>
+                    </div>
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -770,7 +786,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
@@ -791,7 +807,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
                   </a>
                 </li>
                 <li
-                  className="o-header__dropdown-list-item false"
+                  className="o-header__dropdown-list-item "
                 >
                   <a
                     className="o-header__dropdown-list-item-link"

@@ -1,8 +1,9 @@
 import React from 'react'
 
 export interface DropdownNavigationProps {
+  selector: string
   buttonIcon?: string
-  headerContent: string | React.ReactNode
+  headerContent: Exclude<React.ReactNode, (...args: any) => any>
   options: {
     id: string
     title: string
@@ -12,7 +13,7 @@ export interface DropdownNavigationProps {
     hasLabel: boolean
     hasBottomLine: boolean
   }[]
-  label?: React.ReactNode
+  label?: Exclude<React.ReactNode, (...args: any) => any>
   trackingKey: string
 }
 
@@ -23,6 +24,7 @@ type DropdownNavigationHeaderProps = Pick<DropdownNavigationProps, 'headerConten
 type DropdownNavigationListProps = Pick<DropdownNavigationProps, 'options' | 'label' | 'trackingKey'>
 
 export const DropdownNavigation = ({
+  selector,
   buttonIcon,
   headerContent,
   options,
@@ -30,7 +32,11 @@ export const DropdownNavigation = ({
   trackingKey
 }: DropdownNavigationProps) => {
   return (
-    <nav data-o3-brand="professional" className="o-header__dropdown" aria-describedby="dropdown-title">
+    <nav
+      data-o3-brand="professional"
+      className={`o-header__dropdown ${selector}`}
+      aria-describedby="dropdown-title"
+    >
       <DropdownNavigationButton buttonIcon={buttonIcon} trackingKey={trackingKey} />
       <div
         className="o-header__dropdown-content"
@@ -82,16 +88,14 @@ const DropdownNavigationHeader: React.FC<DropdownNavigationHeaderProps> = ({ hea
   </div>
 )
 
-const DropdownNavigationList: React.FC<DropdownNavigationListProps> = ({
-  options,
-  label,
-  trackingKey
-}) => (
+const DropdownNavigationList: React.FC<DropdownNavigationListProps> = ({ options, label, trackingKey }) => (
   <ul className="o-header__dropdown-list">
     {options.map((link) => (
       <li
         key={link.id}
-        className={`o-header__dropdown-list-item ${link.hasBottomLine && 'o-header__dropdown-list-divider'}`}
+        className={`o-header__dropdown-list-item ${
+          link.hasBottomLine ? 'o-header__dropdown-list-divider' : ''
+        }`}
       >
         <a
           className="o-header__dropdown-list-item-link"
@@ -105,7 +109,7 @@ const DropdownNavigationList: React.FC<DropdownNavigationListProps> = ({
             />
             <span>{link.title}</span>
           </div>
-          {link.hasLabel && <React.Fragment>{label}</React.Fragment>}
+          {link.hasLabel && <div className="o-header__dropdown-list-item-label-container">{label}</div>}
         </a>
       </li>
     ))}
