@@ -4,7 +4,7 @@ import BrandFtMastheadSvg from '../svg-components/BrandFtMasthead'
 import { TNavMenuItem } from '@financial-times/dotcom-types-navigation'
 import { AskFtButton } from '../ask-ft/askFtButton'
 import { DropdownNavigation, ProfessionalLabel } from '../dropdown-navigation/dropdownNavigation'
-import {PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST} from '../dropdown-navigation/constants'
+import { PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST } from '../dropdown-navigation/constants'
 
 const HeaderWrapper = (props) => (
   <header
@@ -120,7 +120,7 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
           className="o-header__top-button--hide-m"
         />
       )}
-      {signInAction && (
+    {signInAction && (
         <MenuButton
           showProNavigation={props.showProNavigation}
           signInAction={signInAction}
