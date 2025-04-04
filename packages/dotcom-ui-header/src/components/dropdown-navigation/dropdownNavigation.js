@@ -91,20 +91,22 @@ const enhanceInteractivity = () => {
   stickyHeaderObserver.observe(stickyHeader)
 }
 
-const initProDropdown = async () => {
-  const proDropdowns = document.querySelectorAll('.o-header__dropdown.pro_navigation')
+const updateProNavigationLinks = async (options) => {
+  const { selector, trackingKey, defaultLinks, proNavigationApi } = options
+
+  const proDropdowns = document.querySelectorAll(`.o-header__dropdown.${selector}`)
   if (!proDropdowns) {
     console.error('Navigation dropdown not found')
     return
   }
 
   try {
-    const links = await fetchLinks('https://pro-navigation.ft.com/api/links')
-    if (!Array.isArray(links) || links.length === 0 || isEqual(PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST, links)) {
+    const links = await fetchLinks(proNavigationApi)
+    if (!Array.isArray(links) || links.length === 0 || isEqual(defaultLinks, links)) {
       return
     }
 
-    proDropdowns.forEach((dropdown) => updateLinksList(dropdown, links))
+    proDropdowns.forEach((dropdown) => updateLinksList(dropdown, links, trackingKey))
   } catch (error) {
     console.error('Error updating dropdown navigation.')
   }
@@ -118,7 +120,7 @@ const fetchLinks = async (url) => {
   return response.json()
 }
 
-const updateLinksList = (dropdown, links) => {
+const updateLinksList = (dropdown, links, trackingKey) => {
   const list = dropdown.querySelector('.o-header__dropdown-list')
   if (!list) {
     console.error('Links list element not found')
@@ -137,7 +139,7 @@ const updateLinksList = (dropdown, links) => {
   // Build the updated list
   const updatedListFragment = document.createDocumentFragment()
   links.forEach((link) => {
-    const updatedItem = buildListItem(listItem, label, link)
+    const updatedItem = buildListItem(listItem, label, link, trackingKey)
     updatedItem && updatedListFragment.append(updatedItem)
   })
 
@@ -146,7 +148,7 @@ const updateLinksList = (dropdown, links) => {
   list.append(updatedListFragment)
 }
 
-const buildListItem = (listItem, label, link) => {
+const buildListItem = (listItem, label, link, trackingKey) => {
   if (!listItem) {
     console.error('List item template not found')
     return
@@ -169,8 +171,7 @@ const buildListItem = (listItem, label, link) => {
   a.setAttribute('href', link.href)
 
   const match = a.getAttribute('data-trackable')?.match(/^(.*)_.*_clicked$/)
-  const trackingKey = match ? match[1] : 'pro_navigation'
-  a.setAttribute('data-trackable', `${trackingKey}_${link.id}_clicked`)
+  a.setAttribute('data-trackable', `${match ? match[1] : trackingKey}_${link.id}_clicked`)
 
   // Update icon and text
   icon.className = `o-header__dropdown-icon ${link.hasAccess ? link.icon : 'lock'}-icon`
@@ -188,7 +189,12 @@ const init = () => {
 
   // Add any dropdown navigation-specific initializations below.
   // Make sure to use a unique selector to distinguish your dropdown from others.
-  initProDropdown()
+  updateProNavigationLinks({
+    selector: 'pro_navigation',
+    trackingKey: 'pro_navigation',
+    defaultLinks: PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST,
+    proNavigationApi: 'https://pro-navigation.ft.com/api/links'
+  })
 }
 
 export const DropdownNavigation = {
