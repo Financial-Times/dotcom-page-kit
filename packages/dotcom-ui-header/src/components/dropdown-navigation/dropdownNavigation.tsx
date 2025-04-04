@@ -1,7 +1,7 @@
 import React from 'react'
 
 export interface DropdownNavigationProps {
-  selector: string;
+  selector: string
   buttonIcon?: string
   headerContent: Exclude<React.ReactNode, (...args: any) => any>
   options: {
@@ -32,7 +32,11 @@ export const DropdownNavigation = ({
   trackingKey
 }: DropdownNavigationProps) => {
   return (
-    <nav data-o3-brand="professional" className={`o-header__dropdown ${selector}`} aria-describedby="dropdown-title">
+    <nav
+      data-o3-brand="professional"
+      className={`o-header__dropdown ${selector}`}
+      aria-describedby="dropdown-title"
+    >
       <DropdownNavigationButton buttonIcon={buttonIcon} trackingKey={trackingKey} />
       <div
         className="o-header__dropdown-content"
@@ -105,7 +109,7 @@ const DropdownNavigationList: React.FC<DropdownNavigationListProps> = ({ options
             />
             <span>{link.title}</span>
           </div>
-          {link.hasLabel && <React.Fragment>{label}</React.Fragment>}
+          {link.hasLabel && <div className="o-header__dropdown-list-item-label-container">{label}</div>}
         </a>
       </li>
     ))}

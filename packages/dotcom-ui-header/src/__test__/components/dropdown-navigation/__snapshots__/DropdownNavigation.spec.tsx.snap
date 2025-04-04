@@ -73,6 +73,9 @@ exports[`DropdownNavigation renders correctly 1`] = `
                   Workspace
                 </span>
               </div>
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              />
             </a>
           </li>
           <li
@@ -115,6 +118,9 @@ exports[`DropdownNavigation renders correctly 1`] = `
                   Monetary Policy Radar
                 </span>
               </div>
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              />
             </a>
           </li>
           <li
@@ -157,6 +163,9 @@ exports[`DropdownNavigation renders correctly 1`] = `
                   Highlights
                 </span>
               </div>
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              />
             </a>
           </li>
           <li
@@ -178,6 +187,9 @@ exports[`DropdownNavigation renders correctly 1`] = `
                   Advanced Sharing
                 </span>
               </div>
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              />
             </a>
           </li>
           <li
@@ -323,8 +335,12 @@ exports[`DropdownNavigation renders label 1`] = `
                   Workspace
                 </span>
               </div>
-              <div>
-                Mock Label
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              >
+                <div>
+                  Mock Label
+                </div>
               </div>
             </a>
           </li>
@@ -368,8 +384,12 @@ exports[`DropdownNavigation renders label 1`] = `
                   Monetary Policy Radar
                 </span>
               </div>
-              <div>
-                Mock Label
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              >
+                <div>
+                  Mock Label
+                </div>
               </div>
             </a>
           </li>
@@ -413,8 +433,12 @@ exports[`DropdownNavigation renders label 1`] = `
                   Highlights
                 </span>
               </div>
-              <div>
-                Mock Label
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              >
+                <div>
+                  Mock Label
+                </div>
               </div>
             </a>
           </li>
@@ -437,8 +461,12 @@ exports[`DropdownNavigation renders label 1`] = `
                   Advanced Sharing
                 </span>
               </div>
-              <div>
-                Mock Label
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              >
+                <div>
+                  Mock Label
+                </div>
               </div>
             </a>
           </li>

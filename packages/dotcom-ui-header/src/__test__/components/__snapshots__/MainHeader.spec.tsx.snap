@@ -2027,11 +2027,15 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                         Workspace
                       </span>
                     </div>
-                    <span
-                      className="o-header__dropdown-list-pro-label"
+                    <div
+                      className="o-header__dropdown-list-item-label-container"
                     >
-                      FT PROFESSIONAL
-                    </span>
+                      <span
+                        className="o-header__dropdown-list-pro-label"
+                      >
+                        FT PROFESSIONAL
+                      </span>
+                    </div>
                   </a>
                 </li>
                 <li
@@ -2074,11 +2078,15 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                         Monetary Policy Radar
                       </span>
                     </div>
-                    <span
-                      className="o-header__dropdown-list-pro-label"
+                    <div
+                      className="o-header__dropdown-list-item-label-container"
                     >
-                      FT PROFESSIONAL
-                    </span>
+                      <span
+                        className="o-header__dropdown-list-pro-label"
+                      >
+                        FT PROFESSIONAL
+                      </span>
+                    </div>
                   </a>
                 </li>
                 <li
@@ -2121,11 +2129,15 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                         Highlights
                       </span>
                     </div>
-                    <span
-                      className="o-header__dropdown-list-pro-label"
+                    <div
+                      className="o-header__dropdown-list-item-label-container"
                     >
-                      FT PROFESSIONAL
-                    </span>
+                      <span
+                        className="o-header__dropdown-list-pro-label"
+                      >
+                        FT PROFESSIONAL
+                      </span>
+                    </div>
                   </a>
                 </li>
                 <li
@@ -2147,11 +2159,15 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                         Advanced Sharing
                       </span>
                     </div>
-                    <span
-                      className="o-header__dropdown-list-pro-label"
+                    <div
+                      className="o-header__dropdown-list-item-label-container"
                     >
-                      FT PROFESSIONAL
-                    </span>
+                      <span
+                        className="o-header__dropdown-list-pro-label"
+                      >
+                        FT PROFESSIONAL
+                      </span>
+                    </div>
                   </a>
                 </li>
                 <li

@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-import { isEqual } from "./utils"
-import { PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST } from "./constants"
+import { isEqual } from './utils'
+import { PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST } from './constants'
 
 /**
  * Enhance the dropdown menu for JS users. This will ensure we can
@@ -92,117 +92,102 @@ const enhanceInteractivity = () => {
 }
 
 const initProDropdown = async () => {
-  const proDropdowns = document.querySelectorAll('.o-header__dropdown.pro_navigation');
+  const proDropdowns = document.querySelectorAll('.o-header__dropdown.pro_navigation')
   if (!proDropdowns) {
-    console.error('Navigation dropdown not found');
-    return;
+    console.error('Navigation dropdown not found')
+    return
   }
 
   try {
-    const links = await fetchLinks('https://pro-navigation.ft.com/api/links');
-    if (!validateLinks(links) || isEqual(PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST, links)) {
-      return;
+    const links = await fetchLinks('https://pro-navigation.ft.com/api/links')
+    if (!Array.isArray(links) || links.length === 0 || isEqual(PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST, links)) {
+      return
     }
 
-    proDropdowns.forEach((dropdown) => updateLinksList(dropdown, links));
-  }
-  catch (error) {
-    console.error('Error updating dropdown navigation:', error);
+    proDropdowns.forEach((dropdown) => updateLinksList(dropdown, links))
+  } catch (error) {
+    console.error('Error updating dropdown navigation.')
   }
 }
 
 const fetchLinks = async (url) => {
-  const response = await fetch(url);
+  const response = await fetch(url)
   if (!response.ok) {
-    throw new Error(`HTTP error! Status: ${response.status}`);
+    throw new Error(`HTTP error! Status: ${response.status}`)
   }
-  return response.json();
-};
-
-const validateLinks = (links) => {
-  if (!Array.isArray(links) || links.length === 0) {
-    console.error('Invalid links data format or empty links list');
-    return false;
-  }
-  return true;
-};
+  return response.json()
+}
 
 const updateLinksList = (dropdown, links) => {
-  const list = dropdown.querySelector('.o-header__dropdown-list');
-  const listItem = dropdown.querySelector('.o-header__dropdown-list-item');
+  const list = dropdown.querySelector('.o-header__dropdown-list')
   if (!list) {
     console.error('Links list element not found')
-    return;
+    return
   }
 
-  const label = extractLabel(listItem);
+  // Determine the list item template
+  const label = dropdown.querySelector('.o-header__dropdown-list-item-label-container')
+  const listItem = label?.closest('.o-header__dropdown-list-item') || list.firstElementChild
 
-  const updatedListFragment = new DocumentFragment();
+  if (!listItem) {
+    console.error('List item template not found')
+    return
+  }
+
+  // Build the updated list
+  const updatedListFragment = document.createDocumentFragment()
   links.forEach((link) => {
-    const updatedItem = buildListItem({ listItem, label }, link);
-    updatedItem && updatedListFragment.append(updatedItem);
-  });
+    const updatedItem = buildListItem(listItem, label, link)
+    updatedItem && updatedListFragment.append(updatedItem)
+  })
 
-  list.innerHTML = '';
-  list.append(updatedListFragment);
+  // Update the DOM
+  list.innerHTML = ''
+  list.append(updatedListFragment)
 }
 
-const extractLabel = (listItem) => {
+const buildListItem = (listItem, label, link) => {
   if (!listItem) {
-    console.error('List item template not found');
-    return;
+    console.error('List item template not found')
+    return
   }
 
-  const label = new DocumentFragment();
-  const siblingNodes = Array.from(listItem.querySelector('a').children).slice(1); // Skip the first child (list-item-details-container)
-  siblingNodes.forEach(node => label.append(node));
-
-  return label;
-}
-
-const buildListItem = (template, link) => {
-  const { listItem, label } = template;
-  if (!listItem) {
-    console.error('List item template not found');
-    return;
-  }
-
-  const listItemClone = listItem.cloneNode(true);
-  const a = listItemClone.querySelector('a');
-  const icon = a.querySelector('.o-header__dropdown-icon');
-  const span = a.querySelector('span:not([class])');
-  const labelClone = label.cloneNode(true);
+  const listItemClone = listItem.cloneNode(true)
+  const a = listItemClone.querySelector('a')
+  const icon = a.querySelector('.o-header__dropdown-icon')
+  const span = a.querySelector('span:not([class])')
 
   if (!listItemClone || !a || !icon || !span) {
-    console.error('Invalid template structure');
-    return;
+    console.error('Invalid template structure')
+    return
   }
 
   // Update class name
-  listItemClone.className = `o-header__dropdown-list-item ${link.hasBottomLine ? 'o-header__dropdown-list-divider' : ''}`;
+  listItemClone.classList.toggle('o-header__dropdown-list-divider', link.hasBottomLine)
 
   // Update link attributes
-  a.setAttribute('href', link.href);
+  a.setAttribute('href', link.href)
 
-  const match = a.getAttribute('data-trackable')?.match(/^(.*)_.*_clicked$/);
-  const trackingKey = match ? match[1] : 'pro-navigation';
-  a.setAttribute('data-trackable', `${trackingKey}_${link.id}_clicked`);
+  const match = a.getAttribute('data-trackable')?.match(/^(.*)_.*_clicked$/)
+  const trackingKey = match ? match[1] : 'pro_navigation'
+  a.setAttribute('data-trackable', `${trackingKey}_${link.id}_clicked`)
 
   // Update icon and text
-  icon.className = `o-header__dropdown-icon ${link.hasAccess ? link.icon + '-icon' : 'lock-icon'}`;
-  span.innerText = link.title;
+  icon.className = `o-header__dropdown-icon ${link.hasAccess ? link.icon : 'lock'}-icon`
+  span.innerText = link.title
 
-  // Append label
-  if (link.hasLabel) {
-    a.appendChild(labelClone);
+  if (label && !link.hasLabel) {
+    a.children[1].remove()
   }
 
-  return listItemClone;
-};
+  return listItemClone
+}
 
 const init = () => {
   enhanceInteractivity()
 
+  // Add any dropdown navigation-specific initializations below.
+  // Make sure to use a unique selector to distinguish your dropdown from others.
   initProDropdown()
 }
 
