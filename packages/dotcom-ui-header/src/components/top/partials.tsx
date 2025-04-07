@@ -120,7 +120,7 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
           className="o-header__top-button--hide-m"
         />
       )}
-    {signInAction && (
+      {signInAction && (
         <MenuButton
           showProNavigation={props.showProNavigation}
           signInAction={signInAction}

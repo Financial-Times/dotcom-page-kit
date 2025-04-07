@@ -169,16 +169,22 @@ const buildListItem = (listItem, label, link, trackingKey) => {
 
   // Update link attributes
   a.setAttribute('href', link.href)
-
-  const match = a.getAttribute('data-trackable')?.match(/^(.*)_.*_clicked$/)
-  a.setAttribute('data-trackable', `${match ? match[1] : trackingKey}_${link.id}_clicked`)
+  const availableTrackingKey = trackingKey || a.dataset.trackingKey
+  if (availableTrackingKey) {
+    a.setAttribute('data-trackable', `${availableTrackingKey}_${link.id}_clicked`)
+  }
 
   // Update icon and text
-  icon.className = `o-header__dropdown-icon ${link.hasAccess ? link.icon : 'lock'}-icon`
+  icon.classList.forEach(
+    (c) =>
+      /^(?!.*__)[\w-]+-icon$/.test(c) &&
+      icon.classList.replace(c, `${link.hasAccess ? link.icon : 'lock'}-icon`)
+  )
   span.innerText = link.title
 
+  // Update label: If label is present and current url should not have label, we need to remove it from the list item
   if (label && !link.hasLabel) {
-    a.children[1].remove()
+    a.lastElementChild?.className?.includes('label-container') && a.lastElementChild.remove()
   }
 
   return listItemClone

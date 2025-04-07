@@ -101,6 +101,7 @@ const DropdownNavigationList: React.FC<DropdownNavigationListProps> = ({ options
           className="o-header__dropdown-list-item-link"
           href={link.href}
           data-trackable={`${trackingKey}_${link.id}_clicked`}
+          data-tracking-key={trackingKey}
         >
           <div className="o-header__dropdown-list-item-details-container">
             <span

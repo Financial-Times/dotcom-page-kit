@@ -2014,6 +2014,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   <a
                     className="o-header__dropdown-list-item-link"
                     data-trackable="pro_navigation_link-workspace_clicked"
+                    data-tracking-key="pro_navigation"
                     href="https://workspace.ft.com/"
                   >
                     <div
@@ -2044,6 +2045,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   <a
                     className="o-header__dropdown-list-item-link"
                     data-trackable="pro_navigation_link-feed_clicked"
+                    data-tracking-key="pro_navigation"
                     href="https://www.ft.com/myft/following/"
                   >
                     <div
@@ -2065,6 +2067,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   <a
                     className="o-header__dropdown-list-item-link"
                     data-trackable="pro_navigation_link-mpr_clicked"
+                    data-tracking-key="pro_navigation"
                     href="https://professional-monetary-policy-radar.ft.com/"
                   >
                     <div
@@ -2095,6 +2098,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   <a
                     className="o-header__dropdown-list-item-link"
                     data-trackable="pro_navigation_link-saved-articles_clicked"
+                    data-tracking-key="pro_navigation"
                     href="https://www.ft.com/myft/saved-articles/"
                   >
                     <div
@@ -2116,6 +2120,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   <a
                     className="o-header__dropdown-list-item-link"
                     data-trackable="pro_navigation_link-highlights_clicked"
+                    data-tracking-key="pro_navigation"
                     href="https://highlights-dashboard.ft.com/"
                   >
                     <div
@@ -2146,6 +2151,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   <a
                     className="o-header__dropdown-list-item-link"
                     data-trackable="pro_navigation_link-advanced-sharing_clicked"
+                    data-tracking-key="pro_navigation"
                     href="https://sharing-dashboard.ft.com/"
                   >
                     <div
@@ -2176,6 +2182,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   <a
                     className="o-header__dropdown-list-item-link"
                     data-trackable="pro_navigation_link-newsletters_clicked"
+                    data-tracking-key="pro_navigation"
                     href="https://www.ft.com/newsletters"
                   >
                     <div
@@ -2197,6 +2204,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   <a
                     className="o-header__dropdown-list-item-link"
                     data-trackable="pro_navigation_link-account-settings_clicked"
+                    data-tracking-key="pro_navigation"
                     href="https://www.ft.com/myaccount/personal-details"
                   >
                     <div
@@ -2218,6 +2226,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                   <a
                     className="o-header__dropdown-list-item-link"
                     data-trackable="pro_navigation_link-sign-out_clicked"
+                    data-tracking-key="pro_navigation"
                     href="https://www.ft.com/logout"
                   >
                     <div

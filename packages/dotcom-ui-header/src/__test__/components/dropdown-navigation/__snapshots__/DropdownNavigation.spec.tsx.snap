@@ -60,6 +60,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-workspace_clicked"
+              data-tracking-key="test_tracking"
               href="https://workspace.ft.com/"
             >
               <div
@@ -84,6 +85,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-feed_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/myft/following/"
             >
               <div
@@ -105,6 +107,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-mpr_clicked"
+              data-tracking-key="test_tracking"
               href="https://professional-monetary-policy-radar.ft.com/"
             >
               <div
@@ -129,6 +132,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-saved-articles_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/myft/saved-articles/"
             >
               <div
@@ -150,6 +154,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-highlights_clicked"
+              data-tracking-key="test_tracking"
               href="https://highlights-dashboard.ft.com/"
             >
               <div
@@ -174,6 +179,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-advanced-sharing_clicked"
+              data-tracking-key="test_tracking"
               href="https://sharing-dashboard.ft.com/"
             >
               <div
@@ -198,6 +204,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-newsletters_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/newsletters"
             >
               <div
@@ -219,6 +226,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-account-settings_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/myaccount/personal-details"
             >
               <div
@@ -240,6 +248,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-sign-out_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/logout"
             >
               <div
@@ -322,6 +331,7 @@ exports[`DropdownNavigation renders label 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-workspace_clicked"
+              data-tracking-key="test_tracking"
               href="https://workspace.ft.com/"
             >
               <div
@@ -350,6 +360,7 @@ exports[`DropdownNavigation renders label 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-feed_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/myft/following/"
             >
               <div
@@ -371,6 +382,7 @@ exports[`DropdownNavigation renders label 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-mpr_clicked"
+              data-tracking-key="test_tracking"
               href="https://professional-monetary-policy-radar.ft.com/"
             >
               <div
@@ -399,6 +411,7 @@ exports[`DropdownNavigation renders label 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-saved-articles_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/myft/saved-articles/"
             >
               <div
@@ -420,6 +433,7 @@ exports[`DropdownNavigation renders label 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-highlights_clicked"
+              data-tracking-key="test_tracking"
               href="https://highlights-dashboard.ft.com/"
             >
               <div
@@ -448,6 +462,7 @@ exports[`DropdownNavigation renders label 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-advanced-sharing_clicked"
+              data-tracking-key="test_tracking"
               href="https://sharing-dashboard.ft.com/"
             >
               <div
@@ -476,6 +491,7 @@ exports[`DropdownNavigation renders label 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-newsletters_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/newsletters"
             >
               <div
@@ -497,6 +513,7 @@ exports[`DropdownNavigation renders label 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-account-settings_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/myaccount/personal-details"
             >
               <div
@@ -518,6 +535,7 @@ exports[`DropdownNavigation renders label 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-sign-out_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/logout"
             >
               <div
