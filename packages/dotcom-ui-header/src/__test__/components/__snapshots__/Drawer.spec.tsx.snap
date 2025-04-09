@@ -76,7 +76,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
             <span
               className="o-forms-title__main"
             >
-              Search the 
+              Search the
               <abbr
                 title="Financial Times"
               >
@@ -1234,7 +1234,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
               <a
                 className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
                 data-trackable="FT Forums"
-                href="https://forums.ft.com/"
+                href="https://forums.live.ft.com/"
               >
                 FT Forums
               </a>
@@ -1244,10 +1244,10 @@ exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
             >
               <a
                 className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
-                data-trackable="Board Director Programme"
-                href="https://bdp.ft.com/"
+                data-trackable="FT Leaders Academy"
+                href="https://leadersacademy.ft.com/"
               >
-                Board Director Programme
+                FT Leaders Academy
               </a>
             </li>
           </ul>
@@ -1446,7 +1446,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
             <span
               className="o-forms-title__main"
             >
-              Search the 
+              Search the
               <abbr
                 title="Financial Times"
               >
@@ -2595,7 +2595,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
               <a
                 className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
                 data-trackable="FT Forums"
-                href="https://forums.ft.com/"
+                href="https://forums.live.ft.com/"
               >
                 FT Forums
               </a>
@@ -2605,10 +2605,10 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
             >
               <a
                 className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
-                data-trackable="Board Director Programme"
-                href="https://bdp.ft.com/"
+                data-trackable="FT Leaders Academy"
+                href="https://leadersacademy.ft.com/"
               >
-                Board Director Programme
+                FT Leaders Academy
               </a>
             </li>
           </ul>
@@ -2807,7 +2807,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
             <span
               className="o-forms-title__main"
             >
-              Search the 
+              Search the
               <abbr
                 title="Financial Times"
               >
@@ -3956,7 +3956,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
               <a
                 className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
                 data-trackable="FT Forums"
-                href="https://forums.ft.com/"
+                href="https://forums.live.ft.com/"
               >
                 FT Forums
               </a>
@@ -3966,10 +3966,10 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
             >
               <a
                 className="o-header__drawer-menu-link o-header__drawer-menu-link--unselected o-header__drawer-menu-link--child"
-                data-trackable="Board Director Programme"
-                href="https://bdp.ft.com/"
+                data-trackable="FT Leaders Academy"
+                href="https://leadersacademy.ft.com/"
               >
-                Board Director Programme
+                FT Leaders Academy
               </a>
             </li>
           </ul>
