@@ -137,6 +137,7 @@ const MenuButton = ({ showProNavigation, signInAction, variant }) => {
       <DropdownNavigation
         selector="pro_navigation"
         trackingKey="pro_navigation"
+        buttonId={`pro_navigation_toggle_${variant === 'sticky'? 'sticky' : 'default'}`}
         headerContent="FT PROFESSIONAL ACCOUNT"
         options={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}
         label={<ProfessionalLabel />}

@@ -2,6 +2,7 @@ import React from 'react'
 
 export interface DropdownNavigationProps {
   selector: string
+  buttonId?: string
   buttonIcon?: string
   headerContent: Exclude<React.ReactNode, (...args: any) => any>
   options: {
@@ -17,7 +18,7 @@ export interface DropdownNavigationProps {
   trackingKey: string
 }
 
-type DropdownNavigationButtonProps = Pick<DropdownNavigationProps, 'buttonIcon' | 'trackingKey'>
+type DropdownNavigationButtonProps = Pick<DropdownNavigationProps, 'buttonId' | 'buttonIcon' | 'trackingKey'>
 
 type DropdownNavigationHeaderProps = Pick<DropdownNavigationProps, 'headerContent'>
 
@@ -25,6 +26,7 @@ type DropdownNavigationListProps = Pick<DropdownNavigationProps, 'options' | 'la
 
 export const DropdownNavigation = ({
   selector,
+  buttonId,
   buttonIcon,
   headerContent,
   options,
@@ -37,7 +39,7 @@ export const DropdownNavigation = ({
       className={`o-header__dropdown ${selector}`}
       aria-describedby="dropdown-title"
     >
-      <DropdownNavigationButton buttonIcon={buttonIcon} trackingKey={trackingKey} />
+      <DropdownNavigationButton buttonId={buttonId} buttonIcon={buttonIcon} trackingKey={trackingKey} />
       <div
         className="o-header__dropdown-content"
         tabIndex={-1} // Needed so clicking inside the contnet does not lose focus from the dropdown
@@ -54,10 +56,12 @@ export const DropdownNavigation = ({
 }
 
 const DropdownNavigationButton: React.FC<DropdownNavigationButtonProps> = ({
+  buttonId,
   buttonIcon = 'user',
   trackingKey
 }) => (
   <button
+    id={buttonId}
     data-trackable={`${trackingKey}_toggle_click`}
     className="o-header__dropdown-button"
     tabIndex={0} // Tab index here is needed for making sure safari and ios browsers dropdown behavior works

@@ -561,6 +561,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
               aria-label="Dropdown menu has opened on focus, press Tab to access links."
               className="o-header__dropdown-button"
               data-trackable="pro_navigation_toggle_click"
+              id="pro_navigation_toggle_sticky"
               tabIndex={0}
             >
               <div

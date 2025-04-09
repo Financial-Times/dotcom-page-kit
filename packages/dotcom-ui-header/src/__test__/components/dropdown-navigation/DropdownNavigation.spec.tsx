@@ -21,6 +21,21 @@ describe('DropdownNavigation', () => {
     expect(dropdown).toMatchSnapshot()
   })
 
+  it('renders button props', () => {
+    const { baseElement: dropdown } = render(
+      <DropdownNavigation
+        buttonId="test_button_id"
+        buttonIcon="test_icon"
+        selector="test_dropdown"
+        options={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}
+        headerContent="Test Title"
+        trackingKey="test_tracking"
+      />
+    )
+
+    expect(dropdown).toMatchSnapshot()
+  })
+
   it('renders label', () => {
     const MockLabel = () => <div>Mock Label</div>
     const mockLabelCount = PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST.filter((item) => item.hasLabel).length
