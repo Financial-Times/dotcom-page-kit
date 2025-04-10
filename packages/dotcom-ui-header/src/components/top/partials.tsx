@@ -4,7 +4,7 @@ import BrandFtMastheadSvg from '../svg-components/BrandFtMasthead'
 import { TNavMenuItem } from '@financial-times/dotcom-types-navigation'
 import { AskFtButton } from '../ask-ft/askFtButton'
 import { DropdownNavigation, ProfessionalLabel } from '../dropdown-navigation/dropdownNavigation'
-import {PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST} from '../dropdown-navigation/dropdownNavigationDefaultLists'
+import { PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST } from '../dropdown-navigation/constants'
 
 const HeaderWrapper = (props) => (
   <header
@@ -135,7 +135,9 @@ const MenuButton = ({ showProNavigation, signInAction, variant }) => {
   if (showProNavigation) {
     return (
       <DropdownNavigation
+        selector="pro_navigation"
         trackingKey="pro_navigation"
+        buttonId={`pro_navigation_toggle_${variant === 'sticky'? 'sticky' : 'default'}`}
         headerContent="FT PROFESSIONAL ACCOUNT"
         options={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}
         label={<ProfessionalLabel />}
