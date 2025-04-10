@@ -913,12 +913,12 @@ const data: TNavMenu = {
                 },
                 {
                   label: 'FT Forums',
-                  url: 'https://forums.ft.com/',
+                  url: 'https://forums.live.ft.com/',
                   submenu: null
                 },
                 {
-                  label: 'Board Director Programme',
-                  url: 'https://bdp.ft.com/',
+                  label: 'FT Leaders Academy',
+                  url: 'https://leadersacademy.ft.com/',
                   submenu: null
                 }
               ]
