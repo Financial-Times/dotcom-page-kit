@@ -76,7 +76,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
             <span
               className="o-forms-title__main"
             >
-              Search the
+              Search the 
               <abbr
                 title="Financial Times"
               >
@@ -1446,7 +1446,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
             <span
               className="o-forms-title__main"
             >
-              Search the
+              Search the 
               <abbr
                 title="Financial Times"
               >
@@ -2807,7 +2807,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
             <span
               className="o-forms-title__main"
             >
-              Search the
+              Search the 
               <abbr
                 title="Financial Times"
               >
