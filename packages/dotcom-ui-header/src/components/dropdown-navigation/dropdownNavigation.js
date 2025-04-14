@@ -112,6 +112,7 @@ const updateProNavigationLinks = async (options) => {
 
     proDropdowns.forEach((dropdown) => updateLinksList(dropdown, links, trackingKey))
   } catch (error) {
+    document.body.dispatchEvent(new CustomEvent('oTracking.event', { detail: error, bubbles: true }))
     console.error(error.message ?? 'Error updating dropdown navigation.')
   }
 }
