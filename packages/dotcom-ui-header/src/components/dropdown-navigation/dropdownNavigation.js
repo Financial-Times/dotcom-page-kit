@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import { isEqual } from './utils'
 import { PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST } from './constants'
 
 /**
@@ -95,44 +94,47 @@ const updateProNavigationLinks = async (options) => {
   const { selector, trackingKey, defaultLinks, proNavigationApi } = options
 
   const proDropdowns = document.querySelectorAll(`.o-header__dropdown.${selector}`)
-  if (!proDropdowns) {
-    console.error('Navigation dropdown not found')
+  if (proDropdowns.length === 0) {
     return
   }
 
   try {
     const links = await fetchLinks(proNavigationApi)
-    if (!Array.isArray(links) || links.length === 0 || isEqual(defaultLinks, links)) {
+
+    if (
+      !links ||
+      !Array.isArray(links) ||
+      links.length === 0 ||
+      JSON.stringify(defaultLinks) === JSON.stringify(links)
+    ) {
       return
     }
 
     proDropdowns.forEach((dropdown) => updateLinksList(dropdown, links, trackingKey))
   } catch (error) {
-    console.error('Error updating dropdown navigation.')
+    console.error(error.message ?? 'Error updating dropdown navigation.')
   }
 }
 
 const fetchLinks = async (url) => {
   const response = await fetch(url)
   if (!response.ok) {
-    throw new Error(`HTTP error! Status: ${response.status}`)
+    throw new Error(`Error during navigation links fetch! Status: ${response.status}`)
   }
   return response.json()
 }
 
-const updateLinksList = (dropdown, links, trackingKey) => {
-  const list = dropdown.querySelector('.o-header__dropdown-list')
+const updateLinksList = (dropdownEl, links, trackingKey) => {
+  const list = dropdownEl.querySelector('.o-header__dropdown-list')
   if (!list) {
-    console.error('Links list element not found')
     return
   }
 
   // Determine the list item template
-  const label = dropdown.querySelector('.o-header__dropdown-list-item-label-container')
+  const label = dropdownEl.querySelector('.o-header__dropdown-list-item-label-container')
   const listItem = label?.closest('.o-header__dropdown-list-item') || list.firstElementChild
 
   if (!listItem) {
-    console.error('List item template not found')
     return
   }
 
@@ -144,23 +146,18 @@ const updateLinksList = (dropdown, links, trackingKey) => {
   })
 
   // Update the DOM
-  list.innerHTML = ''
-  list.append(updatedListFragment)
+  if (updatedListFragment.childNodes.length > 0) {
+    list.replaceChildren(updatedListFragment)
+  }
 }
 
 const buildListItem = (listItem, label, link, trackingKey) => {
-  if (!listItem) {
-    console.error('List item template not found')
-    return
-  }
-
   const listItemClone = listItem.cloneNode(true)
   const a = listItemClone.querySelector('a')
   const icon = a.querySelector('.o-header__dropdown-icon')
   const span = a.querySelector('span:not([class])')
 
   if (!listItemClone || !a || !icon || !span) {
-    console.error('Invalid template structure')
     return
   }
 
@@ -182,7 +179,7 @@ const buildListItem = (listItem, label, link, trackingKey) => {
   )
   span.innerText = link.title
 
-  // Update label: If label is present and current url should not have label, we need to remove it from the list item
+  // Update label: If a label is present, the cloned li item will need tidying up if no label is required
   if (label && !link.hasLabel) {
     a.lastElementChild?.className?.includes('label-container') && a.lastElementChild.remove()
   }
@@ -193,14 +190,23 @@ const buildListItem = (listItem, label, link, trackingKey) => {
 const init = () => {
   enhanceInteractivity()
 
-  // Add any dropdown navigation-specific initializations below.
-  // Make sure to use a unique selector to distinguish your dropdown from others.
+  /**
+   * Updates the links in the Pro Navigation dropdown.
+   * @param {Object} options - Configuration options for updating the dropdown links.
+   * @param {string} options.selector - The CSS class selector used to identify the dropdown(s) to update. This property is required when initializing the dropdown component
+   * @param {string} options.trackingKey - A key used for tracking user interactions with the dropdown links and toggler.
+   * @param {Array} options.defaultLinks - The default list of links to display in the dropdown if the API call fails or returns no data.
+   * @param {string} options.proNavigationApi - The URL of the API endpoint to fetch the updated links.
+   */
+
   updateProNavigationLinks({
     selector: 'pro_navigation',
     trackingKey: 'pro_navigation',
     defaultLinks: PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST,
     proNavigationApi: 'https://pro-navigation.ft.com/api/links'
   })
+
+  // Add any dropdown navigation-specific initializations below.
 }
 
 export const DropdownNavigation = {
