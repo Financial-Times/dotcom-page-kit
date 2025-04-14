@@ -112,8 +112,18 @@ const updateProNavigationLinks = async (options) => {
 
     proDropdowns.forEach((dropdown) => updateLinksList(dropdown, links, trackingKey))
   } catch (error) {
-    document.body.dispatchEvent(new CustomEvent('oTracking.event', { detail: error, bubbles: true }))
-    console.error(error.message ?? 'Error updating dropdown navigation.')
+    const isFetchError = error.message.includes('Status')
+    const eventData = {
+      action: isFetchError ? 'fetch' : 'update',
+      category: 'error',
+      context: {
+        component_name: 'dropdown-navigation',
+        errorMessage: error.message,
+        errorStack: error.stack
+      }
+    }
+    document.body.dispatchEvent(new CustomEvent('oTracking.event', { detail: eventData, bubbles: true }))
+    console.error(isFetchError ? error.message : 'Error updating dropdown navigation.')
   }
 }
 
