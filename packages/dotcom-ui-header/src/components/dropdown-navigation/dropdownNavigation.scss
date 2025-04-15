@@ -197,10 +197,21 @@
 }
 
 .o-header__dropdown-list-pro-label {
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--o3-color-use-case-link-underline-hover);
+    opacity: 0.7;
+    z-index: -1;
+  }
+
   align-items: center;
   border-radius: 2px;
   padding: var(--o3-spacing-5xs) 10px;
-  background-color: var(--o3-color-use-case-link-underline-hover);
   font-size: var(--o3-type-label-font-size);
   line-height: var(--o3-type-label-line-height);
   font-weight: var(--o3-type-label-font-weight);
