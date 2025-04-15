@@ -112,7 +112,7 @@ const updateProNavigationLinks = async (options) => {
 
     proDropdowns.forEach((dropdown) => updateLinksList(dropdown, links, trackingKey))
   } catch (error) {
-    const isFetchError = error.message.includes('Status')
+    const isFetchError = error.message.includes('fetch')
     const eventData = {
       action: isFetchError ? 'fetch' : 'update',
       category: 'error',
