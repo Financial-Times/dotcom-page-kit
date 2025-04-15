@@ -1,10 +1,10 @@
 # @financial-times/dotcom-ui-app-context
 
-This package provides methods for embedding [app context data] into your server-side rendered pages and safely retrieving it again in the browser.
+This package provides methods for embedding [app tracking context data] into your server-side rendered pages and safely retrieving it again in the browser.
 
-[app context data]: ../dotcom-server-app-context/schema.md
+[app tracking context data]: ../dotcom-server-app-context/schema.md
 
-If you want to share application specific data with the client, consider using [@financial-times/dotcom-ui-data-embed](../dotcom-ui-data-embed).
+This package is _only_ for tracking context data. Any data you embed using it will be sent with clientside Spoor tracking events. If you want to share generic application-specific data with the client, consider using [@financial-times/dotcom-ui-data-embed](../dotcom-ui-data-embed).
 
 ## Getting started
 
