@@ -42,7 +42,7 @@ export const init = (headerOptions = {}) => {
     }
   })
 
-  DropdownNavigation.init();
+  DropdownNavigation.init()
 
   Header.init(headerOptions.rootElement)
 }

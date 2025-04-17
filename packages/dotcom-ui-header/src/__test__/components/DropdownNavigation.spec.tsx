@@ -5,12 +5,28 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { DropdownNavigation } from '../../components/dropdown-navigation/dropdownNavigation'
-import {PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST} from '../../components/dropdown-navigation/dropdownNavigationDefaultLists'
+import { PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST } from '../../components/dropdown-navigation/constants'
 
 describe('DropdownNavigation', () => {
   it('renders correctly', () => {
     const { baseElement: dropdown } = render(
       <DropdownNavigation
+        selector="test_dropdown"
+        options={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}
+        headerContent="Test Title"
+        trackingKey="test_tracking"
+      />
+    )
+
+    expect(dropdown).toMatchSnapshot()
+  })
+
+  it('renders button props', () => {
+    const { baseElement: dropdown } = render(
+      <DropdownNavigation
+        buttonId="test_button_id"
+        buttonIcon="test_icon"
+        selector="test_dropdown"
         options={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}
         headerContent="Test Title"
         trackingKey="test_tracking"
@@ -25,6 +41,7 @@ describe('DropdownNavigation', () => {
     const mockLabelCount = PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST.filter((item) => item.hasLabel).length
     const { baseElement: dropdown, queryAllByText } = render(
       <DropdownNavigation
+        selector="test_dropdown"
         options={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}
         headerContent="Test Title"
         trackingKey="test_tracking"
@@ -42,6 +59,7 @@ describe('DropdownNavigation', () => {
     const MockHeader = () => <div>Dropdown Custom Header</div>
     const { getByText } = render(
       <DropdownNavigation
+        selector="test_dropdown"
         options={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}
         headerContent={<MockHeader />}
         trackingKey="test_tracking"
@@ -57,6 +75,7 @@ describe('DropdownNavigation', () => {
     const trackingKey = 'test_tracking'
     const { getAllByRole, baseElement } = render(
       <DropdownNavigation
+        selector="test_dropdown"
         options={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}
         headerContent="Test Title"
         trackingKey={trackingKey}

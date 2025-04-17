@@ -1,11 +1,283 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`DropdownNavigation renders button props 1`] = `
+<body>
+  <div>
+    <nav
+      aria-describedby="dropdown-title"
+      class="o-header__dropdown test_dropdown"
+      data-o3-brand="professional"
+    >
+      <button
+        aria-controls="dropdown-options"
+        aria-label="Dropdown menu has opened on focus, press Tab to access links."
+        class="o-header__dropdown-button"
+        data-trackable="test_tracking_toggle_click"
+        id="test_button_id"
+        tabindex="0"
+      >
+        <div
+          class="o-header__dropdown-button-user-icon-wrapper"
+        >
+          <span
+            aria-hidden="true"
+            class="o-header__dropdown-icon test_icon-icon"
+          />
+        </div>
+        <span
+          aria-hidden="true"
+          class="o-header__dropdown-icon chevron-icon"
+        />
+      </button>
+      <div
+        class="o-header__dropdown-content"
+        data-id="dropdown-content"
+        data-o-tracking-view="test_tracking_component_view"
+        id="dropdown-options"
+        role="group"
+        tabindex="-1"
+      >
+        <div
+          class="o-header__dropdown-header"
+        >
+          <span
+            class="o-header__dropdown-title"
+            id="dropdown-title"
+          >
+            Test Title
+          </span>
+          <button
+            aria-label="Close dropdown menu"
+            class="o-header__dropdown-close-button-mobile"
+            tabindex="0"
+          />
+        </div>
+        <ul
+          class="o-header__dropdown-list"
+        >
+          <li
+            class="o-header__dropdown-list-item "
+          >
+            <a
+              class="o-header__dropdown-list-item-link"
+              data-trackable="test_tracking_link-workspace_clicked"
+              data-tracking-key="test_tracking"
+              href="https://workspace.ft.com/"
+            >
+              <div
+                class="o-header__dropdown-list-item-details-container"
+              >
+                <span
+                  aria-hidden="true"
+                  class="o-header__dropdown-icon dashboard-icon"
+                />
+                <span>
+                  Workspace
+                </span>
+              </div>
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              />
+            </a>
+          </li>
+          <li
+            class="o-header__dropdown-list-item "
+          >
+            <a
+              class="o-header__dropdown-list-item-link"
+              data-trackable="test_tracking_link-feed_clicked"
+              data-tracking-key="test_tracking"
+              href="https://www.ft.com/myft/following/"
+            >
+              <div
+                class="o-header__dropdown-list-item-details-container"
+              >
+                <span
+                  aria-hidden="true"
+                  class="o-header__dropdown-icon list-icon"
+                />
+                <span>
+                  Feed
+                </span>
+              </div>
+            </a>
+          </li>
+          <li
+            class="o-header__dropdown-list-item o-header__dropdown-list-divider"
+          >
+            <a
+              class="o-header__dropdown-list-item-link"
+              data-trackable="test_tracking_link-mpr_clicked"
+              data-tracking-key="test_tracking"
+              href="https://professional-monetary-policy-radar.ft.com/"
+            >
+              <div
+                class="o-header__dropdown-list-item-details-container"
+              >
+                <span
+                  aria-hidden="true"
+                  class="o-header__dropdown-icon radar-icon"
+                />
+                <span>
+                  Monetary Policy Radar
+                </span>
+              </div>
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              />
+            </a>
+          </li>
+          <li
+            class="o-header__dropdown-list-item "
+          >
+            <a
+              class="o-header__dropdown-list-item-link"
+              data-trackable="test_tracking_link-saved-articles_clicked"
+              data-tracking-key="test_tracking"
+              href="https://www.ft.com/myft/saved-articles/"
+            >
+              <div
+                class="o-header__dropdown-list-item-details-container"
+              >
+                <span
+                  aria-hidden="true"
+                  class="o-header__dropdown-icon bookmark-icon"
+                />
+                <span>
+                  Saved articles
+                </span>
+              </div>
+            </a>
+          </li>
+          <li
+            class="o-header__dropdown-list-item "
+          >
+            <a
+              class="o-header__dropdown-list-item-link"
+              data-trackable="test_tracking_link-highlights_clicked"
+              data-tracking-key="test_tracking"
+              href="https://highlights-dashboard.ft.com/"
+            >
+              <div
+                class="o-header__dropdown-list-item-details-container"
+              >
+                <span
+                  aria-hidden="true"
+                  class="o-header__dropdown-icon highlight-icon"
+                />
+                <span>
+                  Highlights
+                </span>
+              </div>
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              />
+            </a>
+          </li>
+          <li
+            class="o-header__dropdown-list-item o-header__dropdown-list-divider"
+          >
+            <a
+              class="o-header__dropdown-list-item-link"
+              data-trackable="test_tracking_link-advanced-sharing_clicked"
+              data-tracking-key="test_tracking"
+              href="https://sharing-dashboard.ft.com/"
+            >
+              <div
+                class="o-header__dropdown-list-item-details-container"
+              >
+                <span
+                  aria-hidden="true"
+                  class="o-header__dropdown-icon share-icon"
+                />
+                <span>
+                  Advanced Sharing
+                </span>
+              </div>
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              />
+            </a>
+          </li>
+          <li
+            class="o-header__dropdown-list-item "
+          >
+            <a
+              class="o-header__dropdown-list-item-link"
+              data-trackable="test_tracking_link-newsletters_clicked"
+              data-tracking-key="test_tracking"
+              href="https://www.ft.com/newsletters"
+            >
+              <div
+                class="o-header__dropdown-list-item-details-container"
+              >
+                <span
+                  aria-hidden="true"
+                  class="o-header__dropdown-icon mail-icon"
+                />
+                <span>
+                  Newsletters
+                </span>
+              </div>
+            </a>
+          </li>
+          <li
+            class="o-header__dropdown-list-item "
+          >
+            <a
+              class="o-header__dropdown-list-item-link"
+              data-trackable="test_tracking_link-account-settings_clicked"
+              data-tracking-key="test_tracking"
+              href="https://www.ft.com/myaccount/personal-details"
+            >
+              <div
+                class="o-header__dropdown-list-item-details-container"
+              >
+                <span
+                  aria-hidden="true"
+                  class="o-header__dropdown-icon settings-icon"
+                />
+                <span>
+                  Account settings
+                </span>
+              </div>
+            </a>
+          </li>
+          <li
+            class="o-header__dropdown-list-item "
+          >
+            <a
+              class="o-header__dropdown-list-item-link"
+              data-trackable="test_tracking_link-sign-out_clicked"
+              data-tracking-key="test_tracking"
+              href="https://www.ft.com/logout"
+            >
+              <div
+                class="o-header__dropdown-list-item-details-container"
+              >
+                <span
+                  aria-hidden="true"
+                  class="o-header__dropdown-icon exit-icon"
+                />
+                <span>
+                  Sign out
+                </span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</body>
+`;
+
 exports[`DropdownNavigation renders correctly 1`] = `
 <body>
   <div>
     <nav
       aria-describedby="dropdown-title"
-      class="o-header__dropdown"
+      class="o-header__dropdown test_dropdown"
       data-o3-brand="professional"
     >
       <button
@@ -55,11 +327,12 @@ exports[`DropdownNavigation renders correctly 1`] = `
           class="o-header__dropdown-list"
         >
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-workspace_clicked"
+              data-tracking-key="test_tracking"
               href="https://workspace.ft.com/"
             >
               <div
@@ -73,14 +346,18 @@ exports[`DropdownNavigation renders correctly 1`] = `
                   Workspace
                 </span>
               </div>
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              />
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-feed_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/myft/following/"
             >
               <div
@@ -102,6 +379,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-mpr_clicked"
+              data-tracking-key="test_tracking"
               href="https://professional-monetary-policy-radar.ft.com/"
             >
               <div
@@ -115,14 +393,18 @@ exports[`DropdownNavigation renders correctly 1`] = `
                   Monetary Policy Radar
                 </span>
               </div>
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              />
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-saved-articles_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/myft/saved-articles/"
             >
               <div
@@ -139,11 +421,12 @@ exports[`DropdownNavigation renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-highlights_clicked"
+              data-tracking-key="test_tracking"
               href="https://highlights-dashboard.ft.com/"
             >
               <div
@@ -157,6 +440,9 @@ exports[`DropdownNavigation renders correctly 1`] = `
                   Highlights
                 </span>
               </div>
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              />
             </a>
           </li>
           <li
@@ -165,6 +451,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-advanced-sharing_clicked"
+              data-tracking-key="test_tracking"
               href="https://sharing-dashboard.ft.com/"
             >
               <div
@@ -178,14 +465,18 @@ exports[`DropdownNavigation renders correctly 1`] = `
                   Advanced Sharing
                 </span>
               </div>
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              />
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-newsletters_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/newsletters"
             >
               <div
@@ -202,11 +493,12 @@ exports[`DropdownNavigation renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-account-settings_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/myaccount/personal-details"
             >
               <div
@@ -223,11 +515,12 @@ exports[`DropdownNavigation renders correctly 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-sign-out_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/logout"
             >
               <div
@@ -255,7 +548,7 @@ exports[`DropdownNavigation renders label 1`] = `
   <div>
     <nav
       aria-describedby="dropdown-title"
-      class="o-header__dropdown"
+      class="o-header__dropdown test_dropdown"
       data-o3-brand="professional"
     >
       <button
@@ -305,11 +598,12 @@ exports[`DropdownNavigation renders label 1`] = `
           class="o-header__dropdown-list"
         >
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-workspace_clicked"
+              data-tracking-key="test_tracking"
               href="https://workspace.ft.com/"
             >
               <div
@@ -323,17 +617,22 @@ exports[`DropdownNavigation renders label 1`] = `
                   Workspace
                 </span>
               </div>
-              <div>
-                Mock Label
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              >
+                <div>
+                  Mock Label
+                </div>
               </div>
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-feed_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/myft/following/"
             >
               <div
@@ -355,6 +654,7 @@ exports[`DropdownNavigation renders label 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-mpr_clicked"
+              data-tracking-key="test_tracking"
               href="https://professional-monetary-policy-radar.ft.com/"
             >
               <div
@@ -368,17 +668,22 @@ exports[`DropdownNavigation renders label 1`] = `
                   Monetary Policy Radar
                 </span>
               </div>
-              <div>
-                Mock Label
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              >
+                <div>
+                  Mock Label
+                </div>
               </div>
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-saved-articles_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/myft/saved-articles/"
             >
               <div
@@ -395,11 +700,12 @@ exports[`DropdownNavigation renders label 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-highlights_clicked"
+              data-tracking-key="test_tracking"
               href="https://highlights-dashboard.ft.com/"
             >
               <div
@@ -413,8 +719,12 @@ exports[`DropdownNavigation renders label 1`] = `
                   Highlights
                 </span>
               </div>
-              <div>
-                Mock Label
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              >
+                <div>
+                  Mock Label
+                </div>
               </div>
             </a>
           </li>
@@ -424,6 +734,7 @@ exports[`DropdownNavigation renders label 1`] = `
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-advanced-sharing_clicked"
+              data-tracking-key="test_tracking"
               href="https://sharing-dashboard.ft.com/"
             >
               <div
@@ -437,17 +748,22 @@ exports[`DropdownNavigation renders label 1`] = `
                   Advanced Sharing
                 </span>
               </div>
-              <div>
-                Mock Label
+              <div
+                class="o-header__dropdown-list-item-label-container"
+              >
+                <div>
+                  Mock Label
+                </div>
               </div>
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-newsletters_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/newsletters"
             >
               <div
@@ -464,11 +780,12 @@ exports[`DropdownNavigation renders label 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-account-settings_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/myaccount/personal-details"
             >
               <div
@@ -485,11 +802,12 @@ exports[`DropdownNavigation renders label 1`] = `
             </a>
           </li>
           <li
-            class="o-header__dropdown-list-item false"
+            class="o-header__dropdown-list-item "
           >
             <a
               class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-sign-out_clicked"
+              data-tracking-key="test_tracking"
               href="https://www.ft.com/logout"
             >
               <div

@@ -2,310 +2,317 @@
 @import '@financial-times/o3-foundation/css/professional.css';
 
 %icon-base {
-    /* Create a square the size we want an icon */
-    display: inline-block;
-    width: var(--o3-spacing-s);
-    height: var(--o3-spacing-s);
-    /* Set the icon colour, In this case match the current foreground text colour. */
-    background-color: currentColor;
-    /* Mask the square with an Origami icon. */
-    mask-repeat: no-repeat;
-    mask-size: contain;
+  /* Create a square the size we want an icon */
+  display: inline-block;
+  width: var(--o3-spacing-s);
+  height: var(--o3-spacing-s);
+  /* Set the icon colour, In this case match the current foreground text colour. */
+  background-color: currentColor;
+  /* Mask the square with an Origami icon. */
+  mask-repeat: no-repeat;
+  mask-size: contain;
 }
 
 @mixin hidden {
-    opacity: 0;
-    visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 }
 
 @mixin visible {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 @mixin delay-to-propagate-click-events {
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 @mixin disable-setting-focus {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 @mixin enable-setting-focus {
-    pointer-events: auto;
+  pointer-events: auto;
 }
 
 .o-header__dropdown {
-    position: relative;
-    z-index: 100;
+  position: relative;
+  z-index: 100;
 }
 
 .o-header__dropdown-button {
-    display: flex;
+  display: flex;
+  height: var(--o3-spacing-l);
+  gap: var(--o3-spacing-4xs);
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  align-items: center;
+  justify-content: center;
+
+  .o-header__dropdown-button-user-icon-wrapper {
     height: var(--o3-spacing-l);
-    gap: var(--o3-spacing-4xs);
-    padding: 0;
-    margin: 0;
-    background: none;
-    border: none;
-    align-items: center;
-    justify-content: center;
+    width: var(--o3-spacing-l);
+    background: linear-gradient(153deg, #262a33 54.99%, #434958 99.56%);
+    border-radius: var(--o3-spacing-m);
+    border: 2px solid #262a33;
+    align-content: center;
 
-    .o-header__dropdown-button-user-icon-wrapper {
-        height: var(--o3-spacing-l);
-        width: var(--o3-spacing-l);
-        background: linear-gradient(153deg, #262A33 54.99%, #434958 99.56%);
-        border-radius: var(--o3-spacing-m);
-        border: 2px solid #262A33;
-        align-content: center;
-
-        .o-header__dropdown-icon {
-            background-color: #C0EFD8;
-        }
+    .o-header__dropdown-icon {
+      background-color: #c0efd8;
     }
+  }
 
-    .chevron-icon {
-        background-color: var(--o3-color-palette-black);
-        mask-image: var(--o3-icon-chevron-down);
-        display: none;
-    }
+  .chevron-icon {
+    background-color: var(--o3-color-palette-black);
+    mask-image: var(--o3-icon-chevron-down);
+    display: none;
+  }
 }
 
-.o-header__dropdown:focus-within>.o-header__dropdown-button {
-    // This is needed for No-JS as we need to be able to close the dropdown
-    // when we click the dropdown button again
-    // This will remove the focus from the button and in turn deactivate the dropdown conent :foucus-within pseudo selector which will hide the dropdown. 
-    @include disable-setting-focus;
+.o-header__dropdown:focus-within > .o-header__dropdown-button {
+  // This is needed for No-JS as we need to be able to close the dropdown
+  // when we click the dropdown button again
+  // This will remove the focus from the button and in turn deactivate the dropdown conent :foucus-within pseudo selector which will hide the dropdown.
+  @include disable-setting-focus;
 
-    .chevron-icon {
-        mask-image: var(--o3-icon-chevron-up);
-    }
+  .chevron-icon {
+    mask-image: var(--o3-icon-chevron-up);
+  }
 }
 
 .o-header__dropdown-content {
-    position: fixed;
-    // Move the dropdown off the viewport so the component view tracking
-    // doesn't trigger while the dropdown is still hidden
-    top: -100vh;
-    left: 100vw;
-    /* Start offscreen */
-    width: 0;
-    height: 0;
-    background: var(--o3-color-palette-white);
+  position: fixed;
+  // Move the dropdown off the viewport so the component view tracking
+  // doesn't trigger while the dropdown is still hidden
+  top: -100vh;
+  left: 100vw;
+  /* Start offscreen */
+  width: 0;
+  height: 0;
+  background: var(--o3-color-palette-white);
 
-    /* Hide dropdown by default */
-    @include disable-setting-focus;
-    @include hidden;
-    @include delay-to-propagate-click-events;
+  /* Hide dropdown by default */
+  @include disable-setting-focus;
+  @include hidden;
+  @include delay-to-propagate-click-events;
 }
 
 /* Show dropdown when the button OR dropdown itself is focused */
-.o-header__dropdown:focus-within>.o-header__dropdown-content {
-    @include visible;
-    // Ensure that clicking inside the dropdown does not close it
-    @include enable-setting-focus;
-    // Move into the viewport (the horizontal position is handled separately
-    // for desktop and mobile, where for mobile it is done by using animations)
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+.o-header__dropdown:focus-within > .o-header__dropdown-content {
+  @include visible;
+  // Ensure that clicking inside the dropdown does not close it
+  @include enable-setting-focus;
+  // Move into the viewport (the horizontal position is handled separately
+  // for desktop and mobile, where for mobile it is done by using animations)
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
 .o-header__dropdown-header {
-    display: flex;
-    justify-content: space-between;
-    padding: var(--o3-spacing-2xs);
-    background: linear-gradient(153deg, #262A33 54.99%, #434958 99.56%);
+  display: flex;
+  justify-content: space-between;
+  padding: var(--o3-spacing-2xs);
+  background: linear-gradient(153deg, #262a33 54.99%, #434958 99.56%);
 }
 
 .o-header__dropdown-title {
-    font-size: var(--o3-type-label-font-size);
-    line-height: var(--o3-type-label-line-height);
-    font-weight: var(--o3-type-label-font-weight);
-    font-family: var(--o3-type-label-font-family);
-    text-transform: var(--o3-type-label-text-case);
-    padding: var(--o3-spacing-5xs) 0;
-    color: var(--o3-color-palette-mint);
+  font-size: var(--o3-type-label-font-size);
+  line-height: var(--o3-type-label-line-height);
+  font-weight: var(--o3-type-label-font-weight);
+  font-family: var(--o3-type-label-font-family);
+  text-transform: var(--o3-type-label-text-case);
+  padding: var(--o3-spacing-5xs) 0;
+  color: var(--o3-color-palette-mint);
 }
 
 .o-header__dropdown-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border-bottom-left-radius: var(--o3-spacing-5xs);
-    border-bottom-right-radius: var(--o3-spacing-5xs);
-    border: none;
-    max-height: 100%;
-    overflow-y: scroll;
-    overscroll-behavior: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-bottom-left-radius: var(--o3-spacing-5xs);
+  border-bottom-right-radius: var(--o3-spacing-5xs);
+  border: none;
+  max-height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: none;
 }
 
 .o-header__dropdown-list-item {
-    list-style: none;
+  list-style: none;
 
-    &:hover {
-        background-color: #3333330D;
-    }
+  &:hover {
+    background-color: #3333330d;
+  }
 
-    &:active {
-        background-color: #3333331A;
-    }
+  &:active {
+    background-color: #3333331a;
+  }
 }
 
 .o-header__dropdown-list-item-link {
-    display: flex;
-    align-items: center;
-    gap: var(--o3-spacing-4xs);
-    padding: var(--o3-spacing-2xs);
-    text-decoration: none;
-    font-size: var(--o3-type-body-base-font-size);
-    line-height: var(--o3-type-body-base-line-height);
-    font-weight: var(--o3-type-body-base-font-weight);
-    font-family: var(--o3-type-body-base-font-family);
+  display: flex;
+  align-items: center;
+  gap: var(--o3-spacing-4xs);
+  padding: var(--o3-spacing-2xs);
+  text-decoration: none;
+  font-size: var(--o3-type-body-base-font-size);
+  line-height: var(--o3-type-body-base-line-height);
+  font-weight: var(--o3-type-body-base-font-weight);
+  font-family: var(--o3-type-body-base-font-family);
+  color: var(--o3-color-palette-black);
+
+  &:hover {
     color: var(--o3-color-palette-black);
+  }
 
-    &:hover {
-        color: var(--o3-color-palette-black);
-    }
-
-    ;
-
-    &:hover>.o-header__dropdown-list-item-details-container {
-        text-decoration: underline;
-        text-underline-offset: var(--o3-spacing-5xs);
-    }
+  &:hover > .o-header__dropdown-list-item-details-container {
+    text-decoration: underline;
+    text-underline-offset: var(--o3-spacing-5xs);
+  }
 }
 
 .o-header__dropdown-list-item-details-container {
-    display: flex;
-    gap: var(--o3-spacing-2xs);
+  display: flex;
+  gap: var(--o3-spacing-2xs);
 }
 
 .o-header__dropdown-list-divider {
-    border-bottom: 1px solid #D6D6D6;
+  border-bottom: 1px solid #d6d6d6;
 }
 
 .o-header__dropdown-icon {
-    @extend %icon-base;
+  @extend %icon-base;
 }
 
-@each $icon-name in (dashboard, bookmark, lock, list, radar, highlight, share, mail, settings, exit, cross, user) {
-    .#{$icon-name}-icon {
-        mask-image: var(--o3-icon-#{$icon-name});
-    }
+@each $icon-name
+  in (dashboard, bookmark, lock, list, radar, highlight, share, mail, settings, exit, cross, user, users)
+{
+  .#{$icon-name}-icon {
+    mask-image: var(--o3-icon-#{$icon-name});
+  }
 }
 
 .o-header__dropdown-list-pro-label {
-    align-items: center;
-    border-radius: 2px;
-    padding: var(--o3-spacing-5xs) 10px;
+  position: relative;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
     background-color: var(--o3-color-use-case-link-underline-hover);
-    font-size: var(--o3-type-label-font-size);
-    line-height: var(--o3-type-label-line-height);
-    font-weight: var(--o3-type-label-font-weight);
-    font-family: var(--o3-type-label-font-family);
-    text-transform: var(--o3-type-label-text-case);
-    color: var(--o3-color-palette-slate);
+    opacity: 0.7;
+    z-index: -1;
+  }
+
+  align-items: center;
+  border-radius: 2px;
+  padding: var(--o3-spacing-5xs) 10px;
+  font-size: var(--o3-type-label-font-size);
+  line-height: var(--o3-type-label-line-height);
+  font-weight: var(--o3-type-label-font-weight);
+  font-family: var(--o3-type-label-font-family);
+  text-transform: var(--o3-type-label-text-case);
+  color: var(--o3-color-palette-slate);
 }
 
 .o-header__dropdown-close-button-mobile {
-    @extend .o-header__dropdown-icon;
-    @extend .cross-icon;
-    background-color: var(--o3-color-palette-white);
+  @extend .o-header__dropdown-icon;
+  @extend .cross-icon;
+  background-color: var(--o3-color-palette-white);
 }
-
-;
 
 /* Close the menu when clicking the close button */
 .o-header__dropdown-close-button-mobile:focus {
-    // Applying visibility:none to the close icon will remove the focus from it and in turn deactivate the dropdown conent :foucus-within pseudo selector which will hide the dropdown.
-    @include hidden;
-    @include disable-setting-focus;
+  // Applying visibility:none to the close icon will remove the focus from it and in turn deactivate the dropdown conent :foucus-within pseudo selector which will hide the dropdown.
+  @include hidden;
+  @include disable-setting-focus;
 }
 
-@media(max-width: 780px) {
-
-    // Animations for sliding the dropdown in and out
-    // on mobile devices
-    @keyframes slideIn {
-        0% {
-            left: 100vw;
-        }
-
-        100% {
-            left: 0;
-        }
+@media (max-width: 780px) {
+  // Animations for sliding the dropdown in and out
+  // on mobile devices
+  @keyframes slideIn {
+    0% {
+      left: 100vw;
     }
 
-    @keyframes slideOut {
-        0% {
-            left: 0;
-        }
+    100% {
+      left: 0;
+    }
+  }
 
-        100% {
-            left: 100vw;
-        }
+  @keyframes slideOut {
+    0% {
+      left: 0;
     }
 
-    // Slide the dropdown in
-    .o-header__dropdown:focus-within>.o-header__dropdown-content {
-        animation: slideIn 0.5s ease-in-out forwards;
-        animation-duration: 0.5s !important;
+    100% {
+      left: 100vw;
     }
+  }
 
-    // Slide the dropdown out
-    .o-header__dropdown:not(:focus-within)>.o-header__dropdown-content {
-        animation: slideOut 0.5s ease-in-out forwards;
-        animation-duration: 0.5s !important;
+  // Slide the dropdown in
+  .o-header__dropdown:focus-within > .o-header__dropdown-content {
+    animation: slideIn 0.5s ease-in-out forwards;
+    animation-duration: 0.5s !important;
+  }
 
-        // Delay the actual removal of the dropdown from the viewport (and its visibility)
-        // Until the slide out animation is complete
-        transition: visibility 0s linear 0.5s, opacity 0s linear 0.5s, width 0s linear 0.5s, height 0s linear 0.5s, top 0s linear 0.5s;
-        /* Delay hiding to match animation duration */
-    }
+  // Slide the dropdown out
+  .o-header__dropdown:not(:focus-within) > .o-header__dropdown-content {
+    animation: slideOut 0.5s ease-in-out forwards;
+    animation-duration: 0.5s !important;
+
+    // Delay the actual removal of the dropdown from the viewport (and its visibility)
+    // Until the slide out animation is complete
+    transition: visibility 0s linear 0.5s, opacity 0s linear 0.5s, width 0s linear 0.5s, height 0s linear 0.5s,
+      top 0s linear 0.5s;
+    /* Delay hiding to match animation duration */
+  }
 }
 
-;
-
-@media(min-width: 780px) {
-    .o-header__dropdown-button {
-        .chevron-icon {
-            display: block;
-        }
+@media (min-width: 780px) {
+  .o-header__dropdown-button {
+    .chevron-icon {
+      display: block;
     }
+  }
 
-    .o-header__dropdown-content {
-        top: -100vh;
-        left: -100vw;
-        width: auto;
-        height: auto;
-        margin-top: var(--o3-spacing-2xs);
-        border-radius: var(--o3-spacing-5xs);
-        box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.05);
-        overflow: hidden; // for the border-radius to work
-    }
+  .o-header__dropdown-content {
+    top: -100vh;
+    left: -100vw;
+    width: auto;
+    height: auto;
+    margin-top: var(--o3-spacing-2xs);
+    border-radius: var(--o3-spacing-5xs);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.05);
+    overflow: hidden; // for the border-radius to work
+  }
 
-    .o-header__dropdown:focus-within>.o-header__dropdown-content {
-        @include visible;
-        // Ensure that clicking inside the dropdown does not close it
-        @include enable-setting-focus;
-        // Move into the viewport
-        position: absolute;
-        right: 0px;
-        width: auto;
-        height: auto;
-        top: unset;
-        left: unset;
-    }
+  .o-header__dropdown:focus-within > .o-header__dropdown-content {
+    @include visible;
+    // Ensure that clicking inside the dropdown does not close it
+    @include enable-setting-focus;
+    // Move into the viewport
+    position: absolute;
+    right: 0px;
+    width: auto;
+    height: auto;
+    top: unset;
+    left: unset;
+  }
 
-    .o-header__dropdown-close-button-mobile {
-        display: none;
-    }
+  .o-header__dropdown-close-button-mobile {
+    display: none;
+  }
 
-    .o-header__dropdown-list {
-        max-height: 550px;
-        border: 1px solid #D6D6D6;
-        border-top: none;
-    }
+  .o-header__dropdown-list {
+    max-height: 550px;
+    border: 1px solid #d6d6d6;
+    border-top: none;
+  }
 }
