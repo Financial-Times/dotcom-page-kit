@@ -10,6 +10,9 @@ import { PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST } from './constants'
 const enhanceInteractivity = () => {
   // Use querySelectorAll as there could be multiple dropdowns on the page
   const dropdowns = document?.querySelectorAll('.o-header__dropdown')
+  if (!dropdowns || dropdowns.length === 0) {
+    return
+  }
 
   dropdowns.forEach((dropdownContainer) => {
     const dropdownButton = dropdownContainer.querySelector('.o-header__dropdown-button')
@@ -56,7 +59,7 @@ const enhanceInteractivity = () => {
     dropdowns.forEach((dropdownContainer) => {
       const dropdownButton = dropdownContainer.querySelector('.o-header__dropdown-button')
       if (!dropdownContainer.contains(event.target)) {
-        dropdownButton.removeAttribute('data-dropdown-button-active')
+        dropdownButton && dropdownButton.removeAttribute('data-dropdown-button-active')
       }
     })
   })
@@ -68,6 +71,10 @@ const enhanceInteractivity = () => {
   // sticky header is not visible, or show the regular header's dropdown
   // when the sticky header is visible
   const stickyHeader = document?.querySelector('.o-header--sticky')
+  if (!stickyHeader) {
+    return
+  }
+
   const stickyHeaderObserver = new IntersectionObserver(
     (changes) => {
       for (let change of changes) {
@@ -123,12 +130,11 @@ const updateProNavigationLinks = async (options) => {
       }
     }
     document.body.dispatchEvent(new CustomEvent('oTracking.event', { detail: eventData, bubbles: true }))
-    console.error(isFetchError ? error.message : 'Error updating dropdown navigation.')
   }
 }
 
 const fetchLinks = async (url) => {
-  const response = await fetch(url)
+  const response = await fetch(url, { credentials: 'include' })
   if (!response.ok) {
     throw new Error(`Error during navigation links fetch! Status: ${response.status}`)
   }
