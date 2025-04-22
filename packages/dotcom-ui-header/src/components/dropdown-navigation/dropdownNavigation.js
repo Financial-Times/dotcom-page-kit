@@ -123,12 +123,11 @@ const updateProNavigationLinks = async (options) => {
       }
     }
     document.body.dispatchEvent(new CustomEvent('oTracking.event', { detail: eventData, bubbles: true }))
-    console.error(isFetchError ? error.message : 'Error updating dropdown navigation.')
   }
 }
 
 const fetchLinks = async (url) => {
-  const response = await fetch(url)
+  const response = await fetch(url, { credentials: 'include' })
   if (!response.ok) {
     throw new Error(`Error during navigation links fetch! Status: ${response.status}`)
   }

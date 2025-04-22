@@ -97,8 +97,8 @@ const DropdownNavigationList: React.FC<DropdownNavigationListProps> = ({ options
     {options.map((link) => (
       <li
         key={link.id}
-        className={`o-header__dropdown-list-item ${
-          link.hasBottomLine ? 'o-header__dropdown-list-divider' : ''
+        className={`o-header__dropdown-list-item${
+          link.hasBottomLine ? ' o-header__dropdown-list-divider' : ''
         }`}
       >
         <a
