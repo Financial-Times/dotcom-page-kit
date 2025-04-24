@@ -47,7 +47,7 @@ Sass supports both relative paths and paths that can be resolved within your `no
 new PageKitSassPlugin({ includePaths: [path.resolve('./path-to-sass-files')] })
 ```
 
-The CSS loader has `url()` resolution disabled as we don't use, nor recommend, the function currently.
+The CSS loader has `url()` resolution disabled as we don't use, nor recommend, the function currently. We also prevent importing Sass from Javascript files, as that's incompatible with the Asset Loader in production.
 
 [rule]: https://webpack.js.org/configuration/module/#rule
 [@financial-times/dotcom-build-css]: ../dotcom-build-css
