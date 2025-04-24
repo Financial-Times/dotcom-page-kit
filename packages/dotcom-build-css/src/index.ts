@@ -34,6 +34,9 @@ export class PageKitCssPlugin {
 
     compiler.options.module.rules.push({
       test: [/\.css$/],
+      issuer: {
+        not: [/\.(js|ts)x?$/],
+      },
       use: cssRule()
     })
 
