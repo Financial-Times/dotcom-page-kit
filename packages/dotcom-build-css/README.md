@@ -39,7 +39,7 @@ module.exports = {
 
 This plugin adds a [rule] to the Webpack configuration to handle `.css` files. It calls the [css-loader] package to load and parse the source files. The CSS is optimised using [css-minimizer-webpack-plugin], which runs [cssnano] under the hood. The [mini-css-extract-plugin] is added to generate `.css` files and the [webpack-fix-style-only-entries] to clean up any empty JavaScript bundles.
 
-The CSS loader has `url()` resolution disabled as we don't use, nor recommend, the function currently.
+The CSS loader has `url()` resolution disabled as we don't use, nor recommend, the function currently.  We also prevent importing CSS from Javascript files, as that's incompatible with the Asset Loader in production.
 
 [rule]: https://webpack.js.org/configuration/module/#rule
 [css-loader]: https://github.com/webpack-contrib/css-loader
