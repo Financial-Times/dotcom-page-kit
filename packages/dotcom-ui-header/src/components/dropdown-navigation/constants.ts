@@ -9,8 +9,8 @@ export const PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST = [
     hasLabel: true
   },
   {
-    id: 'link-feed',
-    title: 'Feed',
+    id: 'link-myft-feed',
+    title: 'myFT feed',
     href: 'https://www.ft.com/myft/following/',
     icon: 'list',
     hasAccess: true,

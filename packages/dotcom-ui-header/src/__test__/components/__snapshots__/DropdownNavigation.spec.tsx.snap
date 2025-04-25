@@ -85,7 +85,7 @@ exports[`DropdownNavigation renders button props 1`] = `
           >
             <a
               class="o-header__dropdown-list-item-link"
-              data-trackable="test_tracking_link-feed_clicked"
+              data-trackable="test_tracking_link-myft-feed_clicked"
               data-tracking-key="test_tracking"
               href="https://www.ft.com/myft/following/"
             >
@@ -97,7 +97,7 @@ exports[`DropdownNavigation renders button props 1`] = `
                   class="o-header__dropdown-icon list-icon"
                 />
                 <span>
-                  Feed
+                  myFT feed
                 </span>
               </div>
             </a>
@@ -356,7 +356,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
           >
             <a
               class="o-header__dropdown-list-item-link"
-              data-trackable="test_tracking_link-feed_clicked"
+              data-trackable="test_tracking_link-myft-feed_clicked"
               data-tracking-key="test_tracking"
               href="https://www.ft.com/myft/following/"
             >
@@ -368,7 +368,7 @@ exports[`DropdownNavigation renders correctly 1`] = `
                   class="o-header__dropdown-icon list-icon"
                 />
                 <span>
-                  Feed
+                  myFT feed
                 </span>
               </div>
             </a>
@@ -631,7 +631,7 @@ exports[`DropdownNavigation renders label 1`] = `
           >
             <a
               class="o-header__dropdown-list-item-link"
-              data-trackable="test_tracking_link-feed_clicked"
+              data-trackable="test_tracking_link-myft-feed_clicked"
               data-tracking-key="test_tracking"
               href="https://www.ft.com/myft/following/"
             >
@@ -643,7 +643,7 @@ exports[`DropdownNavigation renders label 1`] = `
                   class="o-header__dropdown-icon list-icon"
                 />
                 <span>
-                  Feed
+                  myFT feed
                 </span>
               </div>
             </a>
