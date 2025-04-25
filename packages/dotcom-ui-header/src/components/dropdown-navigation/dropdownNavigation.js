@@ -97,7 +97,14 @@ const enhanceInteractivity = () => {
   stickyHeaderObserver.observe(stickyHeader)
 }
 
-const trackContent = (options) => {
+/**
+ * Dispatches a custom event with tracking data when the dropdown content becomes visible.
+ *
+ * @param {Object} options - Configuration options for tracking.
+ * @param {string} options.selector - The CSS selector used to identify the elements to track.
+ * @param {string} options.intersectionObserverThreshold - Customise the how much of this element needs to be in the viewport to trigger the event.
+ */
+const trackDropdownView = (options) => {
   if (!window.IntersectionObserver) {
     return
   }
@@ -130,11 +137,22 @@ const trackContent = (options) => {
     })
   }
 
-  const observer = new IntersectionObserver(onChange, { threshold: [1.0] })
+  const observer = new IntersectionObserver(onChange, {
+    threshold: options?.intersectionObserverThreshold || [1.0]
+  })
 
   elementsToTrack.forEach((el) => observer.observe(el))
 }
 
+/**
+ * Updates the links in the Pro Navigation dropdown.
+ *
+ * @param {Object} options - Configuration options for updating the dropdown links.
+ * @param {string} options.selector - The CSS class selector used to identify the dropdown(s) to update. This property is required when initializing the dropdown component
+ * @param {string} options.trackingKey - A key used for tracking user interactions with the dropdown links and toggler.
+ * @param {Array} options.defaultLinks - The default list of links to display in the dropdown if the API call fails or returns no data.
+ * @param {string} options.proNavigationApi - The URL of the API endpoint to fetch the updated links.
+ */
 const updateProNavigationLinks = async (options) => {
   const { selector, trackingKey, defaultLinks, proNavigationApi } = options
 
@@ -242,23 +260,7 @@ const buildListItem = (listItem, label, link, trackingKey) => {
 const init = () => {
   enhanceInteractivity()
 
-  /**
-   * Dispatches a custom event with tracking data when the dropdown content becomes visible.
-   *
-   * @param {Object} options - Configuration options for tracking.
-   * @param {string} options.selector - The CSS selector used to identify the elements to track.
-   */
-  trackContent({ selector: '.o-header__dropdown-content' })
-
-  /**
-   * Updates the links in the Pro Navigation dropdown.
-   *
-   * @param {Object} options - Configuration options for updating the dropdown links.
-   * @param {string} options.selector - The CSS class selector used to identify the dropdown(s) to update. This property is required when initializing the dropdown component
-   * @param {string} options.trackingKey - A key used for tracking user interactions with the dropdown links and toggler.
-   * @param {Array} options.defaultLinks - The default list of links to display in the dropdown if the API call fails or returns no data.
-   * @param {string} options.proNavigationApi - The URL of the API endpoint to fetch the updated links.
-   */
+  trackDropdownView({ selector: '.o-header__dropdown-content', intersectionObserverThreshold: 0.8 })
 
   updateProNavigationLinks({
     selector: 'pro_navigation',
