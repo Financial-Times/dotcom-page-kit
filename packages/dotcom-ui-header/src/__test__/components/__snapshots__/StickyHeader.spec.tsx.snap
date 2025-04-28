@@ -639,7 +639,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
-                    data-trackable="pro_navigation_link-feed_clicked"
+                    data-trackable="pro_navigation_link-myft-feed_clicked"
                     data-tracking-key="pro_navigation"
                     href="https://www.ft.com/myft/following/"
                   >
@@ -651,7 +651,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
                         className="o-header__dropdown-icon list-icon"
                       />
                       <span>
-                        Feed
+                        myFT feed
                       </span>
                     </div>
                   </a>
