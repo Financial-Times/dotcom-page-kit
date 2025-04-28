@@ -32,7 +32,6 @@ exports[`DropdownNavigation renders button props 1`] = `
       <div
         class="o-header__dropdown-content"
         data-id="dropdown-content"
-        data-o-tracking-view="test_tracking_component_view"
         id="dropdown-options"
         role="group"
         tabindex="-1"
@@ -303,7 +302,6 @@ exports[`DropdownNavigation renders correctly 1`] = `
       <div
         class="o-header__dropdown-content"
         data-id="dropdown-content"
-        data-o-tracking-view="test_tracking_component_view"
         id="dropdown-options"
         role="group"
         tabindex="-1"
@@ -574,7 +572,6 @@ exports[`DropdownNavigation renders label 1`] = `
       <div
         class="o-header__dropdown-content"
         data-id="dropdown-content"
-        data-o-tracking-view="test_tracking_component_view"
         id="dropdown-options"
         role="group"
         tabindex="-1"

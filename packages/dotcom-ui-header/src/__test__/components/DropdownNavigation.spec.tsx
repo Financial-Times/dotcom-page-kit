@@ -91,6 +91,5 @@ describe('DropdownNavigation', () => {
       expect(link.getAttribute('data-trackable')).toContain(trackingKey)
     })
     expect(contentContainer).toBeInTheDocument()
-    expect(contentContainer.getAttribute('data-o-tracking-view')).toContain(trackingKey)
   })
 })

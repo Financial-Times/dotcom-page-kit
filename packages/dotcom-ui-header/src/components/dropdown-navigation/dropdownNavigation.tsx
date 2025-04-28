@@ -46,7 +46,6 @@ export const DropdownNavigation = ({
         id="dropdown-options"
         role="group" // Needed for VoiceOver navigation in Chrome
         data-id="dropdown-content"
-        data-o-tracking-view={`${trackingKey}_component_view`}
       >
         <DropdownNavigationHeader headerContent={headerContent} />
         <DropdownNavigationList options={options} label={label} trackingKey={trackingKey} />
