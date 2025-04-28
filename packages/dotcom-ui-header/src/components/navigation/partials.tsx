@@ -81,7 +81,7 @@ const NavListRight = (props: THeaderProps) => {
   // If the pro navigation is to be shown
   // Remove the myFT link from the right navigation
   // since there will be a link to it in the pro navigation
-  if(props.showProNavigation) {
+  if(props.showProNavigation === true || props.showProNavigation === 'treatment') {
     navbarRightItems = navbarRightItems.filter(item => item.label !== 'myFT');
   }
 

@@ -145,6 +145,38 @@ const trackDropdownView = (options) => {
 }
 
 /**
+ * Dispatches a custom event with tracking data for Amplitude experiments.
+ * 
+ */
+const trackDropdownExposure = () => {
+  const flagProNavigation = document.querySelector('[data-flag-pro-navigation]')?.dataset.flagProNavigation
+
+  if (flagProNavigation !== undefined) {
+    const flagValue =
+      flagProNavigation === 'true'
+        ? 'treatment'
+        : flagProNavigation === 'false'
+        ? 'control'
+        : flagProNavigation
+
+    document.body.dispatchEvent(
+      new CustomEvent('oTracking.event', {
+        detail: {
+          category: 'amplitudeExperiment',
+          action: 'exposure',
+          event_properties: {
+            flag_key: 'pro-navigation',
+            variant: flagValue,
+            experiment_key: 'exp-1'
+          }
+        },
+        bubbles: true
+      })
+    )
+  }
+}
+
+/**
  * Updates the links in the Pro Navigation dropdown.
  *
  * @param {Object} options - Configuration options for updating the dropdown links.
@@ -261,6 +293,7 @@ const init = () => {
   enhanceInteractivity()
 
   trackDropdownView({ selector: '.o-header__dropdown-content', intersectionObserverThreshold: 0.8 })
+  trackDropdownExposure()
 
   updateProNavigationLinks({
     selector: 'pro_navigation',

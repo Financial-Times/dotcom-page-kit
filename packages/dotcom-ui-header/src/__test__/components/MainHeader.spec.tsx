@@ -2,13 +2,13 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import fixture from '../fixtures/index'
 import profileFixture from '../fixtures/profile'
-import { MainHeader as Subject } from '../../index'
+import { MainHeader as Subject, THeaderProps } from '../../index'
 
 const propsAnonymous = { ...fixture, userIsAnonymous: true, userIsLoggedIn: false }
 const propsLoggedIn = { ...fixture, userIsAnonymous: false, userIsLoggedIn: true }
 const propsRightAligned = { ...profileFixture }
 const propsAskFt = { ...fixture, showAskButton: true }
-const propsProDropdown = { ...fixture, showProNavigation: true }
+const propsProDropdown = { ...fixture, showProNavigation: 'treatment' } as THeaderProps
 
 describe('dotcom-ui-header/src/components/MainHeader', () => {
   it('renders as an anonymous user', () => {
