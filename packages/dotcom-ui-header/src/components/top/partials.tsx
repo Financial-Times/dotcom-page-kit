@@ -134,7 +134,7 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
 const MenuButton = ({ showProNavigation, signInAction, variant }) => {
   return (
     <React.Fragment>
-      {showProNavigation === true || showProNavigation === 'treatment' ? (
+      {showProNavigation ? (
         <DropdownNavigation
           selector="pro_navigation"
           trackingKey="pro_navigation"
@@ -146,7 +146,7 @@ const MenuButton = ({ showProNavigation, signInAction, variant }) => {
       ) : (
         <MyAccountLink item={signInAction} signedIn={true} variant={variant} />
       )}
-      <span hidden data-flag-pro-navigation={showProNavigation}></span>
+      {showProNavigation !== undefined && <span hidden data-flag-pro-navigation={showProNavigation}></span>}
     </React.Fragment>
   )
 }

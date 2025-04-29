@@ -35,7 +35,6 @@ const defaultProps: Partial<THeaderOptions> = {
   showStickyHeader: true,
   showMegaNav: true,
   showAskButton: false,
-  showProNavigation: false
 }
 
 function MainHeader(props: THeaderProps) {

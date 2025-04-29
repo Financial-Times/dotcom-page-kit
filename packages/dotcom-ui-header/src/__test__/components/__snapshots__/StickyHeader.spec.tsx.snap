@@ -241,10 +241,6 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders ASK FT button 1`] 
               My Account
             </span>
           </a>
-          <span
-            data-flag-pro-navigation={false}
-            hidden={true}
-          />
         </div>
       </div>
     </div>
@@ -844,7 +840,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
             </div>
           </nav>
           <span
-            data-flag-pro-navigation="treatment"
+            data-flag-pro-navigation={true}
             hidden={true}
           />
         </div>
@@ -1168,10 +1164,6 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in use
               My Account
             </span>
           </a>
-          <span
-            data-flag-pro-navigation={false}
-            hidden={true}
-          />
         </div>
       </div>
     </div>

@@ -152,12 +152,7 @@ const trackDropdownExposure = () => {
   const flagProNavigation = document.querySelector('[data-flag-pro-navigation]')?.dataset.flagProNavigation
 
   if (flagProNavigation !== undefined) {
-    const flagValue =
-      flagProNavigation === 'true'
-        ? 'treatment'
-        : flagProNavigation === 'false'
-        ? 'control'
-        : flagProNavigation
+    const flagExposureValue = flagProNavigation === 'true' ? 'treatment' : 'control'
 
     document.body.dispatchEvent(
       new CustomEvent('oTracking.event', {
@@ -166,7 +161,7 @@ const trackDropdownExposure = () => {
           action: 'exposure',
           event_properties: {
             flag_key: 'pro-navigation',
-            variant: flagValue,
+            variant: flagExposureValue,
             experiment_key: 'exp-1'
           }
         },

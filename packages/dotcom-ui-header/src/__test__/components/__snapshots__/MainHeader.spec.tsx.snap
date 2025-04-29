@@ -106,10 +106,6 @@ exports[`dotcom-ui-header/src/components/MainHeader renders ASK FT button 1`] = 
               My Account
             </span>
           </a>
-          <span
-            data-flag-pro-navigation={false}
-            hidden={true}
-          />
         </div>
       </div>
     </div>
@@ -2250,7 +2246,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
             </div>
           </nav>
           <span
-            data-flag-pro-navigation="treatment"
+            data-flag-pro-navigation={true}
             hidden={true}
           />
         </div>
@@ -4114,10 +4110,6 @@ exports[`dotcom-ui-header/src/components/MainHeader renders a right aligned subn
               My Account
             </span>
           </a>
-          <span
-            data-flag-pro-navigation={false}
-            hidden={true}
-          />
         </div>
       </div>
     </div>
@@ -5974,10 +5966,6 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as a logged in user 
               My Account
             </span>
           </a>
-          <span
-            data-flag-pro-navigation={false}
-            hidden={true}
-          />
         </div>
       </div>
     </div>
