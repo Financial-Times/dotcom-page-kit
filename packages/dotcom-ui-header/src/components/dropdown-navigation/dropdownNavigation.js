@@ -146,7 +146,7 @@ const trackDropdownView = (options) => {
 
 /**
  * Dispatches a custom event with tracking data for Amplitude experiments.
- * 
+ *
  */
 const trackDropdownExposure = () => {
   const flagProNavigation = document.querySelector('[data-flag-pro-navigation]')?.dataset.flagProNavigation
@@ -287,7 +287,7 @@ const buildListItem = (listItem, label, link, trackingKey) => {
 const init = () => {
   enhanceInteractivity()
 
-  trackDropdownView({ selector: '.o-header__dropdown-content', intersectionObserverThreshold: 0.8 })
+  trackDropdownView({ selector: '.o-header__dropdown-content', intersectionObserverThreshold: 0.3 })
   trackDropdownExposure()
 
   updateProNavigationLinks({
