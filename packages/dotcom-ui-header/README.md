@@ -79,6 +79,8 @@ All header components with the exception of `<LogoOnly />` require the following
 | showAskButton      | boolean                            | true     | false    | Enable rendering of the ASK button                                             |
 | data               | object                             | false    |          | Navigation data for rendering the header links fetched from the navigation API |
 | showProNavigation  | boolean | undefined - experimental | true     | undefined| Experimental Feature: Enable rendering of FT pro dropdown. Undefined means no experiment is conducted for a certain user cohort.
+| flags              | object                             | true     |          | Flags data passed from the server |
+
 
 
 ## Header Elements

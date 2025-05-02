@@ -8,6 +8,7 @@ import {
   THeaderOptions
 } from '@financial-times/dotcom-ui-header/component'
 import { TNavigationData } from '@financial-times/dotcom-types-navigation'
+import { TFlagsData } from '@financial-times/dotcom-ui-flags/src/types'
 import { Footer, LegalFooter, TFooterOptions } from '@financial-times/dotcom-ui-footer/component'
 import Template from './Template'
 
@@ -24,6 +25,7 @@ enum Footers {
 }
 
 export type TLayoutProps = {
+  flagsData?: TFlagsData
   navigationData?: TNavigationData
   headerOptions?: THeaderOptions
   headerBefore?: string | React.ReactNode
@@ -40,6 +42,7 @@ export type TLayoutProps = {
 }
 
 export function Layout({
+  flagsData,
   navigationData,
   headerOptions,
   headerBefore,
@@ -59,7 +62,7 @@ export function Layout({
 
   if (headerVariant && Headers[headerVariant] && !headerComponent) {
     const Header = Headers[headerVariant]
-    header = <Header {...headerOptions} data={navigationData} variant={headerVariant} />
+    header = <Header {...headerOptions} data={navigationData} flags={flagsData} variant={headerVariant} />
 
     if (Header === HeaderSimple || Header === HeaderLarge) {
       drawer = <Drawer {...headerOptions} data={navigationData} />
@@ -78,7 +81,8 @@ export function Layout({
       <a
         data-trackable="a11y-skip-to-help"
         className="n-layout__skip-link"
-        href="https://www.ft.com/accessibility">
+        href="https://www.ft.com/accessibility"
+      >
         Accessibility help
       </a>
 
