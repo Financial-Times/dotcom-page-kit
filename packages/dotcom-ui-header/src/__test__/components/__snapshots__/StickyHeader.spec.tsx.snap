@@ -839,10 +839,6 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
               </ul>
             </div>
           </nav>
-          <span
-            data-flag-pro-navigation={true}
-            hidden={true}
-          />
         </div>
       </div>
     </div>

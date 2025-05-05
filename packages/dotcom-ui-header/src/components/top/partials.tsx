@@ -123,6 +123,7 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
       {signInAction && (
         <MenuButton
           showProNavigation={props.showProNavigation}
+          flagDataProNavigation={props.flags?.['pro-navigation']}
           signInAction={signInAction}
           variant={props.variant}
         />
@@ -131,14 +132,15 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
   )
 }
 
-const MenuButton = ({ showProNavigation, signInAction, variant }) => {
+const MenuButton = ({ flagDataProNavigation, showProNavigation, signInAction, variant }) => {
+  const isSticky = variant === 'sticky'
   return (
     <React.Fragment>
       {showProNavigation ? (
         <DropdownNavigation
           selector="pro_navigation"
           trackingKey="pro_navigation"
-          buttonId={`pro_navigation_toggle_${variant === 'sticky' ? 'sticky' : 'default'}`}
+          buttonId={`pro_navigation_toggle_${isSticky ? 'sticky' : 'default'}`}
           headerContent="FT PROFESSIONAL ACCOUNT"
           options={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}
           label={<ProfessionalLabel />}
@@ -146,7 +148,7 @@ const MenuButton = ({ showProNavigation, signInAction, variant }) => {
       ) : (
         <MyAccountLink item={signInAction} signedIn={true} variant={variant} />
       )}
-      {showProNavigation !== undefined && <span hidden data-flag-pro-navigation={showProNavigation}></span>}
+      {(flagDataProNavigation && !isSticky) && <span hidden data-flag-pro-navigation={flagDataProNavigation}></span>}
     </React.Fragment>
   )
 }

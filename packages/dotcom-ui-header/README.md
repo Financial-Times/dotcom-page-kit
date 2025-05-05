@@ -77,8 +77,8 @@ All header components with the exception of `<LogoOnly />` require the following
 | showStickyHeader   | boolean                            | true     | true     | Enable rendering of the sticky header component                            |
 | showMegaNav        | boolean                            | true     | true     | Enable rendering of the drop-down "mega-nav"                            |
 | showAskButton      | boolean                            | true     | false    | Enable rendering of the ASK button                                             |
+| showProNavigation  | boolean - experimental             | true     | false    | Experimental Feature: Enable rendering of FT pro dropdown.                     |
 | data               | object                             | false    |          | Navigation data for rendering the header links fetched from the navigation API |
-| showProNavigation  | boolean | undefined - experimental | true     | undefined| Experimental Feature: Enable rendering of FT pro dropdown. Undefined means no experiment is conducted for a certain user cohort.
 | flags              | object                             | true     |          | Flags data passed from the server |
 
 
