@@ -147,11 +147,12 @@ const trackDropdownView = (options) => {
 /**
  * Dispatches a custom event with tracking data for Amplitude experiments.
  *
+ * Remove all relevant code when the experiment is complete.
  */
 const trackDropdownExposure = () => {
-  const flagDataProNavigation = document.querySelector('[data-flag-pro-navigation]')?.dataset
-    .flagProNavigation
-
+  const flagDataProNavigation =
+    JSON.parse(document.querySelector('#page-kit-flags-embed').innerText).flagProNavigation ||
+    document.querySelector('[data-flag-pro-navigation]')?.dataset.flagProNavigation
 
   if (flagDataProNavigation !== undefined && flagDataProNavigation !== 'no-experiment') {
     document.body.dispatchEvent(
