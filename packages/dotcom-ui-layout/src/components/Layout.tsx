@@ -8,7 +8,6 @@ import {
   THeaderOptions
 } from '@financial-times/dotcom-ui-header/component'
 import { TNavigationData } from '@financial-times/dotcom-types-navigation'
-import { TFlagsData } from '@financial-times/dotcom-ui-flags/src/types'
 import { Footer, LegalFooter, TFooterOptions } from '@financial-times/dotcom-ui-footer/component'
 import Template from './Template'
 
@@ -25,7 +24,6 @@ enum Footers {
 }
 
 export type TLayoutProps = {
-  flagsData?: TFlagsData
   navigationData?: TNavigationData
   headerOptions?: THeaderOptions
   headerBefore?: string | React.ReactNode
@@ -39,10 +37,12 @@ export type TLayoutProps = {
   footerAfter?: string | React.ReactNode
   children?: React.ReactNode
   contents?: string
+  metadata?: {
+    flagProNavigation: string | undefined 
+  }
 }
 
 export function Layout({
-  flagsData,
   navigationData,
   headerOptions,
   headerBefore,
@@ -55,14 +55,15 @@ export function Layout({
   footerComponent,
   footerAfter,
   children,
-  contents
+  contents,
+  metadata
 }: TLayoutProps) {
   let header = null
   let drawer = null
 
   if (headerVariant && Headers[headerVariant] && !headerComponent) {
     const Header = Headers[headerVariant]
-    header = <Header {...headerOptions} data={navigationData} flags={flagsData} variant={headerVariant} />
+    header = <Header {...headerOptions} data={navigationData} metadata={metadata} variant={headerVariant} />
 
     if (Header === HeaderSimple || Header === HeaderLarge) {
       drawer = <Drawer {...headerOptions} data={navigationData} />
