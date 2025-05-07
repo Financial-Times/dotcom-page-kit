@@ -123,7 +123,7 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
       {signInAction && (
         <MenuButton
           showProNavigation={props.showProNavigation}
-          flagMetadataProNavigation={props.metadata?.flagProNavigation}
+          flagMetadataProNavigation={props.metadata?.['pro-navigation']}
           signInAction={signInAction}
           variant={props.variant}
         />

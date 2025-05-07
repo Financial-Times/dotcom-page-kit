@@ -38,7 +38,7 @@ export type TLayoutProps = {
   children?: React.ReactNode
   contents?: string
   metadata?: {
-    flagProNavigation: string | undefined 
+    'pro-navigation': string | undefined 
   }
 }
 

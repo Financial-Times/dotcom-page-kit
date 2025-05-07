@@ -17,7 +17,7 @@ export type THeaderOptions = {
 export type THeaderProps = THeaderOptions & {
   data: TNavigationData
   metadata?: {
-    flagProNavigation: string | undefined 
+    'pro-navigation': string | undefined 
   }
 }
 
