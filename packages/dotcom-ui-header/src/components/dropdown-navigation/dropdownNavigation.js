@@ -152,7 +152,10 @@ const trackDropdownView = (options) => {
 const trackDropdownExposure = () => {
   const flagDataProNavigation =
     document.querySelector('[data-flag-pro-navigation]')?.dataset.flagProNavigation ||
-    JSON.parse(document.querySelector('#page-kit-flags-embed').innerText)['pro-navigation']
+    (document.querySelector('#page-kit-app-context') &&
+      JSON.parse(document.querySelector('#page-kit-app-context').innerText).abTestState.match(
+        /pro-navigation:([^,]+)/
+      )?.[1])
 
   if (flagDataProNavigation !== undefined && flagDataProNavigation !== 'no-experiment') {
     document.body.dispatchEvent(
