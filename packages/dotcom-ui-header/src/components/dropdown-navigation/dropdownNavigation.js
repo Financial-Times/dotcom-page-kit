@@ -153,25 +153,45 @@ const trackDropdownExposure = () => {
   const flagDataProNavigation =
     document.querySelector('[data-flag-pro-navigation]')?.dataset.flagProNavigation ||
     (document.querySelector('#page-kit-app-context') &&
-      JSON.parse(document.querySelector('#page-kit-app-context').innerText).abTestState.match(
+      JSON.parse(document.querySelector('#page-kit-app-context').innerText).abTestState?.match(
         /pro-navigation:([^,]+)/
       )?.[1])
 
   if (flagDataProNavigation !== undefined && flagDataProNavigation !== 'no-experiment') {
-    document.body.dispatchEvent(
-      new CustomEvent('oTracking.event', {
-        detail: {
-          category: 'amplitudeExperiment',
-          action: 'exposure',
-          event_properties: {
-            flag_key: 'pro-navigation',
-            variant: flagDataProNavigation,
-            experiment_key: 'exp-1'
-          }
-        },
-        bubbles: true
-      })
-    )
+    const maxRetries = 2
+    const delay = 200
+    let attempt = 0
+    let eventDispatched = false
+
+    function dispatchWithDelay() {
+      if (eventDispatched) {
+        return
+      }
+
+      if (window.oTracking) {
+        document.body.dispatchEvent(
+          new CustomEvent('oTracking.event', {
+            detail: {
+              category: 'amplitudeExperiment',
+              action: 'exposure',
+              event_properties: {
+                flag_key: 'pro-navigation',
+                variant: flagDataProNavigation,
+                experiment_key: 'exp-1'
+              }
+            },
+            bubbles: true
+          })
+        )
+
+        eventDispatched = true
+      } else if (attempt < maxRetries) {
+        attempt++
+        setTimeout(dispatchWithDelay, delay)
+      }
+    }
+
+    dispatchWithDelay()
   }
 }
 
