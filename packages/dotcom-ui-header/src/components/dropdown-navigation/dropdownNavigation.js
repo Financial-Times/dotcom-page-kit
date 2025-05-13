@@ -145,7 +145,7 @@ const trackDropdownView = (options) => {
 }
 
 /**
- * Dispatches a custom event with tracking data for Amplitude experiments.
+ * Dispatches a custom exposure event for Amplitude experiment.
  *
  * Remove all relevant code when the experiment is complete.
  */
