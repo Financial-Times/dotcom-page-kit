@@ -86,6 +86,7 @@ This component includes styles written in Sass which includes the styles the [he
 | footerOptions   | TFooterProps                                    | true     | `undefined` | Pass options to the footer component                                                         |
 | footerComponent | ReactElement                                    | true     | `undefined` | Pass a custom footer                                                                         |
 | contents        | string                                          | true     | `undefined` | A prerendered string of HTML used to insert the page contents when not using JSX composition |
+| metadata        | object                                          | true     | `undefined` | Additional data context for side effects. Do not use for visible rendering effects |
 
 \* Navigation data is required to render all [header] variants except for `"logo-only"`. Navigation data is required to render all built in [footer] components. It is recommended to integrate the [navigation package] with your application to get navigation data.
 

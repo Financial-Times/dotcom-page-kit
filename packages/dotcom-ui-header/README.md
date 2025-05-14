@@ -71,14 +71,16 @@ All header components with the exception of `<LogoOnly />` require the following
 | variant            | 'simple' \| 'large-logo' \| string | true     | 'simple' | Adds a class name to the header element
 | userIsAnonymous    | boolean                            | true     | true     | Marks a user as anonymous - can be set by middleware included with n-express   |
 | userIsLoggedIn     | boolean                            | true     | false    | Marks a user as logged in - can be set by middleware included with n-express   |
-| userIsSubscribed     | boolean                            | true     | false    | Marks a user as subscribed - set by middleware(ammit task in preflight) included with n-express   |
+| userIsSubscribed   | boolean                            | true     | false    | Marks a user as subscribed - set by middleware(ammit task in preflight) included with n-express   |
 | showUserNavigation | boolean                            | true     | true     | Show user navigation options such as `Sign out` or `Subscribe`                 |
 | showSubNavigation  | boolean                            | true     | true     | Show the sub-navigation component which may include the crumbtrail             |
 | showStickyHeader   | boolean                            | true     | true     | Enable rendering of the sticky header component                            |
 | showMegaNav        | boolean                            | true     | true     | Enable rendering of the drop-down "mega-nav"                            |
 | showAskButton      | boolean                            | true     | false    | Enable rendering of the ASK button                                             |
+| showProNavigation  | boolean - experimental             | true     | false    | Experimental Feature: Enable rendering of FT pro dropdown.                     |
 | data               | object                             | false    |          | Navigation data for rendering the header links fetched from the navigation API |
-| showProNavigation    | boolean - eperimental        |                   | true     | false    | Experimental Feature: Enable rendering of FT pro dropdown
+| metadata           | object                             | true     |          | Additional data context for side effects. Do not use for visible rendering effects |
+
 
 
 ## Header Elements

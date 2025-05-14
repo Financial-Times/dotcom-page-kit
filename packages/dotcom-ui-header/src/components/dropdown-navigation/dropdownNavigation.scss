@@ -52,6 +52,7 @@
   justify-content: center;
 
   .o-header__dropdown-button-user-icon-wrapper {
+    box-sizing: border-box;
     height: var(--o3-spacing-l);
     width: var(--o3-spacing-l);
     background: linear-gradient(153deg, #262a33 54.99%, #434958 99.56%);

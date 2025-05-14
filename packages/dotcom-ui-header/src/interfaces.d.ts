@@ -16,6 +16,9 @@ export type THeaderOptions = {
 
 export type THeaderProps = THeaderOptions & {
   data: TNavigationData
+  metadata?: {
+    'pro-navigation': string | undefined 
+  }
 }
 
 export type THeaderVariant = 'simple' | 'large-logo' | 'sticky'

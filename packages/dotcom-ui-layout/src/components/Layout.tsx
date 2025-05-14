@@ -37,6 +37,9 @@ export type TLayoutProps = {
   footerAfter?: string | React.ReactNode
   children?: React.ReactNode
   contents?: string
+  metadata?: {
+    'pro-navigation': string | undefined 
+  }
 }
 
 export function Layout({
@@ -52,14 +55,15 @@ export function Layout({
   footerComponent,
   footerAfter,
   children,
-  contents
+  contents,
+  metadata
 }: TLayoutProps) {
   let header = null
   let drawer = null
 
   if (headerVariant && Headers[headerVariant] && !headerComponent) {
     const Header = Headers[headerVariant]
-    header = <Header {...headerOptions} data={navigationData} variant={headerVariant} />
+    header = <Header {...headerOptions} data={navigationData} metadata={metadata} variant={headerVariant} />
 
     if (Header === HeaderSimple || Header === HeaderLarge) {
       drawer = <Drawer {...headerOptions} data={navigationData} />
@@ -78,7 +82,8 @@ export function Layout({
       <a
         data-trackable="a11y-skip-to-help"
         className="n-layout__skip-link"
-        href="https://www.ft.com/accessibility">
+        href="https://www.ft.com/accessibility"
+      >
         Accessibility help
       </a>
 
