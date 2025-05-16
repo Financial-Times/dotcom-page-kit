@@ -123,7 +123,6 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
       {signInAction && (
         <MenuButton
           showProNavigation={props.showProNavigation}
-          proNavigationVariant={props.metadata?.['pro-navigation']}
           signInAction={signInAction}
           variant={props.variant}
         />
@@ -132,7 +131,7 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
   )
 }
 
-const MenuButton = ({ proNavigationVariant, showProNavigation, signInAction, variant }) => {
+const MenuButton = ({ showProNavigation, signInAction, variant }) => {
   const isSticky = variant === 'sticky'
   return (
     <React.Fragment>
@@ -148,7 +147,6 @@ const MenuButton = ({ proNavigationVariant, showProNavigation, signInAction, var
       ) : (
         <MyAccountLink item={signInAction} signedIn={true} variant={variant} />
       )}
-      {(proNavigationVariant && !isSticky) && <span hidden data-flag-pro-navigation={proNavigationVariant}></span>}
     </React.Fragment>
   )
 }
