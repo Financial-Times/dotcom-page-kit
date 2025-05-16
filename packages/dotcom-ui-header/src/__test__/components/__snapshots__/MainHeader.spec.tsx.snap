@@ -2245,10 +2245,6 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
               </ul>
             </div>
           </nav>
-          <span
-            data-flag-pro-navigation="treatment"
-            hidden={true}
-          />
         </div>
       </div>
     </div>

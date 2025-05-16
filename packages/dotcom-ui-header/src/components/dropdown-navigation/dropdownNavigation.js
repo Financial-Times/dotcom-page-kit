@@ -18,6 +18,24 @@ const enhanceInteractivity = () => {
     const dropdownButton = dropdownContainer.querySelector('.o-header__dropdown-button')
     const closeDropdownButton = dropdownContainer.querySelector('.o-header__dropdown-close-button-mobile')
 
+    // For each link in the dropdown, add an event listener to handle clicks
+    const links = dropdownContainer.querySelectorAll('.o-header__dropdown-list-item-link')
+    links.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        if (!event.metaKey && !event.ctrlKey) {
+          event.preventDefault()
+          // When the link is clicked, remove the data attribute from the dropdown button
+          // to enable the dropdown to be opened correctly again
+          dropdownButton.removeAttribute('data-dropdown-button-active')
+          // Blur the link to remove focus and hide the dropdown before redirecting.
+          // This prevents the dropdown from flashing if the user goes back to the page.
+          const redirectUrl = event.target.closest('a').getAttribute('href')
+          document.activeElement.blur()
+          window.location.href = redirectUrl
+        }
+      })
+    })
+
     // For Non-JS users the pointer events on the dropdown button are
     // disabled by default as it is the only way to enable the button
     // to both open and close the dropdown. This will not be needed for JS
@@ -53,12 +71,22 @@ const enhanceInteractivity = () => {
     })
   })
 
-  // When clicking outside the dropdown, reset the dropdown button by
+  // When clicking outside the dropdown or on the links inside, reset the dropdown button by
   // removing the data attribute from the dropdown button to enable the dropdown to be opened correctly again
   document.addEventListener('click', (event) => {
     dropdowns.forEach((dropdownContainer) => {
       const dropdownButton = dropdownContainer.querySelector('.o-header__dropdown-button')
-      if (!dropdownContainer.contains(event.target)) {
+      const dropdownContentHeader = dropdownContainer.querySelector('.o-header__dropdown-header')
+
+      // Ensure that clicking on the dropdown button or the dropdown content header
+      // does not remove the attribute. Additionally, check for metaKey (cmd) and ctrlKey to allow
+      // opening links in a new tab without breaking the opening/closing of the dropdown.
+      if (
+        !dropdownButton.contains(event.target) &&
+        !dropdownContentHeader.contains(event.target) &&
+        !event.metaKey &&
+        !event.ctrlKey
+      ) {
         dropdownButton && dropdownButton.removeAttribute('data-dropdown-button-active')
       }
     })
@@ -145,57 +173,6 @@ const trackDropdownView = (options) => {
 }
 
 /**
- * Dispatches a custom exposure event for Amplitude experiment.
- *
- * Remove all relevant code when the experiment is complete.
- */
-const trackDropdownExposure = () => {
-  const flagDataProNavigation =
-    document.querySelector('[data-flag-pro-navigation]')?.dataset.flagProNavigation ||
-    (document.querySelector('#page-kit-app-context') &&
-      JSON.parse(document.querySelector('#page-kit-app-context').innerText).abTestState?.match(
-        /pro-navigation:([^,]+)/
-      )?.[1])
-
-  if (flagDataProNavigation !== undefined && flagDataProNavigation !== 'no-experiment') {
-    const maxRetries = 2
-    const delay = 200
-    let attempt = 0
-    let eventDispatched = false
-
-    function dispatchWithDelay() {
-      if (eventDispatched) {
-        return
-      }
-
-      if (window.oTracking) {
-        document.body.dispatchEvent(
-          new CustomEvent('oTracking.event', {
-            detail: {
-              category: 'amplitudeExperiment',
-              action: 'exposure',
-              event_properties: {
-                flag_key: 'pro-navigation',
-                variant: flagDataProNavigation,
-                experiment_key: 'exp-1'
-              }
-            },
-            bubbles: true
-          })
-        )
-
-        eventDispatched = true
-      } else if (attempt < maxRetries) {
-        attempt++
-        setTimeout(dispatchWithDelay, delay)
-      }
-    }
-
-    dispatchWithDelay()
-  }
-}
-
-/**
  * Updates the links in the Pro Navigation dropdown.
  *
  * @param {Object} options - Configuration options for updating the dropdown links.
@@ -234,6 +211,8 @@ const updateProNavigationLinks = async (options) => {
       errorMessage: error.message
     }
     document.body.dispatchEvent(new CustomEvent('oTracking.event', { detail: eventData, bubbles: true }))
+  } finally {
+    enhanceInteractivity()
   }
 }
 
@@ -309,10 +288,7 @@ const buildListItem = (listItem, label, link, trackingKey) => {
 }
 
 const init = () => {
-  enhanceInteractivity()
-
   trackDropdownView({ selector: '.o-header__dropdown-content', intersectionObserverThreshold: 0.3 })
-  trackDropdownExposure()
 
   updateProNavigationLinks({
     selector: 'pro_navigation',
