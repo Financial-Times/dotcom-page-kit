@@ -61,13 +61,13 @@ const DocumentHead = (props: TDocumentHeadProps) => (
       href={imageServiceIconURL('ftlogo-v1:brand-ft-logo-square-coloured', 0, 'svg')}
     />
     <link
-      rel="alternate icon"
+      rel="icon"
       type="image/png"
       href={imageServiceIconURL('ftlogo-v1:brand-ft-logo-square-coloured', 32)}
       sizes="32x32"
     />
     <link
-      rel="alternate icon"
+      rel="icon"
       type="image/png"
       href={imageServiceIconURL('ftlogo-v1:brand-ft-logo-square-coloured', 194)}
       sizes="194x194"
