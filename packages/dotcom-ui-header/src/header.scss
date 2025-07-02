@@ -16,12 +16,8 @@
   display: none;
 }
 
-// Overrides <a> color style set by dotcom-ui-base-styles
-.o-header__ask-ft-button {
-  &, &:hover {
-    color: var(--o3-color-palette-black-80)
-  }
-}
-
 // Import the dropdown navigation styles
 @import 'components/dropdown-navigation/dropdownNavigation.scss';
+
+// Import the ask-ft button styles
+@import 'components/ask-ft/askFtButton.scss';

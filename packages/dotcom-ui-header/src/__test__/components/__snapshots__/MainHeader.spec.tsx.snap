@@ -48,11 +48,11 @@ exports[`dotcom-ui-header/src/components/MainHeader renders ASK FT button 1`] = 
             </span>
           </a>
           <a
-            className="o-header__ask-ft-button o-header__ask-ft-button--top"
+            className="o3-button o3-button--primary ft-header__ask-ft-button ft-header__ask-ft-button--top o3-button--small o3-button-icon o3-button-icon--sparkles o3-apply-focus-rings"
+            data-o3-theme="neutral"
             data-trackable="ask-ft-button-header"
             href="https://ask.ft.com"
             id="ask-ft-button-header"
-            title="ASK FT"
           >
             Ask FT
           </a>

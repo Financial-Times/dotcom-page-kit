@@ -1,4 +1,5 @@
 import React from 'react'
+import { LinkButton } from '@financial-times/o3-button'
 
 export interface AskFtButtonProps {
   id: string
@@ -7,13 +8,17 @@ export interface AskFtButtonProps {
 }
 
 export const AskFtButton = ({ id, variant, dataTrackable }: AskFtButtonProps) => (
-  <a
-    id={id}
-    className={`o-header__ask-ft-button o-header__ask-ft-button--${variant}`}
-    data-trackable={dataTrackable}
+  <LinkButton
     href="https://ask.ft.com"
-    title="ASK FT"
-  >
-    Ask FT
-  </a>
+    icon="sparkles"
+    label="Ask FT"
+    size="small"
+    theme="neutral"
+    type="primary"
+    attributes={{
+      id: id,
+      'data-trackable': dataTrackable,
+      className: `ft-header__ask-ft-button ft-header__ask-ft-button--${variant}`
+    }}
+  />
 )

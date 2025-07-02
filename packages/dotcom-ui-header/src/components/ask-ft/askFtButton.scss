@@ -1,0 +1,27 @@
+@import '@financial-times/o3-button/css/core.css';
+.ft-header__ask-ft-button {
+    display: flex;
+	align-items: center;
+    white-space: nowrap;
+}
+
+.ft-header__ask-ft-button--drawer {
+    // Same as .o-header__drawer-search
+    @include oGridRespondTo('M') {
+        display: none;
+    }
+
+    justify-content: center;
+}
+
+.ft-header__ask-ft-button--drawer + .o-header__drawer-menu {
+    margin-top: $_o-header-drawer-padding-y;
+}
+
+
+.ft-header__ask-ft-button--top {
+    @include oGridRespondTo($until: 'M') {
+        display: none;
+    }
+    margin: 0 10px;
+}
