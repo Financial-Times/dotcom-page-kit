@@ -1,11 +1,16 @@
 @import '@financial-times/o3-button/css/core.css';
-.ft-header__ask-ft-button {
+// The o3-button class selector has higher specificity due to its default styling rules,
+// which can override custom styles applied to the button. To ensure our styles take precedence,
+// we use an ID selector combined with a class selector to increase specificity and avoid conflicts.
+#ask-ft-button-drawer.ft-header__ask-ft-button,
+#ask-ft-button-header.ft-header__ask-ft-button,
+#ask-ft-button-sticky.ft-header__ask-ft-button {
     display: flex;
 	align-items: center;
     white-space: nowrap;
 }
 
-.ft-header__ask-ft-button--drawer {
+#ask-ft-button-drawer.ft-header__ask-ft-button--drawer {
     // Same as .o-header__drawer-search
     @include oGridRespondTo('M') {
         display: none;
@@ -14,12 +19,13 @@
     justify-content: center;
 }
 
-.ft-header__ask-ft-button--drawer + .o-header__drawer-menu {
+#ask-ft-button-drawer.ft-header__ask-ft-button--drawer + .o-header__drawer-menu {
     margin-top: $_o-header-drawer-padding-y;
 }
 
 
-.ft-header__ask-ft-button--top {
+#ask-ft-button-header.ft-header__ask-ft-button--top,
+#ask-ft-button-sticky.ft-header__ask-ft-button--top {
     @include oGridRespondTo($until: 'M') {
         display: none;
     }
