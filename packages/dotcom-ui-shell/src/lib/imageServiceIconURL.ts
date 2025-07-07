@@ -1,10 +1,10 @@
 import querystring from 'querystring'
 
 function imageServiceIconURL(image: string, size: number, format = 'png'): string {
-  const serviceURL = 'https://www.ft.com/__origami/service/image/v2/images/raw/'
+  const serviceURL = 'https://images.ft.com/v3/image/raw/'
 
   const serviceParameters = {
-    source: 'update-logos',
+    source: 'page-kit',
     format: format,
     width: size,
     height: size
