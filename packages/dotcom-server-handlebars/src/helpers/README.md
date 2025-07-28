@@ -121,7 +121,7 @@ Example:
 <img src="{{#resize 640 fit="contain"}}{{image}}{{/resize}}" />
 ```
 
-[Origami Image Service]: https://www.ft.com/__origami/service/image/v2/
+[Origami Image Service]: https://images.ft.com/v3/
 
 ### slice
 

@@ -178,7 +178,7 @@ describe('dotcom-server-handlebars/src/helpers', () => {
         const result = template({}, { helpers })
 
         expect(result).toBe(
-          'https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fwebsite.com%2Fpicture.jpg?width=640&source=next&fit=scale-down'
+          'https://images.ft.com/v3/image/raw/http%3A%2F%2Fwebsite.com%2Fpicture.jpg?width=640&source=page-kit&fit=scale-down'
         )
       })
 
@@ -187,7 +187,7 @@ describe('dotcom-server-handlebars/src/helpers', () => {
         const result = template({}, { helpers })
 
         expect(result).toBe(
-          'https://www.ft.com/__origami/service/image/v2/images/raw/http%3A%2F%2Fwebsite.com%2Fpicture.jpg?width=640&source=next&fit=contain'
+          'https://images.ft.com/v3/image/raw/http%3A%2F%2Fwebsite.com%2Fpicture.jpg?width=640&source=page-kit&fit=contain'
         )
       })
 
