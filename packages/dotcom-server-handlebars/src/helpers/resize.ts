@@ -1,9 +1,9 @@
 import { HelperOptions } from 'handlebars'
 import querystring from 'querystring'
 
-const host = 'https://www.ft.com/__origami/service/image/v2/images/raw'
+const host = 'https://images.ft.com/v3/image/raw'
 
-const defaults = { source: 'next', fit: 'scale-down' }
+const defaults = { source: 'page-kit', fit: 'scale-down' }
 
 export default function resize(...args) {
   if (args.length !== 2) {
