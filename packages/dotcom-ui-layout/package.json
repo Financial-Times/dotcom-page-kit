@@ -54,6 +54,6 @@
     "@financial-times/dotcom-ui-base-styles": "file:../dotcom-ui-base-styles",
     "@financial-times/dotcom-ui-footer": "file:../dotcom-ui-footer",
     "@financial-times/dotcom-ui-header": "file:../dotcom-ui-header",
-    "check-engine": "^1.10.1"
+    "check-engine": "^1.14.0"
   }
 }
