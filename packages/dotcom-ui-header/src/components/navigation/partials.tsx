@@ -55,7 +55,7 @@ const NavDesktop = (props) => (
 )
 
 const NavListLeft = (props: THeaderProps) => (
-  <ul className="o-header__nav-list o-header__nav-list--left" data-trackable="primary-nav">
+  <ul className="o-header__nav-list o-header__nav-list--left" data-trackable="primary-nav" data-ft-origin="@financial-times/dotcom-middleware-navigation">
     {props.data.navbar.items.map((item, index) => (
       <li className="o-header__nav-item" key={`link-${index}`}>
         <a
@@ -126,6 +126,7 @@ const MegaNav = ({ label, meganav, index }: { label: string; meganav: TNavMegana
       aria-labelledby={`o-header-link-${index}`}
       data-o-header-mega
       data-trackable={`meganav | ${label}`}
+      data-ft-origin="@financial-times/dotcom-middleware-navigation"
     >
       <div className="o-header__container">
         <div className="o-header__mega-wrapper">

@@ -55,7 +55,7 @@ type TFooterContentsProps = {
 }
 
 const FooterContents = ({ footerData }: TFooterContentsProps) => (
-  <div className="o-footer__row">
+  <div className="o-footer__row" data-ft-origin="npm:@financial-times/dotcom-page-kit-footer">
     <h2 className="o3-visually-hidden">Useful links</h2>
     <nav className="o-footer__matrix" role="navigation" aria-label="Useful links">
       {footerData.map((item, index) => {

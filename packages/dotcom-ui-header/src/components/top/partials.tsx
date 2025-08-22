@@ -10,6 +10,7 @@ const HeaderWrapper = (props) => (
   <header
     id="site-navigation"
     className={`o-header o-header--${props.variant || 'simple'}`}
+    data-ft-origin="npm:@financial-times/dotcom-page-kit-header"
     data-o-component="o-header"
     data-o-header--no-js={true}
     tabIndex={-1}
@@ -112,7 +113,7 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
   const signInAction = props.data['navbar-top-right']?.items?.[0]
   const subscribeAction = props.data['navbar-top-right']?.items?.[1]
   return (
-    <div className="o-header__top-column o-header__top-column--right">
+    <div className="o-header__top-column o-header__top-column--right" data-ft-origin="npm:@financial-times/middleware-user-data">
       {!props.userIsSubscribed && subscribeAction && (
         <SubscribeButton
           item={subscribeAction}
@@ -202,7 +203,7 @@ const TopColumnRightAnon = ({ items, variant }: { items: TNavMenuItem[]; variant
   const [signInAction, subscribeAction] = items
 
   return (
-    <div className="o-header__top-column o-header__top-column--right">
+    <div className="o-header__top-column o-header__top-column--right" data-ft-origin="npm:@financial-times/middleware-user-data">
       {subscribeAction && (
         <SubscribeButton item={subscribeAction} variant={variant} className="o-header__top-button--hide-m" />
       )}
