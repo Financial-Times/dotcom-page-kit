@@ -21,7 +21,7 @@ $system-code: 'page-kit-layout' !default;
 }
 
 .n-layout__header-before {
-  background-color: var(--o3-color-palette-black-20)
+  background-color: var(--o3-color-palette-black-5, #f2e5da)
 }
 
 .n-layout__skip-link {
