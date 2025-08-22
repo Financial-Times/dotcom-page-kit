@@ -28,6 +28,7 @@ export const init = (headerOptions = {}) => {
     typeaheadContainer.id = `suggestions-${input?.id}`
     typeaheadContainer.className = 'typeahead__main-container'
     typeaheadContainer.role = 'listbox'
+    typeaheadContainer.dataset.ftOrigin = 'npm:n-topic-search'
 
     if (!form || !input) return
 
