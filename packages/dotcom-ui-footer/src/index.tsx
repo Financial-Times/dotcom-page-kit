@@ -14,7 +14,12 @@ export function Footer(props: TFooterProps) {
   const footerData = props.data.footer.items
   const theme = props.theme ? `${props.theme}` : 'dark'
   return (
-    <footer id="site-footer" className={`o-footer o-footer--theme-${theme}`} data-o-component="o-footer">
+    <footer
+      id="site-footer"
+      className={`o-footer o-footer--theme-${theme}`}
+      data-o-component="o-footer"
+      data-ft-origin="npm:@financial-times/dotcom-ui-footer"
+    >
       <div className="o-footer__container">
         <FooterContents footerData={footerData} />
         <CopyrightNotice />
@@ -28,7 +33,12 @@ export function LegalFooter(props: TFooterProps) {
   const footerData = props.data.footer.items
   const theme = props.theme ? props.theme : 'dark'
   return (
-    <footer id="site-footer" className={`o-footer o-footer--theme-${theme}`} data-o-component="o-footer">
+    <footer
+      id="site-footer"
+      className={`o-footer o-footer--theme-${theme}`}
+      data-o-component="o-footer"
+      data-ft-origin="npm:@financial-times/dotcom-ui-footer"
+    >
       <div className="o-footer__container">
         <CompressedLegal footerData={footerData} />
         <CopyrightNotice withoutMarketsData={true} />

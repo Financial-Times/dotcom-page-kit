@@ -3,6 +3,7 @@
 exports[`dotcom-ui-header/src/components/NoOutboundLinksHeader renders as a logged in user 1`] = `
 <header
   className="o-header o-header--simple"
+  data-ft-origin="npm:@financial-times/dotcom-ui-header"
   data-o-component="o-header"
   data-o-header--no-js={true}
   id="site-navigation"
@@ -171,6 +172,7 @@ exports[`dotcom-ui-header/src/components/NoOutboundLinksHeader renders as a logg
 exports[`dotcom-ui-header/src/components/NoOutboundLinksHeader renders as an anonymous user 1`] = `
 <header
   className="o-header o-header--simple"
+  data-ft-origin="npm:@financial-times/dotcom-ui-header"
   data-o-component="o-header"
   data-o-header--no-js={true}
   id="site-navigation"

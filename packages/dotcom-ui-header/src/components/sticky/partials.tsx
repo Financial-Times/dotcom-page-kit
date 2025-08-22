@@ -9,6 +9,7 @@ import { AskFtButton } from '../ask-ft/askFtButton'
 const StickyHeaderWrapper = (props: THeaderProps & { children: React.ReactNode }) => (
   <header
     className={`o-header o-header--simple o-header--sticky o--if-js`}
+    data-ft-origin="npm:@financial-times/dotcom-ui-header"
     data-o-component="o-header"
     data-o-header--sticky
     aria-hidden="true"

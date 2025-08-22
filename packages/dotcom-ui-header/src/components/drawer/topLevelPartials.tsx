@@ -32,7 +32,7 @@ const Drawer = (props: THeaderProps) => {
       data-trackable="drawer"
       data-trackable-terminate
     >
-      <div className="o-header__drawer-inner">
+      <div className="o-header__drawer-inner" data-ft-origin="npm:@financial-times/dotcom-ui-header" >
         <DrawerTools {...editions} />
         <Search />
         {showDrawerActions && (

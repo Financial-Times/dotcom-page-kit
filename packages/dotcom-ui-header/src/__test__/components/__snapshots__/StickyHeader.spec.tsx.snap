@@ -4,6 +4,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders ASK FT button 1`] 
 <header
   aria-hidden="true"
   className="o-header o-header--simple o-header--sticky o--if-js"
+  data-ft-origin="npm:@financial-times/dotcom-ui-header"
   data-o-component="o-header"
   data-o-header--sticky={true}
 >
@@ -221,6 +222,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders ASK FT button 1`] 
         </div>
         <div
           className="o-header__top-column o-header__top-column--right"
+          data-ft-origin="npm:@financial-times/middleware-user-data"
         >
           <a
             className="o-header__top-button o-header__top-button--hide-m"
@@ -248,6 +250,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders ASK FT button 1`] 
   </div>
   <div
     className="o-header__row o-header__search o-header__search--sticky"
+    data-ft-origin="npm:@financial-times/dotcom-ui-header"
     data-o-header-search={true}
     data-trackable="header-search"
     id="o-header-search-sticky"
@@ -335,6 +338,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
 <header
   aria-hidden="true"
   className="o-header o-header--simple o-header--sticky o--if-js"
+  data-ft-origin="npm:@financial-times/dotcom-ui-header"
   data-o-component="o-header"
   data-o-header--sticky={true}
 >
@@ -542,6 +546,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
         </div>
         <div
           className="o-header__top-column o-header__top-column--right"
+          data-ft-origin="npm:@financial-times/middleware-user-data"
         >
           <a
             className="o-header__top-button o-header__top-button--hide-m"
@@ -846,6 +851,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
   </div>
   <div
     className="o-header__row o-header__search o-header__search--sticky"
+    data-ft-origin="npm:@financial-times/dotcom-ui-header"
     data-o-header-search={true}
     data-trackable="header-search"
     id="o-header-search-sticky"
@@ -933,6 +939,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in use
 <header
   aria-hidden="true"
   className="o-header o-header--simple o-header--sticky o--if-js"
+  data-ft-origin="npm:@financial-times/dotcom-ui-header"
   data-o-component="o-header"
   data-o-header--sticky={true}
 >
@@ -1140,6 +1147,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in use
         </div>
         <div
           className="o-header__top-column o-header__top-column--right"
+          data-ft-origin="npm:@financial-times/middleware-user-data"
         >
           <a
             className="o-header__top-button o-header__top-button--hide-m"
@@ -1167,6 +1175,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as a logged in use
   </div>
   <div
     className="o-header__row o-header__search o-header__search--sticky"
+    data-ft-origin="npm:@financial-times/dotcom-ui-header"
     data-o-header-search={true}
     data-trackable="header-search"
     id="o-header-search-sticky"
@@ -1254,6 +1263,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as an anonymous us
 <header
   aria-hidden="true"
   className="o-header o-header--simple o-header--sticky o--if-js"
+  data-ft-origin="npm:@financial-times/dotcom-ui-header"
   data-o-component="o-header"
   data-o-header--sticky={true}
 >
@@ -1461,6 +1471,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as an anonymous us
         </div>
         <div
           className="o-header__top-column o-header__top-column--right"
+          data-ft-origin="npm:@financial-times/middleware-user-data"
         >
           <a
             className="o-header__top-button o-header__top-button--hide-m"
@@ -1488,6 +1499,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as an anonymous us
   </div>
   <div
     className="o-header__row o-header__search o-header__search--sticky"
+    data-ft-origin="npm:@financial-times/dotcom-ui-header"
     data-o-header-search={true}
     data-trackable="header-search"
     id="o-header-search-sticky"
@@ -1575,6 +1587,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders restart subscripti
 <header
   aria-hidden="true"
   className="o-header o-header--simple o-header--sticky o--if-js"
+  data-ft-origin="npm:@financial-times/dotcom-ui-header"
   data-o-component="o-header"
   data-o-header--sticky={true}
 >
@@ -1782,6 +1795,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders restart subscripti
         </div>
         <div
           className="o-header__top-column o-header__top-column--right"
+          data-ft-origin="npm:@financial-times/middleware-user-data"
         >
           <a
             className="o-header__top-button o3-button o3-button--primary o3-button--small o-header__top-button--hide-m"
@@ -1818,6 +1832,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders restart subscripti
   </div>
   <div
     className="o-header__row o-header__search o-header__search--sticky"
+    data-ft-origin="npm:@financial-times/dotcom-ui-header"
     data-o-header-search={true}
     data-trackable="header-search"
     id="o-header-search-sticky"

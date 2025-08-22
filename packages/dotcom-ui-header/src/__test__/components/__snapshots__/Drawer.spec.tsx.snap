@@ -14,6 +14,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders ASK FT button 1`] = `
 >
   <div
     className="o-header__drawer-inner"
+    data-ft-origin="npm:@financial-times/dotcom-ui-header"
   >
     <div
       className="o-header__drawer-tools"
@@ -1384,6 +1385,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as a logged in user 1`] 
 >
   <div
     className="o-header__drawer-inner"
+    data-ft-origin="npm:@financial-times/dotcom-ui-header"
   >
     <div
       className="o-header__drawer-tools"
@@ -2745,6 +2747,7 @@ exports[`dotcom-ui-header/src/components/Drawer renders as an anonymous user 1`]
 >
   <div
     className="o-header__drawer-inner"
+    data-ft-origin="npm:@financial-times/dotcom-ui-header"
   >
     <div
       className="o-header__drawer-tools"

@@ -23,6 +23,7 @@ const NavMobile = ({ items }: { items: TNavMenuItem[] }) => {
       id="o-header-nav-mobile"
       className="o-header__row o-header__nav o-header__nav--mobile"
       data-trackable="header-nav:mobile"
+      data-ft-origin="npm:@financial-times/dotcom-middleware-navigation"
     >
       <ul className="o-header__nav-list">
         {items.map((item, index) => (
@@ -55,7 +56,11 @@ const NavDesktop = (props) => (
 )
 
 const NavListLeft = (props: THeaderProps) => (
-  <ul className="o-header__nav-list o-header__nav-list--left" data-trackable="primary-nav">
+  <ul
+    className="o-header__nav-list o-header__nav-list--left"
+    data-trackable="primary-nav"
+    data-ft-origin="npm:@financial-times/dotcom-middleware-navigation"
+  >
     {props.data.navbar.items.map((item, index) => (
       <li className="o-header__nav-item" key={`link-${index}`}>
         <a
@@ -102,6 +107,7 @@ const NavListRightLoggedIn = ({
       data-component="nav-list--right"
       className="o-header__nav-list o-header__nav-list--right"
       data-trackable="user-nav"
+      data-ft-origin="npm:@financial-times/dotcom-middleware-navigation"
     >
       {items.map((item, index) => (
         <li className="o-header__nav-item" key={`link-${index}`}>
@@ -126,6 +132,7 @@ const MegaNav = ({ label, meganav, index }: { label: string; meganav: TNavMegana
       aria-labelledby={`o-header-link-${index}`}
       data-o-header-mega
       data-trackable={`meganav | ${label}`}
+      data-ft-origin="npm:@financial-times/dotcom-middleware-navigation"
     >
       <div className="o-header__container">
         <div className="o-header__mega-wrapper">
@@ -191,7 +198,11 @@ const UserActionsNav = (props: THeaderProps) => {
   const userNavItems = props.data['navbar-right-anon'].items
 
   return (
-    <div className="o-header__row o-header__anon" data-trackable="header-anon">
+    <div
+      className="o-header__row o-header__anon"
+      data-trackable="header-anon"
+      data-ft-origin="npm:@financial-times/dotcom-middleware-navigation"
+    >
       <ul className="o-header__anon-list">
         {userNavItems.map((item, index) => (
           <li className="o-header__anon-item" key={`link-${index}`}>

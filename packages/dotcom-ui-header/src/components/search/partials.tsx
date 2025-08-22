@@ -7,6 +7,7 @@ const Search = ({ instance }) => {
       id={`o-header-search-${instance}`}
       className={`o-header__row o-header__search o-header__search--${instance}`}
       data-trackable="header-search"
+      data-ft-origin="npm:@financial-times/dotcom-ui-header"
       data-o-header-search
     >
       <div className="o-header__container">
