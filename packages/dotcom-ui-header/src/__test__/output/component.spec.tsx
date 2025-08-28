@@ -12,18 +12,30 @@ const headerFixture = {
   ...dataFixture,
   data: { ...dataFixture.data, currentPath: '/' }
 }
-const subscribedUserFixture = { ...dataFixture, showUserNavigation: true, userIsSubscribed: true }
-const loggedInUserFixture = { ...dataFixture, showUserNavigation: true }
+const subscribedUserFixture = {
+  ...dataFixture,
+  showUserNavigation: true,
+  userIsSubscribed: true,
+  showRestartSubscriptionButton: true
+}
+const loggedInUserFixture = { ...dataFixture, showUserNavigation: true, showRestartSubscriptionButton: true }
+const loggedInUserWithoutRestartFixture = {
+  ...dataFixture,
+  showUserNavigation: true,
+  showRestartSubscriptionButton: false
+}
 const anonymousUserFixture = {
   ...dataFixture,
   userIsAnonymous: true,
   userIsLoggedIn: false,
+  showRestartSubscriptionButton: false,
   showUserNavigation: true
 }
 
 const commonHeader = <Header {...headerFixture} />
 const subscribedUserHeader = <Header {...subscribedUserFixture} />
 const loggedInUserHeader = <Header {...loggedInUserFixture} />
+const loggedInUserWithoutRestartHeader = <Header {...loggedInUserWithoutRestartFixture} />
 const anonymousUserHeader = <Header {...anonymousUserFixture} />
 
 describe('dotcom-ui-header', () => {
@@ -86,6 +98,18 @@ describe('dotcom-ui-header', () => {
 
       expect(container.querySelector('a[data-trackable="Subscribe"]')).not.toBeNull()
       expect(container.querySelector('a[data-trackable="Sign In"]')).toBeNull()
+    })
+
+    it('renders restart subscription button when showRestartSubscriptionButton is true', () => {
+      const { container } = render(loggedInUserHeader)
+
+      expect(container.querySelector('a[data-trackable="Restart Subscription"]')).not.toBeNull()
+    })
+
+    it('does not render restart subscription button when showRestartSubscriptionButton is false', () => {
+      const { container } = render(loggedInUserWithoutRestartHeader)
+
+      expect(container.querySelector('a[data-trackable="Restart Subscription"]')).toBeNull()
     })
   })
 

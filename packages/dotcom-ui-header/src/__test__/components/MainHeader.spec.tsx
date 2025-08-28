@@ -6,6 +6,12 @@ import { MainHeader as Subject } from '../../index'
 
 const propsAnonymous = { ...fixture, userIsAnonymous: true, userIsLoggedIn: false }
 const propsLoggedIn = { ...fixture, userIsAnonymous: false, userIsLoggedIn: true }
+const propsLoggedInWithRestart = {
+  ...fixture,
+  userIsAnonymous: false,
+  userIsLoggedIn: true,
+  showRestartSubscriptionButton: true
+}
 const propsRightAligned = { ...profileFixture }
 const propsAskFt = { ...fixture, showAskButton: true }
 const propsProDropdown = { ...fixture, showProNavigation: true }
@@ -33,6 +39,11 @@ describe('dotcom-ui-header/src/components/MainHeader', () => {
 
   it('renders FT Pro Dropdown menu', () => {
     const tree = renderer.create(<Subject {...propsProDropdown} />).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders restart subscription button when showRestartSubscriptionButton is true', () => {
+    const tree = renderer.create(<Subject {...propsLoggedInWithRestart} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })
