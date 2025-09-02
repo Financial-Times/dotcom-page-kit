@@ -109,9 +109,11 @@ const TopColumnCenterNoLink = () => (
 )
 
 const TopColumnRightLoggedIn = (props: THeaderProps) => {
-  const signInAction = props.data['navbar-top-right']?.items?.[0];
-  const subscribeAction = props.data['navbar-top-right']?.items?.[1];
-  const restartSubscriptionAction = props.data['navbar-top-right']?.items?.[2]
+  const [
+    signInAction,
+    subscribeAction,
+    restartSubscriptionAction
+  ] = props.data['navbar-top-right']?.items ?? [];
   return (
     <div className="o-header__top-column o-header__top-column--right">
       {props.showRestartSubscriptionButton && restartSubscriptionAction && (
