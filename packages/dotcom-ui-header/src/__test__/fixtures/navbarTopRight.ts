@@ -12,6 +12,11 @@ const data: TNavMenu = {
       label: 'Subscribe',
       url: '/products?segmentId=#',
       submenu: null
+    },
+    {
+      label: 'Restart Subscription',
+      url: '/myaccount/subscription',
+      submenu: null
     }
   ]
 }

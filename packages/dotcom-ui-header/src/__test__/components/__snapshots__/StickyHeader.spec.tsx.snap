@@ -1568,3 +1568,333 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as an anonymous us
   </div>
 </header>
 `;
+
+exports[`dotcom-ui-header/src/components/StickyHeader renders restart subscription button when showRestartSubscriptionButton is true 1`] = `
+<header
+  aria-hidden="true"
+  className="o-header o-header--simple o-header--sticky o--if-js"
+  data-o-component="o-header"
+  data-o-header--sticky={true}
+>
+  <div
+    className="o-header__row o-header__top"
+    data-trackable="header-sticky"
+  >
+    <div
+      className="o-header__container"
+    >
+      <div
+        className="o-header__top-wrapper"
+      >
+        <div
+          className="o-header__top-column o-header__top-column--left"
+        >
+          <a
+            aria-controls="o-header-drawer"
+            className="o-header__top-icon-link o-header__top-icon-link--menu"
+            data-trackable="drawer-toggle"
+            href="#"
+            tabIndex={-1}
+          >
+            <span
+              className="o-header__top-link-label"
+            >
+              Menu
+            </span>
+          </a>
+          <a
+            aria-controls="o-header-search-sticky"
+            className="o-header__top-icon-link o-header__top-icon-link--search"
+            data-trackable="search-toggle"
+            href="#"
+            tabIndex={-1}
+          >
+            <span
+              className="o-header__top-link-label"
+            >
+              Search
+            </span>
+          </a>
+        </div>
+        <div
+          className="o-header__top-column o-header__top-column--center"
+        >
+          <div
+            className="o-header__top-takeover"
+          >
+            <div
+              className="o-header__nav"
+            >
+              <ul
+                className="o-header__nav-list o-header__nav-list--left"
+                data-trackable="primary-nav"
+              >
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="Home"
+                    href="/"
+                    tabIndex={-1}
+                  >
+                    Home
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="World"
+                    href="/world"
+                    tabIndex={-1}
+                  >
+                    World
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="UK"
+                    href="/world/uk"
+                    tabIndex={-1}
+                  >
+                    UK
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="Companies"
+                    href="/companies"
+                    tabIndex={-1}
+                  >
+                    Companies
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="Tech"
+                    href="/technology"
+                    tabIndex={-1}
+                  >
+                    Tech
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="Markets"
+                    href="/markets"
+                    tabIndex={-1}
+                  >
+                    Markets
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="Graphics"
+                    href="/graphics"
+                    tabIndex={-1}
+                  >
+                    Graphics
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="Opinion"
+                    href="/opinion"
+                    tabIndex={-1}
+                  >
+                    Opinion
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="Work & Careers"
+                    href="/work-careers"
+                    tabIndex={-1}
+                  >
+                    Work & Careers
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="Life & Arts"
+                    href="/life-arts"
+                    tabIndex={-1}
+                  >
+                    Life & Arts
+                  </a>
+                </li>
+                <li
+                  className="o-header__nav-item"
+                >
+                  <a
+                    className="o-header__nav-link o-header__nav-link--primary"
+                    data-trackable="HTSI"
+                    href="https://howtospendit.ft.com/"
+                    tabIndex={-1}
+                  >
+                    HTSI
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <a
+            className="o-header__top-logo o-header__hide--L"
+            data-trackable="logo"
+            href="/"
+            tabIndex={-1}
+            title="Go to Financial Times homepage"
+          >
+            <span
+              className="o-header__visually-hidden"
+            >
+              Financial Times
+            </span>
+          </a>
+        </div>
+        <div
+          className="o-header__top-column o-header__top-column--right"
+        >
+          <a
+            className="o-header__top-button o3-button o3-button--primary"
+            data-trackable="Restart Subscription"
+            href="/myaccount/subscription"
+            role="button"
+            tabIndex={-1}
+          >
+            Restart Subscription
+          </a>
+          <a
+            className="o-header__top-button o-header__top-button--hide-m"
+            data-trackable="Subscribe"
+            href="/products?segmentId=#"
+            role="button"
+            tabIndex={-1}
+          >
+            Subscribe
+          </a>
+          <a
+            className="o-header__top-myaccount"
+            data-trackable="My Account"
+            href="/myaccount"
+            id="o-header-top-link-myaccount"
+            tabIndex={-1}
+          >
+            <span>
+              My Account
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="o-header__row o-header__search o-header__search--sticky"
+    data-o-header-search={true}
+    data-trackable="header-search"
+    id="o-header-search-sticky"
+  >
+    <div
+      className="o-header__container"
+    >
+      <form
+        action="/search"
+        aria-label="Site search"
+        className="o-header__search-form"
+        data-n-topic-search={true}
+        role="search"
+      >
+        <label
+          className="o-header__search-term o-forms-field o-forms-field--optional"
+          htmlFor="o-header-search-term-sticky"
+        >
+          <span
+            className="o-forms-title o-header__visually-hidden"
+          >
+            <span
+              className="o-forms-title__main"
+            >
+              Search the 
+              <abbr
+                title="Financial Times"
+              >
+                FT
+              </abbr>
+            </span>
+          </span>
+          <span
+            className="o-forms-input o-forms-input--text o-forms-input--suffix"
+          >
+            <input
+              aria-controls="suggestions-o-header-search-term-sticky"
+              autoCapitalize="off"
+              autoComplete="off"
+              autoCorrect="off"
+              id="o-header-search-term-sticky"
+              name="q"
+              placeholder="Search for stories, topics or securities"
+              role="combobox"
+              spellCheck={false}
+              type="search"
+            />
+            <button
+              className="o-header__search-submit"
+              type="submit"
+            >
+              <span
+                aria-hidden="true"
+                className="o-header__search-icon"
+              />
+              <span>
+                Search
+              </span>
+            </button>
+            <button
+              aria-controls="o-header-search-sticky"
+              className="o-header__search-close o--if-js"
+              data-trackable="close"
+              title="Close search bar"
+              type="button"
+            >
+              <span
+                className="o-header__visually-hidden"
+              >
+                Close search bar
+              </span>
+              <span>
+                Close
+              </span>
+            </button>
+          </span>
+        </label>
+      </form>
+    </div>
+  </div>
+</header>
+`;

@@ -6,7 +6,8 @@ import { Layout } from '@financial-times/dotcom-ui-layout'
 const flags = {
   ads: true,
   enableGTM: true,
-  adsEnableTestCreatives: true
+  adsEnableTestCreatives: true,
+  showRestartSubscriptionButton: false
 }
 
 export function homeController(request, response, next) {
@@ -40,12 +41,13 @@ export function homeController(request, response, next) {
 
   const userIsLoggedIn = request.query.userIsLoggedIn
   const userIsSubscribed = request.query.userIsSubscribed === 'true'
+  const showRestartSubscriptionButton = flags.showRestartSubscriptionButton;
 
   const layoutProps = {
     navigationData: response.locals.navigation,
     headerOptions: userIsLoggedIn
-      ? { userIsAnonymous: false, userIsLoggedIn: true, userIsSubscribed }
-      : { userIsAnonymous: true, userIsLoggedIn: false, userIsSubscribed }
+      ? { userIsAnonymous: false, userIsLoggedIn: true, userIsSubscribed, showRestartSubscriptionButton }
+      : { userIsAnonymous: true, userIsLoggedIn: false, userIsSubscribed, showRestartSubscriptionButton }
   }
 
   try {

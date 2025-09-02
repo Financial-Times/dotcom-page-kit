@@ -12,6 +12,7 @@ export type THeaderOptions = {
   showLogoLink?: boolean
   showAskButton?: boolean
   showProNavigation?: boolean
+  showRestartSubscriptionButton?: boolean
 }
 
 export type THeaderProps = THeaderOptions & {

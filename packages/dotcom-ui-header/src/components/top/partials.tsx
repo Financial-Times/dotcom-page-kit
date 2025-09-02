@@ -109,10 +109,20 @@ const TopColumnCenterNoLink = () => (
 )
 
 const TopColumnRightLoggedIn = (props: THeaderProps) => {
-  const signInAction = props.data['navbar-top-right']?.items?.[0]
-  const subscribeAction = props.data['navbar-top-right']?.items?.[1]
+  const [
+    signInAction,
+    subscribeAction,
+    restartSubscriptionAction
+  ] = props.data['navbar-top-right']?.items ?? [];
   return (
     <div className="o-header__top-column o-header__top-column--right">
+      {props.showRestartSubscriptionButton && restartSubscriptionAction && (
+        <RestartSubscriptionButton
+          item={restartSubscriptionAction}
+          variant={props.variant}
+          className="o3-button o3-button--primary"
+        />
+      )}
       {!props.userIsSubscribed && subscribeAction && (
         <SubscribeButton
           item={subscribeAction}
@@ -187,6 +197,22 @@ const SubscribeButton = ({
       className={`o-header__top-button ${className}`}
       // Added as the result of a DAC audit. This will be confusing for users of voice activation software
       // as it looks like a button but behaves like a link without this role.
+      role="button"
+      href={item.url ?? undefined}
+      data-trackable={item.label}
+      {...setTabIndex}
+    >
+      {item.label}
+    </a>
+  )
+}
+
+
+const RestartSubscriptionButton = ({ item, className, variant }: { item: TNavMenuItem, className?: string, variant?: THeaderVariant }) => {
+  const setTabIndex = variant === 'sticky' ? { tabIndex: -1 } : null
+  return (
+    <a
+      className={`o-header__top-button ${className}`}
       role="button"
       href={item.url ?? undefined}
       data-trackable={item.label}

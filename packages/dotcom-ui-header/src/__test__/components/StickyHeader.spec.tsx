@@ -3,8 +3,24 @@ import renderer from 'react-test-renderer'
 import fixture from '../fixtures/index'
 import { StickyHeader as Subject } from '../../index'
 
-const propsAnonymous = { ...fixture, userIsAnonymous: true, userIsLoggedIn: false }
-const propsLoggedIn = { ...fixture, userIsAnonymous: false, userIsLoggedIn: true }
+const propsAnonymous = {
+  ...fixture,
+  userIsAnonymous: true,
+  userIsLoggedIn: false,
+  showRestartSubscriptionButton: false
+}
+const propsLoggedIn = {
+  ...fixture,
+  userIsAnonymous: false,
+  userIsLoggedIn: true,
+  showRestartSubscriptionButton: false
+}
+const propsLoggedInWithRestart = {
+  ...fixture,
+  userIsAnonymous: false,
+  userIsLoggedIn: true,
+  showRestartSubscriptionButton: true
+}
 const propsAskFt = { ...fixture, showAskButton: true }
 const propsProDropdown = { ...fixture, showProNavigation: true }
 
@@ -26,6 +42,11 @@ describe('dotcom-ui-header/src/components/StickyHeader', () => {
 
   it('renders FT Pro dropdown menu', () => {
     const tree = renderer.create(<Subject {...propsProDropdown} />).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
+
+  it('renders restart subscription button when showRestartSubscriptionButton is true', () => {
+    const tree = renderer.create(<Subject {...propsLoggedInWithRestart} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
 })
