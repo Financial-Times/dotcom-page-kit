@@ -17,11 +17,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@dotcom-reliability-kit/errors": "^4.1.0",
     "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation",
     "@types/deep-freeze": "^0.1.1",
     "deep-freeze": "0.0.1",
     "ft-poller": "^9.0.0",
-    "http-errors": "^1.7.1",
     "node-fetch": "^2.2.1"
   },
   "devDependencies": {
