@@ -102,11 +102,13 @@ describe('dotcom-server-navigation', () => {
     })
 
     describe('when things go wrong', () => {
-      it('throws an HTTP error when fetch fails', async () => {
-        nock('http://next-navigation.ft.com').get('/v2/hierarchy/streamPage').reply(500)
+      it('throws an HTTP 400 rror when fetch fails', async () => {
+        nock('http://next-navigation.ft.com').get('/v2/hierarchy/streamPage').reply(400)
 
         await expect(navigationInstance.getSubNavigationFor('streamPage')).rejects.toMatchObject({
-          message: 'Sub-navigation for streamPage could not be found.'
+          message: 'Sub-navigation for streamPage could not be found.',
+          status: 400,
+          statusCode: 400
         })
       })
     })
