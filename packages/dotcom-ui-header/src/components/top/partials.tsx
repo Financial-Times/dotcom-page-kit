@@ -120,7 +120,7 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
         <RestartSubscriptionButton
           item={restartSubscriptionAction}
           variant={props.variant}
-          className="o3-button o3-button--primary"
+          className="o3-button o3-button--primary o3-button--small o-header__top-button--hide-m"
         />
       )}
       {!props.userIsSubscribed && subscribeAction && (

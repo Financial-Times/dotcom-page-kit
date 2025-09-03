@@ -9667,7 +9667,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders restart subscription
           className="o-header__top-column o-header__top-column--right"
         >
           <a
-            className="o-header__top-button o3-button o3-button--primary"
+            className="o-header__top-button o3-button o3-button--primary o3-button--small o-header__top-button--hide-m"
             data-trackable="Restart Subscription"
             href="/myaccount/subscription"
             role="button"
