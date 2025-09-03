@@ -94,7 +94,7 @@ export class Navigation {
     if (isEdition(currentEdition)) {
       return getEditions(currentEdition)
     } else {
-      throw Error(`The provided edition "${currentEdition}" is not a valid edition`)
+      throw httpError(400, `The provided edition "${currentEdition}" is not a valid edition`)
     }
   }
 
