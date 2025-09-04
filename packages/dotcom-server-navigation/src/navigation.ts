@@ -1,5 +1,5 @@
 import Poller from 'ft-poller'
-import httpError from 'http-errors'
+import { UserInputError, HttpError } from '@dotcom-reliability-kit/errors'
 import deepFreeze from 'deep-freeze'
 import fetch from 'node-fetch'
 import {
@@ -86,7 +86,9 @@ export class Navigation {
         subsections: data.children
       }
     } else {
-      throw httpError(response.status, `Sub-navigation for ${currentPage} could not be found.`)
+      throw new HttpError(response.status, {
+        message: `Sub-navigation for ${currentPage} could not be found.`
+      })
     }
   }
 
@@ -94,7 +96,7 @@ export class Navigation {
     if (isEdition(currentEdition)) {
       return getEditions(currentEdition)
     } else {
-      throw Error(`The provided edition "${currentEdition}" is not a valid edition`)
+      throw new UserInputError(`The provided edition "${currentEdition}" is not a valid edition`)
     }
   }
 

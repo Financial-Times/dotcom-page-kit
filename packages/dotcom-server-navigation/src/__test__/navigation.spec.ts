@@ -102,11 +102,13 @@ describe('dotcom-server-navigation', () => {
     })
 
     describe('when things go wrong', () => {
-      it('throws an HTTP error when fetch fails', async () => {
-        nock('http://next-navigation.ft.com').get('/v2/hierarchy/streamPage').reply(500)
+      it('throws an HTTP 404 error when fetch fails', async () => {
+        nock('http://next-navigation.ft.com').get('/v2/hierarchy/streamPage').reply(404)
 
         await expect(navigationInstance.getSubNavigationFor('streamPage')).rejects.toMatchObject({
-          message: 'Sub-navigation for streamPage could not be found.'
+          message: 'Sub-navigation for streamPage could not be found.',
+          status: 404,
+          statusCode: 404
         })
       })
     })
@@ -125,9 +127,17 @@ describe('dotcom-server-navigation', () => {
     })
 
     describe('with an invalid edition', () => {
-      it('throws an error', () => {
-        const test = () => navigationInstance.getEditionsFor('london')
-        expect(test).toThrow('The provided edition "london" is not a valid edition')
+      it('throws a 400 error', () => {
+        expect.assertions(4)
+        try {
+          navigationInstance.getEditionsFor('london')
+          fail('Expected getEditionsFor to throw')
+        } catch (err: any) {
+          expect(err).toBeInstanceOf(Error)
+          expect(err.status).toBe(400)
+          expect(err.statusCode).toBe(400)
+          expect(err.message).toBe('The provided edition "london" is not a valid edition')
+        }
       })
     })
   })
