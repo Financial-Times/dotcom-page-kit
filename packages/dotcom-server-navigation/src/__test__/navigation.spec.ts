@@ -129,7 +129,9 @@ describe('dotcom-server-navigation', () => {
     describe('with an invalid edition', () => {
       it('throws an error', () => {
         const test = () => navigationInstance.getEditionsFor('london')
-        expect(test).toThrow('The provided edition "london" is not a valid edition')
+        expect(err).toBeInstanceOf(Error)
+        expect(err.status).toBe(400)
+        expect(err.message).toBe('The provided edition "london" is not a valid edition')
       })
     })
   })
