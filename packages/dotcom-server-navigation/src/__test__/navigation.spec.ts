@@ -102,6 +102,10 @@ describe('dotcom-server-navigation', () => {
     })
 
     describe('when things go wrong', () => {
+      beforeEach(() => {
+        nock.cleanAll()
+        nock('http://next-navigation.ft.com').get('/v2/hierarchy/streamPage').reply(400)
+      })
       it('throws an HTTP 400 rror when fetch fails', async () => {
         nock('http://next-navigation.ft.com').get('/v2/hierarchy/streamPage').reply(400)
 
