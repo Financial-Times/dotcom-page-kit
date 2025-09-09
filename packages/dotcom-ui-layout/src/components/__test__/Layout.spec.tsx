@@ -27,7 +27,7 @@ describe('dotcom-ui-layout/src/components/Layout', () => {
     const skipToFooterLink = container.querySelector('a[href="#site-footer"]')
 
     expect(skipToNavigationLink?.innerHTML).toContain('Skip to navigation')
-    expect(skipToContentLink?.innerHTML).toContain('Skip to content')
+    expect(skipToContentLink?.innerHTML).toContain('Skip to main content')
     expect(skipToFooterLink?.innerHTML).toContain('Skip to footer')
   })
 
