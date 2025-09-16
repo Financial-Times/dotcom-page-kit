@@ -3,7 +3,7 @@ import { LinkButton } from '@financial-times/o3-button'
 
 export interface AskFtButtonProps {
   id: string
-  variant: 'top' | 'drawer'
+  variant: 'top' | 'drawer' | 'sticky'
   dataTrackable: string
 }
 
@@ -18,7 +18,8 @@ export const AskFtButton = ({ id, variant, dataTrackable }: AskFtButtonProps) =>
     attributes={{
       id: id,
       'data-trackable': dataTrackable,
-      className: `ft-header__ask-ft-button ft-header__ask-ft-button--${variant}`
+      className: `ft-header__ask-ft-button ft-header__ask-ft-button--${variant}`,
+      ...(variant === 'sticky' ? { tabindex: '-1' } : {})
     }}
   />
 )

@@ -25,7 +25,7 @@
 
 
 #ask-ft-button-header.ft-header__ask-ft-button--top,
-#ask-ft-button-sticky.ft-header__ask-ft-button--top {
+#ask-ft-button-sticky.ft-header__ask-ft-button--sticky {
     @include oGridRespondTo($until: 'M') {
         display: none;
     }
