@@ -232,7 +232,7 @@ const TopColumnRightAnon = ({ items, variant }: { items: TNavMenuItem[]; variant
       {subscribeAction && (
         <SubscribeButton item={subscribeAction} variant={variant} className="o-header__top-button--hide-m" />
       )}
-      {signInAction && <MyAccountLink item={signInAction} signedIn={false} />}
+      {signInAction && <MyAccountLink item={signInAction} signedIn={false} variant={variant} />}
     </div>
   )
 }

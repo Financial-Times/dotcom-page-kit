@@ -1475,6 +1475,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as an anonymous us
             data-trackable="Sign In"
             href="/login?location=#"
             id="o-header-top-link-signin"
+            tabIndex={-1}
           >
             <span>
               Sign In
