@@ -21,7 +21,7 @@ describe('examples/ft-ui', () => {
   describe('UI components', () => {
     it('renders a11y skip links', async () => {
       await expect(page).toMatchElement('a[href="#site-navigation"]', { text: 'Skip to navigation' })
-      await expect(page).toMatchElement('a[href="#site-content"]', { text: 'Skip to content' })
+      await expect(page).toMatchElement('a[href="#site-content"]', { text: 'Skip to main content' })
       await expect(page).toMatchElement('a[href="#site-footer"]', { text: 'Skip to footer' })
     })
 
