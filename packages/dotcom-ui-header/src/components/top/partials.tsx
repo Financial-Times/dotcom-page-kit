@@ -153,6 +153,7 @@ const MenuButton = ({ showProNavigation, signInAction, variant }) => {
           headerContent="FT PROFESSIONAL ACCOUNT"
           options={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}
           label={<ProfessionalLabel />}
+          variant={variant}
         />
       ) : (
         <MyAccountLink item={signInAction} signedIn={true} variant={variant} />

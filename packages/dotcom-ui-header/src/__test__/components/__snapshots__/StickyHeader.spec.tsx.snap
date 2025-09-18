@@ -563,7 +563,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
               className="o-header__dropdown-button"
               data-trackable="pro_navigation_toggle_click"
               id="pro_navigation_toggle_sticky"
-              tabIndex={0}
+              tabIndex={-1}
             >
               <div
                 className="o-header__dropdown-button-user-icon-wrapper"
