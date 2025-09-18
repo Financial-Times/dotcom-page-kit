@@ -88,7 +88,7 @@ const TopColumnLeftSticky = (props: Pick<THeaderProps, 'showAskButton'>) => {
       <DrawerIconSticky />
       <SearchIconSticky />
       {props.showAskButton && (
-        <AskFtButton variant="top" dataTrackable="ask-ft-button-sticky" id="ask-ft-button-sticky" />
+        <AskFtButton variant="sticky" dataTrackable="ask-ft-button-sticky" id="ask-ft-button-sticky" />
       )}
     </div>
   )

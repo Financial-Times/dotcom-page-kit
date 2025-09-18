@@ -153,6 +153,7 @@ const MenuButton = ({ showProNavigation, signInAction, variant }) => {
           headerContent="FT PROFESSIONAL ACCOUNT"
           options={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}
           label={<ProfessionalLabel />}
+          variant={variant}
         />
       ) : (
         <MyAccountLink item={signInAction} signedIn={true} variant={variant} />
@@ -232,7 +233,7 @@ const TopColumnRightAnon = ({ items, variant }: { items: TNavMenuItem[]; variant
       {subscribeAction && (
         <SubscribeButton item={subscribeAction} variant={variant} className="o-header__top-button--hide-m" />
       )}
-      {signInAction && <MyAccountLink item={signInAction} signedIn={false} />}
+      {signInAction && <MyAccountLink item={signInAction} signedIn={false} variant={variant} />}
     </div>
   )
 }

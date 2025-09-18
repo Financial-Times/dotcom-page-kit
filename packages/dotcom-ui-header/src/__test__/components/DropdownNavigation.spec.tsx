@@ -15,6 +15,7 @@ describe('DropdownNavigation', () => {
         options={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}
         headerContent="Test Title"
         trackingKey="test_tracking"
+        variant='default'
       />
     )
 
@@ -30,6 +31,7 @@ describe('DropdownNavigation', () => {
         options={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}
         headerContent="Test Title"
         trackingKey="test_tracking"
+        variant='default'
       />
     )
 
@@ -46,6 +48,7 @@ describe('DropdownNavigation', () => {
         headerContent="Test Title"
         trackingKey="test_tracking"
         label={<MockLabel />}
+        variant='default'
       />
     )
 
@@ -63,6 +66,7 @@ describe('DropdownNavigation', () => {
         options={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}
         headerContent={<MockHeader />}
         trackingKey="test_tracking"
+        variant='default'
       />
     )
 
@@ -79,6 +83,7 @@ describe('DropdownNavigation', () => {
         options={PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST}
         headerContent="Test Title"
         trackingKey={trackingKey}
+        variant='default'
       />
     )
 

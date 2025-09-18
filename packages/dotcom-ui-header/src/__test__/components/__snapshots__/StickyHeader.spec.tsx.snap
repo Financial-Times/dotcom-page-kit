@@ -47,11 +47,12 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders ASK FT button 1`] 
             </span>
           </a>
           <a
-            className="o3-button o3-button--primary ft-header__ask-ft-button ft-header__ask-ft-button--top o3-button--small o3-button-icon o3-button-icon--sparkles o3-apply-focus-rings"
+            className="o3-button o3-button--primary ft-header__ask-ft-button ft-header__ask-ft-button--sticky o3-button--small o3-button-icon o3-button-icon--sparkles o3-apply-focus-rings"
             data-o3-theme="neutral"
             data-trackable="ask-ft-button-sticky"
             href="https://ask.ft.com"
             id="ask-ft-button-sticky"
+            tabindex="-1"
           >
             Ask FT
           </a>
@@ -562,7 +563,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders FT Pro dropdown me
               className="o-header__dropdown-button"
               data-trackable="pro_navigation_toggle_click"
               id="pro_navigation_toggle_sticky"
-              tabIndex={0}
+              tabIndex={-1}
             >
               <div
                 className="o-header__dropdown-button-user-icon-wrapper"
@@ -1475,6 +1476,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as an anonymous us
             data-trackable="Sign In"
             href="/login?location=#"
             id="o-header-top-link-signin"
+            tabIndex={-1}
           >
             <span>
               Sign In
