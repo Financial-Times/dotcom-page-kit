@@ -53,6 +53,9 @@ export class PageKitSassPlugin {
 
     compiler.options.module.rules.push({
       test: [/\.sass|scss$/],
+      issuer: {
+        not: [/\.(js|ts)x?$/],
+      },
       use: [
         // Load generated CSS using the same logic as
         // @financial-times/dotcom-build-css
