@@ -90,7 +90,7 @@ export function Layout({
       ) : null}
 
       <a data-trackable="a11y-skip-to-content" className="n-layout__skip-link" href="#site-content">
-        Skip to content
+        Skip to main content
       </a>
 
       {footer ? (
