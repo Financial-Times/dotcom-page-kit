@@ -23,6 +23,7 @@ updates:
       origami:
         patterns:
           - "@financial-times/o-*"
+          - "@financial-times/o3-*"
         update-types:
           - "minor"
           - "patch"
