@@ -13,6 +13,7 @@ export type THeaderOptions = {
   showAskButton?: boolean
   showProNavigation?: boolean
   showRestartSubscriptionButton?: boolean
+  showMprButton?: boolean
 }
 
 export type THeaderProps = THeaderOptions & {
