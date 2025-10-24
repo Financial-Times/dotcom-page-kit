@@ -29,4 +29,6 @@
     @include oGridRespondTo($until: 'M') {
         display: none;
     }
+
+  margin-left: 10px;
 }
