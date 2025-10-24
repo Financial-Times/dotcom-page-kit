@@ -14,7 +14,8 @@ export const MprButton = ({ id, dataTrackable }: MprButtonProps) => (
     attributes={{
       id: id,
       'data-trackable': dataTrackable,
-      className: `o-header__mpr-button`
+      className: `o-header__mpr-button`,
+      'data-ft-origin': 'pro-central-banking'
     }}
   />
 )

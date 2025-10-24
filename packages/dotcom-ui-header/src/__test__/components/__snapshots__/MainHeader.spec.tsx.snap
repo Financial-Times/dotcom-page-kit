@@ -4081,6 +4081,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders MPR button 1`] = `
           </a>
           <a
             className="o3-button o3-button--primary o-header__mpr-button o3-button--small o3-button-icon o3-button-icon--radar o3-apply-focus-rings"
+            data-ft-origin="pro-central-banking"
             data-trackable="mpr-button-header"
             href="https://professional-monetary-policy-radar.ft.com/"
             id="mpr-button-header"
