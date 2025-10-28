@@ -2,7 +2,7 @@
 // which can override custom styles applied to the button. To ensure our styles take precedence,
 // we use a combination of class selectors to increase specificity.
 
-.o3-button.o-header__mpr-button {
+.o-header__mpr-button {
   @include oGridRespondTo($until: 'L') {
     display: none;
   }
