@@ -52,4 +52,9 @@ describe('dotcom-ui-header/src/components/MainHeader', () => {
     const tree = renderer.create(<Subject {...propsMprButton} />).toJSON()
     expect(tree).toMatchSnapshot()
   })
+
+  it('not renders MPR button by default', () => {
+    const tree = renderer.create(<Subject {...fixture} />).toJSON()
+    expect(tree).toMatchSnapshot()
+  })
 })
