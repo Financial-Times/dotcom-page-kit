@@ -5,6 +5,7 @@ import { TNavMenuItem } from '@financial-times/dotcom-types-navigation'
 import { AskFtButton } from '../ask-ft/askFtButton'
 import { DropdownNavigation, ProfessionalLabel } from '../dropdown-navigation/dropdownNavigation'
 import { PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST } from '../dropdown-navigation/constants'
+import { MprButton } from '../mpr/mprButton'
 
 const HeaderWrapper = (props) => (
   <header
@@ -77,12 +78,15 @@ const TopWrapper = (props) => (
   </div>
 )
 
-const TopColumnLeft = (props: Pick<THeaderProps, 'showAskButton'>) => (
+const TopColumnLeft = (props: THeaderProps) => (
   <div className="o-header__top-column o-header__top-column--left">
     <DrawerIcon />
     <SearchIcon />
     {props.showAskButton && (
       <AskFtButton variant="top" dataTrackable="ask-ft-button-header" id="ask-ft-button-header" />
+    )}
+    {props.showMprButton && (
+      <MprButton dataTrackable="mpr-button-header" id="mpr-button-header" />
     )}
   </div>
 )
