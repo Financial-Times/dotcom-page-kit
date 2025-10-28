@@ -11,6 +11,7 @@ export const MprButton = ({ id, dataTrackable }: MprButtonProps) => (
     label="MPR"
     size="small"
     type="primary"
+    theme="mono"
     attributes={{
       id: id,
       'data-trackable': dataTrackable,
