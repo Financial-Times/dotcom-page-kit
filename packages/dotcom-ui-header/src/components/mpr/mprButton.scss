@@ -1,9 +1,0 @@
-// The o3-button class selector has higher specificity due to its default styling rules,
-// which can override custom styles applied to the button. To ensure our styles take precedence,
-// we use a combination of class selectors to increase specificity.
-
-.o-header__mpr-button {
-  @include oGridRespondTo($until: 'L') {
-    display: none;
-  }
-}
