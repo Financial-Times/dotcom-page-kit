@@ -1,22 +1,17 @@
 import React from 'react'
-import { LinkButton } from '@financial-times/o3-button'
 import type { MprButtonProps } from '@financial-times/o-header/src/tsx/components/mpr-button'
 
 const MPR_URL = 'https://professional-monetary-policy-radar.ft.com/'
 
 export const MprButton = ({ id, dataTrackable }: MprButtonProps) => (
-  <LinkButton
+  <a
+    id={id}
     href={MPR_URL}
-    icon="radar"
-    label="MPR"
-    size="small"
-    type="primary"
-    theme="mono"
-    attributes={{
-      id: id,
-      'data-trackable': dataTrackable,
-      className: `o-header__mpr-button`,
-      'data-ft-origin': 'pro-central-banking'
-    }}
-  />
+    data-trackable={dataTrackable}
+    className="o-header__mpr-button"
+    title="Monetary Policy Radar"
+    data-ft-origin="pro-central-banking"
+  >
+    MPR
+  </a>
 )
