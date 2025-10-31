@@ -3898,37 +3898,6 @@ exports[`dotcom-ui-header/src/components/MainHeader renders FT Pro Dropdown menu
                 >
                   <a
                     className="o-header__dropdown-list-item-link"
-                    data-trackable="pro_navigation_link-workspace_clicked"
-                    data-tracking-key="pro_navigation"
-                    href="https://workspace.ft.com/"
-                  >
-                    <div
-                      className="o-header__dropdown-list-item-details-container"
-                    >
-                      <span
-                        aria-hidden="true"
-                        className="o-header__dropdown-icon dashboard-icon"
-                      />
-                      <span>
-                        Workspace
-                      </span>
-                    </div>
-                    <div
-                      className="o-header__dropdown-list-item-label-container"
-                    >
-                      <span
-                        className="o-header__dropdown-list-pro-label"
-                      >
-                        FT PROFESSIONAL
-                      </span>
-                    </div>
-                  </a>
-                </li>
-                <li
-                  className="o-header__dropdown-list-item"
-                >
-                  <a
-                    className="o-header__dropdown-list-item-link"
                     data-trackable="pro_navigation_link-myft-feed_clicked"
                     data-tracking-key="pro_navigation"
                     href="https://www.ft.com/myft/following/"
