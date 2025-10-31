@@ -59,31 +59,6 @@ exports[`DropdownNavigation renders button props 1`] = `
           >
             <a
               class="o-header__dropdown-list-item-link"
-              data-trackable="test_tracking_link-workspace_clicked"
-              data-tracking-key="test_tracking"
-              href="https://workspace.ft.com/"
-            >
-              <div
-                class="o-header__dropdown-list-item-details-container"
-              >
-                <span
-                  aria-hidden="true"
-                  class="o-header__dropdown-icon dashboard-icon"
-                />
-                <span>
-                  Workspace
-                </span>
-              </div>
-              <div
-                class="o-header__dropdown-list-item-label-container"
-              />
-            </a>
-          </li>
-          <li
-            class="o-header__dropdown-list-item"
-          >
-            <a
-              class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-myft-feed_clicked"
               data-tracking-key="test_tracking"
               href="https://www.ft.com/myft/following/"
@@ -329,31 +304,6 @@ exports[`DropdownNavigation renders correctly 1`] = `
           >
             <a
               class="o-header__dropdown-list-item-link"
-              data-trackable="test_tracking_link-workspace_clicked"
-              data-tracking-key="test_tracking"
-              href="https://workspace.ft.com/"
-            >
-              <div
-                class="o-header__dropdown-list-item-details-container"
-              >
-                <span
-                  aria-hidden="true"
-                  class="o-header__dropdown-icon dashboard-icon"
-                />
-                <span>
-                  Workspace
-                </span>
-              </div>
-              <div
-                class="o-header__dropdown-list-item-label-container"
-              />
-            </a>
-          </li>
-          <li
-            class="o-header__dropdown-list-item"
-          >
-            <a
-              class="o-header__dropdown-list-item-link"
               data-trackable="test_tracking_link-myft-feed_clicked"
               data-tracking-key="test_tracking"
               href="https://www.ft.com/myft/following/"
@@ -594,35 +544,6 @@ exports[`DropdownNavigation renders label 1`] = `
         <ul
           class="o-header__dropdown-list"
         >
-          <li
-            class="o-header__dropdown-list-item"
-          >
-            <a
-              class="o-header__dropdown-list-item-link"
-              data-trackable="test_tracking_link-workspace_clicked"
-              data-tracking-key="test_tracking"
-              href="https://workspace.ft.com/"
-            >
-              <div
-                class="o-header__dropdown-list-item-details-container"
-              >
-                <span
-                  aria-hidden="true"
-                  class="o-header__dropdown-icon dashboard-icon"
-                />
-                <span>
-                  Workspace
-                </span>
-              </div>
-              <div
-                class="o-header__dropdown-list-item-label-container"
-              >
-                <div>
-                  Mock Label
-                </div>
-              </div>
-            </a>
-          </li>
           <li
             class="o-header__dropdown-list-item"
           >

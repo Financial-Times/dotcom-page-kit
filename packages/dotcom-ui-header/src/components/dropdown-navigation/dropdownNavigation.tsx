@@ -15,11 +15,14 @@ export interface DropdownNavigationProps {
     hasBottomLine: boolean
   }[]
   label?: Exclude<React.ReactNode, (...args: any) => any>
-  trackingKey: string,
+  trackingKey: string
   variant: 'sticky' | 'default'
 }
 
-type DropdownNavigationButtonProps = Pick<DropdownNavigationProps, 'buttonId' | 'buttonIcon' | 'trackingKey' | 'variant'>
+type DropdownNavigationButtonProps = Pick<
+  DropdownNavigationProps,
+  'buttonId' | 'buttonIcon' | 'trackingKey' | 'variant'
+>
 
 type DropdownNavigationHeaderProps = Pick<DropdownNavigationProps, 'headerContent'>
 
@@ -41,7 +44,12 @@ export const DropdownNavigation = ({
       className={`o-header__dropdown ${selector}`}
       aria-describedby="dropdown-title"
     >
-      <DropdownNavigationButton buttonId={buttonId} buttonIcon={buttonIcon} trackingKey={trackingKey} variant={variant} />
+      <DropdownNavigationButton
+        buttonId={buttonId}
+        buttonIcon={buttonIcon}
+        trackingKey={trackingKey}
+        variant={variant}
+      />
       <div
         className="o-header__dropdown-content"
         tabIndex={-1} // Needed so clicking inside the contnet does not lose focus from the dropdown
@@ -70,7 +78,8 @@ const DropdownNavigationButton: React.FC<DropdownNavigationButtonProps> = ({
     // but the sticky header is visually hidden so prevent tabbing to there
     tabIndex={variant === 'sticky' ? -1 : 0}
     aria-label="Dropdown menu has opened on focus, press Tab to access links."
-    aria-controls="dropdown-options">
+    aria-controls="dropdown-options"
+  >
     <div className={`o-header__dropdown-button-user-icon-wrapper`}>
       <span className={`o-header__dropdown-icon ${buttonIcon}-icon`} aria-hidden="true" />
     </div>

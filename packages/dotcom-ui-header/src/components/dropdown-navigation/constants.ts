@@ -1,14 +1,5 @@
 export const PRO_NAVIGATION_DROPDOWN_DEFAULT_LIST = [
   {
-    id: 'link-workspace',
-    title: 'Workspace',
-    href: 'https://workspace.ft.com/',
-    icon: 'dashboard',
-    hasAccess: true,
-    hasBottomLine: false,
-    hasLabel: true
-  },
-  {
     id: 'link-myft-feed',
     title: 'myFT feed',
     href: 'https://www.ft.com/myft/following/',
