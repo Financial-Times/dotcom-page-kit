@@ -7,7 +7,8 @@ describe('dotcom-ui-shell/src/components/GTMHead', () => {
     const props = {
       flags: {
         enableGTM: true
-      }
+      },
+      appName: 'next-article'
     }
 
     const tree = renderer.create(<GTMHead {...props} />).toJSON()

@@ -60,7 +60,7 @@ function Shell(props: TShellProps) {
           asyncStylesheets={props.asyncStylesheets}
         />
         <Bootstrap {...bootstrapProps} />
-        <GTMHead flags={props.flags} />
+        <GTMHead flags={props.flags} appName={props.appContext?.appName} />
       </head>
       <body {...formatAttributeNames(props.bodyAttributes)}>
         <GTMBody flags={props.flags} />
