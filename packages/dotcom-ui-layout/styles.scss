@@ -48,3 +48,6 @@ $system-code: 'page-kit-layout' !default;
 
 @import '@financial-times/dotcom-ui-header/styles';
 @import '@financial-times/dotcom-ui-footer/styles';
+
+// Import Header Coving (Pro Bar) styles
+@import './src/components/professional/headerCoving.scss';

@@ -40,6 +40,20 @@ describe('dotcom-ui-layout/src/components/Layout', () => {
   })
 })
 
+describe('layout variations', () => {
+  it('renders Pro Bar in the header coving when option is enabled', () => {
+    const { container } = render(<Subject options={{ showProBar: true }} />)
+
+    expect(container.querySelector('.n-layout__pro-coving')).not.toBeNull()
+  })
+
+  it('does not render Pro Bar in the header coving when option is disabled', () => {
+    const { container } = render(<Subject options={{ showProBar: false }} />)
+
+    expect(container.querySelector('.n-layout__pro-coving')).toBeNull()
+  })
+})
+
 describe('header variations', () => {
   describe('with the simple variant', () => {
     it('renders the header component', () => {
