@@ -86,19 +86,11 @@ const updateTitle = async (options) => {
  * @throws {Error} If the network response is not ok.
  */
 const fetchLicenceInfo = async (url) => {
-  // const response = await fetch(url, { credentials: 'include' })
-  // if (!response.ok) {
-  //   throw new Error(`Error during licence info fetch! Status: ${response.status}`)
-  // }
-  // return response.json()
-
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        organisationName: 'Demo Organisation Ltd'
-      })
-    }, 500)
-  })
+  const response = await fetch(url, { credentials: 'include' })
+  if (!response.ok) {
+    throw new Error(`Error during licence info fetch! Status: ${response.status}`)
+  }
+  return response.json()
 }
 
 /**
