@@ -55,26 +55,24 @@ const updateTitle = async (options) => {
 
     if (licenceInfo.organisationName && licenceInfo.organisationName.length < 51) {
       textContainer.classList.add('is-fading-out')
-      textContainer.addEventListener("transitionend", () => {
+      textContainer.addEventListener('transitionend', () => {
         updateOrganisationName(coving, licenceInfo.organisationName)
         textContainer.classList.remove('is-fading-out')
         textContainer.classList.add('is-fading-in')
-      });
+
+        requestAnimationFrame(() => {
+            textContainer.classList.remove('is-fading-in')
+        })
+      }, { once: true })
     }
   } catch (error) {
-    const isFetchError = error.message.includes('fetch')
     const eventData = {
-      action: isFetchError ? 'fetch' : 'update',
+      action: 'fetch',
       category: 'error',
       component_name: 'pro-bar',
       errorMessage: error.message
     }
     document.body.dispatchEvent(new CustomEvent('oTracking.event', { detail: eventData, bubbles: true }))
-  } finally {
-    setTimeout(() => {
-      textContainer.classList.remove('is-fading-out')
-      textContainer.classList.remove('is-fading-in')
-    }, 510)
   }
 }
 
@@ -88,11 +86,19 @@ const updateTitle = async (options) => {
  * @throws {Error} If the network response is not ok.
  */
 const fetchLicenceInfo = async (url) => {
-  const response = await fetch(url, { credentials: 'include' })
-  if (!response.ok) {
-    throw new Error(`Error during licence info fetch! Status: ${response.status}`)
-  }
-  return response.json()
+  // const response = await fetch(url, { credentials: 'include' })
+  // if (!response.ok) {
+  //   throw new Error(`Error during licence info fetch! Status: ${response.status}`)
+  // }
+  // return response.json()
+
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({
+        organisationName: 'Demo Organisation Ltd'
+      })
+    }, 500)
+  })
 }
 
 /**
