@@ -59,11 +59,11 @@ const updateTitle = async (options) => {
 
     if (licenceInfo.organisationName && licenceInfo.organisationName.length < 51) {
       textContainer.classList.add('is-fading-out')
-      setTimeout(() => {
+      textContainer.addEventListener("transitionend", () => {
         updateOrganisationName(coving, licenceInfo.organisationName)
         textContainer.classList.remove('is-fading-out')
         textContainer.classList.add('is-fading-in')
-      }, 500)
+      });
     }
   } catch (error) {
     const isFetchError = error.message.includes('fetch')
