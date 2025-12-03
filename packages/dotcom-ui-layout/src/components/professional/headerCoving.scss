@@ -4,11 +4,9 @@
   display: flex;
   width: 100%;
   background-color: var(--o3-color-palette-mint);
-  padding-top: var(--o3-spacing-4xs);
-  padding-bottom: var(--o3-spacing-4xs);
+  padding-block: var(--o3-spacing-4xs);
   justify-content: center;
-  border-top: 1px solid rgba(0, 0, 0, 0.20);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.20);
+  border-block: 1px solid rgba(0, 0, 0, 0.20);
 }
 
 .n-layout__pro-coving-text {
@@ -29,6 +27,10 @@
   opacity: 1;
 }
 
+.n-layout__pro-coving-brand {
+  text-transform: uppercase;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .n-layout__pro-coving-text {
     transition: none;
@@ -37,6 +39,6 @@
 
 .n-layout__pro-coving-organisation:not(:empty)::before {
   content: "|";
-  padding: 0 var(--o3-spacing-3xs);
+  padding-inline: var(--o3-spacing-3xs);
   color: var(--o3-color-palette-slate);
 }
