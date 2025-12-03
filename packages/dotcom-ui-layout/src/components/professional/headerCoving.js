@@ -42,11 +42,7 @@ const updateTitle = async (options) => {
 
   const coving = document.querySelector(`.n-layout__pro-coving`)
   const textContainer = document.querySelector('.n-layout__pro-coving-text')
-  if (!coving || coving.length === 0) {
-    return
-  }
-
-  if (!textContainer || textContainer.length === 0) {
+  if (!coving || !textContainer) {
     return
   }
 
