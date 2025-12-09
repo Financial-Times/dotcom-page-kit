@@ -1,0 +1,44 @@
+@import '@financial-times/o3-foundation/css/professional.css';
+
+.n-layout__pro-coving {
+  display: flex;
+  width: 100%;
+  background-color: var(--o3-color-palette-mint);
+  padding-block: var(--o3-spacing-4xs);
+  justify-content: center;
+  border-block: 1px solid rgba(0, 0, 0, 0.20);
+}
+
+.n-layout__pro-coving-text {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+
+  font-size: var(--o3-type-label-font-size);
+  font-weight: var(--o3-font-weight-medium);
+  font-family: var(--o3-font-family-metric);
+  color: var(--o3-color-palette-slate);
+}
+
+.n-layout__pro-coving-text.is-fading-out {
+  opacity: 0;
+}
+
+.n-layout__pro-coving-text.is-fading-in {
+  opacity: 1;
+}
+
+.n-layout__pro-coving-brand {
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .n-layout__pro-coving-text {
+    transition: none;
+  }
+}
+
+.n-layout__pro-coving-organisation:not(:empty)::before {
+  content: "|";
+  padding-inline: var(--o3-spacing-3xs);
+  color: var(--o3-color-palette-slate);
+}

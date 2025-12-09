@@ -10,6 +10,7 @@ import {
 import { TNavigationData } from '@financial-times/dotcom-types-navigation'
 import { Footer, LegalFooter, TFooterOptions } from '@financial-times/dotcom-ui-footer/component'
 import Template from './Template'
+import { HeaderCoving } from './professional/headerCoving'
 
 enum Headers {
   simple = HeaderSimple,
@@ -21,6 +22,10 @@ enum Headers {
 enum Footers {
   simple = Footer,
   legal = LegalFooter
+}
+
+export type TLayoutOptions = {
+  showProBar?: boolean
 }
 
 export type TLayoutProps = {
@@ -37,6 +42,7 @@ export type TLayoutProps = {
   footerAfter?: string | React.ReactNode
   children?: React.ReactNode
   contents?: string
+  options?: TLayoutOptions
 }
 
 export function Layout({
@@ -52,7 +58,8 @@ export function Layout({
   footerComponent,
   footerAfter,
   children,
-  contents
+  contents,
+  options
 }: TLayoutProps) {
   let header = null
   let drawer = null
@@ -101,6 +108,7 @@ export function Layout({
 
       <div className="n-layout__row n-layout__row--header">
         <Template className="n-layout__header-before">{headerBefore}</Template>
+        {options && options.showProBar && <HeaderCoving />}
         {headerComponent || header || null}
         <Template className="n-layout__header-after">{headerAfter}</Template>
       </div>
