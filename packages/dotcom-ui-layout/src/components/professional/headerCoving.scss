@@ -11,7 +11,7 @@
 
 .n-layout__pro-coving-text {
   opacity: 1;
-  transition: opacity 0.5s ease;
+  transition: opacity .8s ease-in-out;
 
   font-size: var(--o3-type-label-font-size);
   font-weight: var(--o3-font-weight-medium);
