@@ -86,7 +86,7 @@ describe('dotcom-ui-header', () => {
 
   describe('When the user is logged in', () => {
     it('renders the expected logged in user header links', () => {
-      const { container } = render(loggedInUserHeader)
+      const { container } = render(loggedInUserWithoutRestartHeader)
 
       expect(container.querySelector('a[data-trackable="Portfolio"]')).not.toBeNull()
       expect(container.querySelector('a[data-trackable="My Account"]')).not.toBeNull()
@@ -94,16 +94,17 @@ describe('dotcom-ui-header', () => {
     })
 
     it('does not render sign in link', () => {
-      const { container } = render(loggedInUserHeader)
+      const { container } = render(loggedInUserWithoutRestartHeader)
 
       expect(container.querySelector('a[data-trackable="Subscribe"]')).not.toBeNull()
       expect(container.querySelector('a[data-trackable="Sign In"]')).toBeNull()
     })
 
-    it('renders restart subscription button when showRestartSubscriptionButton is true', () => {
+    it('renders restart subscription button (but no subscribe button) when showRestartSubscriptionButton is true', () => {
       const { container } = render(loggedInUserHeader)
 
       expect(container.querySelector('a[data-trackable="Restart Subscription"]')).not.toBeNull()
+      expect(container.querySelector('a[data-trackable="Subscribe"]')).toBeNull()
     })
 
     it('does not render restart subscription button when showRestartSubscriptionButton is false', () => {

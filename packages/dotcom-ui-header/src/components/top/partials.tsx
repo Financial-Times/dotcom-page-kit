@@ -119,19 +119,24 @@ const TopColumnRightLoggedIn = (props: THeaderProps) => {
     subscribeAction,
     restartSubscriptionAction
   ] = props.data['navbar-top-right']?.items ?? [];
+	const showRestartSubscriptionButton = props.showRestartSubscriptionButton && restartSubscriptionAction;
   return (
     <div
       className="o-header__top-column o-header__top-column--right"
       data-ft-origin="npm:@financial-times/middleware-user-data"
     >
-      {props.showRestartSubscriptionButton && restartSubscriptionAction && (
+      {showRestartSubscriptionButton && (
         <RestartSubscriptionButton
           item={restartSubscriptionAction}
           variant={props.variant}
           className="o3-button o3-button--primary o3-button--small o-header__top-button--hide-m"
         />
       )}
-      {!props.userIsSubscribed && subscribeAction && (
+      {/*
+        We want to ensure the restart subscription button and subscribe button
+        do not appear at the same time by any chance.
+      */}
+      {!showRestartSubscriptionButton && !props.userIsSubscribed && subscribeAction && (
         <SubscribeButton
           item={subscribeAction}
           variant={props.variant}

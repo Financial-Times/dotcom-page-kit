@@ -45,7 +45,7 @@ describe('dotcom-ui-header/src/components/StickyHeader', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  it('renders restart subscription button when showRestartSubscriptionButton is true', () => {
+  it('renders restart subscription button (but no subscribe button) when showRestartSubscriptionButton is true', () => {
     const tree = renderer.create(<Subject {...propsLoggedInWithRestart} />).toJSON()
     expect(tree).toMatchSnapshot()
   })

@@ -13365,7 +13365,7 @@ exports[`dotcom-ui-header/src/components/MainHeader renders as an anonymous user
 </header>
 `;
 
-exports[`dotcom-ui-header/src/components/MainHeader renders restart subscription button when showRestartSubscriptionButton is true 1`] = `
+exports[`dotcom-ui-header/src/components/MainHeader renders restart subscription button (but no subscribe button) when showRestartSubscriptionButton is true 1`] = `
 <header
   className="o-header o-header--simple"
   data-ft-origin="npm:@financial-times/dotcom-ui-header"
@@ -13453,14 +13453,6 @@ exports[`dotcom-ui-header/src/components/MainHeader renders restart subscription
             role="button"
           >
             Restart Subscription
-          </a>
-          <a
-            className="o-header__top-button o-header__top-button--hide-m"
-            data-trackable="Subscribe"
-            href="/products?segmentId=#"
-            role="button"
-          >
-            Subscribe
           </a>
           <a
             className="o-header__top-myaccount"
