@@ -1552,7 +1552,7 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders as an anonymous us
 </header>
 `;
 
-exports[`dotcom-ui-header/src/components/StickyHeader renders restart subscription button when showRestartSubscriptionButton is true 1`] = `
+exports[`dotcom-ui-header/src/components/StickyHeader renders restart subscription button (but no subscribe button) when showRestartSubscriptionButton is true 1`] = `
 <header
   aria-hidden="true"
   className="o-header o-header--simple o-header--sticky o--if-js"
@@ -1774,15 +1774,6 @@ exports[`dotcom-ui-header/src/components/StickyHeader renders restart subscripti
             tabIndex={-1}
           >
             Restart Subscription
-          </a>
-          <a
-            className="o-header__top-button o-header__top-button--hide-m"
-            data-trackable="Subscribe"
-            href="/products?segmentId=#"
-            role="button"
-            tabIndex={-1}
-          >
-            Subscribe
           </a>
           <a
             className="o-header__top-myaccount"
