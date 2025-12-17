@@ -21,7 +21,7 @@
     "@financial-times/dotcom-types-navigation": "file:../dotcom-types-navigation"
   },
   "devDependencies": {
-    "node-mocks-http": "^1.7.3"
+    "node-mocks-http": "^1.17.2"
   },
   "engines": {
     "node": "18.x || 20.x || 22.x"
