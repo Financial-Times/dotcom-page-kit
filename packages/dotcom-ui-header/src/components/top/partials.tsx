@@ -258,7 +258,7 @@ const TopColumnRight = (props: THeaderProps) => {
   if (props.userIsLoggedIn) {
     return <TopColumnRightLoggedIn {...props} />
   } else {
-    const userNavAnonItems = props.data['navbar-top-right-anon'].items
+    const userNavAnonItems = props.data['navbar-top-right-anon']?.items || [];
     return <TopColumnRightAnon items={userNavAnonItems} variant={props.variant} />
   }
 }
